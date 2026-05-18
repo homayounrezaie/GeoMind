@@ -2,34 +2,30 @@
 
 Inspired by [roadmap.sh](https://roadmap.sh/).
 
+GeoMind is a roadmap for learning, referencing, and connecting ideas across geospatial AI, remote sensing, and Earth observation.
+
 ## Who It Is For
 
-| Audience | Use case |
-| --- | --- |
-| Newcomers | Use it as a roadmap: "where do I even start?" |
-| Practitioners | Use it as a reference: "what's the right technique for my task?" |
-| Researchers | Use it to spot gaps: "nobody has combined X with Y." |
+- **Newcomers** use it as a roadmap: "where do I even start?"
+- **Practitioners** use it as a reference: "what's the right technique for my task?"
+- **Researchers** use it to spot gaps: "nobody has combined X with Y."
 
 ## Layers
 
-| Layer | Scope |
-| --- | --- |
-| Data | Sensors, platforms, formats, indexing, embeddings, catalogs |
-| Learning paradigms | Core learning approaches used across GeoAI |
-| Model types | Classical AI, deep learning, and foundation models |
-| Key techniques | Techniques with metrics and evaluation context |
-| Remote sensing tasks | Tasks, preprocessing, and engineering workflows |
-| Companies | Products and services |
-| Datasets / benchmarks | Datasets, benchmarks, and evaluation resources |
-| Stack / infrastructure | GEE, AWS, Azure, PyTorch, GDAL, Rasterio, MLflow, W&B, Docker, TensorRT, PostGIS, pgvector |
-| Standards | STAC, COG, OGC, WMS/WFS |
+- **Data**: sensors, platforms, formats, indexing, embeddings, catalogs
+- **Learning paradigms**: core learning approaches used across GeoAI
+- **Model types**: classical AI, deep learning, and foundation models
+- **Key techniques**: techniques with metrics and evaluation context
+- **Remote sensing tasks**: tasks, preprocessing, and engineering workflows
+- **Companies**: products and services
+- **Datasets / benchmarks**: datasets, benchmarks, and evaluation resources
+- **Stack / infrastructure**: GEE, AWS, Azure, PyTorch, GDAL, Rasterio, MLflow, W&B, Docker, TensorRT, PostGIS, pgvector
+- **Standards**: STAC, COG, OGC, WMS/WFS
 
 ## Connections
 
-| Resource type | Link |
-| --- | --- |
-| GitHub repos | To be connected |
-| Papers with Code | To be connected |
-| Hugging Face models | To be connected |
-| Paper index | [Title/link paper index](papers/titles-and-links.md) |
-| Paper metadata | [Paper metadata CSV](papers/papers.csv) |
+- GitHub repos
+- Papers with Code
+- Hugging Face models
+- [Title/link paper index](papers/titles-and-links.md)
+- [Paper metadata CSV](papers/papers.csv)
