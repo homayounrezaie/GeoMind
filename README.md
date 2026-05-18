@@ -10,6 +10,9 @@ GeoMind is a roadmap for learning, referencing, and connecting ideas across geos
 - **Practitioners** use it as a reference: "what's the right technique for my task?"
 - **Researchers** use it to spot gaps: "nobody has combined X with Y."
 
+## Key techniques & Model types
+over time how they used. vertical line (timeline) and add five papers to user know about it and solve which tasks. 
+
 ## Layers
 
 - **Data**: sensors, platforms, formats, indexing, embeddings, catalogs
@@ -29,3 +32,4 @@ GeoMind is a roadmap for learning, referencing, and connecting ideas across geos
 - Hugging Face models
 - [Title/link paper index](papers/titles-and-links.md)
 - [Paper metadata CSV](papers/papers.csv)
+
