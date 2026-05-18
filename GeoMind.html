@@ -1,0 +1,436 @@
+<style>
+:root{
+  --purple-bg:#EEEDFE;--purple-tx:#3C3489;
+  --teal-bg:#E1F5EE;--teal-tx:#085041;
+  --pink-bg:#FBEAF0;--pink-tx:#72243E;
+  --gray-bg:#F1EFE8;--gray-tx:#2C2C2A;
+  --coral-bg:#FAECE7;--coral-tx:#4A1B0C;
+  --a1-bg:#F1EFE8;--a1-bd:#888780;--a1-tx:#2C2C2A;
+  --a2-bg:#E6F1FB;--a2-bd:#378ADD;--a2-tx:#042C53;
+  --a3-bg:#FBEAF0;--a3-bd:#D4537E;--a3-tx:#4B1528;
+  --a4-bg:#FCEBEB;--a4-bd:#E24B4A;--a4-tx:#501313;
+  --a5-bg:#EAF3DE;--a5-bd:#639922;--a5-tx:#173404;
+  --a6-bg:#FAEEDA;--a6-bd:#BA7517;--a6-tx:#412402;
+  --a7-bg:#FAECE7;--a7-bd:#D85A30;--a7-tx:#4A1B0C;
+  --a8-bg:#EEEDFE;--a8-bd:#534AB7;--a8-tx:#26215C;
+}
+@media(prefers-color-scheme:dark){:root{
+  --purple-bg:#26215C;--purple-tx:#AFA9EC;
+  --teal-bg:#04342C;--teal-tx:#9FE1CB;
+  --pink-bg:#4B1528;--pink-tx:#F4C0D1;
+  --gray-bg:#2C2C2A;--gray-tx:#D3D1C7;
+  --coral-bg:#4A1B0C;--coral-tx:#F5C4B3;
+  --a1-bg:#2C2C2A;--a1-bd:#B4B2A9;--a1-tx:#D3D1C7;
+  --a2-bg:#042C53;--a2-bd:#85B7EB;--a2-tx:#B5D4F4;
+  --a3-bg:#4B1528;--a3-bd:#ED93B1;--a3-tx:#F4C0D1;
+  --a4-bg:#501313;--a4-bd:#F09595;--a4-tx:#F7C1C1;
+  --a5-bg:#173404;--a5-bd:#97C459;--a5-tx:#C0DD97;
+  --a6-bg:#412402;--a6-bd:#EF9F27;--a6-tx:#FAC775;
+  --a7-bg:#4A1B0C;--a7-bd:#F0997B;--a7-tx:#F5C4B3;
+  --a8-bg:#26215C;--a8-bd:#AFA9EC;--a8-tx:#CECBF6;
+}}
+.wrap{display:grid;grid-template-columns:1fr 192px;gap:10px;padding:1rem 0;font-size:13px;align-items:start}
+.left{display:flex;flex-direction:column;gap:10px}
+.sec{padding:11px 13px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg)}
+.st{font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:8px}
+.sub{font-size:10px;font-weight:500;color:var(--color-text-tertiary);margin:8px 0 5px;letter-spacing:.04em;text-transform:uppercase}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:12px;padding:3px 8px;border-radius:4px;line-height:1.4}
+.tb{background:var(--color-background-info);color:var(--color-text-info)}
+.tp{background:var(--purple-bg);color:var(--purple-tx)}
+.tt{background:var(--teal-bg);color:var(--teal-tx)}
+.tg{background:var(--color-background-success);color:var(--color-text-success)}
+.ta{background:var(--color-background-warning);color:var(--color-text-warning)}
+.tk{background:var(--pink-bg);color:var(--pink-tx)}
+.tgr{background:var(--gray-bg);color:var(--gray-tx)}
+.tc{background:var(--coral-bg);color:var(--coral-tx)}
+.arch-stack{display:flex;flex-direction:column;gap:5px}
+.arch{padding:8px 10px;border-radius:6px;border-left:3px solid}
+.an{font-weight:500;font-size:12px}
+.ae{font-size:10px;margin-top:2px;opacity:.72}
+.ay{font-size:10px;opacity:.45;float:right;margin-top:1px}
+</style>
+<div class="wrap">
+ <div class="left">
+
+  <div class="sec">
+   <div class="st">Data — sensors & inputs</div>
+   <div class="sub">Sensor types</div>
+   <div class="tags">
+    <span class="tag tb">Optical / RGB</span>
+    <span class="tag tb">Multispectral</span>
+    <span class="tag tb">Hyperspectral</span>
+    <span class="tag tb">SAR / radar</span>
+    <span class="tag tb">LiDAR</span>
+    <span class="tag tb">Thermal / infrared</span>
+    <span class="tag tb">Night lights</span>
+    <span class="tag tb">Elevation / DEM / DSM</span>
+    <span class="tag tb">Weather / climate (ERA5)</span>
+   </div>
+   <div class="sub">Representations</div>
+   <div class="tags">
+    <span class="tag tb">Raster</span>
+    <span class="tag tb">Vector / OSM</span>
+    <span class="tag tb">Point clouds</span>
+    <span class="tag tb">Time series</span>
+    <span class="tag tb">Text / metadata</span>
+    <span class="tag tb">Embeddings</span>
+    <span class="tag tb">Synthetic / simulated</span>
+   </div>
+   <div class="sub">Data dimensions</div>
+   <div class="tags">
+    <span class="tag tb">Multimodal — different sensor types</span>
+    <span class="tag tb">Multi-resolution / multi-scale</span>
+    <span class="tag tb">Multi-temporal</span>
+    <span class="tag tb">Multi-view / multi-angle</span>
+   </div>
+  </div>
+
+  <div class="sec">
+   <div class="st">Data formats</div>
+   <div class="sub">Raster</div>
+   <div class="tags">
+    <span class="tag tgr">GeoTIFF</span>
+    <span class="tag tgr">COG (Cloud Optimized GeoTIFF)</span>
+    <span class="tag tgr">NetCDF</span>
+    <span class="tag tgr">HDF5</span>
+    <span class="tag tgr">JPEG2000</span>
+    <span class="tag tgr">Zarr / GeoZarr</span>
+   </div>
+   <div class="sub">Vector</div>
+   <div class="tags">
+    <span class="tag tgr">GeoJSON</span>
+    <span class="tag tgr">Shapefile (.shp)</span>
+    <span class="tag tgr">GeoPackage (GPKG)</span>
+    <span class="tag tgr">FlatGeobuf</span>
+    <span class="tag tgr">KML / KMZ</span>
+    <span class="tag tgr">WKT / WKB</span>
+   </div>
+   <div class="sub">Point clouds</div>
+   <div class="tags">
+    <span class="tag tgr">LAS / LAZ</span>
+    <span class="tag tgr">PLY</span>
+    <span class="tag tgr">PCD</span>
+    <span class="tag tgr">E57</span>
+   </div>
+   <div class="sub">Tabular & embeddings</div>
+   <div class="tags">
+    <span class="tag tgr">GeoParquet</span>
+    <span class="tag tgr">CSV / TSV</span>
+    <span class="tag tgr">Apache Arrow / Feather</span>
+    <span class="tag tgr">NumPy (.npy)</span>
+    <span class="tag tgr">PyTorch (.pt)</span>
+   </div>
+   <div class="sub">Tiling & streaming</div>
+   <div class="tags">
+    <span class="tag tgr">MBTiles</span>
+    <span class="tag tgr">PMTiles</span>
+    <span class="tag tgr">XYZ tiles</span>
+    <span class="tag tgr">WMTS</span>
+    <span class="tag tgr">WMS / WCS / WFS</span>
+   </div>
+   <div class="sub">Catalogs & metadata</div>
+   <div class="tags">
+    <span class="tag tgr">STAC</span>
+    <span class="tag tgr">ISO 19115</span>
+    <span class="tag tgr">OGC standards</span>
+    <span class="tag tgr">INSPIRE</span>
+   </div>
+  </div>
+
+  <div class="sec">
+   <div class="st">Learning paradigms</div>
+   <div class="tags">
+    <span class="tag tp">Supervised</span>
+    <span class="tag tp">Semi-supervised</span>
+    <span class="tag tp">Weakly supervised</span>
+    <span class="tag tp">Self-supervised</span>
+    <span class="tag tp">Unsupervised</span>
+    <span class="tag tp">Few-shot</span>
+    <span class="tag tp">Zero-shot</span>
+    <span class="tag tp">Active learning / Human-in-the-Loop (HITL)</span>
+    <span class="tag tp">Multi-task learning</span>
+    <span class="tag tp">Curriculum learning</span>
+    <span class="tag tp">Meta-learning</span>
+    <span class="tag tp">Continual / lifelong learning</span>
+    <span class="tag tp">Federated learning</span>
+    <span class="tag tp">Reinforcement learning</span>
+    <span class="tag tp">Domain generalization</span>
+   </div>
+  </div>
+
+  <div class="sec">
+   <div class="st">Model types</div>
+   <div class="sub">Predictive / discriminative — map input → output</div>
+   <div class="tags">
+    <span class="tag tc">Classification</span>
+    <span class="tag tc">Regression</span>
+    <span class="tag tc">Detection</span>
+    <span class="tag tc">Segmentation</span>
+    <span class="tag tc">Ranking / retrieval</span>
+    <span class="tag tc">Forecasting</span>
+   </div>
+   <div class="sub">Generative — model data distribution, create new data</div>
+   <div class="tags">
+    <span class="tag tc">GANs — adversarial generation</span>
+    <span class="tag tc">VAEs / Autoencoders — latent space + reconstruction</span>
+    <span class="tag tc">Diffusion models — denoising-based generation</span>
+    <span class="tag tc">Autoregressive (LLMs) — token-by-token</span>
+    <span class="tag tc">Flow models — invertible transformations</span>
+    <span class="tag tc">NeRF — neural implicit 3D scene representation</span>
+    <span class="tag tc">Gaussian Splatting — explicit 3D via learned Gaussians</span>
+    <span class="tag tc">Style transfer</span>
+   </div>
+   <div class="sub">Hybrid — both depending on task</div>
+   <div class="tags">
+    <span class="tag tc">Foundation models</span>
+    <span class="tag tc">VLMs</span>
+    <span class="tag tc">Masked autoencoders</span>
+   </div>
+   <div class="sub">Agentic & reasoning — plan, reason, act</div>
+   <div class="tags">
+    <span class="tag tc">Reasoning AI — chain-of-thought, step-by-step inference</span>
+    <span class="tag tc">AI agents — plan, use tools, execute multi-step tasks</span>
+    <span class="tag tc">Agentic pipelines — orchestrate models + tools + data</span>
+    <span class="tag tc">Multi-agent systems — coordinate specialized agents</span>
+   </div>
+  </div>
+
+  <div class="sec">
+   <div class="st">Key techniques</div>
+   <div class="sub">Training</div>
+   <div class="tags">
+    <span class="tag tt">Contrastive learning</span>
+    <span class="tag tt">Masked autoencoding (MAE)</span>
+    <span class="tag tt">Instruction tuning / RLHF</span>
+    <span class="tag tt">Ensemble methods</span>
+    <span class="tag tt">Synthetic data augmentation</span>
+    <span class="tag tt">Mixed precision training</span>
+   </div>
+   <div class="sub">Adaptation</div>
+   <div class="tags">
+    <span class="tag tt">Transfer learning / fine-tuning</span>
+    <span class="tag tt">Domain adaptation</span>
+    <span class="tag tt">Test-time adaptation</span>
+    <span class="tag tt">Prompt engineering</span>
+    <span class="tag tt">SAM adaptation</span>
+    <span class="tag tt">RAG</span>
+   </div>
+   <div class="sub">Architecture & fusion</div>
+   <div class="tags">
+    <span class="tag tt">Attention / cross-attention</span>
+    <span class="tag tt">Multimodal fusion (early / late / mid)</span>
+    <span class="tag tt">Siamese networks</span>
+    <span class="tag tt">Encoder–decoder</span>
+    <span class="tag tt">Graph neural networks (GNN)</span>
+    <span class="tag tt">Multi-scale feature extraction</span>
+    <span class="tag tt">Dimensionality reduction (PCA, UMAP, t-SNE)</span>
+   </div>
+   <div class="sub">Efficiency & compression</div>
+   <div class="tags">
+    <span class="tag tt">Knowledge distillation</span>
+    <span class="tag tt">Model pruning</span>
+    <span class="tag tt">Quantization / int8</span>
+    <span class="tag tt">LoRA / PEFT</span>
+    <span class="tag tt">TinyML</span>
+    <span class="tag tt">Early exit / adaptive inference</span>
+    <span class="tag tt">Neural architecture search (NAS)</span>
+    <span class="tag tt">Efficient architectures (MobileNet, EfficientNet)</span>
+    <span class="tag tt">Edge deployment (TensorRT, ONNX, CoreML)</span>
+   </div>
+   <div class="sub">Evaluation & explainability</div>
+   <div class="tags">
+    <span class="tag tt">Explainable AI (XAI)</span>
+    <span class="tag tt">GradCAM / saliency maps</span>
+    <span class="tag tt">Attention visualization</span>
+    <span class="tag tt">Uncertainty estimation</span>
+    <span class="tag tt">Calibration</span>
+    <span class="tag tt">IoU / mAP / F1 / PSNR</span>
+   </div>
+  </div>
+
+  <div class="sec">
+   <div class="st">Preprocessing & engineering</div>
+   <div class="tags">
+    <span class="tag ta">Atmospheric correction</span>
+    <span class="tag ta">Radiometric calibration</span>
+    <span class="tag ta">Cloud masking / removal</span>
+    <span class="tag ta">Shadow removal</span>
+    <span class="tag ta">Co-registration / alignment</span>
+    <span class="tag ta">Image registration</span>
+    <span class="tag ta">Geo-referencing</span>
+    <span class="tag ta">Mosaicking</span>
+    <span class="tag ta">Pansharpening</span>
+    <span class="tag ta">Band selection</span>
+    <span class="tag ta">Tiling / chipping</span>
+    <span class="tag ta">Normalization</span>
+    <span class="tag ta">Distributed / scalable inference</span>
+   </div>
+  </div>
+
+  <div class="sec">
+   <div class="st">Embeddings & search</div>
+   <div class="sub">Embedding types</div>
+   <div class="tags">
+    <span class="tag tk">Location (lat/lon → vector)</span>
+    <span class="tag tk">Image embeddings — patch level</span>
+    <span class="tag tk">Image embeddings — pixel level</span>
+    <span class="tag tk">Text embeddings</span>
+    <span class="tag tk">Multimodal embeddings</span>
+   </div>
+   <div class="sub">Search & retrieval</div>
+   <div class="tags">
+    <span class="tag tk">Similarity search (cosine / dot product)</span>
+    <span class="tag tk">Image retrieval</span>
+    <span class="tag tk">Approximate nearest neighbor (ANN)</span>
+    <span class="tag tk">Cross-modal search (text → image)</span>
+    <span class="tag tk">Vector DBs (FAISS, Pinecone, pgvector)</span>
+    <span class="tag tk">GeoParquet indexing</span>
+   </div>
+   <div class="sub">Spatial indexing</div>
+   <div class="tags">
+    <span class="tag tk">H3 (Uber)</span>
+    <span class="tag tk">S2 (Google)</span>
+    <span class="tag tk">Geohash</span>
+    <span class="tag tk">QuadTree</span>
+    <span class="tag tk">R-tree</span>
+   </div>
+   <div class="sub">Embedding products</div>
+   <div class="tags">
+    <span class="tag tk">Clay</span>
+    <span class="tag tk">AlphaEarth</span>
+    <span class="tag tk">Tessera</span>
+    <span class="tag tk">Major TOM</span>
+    <span class="tag tk">Presto</span>
+    <span class="tag tk">Earth Index</span>
+    <span class="tag tk">Copernicus-Embed</span>
+    <span class="tag tk">SatCLIP</span>
+    <span class="tag tk">Space2Vec</span>
+    <span class="tag tk">GeoCLIP</span>
+   </div>
+  </div>
+
+  <div class="sec">
+   <div class="st">Remote sensing tasks</div>
+   <div class="sub">Pixel-level</div>
+   <div class="tags">
+    <span class="tag tg">Semantic segmentation</span>
+    <span class="tag tg">Instance segmentation</span>
+    <span class="tag tg">Panoptic segmentation</span>
+    <span class="tag tg">Edge detection</span>
+    <span class="tag tg">Contour extraction</span>
+    <span class="tag tg">Super-resolution</span>
+    <span class="tag tg">Depth estimation / DSM</span>
+    <span class="tag tg">Cloud masking</span>
+    <span class="tag tg">Inpainting</span>
+   </div>
+   <div class="sub">Object-level</div>
+   <div class="tags">
+    <span class="tag tg">Object detection</span>
+    <span class="tag tg">Object tracking</span>
+    <span class="tag tg">Classification</span>
+    <span class="tag tg">Multi-label classification</span>
+    <span class="tag tg">Counting</span>
+   </div>
+   <div class="sub">Scene-level</div>
+   <div class="tags">
+    <span class="tag tg">Image classification</span>
+    <span class="tag tg">Multi-label classification</span>
+    <span class="tag tg">Scene understanding</span>
+    <span class="tag tg">Geolocalization</span>
+    <span class="tag tg">Image captioning</span>
+    <span class="tag tg">Visual Question Answering (VQA)</span>
+    <span class="tag tg">Image retrieval / similarity search</span>
+   </div>
+   <div class="sub">Geometric & 3D</div>
+   <div class="tags">
+    <span class="tag tg">Image registration</span>
+    <span class="tag tg">Image matching / alignment</span>
+    <span class="tag tg">Image stitching / mosaicking</span>
+    <span class="tag tg">SfM (Structure from Motion)</span>
+    <span class="tag tg">SLAM (Simultaneous Localization and Mapping)</span>
+    <span class="tag tg">NeRF (Neural Radiance Fields)</span>
+    <span class="tag tg">Gaussian Splatting</span>
+    <span class="tag tg">3D reconstruction</span>
+    <span class="tag tg">Vector extraction</span>
+    <span class="tag tg">Point cloud segmentation</span>
+   </div>
+   <div class="sub">Temporal</div>
+   <div class="tags">
+    <span class="tag tg">Change detection</span>
+    <span class="tag tg">Time series analysis</span>
+    <span class="tag tg">Trend analysis</span>
+    <span class="tag tg">Forecasting</span>
+    <span class="tag tg">Gap filling</span>
+    <span class="tag tg">Anomaly detection</span>
+   </div>
+   <div class="sub">Generative</div>
+   <div class="tags">
+    <span class="tag tg">Image synthesis</span>
+    <span class="tag tg">Style transfer</span>
+    <span class="tag tg">Image translation (thermal → RGB, SAR → optical)</span>
+    <span class="tag tg">Image fusion / pansharpening</span>
+    <span class="tag tg">Denoising / cloud removal</span>
+    <span class="tag tg">Deblurring</span>
+    <span class="tag tg">Shadow removal</span>
+    <span class="tag tg">Super-resolution</span>
+    <span class="tag tg">Depth estimation</span>
+    <span class="tag tg">Domain transfer</span>
+   </div>
+   <div class="sub">Geospatial analysis</div>
+   <div class="tags">
+    <span class="tag tg">Geocoding</span>
+    <span class="tag tg">Spatial querying</span>
+    <span class="tag tg">Topology analysis</span>
+    <span class="tag tg">Knowledge graph creation</span>
+   </div>
+  </div>
+
+ </div>
+
+ <div class="sec">
+  <div class="st">Model architectures ↓ newer</div>
+  <div class="arch-stack">
+   <div class="arch" style="background:var(--a1-bg);border-color:var(--a1-bd)">
+    <span class="ay">1990s</span>
+    <div class="an" style="color:var(--a1-tx)">Classical ML</div>
+    <div class="ae" style="color:var(--a1-tx)">SVM, RF, k-NN</div>
+   </div>
+   <div class="arch" style="background:var(--a2-bg);border-color:var(--a2-bd)">
+    <span class="ay">2012</span>
+    <div class="an" style="color:var(--a2-tx)">CNNs</div>
+    <div class="ae" style="color:var(--a2-tx)">ResNet, U-Net, YOLO</div>
+   </div>
+   <div class="arch" style="background:var(--a3-bg);border-color:var(--a3-bd)">
+    <span class="ay">2014</span>
+    <div class="an" style="color:var(--a3-tx)">GANs / Autoencoders</div>
+    <div class="ae" style="color:var(--a3-tx)">cGAN, VAE, Siamese</div>
+   </div>
+   <div class="arch" style="background:var(--a4-bg);border-color:var(--a4-bd)">
+    <span class="ay">2016</span>
+    <div class="an" style="color:var(--a4-tx)">RNN / LSTM</div>
+    <div class="ae" style="color:var(--a4-tx)">Time series, sequences</div>
+   </div>
+   <div class="arch" style="background:var(--a5-bg);border-color:var(--a5-bd)">
+    <span class="ay">2020</span>
+    <div class="an" style="color:var(--a5-tx)">Transformers</div>
+    <div class="ae" style="color:var(--a5-tx)">ViT, Swin, BERT</div>
+   </div>
+   <div class="arch" style="background:var(--a6-bg);border-color:var(--a6-bd)">
+    <span class="ay">2021</span>
+    <div class="an" style="color:var(--a6-tx)">Diffusion models</div>
+    <div class="ae" style="color:var(--a6-tx)">DDPM, Stable Diffusion</div>
+   </div>
+   <div class="arch" style="background:var(--a7-bg);border-color:var(--a7-bd)">
+    <span class="ay">2022</span>
+    <div class="an" style="color:var(--a7-tx)">Foundation models</div>
+    <div class="ae" style="color:var(--a7-tx)">Prithvi, Clay, CLIP</div>
+   </div>
+   <div class="arch" style="background:var(--a8-bg);border-color:var(--a8-bd)">
+    <span class="ay">2023→</span>
+    <div class="an" style="color:var(--a8-tx)">VLMs / LLMs / Agents</div>
+    <div class="ae" style="color:var(--a8-tx)">RemoteCLIP, Earth AI</div>
+   </div>
+  </div>
+ </div>
+</div>
