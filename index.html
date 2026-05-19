@@ -78,8 +78,9 @@
   <div class="lp-story-inner">
     <p class="lp-sec-label">Why GeoMind</p>
     <h2 class="lp-sec-title">Navigate GeoAI with clarity.</h2>
-    <p class="lp-story-text">Every day a new foundation model is released, every week another paper redefines what's possible with satellite imagery, SAR, or LiDAR, and every month a new benchmark shifts the state of the art. Keeping up is genuinely hard — not because the work isn't remarkable, but because without understanding the full structure of the field, each new model or paper feels like a disconnected event. You can't tell if it's foundational or incremental, you can't see where it fits, what it replaces, or what it makes possible next.</p>
-    <p class="lp-story-text">GeoMind maps the entire landscape of geospatial AI, from raw sensor data and learning paradigms through model architectures and key techniques to tasks, datasets, stack, companies, and standards. Each layer links directly to relevant GitHub repos, Papers with Code entries, and Hugging Face models, so you always know where you are, where everything connects, and where to go next.</p>
+    <p class="lp-story-text" id="story-p1"></p>
+    <p class="lp-story-text" id="story-p2" style="opacity:0"></p>
+    <p class="lp-story-text" id="story-p3" style="opacity:0"></p>
   </div>
 </section>
 
@@ -437,6 +438,45 @@
 </footer>
 
 <script>
+(function() {
+  const p1txt = "Every day a new foundation model is released, every week another paper redefines what’s possible with satellite imagery, SAR, or LiDAR, and every month a new benchmark shifts the state of the art. Keeping up is genuinely hard — not because the work isn’t remarkable, but because without understanding the full structure of the field, each new model or paper feels like a disconnected event. You can’t tell if it’s foundational or incremental, you can’t see where it fits, what it replaces, or what it makes possible next.";
+  const p2txt = "GeoMind maps the entire landscape of geospatial AI, from raw sensor data and learning paradigms through model architectures and key techniques to tasks, datasets, stack, companies, and standards.";
+  const p3txt = "Each layer links directly to relevant resources — so you always know where you are, what connects, and where to go next.";
+
+  let started = false;
+
+  function typeText(el, text, speed, onDone) {
+    let i = 0;
+    el.style.opacity = 1;
+    function tick() {
+      el.textContent = text.slice(0, ++i);
+      if (i < text.length) setTimeout(tick, speed);
+      else if (onDone) setTimeout(onDone, 400);
+    }
+    tick();
+  }
+
+  function startTyping() {
+    if (started) return;
+    started = true;
+    const p1 = document.getElementById('story-p1');
+    const p2 = document.getElementById('story-p2');
+    const p3 = document.getElementById('story-p3');
+    typeText(p1, p1txt, 12, () => {
+      typeText(p2, p2txt, 14, () => {
+        typeText(p3, p3txt, 14);
+      });
+    });
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { startTyping(); observer.disconnect(); }
+  }, { threshold: 0.3 });
+
+  const section = document.querySelector('.lp-story-section');
+  if (section) observer.observe(section);
+})();
+
 function footerContact(e) {
   e.preventDefault();
   e.target.innerHTML = '<p style="color:#4ade80;font-size:13px;margin:0">Message sent! We\'ll get back to you soon.</p>';
