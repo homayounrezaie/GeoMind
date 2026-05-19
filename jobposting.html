@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post a Job — GeoMind</title>
+<link rel="stylesheet" href="css/landing.css">
+<style>
+.jp-wrap{
+  max-width:640px;margin:0 auto;
+  padding:3rem 2rem 6rem;
+}
+.jp-header{margin-bottom:2.5rem}
+.jp-back{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;color:rgba(255,255,255,0.5);
+  text-decoration:none;margin-bottom:1.5rem;
+  transition:color 0.15s;
+}
+.jp-back:hover{color:rgba(255,255,255,0.85)}
+.jp-title{
+  font-size:2rem;font-weight:800;letter-spacing:-.5px;
+  color:#fff;line-height:1.2;margin-bottom:.5rem;
+}
+.jp-subtitle{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6}
+
+.jp-form{display:flex;flex-direction:column;gap:20px}
+.jp-group{display:flex;flex-direction:column;gap:6px}
+.jp-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.jp-label{
+  font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+}
+.jp-input,
+.jp-select,
+.jp-textarea{
+  background:rgba(255,255,255,0.05);
+  border:0.5px solid rgba(255,255,255,0.12);
+  border-radius:8px;
+  color:#fff;font-size:13px;
+  padding:10px 14px;
+  outline:none;
+  transition:border-color 0.15s,background 0.15s;
+  font-family:inherit;
+  width:100%;box-sizing:border-box;
+}
+.jp-input::placeholder,
+.jp-textarea::placeholder{color:rgba(255,255,255,0.25)}
+.jp-input:focus,
+.jp-select:focus,
+.jp-textarea:focus{
+  border-color:rgba(99,102,241,0.6);
+  background:rgba(255,255,255,0.08);
+}
+.jp-select{appearance:none;cursor:pointer}
+.jp-select option{background:#1a1a2e;color:#fff}
+.jp-textarea{resize:vertical;min-height:120px;line-height:1.6}
+
+.jp-divider{
+  border:none;border-top:0.5px solid rgba(255,255,255,0.08);
+  margin:4px 0;
+}
+
+.jp-submit{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 32px;border-radius:10px;
+  background:#6366F1;color:#fff;
+  font-size:14px;font-weight:700;letter-spacing:.02em;
+  border:none;cursor:pointer;
+  transition:background 0.15s,transform 0.15s,box-shadow 0.15s;
+  box-shadow:0 4px 24px rgba(99,102,241,0.35);
+  align-self:flex-start;
+}
+.jp-submit:hover{background:#4F46E5;transform:translateY(-1px);box-shadow:0 8px 32px rgba(99,102,241,0.5)}
+.jp-submit:active{transform:translateY(0)}
+
+.jp-note{font-size:11px;color:rgba(255,255,255,0.3);line-height:1.6;margin-top:4px}
+</style>
+</head>
+<body>
+
+<nav class="lp-nav">
+  <a class="lp-nav-brand" href="index.html" style="text-decoration:none">
+    <div class="lp-nav-logo-wrap">
+      <img src="logo.png" alt="GeoMind" class="lp-nav-logo">
+    </div>
+    <span class="lp-nav-name">GeoMind</span>
+  </a>
+  <div class="lp-nav-right">
+    <a class="lp-nav-feedback" href="https://github.com/homayounrezaie/GeoMind/issues" target="_blank" rel="noopener" title="Submit a feedback">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Feedback
+    </a>
+  </div>
+</nav>
+
+<div class="jp-wrap">
+  <div class="jp-header">
+<h1 class="jp-title">Post a GeoAI Job</h1>
+    <p class="jp-subtitle">Reach the people building the future of Geospatial AI — researchers, engineers, and practitioners across the field.</p>
+  </div>
+
+  <form class="jp-form" onsubmit="handleSubmit(event)">
+
+    <div class="jp-group">
+      <label class="jp-label">Job Title</label>
+      <input class="jp-input" type="text" placeholder="e.g. GeoAI Research Engineer" required>
+    </div>
+
+    <div class="jp-group">
+      <label class="jp-label">Company</label>
+      <input class="jp-input" type="text" placeholder="e.g. Acme Geospatial" required>
+    </div>
+
+    <div class="jp-row">
+      <div class="jp-group">
+        <label class="jp-label">Company Website</label>
+        <input class="jp-input" type="url" placeholder="https://company.com">
+      </div>
+      <div class="jp-group">
+        <label class="jp-label">Company LinkedIn</label>
+        <input class="jp-input" type="url" placeholder="https://linkedin.com/company/...">
+      </div>
+    </div>
+
+    <div class="jp-row">
+      <div class="jp-group">
+        <label class="jp-label">Location</label>
+        <input class="jp-input" type="text" placeholder="e.g. Remote, Berlin, NYC">
+      </div>
+      <div class="jp-group">
+        <label class="jp-label">Job Type</label>
+        <select class="jp-select">
+          <option value="">Select type</option>
+          <option>Full-time</option>
+          <option>Part-time</option>
+          <option>Contract</option>
+          <option>Internship</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="jp-row">
+      <div class="jp-group">
+        <label class="jp-label">Salary Range</label>
+        <input class="jp-input" type="text" placeholder="e.g. $120k–$160k">
+      </div>
+      <div class="jp-group">
+        <label class="jp-label">Apply URL</label>
+        <input class="jp-input" type="url" placeholder="https://..." required>
+      </div>
+    </div>
+
+    <hr class="jp-divider">
+
+    <div class="jp-group">
+      <label class="jp-label">Job Description</label>
+      <textarea class="jp-textarea" placeholder="Describe the role, responsibilities, and what you're building…" required></textarea>
+    </div>
+
+    <div class="jp-group">
+      <label class="jp-label">Requirements</label>
+      <textarea class="jp-textarea" placeholder="Skills, experience, qualifications…" style="min-height:100px"></textarea>
+    </div>
+
+    <div class="jp-group">
+      <label class="jp-label">Contact Email</label>
+      <input class="jp-input" type="email" placeholder="hiring@company.com" required>
+      <span class="jp-note">We'll send you a confirmation. Your email won't be shown publicly.</span>
+    </div>
+
+    <button class="jp-submit" type="submit">Submit Job Posting →</button>
+
+  </form>
+</div>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  alert('Thanks! Your job posting has been submitted. We\'ll review and publish it shortly.');
+}
+</script>
+</body>
+</html>

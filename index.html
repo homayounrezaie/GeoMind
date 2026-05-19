@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoMind — GeoAI Knowledge Map</title>
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="lp-nav">
+  <div class="lp-nav-brand">
+    <div class="lp-nav-logo-wrap">
+      <img src="logo.png" alt="GeoMind" class="lp-nav-logo">
+      <canvas id="logoCanvas" width="32" height="32" class="lp-nav-canvas"></canvas>
+    </div>
+    <span class="lp-nav-name">GeoMind</span>
+  </div>
+  <div class="lp-nav-right">
+    <a class="lp-nav-feedback" href="https://github.com/homayounrezaie/GeoMind/issues" target="_blank" rel="noopener" title="Submit a feedback">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Feedback
+    </a>
+    <a class="lp-nav-cta" href="/jobposting.html">Post a Job</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="lp-hero">
+  <h1 class="lp-title"><span class="lp-title-em">Geospatial AI</span>,<br>structured.</h1>
+  <p class="lp-desc">Everything happening in Geospatial AI, organized into 13 layers you can actually navigate.</p>
+  <div class="lp-hero-actions">
+    <button class="lp-cta-primary" onclick="go()">Open the map →</button>
+  </div>
+  <div class="lp-ticker-wrap">
+    <div class="lp-ticker">
+      <span>01 earth data</span><span class="lp-tick-sep">·</span>
+      <span>02 learning paradigms</span><span class="lp-tick-sep">·</span>
+      <span>03 ai history</span><span class="lp-tick-sep">·</span>
+      <span>04 model architectures</span><span class="lp-tick-sep">·</span>
+      <span>05 techniques</span><span class="lp-tick-sep">·</span>
+      <span>06 tasks / applications</span><span class="lp-tick-sep">·</span>
+      <span>07 datasets</span><span class="lp-tick-sep">·</span>
+      <span>08 tools & stack</span><span class="lp-tick-sep">·</span>
+      <span>09 sensors & satellites</span><span class="lp-tick-sep">·</span>
+      <span>10 companies</span><span class="lp-tick-sep">·</span>
+      <span>11 standards</span><span class="lp-tick-sep">·</span>
+      <span>12 learning path</span><span class="lp-tick-sep">·</span>
+      <span>13 job board</span><span class="lp-tick-sep">·</span>
+      <!-- duplicate for seamless loop -->
+      <span>01 earth data</span><span class="lp-tick-sep">·</span>
+      <span>02 learning paradigms</span><span class="lp-tick-sep">·</span>
+      <span>03 ai history</span><span class="lp-tick-sep">·</span>
+      <span>04 model architectures</span><span class="lp-tick-sep">·</span>
+      <span>05 techniques</span><span class="lp-tick-sep">·</span>
+      <span>06 tasks / applications</span><span class="lp-tick-sep">·</span>
+      <span>07 datasets</span><span class="lp-tick-sep">·</span>
+      <span>08 tools & stack</span><span class="lp-tick-sep">·</span>
+      <span>09 sensors & satellites</span><span class="lp-tick-sep">·</span>
+      <span>10 companies</span><span class="lp-tick-sep">·</span>
+      <span>11 standards</span><span class="lp-tick-sep">·</span>
+      <span>12 learning path</span><span class="lp-tick-sep">·</span>
+      <span>13 job board</span>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="lp-story-section">
+  <div class="lp-story-inner">
+    <p class="lp-sec-label">Why GeoMind</p>
+    <h2 class="lp-sec-title">Navigate GeoAI with clarity.</h2>
+    <p class="lp-story-text">Every day a new foundation model is released, every week another paper redefines what's possible with satellite imagery, SAR, or LiDAR, and every month a new benchmark shifts the state of the art. Keeping up is genuinely hard — not because the work isn't remarkable, but because without understanding the full structure of the field, each new model or paper feels like a disconnected event. You can't tell if it's foundational or incremental, you can't see where it fits, what it replaces, or what it makes possible next.</p>
+    <p class="lp-story-text">GeoMind maps the entire landscape of geospatial AI, from raw sensor data and learning paradigms through model architectures and key techniques to tasks, datasets, stack, companies, and standards. Each layer links directly to relevant GitHub repos, Papers with Code entries, and Hugging Face models, so you always know where you are, where everything connects, and where to go next.</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="lp-features-section">
+  <div class="lp-feat-layout">
+
+    <!-- left: feature list -->
+    <div class="lp-feat-left">
+      <p class="lp-sec-label">How it works</p>
+      <h2 class="lp-sec-title" style="text-align:left;max-width:none">Ways to explore GeoMind</h2>
+      <div class="lp-feat-list">
+        <div class="lp-feat2 active" data-feat="0">
+          <div class="lp-feat2-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <div class="lp-feat2-title">Tree Structure</div>
+            <div class="lp-feat2-desc">13 structured layers from raw sensor data to jobs — every concept has a place.</div>
+          </div>
+        </div>
+        <div class="lp-feat2" data-feat="1">
+          <div class="lp-feat2-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          </div>
+          <div>
+            <div class="lp-feat2-title">CLI Terminal</div>
+            <div class="lp-feat2-desc">Navigate like a filesystem — <code>ls</code>, <code>cd data</code>, <code>pwd</code>, tab-complete.</div>
+          </div>
+        </div>
+        <div class="lp-feat2" data-feat="2">
+          <div class="lp-feat2-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          </div>
+          <div>
+            <div class="lp-feat2-title">AI History Timeline</div>
+            <div class="lp-feat2-desc">From 1990s classical ML through CNNs, Transformers, and 2024 Agentic AI.</div>
+          </div>
+        </div>
+        <div class="lp-feat2" data-feat="3">
+          <div class="lp-feat2-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div>
+            <div class="lp-feat2-title">Instant Search</div>
+            <div class="lp-feat2-desc">Find any technique, dataset, or model across all 13 layers at once.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- right: visualizations per feature -->
+    <div class="lp-feat-right">
+
+      <!-- 0: Knowledge Map tree -->
+      <div class="lp-viz active" data-viz="0">
+        <div class="lp-demo-term">
+          <div class="lp-demo-titlebar">
+            <span class="lp-demo-dot" style="background:#ff5f57"></span>
+            <span class="lp-demo-dot" style="background:#febc2e"></span>
+            <span class="lp-demo-dot" style="background:#28c840"></span>
+            <span class="lp-demo-title">GeoMind — Tree Structure</span>
+          </div>
+          <div class="lp-demo-body lp-km-tree">
+            <div class="lp-km-root"><span class="lp-km-folder">📁</span> GeoMind/</div>
+            <div class="lp-km-row"><span class="lp-km-br">├─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">01</span> data</div>
+            <div class="lp-km-row"><span class="lp-km-br">├─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">02</span> learning paradigms</div>
+            <div class="lp-km-row lp-km-active"><span class="lp-km-br">├─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">03</span> model types</div>
+            <div class="lp-km-row lp-km-child"><span class="lp-km-vline">│</span>  <span class="lp-km-br">├─</span> stat</div>
+            <div class="lp-km-row lp-km-child"><span class="lp-km-vline">│</span>  <span class="lp-km-br">├─</span> ai</div>
+            <div class="lp-km-row lp-km-leaf"><span class="lp-km-vline">│</span>  <span class="lp-km-vline">│</span>  <span class="lp-km-br">└─</span> classical ml</div>
+            <div class="lp-km-row lp-km-leaf"><span class="lp-km-vline">│</span>  <span class="lp-km-vline">│</span>  <span class="lp-km-br">└─</span> deep learning</div>
+            <div class="lp-km-row lp-km-leaf"><span class="lp-km-vline">│</span>  <span class="lp-km-vline">│</span>  <span class="lp-km-br">└─</span> foundation models</div>
+            <div class="lp-km-row lp-km-leaf"><span class="lp-km-vline">│</span>  <span class="lp-km-vline">│</span>  <span class="lp-km-br">└─</span> vlms &amp; llms</div>
+            <div class="lp-km-row lp-km-leaf"><span class="lp-km-vline">│</span>  <span class="lp-km-vline">│</span>  <span class="lp-km-br">└─</span> agentic</div>
+            <div class="lp-km-row lp-km-child"><span class="lp-km-vline">│</span>  <span class="lp-km-br">├─</span> physics</div>
+            <div class="lp-km-row lp-km-child"><span class="lp-km-vline">│</span>  <span class="lp-km-br">└─</span> by function</div>
+            <div class="lp-km-row"><span class="lp-km-br">├─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">04</span> key techniques</div>
+            <div class="lp-km-row"><span class="lp-km-br">├─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">05</span> geo tasks</div>
+            <div class="lp-km-row"><span class="lp-km-br">├─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">06</span> datasets</div>
+            <div class="lp-km-row"><span class="lp-km-br">├─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">07</span> stack</div>
+            <div class="lp-km-row"><span class="lp-km-br">├─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">08</span> companies</div>
+            <div class="lp-km-row"><span class="lp-km-br">├─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">09</span> standards</div>
+            <div class="lp-km-row"><span class="lp-km-br">└─</span><span class="lp-km-dot">•</span> <span class="lp-km-num">10</span> ml timeline</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1: CLI Terminal -->
+      <div class="lp-viz" data-viz="1">
+        <div class="lp-demo-term">
+          <div class="lp-demo-titlebar">
+            <span class="lp-demo-dot" style="background:#ff5f57"></span>
+            <span class="lp-demo-dot" style="background:#febc2e"></span>
+            <span class="lp-demo-dot" style="background:#28c840"></span>
+            <span class="lp-demo-title">GeoMind Terminal</span>
+          </div>
+          <div class="lp-demo-body" id="lpDemoBody"></div>
+        </div>
+      </div>
+
+      <!-- 2: AI History Timeline -->
+      <div class="lp-viz" data-viz="2">
+        <div class="lp-demo-term">
+          <div class="lp-demo-titlebar">
+            <span class="lp-demo-dot" style="background:#ff5f57"></span>
+            <span class="lp-demo-dot" style="background:#febc2e"></span>
+            <span class="lp-demo-dot" style="background:#28c840"></span>
+            <span class="lp-demo-title">GeoMind/ &nbsp;timeline/</span>
+          </div>
+          <div class="lp-tl-static">
+            <div class="lp-tls-card"><div class="lp-tls-top"><span class="lp-tls-name">Classical ML</span><span class="lp-tls-year">1990s</span></div><div class="lp-tls-sub">SVM, RF, k-NN</div></div>
+            <div class="lp-tls-card"><div class="lp-tls-top"><span class="lp-tls-name">CNNs</span><span class="lp-tls-year">2012</span></div><div class="lp-tls-sub">ResNet, U-Net, YOLO</div></div>
+            <div class="lp-tls-card"><div class="lp-tls-top"><span class="lp-tls-name">GANs / Autoencoders</span><span class="lp-tls-year">2014</span></div><div class="lp-tls-sub">cGAN, VAE, Siamese</div></div>
+            <div class="lp-tls-card"><div class="lp-tls-top"><span class="lp-tls-name">RNN / LSTM</span><span class="lp-tls-year">2016</span></div><div class="lp-tls-sub">Temporal, sequences</div></div>
+            <div class="lp-tls-card"><div class="lp-tls-top"><span class="lp-tls-name">Transformers</span><span class="lp-tls-year">2020</span></div><div class="lp-tls-sub">ViT, Swin, BERT</div></div>
+            <div class="lp-tls-card"><div class="lp-tls-top"><span class="lp-tls-name">Diffusion models</span><span class="lp-tls-year">2021</span></div><div class="lp-tls-sub">DDPM, DiffusionSat</div></div>
+            <div class="lp-tls-card"><div class="lp-tls-top"><span class="lp-tls-name">Foundation models</span><span class="lp-tls-year">2022</span></div><div class="lp-tls-sub">Prithvi, Clay, SAM, SpectralGPT</div></div>
+            <div class="lp-tls-card"><div class="lp-tls-top"><span class="lp-tls-name">VLMs / LLMs</span><span class="lp-tls-year">2023→</span></div><div class="lp-tls-sub">GeoChat, RemoteCLIP, TerraMind</div></div>
+            <div class="lp-tls-card"><div class="lp-tls-top"><span class="lp-tls-name">Agentic AI</span><span class="lp-tls-year">2024→</span></div><div class="lp-tls-sub">GeoLLM-Squad, Earth-Agent,<br>multi-agent RS</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Instant Search -->
+      <div class="lp-viz" data-viz="3">
+        <div class="lp-demo-term">
+          <div class="lp-demo-titlebar">
+            <span class="lp-demo-dot" style="background:#ff5f57"></span>
+            <span class="lp-demo-dot" style="background:#febc2e"></span>
+            <span class="lp-demo-dot" style="background:#28c840"></span>
+            <span class="lp-demo-title">Instant Search</span>
+          </div>
+          <div class="lp-search-viz" id="lpSearchViz">
+            <div class="lp-sv-bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span class="lp-sv-input" id="lpSvInput"></span><span class="lp-sv-cursor"></span>
+            </div>
+            <div class="lp-sv-results" id="lpSvResults"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- LAYERS -->
+<section class="lp-layers-section" id="layers">
+  <p class="lp-sec-label">13 Layers</p>
+  <h2 class="lp-sec-title">The full structure of GeoAI</h2>
+  <p class="lp-sec-sub">Every concept has a place. Click any node to explore.</p>
+
+  <div class="lp-radial-wrap" id="lp-radial-wrap"></div>
+
+  <div class="lp-links-bar">
+    <p class="lp-links-text">Each layer links directly to relevant resources — so you always know where you are, what connects, and where to go next.</p>
+    <div class="lp-links-icons">
+      <a class="lp-link-chip" href="https://github.com/" target="_blank" rel="noopener">
+        <!-- GitHub — dark charcoal -->
+        <svg width="16" height="16" viewBox="0 0 98 96"><path fill="#fff" fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/></svg>
+        GitHub
+      </a>
+      <a class="lp-link-chip" href="https://paperswithcode.com/" target="_blank" rel="noopener">
+        <!-- Papers with Code — red lightning -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#EF4444" stroke="#EF4444" stroke-width="0.5" stroke-linejoin="round"/></svg>
+        Papers with Code
+      </a>
+      <a class="lp-link-chip" href="https://www.kaggle.com/datasets" target="_blank" rel="noopener">
+        <!-- Kaggle — blue K -->
+        <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#20BEFF" d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336z"/></svg>
+        Kaggle
+      </a>
+      <a class="lp-link-chip" href="https://huggingface.co/" target="_blank" rel="noopener">
+        <!-- Hugging Face — yellow face -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" fill="#FFD21E"/>
+          <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="10" r="1" fill="#1a1a1a"/>
+          <circle cx="15" cy="10" r="1" fill="#1a1a1a"/>
+          <path d="M7 8.5c.5-1 1.5-1.5 2-1M17 8.5c-.5-1-1.5-1.5-2-1" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Hugging Face
+      </a>
+    </div>
+  </div>
+
+  <!-- mobile fallback: simple numbered list -->
+  <ol class="lp-layers-mobile">
+    <li onclick="go()"><span>01</span> Earth Data</li>
+    <li onclick="go()"><span>02</span> Learning Paradigms</li>
+    <li onclick="go()"><span>03</span> AI History</li>
+    <li onclick="go()"><span>04</span> Model Architectures</li>
+    <li onclick="go()"><span>05</span> Techniques</li>
+    <li onclick="go()"><span>06</span> Tasks / Applications</li>
+    <li onclick="go()"><span>07</span> Datasets</li>
+    <li onclick="go()"><span>08</span> Tools & Stack</li>
+    <li onclick="go()"><span>09</span> Sensors & Satellites</li>
+    <li onclick="go()"><span>10</span> Companies</li>
+    <li onclick="go()"><span>11</span> Standards</li>
+    <li onclick="go()"><span>12</span> Learning Path</li>
+    <li onclick="go()"><span>13</span> Job Board</li>
+  </ol>
+
+</section>
+
+<!-- AUDIENCE -->
+<section class="lp-aud-section">
+  <p class="lp-sec-label">Who it's for</p>
+  <h2 class="lp-sec-title">Built for the whole community</h2>
+
+  <div class="lp-aud-stage">
+    <!-- tab pills -->
+    <div class="lp-aud-tabs" role="tablist">
+      <button class="lp-aud-tab active" data-idx="0" role="tab">Newcomers</button>
+      <button class="lp-aud-tab" data-idx="1" role="tab">Practitioners</button>
+      <button class="lp-aud-tab" data-idx="2" role="tab">Researchers</button>
+    </div>
+
+    <!-- cards -->
+    <div class="lp-aud-viewport">
+      <div class="lp-aud-slide active" data-idx="0" style="--ac:#06B6D4">
+        <div class="lp-aud-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="lp-aud-slide-name">Newcomers</div>
+        <div class="lp-aud-slide-text">Use the learning path to find where to start and build from first principles. GeoMind shows you the full map so every new concept has a home.</div>
+        <div class="lp-aud-slide-tags">
+          <span>Learning Path</span><span>AI History</span><span>Datasets</span>
+        </div>
+      </div>
+
+      <div class="lp-aud-slide" data-idx="1" style="--ac:#6366F1">
+        <div class="lp-aud-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="lp-aud-slide-name">Practitioners</div>
+        <div class="lp-aud-slide-text">Reference the right technique, dataset, or tool for the task at hand — without losing context of how everything connects.</div>
+        <div class="lp-aud-slide-tags">
+          <span>Techniques</span><span>Tools & Stack</span><span>Datasets</span>
+        </div>
+      </div>
+
+      <div class="lp-aud-slide" data-idx="2" style="--ac:#A855F7">
+        <div class="lp-aud-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
+        </div>
+        <div class="lp-aud-slide-name">Researchers</div>
+        <div class="lp-aud-slide-text">Spot untried combinations by seeing the full structure at once. Cross-layer links reveal intersections between models, tasks, and data.</div>
+        <div class="lp-aud-slide-tags">
+          <span>Model Architectures</span><span>Tasks</span><span>Standards</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- progress bar -->
+    <div class="lp-aud-progress"><div class="lp-aud-progress-bar" id="audProgressBar"></div></div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="lp-footer-section">
+  <h2 class="lp-footer-title">Ready to navigate GeoAI?</h2>
+  <p class="lp-footer-sub">Free · Open Source · No signup</p>
+  <div class="lp-footer-actions">
+    <button class="lp-cta-primary" onclick="go()">Open the map →</button>
+  </div>
+</section>
+
+<script src="js/landing.js"></script>
+</body>
+</html>

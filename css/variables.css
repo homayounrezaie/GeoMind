@@ -1,0 +1,60 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+:root{
+  /* tag backgrounds — very soft tints */
+  --purple-bg:#F2F1FB;--purple-tx:#5B54A0;
+  --teal-bg:#EDF7F3;--teal-tx:#2A6B58;
+  --gray-bg:#F4F3F0;--gray-tx:#4A4A47;
+  --coral-bg:#FBF1EE;--coral-tx:#7A3A25;
+  --comp-bg:#EEF2FF;--comp-tx:#3D5299;
+  --border:rgba(0,0,0,0.08);
+  --radius:14px;
+  --bg-info:#EEF5FC;--tx-info:#2A5A8A;
+  --bg-success:#EFF6E8;--tx-success:#3A6020;
+  --bg-warn:#FAF3E4;--tx-warn:#6B4A10;
+  --tx-sec:#606060;--tx-ter:#aaa;
+  --body-bg:#eaeaf2;--body-tx:#1a1a1a;
+  --card-bg:#f4f4fb;
+  --nav-bg:rgba(247,247,247,0.92);
+  --sg-bg:rgba(0,0,0,0.03);
+
+  /* timeline cards — all desaturated, barely tinted */
+  --a1-bg:#f5f5f4;--a1-bd:#c0bfbb;--a1-tx:#4a4a47;
+  --a2-bg:#f0f4f9;--a2-bd:#8aafd4;--a2-tx:#2a4a6a;
+  --a3-bg:#f7f0f4;--a3-bd:#c49ab0;--a3-tx:#5a2e44;
+  --a4-bg:#f7f0f0;--a4-bd:#c49a9a;--a4-tx:#5a2e2e;
+  --a5-bg:#f1f5ec;--a5-bd:#8aad6a;--a5-tx:#304a20;
+  --a6-bg:#f7f3ec;--a6-bd:#c4a060;--a6-tx:#5a3a10;
+  --a7-bg:#f7f1ee;--a7-bd:#c4906a;--a7-tx:#5a2e18;
+  --a8-bg:#f2f1f9;--a8-bd:#9a94d4;--a8-tx:#3a3470;
+  --a9-bg:#eef6f4;--a9-bd:#70b4a4;--a9-tx:#1a4a3a;
+}
+
+[data-theme="dark"]{
+  --purple-bg:#1e1b38;--purple-tx:#9990d4;
+  --teal-bg:#0e2820;--teal-tx:#6abfa4;
+  --gray-bg:#222220;--gray-tx:#b0aea8;
+  --coral-bg:#2e1810;--coral-tx:#c4907a;
+  --comp-bg:#151e38;--comp-tx:#8090d4;
+  --border:rgba(255,255,255,0.08);
+  --bg-info:#101e30;--tx-info:#80aad4;
+  --bg-success:#101e08;--tx-success:#80b060;
+  --bg-warn:#201808;--tx-warn:#c4904a;
+  --tx-sec:#999;--tx-ter:#555;
+  --body-bg:#111111;--body-tx:#e0e0e0;
+  --card-bg:#1a1a1a;
+  --nav-bg:rgba(17,17,17,0.92);
+  --sg-bg:rgba(255,255,255,0.04);
+
+  /* timeline cards — dark, low saturation */
+  --a1-bg:#1e1e1c;--a1-bd:#5a5a56;--a1-tx:#a0a09a;
+  --a2-bg:#101820;--a2-bd:#3a5a7a;--a2-tx:#7aaad4;
+  --a3-bg:#20101a;--a3-bd:#6a3a54;--a3-tx:#c47aaa;
+  --a4-bg:#201010;--a4-bd:#6a3a3a;--a4-tx:#c47a7a;
+  --a5-bg:#101808;--a5-bd:#3a6a1a;--a5-tx:#7aaa5a;
+  --a6-bg:#201808;--a6-bd:#6a4a10;--a6-tx:#c4904a;
+  --a7-bg:#201410;--a7-bd:#6a3818;--a7-tx:#c4806a;
+  --a8-bg:#18162a;--a8-bd:#4a4490;--a8-tx:#9a94d4;
+  --a9-bg:#0e1e1a;--a9-bd:#1a5a4a;--a9-tx:#5abaa4;
+}

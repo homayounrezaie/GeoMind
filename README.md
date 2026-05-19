@@ -24,6 +24,8 @@ over time how they used. vertical line (timeline) and add five papers to user kn
 - **Datasets / benchmarks**: datasets, benchmarks, and evaluation resources
 - **Stack / infrastructure**: GEE, AWS, Azure, PyTorch, GDAL, Rasterio, MLflow, W&B, Docker, TensorRT, PostGIS, pgvector
 - **Standards**: STAC, COG, OGC, WMS/WFS
+- **ml timeline**: STAC, COG, OGC, WMS/WFS
+
 
 ## Connections
 
