@@ -15,7 +15,7 @@ const viewTitle = () => document.getElementById('panel-view-title');
 async function loadPanel(id) {
   if (loaded.has(id)) return;
   try {
-    const res = await fetch(`panels/${id}.html`);
+    const res = await fetch(`/src/panels/${id}.html`);
     cache[id] = await res.text();
   } catch {
     cache[id] = '<div class="pb-loading">failed to load</div>';

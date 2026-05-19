@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/terminal.css">
-<link rel="stylesheet" href="css/tree.css">
-<link rel="stylesheet" href="css/panels.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/search.css">
+<link rel="stylesheet" href="../src/styles/variables.css">
+<link rel="stylesheet" href="../src/styles/layout.css">
+<link rel="stylesheet" href="../src/styles/terminal.css">
+<link rel="stylesheet" href="../src/styles/tree.css">
+<link rel="stylesheet" href="../src/styles/panels.css">
+<link rel="stylesheet" href="../src/styles/components.css">
+<link rel="stylesheet" href="../src/styles/search.css">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
   <div class="nav-left">
     <a class="nav-brand" href="#" onclick="goHome();return false;">
       <div class="nav-logo-wrap">
-        <img src="logo.png" alt="GeoMind" class="nav-logo">
+        <img src="/logo.png" alt="GeoMind" class="nav-logo">
         <canvas class="nav-logo-canvas" id="logoCanvas" width="32" height="32"></canvas>
       </div>
       <div class="nav-brand-text">
@@ -139,6 +139,6 @@ function sidebarTab(which) {
   try { localStorage.setItem('gm-sidebar-tab', which); } catch(e) {}
 }
 </script>
-<script type="module" src="js/main.js"></script>
+<script type="module" src="../src/js/main.js"></script>
 </body>
 </html>

@@ -6,8 +6,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main:       resolve(__dirname, 'index.html'),
-        app:        resolve(__dirname, 'app.html'),
-        jobposting: resolve(__dirname, 'jobposting.html'),
+        app:        resolve(__dirname, 'pages/app.html'),
+        jobposting: resolve(__dirname, 'pages/jobposting.html'),
+        newsletter: resolve(__dirname, 'pages/newsletter.html'),
       },
     },
   },

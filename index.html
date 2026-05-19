@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="src/styles/landing.css">
 </head>
 <body>
 
@@ -12,7 +12,7 @@
 <nav class="lp-nav">
   <div class="lp-nav-brand">
     <div class="lp-nav-logo-wrap">
-      <img src="logo.png" alt="GeoMind" class="lp-nav-logo">
+      <img src="/logo.png" alt="GeoMind" class="lp-nav-logo">
       <canvas id="logoCanvas" width="32" height="32" class="lp-nav-canvas"></canvas>
     </div>
     <div class="lp-nav-brand-text">
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="lp-nav-right">
-    <a class="lp-nav-feedback" href="newsletter.html" title="Newsletter archives">
+    <a class="lp-nav-feedback" href="pages/newsletter.html" title="Newsletter archives">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
       Newsletter
     </a>
@@ -29,7 +29,7 @@
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       Feedback
     </a>
-    <a class="lp-nav-cta" href="/jobposting.html">Post a Job</a>
+    <a class="lp-nav-cta" href="pages/jobposting.html">Post a Job</a>
   </div>
 </nav>
 
@@ -363,7 +363,7 @@
       <ul class="lp-nl-meta">
         <li><span class="lp-nl-tree-char">├─</span> 1,247 subscribers · 47 countries</li>
         <li><span class="lp-nl-tree-char">├─</span> weekly · every tuesday</li>
-        <li><span class="lp-nl-tree-char">├─</span> <a class="lp-nl-link" href="newsletter.html">read last issue →</a></li>
+        <li><span class="lp-nl-tree-char">├─</span> <a class="lp-nl-link" href="pages/newsletter.html">read last issue →</a></li>
         <li><span class="lp-nl-tree-char">└─</span> unsubscribe anytime</li>
       </ul>
     </div>
@@ -382,7 +382,7 @@
 <footer class="lp-footer">
   <div class="lp-footer-top">
     <div class="lp-footer-brand">
-      <img src="logo.png" alt="GeoMind" class="lp-footer-logo">
+      <img src="/logo.png" alt="GeoMind" class="lp-footer-logo">
       <div class="lp-footer-brand-text">
         <span class="lp-footer-name">GeoMind</span>
         <span class="lp-footer-tagline">Geospatial AI, structured.</span>
@@ -393,10 +393,10 @@
     <div class="lp-footer-cols">
       <div class="lp-footer-col">
         <p class="lp-footer-col-title">Products</p>
-        <a href="app.html">Knowledge Map</a>
-        <a href="app.html">Job Board</a>
-        <a href="jobposting.html">Post a Job</a>
-        <a href="newsletter.html">Newsletter</a>
+        <a href="pages/app.html">Knowledge Map</a>
+        <a href="pages/app.html">Job Board</a>
+        <a href="pages/jobposting.html">Post a Job</a>
+        <a href="pages/newsletter.html">Newsletter</a>
         <a href="#">API</a>
       </div>
       <div class="lp-footer-col">
@@ -455,6 +455,6 @@ function nlSubmit(e) {
   e.target.querySelector('.lp-nl-input').value = '';
 }
 </script>
-<script src="js/landing.js"></script>
+<script src="src/js/landing.js"></script>
 </body>
 </html>
