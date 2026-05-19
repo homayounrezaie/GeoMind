@@ -1,8 +1,10 @@
 /* Landing page script — no ES modules, no dependencies */
 
 function go() {
-  window.location.href = 'app.html';
+  window.location.href = 'pages/app.html';
 }
+
+window.go = go;
 
 function initCanvas() {
   const canvas = document.getElementById('logoCanvas');
