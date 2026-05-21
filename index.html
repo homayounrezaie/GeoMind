@@ -294,7 +294,7 @@
     }
     .gm-gh-labels{
       display:grid;
-      grid-template-rows:repeat(5,var(--cell));
+      grid-template-rows:repeat(var(--rows),var(--cell));
       row-gap:var(--row-gap);
     }
     .gm-gh-label{
@@ -319,13 +319,25 @@
       color:#7d8590;
       outline:none;
     }
+    .gm-platform-icon svg,
     .gm-platform-icon img{
       display:block;
       width:16px;
       height:16px;
+      flex:0 0 auto;
+    }
+    .gm-platform-icon img{
       filter:grayscale(1);
       opacity:.78;
       transition:opacity .16s ease, filter .16s ease;
+    }
+    .gm-platform-icon svg{
+      opacity:.86;
+      transition:opacity .16s ease, transform .16s ease;
+    }
+    .gm-platform-icon:hover svg{
+      opacity:1;
+      transform:translateY(-1px);
     }
     .gm-platform-icon:hover img{
       opacity:1;
@@ -367,7 +379,7 @@
       position:relative;
       display:grid;
       grid-template-columns:repeat(var(--columns),12px);
-      grid-auto-rows:12px;
+      grid-template-rows:repeat(var(--rows),12px);
       grid-auto-flow:column;
       column-gap:3px;
       row-gap:6px;
@@ -1074,12 +1086,18 @@ function nlSubmit(e) {
     { id: 'tools', name: 'Tools & Frameworks', noun: 'tools', weight: .72, seed: 59 },
   ];
 
+  const resourceIcons = {
+    github: '<svg width="16" height="16" viewBox="0 0 98 96" aria-hidden="true"><path fill="#fff" fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/></svg>',
+    paperswithcode: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#EF4444" stroke="#EF4444" stroke-width="0.5" stroke-linejoin="round"/></svg>',
+    kaggle: '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#20BEFF" d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336z"/></svg>',
+    huggingface: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#FFD21E"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="10" r="1" fill="#1a1a1a"/><circle cx="15" cy="10" r="1" fill="#1a1a1a"/><path d="M7 8.5c.5-1 1.5-1.5 2-1M17 8.5c-.5-1-1.5-1.5-2-1" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/></svg>',
+  };
+
   const platformRows = [
-    { id: 'huggingface', name: 'Hugging Face', noun: 'Hub updates', weight: 1.2, seed: 7, icon: 'https://cdn.simpleicons.org/huggingface/7d8590', fallback: 'HF' },
-    { id: 'arxiv', name: 'arXiv', noun: 'papers', weight: 1.16, seed: 19, icon: 'https://cdn.simpleicons.org/arxiv/7d8590', fallback: 'arXiv' },
-    { id: 'github', name: 'GitHub', noun: 'repo updates', weight: 1.02, seed: 31, icon: 'https://cdn.simpleicons.org/github/7d8590', fallback: 'GH' },
-    { id: 'pwc', name: 'Papers With Code', noun: 'benchmark updates', weight: .76, seed: 47, icon: 'https://cdn.simpleicons.org/paperswithcode/7d8590', fallback: 'PWC' },
-    { id: 'kaggle', name: 'Kaggle', noun: 'datasets', weight: .62, seed: 61, icon: 'https://cdn.simpleicons.org/kaggle/7d8590', fallback: 'KG' },
+    { id: 'huggingface', name: 'Hugging Face', noun: 'Hub updates', weight: 1.2, seed: 7, iconSvg: resourceIcons.huggingface },
+    { id: 'github', name: 'GitHub', noun: 'repo updates', weight: 1.02, seed: 31, iconSvg: resourceIcons.github },
+    { id: 'pwc', name: 'Papers With Code', noun: 'benchmark updates', weight: .76, seed: 47, iconSvg: resourceIcons.paperswithcode },
+    { id: 'kaggle', name: 'Kaggle', noun: 'datasets', weight: .62, seed: 61, iconSvg: resourceIcons.kaggle },
   ];
 
   const charts = [
@@ -1208,6 +1226,7 @@ function nlSubmit(e) {
     const chartEl = document.createElement('section');
     chartEl.className = 'gm-gh-chart';
     chartEl.style.setProperty('--columns', String(columns));
+    chartEl.style.setProperty('--rows', String(chart.rows.length));
     chartEl.style.setProperty('--cells-w', `${cellsW}px`);
     chartEl.style.setProperty('--chart-w', `${chartW}px`);
     chartEl.innerHTML = `
@@ -1249,9 +1268,9 @@ function nlSubmit(e) {
     chart.rows.forEach(row => {
       const label = document.createElement('div');
       label.className = 'gm-gh-label';
-      if (row.icon) {
+      if (row.iconSvg || row.fallback) {
         label.classList.add('has-icon');
-        label.innerHTML = `<span class="gm-platform-icon" role="img" aria-label="${row.name}" title="${row.name}" tabindex="0"><img src="${row.icon}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"><span class="gm-platform-icon-fallback">${row.fallback || row.name}</span></span>`;
+        label.innerHTML = `<span class="gm-platform-icon" role="img" aria-label="${row.name}" title="${row.name}" tabindex="0">${row.iconSvg || ''}<span class="gm-platform-icon-fallback"${row.iconSvg ? '' : ' style="display:inline"'}>${row.fallback || row.name}</span></span>`;
       } else {
         label.textContent = row.name;
       }
