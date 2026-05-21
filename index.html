@@ -1098,12 +1098,12 @@ function nlSubmit(e) {
     paperswithcode: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#EF4444" stroke="#EF4444" stroke-width="0.5" stroke-linejoin="round"/></svg>',
     kaggle: '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#20BEFF" d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336z"/></svg>',
     huggingface: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#FFD21E"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="10" r="1" fill="#1a1a1a"/><circle cx="15" cy="10" r="1" fill="#1a1a1a"/><path d="M7 8.5c.5-1 1.5-1.5 2-1M17 8.5c-.5-1-1.5-1.5-2-1" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/></svg>',
-    arxiv: '<svg width="34" height="14" viewBox="0 0 86 32" fill="none" aria-hidden="true"><path d="M1 23h12.5v-6.5H1v-5h20v20H1v-5h14.5V16.5H1V23Z" fill="#8b867d"/><path d="M27 11.5h9.5v3.2c1.8-2.4 3.9-3.6 6.5-3.6h3v5.5h-3.6c-3.8 0-5.8 2.1-5.8 6.1v8.8H30.8V16.5H27v-5Z" fill="#8b867d"/><path d="M62.5 11.5h6.1l5.4 13.7 5.4-13.7H85l-8.2 20h-6L62.5 11.5Z" fill="#8b867d"/><path d="M55.8 1.8 64.8 10.8 50.2 31.2 41.2 22.2 55.8 1.8Z" fill="#8b867d"/><path d="M42.3 0 63.8 23.3 57.2 31.7 35.8 8.4 42.3 0Z" fill="#b81e3e"/><circle cx="73.4" cy="4.8" r="4.2" fill="#8b867d"/></svg>',
+    arxiv: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.3 1.2 22.2 8.1 8.6 22.8 1.8 15.9 15.3 1.2Z" fill="#8b867d"/><path d="M4.4 2.1 21.9 19.6 17.9 23.6.4 6.1 4.4 2.1Z" fill="#b81e3e"/></svg>',
   };
 
   const platformRows = [
     { id: 'huggingface', name: 'Hugging Face', noun: 'Hub updates', weight: 1.2, seed: 7, iconSvg: resourceIcons.huggingface },
-    { id: 'arxiv', name: 'arXiv', noun: 'papers', weight: 1.16, seed: 19, iconSvg: resourceIcons.arxiv, wideIcon: true },
+    { id: 'arxiv', name: 'arXiv', noun: 'papers', weight: 1.16, seed: 19, iconSvg: resourceIcons.arxiv },
     { id: 'github', name: 'GitHub', noun: 'repo updates', weight: 1.02, seed: 31, iconSvg: resourceIcons.github },
     { id: 'pwc', name: 'Papers With Code', noun: 'benchmark updates', weight: .76, seed: 47, iconSvg: resourceIcons.paperswithcode },
     { id: 'kaggle', name: 'Kaggle', noun: 'datasets', weight: .62, seed: 61, iconSvg: resourceIcons.kaggle },
