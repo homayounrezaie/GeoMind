@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-15">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-16">
 </head>
 <body>
 
@@ -792,27 +792,22 @@ print(results.top(5))</code></pre>
 <section class="lp-nl-section">
   <div class="lp-nl-wrap">
     <div class="lp-nl-card">
-      <p class="lp-nl-label">// stay current</p>
+      <p class="lp-nl-label"># stay current</p>
       <h2 class="lp-nl-title">Weekly GeoAI digest</h2>
-      <p class="lp-nl-desc">Every new foundation model, dataset, and paper — distilled in 5 min.</p>
+      <p class="lp-nl-desc">~12 things that mattered this week. 5 min read.</p>
+
+      <a class="lp-nl-proof" href="pages/newsletter.html">See what last week looked like →</a>
 
       <form class="lp-nl-form" onsubmit="nlSubmit(event)">
-        <div class="lp-nl-terminal" onclick="this.querySelector('input').focus()">
+        <div class="lp-nl-terminal" onclick="this.querySelector('input')?.focus()">
           <span class="lp-nl-prompt">geomind:~$</span>
-          <span class="lp-nl-cmd">subscribe</span>
           <input class="lp-nl-input" type="email" placeholder="you@domain.com" required>
           <span class="lp-nl-cursor" id="nl-cursor"></span>
-          <button class="lp-nl-btn" type="submit">enter ↵</button>
+          <button class="lp-nl-btn" type="submit">Subscribe</button>
         </div>
-        <p class="lp-nl-note" id="nl-note"></p>
       </form>
 
-      <ul class="lp-nl-meta">
-        <li><span class="lp-nl-tree-char">├─</span> 1,247 subscribers · 47 countries</li>
-        <li><span class="lp-nl-tree-char">├─</span> weekly · every tuesday</li>
-        <li><span class="lp-nl-tree-char">├─</span> <a class="lp-nl-link" href="pages/newsletter.html">read last issue →</a></li>
-        <li><span class="lp-nl-tree-char">└─</span> unsubscribe anytime</li>
-      </ul>
+      <p class="lp-nl-meta">every tuesday · unsubscribe anytime</p>
     </div>
   </div>
 </section>
@@ -880,17 +875,25 @@ function footerContact(e) {
   e.target.innerHTML = '<p style="color:#4ade80;font-size:13px;margin:0">Message sent! We\'ll get back to you soon.</p>';
 }
 document.querySelector('.lp-nl-input')?.addEventListener('focus', () => {
-  document.getElementById('nl-cursor').style.display = 'none';
+  document.getElementById('nl-cursor')?.style.setProperty('display', 'none');
 });
 document.querySelector('.lp-nl-input')?.addEventListener('blur', () => {
-  document.getElementById('nl-cursor').style.display = 'inline-block';
+  document.getElementById('nl-cursor')?.style.setProperty('display', 'inline-block');
 });
 function nlSubmit(e) {
   e.preventDefault();
-  const note = document.getElementById('nl-note');
-  note.textContent = 'You\'re in! First issue coming soon.';
-  note.classList.add('success');
-  e.target.querySelector('.lp-nl-input').value = '';
+  const terminal = e.target.querySelector('.lp-nl-terminal');
+  const input = e.target.querySelector('.lp-nl-input');
+  const cursor = e.target.querySelector('.lp-nl-cursor');
+  const button = e.target.querySelector('.lp-nl-btn');
+
+  input?.remove();
+  cursor?.remove();
+  button?.remove();
+
+  if (!terminal.querySelector('.lp-nl-success')) {
+    terminal.insertAdjacentHTML('beforeend', '<span class="lp-nl-success">subscribed ✓</span>');
+  }
 }
 </script>
 <script>

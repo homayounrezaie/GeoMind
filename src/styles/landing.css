@@ -1434,7 +1434,9 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-nl-label{
   font-family:'SF Mono','Fira Code',monospace;
-  font-size:var(--t-meta);color:#4ade80;margin-bottom:var(--s-2);
+  font-size:var(--t-meta);
+  color:rgba(255,255,255,0.42);
+  margin-bottom:12px;
 }
 .lp-nl-title{
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
@@ -1443,9 +1445,27 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-nl-desc{
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  font-size:var(--t-meta);line-height:var(--lh-body);color:rgba(255,255,255,0.45);margin-bottom:var(--s-3);
+  font-size:var(--t-meta);
+  line-height:var(--lh-body);
+  color:rgba(255,255,255,0.48);
+  margin-bottom:var(--s-3);
 }
-.lp-nl-form{margin-bottom:var(--s-3)}
+.lp-nl-proof{
+  display:inline-flex;
+  margin-bottom:var(--s-4);
+  color:rgba(255,255,255,0.56);
+  font-family:'SF Mono','Fira Code',monospace;
+  font-size:var(--t-meta);
+  font-weight:700;
+  text-decoration:none;
+  transition:color .16s;
+}
+.lp-nl-proof:hover,
+.lp-nl-proof:focus-visible{
+  color:#818cf8;
+  outline:none;
+}
+.lp-nl-form{margin-bottom:var(--s-2)}
 .lp-nl-terminal{
   display:flex;align-items:center;gap:var(--s-1);
   background:rgba(255,255,255,0.04);
@@ -1453,14 +1473,10 @@ nav,section,footer{position:relative;z-index:1}
   border-radius:10px;padding:var(--s-2);
   transition:border-color 0.15s;cursor:text;
 }
-.lp-nl-terminal:focus-within{border-color:rgba(74,222,128,0.3)}
+.lp-nl-terminal:focus-within{border-color:rgba(129,140,248,0.45)}
 .lp-nl-prompt{
   font-family:'SF Mono','Fira Code',monospace;
-  font-size:var(--t-meta);color:#4ade80;white-space:nowrap;flex-shrink:0;
-}
-.lp-nl-cmd{
-  font-family:'SF Mono','Fira Code',monospace;
-  font-size:var(--t-meta);color:rgba(255,255,255,0.7);flex-shrink:0;
+  font-size:var(--t-meta);color:#818cf8;white-space:nowrap;flex-shrink:0;
 }
 .lp-nl-input{
   flex:1;background:transparent;border:none;outline:none;
@@ -1470,52 +1486,35 @@ nav,section,footer{position:relative;z-index:1}
 .lp-nl-input::placeholder{color:rgba(255,255,255,0.2)}
 .lp-nl-btn{
   padding:var(--s-1) var(--s-2);border-radius:8px;
-  background:#4ade80;border:none;
-  color:#0d0d14;font-size:var(--t-meta);font-weight:700;
+  background:#818cf8;border:none;
+  color:#0d0d14;font-size:var(--t-meta);font-weight:800;
   font-family:'SF Mono','Fira Code',monospace;
   cursor:pointer;white-space:nowrap;flex-shrink:0;
   transition:background 0.15s,transform 0.1s;
 }
-.lp-nl-btn:hover{background:#22c55e;transform:translateY(-1px)}
-.lp-nl-note{
-  font-family:'SF Mono','Fira Code',monospace;
-  font-size:var(--t-meta);color:rgba(255,255,255,0.3);
-  margin-top:var(--s-2);min-height:16px;
-}
-.lp-nl-note.success{color:#4ade80}
+.lp-nl-btn:hover{background:#a5b4fc;transform:translateY(-1px)}
 .lp-nl-meta{
-  list-style:none;padding:0;margin:0;
-  display:flex;flex-direction:column;gap:var(--s-1);
-}
-.lp-nl-meta li{
   font-family:'SF Mono','Fira Code',monospace;
-  font-size:var(--t-meta);color:rgba(255,255,255,0.4);
-  display:flex;align-items:center;gap:var(--s-1);
-  opacity:0;transform:translateX(-6px);
-  animation:nlFadeIn 0.4s ease forwards;
-}
-.lp-nl-meta li:nth-child(1){animation-delay:0.3s}
-.lp-nl-meta li:nth-child(2){animation-delay:1.3s}
-.lp-nl-meta li:nth-child(3){animation-delay:2.3s}
-.lp-nl-meta li:nth-child(4){animation-delay:3.3s}
-@keyframes nlFadeIn{
-  to{opacity:1;transform:translateX(0)}
+  font-size:var(--t-meta);
+  color:rgba(255,255,255,0.34);
+  line-height:var(--lh-ui);
+  text-align:center;
 }
 .lp-nl-cursor{
   display:inline-block;width:7px;height:13px;
-  background:#4ade80;margin-left:2px;vertical-align:middle;
+  background:#818cf8;margin-left:2px;vertical-align:middle;
   animation:blink 1s step-end infinite;
 }
 @keyframes blink{
   0%,100%{opacity:1}
   50%{opacity:0}
 }
-.lp-nl-tree-char{color:rgba(255,255,255,0.2);flex-shrink:0}
-.lp-nl-link{
+.lp-nl-success{
   font-family:'SF Mono','Fira Code',monospace;
-  font-size:var(--t-meta);color:#4ade80;text-decoration:none;
+  font-size:var(--t-meta);
+  color:#4ade80;
+  font-weight:800;
 }
-.lp-nl-link:hover{opacity:0.8}
 
 /* ── Footer ─────────────────────────────────── */
 .lp-footer{
