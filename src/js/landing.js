@@ -51,6 +51,36 @@ function initCanvas() {
   draw();
 }
 
+function initMainCategories() {
+  const deck = document.querySelector('.lp-main-categories');
+  const cards = document.querySelectorAll('.lp-main-category');
+  const command = document.getElementById('mainCategoryCommand');
+  if (!deck || !cards.length) return;
+
+  cards.forEach(card => {
+    const accent = card.dataset.accent;
+    if (accent) card.style.setProperty('--accent', accent);
+  });
+
+  function setActive(card) {
+    cards.forEach(c => c.classList.toggle('active', c === card));
+    if (command && card.dataset.command) command.textContent = card.dataset.command;
+  }
+
+  deck.addEventListener('mousemove', e => {
+    const rect = deck.getBoundingClientRect();
+    deck.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+    deck.style.setProperty('--my', `${e.clientY - rect.top}px`);
+  });
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => setActive(card));
+    card.addEventListener('focus', () => setActive(card));
+  });
+
+  setActive(document.querySelector('.lp-main-category.active') || cards[0]);
+}
+
 /* ── Radial infographic ───────────────────── */
 function initRadial() {
   const wrap = document.getElementById('lp-radial-wrap');
@@ -477,14 +507,14 @@ function initFeatSwitcher() {
   const vizs   = document.querySelectorAll('.lp-viz');
   let current  = 0;
   let autoTimer = null;
-  const DURATIONS = [5000, 0, 5000, 0]; /* CLI=1 and Search=3 drive themselves via onDone */
+  const DURATIONS = [5000, 5000, 0, 0, 0, 5000]; /* CLI, Ask, and Search are user/input driven */
   const started  = {};
 
   function scheduleNext() {
     clearTimeout(autoTimer);
     if (DURATIONS[current] === 0) return;
     autoTimer = setTimeout(() => {
-      switchTo((current + 1) % 4);
+      switchTo((current + 1) % rows.length);
       scheduleNext();
     }, DURATIONS[current]);
   }
@@ -496,9 +526,10 @@ function initFeatSwitcher() {
     if (!started[idx]) {
       started[idx] = true;
       if (idx === 0) initMapTree();
-      else if (idx === 1) initDemoTerm(() => { switchTo(2); scheduleNext(); });
-      else if (idx === 2) initTimelineViz();
-      else if (idx === 3) initSearchViz(() => { switchTo(0); scheduleNext(); });
+      else if (idx === 1) initGraphCloud();
+      else if (idx === 2) initDemoTerm(() => { switchTo(3); scheduleNext(); });
+      else if (idx === 3) initAskGeoMind();
+      else if (idx === 4) initSearchViz(() => { switchTo(0); scheduleNext(); });
     }
   }
 
@@ -511,6 +542,406 @@ function initFeatSwitcher() {
 
   switchTo(0);
   scheduleNext();
+}
+
+function initGraphCloud() {
+  const canvas = document.getElementById('lpGraphCanvas');
+  if (!canvas || canvas.dataset.ready === 'true') return;
+  canvas.dataset.ready = 'true';
+
+  const ctx = canvas.getContext('2d');
+  const topicEl = document.getElementById('lpGraphTopic');
+  const topicMetaEl = document.getElementById('lpGraphTopicMeta');
+  const words = [
+    'GeoAI','SAR','Sentinel-1','Landsat','Prithvi','Clay','SAM','TerraMind','xView','DOTA',
+    'change detection','building detection','segmentation','flood mapping','wildfire','LiDAR',
+    'hyperspectral','STAC','COG','GeoParquet','H3','S2','transformers','ViT','CNN','U-Net',
+    'YOLO','LoRA','RAG','agents','foundation models','remote sensing','weather','urban',
+    'agriculture','deforestation','roads','ships','cloud mask','embeddings','reranking',
+    'vector search','Kaggle','Hugging Face','papers','code','benchmarks','companies','jobs',
+    'learning path','tutorials','MLOps','deployment','edge AI','spatial index','OGC','datasets',
+    'labels','evaluation','Python API','notebooks','pip install','geospatial','GIS','QGIS',
+    'ArcGIS','PostGIS','GeoPandas','Rasterio','Xarray','Zarr','NetCDF','GeoTIFF','GDAL',
+    'PROJ','CRS','EPSG','WGS84','UTM','Web Mercator','vector tiles','Mapbox','Leaflet',
+    'OpenLayers','deck.gl','Kepler.gl','Cesium','3D tiles','point clouds','LAZ','LAS',
+    'DEM','DSM','DTM','slope','aspect','hillshade','watershed','hydrology','land cover',
+    'land use','NDVI','EVI','NDWI','NBR','spectral bands','multispectral','thermal',
+    'radar backscatter','InSAR','Sentinel-2','MODIS','PlanetScope','WorldView','NAIP',
+    'Copernicus','NOAA','ECMWF','ERA5','OpenStreetMap','geocoding','routing','isochrones',
+    'spatial join','buffer','overlay','tiling','quadkey','geohash','spatiotemporal',
+    'object detection','scene classification','super-resolution','pan-sharpening',
+    'image registration','orthorectification','cloud removal','time series','anomaly detection',
+    'crop mapping','soil moisture','coastline','bathymetry','terrain','cartography',
+    'spatial database','STAC catalog','earth observation','satellite imagery','aerial imagery',
+    'drone imagery','geodesy','topology','spatial autocorrelation','kriging','Gaussian process'
+  ];
+  const topics = [
+    {
+      label: 'Dataset Graph',
+      meta: 'training data · labels · benchmarks · evaluation',
+      color: '6,182,212',
+      words: ['Datasets','Sentinel-2','Landsat','xView','DOTA','NAIP','labels','benchmarks','STAC catalog','COG','GeoTIFF','Zarr','NetCDF','building detection','change detection','cloud mask','land cover','flood mapping','crop mapping','evaluation','training data','Kaggle','Hugging Face','GeoParquet'],
+    },
+    {
+      label: 'Paper Graph',
+      meta: 'papers · methods · tasks · code · citations',
+      color: '129,140,248',
+      words: ['Papers','methods','code','SOTA','citations','benchmarks','segmentation','object detection','super-resolution','SAR segmentation','ViT','U-Net','YOLO','LoRA','RAG','evaluation','ablation','pretraining','fine-tuning','remote sensing','CVPR','NeurIPS','ICLR','Papers with Code'],
+    },
+    {
+      label: 'Foundation Graph',
+      meta: 'foundation models · embeddings · VLMs · agents',
+      color: '168,85,247',
+      words: ['Foundation Models','Prithvi','Clay','SAM','TerraMind','GeoCLIP','SatMAE','SpectralGPT','RemoteCLIP','GeoChat','VLMs','LLMs','agents','embeddings','multimodal','transformers','ViT','self-supervised','masked modeling','zero-shot','few-shot','fine-tuning','vector search','reranking'],
+    },
+  ];
+
+  const mouse = { x: 0, y: 0, active: false };
+  const particles = [];
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let rotX = -0.18;
+  let rotY = 0;
+  let activeTopic = -1;
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = Math.max(rect.width, 1);
+    height = Math.max(rect.height, 1);
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function makeParticle(i) {
+    const isWord = i % 7 === 0;
+    const theta = Math.random() * Math.PI * 2;
+    const u = Math.random() * 2 - 1;
+    const radius = 0.34 + Math.pow(Math.random(), 0.45) * 0.66;
+    const ringNoise = 0.82 + Math.random() * 0.34;
+    const shellX = Math.sqrt(1 - u * u) * Math.cos(theta) * radius * ringNoise;
+    const shellY = Math.sqrt(1 - u * u) * Math.sin(theta) * radius * (0.72 + Math.random() * 0.22);
+    const shellZ = u * radius * (0.88 + Math.random() * 0.2);
+    return {
+      x: shellX,
+      y: shellY,
+      z: shellZ,
+      sx: 0,
+      sy: 0,
+      depth: 0,
+      r: isWord ? 1.7 + Math.random() * 1.4 : 0.75 + Math.random() * 1.25,
+      isWord,
+      wordIndex: isWord ? (i / 7 | 0) : -1,
+      word: isWord ? words[(i / 7 | 0) % words.length] : '',
+      phase: Math.random() * Math.PI * 2,
+      hue: Math.random() > 0.72 ? 'cyan' : 'indigo',
+    };
+  }
+
+  resize();
+  const count = Math.min(760, Math.max(430, Math.floor((width * height) / 600)));
+  for (let i = 0; i < count; i++) particles.push(makeParticle(i));
+
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+  });
+  canvas.addEventListener('mouseleave', () => { mouse.active = false; });
+  window.addEventListener('resize', resize);
+
+  function tick(t) {
+    ctx.clearRect(0, 0, width, height);
+    const topicIndex = Math.floor(t / 2000) % topics.length;
+    const topic = topics[topicIndex];
+    if (topicIndex !== activeTopic) {
+      activeTopic = topicIndex;
+      if (topicEl) topicEl.textContent = topic.label;
+      if (topicMetaEl) topicMetaEl.textContent = topic.meta;
+    }
+
+    const cx = width / 2;
+    const cy = height / 2 - 6;
+    const sphereR = Math.min(width * 0.38, height * 0.42);
+    const perspective = 2.7;
+
+    rotY += mouse.active ? 0.0018 : 0.00105;
+    rotX += ((mouse.active ? (mouse.y / height - 0.5) * 0.55 : -0.18) - rotX) * 0.018;
+    const mouseYaw = mouse.active ? (mouse.x / width - 0.5) * 0.35 : 0;
+
+    const sinY = Math.sin(rotY + mouseYaw);
+    const cosY = Math.cos(rotY + mouseYaw);
+    const sinX = Math.sin(rotX);
+    const cosX = Math.cos(rotX);
+
+    particles.forEach((p, i) => {
+      const wobble = 1 + Math.sin(t * 0.00035 + p.phase) * 0.035;
+      const x1 = p.x * cosY - p.z * sinY;
+      const z1 = p.x * sinY + p.z * cosY;
+      const y1 = p.y * cosX - z1 * sinX;
+      const z2 = p.y * sinX + z1 * cosX;
+      const scale = perspective / (perspective - z2 * wobble);
+
+      p.sx = cx + x1 * sphereR * scale;
+      p.sy = cy + y1 * sphereR * scale;
+      p.depth = (z2 + 1) / 2;
+      p.scale = scale;
+    });
+
+    const linkDistance = Math.min(72, width * 0.13);
+    const sorted = particles.slice().sort((a, b) => a.depth - b.depth);
+    for (let i = 0; i < sorted.length; i++) {
+      const a = sorted[i];
+      for (let j = i + 1; j < Math.min(sorted.length, i + 24); j++) {
+        const b = sorted[j];
+        const dx = a.sx - b.sx;
+        const dy = a.sy - b.sy;
+        const dist = Math.hypot(dx, dy);
+        if (dist < linkDistance) {
+          const depthAlpha = Math.max(a.depth, b.depth);
+          const alpha = (1 - dist / linkDistance) * 0.14 * depthAlpha;
+          ctx.strokeStyle = `rgba(129,140,248,${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.sx, a.sy);
+          ctx.lineTo(b.sx, b.sy);
+          ctx.stroke();
+        }
+      }
+    }
+
+    const topicNodes = sorted
+      .filter(p => p.isWord && p.depth > 0.34)
+      .slice(-18);
+    for (let i = 0; i < topicNodes.length; i++) {
+      const a = topicNodes[i];
+      const b = topicNodes[(i + 1) % topicNodes.length];
+      const c = topicNodes[(i + 5) % topicNodes.length];
+      [b, c].forEach(target => {
+        const alpha = 0.08 + Math.min(a.depth, target.depth) * 0.2;
+        ctx.strokeStyle = `rgba(${topic.color},${alpha})`;
+        ctx.lineWidth = 1.15;
+        ctx.beginPath();
+        ctx.moveTo(a.sx, a.sy);
+        ctx.lineTo(target.sx, target.sy);
+        ctx.stroke();
+      });
+    }
+
+    sorted.forEach((p, i) => {
+      const isTopicWord = p.isWord;
+      const glow = isTopicWord ? topic.color : (p.hue === 'cyan' ? '6,182,212' : '129,140,248');
+      const pulse = 0.55 + Math.sin(t * 0.0007 + p.phase) * 0.18;
+      const alpha = 0.18 + p.depth * 0.62;
+      const radius = (p.r + pulse * 0.6 + (isTopicWord ? 0.45 : 0)) * (0.6 + p.depth * 0.9);
+      ctx.fillStyle = `rgba(${glow},${alpha})`;
+      ctx.beginPath();
+      ctx.arc(p.sx, p.sy, radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (p.isWord && p.depth > 0.28) {
+        const label = topic.words[p.wordIndex % topic.words.length] || p.word;
+        const size = (label.length > 14 ? 9.5 : 10.5) + p.depth * 1.2;
+        ctx.font = `${size}px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif`;
+        ctx.fillStyle = `rgba(255,255,255,${0.22 + p.depth * 0.48})`;
+        ctx.fillText(label, p.sx + radius + 5, p.sy + 4);
+      }
+    });
+
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+}
+
+function initAskGeoMind() {
+  const form = document.getElementById('lpAskForm');
+  const input = document.getElementById('lpAskInput');
+  const messages = document.getElementById('lpAskMessages');
+  const submit = form?.querySelector('.lp-ask-submit');
+  if (!form || !input || !messages) return;
+  let userInteracted = false;
+  let demoRunning = false;
+
+  const routes = [
+    {
+      keys: ['paper', 'code', 'benchmark', 'method', 'implementation', 'sota'],
+      title: 'Paper with Code',
+      href: 'pages/paper-with-code.html',
+      text: 'Start with Paper with Code. That is where methods, benchmark results, and implementation links should live.'
+    },
+    {
+      keys: ['foundation', 'model', 'vlm', 'llm', 'agent', 'prithvi', 'clay', 'sam'],
+      title: 'Foundation Models',
+      href: 'pages/foundation-models.html',
+      text: 'Start with Foundation Models. It is the right place for base models, VLMs, LLMs, and agentic GeoAI work.'
+    },
+    {
+      keys: ['dataset', 'data', 'sentinel', 'landsat', 'change detection', 'building', 'segmentation'],
+      title: 'Datasets',
+      href: 'pages/datasets.html',
+      text: 'Start with Datasets. Look there when your question is about training data, benchmarks, labels, or evaluation sets.'
+    },
+    {
+      keys: ['job', 'hire', 'hiring', 'career', 'salary', 'role', 'remote', 'internship'],
+      title: 'Job Market',
+      href: 'pages/job-market.html',
+      text: 'Start with Job Market. That page is for roles, hiring signals, required skills, and market context.'
+    },
+    {
+      keys: ['company', 'startup', 'vendor', 'provider', 'platform', 'lab', 'business'],
+      title: 'Companies',
+      href: 'pages/companies.html',
+      text: 'Start with Companies. Use it to explore startups, labs, platforms, satellite providers, and the ecosystem.'
+    },
+    {
+      keys: ['learn', 'course', 'book', 'tutorial', 'beginner', 'zero', 'start', 'study'],
+      title: 'Learn',
+      href: 'pages/learn.html',
+      text: 'Start with Learn. It is best for courses, tutorials, books, and a clean path from basics to practice.'
+    },
+  ];
+
+  function escapeHtml(value) {
+    return value.replace(/[&<>"']/g, char => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    }[char]));
+  }
+
+  function appendMessage(kind, text, route) {
+    const msg = document.createElement('div');
+    msg.className = `lp-ask-msg lp-ask-msg-${kind}`;
+    const role = kind === 'user' ? 'You' : 'GeoMind';
+    msg.innerHTML = `<span class="lp-ask-role">${role}</span><p>${escapeHtml(text)}</p>`;
+    if (route) {
+      const a = document.createElement('a');
+      a.className = 'lp-ask-link';
+      a.href = route.href;
+      a.textContent = `Open ${route.title} →`;
+      msg.appendChild(a);
+    }
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function appendStreamingBot(route, onDone) {
+    const msg = document.createElement('div');
+    msg.className = 'lp-ask-msg lp-ask-msg-bot lp-ask-msg-streaming';
+    msg.innerHTML = `
+      <span class="lp-ask-role">GeoMind</span>
+      <p class="lp-ask-thinking" aria-live="polite"><span></span><span></span><span></span></p>
+    `;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+
+    const p = msg.querySelector('p');
+    const words = route.text.split(' ');
+    let index = 0;
+
+    window.setTimeout(() => {
+      p.className = '';
+      p.textContent = '';
+
+      const timer = window.setInterval(() => {
+        p.textContent += `${index === 0 ? '' : ' '}${words[index]}`;
+        index += 1;
+        messages.scrollTop = messages.scrollHeight;
+
+        if (index >= words.length) {
+          window.clearInterval(timer);
+          const a = document.createElement('a');
+          a.className = 'lp-ask-link lp-ask-link-reveal';
+          a.href = route.href;
+          a.textContent = `Open ${route.title} →`;
+          msg.appendChild(a);
+          msg.classList.remove('lp-ask-msg-streaming');
+          input.disabled = false;
+          if (submit) submit.disabled = false;
+          demoRunning = false;
+          if (onDone) onDone();
+          if (userInteracted) input.focus();
+        }
+      }, 72);
+    }, 620);
+  }
+
+  function pickRoute(query) {
+    const q = query.toLowerCase();
+    return routes.find(route => route.keys.some(key => q.includes(key))) || {
+      title: 'Knowledge Map',
+      href: 'pages/app.html',
+      text: 'If you are not sure yet, open the full knowledge map first. It lets you scan every layer and then narrow down.'
+    };
+  }
+
+  function ask(query, options = {}) {
+    const clean = query.trim();
+    if (!clean) return;
+    if (!options.demo) userInteracted = true;
+    appendMessage('user', clean);
+    input.value = '';
+    input.disabled = true;
+    if (submit) submit.disabled = true;
+    const route = pickRoute(clean);
+    appendStreamingBot(route, options.onDone);
+  }
+
+  function runDemo() {
+    if (userInteracted || demoRunning || messages.querySelector('.lp-ask-msg-user')) return;
+    demoRunning = true;
+    input.disabled = true;
+    if (submit) submit.disabled = true;
+
+    const demoPrompt = 'I need satellite datasets for building detection';
+    let index = 0;
+
+    const timer = window.setInterval(() => {
+      if (userInteracted) {
+        window.clearInterval(timer);
+        demoRunning = false;
+        input.value = '';
+        input.disabled = false;
+        if (submit) submit.disabled = false;
+        return;
+      }
+
+      input.value = demoPrompt.slice(0, index + 1);
+      index += 1;
+
+      if (index >= demoPrompt.length) {
+        window.clearInterval(timer);
+        window.setTimeout(() => {
+          ask(input.value, {
+            demo: true,
+            onDone: () => {
+              input.placeholder = 'Ask what you want to find in GeoAI';
+            },
+          });
+        }, 420);
+      }
+    }, 46);
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    ask(input.value);
+  });
+
+  input.addEventListener('focus', () => {
+    if (!demoRunning) userInteracted = true;
+  });
+  input.addEventListener('input', () => {
+    if (!demoRunning) userInteracted = true;
+  });
+
+  window.setTimeout(runDemo, 520);
 }
 
 /* ── Knowledge Map mini radial ───────────────── */
@@ -576,44 +1007,6 @@ function initMapViz() {
   }
   animMap();
   setInterval(animMap, CYCLE_MS);
-}
-
-/* ── AI History Timeline viz ─────────────────── */
-function initTimelineViz() {
-  const wrap = document.getElementById('lpTimelineViz');
-  if (!wrap) return;
-  const eras = [
-    {year:'1990s', name:'Classical ML',       sub:'SVM, RF, k-NN',                   col:'#6366F1'},
-    {year:'2012',  name:'CNNs',               sub:'ResNet, U-Net, YOLO',              col:'#7C3AED'},
-    {year:'2014',  name:'GANs / Autoencoders',sub:'cGAN, VAE, Siamese',               col:'#8B5CF6'},
-    {year:'2016',  name:'RNN / LSTM',         sub:'Temporal, sequences',              col:'#0EA5E9'},
-    {year:'2020',  name:'Transformers',        sub:'ViT, Swin, BERT',                 col:'#06B6D4'},
-    {year:'2021',  name:'Diffusion Models',   sub:'DDPM, DiffusionSat',               col:'#14B8A6'},
-    {year:'2022',  name:'Foundation Models',  sub:'Prithvi, Clay, SAM, SpectralGPT',  col:'#22C55E'},
-    {year:'2023→', name:'VLMs / LLMs',        sub:'GeoChat, RemoteCLIP, TerraMind',   col:'#EAB308'},
-    {year:'2024→', name:'Agentic AI',         sub:'GeoLLM-Squad, Earth-Agent',        col:'#F97316'},
-  ];
-
-  const cards = [];
-  eras.forEach(e => {
-    const d = document.createElement('div');
-    d.className = 'lp-tl-card';
-    d.style.setProperty('--tc', e.col);
-    d.innerHTML = `<div class="lp-tl-year">${e.year}</div><div><div class="lp-tl-name">${e.name}</div><div class="lp-tl-sub">${e.sub}</div></div>`;
-    wrap.appendChild(d);
-    cards.push(d);
-  });
-
-  /* stagger in */
-  cards.forEach((c,i) => setTimeout(() => c.classList.add('show'), i*180));
-
-  /* auto-scroll loop */
-  let dir = 1;
-  setInterval(() => {
-    wrap.scrollTop += dir * 2;
-    if (wrap.scrollTop + wrap.clientHeight >= wrap.scrollHeight - 4) dir = -1;
-    if (wrap.scrollTop <= 0) dir = 1;
-  }, 40);
 }
 
 /* ── Instant Search viz ──────────────────────── */
@@ -822,6 +1215,7 @@ function initDemoTerm(onDone) {
         { t:'row',  cmd:'cd [layer]',      desc:'navigate into a layer' },
         { t:'row',  cmd:'cd ..',           desc:'go back to root' },
         { t:'row',  cmd:'pwd',             desc:'print current location' },
+        { t:'row',  cmd:'search [query]',  desc:'search across all layers' },
         { t:'row',  cmd:'clear',           desc:'clear the terminal' },
         { t:'row',  cmd:'help',            desc:'show this message' },
         { t:'blank' },
@@ -1102,4 +1496,10 @@ function initAudience() {
   rafId = requestAnimationFrame(tick);
 }
 
-document.addEventListener('DOMContentLoaded', () => { initCanvas(); initRadial(); initAudience(); initFeatSwitcher(); });
+document.addEventListener('DOMContentLoaded', () => {
+  initCanvas();
+  initMainCategories();
+  initRadial();
+  initAudience();
+  initFeatSwitcher();
+});

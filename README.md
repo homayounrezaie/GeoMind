@@ -296,3 +296,65 @@ GEOMIND
     ├── Educators
     ├── Recruiters & Hiring Teams
     └── Open Source Contributors
+│
+├── Physical AI
+│   ├── Robotics
+│   │   ├── Agricultural Robots
+│   │   ├── Field Robots
+│   │   ├── Inspection Robots
+│   │   ├── Warehouse & Logistics Robots
+│   │   └── Humanoid / Mobile Manipulators
+│   │
+│   ├── Drones & UAVs
+│   │   ├── Aerial Mapping
+│   │   ├── Inspection Drones
+│   │   ├── Agricultural Drones
+│   │   ├── Delivery Drones
+│   │   ├── Swarm Systems
+│   │   └── BVLOS Operations
+│   │
+│   ├── Autonomous Systems
+│   │   ├── Autonomous Vehicles
+│   │   ├── Autonomous Logistics
+│   │   ├── Maritime Autonomy
+│   │   ├── Aerial Autonomy
+│   │   └── Off-Road Autonomy
+│   │
+│   ├── Edge AI
+│   │   ├── On-Device Inference
+│   │   ├── Onboard Satellite Compute
+│   │   ├── Embedded Accelerators
+│   │   │   ├── Jetson
+│   │   │   ├── Coral TPU
+│   │   │   └── Hailo
+│   │   ├── Model Optimization
+│   │   │   ├── Quantization
+│   │   │   ├── Pruning
+│   │   │   └── Distillation
+│   │   └── Real-Time Inference
+│   │
+│   ├── Sensing & Perception
+│   │   ├── LiDAR
+│   │   ├── Multispectral / Hyperspectral
+│   │   ├── Thermal
+│   │   ├── RGB / Stereo
+│   │   ├── IMU & GNSS
+│   │   ├── SLAM
+│   │   └── Sensor Fusion
+│   │
+│   ├── Deployment Use Cases
+│   │   ├── Precision Agriculture
+│   │   ├── Infrastructure Monitoring
+│   │   ├── Pipeline & Powerline Inspection
+│   │   ├── Construction Monitoring
+│   │   ├── Last-Mile Logistics
+│   │   ├── Mining Automation
+│   │   └── Environmental Monitoring
+│   │
+│   └── Foundations for Physical AI
+│       ├── GFMs as Backbone
+│       ├── World Models
+│       ├── Sim-to-Real
+│       ├── Digital Twins
+│       ├── Vision-Language-Action Models
+│       └── Robot Learning

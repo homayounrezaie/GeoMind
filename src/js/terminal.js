@@ -43,7 +43,7 @@ function tpSuggest(text) {
 
 /* ── Inline prompt row ───────────────────── */
 
-const COMMANDS = ['ls', 'cd', 'pwd', 'clear', 'help'];
+const COMMANDS = ['ls', 'cd', 'pwd', 'search', 'clear', 'help'];
 
 function tabComplete(input) {
   const trimmed = input.trimStart();
@@ -243,6 +243,22 @@ function cmdPwd() {
   });
 }
 
+function cmdSearch(arg) {
+  if (!arg) {
+    tp('usage: search [query]', 'dim');
+    return;
+  }
+  const searchEl = document.getElementById('search');
+  if (!searchEl) {
+    tp('search is not available here', 'err');
+    return;
+  }
+  searchEl.value = arg;
+  searchEl.dispatchEvent(new Event('input', { bubbles: true }));
+  searchEl.focus();
+  tp(`searching: ${arg}`, 'acc');
+}
+
 function cmdHelp() {
   tp('', '');
   tp('  COMMAND          DESCRIPTION', 'dim');
@@ -252,6 +268,7 @@ function cmdHelp() {
   tp('  cd [layer]       navigate into a layer', '');
   tp('  cd ..            go back to root', '');
   tp('  pwd              print current location', '');
+  tp('  search [query]   search across all layers', '');
   tp('  clear            clear the terminal', '');
   tp('  help             show this message', '');
   tp('', '');
@@ -274,6 +291,7 @@ function runCmd(raw) {
       case 'ls':    cmdLs(arg);  break;
       case 'cd':    cmdCd(arg);  break;
       case 'pwd':   cmdPwd();    break;
+      case 'search': cmdSearch(arg); break;
       case 'clear':
         out.innerHTML = '';
         appendPrompt();
