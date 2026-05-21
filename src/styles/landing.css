@@ -194,30 +194,60 @@ nav,section,footer{position:relative;z-index:1}
   gap:8px;
 }
 .lp-goal-list a{
+  --goal:#818cf8;
+  position:relative;
   display:grid;
   gap:4px;
-  padding:14px 15px;
+  padding:14px 15px 14px 19px;
   min-height:72px;
   border:1px solid rgba(255,255,255,0.08);
+  border-left-color:color-mix(in srgb, var(--goal) 62%, rgba(255,255,255,0.08));
   border-radius:10px;
   background:rgba(7,8,14,0.64);
   color:#fff;
   text-decoration:none;
   transition:background .16s,border-color .16s,transform .16s;
+  overflow:hidden;
+}
+.lp-goal-list a::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:12px;
+  bottom:12px;
+  width:3px;
+  border-radius:0 999px 999px 0;
+  background:var(--goal);
+  box-shadow:0 0 20px color-mix(in srgb, var(--goal) 40%, transparent);
+}
+.lp-goal-list a::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, color-mix(in srgb, var(--goal) 10%, transparent), transparent 44%);
+  opacity:.35;
+  pointer-events:none;
+  transition:opacity .16s;
 }
 .lp-goal-list a:hover,
 .lp-goal-list a:focus-visible{
-  background:rgba(14,16,28,0.92);
-  border-color:rgba(129,140,248,0.42);
+  background:color-mix(in srgb, var(--goal) 8%, rgba(14,16,28,0.92));
+  border-color:color-mix(in srgb, var(--goal) 48%, rgba(255,255,255,0.12));
   transform:translateY(-2px);
   outline:none;
 }
+.lp-goal-list a:hover::after,
+.lp-goal-list a:focus-visible::after{opacity:.75}
 .lp-goal-list span{
+  position:relative;
+  z-index:1;
   font-size:14px;
   font-weight:800;
   line-height:1.25;
 }
 .lp-goal-list strong{
+  position:relative;
+  z-index:1;
   color:rgba(255,255,255,0.58);
   font-size:12px;
   font-weight:550;
