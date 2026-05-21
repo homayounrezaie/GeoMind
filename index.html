@@ -304,6 +304,65 @@
       text-align:right;
       white-space:nowrap;
     }
+    .gm-gh-label.has-icon{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      line-height:1;
+    }
+    .gm-platform-icon{
+      position:relative;
+      display:inline-grid;
+      place-items:center;
+      width:18px;
+      height:18px;
+      color:#7d8590;
+      outline:none;
+    }
+    .gm-platform-icon img{
+      display:block;
+      width:16px;
+      height:16px;
+      filter:grayscale(1);
+      opacity:.78;
+      transition:opacity .16s ease, filter .16s ease;
+    }
+    .gm-platform-icon:hover img{
+      opacity:1;
+      filter:none;
+    }
+    .gm-platform-icon::after{
+      content:attr(aria-label);
+      position:absolute;
+      top:50%;
+      right:24px;
+      z-index:5;
+      opacity:0;
+      transform:translate(4px,-50%);
+      padding:4px 6px;
+      border:1px solid #30363d;
+      border-radius:4px;
+      background:#161b22;
+      color:#f0f6fc;
+      font-size:11px;
+      font-weight:700;
+      line-height:1.2;
+      white-space:nowrap;
+      pointer-events:none;
+      transition:opacity .16s ease, transform .16s ease;
+    }
+    .gm-platform-icon:hover::after,
+    .gm-platform-icon:focus-visible::after{
+      opacity:1;
+      transform:translate(0,-50%);
+    }
+    .gm-platform-icon-fallback{
+      display:none;
+      color:#7d8590;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
     .gm-gh-cells{
       position:relative;
       display:grid;
@@ -1016,11 +1075,11 @@ function nlSubmit(e) {
   ];
 
   const platformRows = [
-    { id: 'huggingface', name: 'Hugging Face', noun: 'Hub updates', weight: 1.2, seed: 7 },
-    { id: 'arxiv', name: 'arXiv', noun: 'papers', weight: 1.16, seed: 19 },
-    { id: 'github', name: 'GitHub', noun: 'repo updates', weight: 1.02, seed: 31 },
-    { id: 'pwc', name: 'Papers With Code', noun: 'benchmark updates', weight: .76, seed: 47 },
-    { id: 'kaggle', name: 'Kaggle', noun: 'datasets', weight: .62, seed: 61 },
+    { id: 'huggingface', name: 'Hugging Face', noun: 'Hub updates', weight: 1.2, seed: 7, icon: 'https://cdn.simpleicons.org/huggingface/7d8590', fallback: 'HF' },
+    { id: 'arxiv', name: 'arXiv', noun: 'papers', weight: 1.16, seed: 19, icon: 'https://cdn.simpleicons.org/arxiv/7d8590', fallback: 'arXiv' },
+    { id: 'github', name: 'GitHub', noun: 'repo updates', weight: 1.02, seed: 31, icon: 'https://cdn.simpleicons.org/github/7d8590', fallback: 'GH' },
+    { id: 'pwc', name: 'Papers With Code', noun: 'benchmark updates', weight: .76, seed: 47, icon: 'https://cdn.simpleicons.org/paperswithcode/7d8590', fallback: 'PWC' },
+    { id: 'kaggle', name: 'Kaggle', noun: 'datasets', weight: .62, seed: 61, icon: 'https://cdn.simpleicons.org/kaggle/7d8590', fallback: 'KG' },
   ];
 
   const charts = [
@@ -1190,7 +1249,12 @@ function nlSubmit(e) {
     chart.rows.forEach(row => {
       const label = document.createElement('div');
       label.className = 'gm-gh-label';
-      label.textContent = row.name;
+      if (row.icon) {
+        label.classList.add('has-icon');
+        label.innerHTML = `<span class="gm-platform-icon" role="img" aria-label="${row.name}" title="${row.name}" tabindex="0"><img src="${row.icon}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"><span class="gm-platform-icon-fallback">${row.fallback || row.name}</span></span>`;
+      } else {
+        label.textContent = row.name;
+      }
       rowLabels.appendChild(label);
     });
 
