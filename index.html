@@ -209,10 +209,11 @@
       max-width:1100px;
       margin:0 auto;
       color:#c9d1d9;
-      --cell:11px;
-      --row-h:11px;
+      --cell:12px;
       --gap:3px;
-      --label-w:118px;
+      --row-gap:6px;
+      --label-w:130px;
+      --label-pad:14px;
     }
     .gm-heatmap-intro{
       max-width:760px;
@@ -234,7 +235,7 @@
       margin:0;
     }
     .gm-gh-chart{
-      margin:0 0 80px;
+      margin:0 0 60px;
     }
     .gm-gh-chart:last-child{margin-bottom:0}
     .gm-gh-title{
@@ -258,65 +259,107 @@
     }
     .gm-gh-stage{
       position:relative;
-      width:var(--natural-w);
+      width:var(--chart-w);
+      min-height:142px;
     }
-    .gm-gh-months{
+    .gm-gh-axis{
       position:relative;
-      display:grid;
-      grid-template-columns:repeat(var(--weeks),var(--cell));
-      gap:var(--gap);
-      height:18px;
-      margin-left:calc(var(--label-w) + 10px);
+      width:var(--cells-w);
+      height:42px;
+      margin-left:calc(var(--label-w) + var(--label-pad));
+    }
+    .gm-gh-year,
+    .gm-gh-month{
+      position:absolute;
+      white-space:nowrap;
+    }
+    .gm-gh-year{
+      top:0;
+      color:#fff;
+      font-size:13px;
+      font-weight:700;
+      line-height:16px;
     }
     .gm-gh-month{
+      top:22px;
       color:#7d8590;
       font-size:11px;
       line-height:14px;
-      white-space:nowrap;
     }
     .gm-gh-body{
       display:grid;
       grid-template-columns:var(--label-w) max-content;
-      column-gap:10px;
+      column-gap:var(--label-pad);
       align-items:start;
     }
     .gm-gh-labels{
       display:grid;
-      grid-template-rows:repeat(5,var(--row-h));
-      gap:var(--gap);
+      grid-template-rows:repeat(5,var(--cell));
+      row-gap:var(--row-gap);
     }
     .gm-gh-label{
       color:#7d8590;
       font-size:12px;
-      line-height:var(--row-h);
+      line-height:var(--cell);
       text-align:right;
       white-space:nowrap;
     }
     .gm-gh-cells{
       position:relative;
       display:grid;
-      grid-template-columns:repeat(var(--weeks),var(--cell));
-      grid-template-rows:repeat(5,var(--row-h));
+      grid-template-columns:repeat(var(--columns),12px);
+      grid-auto-rows:12px;
       grid-auto-flow:column;
-      gap:var(--gap);
+      column-gap:3px;
+      row-gap:6px;
       width:max-content;
     }
     .gm-gh-cell{
-      width:var(--cell);
-      height:var(--row-h);
+      position:relative;
+      width:12px;
+      height:12px;
       border-radius:2px;
       background:#161b22;
       outline:1px solid rgba(255,255,255,.025);
+      opacity:0;
+      transform:translateY(2px);
     }
     .gm-gh-cell[data-level="1"]{background:#0e4429}
     .gm-gh-cell[data-level="2"]{background:#006d32}
     .gm-gh-cell[data-level="3"]{background:#26a641}
     .gm-gh-cell[data-level="4"]{background:#39d353}
+    .gm-gh-chart.is-revealing .gm-gh-cell{
+      animation:gmCellIn 200ms ease-out var(--delay,0ms) forwards;
+    }
+    .gm-gh-chart.is-complete .gm-gh-cell,
+    .gm-gh-chart.reduced-motion .gm-gh-cell{
+      opacity:1;
+      transform:none;
+    }
+    @keyframes gmCellIn{
+      to{opacity:1;transform:none}
+    }
+    .gm-gh-dot{
+      position:absolute;
+      top:-6px;
+      left:50%;
+      width:3px;
+      height:3px;
+      border-radius:999px;
+      background:#7d8590;
+      opacity:0;
+      transform:translateX(-50%);
+      pointer-events:none;
+    }
+    .gm-gh-chart.is-complete .gm-gh-dot,
+    .gm-gh-chart.reduced-motion .gm-gh-dot{
+      opacity:1;
+    }
     .gm-gh-today{
       position:absolute;
-      top:-18px;
+      top:-42px;
       bottom:-2px;
-      width:1.5px;
+      width:2px;
       background:#f85149;
       z-index:2;
       pointer-events:none;
@@ -330,13 +373,46 @@
       font-weight:600;
       white-space:nowrap;
     }
+    .gm-gh-pill{
+      position:absolute;
+      z-index:4;
+      display:none;
+      max-width:180px;
+      padding:3px 6px;
+      border-radius:4px;
+      border:1px solid #30363d;
+      background:#21262d;
+      color:#fff;
+      font-size:11px;
+      font-weight:700;
+      line-height:1.25;
+      white-space:nowrap;
+      pointer-events:none;
+      transform:translateY(0);
+    }
+    .gm-gh-pill.is-visible{
+      display:block;
+      animation:gmPillIn 200ms ease-out forwards;
+    }
+    .gm-gh-pill.is-leaving{
+      display:block;
+      animation:gmPillOut 200ms ease-out forwards;
+    }
+    @keyframes gmPillIn{
+      from{opacity:0;transform:translateY(6px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+    @keyframes gmPillOut{
+      from{opacity:1;transform:translateY(0)}
+      to{opacity:0;transform:translateY(-4px)}
+    }
     .gm-gh-footer{
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:16px;
       margin-top:12px;
-      margin-left:calc(var(--label-w) + 10px);
+      margin-left:calc(var(--label-w) + var(--label-pad));
       color:#7d8590;
       font-size:11px;
     }
@@ -377,14 +453,30 @@
       box-shadow:0 8px 24px rgba(0,0,0,.28);
     }
     .gm-gh-tip strong{display:block;color:#f0f6fc;margin-bottom:2px}
+    @media(max-width:700px){
+      .gm-gh-month{display:none}
+    }
     @media(max-width:640px){
-      .gm-heatmap-wrap{--cell:6px;--row-h:6px;--gap:2px;--label-w:104px}
+      .gm-heatmap-wrap{--label-w:130px}
       .gm-heatmap-intro{text-align:left;margin-bottom:44px}
       .gm-gh-chart{margin-bottom:72px}
       .gm-gh-scroll{overflow-x:auto}
       .gm-gh-label{font-size:11px}
       .gm-gh-footer{margin-left:var(--label-w);min-width:260px}
-      .gm-gh-swatch{width:6px;height:6px}
+      .gm-gh-swatch{width:8px;height:8px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .gm-gh-cell,
+      .gm-gh-chart.is-revealing .gm-gh-cell{
+        animation:none;
+        opacity:1;
+        transform:none;
+      }
+      .gm-gh-pill,
+      .gm-gh-pill.is-visible,
+      .gm-gh-pill.is-leaving{
+        animation:none;
+      }
     }
   </style>
   <div class="gm-heatmap-wrap">
@@ -860,35 +952,90 @@ function nlSubmit(e) {
 (function() {
   const MS_DAY = 24 * 60 * 60 * 1000;
   const WEEK = 7 * MS_DAY;
-  const START = new Date('2023-01-01T00:00:00');
+  const BUCKET_WEEKS = 7;
+  const CELL = 12;
+  const GAP = 3;
+  const ROW_GAP = 6;
+  const LABEL_W = 130;
+  const LABEL_PAD = 14;
+  const STEP = CELL + GAP;
+  const activeTransientPills = [];
+  const START = new Date('2021-01-01T00:00:00');
   const today = new Date();
   const end = today > START ? today : new Date('2026-05-21T00:00:00');
   const weeks = buildWeeks(START, end);
+  const buckets = buildBuckets(weeks, BUCKET_WEEKS);
+
+  const milestones = {
+    models: [
+      { date: '2021-03', name: 'SeCo' },
+      { date: '2021-11', name: 'GASSL' },
+      { date: '2022-07', name: 'RingMo' },
+      { date: '2022-10', name: 'SatMAE' },
+      { date: '2023-04', name: 'Scale-MAE' },
+      { date: '2023-08', name: 'Prithvi-100M (NASA·IBM)' },
+      { date: '2023-11', name: 'SatlasPretrain (AI2)' },
+      { date: '2024-01', name: 'Clay v0' },
+      { date: '2024-02', name: 'SpectralGPT' },
+      { date: '2024-04', name: 'RemoteCLIP' },
+      { date: '2024-06', name: 'Clay v1' },
+      { date: '2024-09', name: 'Prithvi-EO-2.0' },
+      { date: '2025-02', name: 'TerraMind (IBM·ESA)' },
+    ],
+    datasets: [
+      { date: '2021-05', name: 'BigEarthNet-MM' },
+      { date: '2022-09', name: 'fMoW-Sentinel' },
+      { date: '2023-06', name: 'SatlasPretrain (data)' },
+      { date: '2023-10', name: 'Major TOM' },
+      { date: '2024-05', name: 'Clay Pretrain Corpus' },
+    ],
+    papers: [
+      { date: '2022-07', name: 'FM for EO (survey)' },
+      { date: '2023-08', name: 'Prithvi paper' },
+      { date: '2024-04', name: 'Clay technical report' },
+      { date: '2025-01', name: 'TerraMind paper' },
+    ],
+    benchmarks: [
+      { date: '2023-09', name: 'GEO-Bench' },
+      { date: '2024-02', name: 'PhilEO-Bench' },
+      { date: '2024-07', name: 'PANGAEA' },
+    ],
+    tools: [
+      { date: '2021-10', name: 'TorchGeo' },
+      { date: '2023-05', name: 'segment-geospatial' },
+      { date: '2024-03', name: 'TerraTorch (IBM)' },
+    ],
+  };
+
+  const ecosystemRows = [
+    { id: 'models', name: 'Models', noun: 'models', weight: 1.08, seed: 11 },
+    { id: 'papers', name: 'Papers', noun: 'papers', weight: 1.22, seed: 23 },
+    { id: 'datasets', name: 'Datasets', noun: 'datasets', weight: .88, seed: 37 },
+    { id: 'benchmarks', name: 'Benchmarks', noun: 'benchmarks', weight: .78, seed: 43 },
+    { id: 'tools', name: 'Tools & Frameworks', noun: 'tools', weight: .72, seed: 59 },
+  ];
+
+  const platformRows = [
+    { id: 'huggingface', name: 'Hugging Face', noun: 'Hub updates', weight: 1.2, seed: 7 },
+    { id: 'arxiv', name: 'arXiv', noun: 'papers', weight: 1.16, seed: 19 },
+    { id: 'github', name: 'GitHub', noun: 'repo updates', weight: 1.02, seed: 31 },
+    { id: 'pwc', name: 'Papers With Code', noun: 'benchmark updates', weight: .76, seed: 47 },
+    { id: 'kaggle', name: 'Kaggle', noun: 'datasets', weight: .62, seed: 61 },
+  ];
 
   const charts = [
     {
       title: 'Foundation Model Ecosystem Growth',
-      subtitle: 'The data comes from a handful of public APIs: Hugging Face Hub for models and datasets, arXiv for papers, GitHub for tools and frameworks, Papers With Code for benchmarks, and Kaggle for community datasets. Everything is rolled up weekly, so you can watch the foundation-models ecosystem grow over time.',
+      subtitle: 'The data comes from a handful of public APIs: Hugging Face Hub for models and datasets, arXiv for papers, GitHub for tools and frameworks, Papers With Code for benchmarks, and Kaggle for community datasets. Everything is rolled into compact time windows, so you can watch the foundation-models ecosystem grow over time.',
       learn: true,
+      legend: true,
       today: true,
-      rows: [
-        makeRow('Models', 1.08, 11),
-        makeRow('Papers', 1.22, 23),
-        makeRow('Datasets', .88, 37),
-        makeRow('Benchmarks', .78, 43),
-        makeRow('Tools & Frameworks', .72, 59),
-      ],
+      rows: ecosystemRows.map(spec => makeRow(spec, milestones[spec.id] || [])),
     },
     {
       title: 'Activity by Platform',
       subtitle: 'Where the work is actually happening across the major public hubs.',
-      rows: [
-        makeRow('Hugging Face', 1.2, 7),
-        makeRow('arXiv', 1.16, 19),
-        makeRow('GitHub', 1.02, 31),
-        makeRow('Papers With Code', .76, 47),
-        makeRow('Kaggle', .62, 61),
-      ],
+      rows: platformRows.map(spec => makeRow(spec, [])),
     },
   ];
 
@@ -901,25 +1048,45 @@ function nlSubmit(e) {
     });
   }
 
-  function makeRow(name, weight, seed) {
-    return { name, counts: weeks.map(week => mockCount(week, weight, seed)) };
+  function buildBuckets(items, size) {
+    const total = Math.ceil(items.length / size);
+    return Array.from({ length: total }, (_, index) => {
+      const slice = items.slice(index * size, index * size + size);
+      return {
+        index,
+        from: slice[0].from,
+        to: slice[slice.length - 1].to,
+        weeks: slice,
+      };
+    });
+  }
+
+  function makeRow(spec, milestoneList) {
+    const counts = buckets.map(bucket => mockCount(bucket, spec.weight, spec.seed));
+    milestoneList.forEach(item => {
+      const index = bucketIndexForDate(item.date);
+      if (index >= 0) counts[index] = Math.max(counts[index], 18);
+    });
+    return { ...spec, counts, milestones: milestoneList };
   }
 
   function activeProfile(date) {
     const year = date.getFullYear();
+    if (year <= 2021) return { active: 0.06, min: 1, max: 2 };
+    if (year === 2022) return { active: 0.08, min: 1, max: 2 };
     if (year === 2023) return { active: 0.1, min: 1, max: 2 };
     if (year === 2024) return { active: 0.3, min: 1, max: 3 };
     if (year === 2025) return { active: 0.6, min: 2, max: 4 };
     return { active: 0.8, min: 3, max: 4 };
   }
 
-  function mockCount(week, weight, seed) {
-    const profile = activeProfile(week.from);
-    const noise = seeded(seed * 1009 + week.index * 31);
-    const wave = (Math.sin(week.index * 0.39 + seed) + 1) / 2;
+  function mockCount(bucket, weight, seed) {
+    const profile = activeProfile(bucket.from);
+    const noise = seeded(seed * 1009 + bucket.index * 31);
+    const wave = (Math.sin(bucket.index * 0.39 + seed) + 1) / 2;
     const active = noise < Math.min(0.96, profile.active * weight + wave * 0.05);
     if (!active) return 0;
-    const level = Math.max(profile.min, Math.min(profile.max, profile.min + Math.floor(seeded(seed + week.index * 17) * (profile.max - profile.min + 1))));
+    const level = Math.max(profile.min, Math.min(profile.max, profile.min + Math.floor(seeded(seed + bucket.index * 17) * (profile.max - profile.min + 1))));
     return Math.max(1, Math.round(level * (2 + weight * 3) + wave * level * 2));
   }
 
@@ -936,130 +1103,147 @@ function nlSubmit(e) {
     return 4;
   }
 
-  function monthLabels() {
-    const seen = new Set();
-    return weeks.flatMap((week, index) => {
-      const key = `${week.from.getFullYear()}-${week.from.getMonth()}`;
-      if (seen.has(key)) return [];
-      seen.add(key);
-      return [{ label: week.from.toLocaleDateString('en-US', { month: 'short' }), index }];
-    });
+  function axisLabels() {
+    const years = [];
+    const months = [];
+    const startYear = START.getFullYear();
+    const endYear = end.getFullYear();
+    for (let year = startYear; year <= endYear; year += 1) {
+      const yearIndex = bucketIndexForDate(`${year}-01`);
+      if (yearIndex >= 0) years.push({ label: String(year), index: yearIndex });
+      const ticks = [];
+      [0, 3, 6, 9].forEach(month => {
+        const date = new Date(year, month, 1);
+        if (date < START || date > end) return;
+        ticks.push(date.toLocaleDateString('en-US', { month: 'short' }));
+      });
+      if (ticks.length && yearIndex >= 0) months.push({ label: ticks.join(' · '), index: yearIndex });
+    }
+    return { years, months };
   }
 
-  function formatRange(week) {
+  function bucketIndexForDate(value) {
+    const date = parseMonth(value);
+    const index = buckets.findIndex(bucket => date >= bucket.from && date <= bucket.to);
+    if (index >= 0) return index;
+    if (date < buckets[0].from) return 0;
+    if (date > buckets[buckets.length - 1].to) return buckets.length - 1;
+    return buckets.findIndex(bucket => bucket.from > date);
+  }
+
+  function parseMonth(value) {
+    const [year, month] = value.split('-').map(Number);
+    return new Date(year, month - 1, 1);
+  }
+
+  function formatRange(bucket) {
     const optsSame = { month: 'short', day: 'numeric' };
     const optsYear = { month: 'short', day: 'numeric', year: 'numeric' };
-    return `${week.from.toLocaleDateString('en-US', optsSame)} - ${week.to.toLocaleDateString('en-US', optsYear)}`;
-  }
-
-  function fitCharts() {
-    document.querySelectorAll('.gm-gh-chart').forEach(chart => {
-      const wrap = chart.querySelector('.gm-gh-scroll');
-      const stage = chart.querySelector('.gm-gh-stage');
-      if (!wrap || !stage) return;
-      const isMobile = window.matchMedia('(max-width: 640px)').matches;
-      const labelW = isMobile ? 104 : 118;
-      const labelGap = 10;
-      let cell = isMobile ? 6 : 11;
-      let rowH = isMobile ? 6 : 11;
-      let gap = isMobile ? 2 : 3;
-      const columns = weeks.length;
-      const available = wrap.clientWidth || 1100;
-
-      if (window.matchMedia('(max-width: 640px)').matches) {
-        const mobileWidth = labelW + labelGap + columns * cell + Math.max(0, columns - 1) * gap;
-        chart.style.setProperty('--cell', `${cell}px`);
-        chart.style.setProperty('--row-h', `${rowH}px`);
-        chart.style.setProperty('--gap', `${gap}px`);
-        chart.style.setProperty('--label-w', `${labelW}px`);
-        stage.style.setProperty('--natural-w', `${mobileWidth}px`);
-        stage.dataset.naturalWidth = String(mobileWidth);
-        wrap.style.height = '';
-        const marker = chart.querySelector('.gm-gh-today');
-        if (marker) marker.style.left = `${(columns - 1) * (cell + gap) + cell - 1.5}px`;
-        return;
-      }
-
-      let width = labelW + labelGap + columns * cell + Math.max(0, columns - 1) * gap;
-      if (width > available) {
-        gap = 1;
-        cell = Math.max(1.5, (available - labelW - labelGap - Math.max(0, columns - 1) * gap) / columns);
-        rowH = Math.max(8, Math.min(11, cell * 1.9));
-        width = labelW + labelGap + columns * cell + Math.max(0, columns - 1) * gap;
-      }
-
-      chart.style.setProperty('--cell', `${cell}px`);
-      chart.style.setProperty('--row-h', `${rowH}px`);
-      chart.style.setProperty('--gap', `${gap}px`);
-      chart.style.setProperty('--label-w', `${labelW}px`);
-      stage.style.setProperty('--natural-w', `${width}px`);
-      stage.dataset.naturalWidth = String(width);
-      wrap.style.height = '';
-
-      const marker = chart.querySelector('.gm-gh-today');
-      if (marker) marker.style.left = `${(columns - 1) * (cell + gap) + cell - 1.5}px`;
-    });
+    return `${bucket.from.toLocaleDateString('en-US', optsSame)} - ${bucket.to.toLocaleDateString('en-US', optsYear)}`;
   }
 
   function renderHeatmap(chart, mount, tooltip) {
-    const cell = 11;
-    const gap = 3;
-    const labelW = 118;
-    const gapLabel = 10;
-    const cellsW = weeks.length * cell + Math.max(0, weeks.length - 1) * gap;
-    const naturalW = labelW + gapLabel + cellsW;
+    const columns = buckets.length;
+    const cellsW = columns * CELL + Math.max(0, columns - 1) * GAP;
+    const chartW = LABEL_W + LABEL_PAD + cellsW;
     const chartEl = document.createElement('section');
     chartEl.className = 'gm-gh-chart';
-    chartEl.style.setProperty('--weeks', String(weeks.length));
+    chartEl.style.setProperty('--columns', String(columns));
+    chartEl.style.setProperty('--cells-w', `${cellsW}px`);
+    chartEl.style.setProperty('--chart-w', `${chartW}px`);
     chartEl.innerHTML = `
       <h3 class="gm-gh-title">${chart.title}</h3>
       <p class="gm-gh-subtitle">${chart.subtitle}</p>
       <div class="gm-gh-scroll">
-        <div class="gm-gh-stage" data-natural-width="${naturalW}" style="--natural-w:${naturalW}px">
-          <div class="gm-gh-months"></div>
+        <div class="gm-gh-stage">
+          <div class="gm-gh-axis"></div>
           <div class="gm-gh-body">
             <div class="gm-gh-labels"></div>
             <div class="gm-gh-cells"></div>
           </div>
           <div class="gm-gh-footer">
             ${chart.learn ? '<a class="gm-gh-learn" href="#geoaiHeatmaps">Learn more about the data</a>' : '<span></span>'}
-            <div class="gm-gh-legend"><span>Less</span><span class="gm-gh-swatch"></span><span class="gm-gh-swatch" data-level="1"></span><span class="gm-gh-swatch" data-level="2"></span><span class="gm-gh-swatch" data-level="3"></span><span class="gm-gh-swatch" data-level="4"></span><span>More</span></div>
+            ${chart.legend ? '<div class="gm-gh-legend"><span>Less</span><span class="gm-gh-swatch"></span><span class="gm-gh-swatch" data-level="1"></span><span class="gm-gh-swatch" data-level="2"></span><span class="gm-gh-swatch" data-level="3"></span><span class="gm-gh-swatch" data-level="4"></span><span>More</span></div>' : ''}
           </div>
         </div>
       </div>
     `;
 
-    const months = chartEl.querySelector('.gm-gh-months');
-    monthLabels().forEach(month => {
+    const axis = chartEl.querySelector('.gm-gh-axis');
+    const labels = axisLabels();
+    labels.years.forEach(year => {
+      const label = document.createElement('span');
+      label.className = 'gm-gh-year';
+      label.style.left = `${year.index * STEP}px`;
+      label.textContent = year.label;
+      axis.appendChild(label);
+    });
+    labels.months.forEach(month => {
       const label = document.createElement('span');
       label.className = 'gm-gh-month';
-      label.style.gridColumn = `${month.index + 1}`;
+      label.style.left = `${month.index * STEP}px`;
       label.textContent = month.label;
-      months.appendChild(label);
+      axis.appendChild(label);
     });
 
-    const labels = chartEl.querySelector('.gm-gh-labels');
+    const rowLabels = chartEl.querySelector('.gm-gh-labels');
     chart.rows.forEach(row => {
       const label = document.createElement('div');
       label.className = 'gm-gh-label';
       label.textContent = row.name;
-      labels.appendChild(label);
+      rowLabels.appendChild(label);
     });
 
     const cells = chartEl.querySelector('.gm-gh-cells');
-    weeks.forEach((week, weekIndex) => {
-      chart.rows.forEach(row => {
-        const count = row.counts[weekIndex] || 0;
+    const milestoneEntries = [];
+    const milestoneCellMap = new Map();
+
+    chart.rows.forEach((row, rowIndex) => {
+      (row.milestones || []).forEach(item => {
+        const col = bucketIndexForDate(item.date);
+        if (col < 0) return;
+        const key = `${rowIndex}:${col}`;
+        if (!milestoneCellMap.has(key)) milestoneCellMap.set(key, []);
+        milestoneCellMap.get(key).push(item.name);
+        milestoneEntries.push({ ...item, rowIndex, col, rowName: row.name });
+      });
+    });
+
+    buckets.forEach((bucket, bucketIndex) => {
+      chart.rows.forEach((row, rowIndex) => {
+        const count = row.counts[bucketIndex] || 0;
+        const names = milestoneCellMap.get(`${rowIndex}:${bucketIndex}`) || [];
         const cellEl = document.createElement('span');
         cellEl.className = 'gm-gh-cell';
         cellEl.dataset.level = String(level(count));
+        cellEl.style.gridColumn = String(bucketIndex + 1);
+        cellEl.style.gridRow = String(rowIndex + 1);
+        cellEl.style.setProperty('--delay', `${bucketIndex * 8}ms`);
         cellEl.tabIndex = 0;
-        cellEl.setAttribute('aria-label', `${row.name}: ${count}, ${formatRange(week)}`);
-        cellEl.addEventListener('mouseenter', event => showTip(event, tooltip, row.name, week, count));
+        cellEl.setAttribute('aria-label', `${row.name}: ${count}, ${formatRange(bucket)}`);
+        cellEl.addEventListener('mouseenter', event => {
+          showTip(event, tooltip, row, bucket, count);
+          if (names.length) showHoverPill(cells, cellEl, bucketIndex, rowIndex, names.join(' · '));
+        });
         cellEl.addEventListener('mousemove', event => moveTip(event, tooltip));
-        cellEl.addEventListener('mouseleave', () => hideTip(tooltip));
-        cellEl.addEventListener('focus', event => showTip(event, tooltip, row.name, week, count));
-        cellEl.addEventListener('blur', () => hideTip(tooltip));
+        cellEl.addEventListener('mouseleave', () => {
+          hideTip(tooltip);
+          hideHoverPill(cellEl);
+        });
+        cellEl.addEventListener('focus', event => {
+          showTip(event, tooltip, row, bucket, count);
+          if (names.length) showHoverPill(cells, cellEl, bucketIndex, rowIndex, names.join(' · '));
+        });
+        cellEl.addEventListener('blur', () => {
+          hideTip(tooltip);
+          hideHoverPill(cellEl);
+        });
+        if (names.length) {
+          cellEl.dataset.milestone = names.join(' · ');
+          const dot = document.createElement('span');
+          dot.className = 'gm-gh-dot';
+          cellEl.appendChild(dot);
+        }
         cells.appendChild(cellEl);
       });
     });
@@ -1067,32 +1251,111 @@ function nlSubmit(e) {
     if (chart.today) {
       const marker = document.createElement('div');
       marker.className = 'gm-gh-today';
+      marker.style.left = `${cellsW - 2}px`;
       marker.innerHTML = '<span>Today</span>';
       cells.appendChild(marker);
     }
 
     mount.appendChild(chartEl);
+    setupReveal(chartEl, milestoneEntries, cells);
+  }
+
+  function setupReveal(chartEl, milestoneEntries, cells) {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      chartEl.classList.add('reduced-motion', 'is-complete');
+      return;
+    }
+    const run = () => {
+      if (chartEl.dataset.revealed) return;
+      chartEl.dataset.revealed = 'true';
+      chartEl.classList.add('is-revealing');
+      scheduleMilestonePills(cells, milestoneEntries);
+      setTimeout(() => chartEl.classList.add('is-complete'), buckets.length * 8 + 1250);
+    };
+    if (!('IntersectionObserver' in window)) {
+      run();
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        run();
+        observer.unobserve(chartEl);
+      });
+    }, { threshold: .3 });
+    observer.observe(chartEl);
+  }
+
+  function scheduleMilestonePills(cells, entries) {
+    entries
+      .slice()
+      .sort((a, b) => a.col - b.col || a.rowIndex - b.rowIndex)
+      .forEach((entry, index) => {
+        const delay = entry.col * 8 + (index % 2) * 100;
+        window.setTimeout(() => showTransientPill(cells, entry.col, entry.rowIndex, entry.name), delay);
+      });
+  }
+
+  function showTransientPill(cells, col, row, text) {
+    while (activeTransientPills.length >= 2) {
+      removePill(activeTransientPills.shift(), true);
+    }
+    const pill = createPill(cells, col, row, text);
+    activeTransientPills.push(pill);
+    pill.classList.add('is-visible');
+    window.setTimeout(() => {
+      removePill(pill);
+    }, 800);
+  }
+
+  function removePill(pill, immediate = false) {
+    if (!pill || !pill.isConnected) return;
+    const index = activeTransientPills.indexOf(pill);
+    if (index >= 0) activeTransientPills.splice(index, 1);
+    if (immediate) {
+      pill.remove();
+      return;
+    }
+    pill.classList.remove('is-visible');
+    pill.classList.add('is-leaving');
+    window.setTimeout(() => pill.remove(), 220);
+  }
+
+  function showHoverPill(cells, cell, col, row, text) {
+    hideHoverPill(cell);
+    const pill = createPill(cells, col, row, text);
+    pill.classList.add('is-visible');
+    cell._gmPill = pill;
+  }
+
+  function hideHoverPill(cell) {
+    if (!cell._gmPill) return;
+    cell._gmPill.remove();
+    cell._gmPill = null;
+  }
+
+  function createPill(cells, col, row, text) {
+    const pill = document.createElement('span');
+    pill.className = 'gm-gh-pill';
+    pill.textContent = text;
+    pill.style.left = `${col * STEP}px`;
+    pill.style.top = `${row * (CELL + ROW_GAP) - 30}px`;
+    cells.appendChild(pill);
+    requestAnimationFrame(() => {
+      const maxLeft = Math.max(0, cells.offsetWidth - pill.offsetWidth);
+      const left = Math.min(col * STEP, maxLeft);
+      pill.style.left = `${left}px`;
+    });
+    return pill;
   }
 
   function countNoun(row, count) {
-    const nouns = {
-      Models: 'models',
-      Papers: 'papers',
-      Datasets: 'datasets',
-      Benchmarks: 'benchmarks',
-      'Tools & Frameworks': 'tools',
-      'Hugging Face': 'Hub updates',
-      arXiv: 'papers',
-      GitHub: 'repo updates',
-      'Papers With Code': 'benchmark updates',
-      Kaggle: 'datasets',
-    };
-    const noun = nouns[row] || row.toLowerCase();
-    return `${count} new ${noun}`;
+    return `${count} new ${row.noun || row.name.toLowerCase()}`;
   }
 
-  function showTip(event, tooltip, row, week, count) {
-    tooltip.innerHTML = `<strong>${countNoun(row, count)}</strong>${formatRange(week)}`;
+  function showTip(event, tooltip, row, bucket, count) {
+    tooltip.innerHTML = `<strong>${countNoun(row, count)}</strong>${formatRange(bucket)}`;
     tooltip.style.display = 'block';
     moveTip(event, tooltip);
   }
@@ -1112,8 +1375,6 @@ function nlSubmit(e) {
   tooltip.className = 'gm-gh-tip';
   document.body.appendChild(tooltip);
   charts.forEach(chart => renderHeatmap(chart, mount, tooltip));
-  fitCharts();
-  window.addEventListener('resize', fitCharts);
 })();
 </script>
 <script type="module" src="src/js/landing.js?v=20260521-9"></script>
