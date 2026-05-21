@@ -975,94 +975,6 @@ function initAskGeoMind() {
   window.setTimeout(runDemo, 520);
 }
 
-function initInsightChart() {
-  const rail = document.getElementById('insightRail');
-  const periodEl = document.getElementById('insightPeriod');
-  const titleEl = document.getElementById('insightTitle');
-  const textEl = document.getElementById('insightText');
-  const topicsEl = document.getElementById('insightTopics');
-  if (!rail || !periodEl || !titleEl || !textEl || !topicsEl) return;
-
-  const signals = [
-    {
-      period: '2021',
-      title: 'Self-supervised remote sensing starts to organize.',
-      text: 'The catalog begins to show reusable remote-sensing representation work rather than only task-specific models.',
-      topics: ['SeCo', 'GASSL', 'BEN-MM'],
-      weight: 1,
-    },
-    {
-      period: '2022',
-      title: 'Masked pretraining becomes a clear foundation-model lane.',
-      text: 'Remote-sensing models start borrowing the transformer and masked-modeling playbook more directly.',
-      topics: ['RingMo', 'SatMAE', 'SSL4EO-S12', 'DINO-MM'],
-      weight: 2,
-    },
-    {
-      period: '2023',
-      title: 'GeoAI models become easier to name and compare.',
-      text: 'The signal broadens into scaled pretraining, multimodal encoders, chat-style interfaces, and time-series models.',
-      topics: ['Scale-MAE', 'CROMA', 'GeoChat', 'EarthPT'],
-      weight: 3,
-    },
-    {
-      period: '2024',
-      title: 'Vision-language and generalist models move forward.',
-      text: 'More recognizable foundation models appear across multispectral, vision-language, and generalist Earth-observation work.',
-      topics: ['SpectralGPT', 'RemoteCLIP', 'SkySense', 'Prithvi'],
-      weight: 4,
-    },
-    {
-      period: '2025',
-      title: 'Foundation models become the organizing layer.',
-      text: 'The catalog signal shifts toward stronger multimodal systems, domain adaptation, and open model ecosystems.',
-      topics: ['HyperSIGMA', 'SkySense++', 'TerraMind', 'DOFA-CLIP'],
-      weight: 4,
-    },
-    {
-      period: '2026',
-      title: 'Emerging candidates point to specialization.',
-      text: 'The newest catalog entries lean toward agriculture, SAR, multimodal routing, agent benchmarks, and specialized EO workflows.',
-      topics: ['FlexiMo', 'AgriFM', 'OmniEarth', 'SkyMoE', 'THOR'],
-      weight: 3,
-    },
-  ];
-
-  function setActive(item) {
-    periodEl.textContent = item.period;
-    titleEl.textContent = item.title;
-    textEl.textContent = item.text;
-    topicsEl.innerHTML = item.topics.map(label => (
-      `<span class="lp-insight-topic">${label}</span>`
-    )).join('');
-
-    rail.querySelectorAll('.lp-insight-signal').forEach(btn => {
-      const active = btn.dataset.period === item.period;
-      btn.classList.toggle('active', active);
-      btn.setAttribute('aria-pressed', String(active));
-    });
-  }
-
-  rail.innerHTML = '';
-  signals.forEach(item => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'lp-insight-signal';
-    button.dataset.period = item.period;
-    button.setAttribute('aria-pressed', 'false');
-    button.setAttribute('aria-label', `Show ${item.period} GeoAI signal`);
-    button.style.setProperty('--signal-size', String(item.weight));
-    button.innerHTML = `
-      <span class="lp-insight-dot"></span>
-      <span class="lp-insight-period">${item.period}</span>
-    `;
-    button.addEventListener('click', () => setActive(item));
-    rail.appendChild(button);
-  });
-
-  setActive(signals.find(item => item.period === '2025') || signals[0]);
-}
-
 /* ── Knowledge Map mini radial ───────────────── */
 function initMapViz() {
   const wrap = document.getElementById('lpMapViz');
@@ -1566,7 +1478,6 @@ function initDemoTerm(onDone) {
 document.addEventListener('DOMContentLoaded', () => {
   initCanvas();
   initMainCategories();
-  initInsightChart();
   initRadial();
   initFeatSwitcher();
 });

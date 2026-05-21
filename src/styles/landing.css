@@ -585,7 +585,6 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-insight-panel{
   position:relative;
-  min-height:360px;
   padding:22px;
   border:1px solid rgba(255,255,255,0.09);
   border-radius:22px;
@@ -616,133 +615,72 @@ nav,section,footer{position:relative;z-index:1}
 .lp-insight-orbit span:nth-child(3){left:58%;top:18%;animation-delay:-3.2s}
 .lp-insight-orbit span:nth-child(4){left:75%;top:66%;background:#06b6d4;animation-delay:-4.5s}
 .lp-insight-orbit span:nth-child(5){left:88%;top:36%;animation-delay:-5.8s}
-.lp-insight-content{
+.lp-model-timeline{
   position:relative;
   z-index:1;
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(300px,.82fr);
-  gap:28px;
-  align-items:stretch;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
 }
-.lp-insight-content > div:first-child{
-  min-height:286px;
-  padding:24px;
-  border:1px solid rgba(255,255,255,0.07);
-  border-radius:16px;
-  background:rgba(7,8,14,0.64);
-}
-.lp-insight-rail{
+.lp-model-year{
   position:relative;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  gap:12px;
-  padding:18px;
-  border-radius:18px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
+  min-height:178px;
+  padding:17px;
   border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  background:rgba(7,8,14,0.66);
+  overflow:hidden;
+  transition:border-color .18s, transform .18s, background .18s;
 }
-.lp-insight-rail::before{
+.lp-model-year::before{
   content:'';
   position:absolute;
-  left:29px;
-  top:36px;
-  bottom:36px;
-  width:1px;
-  background:linear-gradient(180deg, rgba(129,140,248,0.08), rgba(129,140,248,0.7), rgba(6,182,212,0.12));
-}
-.lp-insight-signal{
-  position:relative;
-  z-index:1;
-  display:flex;
-  align-items:center;
-  gap:13px;
-  min-height:42px;
-  border:0;
-  border-radius:14px;
-  background:transparent;
-  color:rgba(255,255,255,0.48);
-  font:inherit;
-  text-align:left;
-  cursor:pointer;
-  transition:background .18s,color .18s,transform .18s;
-}
-.lp-insight-signal:hover,
-.lp-insight-signal:focus-visible,
-.lp-insight-signal.active{
-  background:rgba(255,255,255,0.06);
-  color:#fff;
-  transform:translateX(4px);
-}
-.lp-insight-dot{
-  width:calc(10px + var(--signal-size) * 3px);
-  height:calc(10px + var(--signal-size) * 3px);
+  right:12px;
+  bottom:12px;
+  width:48px;
+  height:48px;
   border-radius:50%;
-  border:1px solid rgba(129,140,248,0.65);
-  background:radial-gradient(circle, #a5b4fc, #6366f1 58%, rgba(99,102,241,0.2));
-  box-shadow:0 0 22px rgba(129,140,248,0.32);
+  border:1px solid rgba(129,140,248,0.24);
+  opacity:.45;
 }
-.lp-insight-signal.active .lp-insight-dot{
-  border-color:rgba(6,182,212,0.85);
-  background:radial-gradient(circle, #cffafe, #06b6d4 54%, rgba(6,182,212,0.18));
-  box-shadow:0 0 34px rgba(6,182,212,0.48);
+.lp-model-year:hover,
+.lp-model-year.is-current{
+  transform:translateY(-4px);
+  background:rgba(11,12,22,0.9);
+  border-color:rgba(129,140,248,0.34);
 }
-.lp-insight-period{
-  font-family:'SF Mono','Menlo',monospace;
-  font-size:12px;
-  font-weight:850;
-}
-.lp-insight-kicker{
+.lp-model-year span{
   display:inline-flex;
-  margin-bottom:16px;
-  padding:6px 9px;
-  border:1px solid rgba(129,140,248,0.18);
-  border-radius:999px;
-  background:rgba(129,140,248,0.08);
+  margin-bottom:20px;
   color:#818cf8;
   font-family:'SF Mono','Menlo',monospace;
   font-size:11px;
   font-weight:850;
   letter-spacing:.08em;
 }
-.lp-insight-content h3{
+.lp-model-year h3{
   color:#fff;
-  font-size:26px;
+  font-size:16px;
   font-weight:850;
-  letter-spacing:-.7px;
+  letter-spacing:-.2px;
   line-height:1.18;
-  margin-bottom:10px;
+  margin-bottom:14px;
 }
-.lp-insight-content p{
-  color:rgba(255,255,255,0.52);
-  font-size:14px;
-  line-height:1.7;
-  max-width:56ch;
-}
-.lp-insight-topics{
+.lp-model-year div{
   display:flex;
   flex-wrap:wrap;
-  gap:8px;
-  margin-top:22px;
+  gap:7px;
 }
-.lp-insight-topic{
+.lp-model-year em{
   display:inline-flex;
-  align-items:center;
-  padding:8px 11px;
+  padding:7px 9px;
   border:1px solid rgba(129,140,248,0.14);
   border-radius:999px;
   background:rgba(255,255,255,0.04);
-  color:rgba(255,255,255,0.68);
+  color:rgba(255,255,255,0.72);
   font-size:11px;
+  font-style:normal;
   font-weight:750;
-}
-.lp-insight-note{
-  position:relative;
-  z-index:1;
-  margin-top:14px;
-  color:rgba(255,255,255,0.28);
-  font-size:11px;
-  text-align:center;
 }
 @keyframes signalFloat{
   0%,100%{transform:translate3d(0,0,0);opacity:.35}
@@ -1783,10 +1721,7 @@ nav,section,footer{position:relative;z-index:1}
   .lp-hero-actions{justify-content:center}
   .lp-goal-panel{max-width:620px;margin:0 auto;width:100%}
   .lp-insight-section{padding:5rem 1.5rem}
-  .lp-insight-content{grid-template-columns:1fr}
-  .lp-insight-rail{flex-direction:row;overflow-x:auto;scroll-snap-type:x proximity}
-  .lp-insight-rail::before{left:36px;right:36px;top:50%;bottom:auto;width:auto;height:1px}
-  .lp-insight-signal{min-width:128px;scroll-snap-align:center}
+  .lp-model-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
   .lp-feat-layout{grid-template-columns:1fr;gap:2rem}
   .lp-aud-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .lp-aud-card,
@@ -1837,14 +1772,19 @@ nav,section,footer{position:relative;z-index:1}
   .lp-insight-section{padding:4rem 1rem}
   .lp-insight-head{text-align:left;margin-bottom:1.5rem}
   .lp-insight-panel{min-height:0;padding:12px;border-radius:16px}
-  .lp-insight-content{gap:12px}
-  .lp-insight-content > div:first-child{min-height:0;padding:17px}
-  .lp-insight-content h3{font-size:20px;letter-spacing:-.3px}
-  .lp-insight-content p{font-size:13px}
-  .lp-insight-rail{padding:10px}
-  .lp-insight-signal{min-width:112px}
-  .lp-insight-period{font-size:11px}
-  .lp-insight-topics{gap:7px}
+  .lp-model-timeline{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(230px,76%);
+    grid-template-columns:none;
+    overflow-x:auto;
+    gap:8px;
+    scroll-snap-type:x proximity;
+    padding-bottom:4px;
+  }
+  .lp-model-year{min-height:156px;padding:14px;scroll-snap-align:center}
+  .lp-model-year span{margin-bottom:10px}
+  .lp-model-year h3{font-size:15px;margin-bottom:10px}
   .lp-category-section{padding:4rem 1.25rem}
   .lp-section-head{text-align:left;margin-bottom:1.5rem}
   .lp-section-head .lp-sec-title{text-align:left}

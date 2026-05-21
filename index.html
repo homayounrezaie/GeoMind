@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-7">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-8">
 </head>
 <body>
 
@@ -182,14 +182,37 @@
     <div class="lp-insight-orbit" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
     </div>
-    <div class="lp-insight-content">
-      <div>
-        <p class="lp-insight-kicker" id="insightPeriod">2025</p>
-        <h3 id="insightTitle">Foundation models become the organizing layer.</h3>
-        <p id="insightText">The catalog signal moves from pretraining as a technique toward reusable models, benchmarks, and domain-specific systems.</p>
-        <div class="lp-insight-topics" id="insightTopics"></div>
-      </div>
-      <div class="lp-insight-rail" id="insightRail" aria-label="GeoAI topic signals over time"></div>
+    <div class="lp-model-timeline" aria-label="GeoAI foundation model examples by year">
+      <article class="lp-model-year">
+        <span>2021</span>
+        <h3>Self-supervised signals</h3>
+        <div><em>SeCo</em><em>GASSL</em><em>BEN-MM</em></div>
+      </article>
+      <article class="lp-model-year">
+        <span>2022</span>
+        <h3>Masked pretraining</h3>
+        <div><em>RingMo</em><em>SatMAE</em><em>SSL4EO-S12</em><em>DINO-MM</em></div>
+      </article>
+      <article class="lp-model-year">
+        <span>2023</span>
+        <h3>Scale and multimodal</h3>
+        <div><em>Scale-MAE</em><em>CROMA</em><em>GeoChat</em><em>EarthPT</em></div>
+      </article>
+      <article class="lp-model-year is-current">
+        <span>2024</span>
+        <h3>Generalist EO models</h3>
+        <div><em>SpectralGPT</em><em>RemoteCLIP</em><em>SkySense</em><em>Prithvi</em></div>
+      </article>
+      <article class="lp-model-year">
+        <span>2025</span>
+        <h3>Open model ecosystem</h3>
+        <div><em>HyperSIGMA</em><em>SkySense++</em><em>TerraMind</em><em>DOFA-CLIP</em></div>
+      </article>
+      <article class="lp-model-year">
+        <span>2026</span>
+        <h3>Specialized candidates</h3>
+        <div><em>FlexiMo</em><em>AgriFM</em><em>OmniEarth</em><em>SkyMoE</em><em>THOR</em></div>
+      </article>
     </div>
   </div>
 </section>
@@ -684,6 +707,6 @@ function nlSubmit(e) {
   e.target.querySelector('.lp-nl-input').value = '';
 }
 </script>
-<script type="module" src="src/js/landing.js?v=20260521-7"></script>
+<script type="module" src="src/js/landing.js?v=20260521-8"></script>
 </body>
 </html>
