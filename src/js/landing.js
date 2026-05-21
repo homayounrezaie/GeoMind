@@ -985,44 +985,51 @@ function initInsightChart() {
 
   const signals = [
     {
-      period: '2020-2022',
-      title: 'Pretraining becomes the starting point.',
-      text: 'Early signals cluster around remote-sensing pretraining, generalization, multimodal learning, and vision-language work.',
-      topics: ['RS pretraining', 'Generalization', 'Multimodal', 'Vision-language'],
+      period: '2021',
+      title: 'Self-supervised remote sensing starts to organize.',
+      text: 'The catalog begins to show reusable remote-sensing representation work rather than only task-specific models.',
+      topics: ['SeCo', 'GASSL', 'BEN-MM'],
       weight: 1,
     },
     {
-      period: '2023',
-      title: 'Foundation models become visible.',
-      text: 'The field starts naming reusable geospatial models as a category, while climate/weather and benchmark work become easier to track.',
-      topics: ['Foundation models', 'Climate/weather', 'Benchmarks', 'Multimodal'],
+      period: '2022',
+      title: 'Masked pretraining becomes a clear foundation-model lane.',
+      text: 'Remote-sensing models start borrowing the transformer and masked-modeling playbook more directly.',
+      topics: ['RingMo', 'SatMAE', 'SSL4EO-S12', 'DINO-MM'],
       weight: 2,
     },
     {
-      period: '2024',
-      title: 'The stack around the models matures.',
-      text: 'More work connects models to evaluation, data infrastructure, task coverage, and domain-specific Earth systems.',
-      topics: ['Evaluation', 'Data infrastructure', 'Task coverage', 'Earth systems'],
+      period: '2023',
+      title: 'GeoAI models become easier to name and compare.',
+      text: 'The signal broadens into scaled pretraining, multimodal encoders, chat-style interfaces, and time-series models.',
+      topics: ['Scale-MAE', 'CROMA', 'GeoChat', 'EarthPT'],
       weight: 3,
+    },
+    {
+      period: '2024',
+      title: 'Vision-language and generalist models move forward.',
+      text: 'More recognizable foundation models appear across multispectral, vision-language, and generalist Earth-observation work.',
+      topics: ['SpectralGPT', 'RemoteCLIP', 'SkySense', 'Prithvi'],
+      weight: 4,
     },
     {
       period: '2025',
       title: 'Foundation models become the organizing layer.',
-      text: 'The catalog signal moves from pretraining as a technique toward reusable models, benchmarks, and domain-specific systems.',
-      topics: ['Base models', 'VLMs', 'Benchmarks', 'Adaptation'],
+      text: 'The catalog signal shifts toward stronger multimodal systems, domain adaptation, and open model ecosystems.',
+      topics: ['HyperSIGMA', 'SkySense++', 'TerraMind', 'DOFA-CLIP'],
       weight: 4,
     },
     {
       period: '2026',
-      title: 'Partial-year signal: consolidation.',
-      text: 'The newest records point toward better evaluation, model specialization, and more practical workflows around foundation models.',
-      topics: ['Specialization', 'Agents', 'Evaluation', 'Workflows'],
+      title: 'Emerging candidates point to specialization.',
+      text: 'The newest catalog entries lean toward agriculture, SAR, multimodal routing, agent benchmarks, and specialized EO workflows.',
+      topics: ['FlexiMo', 'AgriFM', 'OmniEarth', 'SkyMoE', 'THOR'],
       weight: 3,
     },
   ];
 
   function setActive(item) {
-    periodEl.textContent = item.period === '2026' ? '2026 partial' : item.period;
+    periodEl.textContent = item.period;
     titleEl.textContent = item.title;
     textEl.textContent = item.text;
     topicsEl.innerHTML = item.topics.map(label => (
