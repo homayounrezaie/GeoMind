@@ -206,14 +206,19 @@
 <section class="lp-insight-section" aria-labelledby="insight-title">
   <style>
     .gm-heatmap-wrap{
-      max-width:1100px;
+      max-width:1600px;
       margin:0 auto;
       color:#c9d1d9;
-      --cell:12px;
+      --cell:14px;
       --gap:3px;
       --row-gap:6px;
       --label-w:130px;
       --label-pad:14px;
+    }
+    .lp-insight-section{
+      max-width:1700px;
+      padding-left:.75rem;
+      padding-right:.75rem;
     }
     .gm-heatmap-intro{
       max-width:760px;
@@ -253,23 +258,22 @@
       margin:0 0 18px;
     }
     .gm-gh-scroll{
-      overflow-x:hidden;
+      overflow-x:auto;
       overflow-y:visible;
       padding-bottom:2px;
     }
     .gm-gh-stage{
       position:relative;
       width:var(--chart-w);
-      min-height:142px;
+      min-height:126px;
     }
     .gm-gh-axis{
       position:relative;
       width:var(--cells-w);
-      height:42px;
+      height:30px;
       margin-left:calc(var(--label-w) + var(--label-pad));
     }
-    .gm-gh-year,
-    .gm-gh-month{
+    .gm-gh-year{
       position:absolute;
       white-space:nowrap;
     }
@@ -279,12 +283,7 @@
       font-size:13px;
       font-weight:700;
       line-height:16px;
-    }
-    .gm-gh-month{
-      top:22px;
-      color:#7d8590;
-      font-size:11px;
-      line-height:14px;
+      transform:translateX(-50%);
     }
     .gm-gh-body{
       display:grid;
@@ -385,8 +384,8 @@
     .gm-gh-cells{
       position:relative;
       display:grid;
-      grid-template-columns:repeat(var(--columns),12px);
-      grid-template-rows:repeat(var(--rows),12px);
+      grid-template-columns:repeat(var(--columns),14px);
+      grid-template-rows:repeat(var(--rows),14px);
       grid-auto-flow:column;
       column-gap:3px;
       row-gap:6px;
@@ -394,13 +393,17 @@
     }
     .gm-gh-cell{
       position:relative;
-      width:12px;
-      height:12px;
-      border-radius:2px;
+      width:14px;
+      height:14px;
+      border-radius:3px;
       background:#161b22;
       outline:1px solid rgba(255,255,255,.025);
       opacity:0;
       transform:translateY(2px);
+    }
+    .gm-gh-cell[data-future="true"]{
+      background:rgba(22,27,34,.42);
+      outline:1px dashed rgba(125,133,144,.22);
     }
     .gm-gh-cell[data-level="1"]{background:#0e4429}
     .gm-gh-cell[data-level="2"]{background:#006d32}
@@ -435,16 +438,16 @@
     }
     .gm-gh-today{
       position:absolute;
-      top:-42px;
+      top:-30px;
       bottom:-2px;
-      width:2px;
+      width:2.5px;
       background:#f85149;
       z-index:2;
       pointer-events:none;
     }
     .gm-gh-today span{
       position:absolute;
-      top:-17px;
+      top:2px;
       right:0;
       color:#f85149;
       font-size:11px;
@@ -531,9 +534,6 @@
       box-shadow:0 8px 24px rgba(0,0,0,.28);
     }
     .gm-gh-tip strong{display:block;color:#f0f6fc;margin-bottom:2px}
-    @media(max-width:700px){
-      .gm-gh-month{display:none}
-    }
     @media(max-width:640px){
       .gm-heatmap-wrap{--label-w:130px}
       .gm-heatmap-intro{text-align:left;margin-bottom:44px}
@@ -1028,21 +1028,21 @@ function nlSubmit(e) {
 </script>
 <script>
 (function() {
-  const MS_DAY = 24 * 60 * 60 * 1000;
-  const WEEK = 7 * MS_DAY;
-  const BUCKET_WEEKS = 7;
-  const CELL = 12;
+  const CELL = 14;
   const GAP = 3;
   const ROW_GAP = 6;
   const LABEL_W = 130;
   const LABEL_PAD = 14;
   const STEP = CELL + GAP;
-  const activeTransientPills = [];
+  const STAGGER = 12;
   const START = new Date('2021-01-01T00:00:00');
+  const END = new Date('2027-12-31T23:59:59');
+  const START_YEAR = START.getFullYear();
+  const END_YEAR = END.getFullYear();
+  const activeTransientPills = [];
   const today = new Date();
-  const end = today > START ? today : new Date('2026-05-21T00:00:00');
-  const weeks = buildWeeks(START, end);
-  const buckets = buildBuckets(weeks, BUCKET_WEEKS);
+  const months = buildMonths(START_YEAR, END_YEAR);
+  const todayIndex = clamp((today.getFullYear() - START_YEAR) * 12 + today.getMonth(), 0, months.length - 1);
 
   const milestones = {
     models: [
@@ -1112,7 +1112,7 @@ function nlSubmit(e) {
   const charts = [
     {
       title: 'Foundation Model Ecosystem Growth',
-      subtitle: 'The data comes from a handful of public APIs: Hugging Face Hub for models and datasets, arXiv for papers, GitHub for tools and frameworks, Papers With Code for benchmarks, and Kaggle for community datasets. Everything is rolled into compact time windows, so you can watch the foundation-models ecosystem grow over time.',
+      subtitle: 'The data comes from a handful of public APIs: Hugging Face Hub for models and datasets, arXiv for papers, GitHub for tools and frameworks, Papers With Code for benchmarks, and Kaggle for community datasets. Everything is rolled up by calendar month, so you can watch the foundation-models ecosystem grow over time.',
       learn: true,
       legend: true,
       today: true,
@@ -1125,32 +1125,25 @@ function nlSubmit(e) {
     },
   ];
 
-  function buildWeeks(start, finish) {
-    const total = Math.ceil((finish - start) / WEEK);
+  function buildMonths(startYear, endYear) {
+    const total = (endYear - startYear + 1) * 12;
     return Array.from({ length: total }, (_, index) => {
-      const from = new Date(start.getTime() + index * WEEK);
-      const to = new Date(Math.min(from.getTime() + WEEK - MS_DAY, finish.getTime()));
-      return { index, from, to };
-    });
-  }
-
-  function buildBuckets(items, size) {
-    const total = Math.ceil(items.length / size);
-    return Array.from({ length: total }, (_, index) => {
-      const slice = items.slice(index * size, index * size + size);
+      const year = startYear + Math.floor(index / 12);
+      const month = index % 12;
       return {
         index,
-        from: slice[0].from,
-        to: slice[slice.length - 1].to,
-        weeks: slice,
+        year,
+        month,
+        from: new Date(year, month, 1),
+        to: new Date(year, month + 1, 0),
       };
     });
   }
 
   function makeRow(spec, milestoneList) {
-    const counts = buckets.map(bucket => mockCount(bucket, spec.weight, spec.seed));
+    const counts = months.map(month => mockCount(month, spec.weight, spec.seed));
     milestoneList.forEach(item => {
-      const index = bucketIndexForDate(item.date);
+      const index = monthIndexForDate(item.date);
       if (index >= 0) counts[index] = Math.max(counts[index], 18);
     });
     return { ...spec, counts, milestones: milestoneList };
@@ -1166,13 +1159,14 @@ function nlSubmit(e) {
     return { active: 0.8, min: 3, max: 4 };
   }
 
-  function mockCount(bucket, weight, seed) {
-    const profile = activeProfile(bucket.from);
-    const noise = seeded(seed * 1009 + bucket.index * 31);
-    const wave = (Math.sin(bucket.index * 0.39 + seed) + 1) / 2;
+  function mockCount(month, weight, seed) {
+    if (month.index > todayIndex) return 0;
+    const profile = activeProfile(month.from);
+    const noise = seeded(seed * 1009 + month.index * 31);
+    const wave = (Math.sin(month.index * 0.39 + seed) + 1) / 2;
     const active = noise < Math.min(0.96, profile.active * weight + wave * 0.05);
     if (!active) return 0;
-    const level = Math.max(profile.min, Math.min(profile.max, profile.min + Math.floor(seeded(seed + bucket.index * 17) * (profile.max - profile.min + 1))));
+    const level = Math.max(profile.min, Math.min(profile.max, profile.min + Math.floor(seeded(seed + month.index * 17) * (profile.max - profile.min + 1))));
     return Math.max(1, Math.round(level * (2 + weight * 3) + wave * level * 2));
   }
 
@@ -1191,30 +1185,19 @@ function nlSubmit(e) {
 
   function axisLabels() {
     const years = [];
-    const months = [];
-    const startYear = START.getFullYear();
-    const endYear = end.getFullYear();
-    for (let year = startYear; year <= endYear; year += 1) {
-      const yearIndex = bucketIndexForDate(`${year}-01`);
-      if (yearIndex >= 0) years.push({ label: String(year), index: yearIndex });
-      const ticks = [];
-      [0, 3, 6, 9].forEach(month => {
-        const date = new Date(year, month, 1);
-        if (date < START || date > end) return;
-        ticks.push(date.toLocaleDateString('en-US', { month: 'short' }));
-      });
-      if (ticks.length && yearIndex >= 0) months.push({ label: ticks.join(' · '), index: yearIndex });
+    const yearWidth = 12 * CELL + 11 * GAP;
+    for (let year = START_YEAR; year <= END_YEAR; year += 1) {
+      const index = (year - START_YEAR) * 12;
+      years.push({ label: String(year), left: index * STEP + yearWidth / 2 });
     }
-    return { years, months };
+    return { years };
   }
 
-  function bucketIndexForDate(value) {
+  function monthIndexForDate(value) {
     const date = parseMonth(value);
-    const index = buckets.findIndex(bucket => date >= bucket.from && date <= bucket.to);
-    if (index >= 0) return index;
-    if (date < buckets[0].from) return 0;
-    if (date > buckets[buckets.length - 1].to) return buckets.length - 1;
-    return buckets.findIndex(bucket => bucket.from > date);
+    const index = (date.getFullYear() - START_YEAR) * 12 + date.getMonth();
+    if (index < 0 || index >= months.length) return -1;
+    return index;
   }
 
   function parseMonth(value) {
@@ -1222,14 +1205,16 @@ function nlSubmit(e) {
     return new Date(year, month - 1, 1);
   }
 
-  function formatRange(bucket) {
-    const optsSame = { month: 'short', day: 'numeric' };
-    const optsYear = { month: 'short', day: 'numeric', year: 'numeric' };
-    return `${bucket.from.toLocaleDateString('en-US', optsSame)} - ${bucket.to.toLocaleDateString('en-US', optsYear)}`;
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  function formatRange(month) {
+    return month.from.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   }
 
   function renderHeatmap(chart, mount, tooltip) {
-    const columns = buckets.length;
+    const columns = months.length;
     const cellsW = columns * CELL + Math.max(0, columns - 1) * GAP;
     const chartW = LABEL_W + LABEL_PAD + cellsW;
     const chartEl = document.createElement('section');
@@ -1261,15 +1246,8 @@ function nlSubmit(e) {
     labels.years.forEach(year => {
       const label = document.createElement('span');
       label.className = 'gm-gh-year';
-      label.style.left = `${year.index * STEP}px`;
+      label.style.left = `${year.left}px`;
       label.textContent = year.label;
-      axis.appendChild(label);
-    });
-    labels.months.forEach(month => {
-      const label = document.createElement('span');
-      label.className = 'gm-gh-month';
-      label.style.left = `${month.index * STEP}px`;
-      label.textContent = month.label;
       axis.appendChild(label);
     });
 
@@ -1292,7 +1270,7 @@ function nlSubmit(e) {
 
     chart.rows.forEach((row, rowIndex) => {
       (row.milestones || []).forEach(item => {
-        const col = bucketIndexForDate(item.date);
+        const col = monthIndexForDate(item.date);
         if (col < 0) return;
         const key = `${rowIndex}:${col}`;
         if (!milestoneCellMap.has(key)) milestoneCellMap.set(key, []);
@@ -1301,21 +1279,22 @@ function nlSubmit(e) {
       });
     });
 
-    buckets.forEach((bucket, bucketIndex) => {
+    months.forEach((month, monthIndex) => {
       chart.rows.forEach((row, rowIndex) => {
-        const count = row.counts[bucketIndex] || 0;
-        const names = milestoneCellMap.get(`${rowIndex}:${bucketIndex}`) || [];
+        const count = row.counts[monthIndex] || 0;
+        const names = milestoneCellMap.get(`${rowIndex}:${monthIndex}`) || [];
         const cellEl = document.createElement('span');
         cellEl.className = 'gm-gh-cell';
         cellEl.dataset.level = String(level(count));
-        cellEl.style.gridColumn = String(bucketIndex + 1);
+        if (monthIndex > todayIndex) cellEl.dataset.future = 'true';
+        cellEl.style.gridColumn = String(monthIndex + 1);
         cellEl.style.gridRow = String(rowIndex + 1);
-        cellEl.style.setProperty('--delay', `${bucketIndex * 8}ms`);
+        cellEl.style.setProperty('--delay', `${monthIndex * STAGGER}ms`);
         cellEl.tabIndex = 0;
-        cellEl.setAttribute('aria-label', `${row.name}: ${count}, ${formatRange(bucket)}`);
+        cellEl.setAttribute('aria-label', `${row.name}: ${count}, ${formatRange(month)}`);
         cellEl.addEventListener('mouseenter', event => {
-          showTip(event, tooltip, row, bucket, count);
-          if (names.length) showHoverPill(cells, cellEl, bucketIndex, rowIndex, names.join(' · '));
+          showTip(event, tooltip, row, month, count);
+          if (names.length) showHoverPill(cells, cellEl, monthIndex, rowIndex, names.join(' · '));
         });
         cellEl.addEventListener('mousemove', event => moveTip(event, tooltip));
         cellEl.addEventListener('mouseleave', () => {
@@ -1323,8 +1302,8 @@ function nlSubmit(e) {
           hideHoverPill(cellEl);
         });
         cellEl.addEventListener('focus', event => {
-          showTip(event, tooltip, row, bucket, count);
-          if (names.length) showHoverPill(cells, cellEl, bucketIndex, rowIndex, names.join(' · '));
+          showTip(event, tooltip, row, month, count);
+          if (names.length) showHoverPill(cells, cellEl, monthIndex, rowIndex, names.join(' · '));
         });
         cellEl.addEventListener('blur', () => {
           hideTip(tooltip);
@@ -1343,7 +1322,7 @@ function nlSubmit(e) {
     if (chart.today) {
       const marker = document.createElement('div');
       marker.className = 'gm-gh-today';
-      marker.style.left = `${cellsW - 2}px`;
+      marker.style.left = `${todayIndex * STEP + CELL / 2 - 1.25}px`;
       marker.innerHTML = '<span>Today</span>';
       cells.appendChild(marker);
     }
@@ -1363,7 +1342,7 @@ function nlSubmit(e) {
       chartEl.dataset.revealed = 'true';
       chartEl.classList.add('is-revealing');
       scheduleMilestonePills(cells, milestoneEntries);
-      setTimeout(() => chartEl.classList.add('is-complete'), buckets.length * 8 + 1250);
+      setTimeout(() => chartEl.classList.add('is-complete'), months.length * STAGGER + 1250);
     };
     if (!('IntersectionObserver' in window)) {
       run();
@@ -1384,7 +1363,7 @@ function nlSubmit(e) {
       .slice()
       .sort((a, b) => a.col - b.col || a.rowIndex - b.rowIndex)
       .forEach((entry, index) => {
-        const delay = entry.col * 8 + (index % 2) * 100;
+        const delay = entry.col * STAGGER + (index % 2) * 100;
         window.setTimeout(() => showTransientPill(cells, entry.col, entry.rowIndex, entry.name), delay);
       });
   }
