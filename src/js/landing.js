@@ -777,7 +777,7 @@ function initAskGeoMind() {
       keys: ['foundation', 'model', 'vlm', 'llm', 'agent', 'prithvi', 'clay', 'sam'],
       title: 'Foundation Models',
       href: 'pages/foundation-models.html',
-      text: 'Start with Foundation Models. It is the right place for base models, VLMs, LLMs, and agentic GeoAI work.'
+      text: 'Geospatial foundation models are large pretrained models built for Earth observation and spatial data. They learn reusable patterns from satellite imagery, SAR, LiDAR, maps, and time-series data, then adapt to tasks like segmentation, change detection, land cover mapping, disaster response, and search.'
     },
     {
       keys: ['dataset', 'data', 'sentinel', 'landsat', 'change detection', 'building', 'segmentation'],
@@ -831,7 +831,7 @@ function initAskGeoMind() {
     messages.scrollTop = messages.scrollHeight;
   }
 
-  function appendStreamingBot(route, onDone) {
+  function appendStreamingBot(route, onDone, options = {}) {
     const msg = document.createElement('div');
     msg.className = 'lp-ask-msg lp-ask-msg-bot lp-ask-msg-streaming';
     msg.innerHTML = `
@@ -862,9 +862,11 @@ function initAskGeoMind() {
           a.textContent = `Open ${route.title} →`;
           msg.appendChild(a);
           msg.classList.remove('lp-ask-msg-streaming');
-          input.disabled = false;
-          if (submit) submit.disabled = false;
-          demoRunning = false;
+          if (!options.keepDisabled) {
+            input.disabled = false;
+            if (submit) submit.disabled = false;
+            demoRunning = false;
+          }
           if (onDone) onDone();
           if (userInteracted) input.focus();
         }
@@ -890,7 +892,7 @@ function initAskGeoMind() {
     input.disabled = true;
     if (submit) submit.disabled = true;
     const route = pickRoute(clean);
-    appendStreamingBot(route, options.onDone);
+    appendStreamingBot(route, options.onDone, { keepDisabled: options.keepDisabled });
   }
 
   function runDemo() {
@@ -899,34 +901,63 @@ function initAskGeoMind() {
     input.disabled = true;
     if (submit) submit.disabled = true;
 
-    const demoPrompt = 'I need satellite datasets for building detection';
-    let index = 0;
+    const demoPrompts = [
+      'I need satellite datasets for building detection',
+      'What are geospatial foundation models?',
+    ];
 
-    const timer = window.setInterval(() => {
+    function stopDemo() {
+      demoRunning = false;
+      input.value = '';
+      input.disabled = false;
+      if (submit) submit.disabled = false;
+    }
+
+    function typePrompt(prompt, onDone) {
+      let index = 0;
+      input.value = '';
+      const timer = window.setInterval(() => {
+        if (userInteracted) {
+          window.clearInterval(timer);
+          stopDemo();
+          return;
+        }
+
+        input.value = prompt.slice(0, index + 1);
+        index += 1;
+
+        if (index >= prompt.length) {
+          window.clearInterval(timer);
+          window.setTimeout(onDone, 420);
+        }
+      }, 46);
+    }
+
+    function runStep(step) {
       if (userInteracted) {
-        window.clearInterval(timer);
-        demoRunning = false;
-        input.value = '';
-        input.disabled = false;
-        if (submit) submit.disabled = false;
+        stopDemo();
         return;
       }
 
-      input.value = demoPrompt.slice(0, index + 1);
-      index += 1;
-
-      if (index >= demoPrompt.length) {
-        window.clearInterval(timer);
-        window.setTimeout(() => {
-          ask(input.value, {
-            demo: true,
-            onDone: () => {
-              input.placeholder = 'Ask what you want to find in GeoAI';
-            },
-          });
-        }, 420);
+      const prompt = demoPrompts[step];
+      if (!prompt) {
+        input.placeholder = 'Ask what you want to find in GeoAI';
+        stopDemo();
+        return;
       }
-    }, 46);
+
+      typePrompt(prompt, () => {
+        ask(input.value, {
+          demo: true,
+          keepDisabled: true,
+          onDone: () => {
+            window.setTimeout(() => runStep(step + 1), step === 0 ? 900 : 0);
+          },
+        });
+      });
+    }
+
+    runStep(0);
   }
 
   form.addEventListener('submit', e => {
