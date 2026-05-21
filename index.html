@@ -500,11 +500,6 @@
       color:#7d8590;
       font-size:11px;
     }
-    .gm-gh-learn{
-      color:#7d8590;
-      text-decoration:none;
-    }
-    .gm-gh-learn:hover{color:#c9d1d9;text-decoration:underline}
     .gm-gh-legend{
       display:flex;
       align-items:center;
@@ -1047,7 +1042,6 @@ function nlSubmit(e) {
   const charts = [
     {
       title: 'Tracking Geo Foundation Models',
-      learn: true,
       legend: true,
       rows: ecosystemRows.map(spec => makeRow(spec, milestones[spec.id] || [])),
     },
@@ -1180,7 +1174,7 @@ function nlSubmit(e) {
             <div class="gm-gh-cells"></div>
           </div>
           <div class="gm-gh-footer">
-            ${chart.learn ? '<a class="gm-gh-learn" href="#geoaiHeatmaps">Learn more about the data</a>' : '<span></span>'}
+            <span></span>
             ${chart.legend ? '<div class="gm-gh-legend"><span>Less</span><span class="gm-gh-swatch"></span><span class="gm-gh-swatch" data-level="1"></span><span class="gm-gh-swatch" data-level="2"></span><span class="gm-gh-swatch" data-level="3"></span><span class="gm-gh-swatch" data-level="4"></span><span>More</span></div>' : ''}
           </div>
         </div>
