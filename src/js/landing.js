@@ -57,9 +57,9 @@ function initMainCategories() {
   const command = document.getElementById('mainCategoryCommand');
   if (!deck || !cards.length) return;
 
-  function setActive(card) {
+  function setActive(card, updateCommand = true) {
     cards.forEach(c => c.classList.toggle('active', c === card));
-    if (command && card.dataset.command) command.textContent = card.dataset.command;
+    if (updateCommand && command && card.dataset.command) command.textContent = card.dataset.command;
   }
 
   deck.addEventListener('mousemove', e => {
@@ -73,7 +73,7 @@ function initMainCategories() {
     card.addEventListener('focus', () => setActive(card));
   });
 
-  setActive(document.querySelector('.lp-main-category.active') || cards[0]);
+  setActive(document.querySelector('.lp-main-category.active') || cards[0], false);
 }
 
 /* ── Radial infographic ───────────────────── */
