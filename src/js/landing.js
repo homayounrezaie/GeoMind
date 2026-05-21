@@ -505,26 +505,33 @@ function initFeatSwitcher() {
   const DURATIONS = [5000, 5000, 0, 0, 0, 5000]; /* CLI, Ask, and Search are user/input driven */
   const started  = {};
 
+  function advance() {
+    switchTo((current + 1) % rows.length);
+    scheduleNext();
+  }
+
   function scheduleNext() {
     clearTimeout(autoTimer);
     if (DURATIONS[current] === 0) return;
-    autoTimer = setTimeout(() => {
-      switchTo((current + 1) % rows.length);
-      scheduleNext();
-    }, DURATIONS[current]);
+    autoTimer = setTimeout(advance, DURATIONS[current]);
   }
 
   function switchTo(idx) {
     rows.forEach(r  => r.classList.toggle('active', +r.dataset.feat === idx));
     vizs.forEach(v  => v.classList.toggle('active', +v.dataset.viz  === idx));
     current = idx;
-    if (!started[idx]) {
+    if (idx === 0 && !started[idx]) {
       started[idx] = true;
-      if (idx === 0) initMapTree();
-      else if (idx === 1) initGraphCloud();
-      else if (idx === 2) initDemoTerm(() => { switchTo(3); scheduleNext(); });
-      else if (idx === 3) initAskGeoMind();
-      else if (idx === 4) initSearchViz(() => { switchTo(0); scheduleNext(); });
+      initMapTree();
+    } else if (idx === 1 && !started[idx]) {
+      started[idx] = true;
+      initGraphCloud();
+    } else if (idx === 2) {
+      initDemoTerm(advance);
+    } else if (idx === 3) {
+      initAskGeoMind(advance);
+    } else if (idx === 4) {
+      initSearchViz(advance);
     }
   }
 
@@ -752,14 +759,20 @@ function initGraphCloud() {
   requestAnimationFrame(tick);
 }
 
-function initAskGeoMind() {
+function initAskGeoMind(onDone) {
   const form = document.getElementById('lpAskForm');
   const input = document.getElementById('lpAskInput');
   const messages = document.getElementById('lpAskMessages');
   const submit = form?.querySelector('.lp-ask-submit');
   if (!form || !input || !messages) return;
+  if (form._gmAskRunDemo) {
+    form._gmAskRunDemo(onDone);
+    return;
+  }
+
   let userInteracted = false;
   let demoRunning = false;
+  let demoDone = null;
 
   const routes = [
     {
@@ -908,6 +921,13 @@ function initAskGeoMind() {
       if (submit) submit.disabled = false;
     }
 
+    function completeDemo() {
+      stopDemo();
+      const done = demoDone;
+      demoDone = null;
+      if (done && !userInteracted) window.setTimeout(done, 900);
+    }
+
     function typePrompt(prompt, onDone) {
       let index = 0;
       input.value = '';
@@ -937,7 +957,7 @@ function initAskGeoMind() {
       const prompt = demoPrompts[step];
       if (!prompt) {
         input.placeholder = 'Ask what you want to find in GeoAI';
-        stopDemo();
+        completeDemo();
         return;
       }
 
@@ -955,6 +975,15 @@ function initAskGeoMind() {
     runStep(0);
   }
 
+  form._gmAskRunDemo = callback => {
+    if (demoRunning) return;
+    userInteracted = false;
+    demoDone = callback || null;
+    messages.innerHTML = '';
+    input.value = '';
+    runDemo();
+  };
+
   form.addEventListener('submit', e => {
     e.preventDefault();
     ask(input.value);
@@ -967,7 +996,7 @@ function initAskGeoMind() {
     if (!demoRunning) userInteracted = true;
   });
 
-  window.setTimeout(runDemo, 520);
+  window.setTimeout(() => form._gmAskRunDemo(onDone), 520);
 }
 
 /* ── Knowledge Map mini radial ───────────────── */
@@ -1225,6 +1254,7 @@ function initMapTree() {
 function initDemoTerm(onDone) {
   const body = document.getElementById('lpDemoBody');
   if (!body) return;
+  body.innerHTML = '';
 
   const PROMPT = '<span class="lp-demo-prompt">geomind:~$</span> ';
   const CURSOR = '<span class="lp-demo-cursor"></span>';
