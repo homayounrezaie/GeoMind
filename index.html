@@ -420,54 +420,73 @@ print(results.top(5))</code></pre>
 
 <!-- AUDIENCE -->
 <section class="lp-aud-section">
-  <h2 class="lp-sec-title">Built for the whole community</h2>
+  <h2 class="lp-sec-title">Built for every role in GeoAI</h2>
 
-  <div class="lp-aud-stage">
-    <!-- tab pills -->
-    <div class="lp-aud-tabs" role="tablist">
-      <button class="lp-aud-tab active" data-idx="0" role="tab">Newcomers</button>
-      <button class="lp-aud-tab" data-idx="1" role="tab">Practitioners</button>
-      <button class="lp-aud-tab" data-idx="2" role="tab">Researchers</button>
-    </div>
-
-    <!-- cards -->
-    <div class="lp-aud-viewport">
-      <div class="lp-aud-slide active" data-idx="0" style="--ac:#06B6D4">
-        <div class="lp-aud-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <div class="lp-aud-slide-name">Newcomers</div>
-        <div class="lp-aud-slide-text">Use the learning path to find where to start and build from first principles. GeoMind shows you the full map so every new concept has a home.</div>
-        <div class="lp-aud-slide-tags">
-          <span>Learning Path</span><span>AI History</span><span>Datasets</span>
-        </div>
+  <div class="lp-aud-grid">
+    <article class="lp-aud-card" style="--ac:#06B6D4">
+      <div class="lp-aud-card-top">
+        <span class="lp-aud-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M5 11v4c0 2 14 2 14 0v-4"/><path d="M21 8v6"/></svg>
+        </span>
+        <h3>Learn</h3>
       </div>
-
-      <div class="lp-aud-slide" data-idx="1" style="--ac:#6366F1">
-        <div class="lp-aud-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <div class="lp-aud-slide-name">Practitioners</div>
-        <div class="lp-aud-slide-text">Reference the right technique, dataset, or tool for the task at hand — without losing context of how everything connects.</div>
-        <div class="lp-aud-slide-tags">
-          <span>Techniques</span><span>Tools & Stack</span><span>Datasets</span>
-        </div>
+      <p>Build orientation from first principles and see where each concept belongs.</p>
+      <div class="lp-aud-role-list">
+        <span>Newcomers</span><span>Students</span><span>Educators</span>
       </div>
+    </article>
 
-      <div class="lp-aud-slide" data-idx="2" style="--ac:#A855F7">
-        <div class="lp-aud-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
-        </div>
-        <div class="lp-aud-slide-name">Researchers</div>
-        <div class="lp-aud-slide-text">Spot untried combinations by seeing the full structure at once. Cross-layer links reveal intersections between models, tasks, and data.</div>
-        <div class="lp-aud-slide-tags">
-          <span>Model Architectures</span><span>Tasks</span><span>Standards</span>
-        </div>
+    <article class="lp-aud-card" style="--ac:#6366F1">
+      <div class="lp-aud-card-top">
+        <span class="lp-aud-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+        </span>
+        <h3>Build</h3>
       </div>
-    </div>
+      <p>Find the methods, tools, datasets, and deployment patterns needed for real systems.</p>
+      <div class="lp-aud-role-list">
+        <span>Practitioners</span><span>Engineers</span><span>Data Scientists</span><span>ML / AI Engineers</span><span>MLOps &amp; Platform Engineers</span>
+      </div>
+    </article>
 
-    <!-- progress bar -->
-    <div class="lp-aud-progress"><div class="lp-aud-progress-bar" id="audProgressBar"></div></div>
+    <article class="lp-aud-card" style="--ac:#A855F7">
+      <div class="lp-aud-card-top">
+        <span class="lp-aud-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"/><path d="M14 4h5a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-5"/><path d="M12 4v16"/><path d="M7 8h2M7 12h2M15 8h2M15 12h2"/></svg>
+        </span>
+        <h3>Research</h3>
+      </div>
+      <p>Trace connections between papers, models, datasets, tasks, and open problems.</p>
+      <div class="lp-aud-role-list">
+        <span>Researchers</span><span>Remote Sensing Scientists</span><span>Geospatial Analysts</span><span>Open Source Contributors</span>
+      </div>
+    </article>
+
+    <article class="lp-aud-card" style="--ac:#F59E0B">
+      <div class="lp-aud-card-top">
+        <span class="lp-aud-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3 8 3v16"/><path d="M9 21v-6h6v6"/><path d="M8 8h1M12 8h1M16 8h1M8 12h1M12 12h1M16 12h1"/></svg>
+        </span>
+        <h3>Operate</h3>
+      </div>
+      <p>Understand the ecosystem, product opportunities, and applied use cases.</p>
+      <div class="lp-aud-role-list">
+        <span>Startups &amp; Companies</span><span>Product Managers</span><span>Climate &amp; Sustainability Teams</span>
+      </div>
+    </article>
+
+    <article class="lp-aud-card" style="--ac:#22C55E">
+      <div class="lp-aud-card-top">
+        <span class="lp-aud-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="M9 12l2 2 4-5"/></svg>
+        </span>
+        <h3>Adopt</h3>
+      </div>
+      <p>Evaluate GeoAI capabilities, hiring needs, and organizational readiness.</p>
+      <div class="lp-aud-role-list">
+        <span>Government &amp; NGOs</span><span>Defense &amp; Intelligence</span><span>Recruiters &amp; Hiring Teams</span>
+      </div>
+    </article>
   </div>
 </section>
 

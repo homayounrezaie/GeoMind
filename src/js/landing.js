@@ -1475,62 +1475,9 @@ function initDemoTerm(onDone) {
   runSeq();
 }
 
-/* ── Audience cycler ─────────────────────────── */
-function initAudience() {
-  const slides = document.querySelectorAll('.lp-aud-slide');
-  const tabs   = document.querySelectorAll('.lp-aud-tab');
-  const bar    = document.getElementById('audProgressBar');
-  if (!slides.length || !bar) return;
-
-  const DURATION = 4000;
-  let current = 0;
-  let startTs = null;
-  let paused  = false;
-  let rafId   = null;
-
-  const COLORS = ['#06B6D4','#6366F1','#A855F7'];
-
-  function show(idx) {
-    slides.forEach((s, i) => s.classList.toggle('active', i === idx));
-    tabs.forEach((t, i)   => t.classList.toggle('active', i === idx));
-    bar.style.background = COLORS[idx];
-    current = idx;
-    startTs = null; /* reset timer */
-  }
-
-  function tick(ts) {
-    if (!paused) {
-      if (!startTs) startTs = ts;
-      const pct = Math.min((ts - startTs) / DURATION * 100, 100);
-      bar.style.width = pct + '%';
-      if (pct >= 100) show((current + 1) % slides.length);
-    }
-    rafId = requestAnimationFrame(tick);
-  }
-
-  /* tab clicks */
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      show(parseInt(tab.dataset.idx));
-      paused = false;
-    });
-  });
-
-  /* pause on hover */
-  document.querySelector('.lp-aud-stage').addEventListener('mouseenter', () => { paused = true; });
-  document.querySelector('.lp-aud-stage').addEventListener('mouseleave', () => {
-    paused = false;
-    startTs = null;
-  });
-
-  show(0);
-  rafId = requestAnimationFrame(tick);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   initCanvas();
   initMainCategories();
   initRadial();
-  initAudience();
   initFeatSwitcher();
 });
