@@ -57,11 +57,6 @@ function initMainCategories() {
   const command = document.getElementById('mainCategoryCommand');
   if (!deck || !cards.length) return;
 
-  cards.forEach(card => {
-    const accent = card.dataset.accent;
-    if (accent) card.style.setProperty('--accent', accent);
-  });
-
   function setActive(card) {
     cards.forEach(c => c.classList.toggle('active', c === card));
     if (command && card.dataset.command) command.textContent = card.dataset.command;
