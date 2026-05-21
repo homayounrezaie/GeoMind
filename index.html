@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-6">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-7">
 </head>
 <body>
 
@@ -141,6 +141,44 @@
     <p class="lp-story-text" id="story-p1"></p>
     <p class="lp-story-text" id="story-p2" style="opacity:0"></p>
     <p class="lp-story-text" id="story-p3" style="opacity:0"></p>
+  </div>
+</section>
+
+<!-- INSIGHT -->
+<section class="lp-insight-section" aria-labelledby="insight-title">
+  <div class="lp-insight-head">
+    <h2 class="lp-sec-title" id="insight-title">GeoAI foundation models are accelerating.</h2>
+    <p class="lp-sec-sub">A snapshot from GeoMind's foundation-model catalog shows how quickly the field moved from scattered pretraining work into benchmarks, multimodal models, climate/weather systems, and vision-language GeoAI.</p>
+  </div>
+
+  <div class="lp-insight-panel">
+    <div class="lp-insight-summary">
+      <div class="lp-insight-stat">
+        <span>10,764</span>
+        <strong>cataloged candidate records</strong>
+      </div>
+      <div class="lp-insight-stat">
+        <span>2023-2025</span>
+        <strong>fastest growth window</strong>
+      </div>
+      <div class="lp-insight-stat">
+        <span>5 themes</span>
+        <strong>now dominate the signal</strong>
+      </div>
+    </div>
+
+    <div class="lp-insight-chart" id="insightChart" aria-label="Foundation model records by year"></div>
+
+    <div class="lp-insight-detail">
+      <div>
+        <p class="lp-insight-kicker" id="insightYear">2025</p>
+        <h3 id="insightTitle">Foundation models become the center of gravity.</h3>
+        <p id="insightText">The catalog shows foundation-model work overtaking earlier pretraining-heavy signals, while vision-language, generalization, and climate/weather topics keep expanding.</p>
+      </div>
+      <div class="lp-insight-topics" id="insightTopics"></div>
+    </div>
+
+    <p class="lp-insight-note">Based on <code>data/foundation-models.csv</code>; 2026 is a partial-year signal.</p>
   </div>
 </section>
 
@@ -643,6 +681,6 @@ function nlSubmit(e) {
   e.target.querySelector('.lp-nl-input').value = '';
 }
 </script>
-<script type="module" src="src/js/landing.js?v=20260521-6"></script>
+<script type="module" src="src/js/landing.js?v=20260521-7"></script>
 </body>
 </html>
