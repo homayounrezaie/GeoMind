@@ -170,7 +170,7 @@ nav,section,footer{position:relative;z-index:1}
   font-size:clamp(48px,7.5vw,88px);font-weight:900;
   letter-spacing:-3px;line-height:.98;
   color:#fff;margin-bottom:1.5rem;
-  animation:fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) both;
+  animation:fadeUp 0.8s 0.12s cubic-bezier(0.16,1,0.3,1) both;
 }
 .lp-title-em{
   font-style:normal;
@@ -178,7 +178,7 @@ nav,section,footer{position:relative;z-index:1}
   background-size:200% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
-  animation:fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) both, shimmer 3s linear infinite;
+  animation:fadeUp 0.8s 0.12s cubic-bezier(0.16,1,0.3,1) both, shimmer 3s linear infinite;
 }
 @keyframes shimmer{
   0%{background-position:0% center}
@@ -190,11 +190,11 @@ nav,section,footer{position:relative;z-index:1}
   line-height:1.7;
   color:rgba(255,255,255,0.66);
   margin-bottom:2.5rem;
-  animation:fadeUp 0.8s 0.3s cubic-bezier(0.16,1,0.3,1) both;
+  animation:fadeUp 0.8s 0.22s cubic-bezier(0.16,1,0.3,1) both;
 }
 .lp-hero-actions{
   display:flex;align-items:center;gap:14px;
-  animation:fadeUp 0.8s 0.4s cubic-bezier(0.16,1,0.3,1) both;
+  animation:fadeUp 0.8s 0.32s cubic-bezier(0.16,1,0.3,1) both;
 }
 .lp-cta-primary{
   background:#6366F1;border:none;border-radius:10px;
