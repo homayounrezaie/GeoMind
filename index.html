@@ -174,38 +174,24 @@
 <!-- INSIGHT -->
 <section class="lp-insight-section" aria-labelledby="insight-title">
   <div class="lp-insight-head">
-    <h2 class="lp-sec-title" id="insight-title">GeoAI foundation models are accelerating.</h2>
-    <p class="lp-sec-sub">A snapshot from GeoMind's foundation-model catalog shows how quickly the field moved from scattered pretraining work into benchmarks, multimodal models, climate/weather systems, and vision-language GeoAI.</p>
+    <h2 class="lp-sec-title" id="insight-title">What is emerging in GeoAI?</h2>
+    <p class="lp-sec-sub">A quick signal map from the foundation-model catalog. Use it to see how the conversation shifts over time, not as a final publication count.</p>
   </div>
 
-  <div class="lp-insight-panel">
-    <div class="lp-insight-summary">
-      <div class="lp-insight-stat">
-        <span>10,764</span>
-        <strong>cataloged candidate records</strong>
-      </div>
-      <div class="lp-insight-stat">
-        <span>2023-2025</span>
-        <strong>fastest growth window</strong>
-      </div>
-      <div class="lp-insight-stat">
-        <span>5 themes</span>
-        <strong>now dominate the signal</strong>
-      </div>
+  <div class="lp-insight-panel" id="insightPanel">
+    <div class="lp-insight-orbit" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
     </div>
-
-    <div class="lp-insight-chart" id="insightChart" aria-label="Foundation model records by year"></div>
-
-    <div class="lp-insight-detail">
+    <div class="lp-insight-content">
       <div>
-        <p class="lp-insight-kicker" id="insightYear">2025</p>
-        <h3 id="insightTitle">Foundation models become the center of gravity.</h3>
-        <p id="insightText">The catalog shows foundation-model work overtaking earlier pretraining-heavy signals, while vision-language, generalization, and climate/weather topics keep expanding.</p>
+        <p class="lp-insight-kicker" id="insightPeriod">2025</p>
+        <h3 id="insightTitle">Foundation models become the organizing layer.</h3>
+        <p id="insightText">The catalog signal moves from pretraining as a technique toward reusable models, benchmarks, and domain-specific systems.</p>
+        <div class="lp-insight-topics" id="insightTopics"></div>
       </div>
-      <div class="lp-insight-topics" id="insightTopics"></div>
+      <div class="lp-insight-rail" id="insightRail" aria-label="GeoAI topic signals over time"></div>
     </div>
-
-    <p class="lp-insight-note">Based on <code>data/foundation-models.csv</code>; 2026 is a partial-year signal.</p>
+    <p class="lp-insight-note">Signal view based on <code>data/foundation-models.csv</code>. 2026 is partial.</p>
   </div>
 </section>
 

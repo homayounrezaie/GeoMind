@@ -976,100 +976,84 @@ function initAskGeoMind() {
 }
 
 function initInsightChart() {
-  const chart = document.getElementById('insightChart');
-  const yearEl = document.getElementById('insightYear');
+  const rail = document.getElementById('insightRail');
+  const periodEl = document.getElementById('insightPeriod');
   const titleEl = document.getElementById('insightTitle');
   const textEl = document.getElementById('insightText');
   const topicsEl = document.getElementById('insightTopics');
-  if (!chart || !yearEl || !titleEl || !textEl || !topicsEl) return;
+  if (!rail || !periodEl || !titleEl || !textEl || !topicsEl) return;
 
-  const years = [
+  const signals = [
     {
-      year: '2020',
-      count: 498,
-      title: 'Vision-language and generalization signals appear.',
-      text: 'Early catalog signals cluster around vision-language work, multimodal learning, remote-sensing pretraining, and generalization.',
-      topics: [['Vision-language', 147], ['Generalization', 110], ['Multimodal', 108], ['RS pretraining', 96]],
+      period: '2020-2022',
+      title: 'Pretraining becomes the starting point.',
+      text: 'Early signals cluster around remote-sensing pretraining, generalization, multimodal learning, and vision-language work.',
+      topics: ['RS pretraining', 'Generalization', 'Multimodal', 'Vision-language'],
+      weight: 1,
     },
     {
-      year: '2021',
-      count: 584,
-      title: 'Pretraining and generalization keep building.',
-      text: 'The catalog shows stronger self-supervised and remote-sensing pretraining activity, with multimodal methods still close behind.',
-      topics: [['Generalization', 156], ['RS pretraining', 154], ['Vision-language', 115], ['Multimodal', 111]],
+      period: '2023',
+      title: 'Foundation models become visible.',
+      text: 'The field starts naming reusable geospatial models as a category, while climate/weather and benchmark work become easier to track.',
+      topics: ['Foundation models', 'Climate/weather', 'Benchmarks', 'Multimodal'],
+      weight: 2,
     },
     {
-      year: '2022',
-      count: 797,
-      title: 'Remote-sensing pretraining becomes a major lane.',
-      text: 'Pretraining dominates the signal as reusable Earth-observation representations become a clearer research direction.',
-      topics: [['RS pretraining', 274], ['Generalization', 220], ['Multimodal', 110], ['Vision-language', 87]],
+      period: '2024',
+      title: 'The stack around the models matures.',
+      text: 'More work connects models to evaluation, data infrastructure, task coverage, and domain-specific Earth systems.',
+      topics: ['Evaluation', 'Data infrastructure', 'Task coverage', 'Earth systems'],
+      weight: 3,
     },
     {
-      year: '2023',
-      count: 1757,
-      title: 'The field starts reorganizing around foundation models.',
-      text: 'Records more than double from 2022, with foundation-model, climate/weather, and multimodal topics becoming visibly stronger.',
-      topics: [['RS pretraining', 535], ['Generalization', 346], ['Foundation models', 186], ['Climate/weather', 161]],
+      period: '2025',
+      title: 'Foundation models become the organizing layer.',
+      text: 'The catalog signal moves from pretraining as a technique toward reusable models, benchmarks, and domain-specific systems.',
+      topics: ['Base models', 'VLMs', 'Benchmarks', 'Adaptation'],
+      weight: 4,
     },
     {
-      year: '2024',
-      count: 2555,
-      title: 'Foundation models move from theme to infrastructure.',
-      text: 'Foundation-model records rise sharply while benchmarks, climate/weather, and vision-language work expand around them.',
-      topics: [['RS pretraining', 648], ['Foundation models', 450], ['Generalization', 309], ['Climate/weather', 296]],
-    },
-    {
-      year: '2025',
-      count: 3025,
-      title: 'Foundation models become the center of gravity.',
-      text: 'The catalog shows foundation-model work overtaking earlier pretraining-heavy signals, while vision-language, generalization, and climate/weather topics keep expanding.',
-      topics: [['Foundation models', 686], ['RS pretraining', 555], ['Vision-language', 353], ['Generalization', 329]],
-    },
-    {
-      year: '2026',
-      count: 1525,
-      title: 'Partial-year signal: consolidation continues.',
-      text: 'Even as a partial-year slice, 2026 keeps foundation models ahead, with vision-language and generalization still prominent.',
-      topics: [['Foundation models', 396], ['Vision-language', 215], ['Generalization', 195], ['RS pretraining', 149]],
+      period: '2026',
+      title: 'Partial-year signal: consolidation.',
+      text: 'The newest records point toward better evaluation, model specialization, and more practical workflows around foundation models.',
+      topics: ['Specialization', 'Agents', 'Evaluation', 'Workflows'],
+      weight: 3,
     },
   ];
 
-  const maxCount = Math.max(...years.map(item => item.count));
-
   function setActive(item) {
-    yearEl.textContent = item.year === '2026' ? `${item.year} partial` : item.year;
+    periodEl.textContent = item.period === '2026' ? '2026 partial' : item.period;
     titleEl.textContent = item.title;
     textEl.textContent = item.text;
-    topicsEl.innerHTML = item.topics.map(([label, value]) => (
-      `<span class="lp-insight-topic"><span>${value.toLocaleString()}</span>${label}</span>`
+    topicsEl.innerHTML = item.topics.map(label => (
+      `<span class="lp-insight-topic">${label}</span>`
     )).join('');
 
-    chart.querySelectorAll('.lp-insight-bar-btn').forEach(btn => {
-      const active = btn.dataset.year === item.year;
+    rail.querySelectorAll('.lp-insight-signal').forEach(btn => {
+      const active = btn.dataset.period === item.period;
       btn.classList.toggle('active', active);
       btn.setAttribute('aria-pressed', String(active));
     });
   }
 
-  chart.innerHTML = '';
-  years.forEach(item => {
+  rail.innerHTML = '';
+  signals.forEach(item => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'lp-insight-bar-btn';
-    button.dataset.year = item.year;
+    button.className = 'lp-insight-signal';
+    button.dataset.period = item.period;
     button.setAttribute('aria-pressed', 'false');
-    button.setAttribute('aria-label', `${item.year}: ${item.count.toLocaleString()} candidate records`);
+    button.setAttribute('aria-label', `Show ${item.period} GeoAI signal`);
+    button.style.setProperty('--signal-size', String(item.weight));
     button.innerHTML = `
-      <span class="lp-insight-count">${item.count.toLocaleString()}</span>
-      <span class="lp-insight-bar" style="height:${Math.max(8, Math.round((item.count / maxCount) * 100))}%"></span>
-      <span class="lp-insight-year-label">${item.year}</span>
+      <span class="lp-insight-dot"></span>
+      <span class="lp-insight-period">${item.period}</span>
     `;
     button.addEventListener('click', () => setActive(item));
-    chart.appendChild(button);
+    rail.appendChild(button);
   });
 
-  setActive(years.find(item => item.year === '2025') || years[years.length - 1]);
+  setActive(signals.find(item => item.period === '2025') || signals[0]);
 }
 
 /* ── Knowledge Map mini radial ───────────────── */
