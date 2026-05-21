@@ -975,6 +975,71 @@ function initAskGeoMind() {
   window.setTimeout(runDemo, 520);
 }
 
+function initModelSignalBoard() {
+  const grid = document.getElementById('modelSignalGrid');
+  const yearsWrap = document.getElementById('modelSignalYears');
+  const marker = document.getElementById('modelSignalMarker');
+  const yearEl = document.getElementById('modelSignalYear');
+  const titleEl = document.getElementById('modelSignalTitle');
+  const modelsEl = document.getElementById('modelSignalModels');
+  if (!grid || !yearsWrap || !marker || !yearEl || !titleEl || !modelsEl) return;
+
+  const years = [
+    { year: '2021', title: 'Self-supervised signals', models: ['SeCo', 'GASSL', 'BEN-MM'], marker: 16 },
+    { year: '2022', title: 'Masked pretraining', models: ['RingMo', 'SatMAE', 'SSL4EO-S12', 'DINO-MM'], marker: 31 },
+    { year: '2023', title: 'Scale and multimodal', models: ['Scale-MAE', 'CROMA', 'GeoChat', 'EarthPT'], marker: 47 },
+    { year: '2024', title: 'Generalist EO models', models: ['SpectralGPT', 'RemoteCLIP', 'SkySense', 'Prithvi'], marker: 63 },
+    { year: '2025', title: 'Embedding and open ecosystems', models: ['AlphaEarth', 'HyperSIGMA', 'SkySense++', 'TerraMind', 'DOFA-CLIP'], marker: 78 },
+    { year: '2026', title: 'Specialized candidates', models: ['FlexiMo', 'AgriFM', 'OmniEarth', 'SkyMoE', 'THOR'], marker: 91 },
+  ];
+  const cols = 36;
+  const rows = 5;
+
+  grid.innerHTML = '';
+  for (let i = 0; i < cols * rows; i++) {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    const cell = document.createElement('span');
+    cell.className = 'lp-signal-cell';
+    const wave = (Math.sin(col * 1.65 + row * 0.95) + 1) / 2;
+    const early = col < 9;
+    const active = col >= 9 && col < 26;
+    const rising = col >= 26 && col < 29;
+    const future = col >= 29;
+    const tone = future ? 'future' : active && wave > 0.68 ? 'hot' : early || rising ? 'mid' : wave > 0.38 ? 'cool' : 'quiet';
+    cell.dataset.tone = tone;
+    cell.style.setProperty('--cell-opacity', String(Math.max(0.28, Math.min(1, 0.42 + wave * 0.58))));
+    grid.appendChild(cell);
+  }
+
+  function setActive(item) {
+    marker.style.setProperty('--marker-left', `${item.marker}%`);
+    marker.querySelector('span').textContent = item.year;
+    yearEl.textContent = item.year;
+    titleEl.textContent = item.title;
+    modelsEl.innerHTML = item.models.map(model => `<em>${model}</em>`).join('');
+    yearsWrap.querySelectorAll('.lp-signal-year-btn').forEach(btn => {
+      const active = btn.dataset.year === item.year;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  yearsWrap.innerHTML = '';
+  years.forEach(item => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'lp-signal-year-btn';
+    button.dataset.year = item.year;
+    button.setAttribute('aria-pressed', 'false');
+    button.textContent = item.year;
+    button.addEventListener('click', () => setActive(item));
+    yearsWrap.appendChild(button);
+  });
+
+  setActive(years.find(item => item.year === '2025') || years[0]);
+}
+
 /* ── Knowledge Map mini radial ───────────────── */
 function initMapViz() {
   const wrap = document.getElementById('lpMapViz');
@@ -1478,6 +1543,7 @@ function initDemoTerm(onDone) {
 document.addEventListener('DOMContentLoaded', () => {
   initCanvas();
   initMainCategories();
+  initModelSignalBoard();
   initRadial();
   initFeatSwitcher();
 });
