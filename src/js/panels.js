@@ -5,11 +5,6 @@ export let current = null;
 
 const loaded = new Set();
 const cache = {};
-const panelModules = import.meta.glob('../panels/*.html', {
-  query: '?raw',
-  import: 'default',
-  eager: true,
-});
 
 const homeView  = () => document.getElementById('home-view');
 const panelView = () => document.getElementById('panel-view');
@@ -19,7 +14,16 @@ const viewTitle = () => document.getElementById('panel-view-title');
 /* Fetch and cache panel HTML — never touches the DOM */
 async function loadPanel(id) {
   if (loaded.has(id)) return;
-  cache[id] = panelModules[`../panels/${id}.html`] || '<div class="pb-loading">failed to load</div>';
+  try {
+    const pagesIndex = window.location.pathname.indexOf('/pages/');
+    const branchBase = pagesIndex === -1 ? './' : window.location.pathname.slice(0, pagesIndex + 1);
+    const base = import.meta.env?.BASE_URL || branchBase;
+    const res = await fetch(`${base}src/panels/${id}.html`);
+    if (!res.ok) throw new Error(`Panel ${id} returned ${res.status}`);
+    cache[id] = await res.text();
+  } catch {
+    cache[id] = '<div class="pb-loading">failed to load</div>';
+  }
   loaded.add(id);
 }
 
