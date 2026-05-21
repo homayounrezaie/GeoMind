@@ -258,7 +258,7 @@
       margin:0 0 18px;
     }
     .gm-gh-scroll{
-      overflow-x:auto;
+      overflow-x:hidden;
       overflow-y:visible;
       padding-bottom:2px;
     }
@@ -298,7 +298,7 @@
     }
     .gm-gh-label{
       color:#7d8590;
-      font-size:12px;
+      font-size:var(--label-font,12px);
       line-height:var(--cell);
       text-align:right;
       white-space:nowrap;
@@ -313,8 +313,8 @@
       position:relative;
       display:inline-grid;
       place-items:center;
-      width:18px;
-      height:18px;
+      width:var(--icon-size,18px);
+      height:var(--icon-size,18px);
       color:#7d8590;
       outline:none;
     }
@@ -324,8 +324,8 @@
     .gm-platform-icon svg,
     .gm-platform-icon img{
       display:block;
-      width:16px;
-      height:16px;
+      width:var(--icon-svg-size,16px);
+      height:var(--icon-svg-size,16px);
       flex:0 0 auto;
     }
     .gm-platform-icon.is-wide svg{
@@ -384,17 +384,17 @@
     .gm-gh-cells{
       position:relative;
       display:grid;
-      grid-template-columns:repeat(var(--columns),14px);
-      grid-template-rows:repeat(var(--rows),14px);
+      grid-template-columns:repeat(var(--columns),var(--cell));
+      grid-template-rows:repeat(var(--rows),var(--cell));
       grid-auto-flow:column;
-      column-gap:3px;
-      row-gap:6px;
+      column-gap:var(--gap);
+      row-gap:var(--row-gap);
       width:max-content;
     }
     .gm-gh-cell{
       position:relative;
-      width:14px;
-      height:14px;
+      width:var(--cell);
+      height:var(--cell);
       border-radius:3px;
       background:#161b22;
       outline:1px solid rgba(255,255,255,.025);
@@ -422,10 +422,10 @@
     }
     .gm-gh-dot{
       position:absolute;
-      top:-6px;
+      top:calc(var(--cell) * -.42);
       left:50%;
-      width:3px;
-      height:3px;
+      width:var(--dot-size,3px);
+      height:var(--dot-size,3px);
       border-radius:999px;
       background:#7d8590;
       opacity:0;
@@ -535,11 +535,8 @@
     }
     .gm-gh-tip strong{display:block;color:#f0f6fc;margin-bottom:2px}
     @media(max-width:640px){
-      .gm-heatmap-wrap{--label-w:130px}
       .gm-heatmap-intro{text-align:left;margin-bottom:44px}
       .gm-gh-chart{margin-bottom:72px}
-      .gm-gh-scroll{overflow-x:auto}
-      .gm-gh-label{font-size:11px}
       .gm-gh-footer{margin-left:var(--label-w);min-width:260px}
       .gm-gh-swatch{width:8px;height:8px}
     }
@@ -1033,7 +1030,6 @@ function nlSubmit(e) {
   const ROW_GAP = 6;
   const LABEL_W = 130;
   const LABEL_PAD = 14;
-  const STEP = CELL + GAP;
   const STAGGER = 12;
   const START = new Date('2021-01-01T00:00:00');
   const END = new Date('2026-07-31T23:59:59');
@@ -1192,7 +1188,7 @@ function nlSubmit(e) {
       const first = yearMonths[0].index;
       const count = yearMonths.length;
       const width = count * CELL + Math.max(0, count - 1) * GAP;
-      years.push({ label: String(year), left: first * STEP + width / 2 });
+      years.push({ label: String(year), first, count, left: first * (CELL + GAP) + width / 2 });
     }
     return { years };
   }
@@ -1225,6 +1221,15 @@ function nlSubmit(e) {
     chartEl.className = 'gm-gh-chart';
     chartEl.style.setProperty('--columns', String(columns));
     chartEl.style.setProperty('--rows', String(chart.rows.length));
+    chartEl.style.setProperty('--cell', `${CELL}px`);
+    chartEl.style.setProperty('--gap', `${GAP}px`);
+    chartEl.style.setProperty('--row-gap', `${ROW_GAP}px`);
+    chartEl.style.setProperty('--label-w', `${LABEL_W}px`);
+    chartEl.style.setProperty('--label-pad', `${LABEL_PAD}px`);
+    chartEl.style.setProperty('--label-font', '12px');
+    chartEl.style.setProperty('--icon-size', '18px');
+    chartEl.style.setProperty('--icon-svg-size', '16px');
+    chartEl.style.setProperty('--dot-size', '3px');
     chartEl.style.setProperty('--cells-w', `${cellsW}px`);
     chartEl.style.setProperty('--chart-w', `${chartW}px`);
     chartEl.innerHTML = `
@@ -1250,6 +1255,8 @@ function nlSubmit(e) {
     labels.years.forEach(year => {
       const label = document.createElement('span');
       label.className = 'gm-gh-year';
+      label.dataset.first = String(year.first);
+      label.dataset.count = String(year.count);
       label.style.left = `${year.left}px`;
       label.textContent = year.label;
       axis.appendChild(label);
@@ -1326,13 +1333,102 @@ function nlSubmit(e) {
     if (chart.today) {
       const marker = document.createElement('div');
       marker.className = 'gm-gh-today';
-      marker.style.left = `${todayIndex * STEP + CELL / 2 - 1.25}px`;
       marker.innerHTML = '<span>Today</span>';
       cells.appendChild(marker);
     }
 
     mount.appendChild(chartEl);
+    layoutHeatmap(chartEl);
     setupReveal(chartEl, milestoneEntries, cells);
+  }
+
+  function layoutHeatmaps() {
+    document.querySelectorAll('.gm-gh-chart').forEach(layoutHeatmap);
+  }
+
+  function layoutHeatmap(chartEl) {
+    const scroll = chartEl.querySelector('.gm-gh-scroll');
+    if (!scroll) return;
+
+    const columns = months.length;
+    const viewport = window.innerWidth;
+    let labelW = LABEL_W;
+    let labelPad = LABEL_PAD;
+    let gap = GAP;
+    let rowGap = ROW_GAP;
+
+    if (viewport <= 480) {
+      labelW = 72;
+      labelPad = 6;
+      gap = 1;
+      rowGap = 2;
+    } else if (viewport <= 640) {
+      labelW = 84;
+      labelPad = 8;
+      gap = 1;
+      rowGap = 3;
+    } else if (viewport <= 900) {
+      labelW = 112;
+      labelPad = 10;
+      gap = 2;
+      rowGap = 4;
+    }
+
+    const available = Math.max(0, scroll.clientWidth);
+    const usable = Math.max(0, available - labelW - labelPad - Math.max(0, columns - 1) * gap);
+    let cell = Math.min(CELL, usable / columns);
+
+    if (cell < 5 && viewport <= 640) {
+      labelW = viewport <= 480 ? 64 : 76;
+      labelPad = 6;
+      gap = 1;
+      rowGap = 2;
+      const compactUsable = Math.max(0, available - labelW - labelPad - Math.max(0, columns - 1) * gap);
+      cell = Math.min(CELL, compactUsable / columns);
+    }
+
+    cell = Math.max(2.5, Math.min(CELL, cell));
+    rowGap = Math.max(2, Math.min(ROW_GAP, Math.round(cell * .5)));
+
+    const cellsW = columns * cell + Math.max(0, columns - 1) * gap;
+    const chartW = labelW + labelPad + cellsW;
+    const labelFont = Math.max(9, Math.min(12, cell * 1.05));
+    const iconSize = Math.max(10, Math.min(18, cell + 4));
+    const iconSvgSize = Math.max(9, Math.min(16, cell + 2));
+    const dotSize = Math.max(2, Math.min(3, cell * .24));
+
+    chartEl.style.setProperty('--cell', `${cell}px`);
+    chartEl.style.setProperty('--gap', `${gap}px`);
+    chartEl.style.setProperty('--row-gap', `${rowGap}px`);
+    chartEl.style.setProperty('--label-w', `${labelW}px`);
+    chartEl.style.setProperty('--label-pad', `${labelPad}px`);
+    chartEl.style.setProperty('--label-font', `${labelFont}px`);
+    chartEl.style.setProperty('--icon-size', `${iconSize}px`);
+    chartEl.style.setProperty('--icon-svg-size', `${iconSvgSize}px`);
+    chartEl.style.setProperty('--dot-size', `${dotSize}px`);
+    chartEl.style.setProperty('--cells-w', `${cellsW}px`);
+    chartEl.style.setProperty('--chart-w', `${chartW}px`);
+    chartEl._gmLayout = { cell, gap, rowGap, labelW, labelPad, cellsW, chartW };
+
+    chartEl.querySelectorAll('.gm-gh-year').forEach(label => {
+      const first = Number(label.dataset.first || 0);
+      const count = Number(label.dataset.count || 1);
+      const width = count * cell + Math.max(0, count - 1) * gap;
+      label.style.left = `${first * (cell + gap) + width / 2}px`;
+    });
+
+    const todayMarker = chartEl.querySelector('.gm-gh-today');
+    if (todayMarker) {
+      todayMarker.style.left = `${todayIndex * (cell + gap) + cell / 2 - 1.25}px`;
+    }
+  }
+
+  function layoutFor(cells) {
+    return cells.closest('.gm-gh-chart')?._gmLayout || {
+      cell: CELL,
+      gap: GAP,
+      rowGap: ROW_GAP,
+    };
   }
 
   function setupReveal(chartEl, milestoneEntries, cells) {
@@ -1411,15 +1507,18 @@ function nlSubmit(e) {
   }
 
   function createPill(cells, col, row, text) {
+    const layout = layoutFor(cells);
+    const x = col * (layout.cell + layout.gap);
+    const y = row * (layout.cell + layout.rowGap) - 30;
     const pill = document.createElement('span');
     pill.className = 'gm-gh-pill';
     pill.textContent = text;
-    pill.style.left = `${col * STEP}px`;
-    pill.style.top = `${row * (CELL + ROW_GAP) - 30}px`;
+    pill.style.left = `${x}px`;
+    pill.style.top = `${y}px`;
     cells.appendChild(pill);
     requestAnimationFrame(() => {
       const maxLeft = Math.max(0, cells.offsetWidth - pill.offsetWidth);
-      const left = Math.min(col * STEP, maxLeft);
+      const left = Math.min(x, maxLeft);
       pill.style.left = `${left}px`;
     });
     return pill;
@@ -1450,6 +1549,8 @@ function nlSubmit(e) {
   tooltip.className = 'gm-gh-tip';
   document.body.appendChild(tooltip);
   charts.forEach(chart => renderHeatmap(chart, mount, tooltip));
+  layoutHeatmaps();
+  window.addEventListener('resize', layoutHeatmaps);
 })();
 </script>
 <script type="module" src="src/js/landing.js?v=20260521-9"></script>
