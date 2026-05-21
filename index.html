@@ -250,17 +250,18 @@
       letter-spacing:-.25px;
       width:var(--cells-w);
       max-width:calc(100% - var(--label-w) - var(--label-pad));
-      margin:0 auto 22px calc((100% - var(--chart-w)) / 2 + var(--label-w) + var(--label-pad));
+      margin:0 auto 8px calc((100% - var(--chart-w)) / 2 + var(--label-w) + var(--label-pad));
       padding-top:10px;
       text-align:left;
     }
     .gm-gh-subtitle{
-      max-width:900px;
+      width:var(--cells-w);
+      max-width:calc(100% - var(--label-w) - var(--label-pad));
       color:#7d8590;
       font-size:13px;
       line-height:1.6;
-      margin:0 auto 18px;
-      text-align:center;
+      margin:0 auto 22px calc((100% - var(--chart-w)) / 2 + var(--label-w) + var(--label-pad));
+      text-align:left;
     }
     .gm-gh-scroll{
       overflow-x:hidden;
@@ -1045,11 +1046,13 @@ function nlSubmit(e) {
   const charts = [
     {
       title: 'Tracking Geo Foundation Models',
+      subtitle: 'A monthly view of how models, papers, datasets, benchmarks, and tools are building up across GeoAI.',
       legend: true,
       rows: ecosystemRows.map(spec => makeRow(spec, milestones[spec.id] || [])),
     },
     {
       title: 'Activity by Platform',
+      subtitle: 'A monthly view of where the work lands across Hugging Face, arXiv, GitHub, Papers with Code, and Kaggle.',
       legend: true,
       rows: platformRows.map(spec => makeRow(spec, [])),
     },
