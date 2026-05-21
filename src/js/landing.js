@@ -581,19 +581,19 @@ function initGraphCloud() {
     {
       label: 'Dataset Graph',
       meta: 'training data · labels · benchmarks · evaluation',
-      color: '6,182,212',
+      color: '129,140,248',
       words: ['Datasets','Sentinel-2','Landsat','xView','DOTA','NAIP','labels','benchmarks','STAC catalog','COG','GeoTIFF','Zarr','NetCDF','building detection','change detection','cloud mask','land cover','flood mapping','crop mapping','evaluation','training data','Kaggle','Hugging Face','GeoParquet'],
     },
     {
       label: 'Paper Graph',
       meta: 'papers · methods · tasks · code · citations',
-      color: '129,140,248',
+      color: '99,102,241',
       words: ['Papers','methods','code','SOTA','citations','benchmarks','segmentation','object detection','super-resolution','SAR segmentation','ViT','U-Net','YOLO','LoRA','RAG','evaluation','ablation','pretraining','fine-tuning','remote sensing','CVPR','NeurIPS','ICLR','Papers with Code'],
     },
     {
       label: 'Foundation Graph',
       meta: 'foundation models · embeddings · VLMs · agents',
-      color: '168,85,247',
+      color: '165,180,252',
       words: ['Foundation Models','Prithvi','Clay','SAM','TerraMind','GeoCLIP','SatMAE','SpectralGPT','RemoteCLIP','GeoChat','VLMs','LLMs','agents','embeddings','multimodal','transformers','ViT','self-supervised','masked modeling','zero-shot','few-shot','fine-tuning','vector search','reranking'],
     },
   ];
@@ -638,7 +638,7 @@ function initGraphCloud() {
       wordIndex: isWord ? (i / 7 | 0) : -1,
       word: isWord ? words[(i / 7 | 0) % words.length] : '',
       phase: Math.random() * Math.PI * 2,
-      hue: Math.random() > 0.72 ? 'cyan' : 'indigo',
+      hue: Math.random() > 0.72 ? 'soft' : 'accent',
     };
   }
 
@@ -735,7 +735,7 @@ function initGraphCloud() {
 
     sorted.forEach((p, i) => {
       const isTopicWord = p.isWord;
-      const glow = isTopicWord ? topic.color : (p.hue === 'cyan' ? '6,182,212' : '129,140,248');
+      const glow = isTopicWord ? topic.color : (p.hue === 'soft' ? '165,180,252' : '129,140,248');
       const pulse = 0.55 + Math.sin(t * 0.0007 + p.phase) * 0.18;
       const alpha = 0.18 + p.depth * 0.62;
       const radius = (p.r + pulse * 0.6 + (isTopicWord ? 0.45 : 0)) * (0.6 + p.depth * 0.9);
