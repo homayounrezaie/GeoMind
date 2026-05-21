@@ -527,6 +527,7 @@
       position:fixed;
       z-index:9999;
       display:none;
+      max-width:260px;
       padding:8px 10px;
       border-radius:6px;
       background:#161b22;
@@ -538,6 +539,8 @@
       box-shadow:0 8px 24px rgba(0,0,0,.28);
     }
     .gm-gh-tip strong{display:block;color:#f0f6fc;margin-bottom:2px}
+    .gm-gh-tip span{display:block;color:#c9d1d9}
+    .gm-gh-tip small{display:block;color:#7d8590;margin-top:4px;font-size:11px}
     @media(max-width:640px){
       .gm-heatmap-intro{text-align:left;margin-bottom:44px}
       .gm-gh-chart{margin-bottom:72px}
@@ -1086,11 +1089,11 @@ function nlSubmit(e) {
   };
 
   const ecosystemRows = [
-    { id: 'models', name: 'Models', noun: 'models', weight: 1.08, seed: 11 },
-    { id: 'papers', name: 'Papers', noun: 'papers', weight: 1.22, seed: 23 },
-    { id: 'datasets', name: 'Datasets', noun: 'datasets', weight: .88, seed: 37 },
-    { id: 'benchmarks', name: 'Benchmarks', noun: 'benchmarks', weight: .78, seed: 43 },
-    { id: 'tools', name: 'Tools & Frameworks', noun: 'tools', weight: .72, seed: 59 },
+    { id: 'models', name: 'Models', weight: 1.08, seed: 11, examples: ['SeCo', 'SatMAE', 'Prithvi-100M', 'SatlasPretrain', 'Clay', 'SpectralGPT', 'RemoteCLIP', 'TerraMind', 'AlphaEarth Foundations'] },
+    { id: 'papers', name: 'Papers', weight: 1.22, seed: 23, examples: ['SatMAE paper', 'Prithvi paper', 'Clay technical report', 'RemoteCLIP paper', 'TerraMind paper', 'GEO-Bench paper', 'PANGAEA paper'] },
+    { id: 'datasets', name: 'Datasets', weight: .88, seed: 37, examples: ['BigEarthNet-MM', 'fMoW-Sentinel', 'SatlasPretrain data', 'Major TOM', 'Clay Pretrain Corpus', 'SpaceNet', 'SEN12MS'] },
+    { id: 'benchmarks', name: 'Benchmarks', weight: .78, seed: 43, examples: ['GEO-Bench', 'PhilEO-Bench', 'PANGAEA', 'fMoW', 'BigEarthNet', 'Sen1Floods11'] },
+    { id: 'tools', name: 'Tools & Frameworks', weight: .72, seed: 59, examples: ['TorchGeo', 'TerraTorch', 'segment-geospatial', 'Rasterio', 'GeoPandas', 'geemap', 'xarray'] },
   ];
 
   const resourceIcons = {
@@ -1102,11 +1105,11 @@ function nlSubmit(e) {
   };
 
   const platformRows = [
-    { id: 'huggingface', name: 'Hugging Face', noun: 'Hub updates', weight: 1.2, seed: 7, iconSvg: resourceIcons.huggingface },
-    { id: 'arxiv', name: 'arXiv', noun: 'papers', weight: 1.16, seed: 19, iconSvg: resourceIcons.arxiv },
-    { id: 'github', name: 'GitHub', noun: 'repo updates', weight: 1.02, seed: 31, iconSvg: resourceIcons.github },
-    { id: 'pwc', name: 'Papers With Code', noun: 'benchmark updates', weight: .76, seed: 47, iconSvg: resourceIcons.paperswithcode },
-    { id: 'kaggle', name: 'Kaggle', noun: 'datasets', weight: .62, seed: 61, iconSvg: resourceIcons.kaggle },
+    { id: 'huggingface', name: 'Hugging Face', weight: 1.2, seed: 7, iconSvg: resourceIcons.huggingface, examples: ['Prithvi', 'Clay', 'TerraMind', 'SatlasPretrain', 'RemoteCLIP'] },
+    { id: 'arxiv', name: 'arXiv', weight: 1.16, seed: 19, iconSvg: resourceIcons.arxiv, examples: ['SatMAE', 'Scale-MAE', 'RemoteCLIP', 'SpectralGPT', 'TerraMind'] },
+    { id: 'github', name: 'GitHub', weight: 1.02, seed: 31, iconSvg: resourceIcons.github, examples: ['TorchGeo', 'TerraTorch', 'segment-geospatial', 'geemap', 'Rasterio'] },
+    { id: 'pwc', name: 'Papers With Code', weight: .76, seed: 47, iconSvg: resourceIcons.paperswithcode, examples: ['GEO-Bench', 'PANGAEA', 'fMoW', 'BigEarthNet', 'PhilEO-Bench'] },
+    { id: 'kaggle', name: 'Kaggle', weight: .62, seed: 61, iconSvg: resourceIcons.kaggle, examples: ['SpaceNet', 'xView', 'SEN12MS', 'DeepGlobe', 'Open Buildings'] },
   ];
 
   const charts = [
@@ -1298,6 +1301,7 @@ function nlSubmit(e) {
       chart.rows.forEach((row, rowIndex) => {
         const count = row.counts[monthIndex] || 0;
         const names = milestoneCellMap.get(`${rowIndex}:${monthIndex}`) || [];
+        const examples = cellExamples(row, monthIndex, names, count);
         const cellEl = document.createElement('span');
         cellEl.className = 'gm-gh-cell';
         cellEl.dataset.level = String(level(count));
@@ -1306,9 +1310,9 @@ function nlSubmit(e) {
         cellEl.style.gridRow = String(rowIndex + 1);
         cellEl.style.setProperty('--delay', `${monthIndex * STAGGER}ms`);
         cellEl.tabIndex = 0;
-        cellEl.setAttribute('aria-label', `${row.name}: ${count}, ${formatRange(month)}`);
+        cellEl.setAttribute('aria-label', `${row.name}: ${examples.join(', ') || 'No highlighted items'}, ${formatRange(month)}`);
         cellEl.addEventListener('mouseenter', event => {
-          showTip(event, tooltip, row, month, count);
+          showTip(event, tooltip, row, month, examples);
           if (names.length) showHoverPill(cells, cellEl, monthIndex, rowIndex, names.join(' · '));
         });
         cellEl.addEventListener('mousemove', event => moveTip(event, tooltip));
@@ -1317,7 +1321,7 @@ function nlSubmit(e) {
           hideHoverPill(cellEl);
         });
         cellEl.addEventListener('focus', event => {
-          showTip(event, tooltip, row, month, count);
+          showTip(event, tooltip, row, month, examples);
           if (names.length) showHoverPill(cells, cellEl, monthIndex, rowIndex, names.join(' · '));
         });
         cellEl.addEventListener('blur', () => {
@@ -1528,12 +1532,19 @@ function nlSubmit(e) {
     return pill;
   }
 
-  function countNoun(row, count) {
-    return `${count} new ${row.noun || row.name.toLowerCase()}`;
+  function cellExamples(row, monthIndex, milestoneNames, count) {
+    if (!count && !milestoneNames.length) return [];
+    const pool = [...milestoneNames, ...(row.examples || [])];
+    const unique = [...new Set(pool)];
+    if (!unique.length) return [];
+    if (milestoneNames.length) return unique.slice(0, 3);
+    const start = Math.floor(seeded(row.seed * 53 + monthIndex * 11) * unique.length);
+    return Array.from({ length: Math.min(3, unique.length) }, (_, offset) => unique[(start + offset) % unique.length]);
   }
 
-  function showTip(event, tooltip, row, bucket, count) {
-    tooltip.innerHTML = `<strong>${countNoun(row, count)}</strong>${formatRange(bucket)}`;
+  function showTip(event, tooltip, row, bucket, examples) {
+    const names = examples.length ? examples.join(' · ') : 'No highlighted items yet';
+    tooltip.innerHTML = `<strong>${row.name}</strong><span>${names}</span><small>${formatRange(bucket)}</small>`;
     tooltip.style.display = 'block';
     moveTip(event, tooltip);
   }
