@@ -158,22 +158,6 @@ nav,section,footer{position:relative;z-index:1}
   min-height:46px;
 }
 .lp-cta-ghost:hover{color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.25)}
-.lp-proof-strip{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:1.4rem;
-  color:rgba(255,255,255,0.68);
-  animation:fadeUp 0.8s 0.48s cubic-bezier(0.16,1,0.3,1) both;
-}
-.lp-proof-strip span{
-  padding:7px 10px;
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:8px;
-  background:rgba(255,255,255,0.055);
-  font-size:11px;
-  font-weight:700;
-}
 .lp-goal-panel{
   position:relative;
   border:1px solid rgba(255,255,255,0.1);
@@ -1520,8 +1504,7 @@ nav,section,footer{position:relative;z-index:1}
   .lp-hero-eyebrow{margin-left:auto;margin-right:auto}
   .lp-title,
   .lp-desc{margin-left:auto;margin-right:auto}
-  .lp-hero-actions,
-  .lp-proof-strip{justify-content:center}
+  .lp-hero-actions{justify-content:center}
   .lp-goal-panel{max-width:620px;margin:0 auto;width:100%}
   .lp-feat-layout{grid-template-columns:1fr;gap:2rem}
   .lp-footer-top{grid-template-columns:1fr;gap:2rem}
@@ -1561,8 +1544,6 @@ nav,section,footer{position:relative;z-index:1}
   .lp-hero-actions{flex-direction:column;align-items:stretch;width:100%}
   .lp-cta-primary,
   .lp-cta-ghost{width:100%}
-  .lp-proof-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
-  .lp-proof-strip span{text-align:center}
   .lp-goal-panel{padding:10px;border-radius:14px}
   .lp-goal-list a{min-height:66px;padding:12px}
   .lp-category-section{padding:4rem 1.25rem}
