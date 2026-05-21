@@ -1046,15 +1046,13 @@ function nlSubmit(e) {
 
   const charts = [
     {
-      title: 'Foundation Model Ecosystem Growth',
-      subtitle: 'The data comes from a handful of public APIs: Hugging Face Hub for models and datasets, arXiv for papers, GitHub for tools and frameworks, Papers With Code for benchmarks, and Kaggle for community datasets. Everything is rolled up by calendar month, so you can watch the foundation-models ecosystem grow over time.',
+      title: 'Tracking Geo Foundation Models',
       learn: true,
       legend: true,
       rows: ecosystemRows.map(spec => makeRow(spec, milestones[spec.id] || [])),
     },
     {
       title: 'Activity by Platform',
-      subtitle: 'Where the work is actually happening across the major public hubs.',
       legend: true,
       rows: platformRows.map(spec => makeRow(spec, [])),
     },
@@ -1173,7 +1171,7 @@ function nlSubmit(e) {
     chartEl.style.setProperty('--chart-w', `${chartW}px`);
     chartEl.innerHTML = `
       <h3 class="gm-gh-title">${chart.title}</h3>
-      <p class="gm-gh-subtitle">${chart.subtitle}</p>
+      ${chart.subtitle ? `<p class="gm-gh-subtitle">${chart.subtitle}</p>` : ''}
       <div class="gm-gh-scroll">
         <div class="gm-gh-stage">
           <div class="gm-gh-axis"></div>
