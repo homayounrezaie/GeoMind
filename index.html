@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-2">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-3">
 </head>
 <body>
 
@@ -35,10 +35,47 @@
 
 <!-- HERO -->
 <section class="lp-hero">
-  <h1 class="lp-title"><span class="lp-title-em">Geospatial AI</span>,<br>structured.</h1>
-  <p class="lp-desc">Everything happening in Geospatial AI, organized into six main categories you can explore.</p>
-  <div class="lp-hero-actions">
-    <button class="lp-cta-primary" onclick="go()">Explore GeoMind →</button>
+  <div class="lp-hero-shell">
+    <div class="lp-hero-copy">
+      <p class="lp-hero-eyebrow"><span class="lp-dot"></span> GeoAI knowledge map</p>
+      <h1 class="lp-title"><span class="lp-title-em">Geospatial AI</span>, structured for decisions.</h1>
+      <p class="lp-desc">Find the papers, models, datasets, companies, jobs, and learning paths that fit what you are trying to build or understand.</p>
+      <div class="lp-hero-actions">
+        <button class="lp-cta-primary" onclick="go()">Explore Knowledge Map →</button>
+        <a class="lp-cta-ghost" href="#categories">Browse Categories</a>
+      </div>
+      <div class="lp-proof-strip" aria-label="GeoMind coverage">
+        <span>Papers</span>
+        <span>Models</span>
+        <span>Datasets</span>
+        <span>Companies</span>
+        <span>Jobs</span>
+      </div>
+    </div>
+
+    <aside class="lp-goal-panel" aria-label="Goal based navigation">
+      <div class="lp-goal-panel-head">
+        <span class="lp-main-led"></span>
+        <span>I want to...</span>
+      </div>
+      <div class="lp-goal-list">
+        <a href="pages/paper-with-code.html"><span>Find papers and code</span><strong>Methods, benchmarks, implementations</strong></a>
+        <a href="pages/foundation-models.html"><span>Choose a foundation model</span><strong>GeoAI base models, VLMs, agents</strong></a>
+        <a href="pages/datasets.html"><span>Find training data</span><strong>Datasets, labels, tasks, evaluation</strong></a>
+        <a href="pages/job-market.html"><span>Understand the job market</span><strong>Roles, skills, hiring signals</strong></a>
+        <a href="pages/companies.html"><span>Discover companies</span><strong>Startups, labs, platforms</strong></a>
+        <a href="pages/learn.html"><span>Start learning GeoAI</span><strong>Courses, books, tutorials</strong></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="lp-category-section" id="categories">
+  <div class="lp-section-head">
+    <p class="lp-sec-label">Main categories</p>
+    <h2 class="lp-sec-title">Start from the part of GeoAI you need now.</h2>
+    <p class="lp-sec-sub">Six entry points keep the homepage simple while the full knowledge map preserves the deeper structure.</p>
   </div>
   <div class="lp-main-categories" aria-label="Main GeoMind categories">
     <div class="lp-main-categories-intro">
@@ -602,6 +639,6 @@ function nlSubmit(e) {
   e.target.querySelector('.lp-nl-input').value = '';
 }
 </script>
-<script type="module" src="src/js/landing.js?v=20260521-2"></script>
+<script type="module" src="src/js/landing.js?v=20260521-3"></script>
 </body>
 </html>
