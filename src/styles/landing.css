@@ -619,29 +619,56 @@ nav,section,footer{position:relative;z-index:1}
   position:relative;
   z-index:1;
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:8px;
+  padding-top:38px;
+}
+.lp-model-timeline::before{
+  content:'';
+  position:absolute;
+  z-index:0;
+  top:18px;
+  left:8%;
+  right:8%;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(129,140,248,0.08), rgba(129,140,248,0.74), rgba(6,182,212,0.42), rgba(129,140,248,0.08));
 }
 .lp-model-year{
   position:relative;
-  min-height:178px;
-  padding:17px;
+  z-index:1;
+  min-height:236px;
+  padding:15px 13px;
   border:1px solid rgba(255,255,255,0.08);
   border-radius:16px;
-  background:rgba(7,8,14,0.66);
+  background:linear-gradient(180deg, rgba(15,16,27,0.9), rgba(7,8,14,0.68));
   overflow:hidden;
   transition:border-color .18s, transform .18s, background .18s;
 }
 .lp-model-year::before{
   content:'';
   position:absolute;
-  right:12px;
-  bottom:12px;
-  width:48px;
-  height:48px;
+  left:50%;
+  top:-27px;
+  transform:translateX(-50%);
+  width:16px;
+  height:16px;
   border-radius:50%;
-  border:1px solid rgba(129,140,248,0.24);
-  opacity:.45;
+  border:2px solid rgba(129,140,248,0.78);
+  background:#080910;
+  box-shadow:0 0 0 7px rgba(129,140,248,0.08), 0 0 24px rgba(129,140,248,0.44);
+  opacity:1;
+}
+.lp-model-year::after{
+  content:'';
+  position:absolute;
+  right:-36px;
+  bottom:-36px;
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  border:1px solid rgba(129,140,248,0.16);
+  opacity:.28;
 }
 .lp-model-year:hover,
 .lp-model-year.is-current{
@@ -649,9 +676,18 @@ nav,section,footer{position:relative;z-index:1}
   background:rgba(11,12,22,0.9);
   border-color:rgba(129,140,248,0.34);
 }
+.lp-model-year:hover::before,
+.lp-model-year.is-current::before{
+  border-color:rgba(6,182,212,0.9);
+  box-shadow:0 0 0 7px rgba(6,182,212,0.1), 0 0 28px rgba(6,182,212,0.54);
+}
 .lp-model-year span{
   display:inline-flex;
-  margin-bottom:20px;
+  margin-bottom:18px;
+  padding:5px 8px;
+  border:1px solid rgba(129,140,248,0.15);
+  border-radius:999px;
+  background:rgba(129,140,248,0.07);
   color:#818cf8;
   font-family:'SF Mono','Menlo',monospace;
   font-size:11px;
@@ -660,10 +696,10 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-model-year h3{
   color:#fff;
-  font-size:16px;
+  font-size:14px;
   font-weight:850;
   letter-spacing:-.2px;
-  line-height:1.18;
+  line-height:1.22;
   margin-bottom:14px;
 }
 .lp-model-year div{
@@ -673,12 +709,12 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-model-year em{
   display:inline-flex;
-  padding:7px 9px;
+  padding:6px 8px;
   border:1px solid rgba(129,140,248,0.14);
   border-radius:999px;
   background:rgba(255,255,255,0.04);
   color:rgba(255,255,255,0.72);
-  font-size:11px;
+  font-size:10.5px;
   font-style:normal;
   font-weight:750;
 }
@@ -1721,7 +1757,15 @@ nav,section,footer{position:relative;z-index:1}
   .lp-hero-actions{justify-content:center}
   .lp-goal-panel{max-width:620px;margin:0 auto;width:100%}
   .lp-insight-section{padding:5rem 1.5rem}
-  .lp-model-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lp-model-timeline{
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(190px,34%);
+    grid-template-columns:none;
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    padding-bottom:4px;
+  }
+  .lp-model-year{scroll-snap-align:center}
   .lp-feat-layout{grid-template-columns:1fr;gap:2rem}
   .lp-aud-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .lp-aud-card,
@@ -1773,16 +1817,10 @@ nav,section,footer{position:relative;z-index:1}
   .lp-insight-head{text-align:left;margin-bottom:1.5rem}
   .lp-insight-panel{min-height:0;padding:12px;border-radius:16px}
   .lp-model-timeline{
-    display:grid;
-    grid-auto-flow:column;
     grid-auto-columns:minmax(230px,76%);
-    grid-template-columns:none;
-    overflow-x:auto;
     gap:8px;
-    scroll-snap-type:x proximity;
-    padding-bottom:4px;
   }
-  .lp-model-year{min-height:156px;padding:14px;scroll-snap-align:center}
+  .lp-model-year{min-height:178px;padding:14px;scroll-snap-align:center}
   .lp-model-year span{margin-bottom:10px}
   .lp-model-year h3{font-size:15px;margin-bottom:10px}
   .lp-category-section{padding:4rem 1.25rem}
