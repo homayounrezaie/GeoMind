@@ -248,9 +248,9 @@
       font-size:20px;
       font-weight:700;
       letter-spacing:-.25px;
-      width:var(--chart-w);
-      max-width:100%;
-      margin:0 auto 22px;
+      width:var(--cells-w);
+      max-width:calc(100% - var(--label-w) - var(--label-pad));
+      margin:0 auto 22px calc((100% - var(--chart-w)) / 2 + var(--label-w) + var(--label-pad));
       padding-top:10px;
       text-align:left;
     }
