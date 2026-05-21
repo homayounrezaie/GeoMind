@@ -1036,12 +1036,12 @@ function nlSubmit(e) {
   const STEP = CELL + GAP;
   const STAGGER = 12;
   const START = new Date('2021-01-01T00:00:00');
-  const END = new Date('2027-12-31T23:59:59');
+  const END = new Date('2026-07-31T23:59:59');
   const START_YEAR = START.getFullYear();
   const END_YEAR = END.getFullYear();
   const activeTransientPills = [];
   const today = new Date();
-  const months = buildMonths(START_YEAR, END_YEAR);
+  const months = buildMonths(START, END);
   const todayIndex = clamp((today.getFullYear() - START_YEAR) * 12 + today.getMonth(), 0, months.length - 1);
 
   const milestones = {
@@ -1115,7 +1115,6 @@ function nlSubmit(e) {
       subtitle: 'The data comes from a handful of public APIs: Hugging Face Hub for models and datasets, arXiv for papers, GitHub for tools and frameworks, Papers With Code for benchmarks, and Kaggle for community datasets. Everything is rolled up by calendar month, so you can watch the foundation-models ecosystem grow over time.',
       learn: true,
       legend: true,
-      today: true,
       rows: ecosystemRows.map(spec => makeRow(spec, milestones[spec.id] || [])),
     },
     {
@@ -1125,11 +1124,12 @@ function nlSubmit(e) {
     },
   ];
 
-  function buildMonths(startYear, endYear) {
-    const total = (endYear - startYear + 1) * 12;
+  function buildMonths(start, end) {
+    const total = (end.getFullYear() - start.getFullYear()) * 12 + end.getMonth() - start.getMonth() + 1;
     return Array.from({ length: total }, (_, index) => {
-      const year = startYear + Math.floor(index / 12);
-      const month = index % 12;
+      const date = new Date(start.getFullYear(), start.getMonth() + index, 1);
+      const year = date.getFullYear();
+      const month = date.getMonth();
       return {
         index,
         year,
@@ -1185,10 +1185,13 @@ function nlSubmit(e) {
 
   function axisLabels() {
     const years = [];
-    const yearWidth = 12 * CELL + 11 * GAP;
     for (let year = START_YEAR; year <= END_YEAR; year += 1) {
-      const index = (year - START_YEAR) * 12;
-      years.push({ label: String(year), left: index * STEP + yearWidth / 2 });
+      const yearMonths = months.filter(month => month.year === year);
+      if (!yearMonths.length) continue;
+      const first = yearMonths[0].index;
+      const count = yearMonths.length;
+      const width = count * CELL + Math.max(0, count - 1) * GAP;
+      years.push({ label: String(year), left: first * STEP + width / 2 });
     }
     return { years };
   }
