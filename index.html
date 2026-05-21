@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-8">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-9">
 </head>
 <body>
 
@@ -204,25 +204,166 @@
 
 <!-- INSIGHT -->
 <section class="lp-insight-section" aria-labelledby="insight-title">
-  <div class="lp-insight-head">
-    <h2 class="lp-sec-title" id="insight-title">What is emerging in GeoAI?</h2>
-    <p class="lp-sec-sub">A quick signal map from the foundation-model catalog. Use it to see how the conversation shifts over time, not as a final publication count.</p>
-  </div>
-
-  <div class="lp-insight-panel" id="insightPanel">
-    <div class="lp-insight-orbit" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
+  <style>
+    .gm-heatmap-wrap{
+      max-width:1120px;
+      margin:0 auto;
+    }
+    .gm-heatmap-intro{
+      max-width:720px;
+      margin:0 auto 3rem;
+      text-align:center;
+    }
+    .gm-heatmap-intro h2{
+      color:#fff;
+      font-size:clamp(26px,4vw,42px);
+      font-weight:800;
+      letter-spacing:-1.5px;
+      line-height:1.1;
+      margin-bottom:.75rem;
+    }
+    .gm-heatmap-intro p{
+      color:rgba(255,255,255,.42);
+      font-size:14px;
+      line-height:1.7;
+      margin:0;
+    }
+    .gm-heatmap-chart{
+      position:relative;
+      margin-top:3.5rem;
+      overflow:hidden;
+    }
+    .gm-heatmap-chart::before,
+    .gm-heatmap-chart::after{
+      content:"";
+      position:absolute;
+      width:180px;
+      height:180px;
+      pointer-events:none;
+      opacity:.13;
+      background:
+        linear-gradient(30deg, rgba(255,255,255,.16) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,.16) 87.5%),
+        linear-gradient(150deg, rgba(255,255,255,.12) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,.12) 87.5%);
+      background-size:34px 58px;
+    }
+    .gm-heatmap-chart::before{top:0;left:0}
+    .gm-heatmap-chart::after{right:0;bottom:0;transform:rotate(180deg)}
+    .gm-heatmap-title{
+      position:relative;
+      z-index:1;
+      color:#fff;
+      font-size:20px;
+      font-weight:850;
+      letter-spacing:-.35px;
+      margin-bottom:.4rem;
+    }
+    .gm-heatmap-subtitle{
+      position:relative;
+      z-index:1;
+      color:rgba(255,255,255,.38);
+      font-size:13px;
+      line-height:1.6;
+      margin:0 0 1.25rem;
+    }
+    .gm-heatmap-scroll{
+      position:relative;
+      z-index:1;
+      overflow-x:auto;
+      padding:2rem 0 .35rem;
+    }
+    .gm-heatmap-body{
+      position:relative;
+      display:grid;
+      grid-template-columns:118px max-content;
+      gap:12px;
+      width:max-content;
+      min-width:100%;
+      align-items:start;
+    }
+    .gm-heatmap-labels{
+      position:sticky;
+      left:0;
+      z-index:2;
+      display:grid;
+      grid-auto-rows:18px;
+      gap:3px;
+      padding-top:0;
+      background:linear-gradient(90deg, #07080d 82%, rgba(7,8,13,0));
+      padding-right:8px;
+    }
+    .gm-heatmap-label{
+      color:rgba(255,255,255,.58);
+      font-size:12px;
+      line-height:18px;
+      white-space:nowrap;
+      text-align:right;
+    }
+    .gm-heatmap-cells{
+      position:relative;
+      display:grid;
+      grid-auto-flow:column;
+      grid-template-rows:repeat(5,18px);
+      grid-auto-columns:18px;
+      gap:3px;
+    }
+    .gm-heatmap-cell{
+      width:18px;
+      height:18px;
+      border-radius:4px;
+      background:#2a2a2a;
+      cursor:default;
+    }
+    .gm-heatmap-cell[data-level="1"]{background:#0e4a2a}
+    .gm-heatmap-cell[data-level="2"]{background:#166534}
+    .gm-heatmap-cell[data-level="3"]{background:#16a34a}
+    .gm-heatmap-cell[data-level="4"]{background:#4ade80}
+    .gm-heatmap-cell[data-level="5"]{background:#bbf7d0}
+    .gm-heatmap-today{
+      position:absolute;
+      top:-24px;
+      bottom:-6px;
+      width:2px;
+      background:#ef4444;
+      pointer-events:none;
+    }
+    .gm-heatmap-today span{
+      position:absolute;
+      top:-20px;
+      left:50%;
+      transform:translateX(-50%);
+      color:#ef4444;
+      font-size:12px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .gm-heatmap-tip{
+      position:fixed;
+      z-index:9999;
+      display:none;
+      max-width:240px;
+      padding:8px 10px;
+      border-radius:8px;
+      background:#0b0c10;
+      color:rgba(255,255,255,.9);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:12px;
+      line-height:1.45;
+      pointer-events:none;
+    }
+    .gm-heatmap-tip strong{display:block;color:#fff;margin-bottom:2px}
+    @media(max-width:640px){
+      .gm-heatmap-intro{text-align:left;margin-bottom:2.5rem}
+      .gm-heatmap-chart{margin-top:3rem}
+      .gm-heatmap-body{grid-template-columns:104px max-content}
+      .gm-heatmap-label{font-size:11px}
+    }
+  </style>
+  <div class="gm-heatmap-wrap">
+    <div class="gm-heatmap-intro">
+      <h2 id="insight-title">What is emerging in GeoAI?</h2>
+      <p>Two contribution-style heatmaps show how the foundation-model ecosystem becomes denser over time across research objects and public platforms. The data below is mocked for now, with the rendering separated so real API data can replace it later.</p>
     </div>
-    <div class="lp-signal-board" aria-label="GeoAI foundation model activity graph">
-      <div class="lp-signal-grid" id="modelSignalGrid" aria-hidden="true"></div>
-      <div class="lp-signal-marker" id="modelSignalMarker"><span>2025</span></div>
-      <div class="lp-signal-detail">
-        <span id="modelSignalYear">2025</span>
-        <strong id="modelSignalTitle">Embedding and open ecosystems</strong>
-        <div id="modelSignalModels"><em>AlphaEarth</em><em>HyperSIGMA</em><em>SkySense++</em><em>TerraMind</em><em>DOFA-CLIP</em></div>
-      </div>
-      <div class="lp-signal-years" id="modelSignalYears" aria-label="Select year"></div>
-    </div>
+    <div id="geoaiHeatmaps"></div>
   </div>
 </section>
 
@@ -686,6 +827,159 @@ function nlSubmit(e) {
   e.target.querySelector('.lp-nl-input').value = '';
 }
 </script>
-<script type="module" src="src/js/landing.js?v=20260521-8"></script>
+<script>
+(function() {
+  const MS_DAY = 24 * 60 * 60 * 1000;
+  const WEEK = 7 * MS_DAY;
+  const START = new Date('2023-01-02T00:00:00');
+  const today = new Date();
+  const end = today > START ? today : new Date('2026-05-21T00:00:00');
+  const weeks = buildWeeks(START, end);
+  const dateLabel = end.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+
+  const charts = [
+    {
+      title: 'Foundation Model Ecosystem Growth',
+      subtitle: 'Models, papers, datasets, benchmarks, and tooling become steadily denser from 2023 onward.',
+      rows: [
+        makeRow('Models', 2.1, 0.12, 7),
+        makeRow('Papers', 3.3, 0.04, 13),
+        makeRow('Datasets', 1.7, 0.18, 23),
+        makeRow('Benchmarks', 1.55, 0.24, 31),
+        makeRow('Tools & Frameworks', 1.25, 0.28, 43),
+      ],
+    },
+    {
+      title: 'Activity by Platform',
+      subtitle: 'Public traces across model hubs, papers, code, benchmarks, and dataset platforms follow different adoption curves.',
+      rows: [
+        makeRow('Hugging Face', 2.7, 0.2, 5),
+        makeRow('arXiv', 3.05, 0.02, 17),
+        makeRow('GitHub', 2.25, 0.1, 29),
+        makeRow('Papers With Code', 1.45, 0.16, 37),
+        makeRow('Kaggle', 1.05, 0.34, 53),
+      ],
+    },
+  ];
+
+  function buildWeeks(start, finish) {
+    const total = Math.ceil((finish - start) / WEEK) + 1;
+    return Array.from({ length: total }, (_, index) => {
+      const from = new Date(start.getTime() + index * WEEK);
+      const to = new Date(Math.min(from.getTime() + WEEK - MS_DAY, finish.getTime()));
+      return { index, from, to };
+    });
+  }
+
+  function makeRow(name, intensity, delay, seed) {
+    return {
+      name,
+      counts: weeks.map(week => mockCount(week.index, weeks.length, intensity, delay, seed)),
+    };
+  }
+
+  function mockCount(index, total, intensity, delay, seed) {
+    const t = index / Math.max(1, total - 1);
+    const growth = Math.max(0, (t - delay) / Math.max(0.1, 1 - delay));
+    const wave = (Math.sin(index * 0.31 + seed) + 1) / 2;
+    const noise = seeded(index + seed * 97);
+    const chance = 0.08 + growth * 0.82;
+    if (noise > chance) return 0;
+    const base = Math.pow(growth, 1.35) * intensity * 16;
+    const burst = wave > 0.72 ? intensity * (4 + Math.round(wave * 5)) : 0;
+    return Math.max(1, Math.round(base + burst + noise * 4));
+  }
+
+  function seeded(value) {
+    const x = Math.sin(value * 12.9898) * 43758.5453;
+    return x - Math.floor(x);
+  }
+
+  function level(count) {
+    if (!count) return 0;
+    if (count <= 2) return 1;
+    if (count <= 6) return 2;
+    if (count <= 12) return 3;
+    if (count <= 22) return 4;
+    return 5;
+  }
+
+  function formatRange(week) {
+    const opts = { month: 'short', day: 'numeric', year: 'numeric' };
+    return `${week.from.toLocaleDateString('en-US', opts)} - ${week.to.toLocaleDateString('en-US', opts)}`;
+  }
+
+  function renderHeatmap(chart, mount, tooltip) {
+    const chartEl = document.createElement('section');
+    chartEl.className = 'gm-heatmap-chart';
+    chartEl.innerHTML = `
+      <h3 class="gm-heatmap-title">${chart.title}</h3>
+      <p class="gm-heatmap-subtitle">${chart.subtitle}</p>
+      <div class="gm-heatmap-scroll">
+        <div class="gm-heatmap-body">
+          <div class="gm-heatmap-labels"></div>
+          <div class="gm-heatmap-cells"></div>
+        </div>
+      </div>
+    `;
+
+    const labels = chartEl.querySelector('.gm-heatmap-labels');
+    const cells = chartEl.querySelector('.gm-heatmap-cells');
+    chart.rows.forEach(row => {
+      const label = document.createElement('div');
+      label.className = 'gm-heatmap-label';
+      label.textContent = row.name;
+      labels.appendChild(label);
+    });
+
+    weeks.forEach((week, weekIndex) => {
+      chart.rows.forEach(row => {
+        const count = row.counts[weekIndex] || 0;
+        const cell = document.createElement('span');
+        cell.className = 'gm-heatmap-cell';
+        cell.dataset.level = String(level(count));
+        cell.tabIndex = 0;
+        cell.setAttribute('aria-label', `${row.name}, ${formatRange(week)}, ${count}`);
+        cell.addEventListener('mouseenter', event => showTip(event, tooltip, row.name, week, count));
+        cell.addEventListener('mousemove', event => moveTip(event, tooltip));
+        cell.addEventListener('mouseleave', () => hideTip(tooltip));
+        cell.addEventListener('focus', event => showTip(event, tooltip, row.name, week, count));
+        cell.addEventListener('blur', () => hideTip(tooltip));
+        cells.appendChild(cell);
+      });
+    });
+
+    const marker = document.createElement('div');
+    marker.className = 'gm-heatmap-today';
+    marker.style.left = `${weeks.length * 21 - 3}px`;
+    marker.innerHTML = `<span>${dateLabel}</span>`;
+    cells.appendChild(marker);
+    mount.appendChild(chartEl);
+  }
+
+  function showTip(event, tooltip, row, week, count) {
+    tooltip.innerHTML = `<strong>${row}</strong>${formatRange(week)}<br>${count} activity ${count === 1 ? 'event' : 'events'}`;
+    tooltip.style.display = 'block';
+    moveTip(event, tooltip);
+  }
+
+  function moveTip(event, tooltip) {
+    tooltip.style.left = `${event.clientX + 14}px`;
+    tooltip.style.top = `${event.clientY + 14}px`;
+  }
+
+  function hideTip(tooltip) {
+    tooltip.style.display = 'none';
+  }
+
+  const mount = document.getElementById('geoaiHeatmaps');
+  if (!mount) return;
+  const tooltip = document.createElement('div');
+  tooltip.className = 'gm-heatmap-tip';
+  document.body.appendChild(tooltip);
+  charts.forEach(chart => renderHeatmap(chart, mount, tooltip));
+})();
+</script>
+<script type="module" src="src/js/landing.js?v=20260521-9"></script>
 </body>
 </html>
