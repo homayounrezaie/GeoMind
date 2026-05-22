@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-19">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-20">
 </head>
 <body>
 
@@ -201,40 +201,55 @@
 <!-- STORY -->
 <section class="lp-story-section">
   <div class="lp-story-inner">
-    <h2 class="lp-sec-title">Navigate GeoAI with clarity.</h2>
-    <p class="lp-story-text">Every day a new foundation model is released, every week another paper redefines what’s possible with satellite imagery, SAR, or LiDAR, and every month a new benchmark shifts the state of the art. Keeping up is genuinely hard!!! not because the work isn’t remarkable, but because without understanding the full structure of the field, each new model or paper feels like a disconnected event. You can’t tell if it’s foundational or incremental, you can’t see where it fits, what it replaces, or what it makes possible next.</p>
-    <p class="lp-story-text">GeoMind maps the entire landscape of geospatial AI, from raw sensor data and learning paradigms through model architectures and key techniques to tasks, datasets, stack, companies, and standards, with each layer linking directly to relevant resources so you always know where you are, what connects, and where to go next.</p>
-    <div class="lp-links-bar lp-story-links is-visible" id="storyLinks">
-      <p class="lp-links-text">Each layer links directly to relevant resources so you always know where you are, what connects, and where to go next.</p>
-      <div class="lp-links-icons">
-        <a class="lp-link-chip" href="https://github.com/" target="_blank" rel="noopener">
-          <!-- GitHub -->
-          <svg width="16" height="16" viewBox="0 0 98 96"><path fill="#fff" fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/></svg>
-          GitHub
-        </a>
-        <a class="lp-link-chip" href="https://paperswithcode.com/" target="_blank" rel="noopener">
-          <!-- Papers with Code -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#EF4444" stroke="#EF4444" stroke-width="0.5" stroke-linejoin="round"/></svg>
-          Papers with Code
-        </a>
-        <a class="lp-link-chip" href="https://www.kaggle.com/datasets" target="_blank" rel="noopener">
-          <!-- Kaggle -->
-          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#20BEFF" d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336z"/></svg>
-          Kaggle
-        </a>
-        <a class="lp-link-chip" href="https://huggingface.co/" target="_blank" rel="noopener">
-          <!-- Hugging Face -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" fill="#FFD21E"/>
-            <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="9" cy="10" r="1" fill="#1a1a1a"/>
-            <circle cx="15" cy="10" r="1" fill="#1a1a1a"/>
-            <path d="M7 8.5c.5-1 1.5-1.5 2-1M17 8.5c-.5-1-1.5-1.5-2-1" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          Hugging Face
-        </a>
-      </div>
+    <div class="lp-story-head">
+      <h2 class="lp-sec-title">Every new paper has a place.</h2>
+      <p class="lp-story-text">Each model, benchmark, and dataset slots into a layer, so you can tell at a glance what it replaces, what it builds on, and where it fits.</p>
     </div>
+    <div class="lp-paper-showcase" aria-label="Recognized GeoAI papers indexed in GeoMind">
+      <a class="lp-paper-card" href="pages/paper-with-code.html#prithvi-100m">
+        <span class="lp-paper-card-kicker">Foundation model</span>
+        <h3>Prithvi-100M</h3>
+        <p class="lp-paper-card-title">Foundation Models for Generalist Geospatial Artificial Intelligence</p>
+        <p class="lp-paper-card-meta">Jakubik et al. · 2023 · arXiv</p>
+        <span class="lp-paper-card-tags"><span>Foundation Models</span><span>Tasks</span><span>Stack</span></span>
+      </a>
+      <a class="lp-paper-card" href="pages/paper-with-code.html#satmae">
+        <span class="lp-paper-card-kicker">Pretraining</span>
+        <h3>SatMAE</h3>
+        <p class="lp-paper-card-title">Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery</p>
+        <p class="lp-paper-card-meta">Cong et al. · 2022 · NeurIPS</p>
+        <span class="lp-paper-card-tags"><span>Techniques</span><span>Datasets</span><span>Models</span></span>
+      </a>
+      <a class="lp-paper-card" href="pages/paper-with-code.html#scale-mae">
+        <span class="lp-paper-card-kicker">Scale-aware learning</span>
+        <h3>Scale-MAE</h3>
+        <p class="lp-paper-card-title">A Scale-Aware Masked Autoencoder for Multiscale Geospatial Representation Learning</p>
+        <p class="lp-paper-card-meta">Reed et al. · 2023 · ICCV</p>
+        <span class="lp-paper-card-tags"><span>Techniques</span><span>Benchmarks</span><span>Tasks</span></span>
+      </a>
+      <a class="lp-paper-card" href="pages/paper-with-code.html#ringmo">
+        <span class="lp-paper-card-kicker">Masked modeling</span>
+        <h3>RingMo</h3>
+        <p class="lp-paper-card-title">A Remote Sensing Foundation Model With Masked Image Modeling</p>
+        <p class="lp-paper-card-meta">Sun et al. · 2022 · IEEE TGRS</p>
+        <span class="lp-paper-card-tags"><span>Foundation Models</span><span>Techniques</span><span>Tasks</span></span>
+      </a>
+      <a class="lp-paper-card" href="pages/paper-with-code.html#geoclip">
+        <span class="lp-paper-card-kicker">Vision-location</span>
+        <h3>GeoCLIP</h3>
+        <p class="lp-paper-card-title">CLIP-Inspired Alignment between Locations and Images for Worldwide Geo-localization</p>
+        <p class="lp-paper-card-meta">Cepeda et al. · 2023 · NeurIPS</p>
+        <span class="lp-paper-card-tags"><span>Vision-Language</span><span>Embeddings</span><span>Search</span></span>
+      </a>
+      <a class="lp-paper-card" href="pages/paper-with-code.html#clay">
+        <span class="lp-paper-card-kicker">Open model</span>
+        <h3>Clay</h3>
+        <p class="lp-paper-card-title">Clay Foundation Model</p>
+        <p class="lp-paper-card-meta">Clay Foundation team · 2024 · Technical report</p>
+        <span class="lp-paper-card-tags"><span>Foundation Models</span><span>Datasets</span><span>Tools</span></span>
+      </a>
+    </div>
+    <a class="lp-story-cta" href="pages/paper-with-code.html">Browse all indexed papers →</a>
   </div>
 </section>
 
