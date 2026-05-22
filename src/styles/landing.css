@@ -564,10 +564,12 @@ nav,section,footer{position:relative;z-index:1}
   grid-template-columns:minmax(280px,420px) minmax(0,1fr);
   gap:var(--s-5);
   align-items:center;
+  justify-items:stretch;
   max-width:1100px;
   margin:0 auto;
 }
 .lp-paper-list{
+  align-self:center;
   display:flex;
   flex-direction:column;
   gap:var(--s-1);
@@ -676,7 +678,7 @@ nav,section,footer{position:relative;z-index:1}
   height:100%;
   padding:0;
   object-fit:contain;
-  object-position:top center;
+  object-position:center center;
   background:transparent;
   filter:saturate(.96) contrast(1.02);
 }
