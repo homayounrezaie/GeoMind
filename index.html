@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-22">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-25">
 </head>
 <body>
 
@@ -19,18 +19,6 @@
       <span class="lp-nav-name">GeoMind</span>
       <span class="lp-nav-subtag">Geospatial AI, structured.</span>
     </div>
-  </div>
-  <div class="lp-nav-right">
-    <a class="lp-nav-action" href="pages/newsletter.html">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-      <span>Newsletter</span>
-    </a>
-    <a class="lp-nav-action" href="https://github.com/homayounrezaie/GeoMind/issues" target="_blank" rel="noopener">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <span>Feedback</span>
-    </a>
-    <a class="lp-nav-tertiary" href="pages/jobposting.html">Post a Job</a>
-    <a class="lp-nav-cta" href="pages/app.html">Open Knowledge Map</a>
   </div>
 </nav>
 
@@ -187,49 +175,83 @@
       <h2 class="lp-sec-title">Every new paper has a place.</h2>
       <p class="lp-story-text">Each model, benchmark, and dataset slots into a layer, so you can tell at a glance what it replaces, what it builds on, and where it fits.</p>
     </div>
-    <div class="lp-paper-showcase" aria-label="Recognized GeoAI papers indexed in GeoMind">
-      <a class="lp-paper-card" href="pages/paper-with-code.html#prithvi-100m">
-        <span class="lp-paper-card-kicker">Foundation model</span>
-        <h3>Prithvi-100M</h3>
-        <p class="lp-paper-card-title">Foundation Models for Generalist Geospatial Artificial Intelligence</p>
-        <p class="lp-paper-card-meta">Jakubik et al. · 2023 · arXiv</p>
-        <span class="lp-paper-card-tags"><span>Foundation Models</span><span>Tasks</span><span>Stack</span></span>
-      </a>
-      <a class="lp-paper-card" href="pages/paper-with-code.html#satmae">
-        <span class="lp-paper-card-kicker">Pretraining</span>
-        <h3>SatMAE</h3>
-        <p class="lp-paper-card-title">Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery</p>
-        <p class="lp-paper-card-meta">Cong et al. · 2022 · NeurIPS</p>
-        <span class="lp-paper-card-tags"><span>Techniques</span><span>Datasets</span><span>Models</span></span>
-      </a>
-      <a class="lp-paper-card" href="pages/paper-with-code.html#scale-mae">
-        <span class="lp-paper-card-kicker">Scale-aware learning</span>
-        <h3>Scale-MAE</h3>
-        <p class="lp-paper-card-title">A Scale-Aware Masked Autoencoder for Multiscale Geospatial Representation Learning</p>
-        <p class="lp-paper-card-meta">Reed et al. · 2023 · ICCV</p>
-        <span class="lp-paper-card-tags"><span>Techniques</span><span>Benchmarks</span><span>Tasks</span></span>
-      </a>
-      <a class="lp-paper-card" href="pages/paper-with-code.html#ringmo">
-        <span class="lp-paper-card-kicker">Masked modeling</span>
-        <h3>RingMo</h3>
-        <p class="lp-paper-card-title">A Remote Sensing Foundation Model With Masked Image Modeling</p>
-        <p class="lp-paper-card-meta">Sun et al. · 2022 · IEEE TGRS</p>
-        <span class="lp-paper-card-tags"><span>Foundation Models</span><span>Techniques</span><span>Tasks</span></span>
-      </a>
-      <a class="lp-paper-card" href="pages/paper-with-code.html#geoclip">
-        <span class="lp-paper-card-kicker">Vision-location</span>
-        <h3>GeoCLIP</h3>
-        <p class="lp-paper-card-title">CLIP-Inspired Alignment between Locations and Images for Worldwide Geo-localization</p>
-        <p class="lp-paper-card-meta">Cepeda et al. · 2023 · NeurIPS</p>
-        <span class="lp-paper-card-tags"><span>Vision-Language</span><span>Embeddings</span><span>Search</span></span>
-      </a>
-      <a class="lp-paper-card" href="pages/paper-with-code.html#clay">
-        <span class="lp-paper-card-kicker">Open model</span>
-        <h3>Clay</h3>
-        <p class="lp-paper-card-title">Clay Foundation Model</p>
-        <p class="lp-paper-card-meta">Clay Foundation team · 2024 · Technical report</p>
-        <span class="lp-paper-card-tags"><span>Foundation Models</span><span>Datasets</span><span>Tools</span></span>
-      </a>
+    <div class="lp-paper-stage" id="lpPaperStage" aria-label="Recognized GeoAI papers indexed in GeoMind">
+      <div class="lp-paper-list" role="tablist">
+        <a class="lp-paper-item is-active" role="tab" data-idx="0" href="pages/paper-with-code.html#prithvi-100m">
+          <span class="lp-paper-item-body">
+            <span class="lp-paper-item-name">Prithvi-100M</span>
+            <span class="lp-paper-item-title">Foundation Models for Generalist Geospatial AI</span>
+            <span class="lp-paper-item-meta">Jakubik et al. · 2023 · arXiv</span>
+          </span>
+          <span class="lp-paper-item-progress"><i></i></span>
+        </a>
+        <a class="lp-paper-item" role="tab" data-idx="1" href="pages/paper-with-code.html#satmae">
+          <span class="lp-paper-item-body">
+            <span class="lp-paper-item-name">SatMAE</span>
+            <span class="lp-paper-item-title">Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery</span>
+            <span class="lp-paper-item-meta">Cong et al. · 2022 · NeurIPS</span>
+          </span>
+          <span class="lp-paper-item-progress"><i></i></span>
+        </a>
+        <a class="lp-paper-item" role="tab" data-idx="2" href="pages/paper-with-code.html#scale-mae">
+          <span class="lp-paper-item-body">
+            <span class="lp-paper-item-name">Scale-MAE</span>
+            <span class="lp-paper-item-title">A Scale-Aware Masked Autoencoder for Multiscale Geospatial Representation Learning</span>
+            <span class="lp-paper-item-meta">Reed et al. · 2023 · ICCV</span>
+          </span>
+          <span class="lp-paper-item-progress"><i></i></span>
+        </a>
+        <a class="lp-paper-item" role="tab" data-idx="3" href="pages/paper-with-code.html#ringmo">
+          <span class="lp-paper-item-body">
+            <span class="lp-paper-item-name">RingMo</span>
+            <span class="lp-paper-item-title">A Remote Sensing Foundation Model With Masked Image Modeling</span>
+            <span class="lp-paper-item-meta">Sun et al. · 2022 · IEEE TGRS</span>
+          </span>
+          <span class="lp-paper-item-progress"><i></i></span>
+        </a>
+        <a class="lp-paper-item" role="tab" data-idx="4" href="pages/paper-with-code.html#geoclip">
+          <span class="lp-paper-item-body">
+            <span class="lp-paper-item-name">GeoCLIP</span>
+            <span class="lp-paper-item-title">CLIP-Inspired Alignment between Locations and Images for Worldwide Geo-localization</span>
+            <span class="lp-paper-item-meta">Cepeda et al. · 2023 · NeurIPS</span>
+          </span>
+          <span class="lp-paper-item-progress"><i></i></span>
+        </a>
+        <a class="lp-paper-item" role="tab" data-idx="5" href="pages/paper-with-code.html#clay">
+          <span class="lp-paper-item-body">
+            <span class="lp-paper-item-name">Clay</span>
+            <span class="lp-paper-item-title">Clay Foundation Model</span>
+            <span class="lp-paper-item-meta">Clay Foundation team · 2024 · Technical report</span>
+          </span>
+          <span class="lp-paper-item-progress"><i></i></span>
+        </a>
+      </div>
+      <div class="lp-paper-preview" aria-hidden="true">
+        <figure class="lp-paper-slide is-active" data-idx="0">
+          <img src="public/papers/prithvi.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
+          <figcaption>Prithvi-100M · Jakubik et al. · 2023</figcaption>
+        </figure>
+        <figure class="lp-paper-slide" data-idx="1">
+          <img src="public/papers/satmae.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
+          <figcaption>SatMAE · Cong et al. · 2022</figcaption>
+        </figure>
+        <figure class="lp-paper-slide" data-idx="2">
+          <img src="public/papers/scale-mae.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
+          <figcaption>Scale-MAE · Reed et al. · 2023</figcaption>
+        </figure>
+        <figure class="lp-paper-slide" data-idx="3">
+          <img src="public/papers/ringmo.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
+          <figcaption>RingMo · Sun et al. · 2022</figcaption>
+        </figure>
+        <figure class="lp-paper-slide" data-idx="4">
+          <img src="public/papers/geoclip.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
+          <figcaption>GeoCLIP · Cepeda et al. · 2023</figcaption>
+        </figure>
+        <figure class="lp-paper-slide" data-idx="5">
+          <img src="public/papers/clay.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
+          <figcaption>Clay · 2024</figcaption>
+        </figure>
+      </div>
     </div>
     <a class="lp-story-cta" href="pages/paper-with-code.html">Browse all indexed papers →</a>
   </div>
@@ -787,23 +809,31 @@
     <p class="lp-sec-sub">Three moments. Three layers. Same map.</p>
   </div>
 
-  <article class="lp-day-scene">
-    <p class="lp-day-time">Monday, 9am</p>
-    <p class="lp-day-body">A new SAR foundation model dropped on arXiv. You open GeoMind, see where it sits in the stack, what it replaces, what benchmark it beats. Two minutes.</p>
-    <a class="lp-day-tag" href="pages/foundation-models.html">Layer touched: Foundation Models</a>
-  </article>
+  <div class="lp-day-timeline" role="tablist" aria-label="A day with GeoMind scenarios">
+    <button class="lp-day-pill active" type="button" role="tab" aria-selected="true" aria-controls="dayScene1" data-day-index="0"><span></span>9:00</button>
+    <button class="lp-day-pill" type="button" role="tab" aria-selected="false" aria-controls="dayScene2" data-day-index="1"><span></span>14:00</button>
+    <button class="lp-day-pill" type="button" role="tab" aria-selected="false" aria-controls="dayScene3" data-day-index="2"><span></span>16:00</button>
+  </div>
 
-  <article class="lp-day-scene">
-    <p class="lp-day-time">Tuesday, 2pm</p>
-    <p class="lp-day-body">Your team is debating whether to fine-tune Prithvi or train from scratch. You pull up the foundation models layer, compare parameters, training data, license. Decision in five minutes.</p>
-    <a class="lp-day-tag" href="pages/app.html#stack">Layer touched: Stack &amp; Tools</a>
-  </article>
+  <div class="lp-day-panel">
+    <article class="lp-day-scene active" id="dayScene1" role="tabpanel">
+      <p class="lp-day-time">Monday, 9am</p>
+      <p class="lp-day-body">A new SAR foundation model dropped on arXiv. You open GeoMind, see where it sits in the stack, what it replaces, what benchmark it beats. Two minutes.</p>
+      <a class="lp-day-tag" href="pages/foundation-models.html">Layer touched: Foundation Models</a>
+    </article>
 
-  <article class="lp-day-scene">
-    <p class="lp-day-time">Friday, 4pm</p>
-    <p class="lp-day-body">A recruiter asks what "remote sensing engineer" actually means. You send them the Job Market layer. They send back three candidates next week.</p>
-    <a class="lp-day-tag" href="pages/job-market.html">Layer touched: Job Market</a>
-  </article>
+    <article class="lp-day-scene" id="dayScene2" role="tabpanel" hidden>
+      <p class="lp-day-time">Tuesday, 2pm</p>
+      <p class="lp-day-body">Your team is debating whether to fine-tune Prithvi or train from scratch. You pull up the foundation models layer, compare parameters, training data, license. Decision in five minutes.</p>
+      <a class="lp-day-tag" href="pages/app.html#stack">Layer touched: Stack &amp; Tools</a>
+    </article>
+
+    <article class="lp-day-scene" id="dayScene3" role="tabpanel" hidden>
+      <p class="lp-day-time">Friday, 4pm</p>
+      <p class="lp-day-body">A startup posted a "Remote Sensing ML Engineer" role and you can't tell if you're qualified. You open the Job Market layer, see the skill stack employers actually list, what salary band it sits in, which adjacent roles you already match. You apply on Sunday.</p>
+      <a class="lp-day-tag" href="pages/job-market.html">Layer touched: Job Market</a>
+    </article>
+  </div>
 </section>
 
 <!-- NEWSLETTER -->
@@ -818,8 +848,8 @@
       <form class="lp-nl-form" onsubmit="nlSubmit(event)">
         <div class="lp-nl-terminal" onclick="this.querySelector('input')?.focus()">
           <span class="lp-nl-prompt">geomind:~$</span>
-          <input class="lp-nl-input" type="email" placeholder="you@domain.com" required>
           <span class="lp-nl-cursor" id="nl-cursor"></span>
+          <input class="lp-nl-input" type="email" placeholder="you@domain.com" required>
           <button class="lp-nl-btn" type="submit">Subscribe</button>
         </div>
       </form>
@@ -845,9 +875,13 @@
         <p class="lp-footer-col-title">Products</p>
         <a href="pages/app.html">Knowledge Map</a>
         <a href="pages/app.html">Job Board</a>
-        <a href="pages/jobposting.html">Post a Job</a>
-        <a href="pages/newsletter.html">Newsletter</a>
         <a href="#">API</a>
+      </div>
+      <div class="lp-footer-col">
+        <p class="lp-footer-col-title">Community</p>
+        <a href="pages/newsletter.html">Newsletter</a>
+        <a href="https://github.com/homayounrezaie/GeoMind/issues" target="_blank" rel="noopener">Feedback</a>
+        <a href="pages/jobposting.html">Post a Job</a>
       </div>
       <div class="lp-footer-col">
         <p class="lp-footer-col-title">Company</p>
@@ -912,6 +946,97 @@ function nlSubmit(e) {
     terminal.insertAdjacentHTML('beforeend', '<span class="lp-nl-success">subscribed ✓</span>');
   }
 }
+
+(function() {
+  const section = document.querySelector('.lp-day-section');
+  if (!section) return;
+
+  const pills = [...section.querySelectorAll('.lp-day-pill')];
+  const scenes = [...section.querySelectorAll('.lp-day-scene')];
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = 0;
+  let paused = false;
+  let timer = null;
+
+  scenes.forEach((scene, index) => {
+    scene.hidden = false;
+    scene.setAttribute('aria-hidden', index === current ? 'false' : 'true');
+  });
+
+  function show(index, userAction = false) {
+    if (userAction) {
+      paused = true;
+      window.clearInterval(timer);
+    }
+    current = index;
+    pills.forEach((pill, i) => {
+      const active = i === index;
+      pill.classList.toggle('active', active);
+      pill.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    scenes.forEach((scene, i) => {
+      const active = i === index;
+      scene.classList.toggle('active', active);
+      scene.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+  }
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => show(Number(pill.dataset.dayIndex), true));
+  });
+
+  if (!reduced) {
+    timer = window.setInterval(() => {
+      if (!paused) show((current + 1) % scenes.length);
+    }, 6000);
+  }
+})();
+</script>
+<script>
+(function() {
+  const stage = document.getElementById('lpPaperStage');
+  if (!stage) return;
+  const items = Array.from(stage.querySelectorAll('.lp-paper-item'));
+  const slides = Array.from(stage.querySelectorAll('.lp-paper-slide'));
+  if (!items.length) return;
+  const DUR = 5000;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = 0;
+  let timer = null;
+  let userPaused = false;
+  let hoverPaused = false;
+
+  function show(i) {
+    current = i;
+    items.forEach((el, idx) => {
+      el.classList.toggle('is-active', idx === i);
+      const bar = el.querySelector('.lp-paper-item-progress i');
+      if (bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
+    });
+    slides.forEach((el, idx) => el.classList.toggle('is-active', idx === i));
+  }
+  function next() { show((current + 1) % items.length); }
+  function start() {
+    if (reduced || userPaused) return;
+    stop();
+    timer = setInterval(() => { if (!hoverPaused) next(); }, DUR);
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+  items.forEach((el, i) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      userPaused = true;
+      stop();
+      show(i);
+      items.forEach(it => it.classList.add('is-paused'));
+    });
+  });
+  stage.addEventListener('mouseenter', () => { hoverPaused = true; }, true);
+  stage.addEventListener('mouseleave', () => { hoverPaused = false; });
+
+  start();
+})();
 </script>
 <script>
 (function() {
