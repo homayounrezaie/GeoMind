@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-20">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-21">
 </head>
 <body>
 
@@ -787,24 +787,8 @@
           <div class="lp-demo-titlebar">
             <span class="lp-demo-title">GeoMind Python API</span>
           </div>
-          <div class="lp-python-viz">
-            <div class="lp-python-install">
-              <span class="lp-python-prompt">$</span>
-              <span class="lp-python-cmd">pip install geomind</span>
-            </div>
-            <pre class="lp-python-code"><code>from geomind import GeoMind
-
-gm = GeoMind()
-
-results = gm.search("SAR flood segmentation")
-model = gm.foundation_models.find(sensor="sentinel-1")
-datasets = gm.datasets.for_task("building detection")
-
-print(results.top(5))</code></pre>
-            <div class="lp-python-output">
-              <span class="lp-python-out-label">output</span>
-              <span>5 matching resources · 2 foundation models · 8 datasets</span>
-            </div>
+          <div class="lp-python-viz" id="lpPythonViz">
+            <div class="lp-python-terminal" id="lpPythonTerm" aria-live="polite"></div>
           </div>
         </div>
       </div>
@@ -1485,6 +1469,6 @@ function nlSubmit(e) {
   window.addEventListener('resize', layoutHeatmaps);
 })();
 </script>
-<script type="module" src="src/js/landing.js?v=20260521-14"></script>
+<script type="module" src="src/js/landing.js?v=20260521-21"></script>
 </body>
 </html>

@@ -502,7 +502,7 @@ function initFeatSwitcher() {
   const vizs   = document.querySelectorAll('.lp-viz');
   let current  = 0;
   let autoTimer = null;
-  const DURATIONS = [5000, 5000, 0, 0, 0, 5000]; /* CLI, Ask, and Search are user/input driven */
+  const DURATIONS = [5000, 5000, 0, 0, 0, 0]; /* CLI, Ask, Search, and Python are sequence driven */
   const started  = {};
 
   function advance() {
@@ -532,6 +532,8 @@ function initFeatSwitcher() {
       initAskGeoMind(advance);
     } else if (idx === 4) {
       initSearchViz(advance);
+    } else if (idx === 5) {
+      initPythonApi(advance);
     }
   }
 
@@ -1498,6 +1500,132 @@ function initDemoTerm(onDone) {
   }
 
   runSeq();
+}
+
+function initPythonApi(onDone) {
+  const term = document.getElementById('lpPythonTerm');
+  if (!term) return;
+
+  const runId = `${Date.now()}-${Math.random()}`;
+  term.dataset.runId = runId;
+  term.innerHTML = '';
+
+  const shellPrompt = '<span class="lp-python-prompt">$</span> ';
+  const replPrompt = '<span class="lp-python-prompt-repl">&gt;&gt;&gt;</span> ';
+  const cursor = '<span class="lp-python-cursor"></span>';
+
+  function isCurrent() {
+    return term.dataset.runId === runId &&
+      document.querySelector('.lp-viz[data-viz="5"]')?.classList.contains('active');
+  }
+
+  function wait(ms) {
+    return new Promise(resolve => window.setTimeout(resolve, ms));
+  }
+
+  function escapeHtml(value) {
+    return value.replace(/[&<>"']/g, char => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    }[char]));
+  }
+
+  function addLine(html = '', className = '') {
+    if (!isCurrent()) return null;
+    const line = document.createElement('div');
+    line.className = `lp-python-line${className ? ` ${className}` : ''}`;
+    line.innerHTML = html;
+    term.appendChild(line);
+    term.scrollTop = term.scrollHeight;
+    return line;
+  }
+
+  async function typeLine(prompt, text, className = 'lp-python-cmd', speed = 34) {
+    const line = addLine(prompt + cursor);
+    if (!line) return false;
+    let typed = '';
+    await wait(220);
+    for (let i = 0; i < text.length; i += 1) {
+      if (!isCurrent()) return false;
+      typed += text[i];
+      line.innerHTML = `${prompt}<span class="${className}">${escapeHtml(typed)}</span>${cursor}`;
+      term.scrollTop = term.scrollHeight;
+      await wait(speed + Math.random() * 20);
+    }
+    line.innerHTML = `${prompt}<span class="${className}">${escapeHtml(text)}</span>`;
+    await wait(260);
+    return true;
+  }
+
+  async function out(text, className = 'lp-python-out', delay = 130) {
+    addLine(`<span class="${className}">${escapeHtml(text)}</span>`);
+    await wait(delay);
+  }
+
+  async function progress(label, detail) {
+    const row = addLine(`
+      <span class="lp-python-muted">  ${escapeHtml(label)}</span>
+      <span class="lp-python-progress">
+        <span class="lp-python-progress-track"><span class="lp-python-progress-fill"></span></span>
+        <span class="lp-python-muted">${escapeHtml(detail)}</span>
+      </span>
+    `);
+    await wait(60);
+    row?.querySelector('.lp-python-progress-fill')?.style.setProperty('width', '100%');
+    await wait(900);
+  }
+
+  async function run() {
+    if (!await typeLine(shellPrompt, 'pip install geomind', 'lp-python-cmd', 38)) return;
+    await out('Collecting geomind');
+    await out('  Downloading geomind-0.3.0-py3-none-any.whl (42 kB)', 'lp-python-muted');
+    await progress('Downloading', '42.0/42.0 kB 3.8 MB/s');
+    await out('Collecting geopandas>=0.14');
+    await out('Collecting torchgeo>=0.6');
+    await out('Installing collected packages: geoindex, geomind-core, geomind');
+    await progress('Installing', '100%');
+    await out('Successfully installed geoindex-0.2.1 geomind-core-0.3.0 geomind-0.3.0', 'lp-python-success', 320);
+    addLine();
+
+    if (!await typeLine(shellPrompt, 'python', 'lp-python-cmd', 42)) return;
+    await out('Python 3.12.4 (main, May 21 2026) [Clang 17.0.0]', 'lp-python-muted');
+    await out('Type "help", "copyright", "credits" or "license" for more information.', 'lp-python-muted');
+
+    const code = [
+      'from geomind import GeoMind',
+      'gm = GeoMind()',
+      'results = gm.search("SAR flood segmentation")',
+      'model = gm.foundation_models.find(sensor="sentinel-1")',
+      'datasets = gm.datasets.for_task("building detection")',
+      'print(results.top(5))',
+    ];
+
+    for (const line of code) {
+      if (!await typeLine(replPrompt, line, 'lp-python-cmd', 24)) return;
+    }
+
+    addLine(`
+      <div class="lp-python-result">
+        <span class="lp-python-result-title">results.top(5)</span>
+        <span class="lp-python-result-row">1  Tasks &amp; Applications · SAR flood segmentation</span>
+        <span class="lp-python-result-row">2  Foundation Models · Prithvi-EO-2.0</span>
+        <span class="lp-python-result-row">3  Foundation Models · TerraMind</span>
+        <span class="lp-python-result-row">4  Datasets · Sen1Floods11</span>
+        <span class="lp-python-result-row">5  Datasets · SpaceNet Buildings</span>
+      </div>
+    `);
+    await wait(320);
+    addLine('<span class="lp-python-summary">5 matching resources · 2 foundation models · 8 datasets</span>');
+    await wait(1400);
+    addLine(replPrompt + cursor);
+    await wait(1100);
+    if (isCurrent()) onDone && onDone();
+  }
+
+  run();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
