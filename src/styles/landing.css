@@ -855,6 +855,55 @@ nav,section,footer{position:relative;z-index:1}
   line-height:var(--lh-body);
   margin-bottom:0;
 }
+.lp-model-visual{
+  max-width:1280px;
+  margin:var(--s-7) auto 0;
+  text-align:left;
+}
+.lp-model-visual-head{
+  max-width:720px;
+  margin:0 auto var(--s-4);
+  text-align:center;
+}
+.lp-model-visual-kicker{
+  display:block;
+  margin-bottom:var(--s-2);
+  color:rgba(255,255,255,.38);
+  font-family:"SF Mono",Menlo,Consolas,monospace;
+  font-size:var(--t-meta);
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.lp-model-visual h3{
+  margin:0 0 var(--s-2);
+  color:#fff;
+  font-size:clamp(24px,3vw,36px);
+  font-weight:800;
+  letter-spacing:-.04em;
+  line-height:var(--lh-tight);
+}
+.lp-model-visual p{
+  margin:0;
+  color:rgba(255,255,255,.44);
+  font-size:var(--t-meta);
+  line-height:var(--lh-body);
+}
+.lp-model-visual img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:14px;
+}
+.lp-model-visual figcaption{
+  max-width:720px;
+  margin:var(--s-2) auto 0;
+  color:rgba(255,255,255,.34);
+  font-family:"SF Mono",Menlo,Consolas,monospace;
+  font-size:12px;
+  line-height:1.5;
+  text-align:center;
+}
 
 /* ── Features ──────────────────────────────── */
 .lp-features-section{
