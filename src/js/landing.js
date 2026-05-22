@@ -554,8 +554,17 @@ function initGraphCloud(canvasId = 'lpGraphCanvas') {
   canvas.dataset.ready = 'true';
 
   const ctx = canvas.getContext('2d');
+  const isHeroGraph = canvasId === 'lpHeroGraphCanvas';
   const topicEl = document.getElementById('lpGraphTopic');
   const topicMetaEl = document.getElementById('lpGraphTopicMeta');
+  const heroAnchors = [
+    { label: 'Prithvi', x: -0.5, y: -0.24, z: 0.68 },
+    { label: 'SAR', x: 0.16, y: -0.3, z: 0.72 },
+    { label: 'Sentinel-2', x: -0.12, y: -0.02, z: 0.76 },
+    { label: 'BigEarthNet', x: 0.46, y: 0.04, z: 0.62 },
+    { label: 'flood-mask', x: -0.38, y: 0.3, z: 0.66 },
+    { label: 'Scale-MAE', x: 0.24, y: 0.34, z: 0.68 },
+  ];
   const words = [
     'GeoAI','SAR','Sentinel-1','Landsat','Prithvi','Clay','SAM','TerraMind','xView','DOTA',
     'change detection','building detection','segmentation','flood mapping','wildfire','LiDAR',
@@ -620,14 +629,15 @@ function initGraphCloud(canvasId = 'lpGraphCanvas') {
   }
 
   function makeParticle(i) {
-    const isWord = i % 7 === 0;
+    const heroAnchor = isHeroGraph ? heroAnchors[i] : null;
+    const isWord = isHeroGraph ? Boolean(heroAnchor) : i % 7 === 0;
     const theta = Math.random() * Math.PI * 2;
     const u = Math.random() * 2 - 1;
     const radius = 0.34 + Math.pow(Math.random(), 0.45) * 0.66;
     const ringNoise = 0.82 + Math.random() * 0.34;
-    const shellX = Math.sqrt(1 - u * u) * Math.cos(theta) * radius * ringNoise;
-    const shellY = Math.sqrt(1 - u * u) * Math.sin(theta) * radius * (0.72 + Math.random() * 0.22);
-    const shellZ = u * radius * (0.88 + Math.random() * 0.2);
+    const shellX = heroAnchor ? heroAnchor.x : Math.sqrt(1 - u * u) * Math.cos(theta) * radius * ringNoise;
+    const shellY = heroAnchor ? heroAnchor.y : Math.sqrt(1 - u * u) * Math.sin(theta) * radius * (0.72 + Math.random() * 0.22);
+    const shellZ = heroAnchor ? heroAnchor.z : u * radius * (0.88 + Math.random() * 0.2);
     return {
       x: shellX,
       y: shellY,
@@ -635,10 +645,10 @@ function initGraphCloud(canvasId = 'lpGraphCanvas') {
       sx: 0,
       sy: 0,
       depth: 0,
-      r: isWord ? 1.7 + Math.random() * 1.4 : 0.75 + Math.random() * 1.25,
+      r: isWord ? (isHeroGraph ? 2.4 : 1.7 + Math.random() * 1.4) : 0.75 + Math.random() * 1.25,
       isWord,
-      wordIndex: isWord ? (i / 7 | 0) : -1,
-      word: isWord ? words[(i / 7 | 0) % words.length] : '',
+      wordIndex: isWord ? (isHeroGraph ? i : (i / 7 | 0)) : -1,
+      word: isWord ? (isHeroGraph ? heroAnchor.label : words[(i / 7 | 0) % words.length]) : '',
       phase: Math.random() * Math.PI * 2,
       hue: Math.random() > 0.72 ? 'soft' : 'accent',
     };
@@ -656,9 +666,17 @@ function initGraphCloud(canvasId = 'lpGraphCanvas') {
   });
   canvas.addEventListener('mouseleave', () => { mouse.active = false; });
   window.addEventListener('resize', resize);
+  let burstNode = -1;
+  let burstUntil = 0;
+  let nextBurstAt = 6200;
 
   function tick(t) {
     ctx.clearRect(0, 0, width, height);
+    if (isHeroGraph && t > nextBurstAt) {
+      burstNode = Math.floor(Math.random() * heroAnchors.length);
+      burstUntil = t + 650;
+      nextBurstAt = t + 5600 + Math.random() * 1400;
+    }
     const topicIndex = Math.floor(t / 2000) % topics.length;
     const topic = topics[topicIndex];
     if (topicIndex !== activeTopic) {
@@ -672,9 +690,9 @@ function initGraphCloud(canvasId = 'lpGraphCanvas') {
     const sphereR = Math.min(width * 0.38, height * 0.42);
     const perspective = 2.7;
 
-    rotY += mouse.active ? 0.0018 : 0.00105;
-    rotX += ((mouse.active ? (mouse.y / height - 0.5) * 0.55 : -0.18) - rotX) * 0.018;
-    const mouseYaw = mouse.active ? (mouse.x / width - 0.5) * 0.35 : 0;
+    rotY += mouse.active ? (isHeroGraph ? 0.00055 : 0.0018) : (isHeroGraph ? 0.00035 : 0.00105);
+    rotX += ((mouse.active ? (mouse.y / height - 0.5) * (isHeroGraph ? 0.28 : 0.55) : -0.18) - rotX) * 0.018;
+    const mouseYaw = mouse.active ? (mouse.x / width - 0.5) * (isHeroGraph ? 0.16 : 0.35) : 0;
 
     const sinY = Math.sin(rotY + mouseYaw);
     const cosY = Math.cos(rotY + mouseYaw);
@@ -746,11 +764,16 @@ function initGraphCloud(canvasId = 'lpGraphCanvas') {
       ctx.arc(p.sx, p.sy, radius, 0, Math.PI * 2);
       ctx.fill();
 
-      if (p.isWord && p.depth > 0.28) {
-        const label = topic.words[p.wordIndex % topic.words.length] || p.word;
-        const size = (label.length > 14 ? 9.5 : 10.5) + p.depth * 1.2;
-        ctx.font = `${size}px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif`;
-        ctx.fillStyle = `rgba(255,255,255,${0.22 + p.depth * 0.48})`;
+      if (p.isWord && (isHeroGraph || p.depth > 0.28)) {
+        const label = isHeroGraph ? p.word : (topic.words[p.wordIndex % topic.words.length] || p.word);
+        const isBursting = isHeroGraph && p.wordIndex === burstNode && t < burstUntil;
+        const size = isHeroGraph ? 11 : (label.length > 14 ? 9.5 : 10.5) + p.depth * 1.2;
+        ctx.font = isHeroGraph
+          ? `${size}px "SF Mono", Menlo, ui-monospace, monospace`
+          : `${size}px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif`;
+        ctx.fillStyle = isHeroGraph
+          ? `rgba(255,255,255,${isBursting ? 0.9 : 0.34 + p.depth * 0.28})`
+          : `rgba(255,255,255,${0.22 + p.depth * 0.48})`;
         ctx.fillText(label, p.sx + radius + 5, p.sy + 4);
       }
     });
