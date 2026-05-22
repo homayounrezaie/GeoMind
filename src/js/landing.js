@@ -548,8 +548,8 @@ function initFeatSwitcher() {
   scheduleNext();
 }
 
-function initGraphCloud() {
-  const canvas = document.getElementById('lpGraphCanvas');
+function initGraphCloud(canvasId = 'lpGraphCanvas') {
+  const canvas = document.getElementById(canvasId);
   if (!canvas || canvas.dataset.ready === 'true') return;
   canvas.dataset.ready = 'true';
 
@@ -1632,5 +1632,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCanvas();
   initMainCategories();
   initRadial();
+  initGraphCloud('lpHeroGraphCanvas');
   initFeatSwitcher();
 });

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-25">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-26">
 </head>
 <body>
 
@@ -39,32 +39,12 @@
       </div>
     </div>
 
-    <a class="lp-hero-graph-link" href="pages/app.html" aria-label="GeoMind knowledge graph preview, opens the full map">
-      <svg id="lpHeroGraph" class="lp-hero-graph" viewBox="0 0 640 420" role="img" aria-hidden="true"></svg>
+    <a class="lp-hero-graph-link" href="pages/app.html" aria-label="Graph visualization preview, opens the full knowledge map">
+      <div class="lp-graph-viz lp-hero-graph-viz" aria-hidden="true">
+        <canvas id="lpHeroGraphCanvas" class="lp-graph-canvas"></canvas>
+      </div>
     </a>
   </div>
-</section>
-
-<!-- GOALS -->
-<section class="lp-goal-section" aria-labelledby="goalTitle">
-  <div class="lp-goal-section-head">
-    <h2 class="lp-sec-title" id="goalTitle">Or start from what you need.</h2>
-    <p class="lp-sec-sub">Six common paths into the same knowledge map.</p>
-  </div>
-  <aside class="lp-goal-panel" aria-label="Goal based navigation">
-      <div class="lp-goal-panel-head">
-        <span class="lp-main-led"></span>
-        <span>I want to...</span>
-      </div>
-      <div class="lp-goal-list">
-        <a href="pages/paper-with-code.html"><span>Find papers and code</span><strong>Methods, benchmarks, implementations</strong></a>
-        <a href="pages/foundation-models.html"><span>Find foundation models</span><strong>GeoAI base models, VLMs, agents</strong></a>
-        <a href="pages/datasets.html"><span>Find training data</span><strong>Datasets, labels, tasks, evaluation</strong></a>
-        <a href="pages/job-market.html"><span>Find roles and skills</span><strong>Roles, skills, hiring signals</strong></a>
-        <a href="pages/companies.html"><span>Find companies</span><strong>Startups, labs, platforms</strong></a>
-        <a href="pages/learn.html"><span>Find learning paths</span><strong>Courses, books, tutorials</strong></a>
-      </div>
-  </aside>
 </section>
 
 <!-- CATEGORIES -->
@@ -168,6 +148,20 @@
   </div>
 </section>
 
+<!-- CLARITY -->
+<section class="lp-clarity-section">
+  <div class="lp-clarity-inner">
+    <p class="lp-clarity-text">Every day a new foundation model is released, every week another paper redefines what is possible with satellite imagery, SAR, or LiDAR, and every month a new benchmark shifts the state of the art. Keeping up is genuinely hard!!! not because the work is not remarkable, but because without understanding the full structure of the field, each new model or paper feels like a disconnected event. You cannot tell if it is foundational or incremental, where it fits, what it replaces, or what it makes possible next.</p>
+    <p class="lp-clarity-sub">GeoMind maps the landscape from sensor data and learning paradigms through model architectures, techniques, tasks, datasets, tools, companies, and standards, then connects each layer to public resources so you know where you are and where to go next.</p>
+    <div class="lp-clarity-links" aria-label="Public resources connected through GeoMind">
+      <a href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://paperswithcode.com/" target="_blank" rel="noopener">Papers with Code</a>
+      <a href="https://www.kaggle.com/" target="_blank" rel="noopener">Kaggle</a>
+      <a href="https://huggingface.co/" target="_blank" rel="noopener">Hugging Face</a>
+    </div>
+  </div>
+</section>
+
 <!-- STORY -->
 <section class="lp-story-section">
   <div class="lp-story-inner">
@@ -228,28 +222,64 @@
       </div>
       <div class="lp-paper-preview" aria-hidden="true">
         <figure class="lp-paper-slide is-active" data-idx="0">
-          <img src="public/papers/prithvi.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
-          <figcaption>Prithvi-100M · Jakubik et al. · 2023</figcaption>
+          <div class="lp-paper-page">
+            <span class="lp-paper-venue">arXiv · 2023</span>
+            <h3>Foundation Models for Generalist Geospatial Artificial Intelligence</h3>
+            <p class="lp-paper-authors">Johannes Jakubik, Sujit Roy, C. E. Phillips, Paolo Fraccaro et al.</p>
+            <p class="lp-paper-abstract">This paper introduces Prithvi, a transformer-based geospatial foundation model pretrained on large-scale Harmonized Landsat Sentinel-2 imagery and adapted across Earth observation tasks.</p>
+            <div class="lp-paper-figure"><span></span><span></span><span></span></div>
+            <p class="lp-paper-foot">Prithvi-100M · Foundation Models · Tasks · Stack</p>
+          </div>
         </figure>
         <figure class="lp-paper-slide" data-idx="1">
-          <img src="public/papers/satmae.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
-          <figcaption>SatMAE · Cong et al. · 2022</figcaption>
+          <div class="lp-paper-page">
+            <span class="lp-paper-venue">NeurIPS · 2022</span>
+            <h3>SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery</h3>
+            <p class="lp-paper-authors">Yezhen Cong, Sam Khanna, Chenlin Meng, Patrick Liu et al.</p>
+            <p class="lp-paper-abstract">SatMAE adapts masked autoencoding for temporal and multispectral satellite imagery, showing how pretraining choices change downstream remote sensing performance.</p>
+            <div class="lp-paper-figure"><span></span><span></span><span></span></div>
+            <p class="lp-paper-foot">SatMAE · Techniques · Datasets · Models</p>
+          </div>
         </figure>
         <figure class="lp-paper-slide" data-idx="2">
-          <img src="public/papers/scale-mae.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
-          <figcaption>Scale-MAE · Reed et al. · 2023</figcaption>
+          <div class="lp-paper-page">
+            <span class="lp-paper-venue">ICCV · 2023</span>
+            <h3>Scale-MAE: A Scale-Aware Masked Autoencoder for Multiscale Geospatial Representation Learning</h3>
+            <p class="lp-paper-authors">Colorado J. Reed, Ritwik Gupta, Shufan Li, Sarah Brockman et al.</p>
+            <p class="lp-paper-abstract">Scale-MAE focuses masked image modeling on the scale variation that makes geospatial imagery different from natural image pretraining.</p>
+            <div class="lp-paper-figure"><span></span><span></span><span></span></div>
+            <p class="lp-paper-foot">Scale-MAE · Techniques · Benchmarks · Tasks</p>
+          </div>
         </figure>
         <figure class="lp-paper-slide" data-idx="3">
-          <img src="public/papers/ringmo.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
-          <figcaption>RingMo · Sun et al. · 2022</figcaption>
+          <div class="lp-paper-page">
+            <span class="lp-paper-venue">IEEE TGRS · 2023</span>
+            <h3>RingMo: A Remote Sensing Foundation Model With Masked Image Modeling</h3>
+            <p class="lp-paper-authors">Xian Sun, Peijin Wang, Wanxuan Lu, Zicong Zhu et al.</p>
+            <p class="lp-paper-abstract">RingMo combines large-scale remote sensing pretraining data with masked image modeling designed for dense and small objects in complex scenes.</p>
+            <div class="lp-paper-figure"><span></span><span></span><span></span></div>
+            <p class="lp-paper-foot">RingMo · Foundation Models · Techniques · Tasks</p>
+          </div>
         </figure>
         <figure class="lp-paper-slide" data-idx="4">
-          <img src="public/papers/geoclip.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
-          <figcaption>GeoCLIP · Cepeda et al. · 2023</figcaption>
+          <div class="lp-paper-page">
+            <span class="lp-paper-venue">NeurIPS · 2023</span>
+            <h3>GeoCLIP: CLIP-Inspired Alignment between Locations and Images for Worldwide Geo-localization</h3>
+            <p class="lp-paper-authors">Vicente Vivanco Cepeda, Gaurav Kumar Nayak, Mubarak Shah</p>
+            <p class="lp-paper-abstract">GeoCLIP aligns images with GPS locations to support worldwide geolocalization, turning location into a representation-learning signal.</p>
+            <div class="lp-paper-figure"><span></span><span></span><span></span></div>
+            <p class="lp-paper-foot">GeoCLIP · Vision-Language · Embeddings · Search</p>
+          </div>
         </figure>
         <figure class="lp-paper-slide" data-idx="5">
-          <img src="public/papers/clay.png" alt="" loading="lazy" onerror="this.classList.add('is-missing')">
-          <figcaption>Clay · 2024</figcaption>
+          <div class="lp-paper-page">
+            <span class="lp-paper-venue">Technical report · 2024</span>
+            <h3>Clay Foundation Model: An Open Foundation Model for Earth Observation</h3>
+            <p class="lp-paper-authors">Clay Foundation team</p>
+            <p class="lp-paper-abstract">Clay frames Earth observation as a flexible foundation-model interface across sensors, resolutions, locations, and timestamps.</p>
+            <div class="lp-paper-figure"><span></span><span></span><span></span></div>
+            <p class="lp-paper-foot">Clay · Foundation Models · Datasets · Tools</p>
+          </div>
         </figure>
       </div>
     </div>
@@ -1040,114 +1070,6 @@ function nlSubmit(e) {
 </script>
 <script>
 (function() {
-  const svg = document.getElementById('lpHeroGraph');
-  if (!svg) return;
-
-  const NS = 'http://www.w3.org/2000/svg';
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const uid = `heroGraph${Math.random().toString(36).slice(2)}`;
-  const nodes = [
-    { id:'core', x:320, y:210, r:7, core:true },
-    { id:'models', label:'Models', x:448, y:126, r:4.5, anchor:true },
-    { id:'data', label:'Data', x:218, y:116, r:4.5, anchor:true },
-    { id:'tasks', label:'Tasks', x:462, y:263, r:4.5, anchor:true },
-    { id:'tools', label:'Tools', x:252, y:313, r:4.5, anchor:true },
-    { id:'papers', label:'Papers', x:320, y:72, r:4.5, anchor:true },
-    { id:'jobs', label:'Jobs', x:162, y:232, r:4.5, anchor:true },
-    { id:'s1', x:96, y:112, r:3.5 }, { id:'s2', x:126, y:181, r:4 },
-    { id:'s3', x:184, y:72, r:3.5 }, { id:'s4', x:524, y:82, r:4 },
-    { id:'s5', x:548, y:176, r:3.5 }, { id:'s6', x:538, y:328, r:4 },
-    { id:'s7', x:410, y:348, r:3.5 }, { id:'s8', x:308, y:372, r:4 },
-    { id:'s9', x:106, y:310, r:3.5 }, { id:'s10', x:234, y:220, r:4 },
-    { id:'s11', x:386, y:178, r:3.5 }, { id:'s12', x:502, y:214, r:4 },
-  ];
-  const edges = [
-    ['core','models'],['core','data'],['core','tasks'],['core','tools'],['core','papers'],['core','jobs'],
-    ['models','s4'],['models','s5'],['models','s11'],['models','tasks'],
-    ['data','s1'],['data','s3'],['data','s10'],['data','papers'],
-    ['tasks','s12'],['tasks','s6'],['tasks','tools'],['tasks','models'],
-    ['tools','s7'],['tools','s8'],['tools','s10'],['tools','jobs'],
-    ['papers','s3'],['papers','s4'],['papers','models'],
-    ['jobs','s2'],['jobs','s9'],['jobs','data'],
-    ['s1','s2'],['s6','s7'],['s11','s12'],
-  ];
-  const state = new Map(nodes.map((n, i) => [n.id, {
-    ...n, ox:n.x, oy:n.y, ax:2 + (i % 4) * .35, ay:1.8 + (i % 3) * .4,
-    sx:3200 + (i % 5) * 620, sy:3700 + (i % 4) * 540, px:i * 1.7, py:i * 2.3,
-  }]));
-
-  function el(tag, attrs = {}) {
-    const node = document.createElementNS(NS, tag);
-    Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
-    return node;
-  }
-
-  svg.innerHTML = '';
-  const defs = el('defs');
-  const grad = el('radialGradient', { id:`${uid}Fade`, cx:'50%', cy:'50%', r:'72%' });
-  grad.append(el('stop', { offset:'0%', 'stop-color':'white' }));
-  grad.append(el('stop', { offset:'68%', 'stop-color':'white' }));
-  grad.append(el('stop', { offset:'100%', 'stop-color':'black' }));
-  const mask = el('mask', { id:`${uid}Mask` });
-  mask.append(el('rect', { width:'100%', height:'100%', fill:`url(#${uid}Fade)` }));
-  defs.append(grad, mask);
-  svg.append(defs);
-
-  const edgeGroup = el('g', { mask:`url(#${uid}Mask)` });
-  const nodeGroup = el('g');
-  svg.append(edgeGroup, nodeGroup);
-  const edgeEls = edges.map(([a, b]) => {
-    const line = el('line', { class:'graph-edge' });
-    line._edge = { a, b };
-    edgeGroup.append(line);
-    return line;
-  });
-  const nodeEls = nodes.map((node, index) => {
-    const group = el('g', { class:`graph-node-wrap${node.anchor ? ' graph-anchor graph-label-node' : ''}${node.core ? ' graph-core' : ''}${!node.anchor && !node.core && index % 2 ? ' graph-mobile-extra' : ''}` });
-    group._nodeId = node.id;
-    const circle = el('circle', { class:`graph-node${node.core ? ' core' : ''}`, r:node.r });
-    group.append(circle);
-    if (node.label) {
-      group.append(el('text', { x:node.r + 9, y:4 }));
-      group.querySelector('text').textContent = node.label;
-    }
-    if (node.anchor) {
-      group.addEventListener('mouseenter', () => setHover(node.id, true));
-      group.addEventListener('mouseleave', () => setHover(node.id, false));
-    }
-    nodeGroup.append(group);
-    return group;
-  });
-
-  function setHover(id, active) {
-    nodeEls.forEach(group => group.classList.toggle('is-hover', active && group._nodeId === id));
-    edgeEls.forEach(line => line.classList.toggle('is-hover', active && (line._edge.a === id || line._edge.b === id)));
-  }
-  function draw(now = 0) {
-    state.forEach(n => {
-      if (!reduced) {
-        n.x = n.ox + Math.sin(now / n.sx + n.px) * n.ax;
-        n.y = n.oy + Math.cos(now / n.sy + n.py) * n.ay;
-      }
-    });
-    edgeEls.forEach(line => {
-      const a = state.get(line._edge.a), b = state.get(line._edge.b);
-      const fade = Math.max(.22, 1 - Math.hypot((a.x + b.x) / 2 - 320, (a.y + b.y) / 2 - 210) / 360);
-      line.setAttribute('x1', a.x); line.setAttribute('y1', a.y);
-      line.setAttribute('x2', b.x); line.setAttribute('y2', b.y);
-      line.setAttribute('stroke-opacity', fade.toFixed(2));
-    });
-    nodeEls.forEach(group => {
-      const n = state.get(group._nodeId);
-      group.setAttribute('transform', `translate(${n.x.toFixed(2)} ${n.y.toFixed(2)})`);
-    });
-    if (!reduced) requestAnimationFrame(draw);
-  }
-  draw();
-})();
-</script>
-<script>
-(function() {
   const CELL = 14;
   const GAP = 3;
   const ROW_GAP = 6;
@@ -1683,6 +1605,6 @@ function nlSubmit(e) {
   window.addEventListener('resize', layoutHeatmaps);
 })();
 </script>
-<script type="module" src="src/js/landing.js?v=20260521-21"></script>
+<script type="module" src="src/js/landing.js?v=20260521-26"></script>
 </body>
 </html>
