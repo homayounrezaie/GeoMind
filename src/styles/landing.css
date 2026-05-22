@@ -563,7 +563,7 @@ nav,section,footer{position:relative;z-index:1}
   display:grid;
   grid-template-columns:minmax(280px,420px) minmax(0,1fr);
   gap:var(--s-5);
-  align-items:start;
+  align-items:center;
   max-width:1100px;
   margin:0 auto;
 }
@@ -649,15 +649,14 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-paper-preview{
   position:relative;
+  align-self:center;
   width:100%;
   aspect-ratio:3/4;
   max-height:560px;
-  border-radius:10px;
+  border-radius:0;
   overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(129,140,248,0.12), transparent 46%),
-    rgba(255,255,255,0.025);
-  box-shadow:0 32px 80px rgba(0,0,0,0.45);
+  background:transparent;
+  box-shadow:none;
 }
 .lp-paper-slide{
   position:absolute;
@@ -675,24 +674,11 @@ nav,section,footer{position:relative;z-index:1}
   display:block;
   width:100%;
   height:100%;
-  padding:12px;
+  padding:0;
   object-fit:contain;
   object-position:top center;
-  background:#07080f;
+  background:transparent;
   filter:saturate(.96) contrast(1.02);
-}
-.lp-paper-slide figcaption{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:var(--s-2) var(--s-3);
-  font-family:'SF Mono','Menlo',monospace;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.02em;
-  color:rgba(255,255,255,.82);
-  background:linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,0));
 }
 @media (prefers-reduced-motion: reduce){
   .lp-paper-item.is-active .lp-paper-item-progress i{animation:none;height:100%}
@@ -1595,32 +1581,14 @@ nav,section,footer{position:relative;z-index:1}
   color:rgba(255,255,255,0.42);
   margin-bottom:12px;
 }
-.lp-nl-title{
+.lp-nl-simple{
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  font-size:var(--t-h2);font-weight:800;letter-spacing:-.04em;
-  color:#fff;line-height:var(--lh-tight);margin-bottom:var(--s-2);
-}
-.lp-nl-desc{
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  font-size:var(--t-meta);
+  font-size:var(--t-body);
+  font-weight:400;
   line-height:var(--lh-body);
-  color:rgba(255,255,255,0.48);
-  margin-bottom:var(--s-3);
-}
-.lp-nl-proof{
-  display:inline-flex;
+  color:rgba(255,255,255,0.72);
   margin-bottom:var(--s-4);
-  color:rgba(255,255,255,0.56);
-  font-family:'SF Mono','Fira Code',monospace;
-  font-size:var(--t-meta);
-  font-weight:700;
-  text-decoration:none;
-  transition:color .16s;
-}
-.lp-nl-proof:hover,
-.lp-nl-proof:focus-visible{
-  color:#818cf8;
-  outline:none;
+  text-align:center;
 }
 .lp-nl-form{margin-bottom:var(--s-2)}
 .lp-nl-terminal{
