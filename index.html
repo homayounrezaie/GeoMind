@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260521-21">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260521-22">
 </head>
 <body>
 
@@ -51,26 +51,8 @@
       </div>
     </div>
 
-    <a class="lp-map-preview" href="pages/app.html" aria-label="Open the GeoMind knowledge map">
-      <div class="lp-map-preview-head">
-        <span class="lp-main-led"></span>
-        <strong>knowledge-map</strong>
-        <em>13 layers</em>
-      </div>
-      <div class="lp-map-preview-stage" aria-hidden="true">
-        <span class="lp-map-edge lp-map-edge-a"></span>
-        <span class="lp-map-edge lp-map-edge-b"></span>
-        <span class="lp-map-edge lp-map-edge-c"></span>
-        <span class="lp-map-edge lp-map-edge-d"></span>
-        <span class="lp-map-node lp-map-node-core">GeoMind</span>
-        <span class="lp-map-node lp-map-node-one">Models</span>
-        <span class="lp-map-node lp-map-node-two">Data</span>
-        <span class="lp-map-node lp-map-node-three">Tasks</span>
-        <span class="lp-map-node lp-map-node-four">Tools</span>
-        <span class="lp-map-node lp-map-node-five">Papers</span>
-        <span class="lp-map-node lp-map-node-six">Jobs</span>
-      </div>
-      <span class="lp-map-preview-caption">Preview the graph you open next.</span>
+    <a class="lp-hero-graph-link" href="pages/app.html" aria-label="GeoMind knowledge graph preview, opens the full map">
+      <svg id="lpHeroGraph" class="lp-hero-graph" viewBox="0 0 640 420" role="img" aria-hidden="true"></svg>
     </a>
   </div>
 </section>
@@ -930,6 +912,114 @@ function nlSubmit(e) {
     terminal.insertAdjacentHTML('beforeend', '<span class="lp-nl-success">subscribed ✓</span>');
   }
 }
+</script>
+<script>
+(function() {
+  const svg = document.getElementById('lpHeroGraph');
+  if (!svg) return;
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const uid = `heroGraph${Math.random().toString(36).slice(2)}`;
+  const nodes = [
+    { id:'core', x:320, y:210, r:7, core:true },
+    { id:'models', label:'Models', x:448, y:126, r:4.5, anchor:true },
+    { id:'data', label:'Data', x:218, y:116, r:4.5, anchor:true },
+    { id:'tasks', label:'Tasks', x:462, y:263, r:4.5, anchor:true },
+    { id:'tools', label:'Tools', x:252, y:313, r:4.5, anchor:true },
+    { id:'papers', label:'Papers', x:320, y:72, r:4.5, anchor:true },
+    { id:'jobs', label:'Jobs', x:162, y:232, r:4.5, anchor:true },
+    { id:'s1', x:96, y:112, r:3.5 }, { id:'s2', x:126, y:181, r:4 },
+    { id:'s3', x:184, y:72, r:3.5 }, { id:'s4', x:524, y:82, r:4 },
+    { id:'s5', x:548, y:176, r:3.5 }, { id:'s6', x:538, y:328, r:4 },
+    { id:'s7', x:410, y:348, r:3.5 }, { id:'s8', x:308, y:372, r:4 },
+    { id:'s9', x:106, y:310, r:3.5 }, { id:'s10', x:234, y:220, r:4 },
+    { id:'s11', x:386, y:178, r:3.5 }, { id:'s12', x:502, y:214, r:4 },
+  ];
+  const edges = [
+    ['core','models'],['core','data'],['core','tasks'],['core','tools'],['core','papers'],['core','jobs'],
+    ['models','s4'],['models','s5'],['models','s11'],['models','tasks'],
+    ['data','s1'],['data','s3'],['data','s10'],['data','papers'],
+    ['tasks','s12'],['tasks','s6'],['tasks','tools'],['tasks','models'],
+    ['tools','s7'],['tools','s8'],['tools','s10'],['tools','jobs'],
+    ['papers','s3'],['papers','s4'],['papers','models'],
+    ['jobs','s2'],['jobs','s9'],['jobs','data'],
+    ['s1','s2'],['s6','s7'],['s11','s12'],
+  ];
+  const state = new Map(nodes.map((n, i) => [n.id, {
+    ...n, ox:n.x, oy:n.y, ax:2 + (i % 4) * .35, ay:1.8 + (i % 3) * .4,
+    sx:3200 + (i % 5) * 620, sy:3700 + (i % 4) * 540, px:i * 1.7, py:i * 2.3,
+  }]));
+
+  function el(tag, attrs = {}) {
+    const node = document.createElementNS(NS, tag);
+    Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+    return node;
+  }
+
+  svg.innerHTML = '';
+  const defs = el('defs');
+  const grad = el('radialGradient', { id:`${uid}Fade`, cx:'50%', cy:'50%', r:'72%' });
+  grad.append(el('stop', { offset:'0%', 'stop-color':'white' }));
+  grad.append(el('stop', { offset:'68%', 'stop-color':'white' }));
+  grad.append(el('stop', { offset:'100%', 'stop-color':'black' }));
+  const mask = el('mask', { id:`${uid}Mask` });
+  mask.append(el('rect', { width:'100%', height:'100%', fill:`url(#${uid}Fade)` }));
+  defs.append(grad, mask);
+  svg.append(defs);
+
+  const edgeGroup = el('g', { mask:`url(#${uid}Mask)` });
+  const nodeGroup = el('g');
+  svg.append(edgeGroup, nodeGroup);
+  const edgeEls = edges.map(([a, b]) => {
+    const line = el('line', { class:'graph-edge' });
+    line._edge = { a, b };
+    edgeGroup.append(line);
+    return line;
+  });
+  const nodeEls = nodes.map((node, index) => {
+    const group = el('g', { class:`graph-node-wrap${node.anchor ? ' graph-anchor graph-label-node' : ''}${node.core ? ' graph-core' : ''}${!node.anchor && !node.core && index % 2 ? ' graph-mobile-extra' : ''}` });
+    group._nodeId = node.id;
+    const circle = el('circle', { class:`graph-node${node.core ? ' core' : ''}`, r:node.r });
+    group.append(circle);
+    if (node.label) {
+      group.append(el('text', { x:node.r + 9, y:4 }));
+      group.querySelector('text').textContent = node.label;
+    }
+    if (node.anchor) {
+      group.addEventListener('mouseenter', () => setHover(node.id, true));
+      group.addEventListener('mouseleave', () => setHover(node.id, false));
+    }
+    nodeGroup.append(group);
+    return group;
+  });
+
+  function setHover(id, active) {
+    nodeEls.forEach(group => group.classList.toggle('is-hover', active && group._nodeId === id));
+    edgeEls.forEach(line => line.classList.toggle('is-hover', active && (line._edge.a === id || line._edge.b === id)));
+  }
+  function draw(now = 0) {
+    state.forEach(n => {
+      if (!reduced) {
+        n.x = n.ox + Math.sin(now / n.sx + n.px) * n.ax;
+        n.y = n.oy + Math.cos(now / n.sy + n.py) * n.ay;
+      }
+    });
+    edgeEls.forEach(line => {
+      const a = state.get(line._edge.a), b = state.get(line._edge.b);
+      const fade = Math.max(.22, 1 - Math.hypot((a.x + b.x) / 2 - 320, (a.y + b.y) / 2 - 210) / 360);
+      line.setAttribute('x1', a.x); line.setAttribute('y1', a.y);
+      line.setAttribute('x2', b.x); line.setAttribute('y2', b.y);
+      line.setAttribute('stroke-opacity', fade.toFixed(2));
+    });
+    nodeEls.forEach(group => {
+      const n = state.get(group._nodeId);
+      group.setAttribute('transform', `translate(${n.x.toFixed(2)} ${n.y.toFixed(2)})`);
+    });
+    if (!reduced) requestAnimationFrame(draw);
+  }
+  draw();
+})();
 </script>
 <script>
 (function() {
