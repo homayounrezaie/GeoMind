@@ -138,10 +138,10 @@ nav,section,footer{position:relative;z-index:1}
   padding:var(--s-7) var(--s-4);
 }
 .lp-hero-shell{
-  width:min(1280px,100%);
+  width:min(1440px,100%);
   display:grid;
-  grid-template-columns:minmax(0,0.9fr) minmax(420px,0.95fr);
-  gap:var(--s-6);
+  grid-template-columns:minmax(0,0.82fr) minmax(560px,1.18fr);
+  gap:var(--s-5);
   align-items:center;
 }
 .lp-hero-copy{
@@ -225,15 +225,15 @@ nav,section,footer{position:relative;z-index:1}
 .lp-hero-graph-link{
   position:relative;
   display:block;
-  min-height:420px;
-  max-height:620px;
+  min-height:540px;
+  max-height:760px;
   color:#fff;
   text-decoration:none;
   animation:fadeUp 0.8s 0.42s cubic-bezier(0.16,1,0.3,1) both;
 }
 .lp-hero-graph-link:focus-visible{outline:2px solid rgba(129,140,248,0.72);outline-offset:8px}
 .lp-hero-graph-viz{
-  height:clamp(420px,43vw,620px);
+  height:clamp(540px,50vw,760px);
   border-radius:0;
 }
 /* Categories */
