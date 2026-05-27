@@ -93,7 +93,6 @@ async function init(cfg) {
     const csv = await fetchCsv(cfg.file);
     state.rows = parseCsv(csv).filter(row => row[cfg.titleField]);
     state.filtered = [...state.rows];
-    renderStats(els, cfg);
     applyFilters(cfg, els);
   } catch (error) {
     els.list.innerHTML = `<div class="catalog-empty">Could not load ${escapeHtml(cfg.file)}.</div>`;
@@ -131,9 +130,6 @@ function getElements() {
     label: document.querySelector('[data-catalog-label]'),
     title: document.querySelector('[data-catalog-title]'),
     intro: document.querySelector('[data-catalog-intro]'),
-    count: document.querySelector('[data-catalog-count]'),
-    updated: document.querySelector('[data-catalog-updated]'),
-    secondary: document.querySelector('[data-catalog-secondary]'),
     search: document.querySelector('[data-catalog-search]'),
     filters: document.querySelector('[data-catalog-filters]'),
     list: document.querySelector('[data-catalog-list]'),
@@ -156,13 +152,6 @@ function applyFilters(cfg, els) {
     .filter(row => !query || Object.values(row).some(value => String(value).toLowerCase().includes(query)))
     .sort((a, b) => cfg.sortValue(b) - cfg.sortValue(a));
   renderList(cfg, els);
-}
-
-function renderStats(els, cfg) {
-  setText(els.count, state.rows.length.toLocaleString());
-  setText(els.updated, 'Local CSV');
-  const linked = state.rows.filter(row => cfg.url(row)).length;
-  setText(els.secondary, `${linked.toLocaleString()} linked records`);
 }
 
 function renderFilters(container, cfg) {

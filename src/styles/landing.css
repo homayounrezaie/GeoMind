@@ -2037,10 +2037,6 @@ nav,section,footer{position:relative;z-index:1}
   padding-top:var(--s-5);
 }
 .catalog-hero{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(260px,360px);
-  align-items:end;
-  gap:var(--s-4);
   padding-bottom:var(--s-4);
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
@@ -2049,35 +2045,6 @@ nav,section,footer{position:relative;z-index:1}
   color:rgba(255,255,255,0.58);
   font-size:var(--t-body);
   line-height:var(--lh-body);
-}
-.catalog-summary{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:1px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:8px;
-  background:rgba(255,255,255,0.08);
-}
-.catalog-summary div{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:var(--s-2);
-  padding:13px 15px;
-  background:rgba(15,18,27,0.92);
-}
-.catalog-summary strong{
-  color:#fff;
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:0;
-}
-.catalog-summary span{
-  color:rgba(255,255,255,0.46);
-  font-size:12px;
-  font-weight:800;
-  text-transform:uppercase;
 }
 .catalog-toolbar{
   position:sticky;
@@ -2339,7 +2306,6 @@ nav,section,footer{position:relative;z-index:1}
 [data-theme="light"] .lp-nl-card,
 [data-theme="light"] .lp-footer,
 [data-theme="light"] .category-empty-box,
-[data-theme="light"] .catalog-summary,
 [data-theme="light"] .catalog-item,
 [data-theme="light"] .catalog-toolbar input,
 [data-theme="light"] .catalog-chip,
@@ -2354,19 +2320,11 @@ nav,section,footer{position:relative;z-index:1}
   border-color:#D8D0C0;
   background:#FFFFFF;
 }
-[data-theme="light"] .catalog-summary{
-  background:#E4DFD4;
-}
-[data-theme="light"] .catalog-summary div{
-  background:#FFFDF8;
-}
-[data-theme="light"] .catalog-summary strong,
 [data-theme="light"] .catalog-toolbar input,
 [data-theme="light"] .lp-nl-input,
 [data-theme="light"] .lp-footer-input{
   color:#1A1814;
 }
-[data-theme="light"] .catalog-summary span,
 [data-theme="light"] .catalog-resultbar,
 [data-theme="light"] .catalog-meta,
 [data-theme="light"] .catalog-metric,
@@ -2528,10 +2486,6 @@ nav,section,footer{position:relative;z-index:1}
   .category-crumb{width:100%}
   .category-nav-actions{width:100%}
   .category-nav-map{width:100%}
-  .catalog-hero{
-    grid-template-columns:1fr;
-    align-items:start;
-  }
   .catalog-toolbar{
     position:static;
     grid-template-columns:1fr;
