@@ -16,11 +16,9 @@ const CONFIG = {
     tags: row => splitValues(row.task || row.method_family || row.modality || row.matched_terms || row.tags),
     meta: row => joinClean([row.year, row.venue || row.conference, row.discovered_via]),
     filters: [
-      { key: 'all', label: 'All' },
-      { key: 'recent', label: 'Recent', test: row => Number(row.year) >= 2025 },
-      { key: 'code', label: 'Code', test: row => paperCodeUrl(row) || row.github_url || row.huggingface_url },
-      { key: 'cited', label: 'Cited', test: row => Number(row.citations || row.citation_count) > 0 },
-      { key: 'foundation', label: 'Foundation models', test: row => includesAny(row, ['foundation']) },
+      { key: 'all', label: 'All papers' },
+      { key: 'top-ai', label: 'Top AI venues', test: row => isTopAiVenue(row) },
+      { key: 'with-code', label: 'Papers with code', test: row => paperCodeUrl(row) || paperGithubUrl(row) || paperHuggingFaceUrl(row) },
     ],
   },
   models: {
@@ -88,6 +86,11 @@ async function init(cfg) {
   setText(els.title, cfg.title);
   setText(els.intro, cfg.intro);
   els.search.placeholder = cfg.searchPlaceholder;
+  const initialQuery = new URLSearchParams(window.location.search).get('q');
+  if (initialQuery) {
+    state.query = initialQuery.trim().toLowerCase();
+    els.search.value = initialQuery.trim();
+  }
   renderFilters(els.filters, cfg);
 
   try {
@@ -247,7 +250,7 @@ function renderPaperItem(cfg, row) {
   const githubRepo = githubRepoName(githubUrl || code);
   const citationPace = paperCitationPace(row, citationCount);
   const source = row.venue || row.discovered_via || 'Paper';
-  const actions = paperActions({ pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code });
+  const actions = paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code });
 
   return `
     <article class="research-item">
@@ -311,10 +314,11 @@ async function fetchGithubRepo(repo) {
   return data;
 }
 
-function paperActions({ pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code }) {
+function paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code }) {
   return [
     pdfUrl && paperAction('file', 'View PDF', pdfUrl),
     arxivUrl && paperAction('external', 'arXiv page', arxivUrl),
+    ...paperRelationActions(row),
     githubUrl && paperAction('github', 'GitHub', githubUrl),
     huggingFaceUrl && paperAction('huggingface', 'Hugging Face', huggingFaceUrl),
     websiteUrl && paperAction('globe', 'Website', websiteUrl),
@@ -322,8 +326,35 @@ function paperActions({ pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl,
   ].filter(Boolean).join('');
 }
 
-function paperAction(icon, label, url) {
-  return `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${iconSvg(icon)}<span>${escapeHtml(label)}</span></a>`;
+function paperRelationActions(row) {
+  const raw = rawPaper(row);
+  const datasets = relationValues(row.uses_datasets);
+  const models = relationValues(row.introduces_models);
+  const rawCategory = String(raw.category || '').toLowerCase();
+  const rawPublicationType = String(raw.publication_type || '').toLowerCase();
+  const rawStatus = String(raw.status || '').toLowerCase();
+  const resourceName = cleanText(raw.abbreviation) || cleanText(row.title);
+  const titleDatasetName = leadingResourceName(row.title);
+
+  if (resourceName && (rawCategory === 'dataset' || rawPublicationType === 'dataset')) {
+    datasets.push(resourceName);
+  }
+  if (titleDatasetName && /\b(dataset|benchmark|corpus)\b/i.test(row.title || '')) {
+    datasets.push(titleDatasetName);
+  }
+  if (resourceName && (rawStatus === 'candidate_model' || rawCategory === 'foundation_models')) {
+    models.push(resourceName);
+  }
+
+  return [
+    ...uniqueValues(datasets).slice(0, 2).map(value => paperAction('database', `Dataset: ${truncate(value, 24)}`, catalogSearchUrl('datasets.html', value), false)),
+    ...uniqueValues(models).slice(0, 2).map(value => paperAction('box', `Model: ${truncate(value, 24)}`, catalogSearchUrl('foundation-models.html', value), false)),
+  ];
+}
+
+function paperAction(icon, label, url, external = true) {
+  const target = external ? ' target="_blank" rel="noopener"' : '';
+  return `<a href="${escapeAttr(url)}"${target}>${iconSvg(icon)}<span>${escapeHtml(label)}</span></a>`;
 }
 
 function iconSvg(name) {
@@ -335,6 +366,8 @@ function iconSvg(name) {
     code: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 17-5-5 5-5m8 0 5 5-5 5m-2-12-4 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     globe: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9S9.6 5.6 12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
     huggingface: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9.5a2 2 0 1 1 4 0m3 0a2 2 0 1 1 4 0M7 14c1.4 1.5 3 2.2 5 2.2s3.6-.7 5-2.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    database: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="7" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 5v10c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 10c0 1.7 3.1 3 7 3s7-1.3 7-3" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    box: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm0 9 8-4.5M12 12 4 7.5M12 12v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',
   };
   return icons[name] || '';
 }
@@ -455,6 +488,59 @@ function paperCitationPace(row, citations) {
   const age = Math.max(1, new Date().getFullYear() - year + 1);
   const pace = citations / age;
   return pace >= 10 ? pace.toFixed(0) : pace.toFixed(1);
+}
+
+function isTopAiVenue(row) {
+  const venue = `${row.conference || ''} ${row.venue || ''}`.toUpperCase();
+  return [
+    'NEURIPS',
+    'NIPS',
+    'ICML',
+    'ICLR',
+    'CVPR',
+    'ICCV',
+    'ECCV',
+    'AAAI',
+    'IJCAI',
+    'ACL',
+    'EMNLP',
+    'NAACL',
+    'KDD',
+    'AISTATS',
+    'UAI',
+    'COLT',
+    'SIGIR',
+    'WWW',
+    'CHI',
+    'ICRA',
+    'IROS',
+  ].some(name => venue.includes(name));
+}
+
+function relationValues(...values) {
+  return values.flatMap(value => {
+    if (Array.isArray(value)) return value.map(item => cleanText(item)).filter(Boolean);
+    return splitValues(String(value || '').replace(/^\[|\]$/g, '').replace(/['"]/g, ''));
+  }).filter(Boolean);
+}
+
+function leadingResourceName(title) {
+  const match = cleanText(title).match(/^([^:]{2,42}):/);
+  return match ? match[1].trim() : '';
+}
+
+function uniqueValues(values) {
+  const seen = new Set();
+  return values.filter(value => {
+    const key = value.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function catalogSearchUrl(file, query) {
+  return `${file}?q=${encodeURIComponent(query)}`;
 }
 
 function paperDomains(row) {
