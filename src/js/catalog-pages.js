@@ -12,7 +12,7 @@ const CONFIG = {
     url: row => row.link || row.url || doiUrl(row.doi),
     codeUrl: row => row.code_url,
     metric: row => numberLabel(row.citations || row.citation_count, 'citation'),
-    sortValue: row => Number(row.year) || 0,
+    sortValue: row => paperSortValue(row),
     tags: row => splitValues(row.task || row.method_family || row.modality || row.matched_terms || row.tags),
     meta: row => joinClean([row.year, row.venue || row.conference, row.discovered_via]),
     filters: [
@@ -74,7 +74,7 @@ const CONFIG = {
 };
 
 const PAGE_SIZE = 20;
-const state = { rows: [], filtered: [], page: 1, query: '', filter: 'all' };
+const state = { rows: [], filtered: [], page: 1, query: '', filter: 'all', domain: 'all', sort: 'trending' };
 
 const page = document.body.dataset.catalog;
 const config = CONFIG[page];
@@ -93,6 +93,7 @@ async function init(cfg) {
     const csv = await fetchCsv(cfg.file);
     state.rows = parseCsv(csv).filter(row => row[cfg.titleField]);
     state.filtered = [...state.rows];
+    if (page === 'papers') renderPaperDomains(els.domains, state.rows);
     applyFilters(cfg, els);
   } catch (error) {
     els.list.innerHTML = `<div class="catalog-empty">Could not load ${escapeHtml(cfg.file)}.</div>`;
@@ -102,6 +103,28 @@ async function init(cfg) {
   els.search.addEventListener('input', event => {
     state.query = event.target.value.trim().toLowerCase();
     state.page = 1;
+    applyFilters(cfg, els);
+  });
+
+  els.domains?.addEventListener('click', event => {
+    const button = event.target.closest('button[data-domain]');
+    if (!button) return;
+    state.domain = button.dataset.domain;
+    state.page = 1;
+    els.domains.querySelectorAll('button').forEach(btn => {
+      btn.classList.toggle('is-active', btn === button);
+    });
+    applyFilters(cfg, els);
+  });
+
+  els.sort?.addEventListener('click', event => {
+    const button = event.target.closest('button[data-sort]');
+    if (!button) return;
+    state.sort = button.dataset.sort;
+    state.page = 1;
+    els.sort.querySelectorAll('button').forEach(btn => {
+      btn.classList.toggle('is-active', btn === button);
+    });
     applyFilters(cfg, els);
   });
 
@@ -135,6 +158,8 @@ function getElements() {
     list: document.querySelector('[data-catalog-list]'),
     status: document.querySelector('[data-catalog-status]'),
     pager: document.querySelector('[data-catalog-pager]'),
+    domains: document.querySelector('[data-paper-domains]'),
+    sort: document.querySelector('[data-paper-sort]'),
   };
 }
 
@@ -149,6 +174,7 @@ function applyFilters(cfg, els) {
   const query = state.query;
   state.filtered = state.rows
     .filter(row => !filter?.test || filter.test(row))
+    .filter(row => state.domain === 'all' || paperDomains(row).includes(state.domain))
     .filter(row => !query || Object.values(row).some(value => String(value).toLowerCase().includes(query)))
     .sort((a, b) => cfg.sortValue(b) - cfg.sortValue(a));
   renderList(cfg, els);
@@ -175,8 +201,62 @@ function renderList(cfg, els) {
     return;
   }
 
-  els.list.innerHTML = visible.map(row => renderItem(cfg, row)).join('');
+  els.list.innerHTML = visible.map(row => page === 'papers' ? renderPaperItem(cfg, row) : renderItem(cfg, row)).join('');
   renderPager(els.pager, pageCount);
+}
+
+function renderPaperDomains(container, rows) {
+  if (!container) return;
+  const counts = new Map();
+  for (const row of rows) {
+    for (const domain of paperDomains(row)) {
+      counts.set(domain, (counts.get(domain) || 0) + 1);
+    }
+  }
+  const domains = [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10);
+
+  container.innerHTML = [
+    `<button type="button" class="is-active" data-domain="all"><span>All domains</span><strong>${rows.length.toLocaleString()}</strong></button>`,
+    ...domains.map(([domain, count]) => (
+      `<button type="button" data-domain="${escapeAttr(domain)}"><span>${escapeHtml(titleCase(domain))}</span><strong>${count.toLocaleString()}</strong></button>`
+    )),
+  ].join('');
+}
+
+function renderPaperItem(cfg, row) {
+  const title = row[cfg.titleField] || 'Untitled';
+  const url = cfg.url(row);
+  const code = cfg.codeUrl(row);
+  const authors = truncateAuthors(row.authors);
+  const venue = row.venue || row.conference;
+  const description = truncate(cleanText(cfg.description(row)), 320);
+  const tags = paperDomains(row).slice(0, 3);
+  const citationCount = Number(row.citations || row.citation_count) || 0;
+  const year = row.year || 'unknown';
+
+  return `
+    <article class="research-item">
+      <div class="research-paper-mark" aria-hidden="true">
+        <span>${escapeHtml(String(year).slice(0, 4))}</span>
+      </div>
+      <div class="research-item-body">
+        <h2>${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>` : escapeHtml(title)}</h2>
+        <p class="research-byline">${escapeHtml(joinClean([authors, venue, year]))}</p>
+        ${description ? `<p class="research-abstract">${escapeHtml(description)}</p>` : ''}
+        ${tags.length ? `<div class="research-tags">${tags.map(tag => `<span>${escapeHtml(titleCase(tag))}</span>`).join('')}</div>` : ''}
+      </div>
+      <div class="research-stats">
+        <strong>${citationCount.toLocaleString()}</strong>
+        <span>citations</span>
+        <div class="research-links">
+          ${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">Paper</a>` : ''}
+          ${code && code !== url ? `<a href="${escapeAttr(code)}" target="_blank" rel="noopener">Code</a>` : ''}
+        </div>
+      </div>
+    </article>
+  `;
 }
 
 function renderPager(container, pageCount) {
@@ -279,6 +359,44 @@ function splitValues(value) {
     .split(/[;|]/)
     .map(item => item.replace(/^[-\s]+/, '').trim())
     .filter(item => item && item.length < 44))];
+}
+
+function paperSortValue(row) {
+  const year = Number(row.year) || 0;
+  const citations = Number(row.citations || row.citation_count) || 0;
+  if (state.sort === 'newest') return year * 100000 + citations;
+  if (state.sort === 'cited') return citations * 100000 + year;
+  return citations * 1000 + year * 8;
+}
+
+function paperDomains(row) {
+  const values = splitValues(row.task || row.method_family || row.modality || row.matched_terms || row.tags || row.topic_query)
+    .map(value => normalizeDomain(value))
+    .filter(Boolean)
+    .filter(value => !['unspecified', 'unknown', 'source', 'catalogue', 'arxiv'].includes(value));
+  return [...new Set(values)].slice(0, 6);
+}
+
+function normalizeDomain(value) {
+  return String(value || '')
+    .replace(/^category:/i, '')
+    .replace(/^publication_type:/i, '')
+    .replace(/^status:/i, '')
+    .replace(/^conference:/i, '')
+    .replace(/^task_categories:/i, '')
+    .replace(/[-_]+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function titleCase(value) {
+  return String(value || '').replace(/\b\w/g, char => char.toUpperCase());
+}
+
+function truncateAuthors(value) {
+  const authors = String(value || '').split(';').map(author => author.trim()).filter(Boolean);
+  if (authors.length <= 3) return authors.join(', ');
+  return `${authors.slice(0, 3).join(', ')} +${authors.length - 3} authors`;
 }
 
 function includesAny(row, needles) {

@@ -21,7 +21,7 @@
     <a class="category-nav-map" href="app.html">Open Knowledge Map</a>
   </div>
 </nav>
-<main class="category-shell catalog-shell">
+<main class="category-shell catalog-shell catalog-shell-research">
   <section class="catalog-hero">
     <div>
       <p class="category-label" data-catalog-label>Research Index</p>
@@ -29,15 +29,33 @@
       <p class="catalog-intro" data-catalog-intro>Loading papers...</p>
     </div>
   </section>
-  <section class="catalog-toolbar" aria-label="Catalog controls">
-    <input data-catalog-search type="search" autocomplete="off" spellcheck="false" placeholder="Search papers...">
-    <div class="catalog-filters" data-catalog-filters></div>
-  </section>
-  <div class="catalog-resultbar">
-    <span data-catalog-status>Loading results</span>
+  <div class="research-layout">
+    <aside class="research-sidebar" aria-label="Paper filters">
+      <div class="research-side-group">
+        <p class="research-side-title">Top Domains</p>
+        <div class="research-domain-list" data-paper-domains></div>
+      </div>
+      <div class="research-side-group">
+        <p class="research-side-title">Quick Filters</p>
+        <div class="research-filter-list" data-catalog-filters></div>
+      </div>
+    </aside>
+    <section class="research-main" aria-label="Paper list">
+      <section class="catalog-toolbar research-toolbar" aria-label="Catalog controls">
+        <input data-catalog-search type="search" autocomplete="off" spellcheck="false" placeholder="Search papers...">
+        <div class="research-sort-tabs" data-paper-sort>
+          <button type="button" class="is-active" data-sort="trending">trending</button>
+          <button type="button" data-sort="newest">newest</button>
+          <button type="button" data-sort="cited">most cited</button>
+        </div>
+      </section>
+      <div class="catalog-resultbar research-resultbar">
+        <span data-catalog-status>Loading results</span>
+      </div>
+      <section class="catalog-list research-list" data-catalog-list aria-live="polite"></section>
+      <nav class="catalog-pager research-pager" data-catalog-pager aria-label="Catalog pagination"></nav>
+    </section>
   </div>
-  <section class="catalog-list" data-catalog-list aria-live="polite"></section>
-  <nav class="catalog-pager" data-catalog-pager aria-label="Catalog pagination"></nav>
 </main>
 <script type="module" src="../src/js/catalog-pages.js"></script>
 <script type="module" src="../src/js/theme.js"></script>
