@@ -194,7 +194,9 @@ function renderList(cfg, els) {
   const start = (state.page - 1) * PAGE_SIZE;
   const visible = state.filtered.slice(start, start + PAGE_SIZE);
   const end = Math.min(start + visible.length, total);
-  setText(els.status, total ? `${(start + 1).toLocaleString()}-${end.toLocaleString()} of ${total.toLocaleString()} results` : '0 results');
+  setText(els.status, page === 'papers'
+    ? `${total.toLocaleString()} papers`
+    : total ? `${(start + 1).toLocaleString()}-${end.toLocaleString()} of ${total.toLocaleString()} results` : '0 results');
 
   if (!visible.length) {
     els.list.innerHTML = `<div class="catalog-empty">${escapeHtml(cfg.empty)}</div>`;
@@ -243,49 +245,41 @@ function renderPaperItem(cfg, row) {
   const websiteUrl = paperWebsiteUrl(row, url);
   const code = paperCodeUrl(row) || githubUrl || huggingFaceUrl || cfg.codeUrl(row);
   const githubRepo = githubRepoName(githubUrl || code);
-  const score = citationCount ? `${compactNumber(citationCount)} ★` : '';
-  const links = [
-    pdfUrl && `<a href="${escapeAttr(pdfUrl)}" target="_blank" rel="noopener">View PDF</a>`,
-    arxivUrl && `<a href="${escapeAttr(arxivUrl)}" target="_blank" rel="noopener">arXiv page</a>`,
-    githubUrl && `<a href="${escapeAttr(githubUrl)}" target="_blank" rel="noopener">GitHub</a>`,
-    huggingFaceUrl && `<a href="${escapeAttr(huggingFaceUrl)}" target="_blank" rel="noopener">Hugging Face</a>`,
-    websiteUrl && `<a href="${escapeAttr(websiteUrl)}" target="_blank" rel="noopener">Website</a>`,
-    code && code !== githubUrl && code !== huggingFaceUrl && code !== websiteUrl && `<a href="${escapeAttr(code)}" target="_blank" rel="noopener">Code</a>`,
-    !pdfUrl && '<span class="is-disabled">View PDF</span>',
-    !arxivUrl && '<span class="is-disabled">arXiv page</span>',
-    !code && !githubUrl && !huggingFaceUrl && '<span class="is-disabled">Code</span>',
-    score && `<span class="research-score">· ${escapeHtml(score)}</span>`,
-  ].filter(Boolean).join('');
+  const citationPace = paperCitationPace(row, citationCount);
+  const source = row.venue || row.discovered_via || 'Paper';
+  const actions = paperActions({ pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code });
 
   return `
     <article class="research-item">
       <div class="research-paper-mark" aria-hidden="true">
-        <span>${escapeHtml(String(year).slice(0, 4))}</span>
-        <strong>PDF</strong>
+        <span class="research-paper-year">${escapeHtml(String(year).slice(0, 4))}</span>
+        <b>${escapeHtml(truncate(source, 18))}</b>
+        <strong>${escapeHtml(truncate(title, 64))}</strong>
+        <i></i><i></i><i></i><i></i><i></i>
       </div>
       <div class="research-item-body">
         <h2>${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>` : escapeHtml(title)}</h2>
         <p class="research-byline">${escapeHtml(joinClean([authors, venue, year]))}</p>
-        ${description ? `<p class="research-abstract"><span>Abstract</span>${escapeHtml(description)}</p>` : ''}
+        ${description ? `<p class="research-abstract">${escapeHtml(description)}</p>` : ''}
         ${tags.length ? `<div class="research-tags">${tags.map(tag => `<span>${escapeHtml(titleCase(tag))}</span>`).join('')}</div>` : ''}
+        ${actions ? `<div class="research-links">${actions}</div>` : ''}
       </div>
       <div class="research-stats">
-        ${githubRepo ? `
-          <div class="research-github" data-github-repo="${escapeAttr(githubRepo)}">
-            <span class="research-github-label">GitHub</span>
-            <a href="${escapeAttr(`https://github.com/${githubRepo}`)}" target="_blank" rel="noopener">${escapeHtml(githubRepo)}</a>
-            <strong data-github-stars>...</strong>
-            <span>stars</span>
+        <div class="research-stat ${githubRepo ? '' : 'is-empty'}" ${githubRepo ? `data-github-repo="${escapeAttr(githubRepo)}"` : ''}>
+          <div class="research-stat-value">
+            ${iconSvg('github')}
+            <strong data-github-stars>${githubRepo ? '...' : '-'}</strong>
           </div>
-        ` : `
-          <div class="research-github is-empty">
-            <span class="research-github-label">GitHub</span>
-            <strong>-</strong>
-            <span>not linked</span>
+          <span>stars</span>
+          ${githubRepo ? `<a href="${escapeAttr(`https://github.com/${githubRepo}`)}" target="_blank" rel="noopener">${escapeHtml(githubRepo)}</a>` : ''}
+        </div>
+        <div class="research-stat ${citationCount ? '' : 'is-empty'}">
+          <div class="research-stat-value">
+            ${iconSvg('trend')}
+            <strong>${citationCount ? escapeHtml(compactNumber(citationCount)) : '-'}</strong>
           </div>
-        `}
-        <div class="research-links">
-          ${links}
+          <span>citations</span>
+          <small>${citationPace ? `${escapeHtml(citationPace)} / yr` : 'no citation data'}</small>
         </div>
       </div>
     </article>
@@ -315,6 +309,34 @@ async function fetchGithubRepo(repo) {
   const data = { stars: json.stargazers_count || 0 };
   githubCache.set(repo, data);
   return data;
+}
+
+function paperActions({ pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code }) {
+  return [
+    pdfUrl && paperAction('file', 'View PDF', pdfUrl),
+    arxivUrl && paperAction('external', 'arXiv page', arxivUrl),
+    githubUrl && paperAction('github', 'GitHub', githubUrl),
+    huggingFaceUrl && paperAction('huggingface', 'Hugging Face', huggingFaceUrl),
+    websiteUrl && paperAction('globe', 'Website', websiteUrl),
+    code && code !== githubUrl && code !== huggingFaceUrl && code !== websiteUrl && paperAction('code', 'Code', code),
+  ].filter(Boolean).join('');
+}
+
+function paperAction(icon, label, url) {
+  return `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${iconSvg(icon)}<span>${escapeHtml(label)}</span></a>`;
+}
+
+function iconSvg(name) {
+  const icons = {
+    github: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.25c0 4.52 2.87 8.35 6.84 9.71.5.09.68-.22.68-.49 0-.24-.01-1.05-.01-1.91-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.1-1.49-1.1-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.55-1.14-4.55-5.05 0-1.12.39-2.03 1.03-2.74-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.04A9.23 9.23 0 0 1 12 6.98c.85 0 1.7.12 2.5.35 1.9-1.32 2.74-1.04 2.74-1.04.55 1.4.2 2.44.1 2.7.64.71 1.03 1.62 1.03 2.74 0 3.92-2.34 4.78-4.56 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.59.69.49A10.1 10.1 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>',
+    trend: '<svg class="research-icon research-icon-trend" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    file: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7V3Zm7 0v5h5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9.5 13h5M9.5 16h5M9.5 10H12" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>',
+    external: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6m0-6-9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+    code: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 17-5-5 5-5m8 0 5 5-5 5m-2-12-4 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    globe: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9S9.6 5.6 12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+    huggingface: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9.5a2 2 0 1 1 4 0m3 0a2 2 0 1 1 4 0M7 14c1.4 1.5 3 2.2 5 2.2s3.6-.7 5-2.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+  };
+  return icons[name] || '';
 }
 
 function renderPager(container, pageCount) {
@@ -425,6 +447,14 @@ function paperSortValue(row) {
   if (state.sort === 'newest') return year * 100000 + citations;
   if (state.sort === 'cited') return citations * 100000 + year;
   return citations * 1000 + year * 8;
+}
+
+function paperCitationPace(row, citations) {
+  const year = Number(row.year) || 0;
+  if (!citations || !year) return '';
+  const age = Math.max(1, new Date().getFullYear() - year + 1);
+  const pace = citations / age;
+  return pace >= 10 ? pace.toFixed(0) : pace.toFixed(1);
 }
 
 function paperDomains(row) {
