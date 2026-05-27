@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && mkdir -p dist/src/panels && cp src/panels/*.html dist/src/panels/",
+    "build": "vite build && mkdir -p dist/src/panels dist/data && cp src/panels/*.html dist/src/panels/ && cp data/* dist/data/",
     "preview": "vite preview"
   },
   "repository": {

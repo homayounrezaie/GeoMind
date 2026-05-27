@@ -6,7 +6,7 @@
 <title>Datasets — GeoMind</title>
 <link rel="stylesheet" href="../src/styles/landing.css?v=20260521-21">
 </head>
-<body class="category-page">
+<body class="category-page catalog-page" data-catalog="datasets">
 <nav class="category-nav" aria-label="Breadcrumb">
   <div class="category-crumb">
     <a href="../index.html">GeoMind</a>
@@ -15,11 +15,29 @@
   </div>
   <a class="category-nav-map" href="app.html">Open Knowledge Map</a>
 </nav>
-<main class="category-shell">
-  <p class="category-label">Main Category 03</p>
-  <h1 class="category-title">Datasets</h1>
-  <p class="category-empty">This page is intentionally empty for now.</p>
-  <div class="category-empty-box" aria-hidden="true"></div>
+<main class="category-shell catalog-shell">
+  <section class="catalog-hero">
+    <div>
+      <p class="category-label" data-catalog-label>Dataset Index</p>
+      <h1 class="category-title" data-catalog-title>Datasets</h1>
+      <p class="catalog-intro" data-catalog-intro>Loading datasets...</p>
+    </div>
+    <div class="catalog-summary" aria-label="Catalog summary">
+      <div><strong data-catalog-count>0</strong><span>records</span></div>
+      <div><strong data-catalog-updated>CSV</strong><span>source</span></div>
+      <div><strong data-catalog-secondary>0 linked records</strong><span>coverage</span></div>
+    </div>
+  </section>
+  <section class="catalog-toolbar" aria-label="Catalog controls">
+    <input data-catalog-search type="search" autocomplete="off" spellcheck="false" placeholder="Search datasets...">
+    <div class="catalog-filters" data-catalog-filters></div>
+  </section>
+  <div class="catalog-resultbar">
+    <span data-catalog-status>Loading results</span>
+  </div>
+  <section class="catalog-list" data-catalog-list aria-live="polite"></section>
+  <button class="catalog-more" data-catalog-more type="button">Load more</button>
 </main>
+<script type="module" src="../src/js/catalog-pages.js"></script>
 </body>
 </html>
