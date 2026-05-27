@@ -75,6 +75,7 @@ const CONFIG = {
 
 const PAGE_SIZE = 20;
 const state = { rows: [], filtered: [], page: 1, query: '', filter: 'all', domain: 'all', sort: 'trending' };
+const githubCache = new Map();
 
 const page = document.body.dataset.catalog;
 const config = CONFIG[page];
@@ -202,6 +203,7 @@ function renderList(cfg, els) {
   }
 
   els.list.innerHTML = visible.map(row => page === 'papers' ? renderPaperItem(cfg, row) : renderItem(cfg, row)).join('');
+  if (page === 'papers') hydrateGithubStats(els.list);
   renderPager(els.pager, pageCount);
 }
 
@@ -237,20 +239,36 @@ function renderPaperItem(cfg, row) {
   const pdfUrl = paperPdfUrl(row);
   const arxivUrl = paperArxivUrl(row);
   const code = paperCodeUrl(row) || cfg.codeUrl(row);
+  const githubRepo = githubRepoName(code);
   const score = citationCount ? `${compactNumber(citationCount)} ★` : '';
 
   return `
     <article class="research-item">
       <div class="research-paper-mark" aria-hidden="true">
         <span>${escapeHtml(String(year).slice(0, 4))}</span>
+        <strong>PDF</strong>
       </div>
       <div class="research-item-body">
         <h2>${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>` : escapeHtml(title)}</h2>
         <p class="research-byline">${escapeHtml(joinClean([authors, venue, year]))}</p>
-        ${description ? `<p class="research-abstract">${escapeHtml(description)}</p>` : ''}
+        ${description ? `<p class="research-abstract"><span>Abstract</span>${escapeHtml(description)}</p>` : ''}
         ${tags.length ? `<div class="research-tags">${tags.map(tag => `<span>${escapeHtml(titleCase(tag))}</span>`).join('')}</div>` : ''}
       </div>
       <div class="research-stats">
+        ${githubRepo ? `
+          <div class="research-github" data-github-repo="${escapeAttr(githubRepo)}">
+            <span class="research-github-label">GitHub</span>
+            <a href="${escapeAttr(`https://github.com/${githubRepo}`)}" target="_blank" rel="noopener">${escapeHtml(githubRepo)}</a>
+            <strong data-github-stars>...</strong>
+            <span>stars</span>
+          </div>
+        ` : `
+          <div class="research-github is-empty">
+            <span class="research-github-label">GitHub</span>
+            <strong>-</strong>
+            <span>not linked</span>
+          </div>
+        `}
         <div class="research-links">
           ${pdfUrl ? `<a href="${escapeAttr(pdfUrl)}" target="_blank" rel="noopener">View PDF</a>` : '<span class="is-disabled">View PDF</span>'}
           ${arxivUrl ? `<a href="${escapeAttr(arxivUrl)}" target="_blank" rel="noopener">arXiv page</a>` : '<span class="is-disabled">arXiv page</span>'}
@@ -260,6 +278,31 @@ function renderPaperItem(cfg, row) {
       </div>
     </article>
   `;
+}
+
+function hydrateGithubStats(root) {
+  root.querySelectorAll('[data-github-repo]').forEach(async element => {
+    const repo = element.dataset.githubRepo;
+    const target = element.querySelector('[data-github-stars]');
+    if (!repo || !target) return;
+    try {
+      const data = githubCache.has(repo)
+        ? githubCache.get(repo)
+        : await fetchGithubRepo(repo);
+      if (data?.stars != null) target.textContent = compactNumber(data.stars);
+    } catch {
+      target.textContent = '-';
+    }
+  });
+}
+
+async function fetchGithubRepo(repo) {
+  const response = await fetch(`https://api.github.com/repos/${repo}`);
+  if (!response.ok) throw new Error(`GitHub lookup failed for ${repo}`);
+  const json = await response.json();
+  const data = { stars: json.stargazers_count || 0 };
+  githubCache.set(repo, data);
+  return data;
 }
 
 function renderPager(container, pageCount) {
@@ -404,6 +447,15 @@ function paperArxivUrl(row) {
 function paperCodeUrl(row) {
   const raw = rawPaper(row);
   return row.code_url || raw.code_weights_url || raw.code_url || '';
+}
+
+function githubRepoName(url) {
+  const match = String(url || '').match(/github\.com\/([^/\s?#]+)\/([^/\s?#]+)/i);
+  if (!match) return '';
+  const owner = match[1];
+  const repo = match[2].replace(/\.git$/i, '');
+  if (!owner || !repo) return '';
+  return `${owner}/${repo}`;
 }
 
 function rawPaper(row) {

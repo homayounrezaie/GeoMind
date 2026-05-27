@@ -2352,13 +2352,13 @@ nav,section,footer{position:relative;z-index:1}
 }
 .research-item{
   display:grid;
-  grid-template-columns:112px minmax(0,1fr) 190px;
+  grid-template-columns:136px minmax(0,1fr) 190px;
   gap:var(--s-3);
   padding:28px 0;
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
 .research-paper-mark{
-  height:138px;
+  height:178px;
   border:1px solid rgba(255,255,255,0.16);
   border-radius:3px;
   background:
@@ -2367,6 +2367,7 @@ nav,section,footer{position:relative;z-index:1}
     rgba(255,255,255,0.035);
   background-size:100% 14px,14px 100%,100% 100%;
   box-shadow:0 8px 20px rgba(0,0,0,0.16);
+  position:relative;
 }
 .research-paper-mark span{
   display:block;
@@ -2376,6 +2377,16 @@ nav,section,footer{position:relative;z-index:1}
   font-size:10px;
   font-weight:800;
   writing-mode:vertical-rl;
+}
+.research-paper-mark strong{
+  position:absolute;
+  right:12px;
+  top:12px;
+  color:rgba(255,255,255,0.42);
+  font-family:'SF Mono','Menlo',monospace;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.12em;
 }
 .research-item h2{
   margin:0 0 8px;
@@ -2405,6 +2416,16 @@ nav,section,footer{position:relative;z-index:1}
   margin-top:12px;
   color:rgba(255,255,255,0.66);
 }
+.research-abstract span{
+  display:block;
+  margin-bottom:3px;
+  color:rgba(255,255,255,0.38);
+  font-family:'SF Mono','Menlo',monospace;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
 .research-tags{
   display:flex;
   flex-wrap:wrap;
@@ -2428,6 +2449,43 @@ nav,section,footer{position:relative;z-index:1}
   gap:4px;
   padding-left:var(--s-3);
   border-left:1px solid rgba(255,255,255,0.08);
+}
+.research-github{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:3px;
+  margin-bottom:14px;
+}
+.research-github-label,
+.research-github span{
+  color:rgba(255,255,255,0.36);
+  font-family:'SF Mono','Menlo',monospace;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.research-github a{
+  max-width:168px;
+  overflow:hidden;
+  color:rgba(255,255,255,0.66);
+  font-size:12px;
+  font-weight:800;
+  text-decoration:none;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.research-github a:hover{
+  color:#fff;
+}
+.research-github strong{
+  color:#fff;
+  font-size:18px;
+  font-weight:900;
+}
+.research-github.is-empty strong{
+  color:rgba(255,255,255,0.26);
 }
 .research-links{
   display:flex;
@@ -2626,6 +2684,9 @@ nav,section,footer{position:relative;z-index:1}
 [data-theme="light"] .research-domain-list button strong,
 [data-theme="light"] .research-filter-list .catalog-chip,
 [data-theme="light"] .research-resultbar,
+[data-theme="light"] .research-abstract span,
+[data-theme="light"] .research-github-label,
+[data-theme="light"] .research-github span,
 [data-theme="light"] .research-links span,
 [data-theme="light"] .research-links a{
   color:#9A9285;
@@ -2640,9 +2701,19 @@ nav,section,footer{position:relative;z-index:1}
 [data-theme="light"] .research-filter-list .catalog-chip:hover,
 [data-theme="light"] .research-filter-list .catalog-chip.is-active,
 [data-theme="light"] .research-item h2,
+[data-theme="light"] .research-github strong,
 [data-theme="light"] .research-stats strong,
 [data-theme="light"] .research-links a:hover{
   color:#1A1814;
+}
+[data-theme="light"] .research-github a{
+  color:#5A554C;
+}
+[data-theme="light"] .research-github a:hover{
+  color:#1A1814;
+}
+[data-theme="light"] .research-github.is-empty strong{
+  color:#C2B8A8;
 }
 [data-theme="light"] .research-links .is-disabled{
   color:#C2B8A8;
@@ -2675,6 +2746,9 @@ nav,section,footer{position:relative;z-index:1}
   box-shadow:0 8px 20px rgba(26,24,20,0.08);
 }
 [data-theme="light"] .research-paper-mark span{
+  color:#9A9285;
+}
+[data-theme="light"] .research-paper-mark strong{
   color:#9A9285;
 }
 [data-theme="light"] .research-tags span{
@@ -2835,6 +2909,12 @@ nav,section,footer{position:relative;z-index:1}
     align-items:flex-start;
     border-left:0;
     padding-left:0;
+  }
+  .research-github{
+    align-items:flex-start;
+  }
+  .research-github a{
+    max-width:100%;
   }
   .research-links{
     flex-direction:row;
