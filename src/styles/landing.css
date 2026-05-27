@@ -2170,7 +2170,7 @@ nav,section,footer{position:relative;z-index:1}
   gap:8px;
 }
 .catalog-actions a,
-.catalog-more{
+.catalog-pager button{
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -2185,8 +2185,16 @@ nav,section,footer{position:relative;z-index:1}
   text-decoration:none;
 }
 .catalog-actions a:hover,
-.catalog-more:hover{
+.catalog-pager button:hover:not(:disabled),
+.catalog-pager button.is-active{
   background:rgba(129,140,248,0.24);
+}
+.catalog-pager button.is-active{
+  border-color:rgba(129,140,248,0.7);
+}
+.catalog-pager button:disabled{
+  cursor:not-allowed;
+  opacity:.42;
 }
 .catalog-metric{
   max-width:160px;
@@ -2204,12 +2212,19 @@ nav,section,footer{position:relative;z-index:1}
   border-radius:8px;
   color:rgba(255,255,255,0.46);
 }
-.catalog-more{
-  width:100%;
+.catalog-pager{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
   margin-top:var(--s-3);
-  cursor:pointer;
 }
-.catalog-more[hidden]{display:none}
+.catalog-pager-gap{
+  color:rgba(255,255,255,0.34);
+  font-size:12px;
+  font-weight:850;
+}
 @media(max-width:860px){
   .lp-hero{padding:var(--s-6) var(--s-3)}
   .lp-hero-bg{

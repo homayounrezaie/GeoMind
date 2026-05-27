@@ -73,7 +73,7 @@ const CONFIG = {
   },
 };
 
-const PAGE_SIZE = 24;
+const PAGE_SIZE = 20;
 const state = { rows: [], filtered: [], page: 1, query: '', filter: 'all' };
 
 const page = document.body.dataset.catalog;
@@ -117,9 +117,12 @@ async function init(cfg) {
     applyFilters(cfg, els);
   });
 
-  els.more.addEventListener('click', () => {
-    state.page += 1;
+  els.pager.addEventListener('click', event => {
+    const button = event.target.closest('button[data-page]');
+    if (!button || button.disabled) return;
+    state.page = Number(button.dataset.page);
     renderList(cfg, els);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
@@ -135,7 +138,7 @@ function getElements() {
     filters: document.querySelector('[data-catalog-filters]'),
     list: document.querySelector('[data-catalog-list]'),
     status: document.querySelector('[data-catalog-status]'),
-    more: document.querySelector('[data-catalog-more]'),
+    pager: document.querySelector('[data-catalog-pager]'),
   };
 }
 
@@ -169,17 +172,53 @@ function renderFilters(container, cfg) {
 }
 
 function renderList(cfg, els) {
-  const visible = state.filtered.slice(0, state.page * PAGE_SIZE);
   const total = state.filtered.length;
-  setText(els.status, `${total.toLocaleString()} results`);
-  els.more.hidden = visible.length >= total;
+  const pageCount = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  state.page = Math.min(Math.max(1, state.page), pageCount);
+  const start = (state.page - 1) * PAGE_SIZE;
+  const visible = state.filtered.slice(start, start + PAGE_SIZE);
+  const end = Math.min(start + visible.length, total);
+  setText(els.status, total ? `${(start + 1).toLocaleString()}-${end.toLocaleString()} of ${total.toLocaleString()} results` : '0 results');
 
   if (!visible.length) {
     els.list.innerHTML = `<div class="catalog-empty">${escapeHtml(cfg.empty)}</div>`;
+    els.pager.innerHTML = '';
     return;
   }
 
   els.list.innerHTML = visible.map(row => renderItem(cfg, row)).join('');
+  renderPager(els.pager, pageCount);
+}
+
+function renderPager(container, pageCount) {
+  if (pageCount <= 1) {
+    container.innerHTML = '';
+    return;
+  }
+
+  const pages = pageWindow(state.page, pageCount);
+  container.innerHTML = `
+    <button type="button" data-page="${state.page - 1}" ${state.page === 1 ? 'disabled' : ''}>Previous</button>
+    ${pages.map(page => page === 'gap'
+      ? '<span class="catalog-pager-gap">...</span>'
+      : `<button type="button" class="${page === state.page ? 'is-active' : ''}" data-page="${page}" aria-current="${page === state.page ? 'page' : 'false'}">${page.toLocaleString()}</button>`
+    ).join('')}
+    <button type="button" data-page="${state.page + 1}" ${state.page === pageCount ? 'disabled' : ''}>Next</button>
+  `;
+}
+
+function pageWindow(current, total) {
+  const pages = new Set([1, total, current - 1, current, current + 1]);
+  if (current <= 3) [2, 3, 4].forEach(page => pages.add(page));
+  if (current >= total - 2) [total - 3, total - 2, total - 1].forEach(page => pages.add(page));
+
+  const ordered = [...pages].filter(page => page >= 1 && page <= total).sort((a, b) => a - b);
+  const result = [];
+  for (const page of ordered) {
+    if (result.length && page - result[result.length - 1] > 1) result.push('gap');
+    result.push(page);
+  }
+  return result;
 }
 
 function renderItem(cfg, row) {
