@@ -18,7 +18,7 @@ const CONFIG = {
     filters: [
       { key: 'all', label: 'All' },
       { key: 'recent', label: 'Recent', test: row => Number(row.year) >= 2025 },
-      { key: 'code', label: 'Code', test: row => row.code_url },
+      { key: 'code', label: 'Code', test: row => paperCodeUrl(row) || row.github_url || row.huggingface_url },
       { key: 'cited', label: 'Cited', test: row => Number(row.citations || row.citation_count) > 0 },
       { key: 'foundation', label: 'Foundation models', test: row => includesAny(row, ['foundation']) },
     ],
@@ -238,9 +238,24 @@ function renderPaperItem(cfg, row) {
   const year = row.year || 'unknown';
   const pdfUrl = paperPdfUrl(row);
   const arxivUrl = paperArxivUrl(row);
-  const code = paperCodeUrl(row) || cfg.codeUrl(row);
-  const githubRepo = githubRepoName(code);
+  const githubUrl = paperGithubUrl(row);
+  const huggingFaceUrl = paperHuggingFaceUrl(row);
+  const websiteUrl = paperWebsiteUrl(row, url);
+  const code = paperCodeUrl(row) || githubUrl || huggingFaceUrl || cfg.codeUrl(row);
+  const githubRepo = githubRepoName(githubUrl || code);
   const score = citationCount ? `${compactNumber(citationCount)} ★` : '';
+  const links = [
+    pdfUrl && `<a href="${escapeAttr(pdfUrl)}" target="_blank" rel="noopener">View PDF</a>`,
+    arxivUrl && `<a href="${escapeAttr(arxivUrl)}" target="_blank" rel="noopener">arXiv page</a>`,
+    githubUrl && `<a href="${escapeAttr(githubUrl)}" target="_blank" rel="noopener">GitHub</a>`,
+    huggingFaceUrl && `<a href="${escapeAttr(huggingFaceUrl)}" target="_blank" rel="noopener">Hugging Face</a>`,
+    websiteUrl && `<a href="${escapeAttr(websiteUrl)}" target="_blank" rel="noopener">Website</a>`,
+    code && code !== githubUrl && code !== huggingFaceUrl && code !== websiteUrl && `<a href="${escapeAttr(code)}" target="_blank" rel="noopener">Code</a>`,
+    !pdfUrl && '<span class="is-disabled">View PDF</span>',
+    !arxivUrl && '<span class="is-disabled">arXiv page</span>',
+    !code && !githubUrl && !huggingFaceUrl && '<span class="is-disabled">Code</span>',
+    score && `<span class="research-score">· ${escapeHtml(score)}</span>`,
+  ].filter(Boolean).join('');
 
   return `
     <article class="research-item">
@@ -270,10 +285,7 @@ function renderPaperItem(cfg, row) {
           </div>
         `}
         <div class="research-links">
-          ${pdfUrl ? `<a href="${escapeAttr(pdfUrl)}" target="_blank" rel="noopener">View PDF</a>` : '<span class="is-disabled">View PDF</span>'}
-          ${arxivUrl ? `<a href="${escapeAttr(arxivUrl)}" target="_blank" rel="noopener">arXiv page</a>` : '<span class="is-disabled">arXiv page</span>'}
-          ${code ? `<a href="${escapeAttr(code)}" target="_blank" rel="noopener">Code</a>` : '<span class="is-disabled">Code</span>'}
-          ${score ? `<span class="research-score">· ${escapeHtml(score)}</span>` : ''}
+          ${links}
         </div>
       </div>
     </article>
@@ -425,6 +437,7 @@ function paperDomains(row) {
 
 function paperPdfUrl(row) {
   const raw = rawPaper(row);
+  if (row.pdf_url) return row.pdf_url;
   if (raw.open_pdf_url) return raw.open_pdf_url;
   const arxiv = cleanArxivId(row.arxiv_id || raw.arxiv_id);
   if (arxiv) return `https://arxiv.org/pdf/${arxiv}`;
@@ -436,6 +449,7 @@ function paperPdfUrl(row) {
 
 function paperArxivUrl(row) {
   const raw = rawPaper(row);
+  if (row.arxiv_url) return row.arxiv_url;
   const arxiv = cleanArxivId(row.arxiv_id || raw.arxiv_id);
   if (arxiv) return `https://arxiv.org/abs/${arxiv}`;
   const url = row.url || row.link || raw.url || raw.paper_url || '';
@@ -447,6 +461,27 @@ function paperArxivUrl(row) {
 function paperCodeUrl(row) {
   const raw = rawPaper(row);
   return row.code_url || raw.code_weights_url || raw.code_url || '';
+}
+
+function paperGithubUrl(row) {
+  const raw = rawPaper(row);
+  const github = row.github_url || raw.github_url || '';
+  if (github) return github;
+  const code = paperCodeUrl(row);
+  return githubRepoName(code) ? code : '';
+}
+
+function paperHuggingFaceUrl(row) {
+  const raw = rawPaper(row);
+  return row.huggingface_url || raw.huggingface_url || '';
+}
+
+function paperWebsiteUrl(row, primaryUrl) {
+  const raw = rawPaper(row);
+  const project = row.project_url || raw.project_url || raw.homepage_url || '';
+  if (!project || project === primaryUrl || project === row.pdf_url || project === row.arxiv_url) return '';
+  if (project === row.github_url || project === row.huggingface_url || project === row.code_url) return '';
+  return project;
 }
 
 function githubRepoName(url) {
