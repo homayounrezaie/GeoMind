@@ -3,6 +3,7 @@ import { openLayer, closeLayer, goHome, goToSub, openTimeline, showOverview, exp
 import { initSearch } from './search.js';
 import { initTerminal, toggleTerm, updateTermPrompt } from './terminal.js';
 import { buildTree } from './tree.js';
+import './theme.js';
 
 /* Expose globals for inline onclick handlers */
 window.openLayer        = openLayer;
@@ -19,26 +20,6 @@ window.updateTermPrompt = updateTermPrompt;
 function setNavH() {
   const h = document.querySelector('.nav')?.offsetHeight || 52;
   document.documentElement.style.setProperty('--nav-h', h + 'px');
-}
-
-function initTheme() {
-  const root = document.documentElement;
-  const btn  = document.getElementById('theme-toggle');
-
-  const saved = localStorage.getItem('gm-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
-  let dark = saved ? saved === 'dark' : prefersDark;
-
-  function apply(isDark) {
-    root.setAttribute('data-theme', isDark ? 'dark' : 'light');
-    dark = isDark;
-  }
-
-  apply(dark);
-  btn?.addEventListener('click', () => {
-    apply(!dark);
-    localStorage.setItem('gm-theme', dark ? 'dark' : 'light');
-  });
 }
 
 function initSidebarResize() {
@@ -83,7 +64,6 @@ function initSidebarResize() {
 document.addEventListener('DOMContentLoaded', () => {
   setNavH();
   window.addEventListener('resize', setNavH);
-  initTheme();
   initSearch();
   initTerminal();
   initLogoAnim();

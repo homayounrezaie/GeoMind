@@ -96,6 +96,34 @@
   color:#4ade80;background:rgba(74,222,128,0.1);
   padding:3px 8px;border-radius:5px;
 }
+
+[data-theme="light"] .nl-hero-label,
+[data-theme="light"] .nl-issue-num{color:#1A1814}
+[data-theme="light"] .nl-hero-title,
+[data-theme="light"] .nl-issue-title{color:#1A1814}
+[data-theme="light"] .nl-hero-desc,
+[data-theme="light"] .nl-hero-meta,
+[data-theme="light"] .nl-section-title,
+[data-theme="light"] .nl-issue-preview,
+[data-theme="light"] .nl-issue-date,
+[data-theme="light"] .nl-subscribe-note{color:#5A554C}
+[data-theme="light"] .nl-subscribe,
+[data-theme="light"] .nl-issue{
+  background:#FFFDF8;
+  border-color:#E4DFD4;
+}
+[data-theme="light"] .nl-subscribe input{color:#1A1814}
+[data-theme="light"] .nl-subscribe input::placeholder{color:#8A8377}
+[data-theme="light"] .nl-subscribe button{
+  background:#1A1814;
+  color:#FAF8F4;
+}
+[data-theme="light"] .nl-subscribe button:hover{background:#3A352D}
+[data-theme="light"] .nl-issue-tag{
+  background:#F5F1E8;
+  color:#5A554C;
+}
+[data-theme="light"] .nl-section-title{border-bottom-color:#E4DFD4}
 </style>
 </head>
 <body>
@@ -119,6 +147,10 @@
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span>Feedback</span>
     </a>
+    <button class="lp-theme-toggle" data-theme-toggle type="button" aria-label="Switch theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 4.5a7.5 7.5 0 1 0 7.5 7.5A6.8 6.8 0 0 1 12 4.5Z" fill="currentColor"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-4a1 1 0 0 1 1 1v1.2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 14.8a1 1 0 0 1 1 1V20a1 1 0 1 1-2 0v-1.2a1 1 0 0 1 1-1ZM4 11h1.2a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2Zm14.8 0H20a1 1 0 1 1 0 2h-1.2a1 1 0 1 1 0-2ZM6.3 4.9l.8.8a1 1 0 0 1-1.4 1.4l-.8-.8a1 1 0 1 1 1.4-1.4Zm12 12 .8.8a1 1 0 0 1-1.4 1.4l-.8-.8a1 1 0 0 1 1.4-1.4Zm.8-10.6-.8.8a1 1 0 0 1-1.4-1.4l.8-.8a1 1 0 1 1 1.4 1.4Zm-12 12-.8.8a1 1 0 0 1-1.4-1.4l.8-.8a1 1 0 0 1 1.4 1.4Z" fill="currentColor"/></svg>
+    </button>
     <a class="lp-nav-tertiary" href="jobposting.html">Post a Job</a>
     <a class="lp-nav-cta" href="app.html">Open Knowledge Map</a>
   </div>
@@ -250,5 +282,6 @@ function nlSubmit(e) {
   e.target.querySelector('input').value = '';
 }
 </script>
+<script type="module" src="../src/js/theme.js"></script>
 </body>
 </html>

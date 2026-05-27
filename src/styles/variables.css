@@ -8,16 +8,16 @@ html{scroll-behavior:smooth}
   --gray-bg:#F4F3F0;--gray-tx:#4A4A47;
   --coral-bg:#FBF1EE;--coral-tx:#7A3A25;
   --comp-bg:#EEF2FF;--comp-tx:#3D5299;
-  --border:rgba(0,0,0,0.08);
+  --border:#E4DFD4;
   --radius:14px;
   --bg-info:#EEF5FC;--tx-info:#2A5A8A;
   --bg-success:#EFF6E8;--tx-success:#3A6020;
   --bg-warn:#FAF3E4;--tx-warn:#6B4A10;
-  --tx-sec:#606060;--tx-ter:#aaa;
-  --body-bg:#eaeaf2;--body-tx:#1a1a1a;
-  --card-bg:#f4f4fb;
-  --nav-bg:rgba(247,247,247,0.92);
-  --sg-bg:rgba(0,0,0,0.03);
+  --tx-sec:#5A554C;--tx-ter:#8A8377;
+  --body-bg:#FAF8F4;--body-tx:#1A1814;
+  --card-bg:#fffdf8;
+  --nav-bg:rgba(250,248,244,0.92);
+  --sg-bg:rgba(26,24,20,0.035);
 
   /* timeline cards — all desaturated, barely tinted */
   --a1-bg:#f5f5f4;--a1-bd:#c0bfbb;--a1-tx:#4a4a47;
