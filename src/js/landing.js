@@ -500,6 +500,7 @@ function initRadial() {
 function initFeatSwitcher() {
   const rows   = document.querySelectorAll('.lp-feat2');
   const vizs   = document.querySelectorAll('.lp-viz');
+  if (!rows.length || !vizs.length) return;
   let current  = 0;
   let autoTimer = null;
   const DURATIONS = [5000, 5000, 0, 0, 0, 0]; /* CLI, Ask, Search, and Python are sequence driven */
