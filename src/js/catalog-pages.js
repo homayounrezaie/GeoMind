@@ -228,13 +228,16 @@ function renderPaperDomains(container, rows) {
 function renderPaperItem(cfg, row) {
   const title = row[cfg.titleField] || 'Untitled';
   const url = cfg.url(row);
-  const code = cfg.codeUrl(row);
   const authors = truncateAuthors(row.authors);
   const venue = row.venue || row.conference;
   const description = truncate(cleanText(cfg.description(row)), 320);
   const tags = paperDomains(row).slice(0, 3);
   const citationCount = Number(row.citations || row.citation_count) || 0;
   const year = row.year || 'unknown';
+  const pdfUrl = paperPdfUrl(row);
+  const arxivUrl = paperArxivUrl(row);
+  const code = paperCodeUrl(row) || cfg.codeUrl(row);
+  const score = citationCount ? `${compactNumber(citationCount)} ★` : '';
 
   return `
     <article class="research-item">
@@ -248,11 +251,11 @@ function renderPaperItem(cfg, row) {
         ${tags.length ? `<div class="research-tags">${tags.map(tag => `<span>${escapeHtml(titleCase(tag))}</span>`).join('')}</div>` : ''}
       </div>
       <div class="research-stats">
-        <strong>${citationCount.toLocaleString()}</strong>
-        <span>citations</span>
         <div class="research-links">
-          ${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">Paper</a>` : ''}
-          ${code && code !== url ? `<a href="${escapeAttr(code)}" target="_blank" rel="noopener">Code</a>` : ''}
+          ${pdfUrl ? `<a href="${escapeAttr(pdfUrl)}" target="_blank" rel="noopener">View PDF</a>` : '<span class="is-disabled">View PDF</span>'}
+          ${arxivUrl ? `<a href="${escapeAttr(arxivUrl)}" target="_blank" rel="noopener">arXiv page</a>` : '<span class="is-disabled">arXiv page</span>'}
+          ${code ? `<a href="${escapeAttr(code)}" target="_blank" rel="noopener">Code</a>` : '<span class="is-disabled">Code</span>'}
+          ${score ? `<span class="research-score">· ${escapeHtml(score)}</span>` : ''}
         </div>
       </div>
     </article>
@@ -377,6 +380,49 @@ function paperDomains(row) {
   return [...new Set(values)].slice(0, 6);
 }
 
+function paperPdfUrl(row) {
+  const raw = rawPaper(row);
+  if (raw.open_pdf_url) return raw.open_pdf_url;
+  const arxiv = cleanArxivId(row.arxiv_id || raw.arxiv_id);
+  if (arxiv) return `https://arxiv.org/pdf/${arxiv}`;
+  const url = row.url || row.link || raw.url || raw.paper_url;
+  if (/arxiv\.org\/abs\//i.test(url)) return url.replace('/abs/', '/pdf/');
+  if (/arxiv\.org\/pdf\//i.test(url)) return url;
+  return '';
+}
+
+function paperArxivUrl(row) {
+  const raw = rawPaper(row);
+  const arxiv = cleanArxivId(row.arxiv_id || raw.arxiv_id);
+  if (arxiv) return `https://arxiv.org/abs/${arxiv}`;
+  const url = row.url || row.link || raw.url || raw.paper_url || '';
+  if (/arxiv\.org\/abs\//i.test(url)) return url;
+  if (/arxiv\.org\/pdf\//i.test(url)) return url.replace('/pdf/', '/abs/').replace(/\.pdf$/i, '');
+  return '';
+}
+
+function paperCodeUrl(row) {
+  const raw = rawPaper(row);
+  return row.code_url || raw.code_weights_url || raw.code_url || '';
+}
+
+function rawPaper(row) {
+  if (!row.raw_json) return {};
+  try {
+    return JSON.parse(row.raw_json);
+  } catch {
+    return {};
+  }
+}
+
+function cleanArxivId(value) {
+  return String(value || '')
+    .trim()
+    .replace(/^https?:\/\/arxiv\.org\/abs\//i, '')
+    .replace(/^https?:\/\/arxiv\.org\/pdf\//i, '')
+    .replace(/\.pdf$/i, '');
+}
+
 function normalizeDomain(value) {
   return String(value || '')
     .replace(/^category:/i, '')
@@ -397,6 +443,13 @@ function truncateAuthors(value) {
   const authors = String(value || '').split(';').map(author => author.trim()).filter(Boolean);
   if (authors.length <= 3) return authors.join(', ');
   return `${authors.slice(0, 3).join(', ')} +${authors.length - 3} authors`;
+}
+
+function compactNumber(value) {
+  const n = Number(value) || 0;
+  if (n >= 1000000) return `${(n / 1000000).toFixed(n >= 10000000 ? 0 : 1)}m`;
+  if (n >= 1000) return `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}k`;
+  return n.toLocaleString();
 }
 
 function includesAny(row, needles) {
