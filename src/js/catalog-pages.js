@@ -74,6 +74,12 @@ const CONFIG = {
 const PAGE_SIZE = 20;
 const state = { rows: [], filtered: [], page: 1, query: '', filter: 'all', domain: 'all', sort: 'trending' };
 const githubCache = new Map();
+const paperPreviewQueue = [];
+const PAPER_PREVIEW_CONCURRENCY = 2;
+let paperPreviewObserver = null;
+let paperPreviewActive = 0;
+let pdfjsPromise = null;
+let paperPreviewManifestPromise = null;
 
 const page = document.body.dataset.catalog;
 const config = CONFIG[page];
@@ -208,7 +214,10 @@ function renderList(cfg, els) {
   }
 
   els.list.innerHTML = visible.map(row => page === 'papers' ? renderPaperItem(cfg, row) : renderItem(cfg, row)).join('');
-  if (page === 'papers') hydrateGithubStats(els.list);
+  if (page === 'papers') {
+    hydrateGithubStats(els.list);
+    hydratePaperPreviews(els.list);
+  }
   renderPager(els.pager, pageCount);
 }
 
@@ -251,14 +260,19 @@ function renderPaperItem(cfg, row) {
   const citationPace = paperCitationPace(row, citationCount);
   const source = row.venue || row.discovered_via || 'Paper';
   const actions = paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code });
+  const staticPreview = paperPreviewPath(row);
 
   return `
     <article class="research-item">
-      <div class="research-paper-mark" aria-hidden="true">
-        <span class="research-paper-year">${escapeHtml(String(year).slice(0, 4))}</span>
-        <b>${escapeHtml(truncate(source, 18))}</b>
-        <strong>${escapeHtml(truncate(title, 64))}</strong>
-        <i></i><i></i><i></i><i></i><i></i>
+      <div class="research-paper-mark ${pdfUrl || staticPreview ? 'has-pdf-preview' : ''}" ${pdfUrl ? `data-pdf-preview="${escapeAttr(pdfUrl)}"` : ''} ${staticPreview ? `data-static-preview="${escapeAttr(staticPreview)}" data-paper-id="${escapeAttr(row.id)}"` : ''} aria-hidden="true">
+        ${pdfUrl || staticPreview ? '<div class="research-paper-preview"><img class="research-paper-image" alt="" decoding="async"><canvas class="research-paper-canvas"></canvas></div>' : ''}
+        <div class="research-paper-fallback">
+          <span class="research-paper-year">${escapeHtml(String(year).slice(0, 4))}</span>
+          <b>${escapeHtml(truncate(source, 18))}</b>
+          <strong>${escapeHtml(truncate(title, 64))}</strong>
+          <i></i><i></i><i></i><i></i><i></i>
+        </div>
+        ${pdfUrl ? '<span class="research-paper-loading">Loading preview</span>' : ''}
       </div>
       <div class="research-item-body">
         <h2>${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>` : escapeHtml(title)}</h2>
@@ -287,6 +301,160 @@ function renderPaperItem(cfg, row) {
       </div>
     </article>
   `;
+}
+
+function hydratePaperPreviews(root) {
+  if (paperPreviewObserver) paperPreviewObserver.disconnect();
+  paperPreviewQueue.length = 0;
+  const targets = [...root.querySelectorAll('[data-pdf-preview], [data-static-preview]')];
+  if (!targets.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(queuePaperPreview);
+    return;
+  }
+
+  paperPreviewObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      paperPreviewObserver.unobserve(entry.target);
+      queuePaperPreview(entry.target);
+    });
+  }, { rootMargin: '360px 0px', threshold: 0.01 });
+
+  targets.forEach(target => paperPreviewObserver.observe(target));
+}
+
+function queuePaperPreview(element) {
+  if (!element || element.dataset.previewState) return;
+  element.dataset.previewState = 'queued';
+  paperPreviewQueue.push(element);
+  pumpPaperPreviewQueue();
+}
+
+function pumpPaperPreviewQueue() {
+  while (paperPreviewActive < PAPER_PREVIEW_CONCURRENCY && paperPreviewQueue.length) {
+    const element = paperPreviewQueue.shift();
+    if (!element?.isConnected) continue;
+    paperPreviewActive += 1;
+    renderPaperPreview(element).finally(() => {
+      paperPreviewActive -= 1;
+      pumpPaperPreviewQueue();
+    });
+  }
+}
+
+async function renderPaperPreview(element) {
+  const url = element.dataset.pdfPreview;
+  if (element.offsetWidth < 40 || element.offsetHeight < 40) return;
+
+  if (await renderStaticPaperPreview(element)) return;
+  if (!url) return;
+
+  let loadingTask = null;
+  let pdf = null;
+  let rendered = false;
+
+  try {
+    element.dataset.previewState = 'loading';
+    element.classList.add('is-loading');
+    const pdfjs = await loadPdfJs();
+    loadingTask = pdfjs.getDocument({
+      url,
+      withCredentials: false,
+      stopAtErrors: false,
+    });
+    pdf = await loadingTask.promise;
+    const firstPage = await pdf.getPage(1);
+    if (!element.isConnected) return;
+
+    const canvas = element.querySelector('.research-paper-canvas');
+    if (!canvas) return;
+    const box = element.getBoundingClientRect();
+    const baseViewport = firstPage.getViewport({ scale: 1 });
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const scale = Math.min(box.width / baseViewport.width, box.height / baseViewport.height) * dpr;
+    const viewport = firstPage.getViewport({ scale });
+    const cssWidth = viewport.width / dpr;
+    const cssHeight = viewport.height / dpr;
+
+    canvas.width = Math.ceil(viewport.width);
+    canvas.height = Math.ceil(viewport.height);
+    canvas.style.width = `${cssWidth}px`;
+    canvas.style.height = `${cssHeight}px`;
+
+    const context = canvas.getContext('2d', { alpha: false });
+    context.fillStyle = '#fff';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    await firstPage.render({ canvasContext: context, viewport }).promise;
+    if (!element.isConnected) return;
+    element.dataset.previewState = 'rendered';
+    element.classList.remove('is-loading');
+    element.classList.add('is-rendered');
+    rendered = true;
+  } catch (error) {
+    element.dataset.previewState = 'error';
+    element.classList.remove('is-loading');
+    element.classList.add('is-error');
+    console.debug('Paper preview failed', url, error);
+  } finally {
+    try {
+      if (rendered) {
+        await pdf?.cleanup?.();
+      } else {
+        await loadingTask?.destroy?.();
+      }
+    } catch {
+      // Best-effort cleanup only.
+    }
+  }
+}
+
+async function renderStaticPaperPreview(element) {
+  const id = element.dataset.paperId;
+  const src = element.dataset.staticPreview;
+  if (!id || !src) return false;
+  const manifest = await loadPaperPreviewManifest();
+  if (!manifest.has(id)) return false;
+
+  return new Promise(resolve => {
+    const image = element.querySelector('.research-paper-image');
+    if (!image) {
+      resolve(false);
+      return;
+    }
+    image.onload = () => {
+      element.dataset.previewState = 'rendered-image';
+      element.classList.remove('is-loading');
+      element.classList.add('is-rendered', 'has-static-preview');
+      resolve(true);
+    };
+    image.onerror = () => resolve(false);
+    image.src = src;
+  });
+}
+
+async function loadPaperPreviewManifest() {
+  if (!paperPreviewManifestPromise) {
+    paperPreviewManifestPromise = fetch('../paper-previews/manifest.json')
+      .then(response => response.ok ? response.json() : [])
+      .then(ids => new Set(Array.isArray(ids) ? ids : []))
+      .catch(() => new Set());
+  }
+  return paperPreviewManifestPromise;
+}
+
+async function loadPdfJs() {
+  if (!pdfjsPromise) {
+    pdfjsPromise = Promise.all([
+      import('pdfjs-dist/build/pdf.mjs'),
+      import('pdfjs-dist/build/pdf.worker.mjs?url'),
+    ]).then(([pdfjs, worker]) => {
+      pdfjs.GlobalWorkerOptions.workerSrc = worker.default;
+      return pdfjs;
+    });
+  }
+  return pdfjsPromise;
 }
 
 function hydrateGithubStats(root) {
@@ -598,6 +766,11 @@ function paperWebsiteUrl(row, primaryUrl) {
   if (!project || project === primaryUrl || project === row.pdf_url || project === row.arxiv_url) return '';
   if (project === row.github_url || project === row.huggingface_url || project === row.code_url) return '';
   return project;
+}
+
+function paperPreviewPath(row) {
+  const id = String(row.id || '').trim();
+  return id ? `../paper-previews/${encodeURIComponent(id)}.webp` : '';
 }
 
 function githubRepoName(url) {
