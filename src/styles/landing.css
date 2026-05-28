@@ -146,8 +146,8 @@ nav,section,footer{position:relative;z-index:1}
 .lp-hero{
   position:relative;
   min-height:calc(88vh - 72px);
-  display:flex;align-items:flex-end;justify-content:center;
-  padding:var(--s-7) var(--s-4) clamp(18px,4vh,40px);
+  display:flex;align-items:center;justify-content:center;
+  padding:var(--s-7) var(--s-4);
   overflow:hidden;
 }
 .lp-hero-bg{
@@ -393,39 +393,65 @@ nav,section,footer{position:relative;z-index:1}
   animation:fadeUp 0.8s 0.22s cubic-bezier(0.16,1,0.3,1) both;
 }
 .lp-hero-proof{
-  max-width:760px;
-  margin:0 auto;
+  max-width:920px;
+  margin:0 auto var(--s-3);
   color:#fff;
-  font-size:clamp(22px,3vw,40px);
-  font-weight:900;
-  letter-spacing:0;
-  line-height:1.16;
-  background:linear-gradient(90deg,#fff 0%,#c7d2fe 42%,#67e8f9 58%,#fff 100%);
-  background-size:220% auto;
+  font-size:clamp(40px,6vw,72px);
+  font-weight:800;
+  letter-spacing:-.025em;
+  line-height:1.04;
+  background:linear-gradient(180deg,#ffffff 0%,#c7d2fe 100%);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
-  text-shadow:0 0 34px rgba(99,102,241,.2);
-  animation:fadeUp 0.8s 0.27s cubic-bezier(0.16,1,0.3,1) both, heroProofGlow 6s ease-in-out infinite;
+  animation:fadeUp 0.8s 0.18s cubic-bezier(0.16,1,0.3,1) both;
 }
-@keyframes heroProofGlow{
-  0%,100%{background-position:0% center;filter:drop-shadow(0 0 0 rgba(99,102,241,0))}
-  50%{background-position:100% center;filter:drop-shadow(0 0 12px rgba(99,102,241,.22))}
+.lp-hero-sub{
+  max-width:680px;
+  margin:0 auto var(--s-4);
+  color:rgba(255,255,255,0.7);
+  font-size:clamp(15px,1.4vw,18px);
+  line-height:1.55;
+  font-weight:500;
+  letter-spacing:.005em;
+  animation:fadeUp 0.8s 0.26s cubic-bezier(0.16,1,0.3,1) both;
 }
 .lp-hero-actions{
-  display:flex;align-items:center;justify-content:center;gap:var(--s-2);
-  animation:fadeUp 0.8s 0.32s cubic-bezier(0.16,1,0.3,1) both;
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;
+  animation:fadeUp 0.8s 0.34s cubic-bezier(0.16,1,0.3,1) both;
 }
 .lp-cta-primary{
+  display:inline-flex;align-items:center;justify-content:center;
   background:#6366F1;border:none;border-radius:10px;
-  padding:0 var(--s-4);font-size:var(--t-meta);font-weight:700;
-  color:#fff;cursor:pointer;font-family:inherit;letter-spacing:.02em;
-  box-shadow:0 0 32px rgba(99,102,241,0.4);
+  padding:0 22px;font-size:14.5px;font-weight:680;
+  color:#fff;cursor:pointer;font-family:inherit;letter-spacing:.005em;
+  text-decoration:none;
+  box-shadow:0 8px 28px rgba(99,102,241,0.35);
   transition:background 0.15s,transform 0.15s,box-shadow 0.15s;
-  min-height:var(--s-5);
+  min-height:46px;
 }
-.lp-cta-primary:hover{background:#4F46E5;transform:translateY(-2px);box-shadow:0 0 48px rgba(99,102,241,0.55)}
+.lp-cta-primary:hover{background:#4F46E5;transform:translateY(-1px);box-shadow:0 10px 36px rgba(99,102,241,0.5)}
 .lp-cta-primary:active{transform:translateY(0)}
+.lp-cta-secondary{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:46px;
+  padding:0 20px;
+  border:1px solid rgba(255,255,255,0.16);
+  border-radius:10px;
+  background:transparent;
+  color:rgba(255,255,255,0.85);
+  font-size:14.5px;
+  font-weight:620;
+  letter-spacing:.005em;
+  text-decoration:none;
+  transition:border-color 0.15s,background 0.15s,color 0.15s,transform 0.15s;
+}
+.lp-cta-secondary:hover{
+  border-color:rgba(255,255,255,0.32);
+  background:rgba(255,255,255,0.04);
+  color:#fff;
+  transform:translateY(-1px);
+}
 /* Categories */
 .lp-intro-section{
   width:min(var(--container-wide),100%);
@@ -3124,18 +3150,24 @@ nav,section,footer{position:relative;z-index:1}
   text-shadow:none;
 }
 [data-theme="light"] .lp-hero-proof{
-  background:linear-gradient(90deg,#1A1814 0%,#4F46E5 46%,#0E7490 60%,#1A1814 100%);
-  background-size:220% auto;
+  background:linear-gradient(180deg,#1A1814 0%,#4F46E5 100%);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
   text-shadow:none;
 }
-[data-theme="light"] .lp-hero-index{
-  color:#8B8377;
+[data-theme="light"] .lp-hero-sub{
+  color:#5A554C;
 }
-[data-theme="light"] .lp-hero-index-label{
+[data-theme="light"] .lp-cta-secondary{
+  border-color:#E4DFD4;
+  background:rgba(255,253,248,0.62);
   color:#3A352D;
+}
+[data-theme="light"] .lp-cta-secondary:hover{
+  border-color:rgba(79,70,229,0.6);
+  background:rgba(79,70,229,0.08);
+  color:#1A1814;
 }
 [data-theme="light"] .lp-intro-copy{
   color:#3A352D;

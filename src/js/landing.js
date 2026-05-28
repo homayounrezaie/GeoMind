@@ -278,7 +278,7 @@ const GEO_LAYER_DATA = [
   {
     id: 'models',
     label: 'models',
-    color: '#8B5CF6',
+    color: '#a5b4fc',
     items: [
       { name: 'Prithvi', lat: 38.89, lon: -77.05 },
       { name: 'Prithvi-EO-2.0', lat: 38.89, lon: -77.05 },
@@ -310,7 +310,7 @@ const GEO_LAYER_DATA = [
   {
     id: 'papers',
     label: 'papers',
-    color: '#38BDF8',
+    color: '#818cf8',
     items: [
       { name: 'Seasonal Contrast', lat: 45.5, lon: -73.57 },
       { name: 'SSL in Remote Sensing Review', lat: 48.14, lon: 11.58 },
@@ -342,7 +342,7 @@ const GEO_LAYER_DATA = [
   {
     id: 'datasets',
     label: 'datasets',
-    color: '#22C55E',
+    color: '#c7d2fe',
     items: [
       { name: 'Core-VIIRS-Nighttime-Light', lat: -16, lon: -35 },
       { name: 'GROC', lat: 52.37, lon: 4.9 },
@@ -374,7 +374,7 @@ const GEO_LAYER_DATA = [
   {
     id: 'companies',
     label: 'companies',
-    color: '#F59E0B',
+    color: '#6366F1',
     items: [
       { name: 'Abonmarche Consultants', lat: 38.89, lon: -77.05 },
       { name: 'Advanced Drone Solutions', lat: 45.42, lon: -75.69 },
@@ -637,7 +637,15 @@ function initGeoLayerMap() {
     mount.style.setProperty('--layer-color', layer.color);
     clearMarkers();
 
-    layer.items.forEach(item => {
+    const seenLoc = new Set();
+    const visibleItems = layer.items.filter(item => {
+      const key = `${item.lat.toFixed(2)},${item.lon.toFixed(2)}`;
+      if (seenLoc.has(key)) return false;
+      seenLoc.add(key);
+      return true;
+    }).slice(0, 6);
+
+    visibleItems.forEach(item => {
       const marker = document.createElement('span');
       marker.className = 'lp-geo-marker';
 
