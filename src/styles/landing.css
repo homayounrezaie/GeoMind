@@ -459,7 +459,7 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-cta-primary{
   display:inline-flex;align-items:center;justify-content:center;
-  background:#2563EB;border:none;border-radius:999px;
+  background:#2563EB;border:1px solid transparent;border-radius:999px;
   padding:0 28px;font-size:16px;font-weight:600;
   color:#fff;cursor:pointer;font-family:inherit;letter-spacing:0;
   text-decoration:none;
@@ -468,6 +468,104 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-cta-primary:hover{background:#1D4ED8;transform:translateY(-1px);box-shadow:0 10px 28px rgba(37,99,235,0.45)}
 .lp-cta-primary:active{transform:translateY(0)}
+.lp-cta-secondary{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.22);
+  border-radius:999px;
+  padding:0 26px;
+  font-size:16px;font-weight:600;
+  color:#fff;cursor:pointer;font-family:inherit;letter-spacing:0;
+  text-decoration:none;
+  transition:background 0.15s, border-color 0.15s, transform 0.15s;
+  min-height:54px;
+}
+.lp-cta-secondary:hover{
+  background:rgba(255,255,255,0.06);
+  border-color:rgba(255,255,255,0.4);
+  transform:translateY(-1px);
+}
+.lp-cta-secondary:active{transform:translateY(0)}
+
+/* Hero proof grid (clickable count-up stats) */
+.lp-hero-proof-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:18px;
+  max-width:760px;
+  margin:var(--s-5) auto 0;
+  animation:fadeUp 0.8s 0.42s cubic-bezier(0.16,1,0.3,1) both;
+}
+.lp-hero-stat{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  padding:14px 8px;
+  border-radius:14px;
+  text-decoration:none;
+  color:inherit;
+  transition:background .15s, transform .15s;
+}
+.lp-hero-stat:hover,
+.lp-hero-stat:focus-visible{
+  background:rgba(129,140,248,0.08);
+  transform:translateY(-2px);
+  outline:none;
+}
+.lp-hero-stat strong{
+  color:#c7d2fe;
+  font-family:ui-serif,Georgia,Cambria,'Times New Roman',Times,serif;
+  font-size:clamp(28px, 3.6vw, 44px);
+  font-weight:500;
+  letter-spacing:-.02em;
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.lp-hero-stat span{
+  color:rgba(255,255,255,0.48);
+  font-family:'SF Mono','Menlo',monospace;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+@media (max-width: 640px){
+  .lp-hero-proof-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:8px;
+  }
+  .lp-hero-stat strong{font-size:30px}
+}
+
+/* Accessibility — skip link + global focus ring */
+.lp-skip-link{
+  position:fixed;
+  top:-100px;
+  left:16px;
+  z-index:9999;
+  padding:10px 14px;
+  border-radius:8px;
+  background:#1A1814;
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  transition:top 0.18s ease;
+}
+.lp-skip-link:focus,
+.lp-skip-link:focus-visible{
+  top:16px;
+  outline:none;
+  box-shadow:0 8px 24px rgba(0,0,0,0.4);
+}
+:focus-visible{
+  outline:2px solid #a5b4fc;
+  outline-offset:3px;
+  border-radius:6px;
+}
+[data-theme="light"] :focus-visible{
+  outline-color:#4F46E5;
+}
 /* Categories */
 .lp-intro-section{
   width:min(var(--container-wide),100%);
@@ -4090,6 +4188,30 @@ a.lp-terminal-row.is-link:focus-visible::before{
 }
 [data-theme="light"] .lp-footer-input:focus{
   border-color:rgba(79,70,229,0.6);
+}
+
+/* Hero proof grid — light theme + count-up styling */
+[data-theme="light"] .lp-hero-stat:hover,
+[data-theme="light"] .lp-hero-stat:focus-visible{
+  background:rgba(79,70,229,0.08);
+}
+[data-theme="light"] .lp-hero-stat strong{
+  color:#3B33AB;
+}
+[data-theme="light"] .lp-hero-stat span{
+  color:#8B8377;
+}
+
+/* Light-mode card depth — soft shadows on the larger surfaces so they
+   read as cards on cream instead of flat blocks. */
+[data-theme="light"] .lp-terminal,
+[data-theme="light"] .lp-ds-query,
+[data-theme="light"] .lp-nl-card,
+[data-theme="light"] .lp-story-card,
+[data-theme="light"] .lp-footer{
+  box-shadow:0 1px 2px rgba(26,24,20,0.04),
+             0 8px 24px rgba(26,24,20,0.05),
+             0 0 0 1px rgba(26,24,20,0.03);
 }
 
 /* Footer social icons */

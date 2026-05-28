@@ -343,6 +343,14 @@ function initTerminalExplorer() {
 }
 
 function initHeroStatsStream() {
+  // Newer hero uses a clickable proof-grid (data-hero-stats). If present,
+  // delegate to the count-up animation and skip the legacy typed line.
+  const grid = document.querySelector('[data-hero-stats]');
+  if (grid) {
+    initHeroStatsCountUp(grid);
+    return;
+  }
+
   const el = document.querySelector('.lp-hero-stats');
   if (!el || el.dataset.streamed === 'true') return;
   el.dataset.streamed = 'true';
@@ -726,4 +734,43 @@ function initDatasetQuery() {
   });
 
   startCycle();
+}
+
+function initHeroStatsCountUp(root) {
+  if (!root || root.dataset.counted === 'true') return;
+  root.dataset.counted = 'true';
+  const items = [...root.querySelectorAll('.lp-hero-stat')];
+  if (!items.length) return;
+
+  // Resolve final values: prefer live STATS, fall back to data-stat-default.
+  items.forEach(item => {
+    const key = item.dataset.statKey;
+    const fallback = Number(item.dataset.statDefault) || 0;
+    const live = Number(STATS[key] || 0);
+    item.dataset.statTarget = String(live || fallback);
+    item.setAttribute('aria-label', `${Number(item.dataset.statTarget).toLocaleString()} ${key}`);
+  });
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    items.forEach(item => {
+      const target = Number(item.dataset.statTarget);
+      item.querySelector('[data-stat-value]').textContent = target.toLocaleString();
+    });
+    return;
+  }
+
+  const duration = 1500;
+  const startTime = performance.now();
+  function step(now) {
+    const t = Math.min(1, (now - startTime) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    items.forEach(item => {
+      const target = Number(item.dataset.statTarget);
+      const value = Math.round(target * eased);
+      item.querySelector('[data-stat-value]').textContent = value.toLocaleString();
+    });
+    if (t < 1) requestAnimationFrame(step);
+  }
+  window.setTimeout(() => requestAnimationFrame(step), 500);
 }

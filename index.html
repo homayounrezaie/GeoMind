@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260528-13">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260528-14">
 </head>
 <body>
+<a class="lp-skip-link" href="#main">Skip to content</a>
 
 <!-- NAV -->
 <nav class="lp-nav">
@@ -36,16 +37,33 @@
 </nav>
 
 <!-- HERO -->
-<section class="lp-hero">
+<section class="lp-hero" id="main">
   <div class="lp-hero-shell">
     <div class="lp-hero-copy">
       <p class="lp-hero-eyebrow">GeoAI is fragmented!</p>
       <h1 class="lp-hero-proof">We map it,<br>so you can follow it.</h1>
       <div class="lp-hero-actions">
-        <a class="lp-cta-primary" href="#api">Get API Access</a>
         <a class="lp-cta-primary" href="pages/app.html">Try GeoMind</a>
+        <a class="lp-cta-secondary" href="pages/newsletter.html">Get API Access</a>
       </div>
-      <p class="lp-hero-stats" aria-label="17,409 papers · 11,090 models · 2,790 datasets · 4,773 companies" data-stream-text="17,409 papers · 11,090 models · 2,790 datasets · 4,773 companies"></p>
+      <div class="lp-hero-proof-grid" data-hero-stats aria-label="GeoMind coverage">
+        <a class="lp-hero-stat" href="pages/paper-with-code.html" data-stat-key="papers" data-stat-default="17409">
+          <strong data-stat-value>0</strong>
+          <span>papers</span>
+        </a>
+        <a class="lp-hero-stat" href="pages/foundation-models.html" data-stat-key="models" data-stat-default="11090">
+          <strong data-stat-value>0</strong>
+          <span>models</span>
+        </a>
+        <a class="lp-hero-stat" href="pages/datasets.html" data-stat-key="datasets" data-stat-default="2790">
+          <strong data-stat-value>0</strong>
+          <span>datasets</span>
+        </a>
+        <a class="lp-hero-stat" href="pages/companies.html" data-stat-key="companies" data-stat-default="4773">
+          <strong data-stat-value>0</strong>
+          <span>companies</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -53,9 +71,7 @@
 <!-- INTRO -->
 <section class="lp-intro-section" id="intro">
   <div class="lp-intro-shell">
-    <p class="lp-intro-copy">GeoAI is moving fast.</p>
-    <p class="lp-intro-copy">New foundation models, papers, and benchmarks appear almost every week. The hard part is no longer finding information, it is understanding how everything connects.</p>
-    <p class="lp-intro-copy">Without structure, every new release feels isolated.</p>
+    <p class="lp-intro-copy"><strong>GeoAI is moving fast.</strong> New foundation models, papers, and benchmarks appear almost every week — the hard part is no longer finding information, it is understanding how everything connects. Without structure, every new release feels isolated.</p>
     <p class="lp-intro-copy">GeoMind maps the field from sensors and learning paradigms to models, tasks, datasets, tools, companies, and standards, helping you understand where things fit, what matters, and where the field is going next.</p>
     <div class="lp-clarity-links" aria-label="Public resources connected through GeoMind">
       <a href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener">
@@ -146,16 +162,19 @@
     }
     .gm-gh-chart:last-child{margin-bottom:0}
     .gm-gh-title{
-      color:#93c5fd;
-      font-size:20px;
-      font-weight:700;
-      letter-spacing:-.25px;
+      color:#c7d2fe;
+      font-family:ui-serif,Georgia,Cambria,'Times New Roman',Times,serif;
+      font-size:24px;
+      font-weight:500;
+      letter-spacing:-.01em;
+      line-height:1.05;
       width:var(--cells-w);
       max-width:calc(100% - var(--label-w) - var(--label-pad));
       margin:0 auto 8px calc((100% - var(--chart-w)) / 2 + var(--label-w) + var(--label-pad));
       padding-top:10px;
       text-align:left;
     }
+    [data-theme="light"] .gm-gh-title{color:#3B33AB;}
     .gm-gh-subtitle{
       width:var(--cells-w);
       max-width:calc(100% - var(--label-w) - var(--label-pad));
@@ -1275,7 +1294,7 @@ function nlSubmit(e) {
   window.addEventListener('resize', layoutHeatmaps);
 })();
 </script>
-<script type="module" src="src/js/landing.js?v=20260528-8"></script>
+<script type="module" src="src/js/landing.js?v=20260528-9"></script>
 <script type="module" src="src/js/theme.js"></script>
 </body>
 </html>
