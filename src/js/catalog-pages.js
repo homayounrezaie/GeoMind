@@ -682,33 +682,6 @@ function pageWindow(current, total) {
   return result;
 }
 
-function renderItem(cfg, row) {
-  const title = row[cfg.titleField] || 'Untitled';
-  const url = cfg.url(row);
-  const code = cfg.codeUrl(row);
-  const metric = cfg.metric(row);
-  const tags = cfg.tags(row).slice(0, 5);
-  const meta = cfg.meta(row);
-  const description = truncate(cleanText(cfg.description(row)), 260);
-
-  return `
-    <article class="catalog-item">
-      <div class="catalog-item-main">
-        <h2>${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>` : escapeHtml(title)}</h2>
-        ${meta ? `<p class="catalog-meta">${escapeHtml(meta)}</p>` : ''}
-        ${cfg.subtitle(row) ? `<p class="catalog-subtitle">${escapeHtml(cfg.subtitle(row))}</p>` : ''}
-        ${description ? `<p class="catalog-description">${escapeHtml(description)}</p>` : ''}
-        ${tags.length ? `<div class="catalog-tags">${tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>` : ''}
-      </div>
-      <div class="catalog-actions">
-        ${metric ? `<span class="catalog-metric">${escapeHtml(metric)}</span>` : ''}
-        ${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">Open</a>` : ''}
-        ${code && code !== url ? `<a href="${escapeAttr(code)}" target="_blank" rel="noopener">Code</a>` : ''}
-      </div>
-    </article>
-  `;
-}
-
 function parseCsv(text) {
   const rows = [];
   let row = [];
