@@ -72,7 +72,7 @@ const CONFIG = {
 };
 
 const PAGE_SIZE = 20;
-const DATA_VERSION = '20260527-4';
+const DATA_VERSION = '20260527-5';
 const state = { rows: [], filtered: [], page: 1, query: '', filter: 'all', domain: 'all', sort: 'trending' };
 const githubCache = new Map();
 const paperPreviewQueue = [];

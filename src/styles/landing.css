@@ -2377,6 +2377,16 @@ nav,section,footer{position:relative;z-index:1}
   padding:0;
   background:#fff;
 }
+.research-paper-mark.has-pdf-preview .research-paper-year,
+.research-paper-mark.has-pdf-preview b{
+  color:#9A9285;
+}
+.research-paper-mark.has-pdf-preview strong{
+  color:#1A1814;
+}
+.research-paper-mark.has-pdf-preview i{
+  background:#D8D0C0;
+}
 .research-paper-preview{
   position:absolute;
   inset:0;
