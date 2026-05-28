@@ -264,7 +264,6 @@ function renderPaperItem(cfg, row) {
   const authors = truncateAuthors(row.authors);
   const venue = row.venue || row.conference;
   const description = truncate(cleanText(cfg.description(row)), 320);
-  const tags = paperDomains(row).slice(0, 3);
   const citationCount = Number(row.citations || row.citation_count) || 0;
   const year = row.year || 'unknown';
   const pdfUrl = paperPdfUrl(row);
@@ -274,12 +273,15 @@ function renderPaperItem(cfg, row) {
   const websiteUrl = paperWebsiteUrl(row, url);
   const code = paperCodeUrl(row) || githubUrl || huggingFaceUrl || cfg.codeUrl(row);
   const githubRepo = githubRepoName(githubUrl || code);
-  const citationPace = paperCitationPace(row, citationCount);
   const source = row.venue || row.discovered_via || 'Paper';
   const actions = paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code });
-  const stats = paperStats({ githubRepo, citationCount, citationPace });
+  const stats = paperStats({ githubRepo, citationCount });
   const staticPreview = paperThumbnailUrl(row);
   const canPreview = Boolean(pdfUrl || staticPreview);
+  const meta = [
+    stats && `<div class="research-stats">${stats}</div>`,
+    actions && `<div class="research-links">${actions}</div>`,
+  ].filter(Boolean).join('');
   const previewAttrs = canPreview
     ? `role="button" tabindex="0" data-preview-zoom data-preview-title="${escapeAttr(title)}" aria-label="Open first page preview for ${escapeAttr(title)}"`
     : 'aria-hidden="true"';
@@ -300,9 +302,7 @@ function renderPaperItem(cfg, row) {
         <h2>${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>` : escapeHtml(title)}</h2>
         <p class="research-byline">${escapeHtml(joinClean([authors, venue, year]))}</p>
         ${description ? `<p class="research-abstract">${escapeHtml(description)}</p>` : ''}
-        ${stats ? `<div class="research-stats">${stats}</div>` : ''}
-        ${tags.length ? `<div class="research-tags">${tags.map(tag => `<span>${escapeHtml(titleCase(tag))}</span>`).join('')}</div>` : ''}
-        ${actions ? `<div class="research-links">${actions}</div>` : ''}
+        ${meta ? `<div class="research-meta-line">${meta}</div>` : ''}
       </div>
     </article>
   `;
@@ -555,9 +555,14 @@ function hydrateGithubStats(root) {
       const data = githubCache.has(repo)
         ? githubCache.get(repo)
         : await fetchGithubRepo(repo);
-      if (data?.stars != null) target.textContent = compactNumber(data.stars);
+      if (data?.stars == null) {
+        element.remove();
+        return;
+      }
+      target.textContent = compactNumber(data.stars);
+      element.hidden = false;
     } catch {
-      target.textContent = '-';
+      element.remove();
     }
   });
 }
@@ -583,12 +588,12 @@ function paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websit
   ].filter(Boolean).join('');
 }
 
-function paperStats({ githubRepo, citationCount, citationPace }) {
+function paperStats({ githubRepo, citationCount }) {
   return [
     githubRepo && `
-      <span class="research-stat" data-github-repo="${escapeAttr(githubRepo)}">
+      <span class="research-stat" data-github-repo="${escapeAttr(githubRepo)}" hidden>
         ${iconSvg('github')}
-        <strong data-github-stars>...</strong>
+        <strong data-github-stars></strong>
         <span>stars</span>
       </span>
     `,
@@ -597,7 +602,6 @@ function paperStats({ githubRepo, citationCount, citationPace }) {
         ${iconSvg('trend')}
         <strong>${escapeHtml(compactNumber(citationCount))}</strong>
         <span>citations</span>
-        ${citationPace ? `<small>${escapeHtml(citationPace)} / yr</small>` : ''}
       </span>
     `,
   ].filter(Boolean).join('');
@@ -758,14 +762,6 @@ function paperSortValue(row) {
   if (state.sort === 'newest') return year * 100000 + citations;
   if (state.sort === 'cited') return citations * 100000 + year;
   return citations * 1000 + year * 8;
-}
-
-function paperCitationPace(row, citations) {
-  const year = Number(row.year) || 0;
-  if (!citations || !year) return '';
-  const age = Math.max(1, new Date().getFullYear() - year + 1);
-  const pace = citations / age;
-  return pace >= 10 ? pace.toFixed(0) : pace.toFixed(1);
 }
 
 function isTopAiVenue(row) {
