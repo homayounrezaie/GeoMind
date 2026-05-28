@@ -436,6 +436,11 @@ function initGeoLayerMap() {
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const indexItems = Array.from(document.querySelectorAll('.lp-hero-index [data-layer]'));
+  const mobileMedia = window.matchMedia('(max-width: 860px)');
+  if (mobileMedia.matches) {
+    indexItems.forEach(item => item.classList.toggle('is-active', item.dataset.layer === 'models'));
+    return;
+  }
   const layerDuration = 5000;
   let activeLayer = 0;
   let markers = [];
