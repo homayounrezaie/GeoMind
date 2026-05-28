@@ -395,7 +395,7 @@ nav,section,footer{position:relative;z-index:1}
 .lp-hero-eyebrow{
   display:block;
   margin:0 auto var(--s-3);
-  color:#FBBF24;
+  color:#F59E0B;
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   font-size:clamp(22px,2.6vw,32px);
   font-weight:600;
@@ -405,7 +405,7 @@ nav,section,footer{position:relative;z-index:1}
   animation:fadeUp 0.8s 0.12s cubic-bezier(0.16,1,0.3,1) both;
 }
 [data-theme="light"] .lp-hero-eyebrow{
-  color:#B45309;
+  color:#A16207;
 }
 .lp-hero-proof{
   max-width:1080px;
@@ -413,8 +413,8 @@ nav,section,footer{position:relative;z-index:1}
   color:#fff;
   font-family:ui-serif,Georgia,Cambria,'Times New Roman',Times,serif;
   font-size:clamp(48px,7.6vw,96px);
-  font-weight:500;
-  letter-spacing:-.02em;
+  font-weight:600;
+  letter-spacing:-.015em;
   line-height:0.98;
   animation:fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) both;
 }
@@ -523,7 +523,7 @@ nav,section,footer{position:relative;z-index:1}
   font-variant-numeric:tabular-nums;
 }
 .lp-hero-stat span{
-  color:rgba(255,255,255,0.48);
+  color:rgba(255,255,255,0.62);
   font-family:'SF Mono','Menlo',monospace;
   font-size:11px;
   letter-spacing:.12em;
@@ -578,15 +578,16 @@ nav,section,footer{position:relative;z-index:1}
   text-align:left;
 }
 .lp-intro-copy{
-  margin:0 0 var(--s-3);
-  color:rgba(255,255,255,0.74);
+  max-width:580px;
+  margin:0 auto var(--s-3);
+  color:rgba(255,255,255,0.82);
   font-size:18px;
   line-height:1.7;
   letter-spacing:-.005em;
 }
 .lp-intro-copy:last-of-type{
   margin-bottom:var(--s-4);
-  color:rgba(255,255,255,0.62);
+  color:rgba(255,255,255,0.72);
 }
 .lp-intro-resources{
   display:flex;
@@ -1820,10 +1821,18 @@ a.lp-terminal-row.is-link:focus-visible::before{
 }
 .lp-sec-title{
   font-family:ui-serif,Georgia,Cambria,'Times New Roman',Times,serif;
-  font-size:var(--t-h2);font-weight:500;letter-spacing:-.02em;
+  font-size:var(--t-h2);font-weight:600;letter-spacing:-.015em;
   color:#fff;margin-bottom:var(--s-2);line-height:1.02;text-align:center;
 }
-.lp-sec-sub{font-size:var(--t-meta);line-height:var(--lh-body);color:rgba(255,255,255,0.38);margin-bottom:var(--s-5)}
+.lp-sec-sub{
+  font-size:clamp(15px, 1.4vw, 17px);
+  line-height:var(--lh-body);
+  color:rgba(255,255,255,0.66);
+  margin-bottom:var(--s-5);
+  max-width:580px;
+  margin-left:auto;
+  margin-right:auto;
+}
 .lp-section-head .lp-sec-sub{
   line-height:var(--lh-body);
   margin-bottom:0;

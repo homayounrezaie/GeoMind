@@ -6,7 +6,7 @@
 <title>GeoMind | GeoAI Hub</title>
 <link rel="icon" type="image/png" href="public/logo.png">
 <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('has-reveal');</script>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260528-17">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260528-18">
 </head>
 <body>
 <a class="lp-skip-link" href="#main">Skip to content</a>
@@ -178,6 +178,7 @@
       text-align:left;
     }
     [data-theme="light"] .gm-gh-title{color:#3B33AB;}
+    [data-theme="light"] .gm-gh-label{color:#5A554C;}
     .gm-gh-subtitle{
       width:var(--cells-w);
       max-width:calc(100% - var(--label-w) - var(--label-pad));
@@ -228,8 +229,12 @@
       row-gap:var(--row-gap);
     }
     .gm-gh-label{
-      color:#7d8590;
-      font-size:var(--label-font,12px);
+      color:rgba(255,255,255,0.62);
+      font-family:'SF Mono','Menlo',monospace;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.1em;
+      text-transform:uppercase;
       line-height:var(--cell);
       text-align:right;
       white-space:nowrap;
