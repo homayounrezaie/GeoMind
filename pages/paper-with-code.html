@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paper with Code — GeoMind</title>
-<link rel="stylesheet" href="../src/styles/landing.css?v=20260527-5">
+<link rel="stylesheet" href="../src/styles/landing.css?v=20260527-6">
 </head>
 <body class="category-page catalog-page" data-catalog="papers">
 <nav class="category-nav" aria-label="Breadcrumb">
@@ -22,12 +22,12 @@
   </div>
 </nav>
 <main class="category-shell catalog-shell catalog-shell-research">
+  <section class="research-page-head" aria-label="Paper summary">
+    <h1>Papers</h1>
+    <p data-paper-summary>Loading paper index</p>
+  </section>
   <div class="research-layout">
     <aside class="research-sidebar" aria-label="Paper filters">
-      <div class="research-side-group">
-        <p class="research-side-title">Top Domains</p>
-        <div class="research-domain-list" data-paper-domains></div>
-      </div>
       <div class="research-side-group">
         <p class="research-side-title">Quick Filters</p>
         <div class="research-filter-list" data-catalog-filters></div>
@@ -35,7 +35,10 @@
     </aside>
     <section class="research-main" aria-label="Paper list">
       <section class="catalog-toolbar research-toolbar" aria-label="Catalog controls">
-        <input data-catalog-search type="search" autocomplete="off" spellcheck="false" placeholder="Search papers...">
+        <label class="research-search">
+          <svg class="research-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input data-catalog-search type="search" autocomplete="off" spellcheck="false" placeholder="Search papers, authors, methods">
+        </label>
         <div class="research-sort-tabs" data-paper-sort>
           <button type="button" class="is-active" data-sort="trending">trending</button>
           <button type="button" data-sort="newest">newest</button>
@@ -50,7 +53,7 @@
     </section>
   </div>
 </main>
-<script type="module" src="../src/js/catalog-pages.js?v=20260527-5"></script>
+<script type="module" src="../src/js/catalog-pages.js?v=20260527-6"></script>
 <script type="module" src="../src/js/theme.js"></script>
 </body>
 </html>

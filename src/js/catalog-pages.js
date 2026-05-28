@@ -4,17 +4,17 @@ const CONFIG = {
     label: 'Research Index',
     title: 'Papers',
     intro: 'Browse geospatial AI papers with citation signals, venues, methods, datasets, and links to code or source pages.',
-    searchPlaceholder: 'Search papers, authors, venues, methods...',
+    searchPlaceholder: 'Search papers, authors, methods',
     empty: 'No papers match this query.',
     titleField: 'title',
-    subtitle: row => joinClean([row.authors, row.venue || row.conference]),
-    description: row => row.abstract || row.tags || row.matched_terms || row.topic_query,
-    url: row => row.link || row.url || doiUrl(row.doi),
+    subtitle: row => joinClean([row.authors, row.venue]),
+    description: row => row.abstract,
+    url: row => row.url || doiUrl(row.doi),
     codeUrl: row => row.code_url,
-    metric: row => numberLabel(row.citations || row.citation_count, 'citation'),
+    metric: row => numberLabel(row.citation_count, 'citation'),
     sortValue: row => paperSortValue(row),
-    tags: row => splitValues(row.task || row.method_family || row.modality || row.matched_terms || row.tags),
-    meta: row => joinClean([row.year, row.venue || row.conference, row.discovered_via]),
+    tags: () => [],
+    meta: row => joinClean([row.year, row.venue]),
     filters: [
       { key: 'all', label: 'All papers' },
       { key: 'top-ai', label: 'Top AI venues', test: row => isTopAiVenue(row) },
@@ -72,8 +72,8 @@ const CONFIG = {
 };
 
 const PAGE_SIZE = 20;
-const DATA_VERSION = '20260527-5';
-const state = { rows: [], filtered: [], page: 1, query: '', filter: 'all', domain: 'all', sort: 'trending' };
+const DATA_VERSION = '20260527-6';
+const state = { rows: [], filtered: [], page: 1, query: '', filter: 'all', sort: 'trending' };
 const githubCache = new Map();
 const paperPreviewQueue = [];
 const PAPER_PREVIEW_CONCURRENCY = 2;
@@ -106,7 +106,9 @@ async function init(cfg) {
     const csv = await fetchCsv(cfg.file);
     state.rows = parseCsv(csv).filter(row => row[cfg.titleField]);
     state.filtered = [...state.rows];
-    if (page === 'papers') renderPaperDomains(els.domains, state.rows);
+    if (page === 'papers') {
+      renderPaperSummary(els.summary, state.rows);
+    }
     applyFilters(cfg, els);
   } catch (error) {
     els.list.innerHTML = `<div class="catalog-empty">Could not load ${escapeHtml(cfg.file)}.</div>`;
@@ -116,17 +118,6 @@ async function init(cfg) {
   els.search.addEventListener('input', event => {
     state.query = event.target.value.trim().toLowerCase();
     state.page = 1;
-    applyFilters(cfg, els);
-  });
-
-  els.domains?.addEventListener('click', event => {
-    const button = event.target.closest('button[data-domain]');
-    if (!button) return;
-    state.domain = button.dataset.domain;
-    state.page = 1;
-    els.domains.querySelectorAll('button').forEach(btn => {
-      btn.classList.toggle('is-active', btn === button);
-    });
     applyFilters(cfg, els);
   });
 
@@ -161,6 +152,12 @@ async function init(cfg) {
   });
 
   els.list.addEventListener('click', event => {
+    const toggle = event.target.closest('[data-abstract-toggle]');
+    if (toggle) {
+      event.stopPropagation();
+      toggleAbstract(toggle);
+      return;
+    }
     const preview = event.target.closest('[data-preview-zoom]');
     if (!preview) return;
     openPaperPreviewModal(preview);
@@ -185,8 +182,8 @@ function getElements() {
     list: document.querySelector('[data-catalog-list]'),
     status: document.querySelector('[data-catalog-status]'),
     pager: document.querySelector('[data-catalog-pager]'),
-    domains: document.querySelector('[data-paper-domains]'),
     sort: document.querySelector('[data-paper-sort]'),
+    summary: document.querySelector('[data-paper-summary]'),
   };
 }
 
@@ -201,7 +198,6 @@ function applyFilters(cfg, els) {
   const query = state.query;
   state.filtered = state.rows
     .filter(row => !filter?.test || filter.test(row))
-    .filter(row => state.domain === 'all' || paperDomains(row).includes(state.domain))
     .filter(row => !query || Object.values(row).some(value => String(value).toLowerCase().includes(query)))
     .sort((a, b) => cfg.sortValue(b) - cfg.sortValue(a));
   renderList(cfg, els);
@@ -238,23 +234,18 @@ function renderList(cfg, els) {
   renderPager(els.pager, pageCount);
 }
 
-function renderPaperDomains(container, rows) {
+function renderPaperSummary(container, rows) {
   if (!container) return;
-  const counts = new Map();
-  for (const row of rows) {
-    for (const domain of paperDomains(row)) {
-      counts.set(domain, (counts.get(domain) || 0) + 1);
-    }
-  }
-  const domains = [...counts.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 10);
-
+  const years = rows
+    .map(row => Number(row.year))
+    .filter(year => Number.isFinite(year) && year > 1900);
+  const withCode = rows.filter(row => paperCodeUrl(row) || paperGithubUrl(row) || paperHuggingFaceUrl(row)).length;
+  const codeShare = rows.length ? Math.round((withCode / rows.length) * 100) : 0;
+  const yearRange = years.length ? `${Math.min(...years)}-${Math.max(...years)}` : 'year range unknown';
   container.innerHTML = [
-    `<button type="button" class="is-active" data-domain="all"><span>All domains</span><strong>${rows.length.toLocaleString()}</strong></button>`,
-    ...domains.map(([domain, count]) => (
-      `<button type="button" data-domain="${escapeAttr(domain)}"><span>${escapeHtml(titleCase(domain))}</span><strong>${count.toLocaleString()}</strong></button>`
-    )),
+    `<span>${rows.length.toLocaleString()} papers</span>`,
+    `<span>${codeShare}% with code</span>`,
+    `<span>${escapeHtml(yearRange)}</span>`,
   ].join('');
 }
 
@@ -262,47 +253,60 @@ function renderPaperItem(cfg, row) {
   const title = row[cfg.titleField] || 'Untitled';
   const url = cfg.url(row);
   const authors = truncateAuthors(row.authors);
-  const venue = row.venue || row.conference;
-  const description = truncate(cleanText(cfg.description(row)), 320);
-  const citationCount = Number(row.citations || row.citation_count) || 0;
+  const venue = row.venue;
+  const fullAbstract = cleanText(cfg.description(row));
+  const shortLimit = 200;
+  const isExpandable = fullAbstract.length > shortLimit;
+  const shortAbstract = isExpandable ? fullAbstract.slice(0, shortLimit).trim() : fullAbstract;
+  const citationCount = Number(row.citation_count) || 0;
   const year = row.year || 'unknown';
   const pdfUrl = paperPdfUrl(row);
-  const arxivUrl = paperArxivUrl(row);
   const githubUrl = paperGithubUrl(row);
   const huggingFaceUrl = paperHuggingFaceUrl(row);
-  const websiteUrl = paperWebsiteUrl(row, url);
   const code = paperCodeUrl(row) || githubUrl || huggingFaceUrl || cfg.codeUrl(row);
   const githubRepo = githubRepoName(githubUrl || code);
-  const source = row.venue || row.discovered_via || 'Paper';
-  const actions = paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code });
-  const stats = paperStats({ githubRepo, citationCount });
+  const source = row.venue || 'Paper';
+  const chips = paperChips(row, githubRepo);
+  const primary = paperPrimaryActions({ pdfUrl, code });
+  const venueMark = paperVenueMark(source);
   const staticPreview = paperThumbnailUrl(row);
   const canPreview = Boolean(pdfUrl || staticPreview);
-  const meta = [
-    stats && `<div class="research-stats">${stats}</div>`,
-    actions && `<div class="research-links">${actions}</div>`,
-  ].filter(Boolean).join('');
   const previewAttrs = canPreview
     ? `role="button" tabindex="0" data-preview-zoom data-preview-title="${escapeAttr(title)}" aria-label="Open first page preview for ${escapeAttr(title)}"`
     : 'aria-hidden="true"';
+
+  const abstractHtml = fullAbstract ? `
+    <p class="research-abstract" data-expanded="false">
+      <span class="research-abstract-short">${escapeHtml(shortAbstract)}${isExpandable ? '…' : ''}</span>
+      <span class="research-abstract-full" hidden>${escapeHtml(fullAbstract)}</span>
+      ${isExpandable ? `<button type="button" class="research-abstract-toggle" data-abstract-toggle aria-expanded="false">more</button>` : ''}
+    </p>` : '';
+
+  const metaHtml = (chips || primary) ? `
+    <div class="research-meta-line">
+      ${chips ? `<div class="research-chips">${chips}</div>` : ''}
+      ${primary ? `<div class="research-primary-actions">${primary}</div>` : ''}
+    </div>` : '';
 
   return `
     <article class="research-item">
       <div class="research-paper-mark ${canPreview ? 'has-pdf-preview' : ''}" ${pdfUrl ? `data-pdf-preview="${escapeAttr(pdfUrl)}"` : ''} ${staticPreview ? `data-static-preview="${escapeAttr(staticPreview)}"` : ''} ${previewAttrs}>
         ${canPreview ? '<div class="research-paper-preview"><img class="research-paper-image" alt="" decoding="async"><canvas class="research-paper-canvas"></canvas></div>' : ''}
         <div class="research-paper-fallback">
-          <span class="research-paper-year">${escapeHtml(String(year).slice(0, 4))}</span>
-          <b>${escapeHtml(truncate(source, 18))}</b>
-          <strong>${escapeHtml(truncate(title, 64))}</strong>
-          <i></i><i></i><i></i><i></i><i></i>
+          <span class="research-paper-fallback-year">${escapeHtml(String(year).slice(0, 4))}</span>
+          <strong>${escapeHtml(venueMark)}</strong>
+          <em>paper</em>
         </div>
         ${pdfUrl ? '<span class="research-paper-loading">Loading preview</span>' : ''}
       </div>
       <div class="research-item-body">
         <h2>${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>` : escapeHtml(title)}</h2>
         <p class="research-byline">${escapeHtml(joinClean([authors, venue, year]))}</p>
-        ${description ? `<p class="research-abstract">${escapeHtml(description)}</p>` : ''}
-        ${meta ? `<div class="research-meta-line">${meta}</div>` : ''}
+        ${abstractHtml}
+        ${metaHtml}
+      </div>
+      <div class="research-citation-score ${citationCount ? '' : 'is-empty'}">
+        ${citationCount ? `<strong>${escapeHtml(compactNumber(citationCount))}</strong><span>citations</span>` : ''}
       </div>
     </article>
   `;
@@ -576,66 +580,51 @@ async function fetchGithubRepo(repo) {
   return data;
 }
 
-function paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code }) {
-  return [
-    pdfUrl && paperAction('file', 'View PDF', pdfUrl),
-    arxivUrl && paperAction('external', 'arXiv page', arxivUrl),
-    ...paperRelationActions(row),
-    githubUrl && paperAction('github', 'GitHub', githubUrl),
-    huggingFaceUrl && paperAction('huggingface', 'Hugging Face', huggingFaceUrl),
-    websiteUrl && paperAction('globe', 'Website', websiteUrl),
-    code && code !== githubUrl && code !== huggingFaceUrl && code !== websiteUrl && paperAction('code', 'Code', code),
-  ].filter(Boolean).join('');
-}
-
-function paperStats({ githubRepo, citationCount }) {
-  return [
-    githubRepo && `
-      <span class="research-stat" data-github-repo="${escapeAttr(githubRepo)}" hidden>
-        ${iconSvg('github')}
-        <strong data-github-stars></strong>
-        <span>stars</span>
-      </span>
-    `,
-    citationCount && `
-      <span class="research-stat">
-        ${iconSvg('trend')}
-        <strong>${escapeHtml(compactNumber(citationCount))}</strong>
-        <span>citations</span>
-      </span>
-    `,
-  ].filter(Boolean).join('');
-}
-
-function paperRelationActions(row) {
-  const raw = rawPaper(row);
+function paperChips(row, githubRepo) {
   const datasets = relationValues(row.uses_datasets);
   const models = relationValues(row.introduces_models);
-  const rawCategory = String(raw.category || '').toLowerCase();
-  const rawPublicationType = String(raw.publication_type || '').toLowerCase();
-  const rawStatus = String(raw.status || '').toLowerCase();
-  const resourceName = cleanText(raw.abbreviation) || cleanText(row.title);
   const titleDatasetName = leadingResourceName(row.title);
-
-  if (resourceName && (rawCategory === 'dataset' || rawPublicationType === 'dataset')) {
-    datasets.push(resourceName);
-  }
   if (titleDatasetName && /\b(dataset|benchmark|corpus)\b/i.test(row.title || '')) {
     datasets.push(titleDatasetName);
   }
-  if (resourceName && (rawStatus === 'candidate_model' || rawCategory === 'foundation_models')) {
-    models.push(resourceName);
-  }
 
   return [
-    ...uniqueValues(datasets).slice(0, 2).map(value => paperAction('database', `Dataset: ${truncate(value, 24)}`, catalogSearchUrl('datasets.html', value), false)),
-    ...uniqueValues(models).slice(0, 2).map(value => paperAction('box', `Model: ${truncate(value, 24)}`, catalogSearchUrl('foundation-models.html', value), false)),
-  ];
+    ...uniqueValues(datasets).slice(0, 2).map(value => paperChip('database', truncate(value, 22), catalogSearchUrl('datasets.html', value), { external: false })),
+    ...uniqueValues(models).slice(0, 2).map(value => paperChip('box', truncate(value, 22), catalogSearchUrl('foundation-models.html', value), { external: false })),
+    githubRepo && githubStarsChip(githubRepo),
+  ].filter(Boolean).join('');
 }
 
-function paperAction(icon, label, url, external = true) {
+function paperChip(icon, label, url, { external = true } = {}) {
   const target = external ? ' target="_blank" rel="noopener"' : '';
-  return `<a href="${escapeAttr(url)}"${target}>${iconSvg(icon)}<span>${escapeHtml(label)}</span></a>`;
+  return `<a class="research-chip" href="${escapeAttr(url)}"${target}>${iconSvg(icon)}<span>${escapeHtml(label)}</span></a>`;
+}
+
+function githubStarsChip(githubRepo) {
+  return `<span class="research-chip research-chip-stat" data-github-repo="${escapeAttr(githubRepo)}" hidden>${iconSvg('github')}<strong data-github-stars></strong><span class="research-chip-suffix">stars</span></span>`;
+}
+
+function paperPrimaryActions({ pdfUrl, code }) {
+  return [
+    pdfUrl && paperPrimary('PDF', pdfUrl, 'file'),
+    code && paperPrimary('Code', code, 'code'),
+  ].filter(Boolean).join('');
+}
+
+function paperPrimary(label, url, icon) {
+  return `<a class="research-primary-action" href="${escapeAttr(url)}" target="_blank" rel="noopener">${iconSvg(icon)}<span>${escapeHtml(label)}</span></a>`;
+}
+
+function toggleAbstract(button) {
+  const wrap = button.closest('.research-abstract');
+  if (!wrap) return;
+  const expanded = wrap.dataset.expanded === 'true';
+  const next = !expanded;
+  wrap.dataset.expanded = String(next);
+  wrap.querySelector('.research-abstract-short').hidden = next;
+  wrap.querySelector('.research-abstract-full').hidden = !next;
+  button.textContent = next ? 'less' : 'more';
+  button.setAttribute('aria-expanded', String(next));
 }
 
 function iconSvg(name) {
@@ -758,14 +747,14 @@ function splitValues(value) {
 
 function paperSortValue(row) {
   const year = Number(row.year) || 0;
-  const citations = Number(row.citations || row.citation_count) || 0;
+  const citations = Number(row.citation_count) || 0;
   if (state.sort === 'newest') return year * 100000 + citations;
   if (state.sort === 'cited') return citations * 100000 + year;
   return citations * 1000 + year * 8;
 }
 
 function isTopAiVenue(row) {
-  const venue = `${row.conference || ''} ${row.venue || ''}`.toUpperCase();
+  const venue = String(row.venue || '').toUpperCase();
   return [
     'NEURIPS',
     'NIPS',
@@ -817,81 +806,38 @@ function catalogSearchUrl(file, query) {
   return `${file}?q=${encodeURIComponent(query)}`;
 }
 
-function paperDomains(row) {
-  const raw = rawPaper(row);
-  const values = splitValues(row.task || row.method_family || row.modality || row.matched_terms || row.tags || row.topic_query)
-    .map(value => normalizeDomain(value))
-    .filter(Boolean)
-    .filter(value => !['unspecified', 'unknown', 'source', 'catalogue', 'arxiv'].includes(value));
-  if (isSurveyPaper(row, raw)) values.unshift('survey');
-  return [...new Set(values)].slice(0, 6);
-}
-
-function isSurveyPaper(row, raw = rawPaper(row)) {
-  const text = [
-    row.title,
-    row.venue,
-    row.tags,
-    row.matched_terms,
-    raw.publication_type,
-    raw.status,
-    raw.notes,
-  ].map(value => String(value || '').toLowerCase()).join(' ');
-  return /\b(survey|review|overview)\b/.test(text) || text.includes('candidate_survey');
+function paperVenueMark(value) {
+  const cleaned = String(value || 'Paper')
+    .split(/[;(,]/)[0]
+    .replace(/[^a-z0-9&\s-]/gi, '')
+    .trim();
+  return truncate(cleaned || 'Paper', 10).toUpperCase();
 }
 
 function paperPdfUrl(row) {
-  const raw = rawPaper(row);
   if (row.pdf_url) return row.pdf_url;
-  if (raw.open_pdf_url) return raw.open_pdf_url;
-  const arxiv = cleanArxivId(row.arxiv_id || raw.arxiv_id);
-  if (arxiv) return `https://arxiv.org/pdf/${arxiv}`;
-  const url = row.url || row.link || raw.url || raw.paper_url;
+  const url = row.url || '';
   if (/arxiv\.org\/abs\//i.test(url)) return url.replace('/abs/', '/pdf/');
   if (/arxiv\.org\/pdf\//i.test(url)) return url;
   return '';
 }
 
-function paperArxivUrl(row) {
-  const raw = rawPaper(row);
-  if (row.arxiv_url) return row.arxiv_url;
-  const arxiv = cleanArxivId(row.arxiv_id || raw.arxiv_id);
-  if (arxiv) return `https://arxiv.org/abs/${arxiv}`;
-  const url = row.url || row.link || raw.url || raw.paper_url || '';
-  if (/arxiv\.org\/abs\//i.test(url)) return url;
-  if (/arxiv\.org\/pdf\//i.test(url)) return url.replace('/pdf/', '/abs/').replace(/\.pdf$/i, '');
-  return '';
-}
-
 function paperCodeUrl(row) {
-  const raw = rawPaper(row);
-  return row.code_url || raw.code_weights_url || raw.code_url || '';
+  return row.code_url || '';
 }
 
 function paperGithubUrl(row) {
-  const raw = rawPaper(row);
-  const github = row.github_url || raw.github_url || '';
-  if (github) return github;
+  if (row.github_url) return row.github_url;
   const code = paperCodeUrl(row);
   return githubRepoName(code) ? code : '';
 }
 
 function paperHuggingFaceUrl(row) {
-  const raw = rawPaper(row);
-  return row.huggingface_url || raw.huggingface_url || '';
-}
-
-function paperWebsiteUrl(row, primaryUrl) {
-  const raw = rawPaper(row);
-  const project = row.project_url || raw.project_url || raw.homepage_url || '';
-  if (!project || project === primaryUrl || project === row.pdf_url || project === row.arxiv_url) return '';
-  if (project === row.github_url || project === row.huggingface_url || project === row.code_url) return '';
-  return project;
+  return row.huggingface_url || '';
 }
 
 function paperThumbnailUrl(row) {
-  const raw = rawPaper(row);
-  return row.thumbnail_url || row.thumbnail || raw.thumbnail_url || raw.thumbnail || raw.image_url || '';
+  return row.thumbnail_url || '';
 }
 
 function githubRepoName(url) {
@@ -901,39 +847,6 @@ function githubRepoName(url) {
   const repo = match[2].replace(/\.git$/i, '');
   if (!owner || !repo) return '';
   return `${owner}/${repo}`;
-}
-
-function rawPaper(row) {
-  if (!row.raw_json) return {};
-  try {
-    return JSON.parse(row.raw_json);
-  } catch {
-    return {};
-  }
-}
-
-function cleanArxivId(value) {
-  return String(value || '')
-    .trim()
-    .replace(/^https?:\/\/arxiv\.org\/abs\//i, '')
-    .replace(/^https?:\/\/arxiv\.org\/pdf\//i, '')
-    .replace(/\.pdf$/i, '');
-}
-
-function normalizeDomain(value) {
-  return String(value || '')
-    .replace(/^category:/i, '')
-    .replace(/^publication_type:/i, '')
-    .replace(/^status:/i, '')
-    .replace(/^conference:/i, '')
-    .replace(/^task_categories:/i, '')
-    .replace(/[-_]+/g, ' ')
-    .trim()
-    .toLowerCase();
-}
-
-function titleCase(value) {
-  return String(value || '').replace(/\b\w/g, char => char.toUpperCase());
 }
 
 function truncateAuthors(value) {

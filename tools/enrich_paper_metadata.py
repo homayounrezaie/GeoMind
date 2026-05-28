@@ -16,7 +16,7 @@ DEFAULT_CSV = ROOT / "data" / "papers.csv"
 DEFAULT_CACHE = ROOT / ".cache" / "paper_metadata_cache.json"
 USER_AGENT = "GeoMind metadata enrichment (https://github.com/homayounrezaie/GeoMind)"
 ARXIV_NS = {"atom": "http://www.w3.org/2005/Atom"}
-NEW_COLUMNS = ["pdf_url", "arxiv_url", "github_url", "huggingface_url", "project_url", "abstract_source"]
+NEW_COLUMNS = ["pdf_url", "arxiv_url", "github_url", "huggingface_url", "project_url"]
 
 
 def main():
@@ -103,7 +103,7 @@ def normalize_links(rows):
         raw = raw_json(row)
         all_urls = collect_urls(row, raw)
 
-        arxiv = clean_arxiv_id(row.get("arxiv_id") or raw.get("arxiv_id"))
+        arxiv = clean_arxiv_id(row.get("arxiv_id") or row.get("arxiv_url") or raw.get("arxiv_id"))
         if not clean(row.get("arxiv_url")) and arxiv:
             row["arxiv_url"] = f"https://arxiv.org/abs/{arxiv}"
         if not clean(row.get("pdf_url")) and arxiv:
@@ -141,10 +141,10 @@ def collect_urls(row, raw):
 
 
 def enrich_from_arxiv(rows, cache, limit):
-    candidates = [row for row in rows if needs_abstract(row) and clean_arxiv_id(row.get("arxiv_id"))]
+    candidates = [row for row in rows if needs_abstract(row) and clean_arxiv_id(row.get("arxiv_id") or row.get("arxiv_url"))]
     if limit:
         candidates = candidates[:limit]
-    ids = [clean_arxiv_id(row.get("arxiv_id")) for row in candidates]
+    ids = [clean_arxiv_id(row.get("arxiv_id") or row.get("arxiv_url")) for row in candidates]
     missing_ids = [arxiv for arxiv in sorted(set(ids)) if arxiv not in cache["arxiv"]]
     print(f"arxiv: candidates={len(candidates)} uncached={len(missing_ids)}", flush=True)
 
@@ -159,7 +159,7 @@ def enrich_from_arxiv(rows, cache, limit):
 
     applied = 0
     for row in candidates:
-        arxiv = clean_arxiv_id(row.get("arxiv_id"))
+        arxiv = clean_arxiv_id(row.get("arxiv_id") or row.get("arxiv_url"))
         abstract = cache["arxiv"].get(arxiv, {}).get("abstract", "")
         if apply_abstract(row, abstract, "arxiv"):
             applied += 1
@@ -286,12 +286,11 @@ def apply_openalex_data(row, data):
     return applied
 
 
-def apply_abstract(row, abstract, source):
+def apply_abstract(row, abstract, _source):
     abstract = clean_abstract(abstract)
     if not abstract or not needs_abstract(row):
         return False
     row["abstract"] = abstract
-    row["abstract_source"] = source
     return True
 
 

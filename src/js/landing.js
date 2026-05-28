@@ -294,6 +294,8 @@ function initCapitalLights() {
   const labelTitle = label.querySelector('strong');
   const labelMeta = label.querySelector('span');
   let activeIndex = -1;
+  let shuffledOrder = [];
+  let shuffledCursor = 0;
   let timer = null;
 
   function mapDrawRect(rect) {
@@ -354,9 +356,27 @@ function initCapitalLights() {
     label.classList.add('is-ready');
   }
 
+  function reshuffleOrder() {
+    shuffledOrder = markers.map((_, index) => index);
+    for (let i = shuffledOrder.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledOrder[i], shuffledOrder[j]] = [shuffledOrder[j], shuffledOrder[i]];
+    }
+    if (shuffledOrder.length > 1 && shuffledOrder[0] === activeIndex) {
+      const swapIndex = 1 + Math.floor(Math.random() * (shuffledOrder.length - 1));
+      [shuffledOrder[0], shuffledOrder[swapIndex]] = [shuffledOrder[swapIndex], shuffledOrder[0]];
+    }
+    shuffledCursor = 0;
+  }
+
+  function nextRandomIndex() {
+    if (shuffledCursor >= shuffledOrder.length) reshuffleOrder();
+    return shuffledOrder[shuffledCursor++];
+  }
+
   function start() {
     if (reduceMotion || timer) return;
-    timer = window.setInterval(() => setActive(activeIndex + 1), 620);
+    timer = window.setInterval(() => setActive(nextRandomIndex()), 620);
   }
 
   function stop() {
@@ -377,7 +397,7 @@ function initCapitalLights() {
   });
 
   positionMarkers();
-  setActive(0);
+  setActive(nextRandomIndex());
   start();
 }
 
