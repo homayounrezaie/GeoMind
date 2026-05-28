@@ -796,37 +796,45 @@ nav,section,footer{position:relative;z-index:1}
   gap:2px;
   padding-left:18px;
 }
-.lp-terminal-row{
-  display:inline-flex;
-  align-items:center;
-  width:max-content;
-  max-width:100%;
-  padding:4px 10px;
-  margin-left:-10px;
-  border-radius:6px;
-  color:rgba(255,255,255,0.72);
-  font-size:14px;
-  text-decoration:none;
+.lp-terminal-comment{
+  display:block;
+  margin-bottom:8px;
+  color:rgba(255,255,255,0.36);
+  font-size:13px;
+  letter-spacing:0;
   opacity:0;
   transform:translateY(4px);
   animation:lpTerminalRowIn .42s cubic-bezier(0.16,1,0.3,1) forwards;
-  transition:background .15s, color .15s;
+}
+[data-theme="light"] .lp-terminal-comment{color:#8B8377}
+.lp-terminal-row{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  width:100%;
+  padding:3px 0;
+  color:rgba(255,255,255,0.78);
+  font-size:14px;
+  opacity:0;
+  transform:translateY(4px);
+  animation:lpTerminalRowIn .42s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 .lp-terminal-row::before{
   content:'  ';
-  margin-right:2px;
   color:#a5b4fc;
   white-space:pre;
 }
-.lp-terminal-row:hover,
-.lp-terminal-row:focus-visible{
-  background:rgba(129,140,248,0.1);
-  color:#fff;
-  outline:none;
+.lp-terminal-row-name{
+  color:rgba(255,255,255,0.86);
+  flex:0 0 auto;
 }
-.lp-terminal-row:hover::before,
-.lp-terminal-row:focus-visible::before{
-  content:'> ';
+.lp-terminal-row-count{
+  flex:1 1 auto;
+  color:rgba(255,255,255,0.34);
+  font-size:12.5px;
+  letter-spacing:.02em;
+  font-variant-numeric:tabular-nums;
+  text-align:right;
 }
 @keyframes lpTerminalRowIn{
   to{opacity:1;transform:translateY(0)}
@@ -911,11 +919,8 @@ nav,section,footer{position:relative;z-index:1}
 [data-theme="light"] .lp-terminal-prompt [data-terminal-cwd]{color:#3B33AB}
 [data-theme="light"] .lp-terminal-command{color:#1A1814}
 [data-theme="light"] .lp-terminal-row{color:#3A352D}
-[data-theme="light"] .lp-terminal-row:hover,
-[data-theme="light"] .lp-terminal-row:focus-visible{
-  background:rgba(79,70,229,0.1);
-  color:#1A1814;
-}
+[data-theme="light"] .lp-terminal-row-name{color:#1A1814}
+[data-theme="light"] .lp-terminal-row-count{color:#8B8377}
 [data-theme="light"] .lp-terminal-row::before{color:#4F46E5}
 [data-theme="light"] .lp-terminal-btn{
   color:#3A352D;

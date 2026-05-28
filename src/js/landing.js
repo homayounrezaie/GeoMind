@@ -2277,12 +2277,13 @@ function initPythonApi(onDone) {
   run();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   initCanvas();
   initMainCategories();
   initGeoLayerMap();
   initRadial();
   initFeatSwitcher();
+  await loadStats();
   initHeroStatsStream();
   initTerminalExplorer();
 });
@@ -2291,68 +2292,95 @@ const TERMINAL_FLOW = [
   {
     cwd: '~/main',
     command: 'ls',
+    comment: 'nine routes through the GeoAI landscape',
     output: [
-      { name: 'learn/',             href: 'pages/learn.html' },
-      { name: 'foundation-models/', href: 'pages/foundation-models.html' },
-      { name: 'techniques/',        href: 'pages/app.html#techniques' },
-      { name: 'tasks/',             href: 'pages/app.html#tasks' },
-      { name: 'stack/',             href: 'pages/app.html#stack' },
-      { name: 'papers/',            href: 'pages/paper-with-code.html' },
-      { name: 'datasets/',          href: 'pages/datasets.html' },
-      { name: 'companies/',         href: 'pages/companies.html' },
-      { name: 'jobs/',              href: 'pages/job-market.html' },
+      { name: 'learn/' },
+      { name: 'foundation-models/', statsKey: 'models' },
+      { name: 'techniques/' },
+      { name: 'tasks/' },
+      { name: 'stack/' },
+      { name: 'papers/',            statsKey: 'papers' },
+      { name: 'datasets/',          statsKey: 'datasets' },
+      { name: 'companies/',         statsKey: 'companies' },
+      { name: 'jobs/' },
     ],
   },
   {
     cwd: '~/main/learn',
     command: 'cd learn && ls',
+    comment: 'fundamentals for geospatial AI — concepts, sensors, math, methods',
     output: [
-      { name: 'geospatial/',        href: 'pages/learn.html#geospatial' },
-      { name: 'remote-sensing/',    href: 'pages/learn.html#remote-sensing' },
-      { name: 'statistics/',        href: 'pages/learn.html#statistics' },
-      { name: 'physics/',           href: 'pages/learn.html#physics' },
-      { name: 'machine-learning/',  href: 'pages/learn.html#machine-learning' },
-      { name: 'deep-learning/',     href: 'pages/learn.html#deep-learning' },
+      { name: 'geospatial/' },
+      { name: 'remote-sensing/' },
+      { name: 'statistics/' },
+      { name: 'physics/' },
+      { name: 'machine-learning/' },
+      { name: 'deep-learning/' },
     ],
   },
   {
     cwd: '~/main/tasks',
     command: 'cd tasks && ls',
+    comment: 'what GeoAI does — applications that turn pixels into decisions',
     output: [
-      { name: 'segmentation/',      href: 'pages/app.html#tasks-segmentation' },
-      { name: 'object-detection/',  href: 'pages/app.html#tasks-object-detection' },
-      { name: 'change-detection/',  href: 'pages/app.html#tasks-change-detection' },
-      { name: 'classification/',    href: 'pages/app.html#tasks-classification' },
-      { name: 'tracking/',          href: 'pages/app.html#tasks-tracking' },
-      { name: 'anomaly-detection/', href: 'pages/app.html#tasks-anomaly' },
+      { name: 'segmentation/' },
+      { name: 'object-detection/' },
+      { name: 'change-detection/' },
+      { name: 'classification/' },
+      { name: 'tracking/' },
+      { name: 'anomaly-detection/' },
     ],
   },
   {
     cwd: '~/main/foundation-models',
     command: 'cd foundation-models && ls',
+    comment: 'pre-trained backbones of modern GeoAI — VLMs, EO models, agents',
     output: [
-      { name: 'vlms/',              href: 'pages/foundation-models.html#vlms' },
-      { name: 'multimodal/',        href: 'pages/foundation-models.html#multimodal' },
-      { name: 'earth-observation/', href: 'pages/foundation-models.html#eo' },
-      { name: 'self-supervised/',   href: 'pages/foundation-models.html#ssl' },
-      { name: 'embeddings/',        href: 'pages/foundation-models.html#embeddings' },
-      { name: 'agents/',            href: 'pages/foundation-models.html#agents' },
+      { name: 'vlms/' },
+      { name: 'multimodal/' },
+      { name: 'earth-observation/' },
+      { name: 'self-supervised/' },
+      { name: 'embeddings/' },
+      { name: 'agents/' },
     ],
   },
   {
     cwd: '~/main/stack',
     command: 'cd stack && ls',
+    comment: 'the toolchain — libraries, databases, compute, deployment',
     output: [
-      { name: 'pytorch/',           href: 'pages/app.html#stack-pytorch' },
-      { name: 'gdal/',              href: 'pages/app.html#stack-gdal' },
-      { name: 'rasterio/',          href: 'pages/app.html#stack-rasterio' },
-      { name: 'postgis/',           href: 'pages/app.html#stack-postgis' },
-      { name: 'aws/',               href: 'pages/app.html#stack-aws' },
-      { name: 'docker/',            href: 'pages/app.html#stack-docker' },
-      { name: 'mlops/',             href: 'pages/app.html#stack-mlops' },
+      { name: 'pytorch/' },
+      { name: 'gdal/' },
+      { name: 'rasterio/' },
+      { name: 'postgis/' },
+      { name: 'aws/' },
+      { name: 'docker/' },
+      { name: 'mlops/' },
     ],
   },
 ];
+
+const STATS_DEFAULTS = { papers: 17409, models: 11090, datasets: 2790, companies: 4773 };
+let STATS = { ...STATS_DEFAULTS };
+let STATS_PROMISE = null;
+
+function loadStats() {
+  if (STATS_PROMISE) return STATS_PROMISE;
+  STATS_PROMISE = fetch('data/stats.json', { cache: 'no-cache' })
+    .then(response => (response.ok ? response.json() : null))
+    .then(data => {
+      if (data && typeof data === 'object') {
+        STATS = { ...STATS_DEFAULTS, ...data };
+      }
+      return STATS;
+    })
+    .catch(() => STATS);
+  return STATS_PROMISE;
+}
+
+function formatStat(value) {
+  return Number(value || 0).toLocaleString();
+}
 
 function initTerminalExplorer() {
   const root = document.querySelector('[data-terminal]');
@@ -2397,14 +2425,31 @@ function initTerminalExplorer() {
     return pausedByUser || pausedByHover;
   }
 
-  function setOutput(items) {
+  function setOutput(items, comment) {
     outputEl.innerHTML = '';
+    let cursor = 0;
+    if (comment) {
+      const note = document.createElement('span');
+      note.className = 'lp-terminal-comment';
+      note.textContent = `# ${comment}`;
+      note.style.animationDelay = '0ms';
+      outputEl.appendChild(note);
+      cursor = 1;
+    }
     items.forEach((item, index) => {
-      const row = document.createElement('a');
+      const row = document.createElement('span');
       row.className = 'lp-terminal-row';
-      row.href = item.href;
-      row.textContent = item.name;
-      row.style.animationDelay = reduceMotion ? '0ms' : `${index * outputStagger}ms`;
+      const name = document.createElement('span');
+      name.className = 'lp-terminal-row-name';
+      name.textContent = item.name;
+      row.appendChild(name);
+      if (item.statsKey && STATS[item.statsKey] != null) {
+        const count = document.createElement('span');
+        count.className = 'lp-terminal-row-count';
+        count.textContent = `${formatStat(STATS[item.statsKey])} entries`;
+        row.appendChild(count);
+      }
+      row.style.animationDelay = reduceMotion ? '0ms' : `${(index + cursor) * outputStagger}ms`;
       outputEl.appendChild(row);
     });
   }
@@ -2447,7 +2492,7 @@ function initTerminalExplorer() {
     typeCommand(step.command, () => {
       screen.classList.remove('is-typing');
       const t = window.setTimeout(() => {
-        setOutput(step.output);
+        setOutput(step.output, step.comment);
         scheduleNext();
       }, preOutputBeat);
       typingTimers.push(t);
@@ -2493,8 +2538,11 @@ function initHeroStatsStream() {
   if (!el || el.dataset.streamed === 'true') return;
   el.dataset.streamed = 'true';
 
-  const fullText = (el.dataset.streamText || el.textContent || '').trim();
+  const fromStats = `${formatStat(STATS.papers)} papers · ${formatStat(STATS.models)} models · ${formatStat(STATS.datasets)} datasets · ${formatStat(STATS.companies)} companies`;
+  const fallback = (el.dataset.streamText || el.textContent || '').trim();
+  const fullText = fromStats || fallback;
   if (!fullText) return;
+  el.setAttribute('aria-label', fullText);
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) {
