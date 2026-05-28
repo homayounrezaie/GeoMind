@@ -146,8 +146,8 @@ nav,section,footer{position:relative;z-index:1}
 .lp-hero{
   position:relative;
   min-height:calc(88vh - 72px);
-  display:flex;align-items:center;justify-content:center;
-  padding:var(--s-7) var(--s-4);
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:var(--s-7) var(--s-4) clamp(18px,4vh,40px);
   overflow:hidden;
 }
 .lp-hero-bg{
@@ -294,9 +294,10 @@ nav,section,footer{position:relative;z-index:1}
 .lp-hero-proof{
   display:flex;
   flex-wrap:wrap;
+  justify-content:center;
   gap:var(--s-1) 12px;
   max-width:680px;
-  margin-bottom:var(--s-4);
+  margin:0 auto;
   color:rgba(255,255,255,0.42);
   font-family:'SF Mono','Menlo',monospace;
   font-size:var(--t-meta);
