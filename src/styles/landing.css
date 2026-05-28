@@ -3837,6 +3837,62 @@ a.lp-terminal-row.is-link:focus-visible::before{
   box-shadow:0 10px 24px rgba(26,24,20,0.08);
 }
 
+/* Newsletter card */
+[data-theme="light"] .lp-nl-simple{
+  color:#3A352D;
+}
+[data-theme="light"] .lp-nl-terminal{
+  border-bottom-color:#E4DFD4;
+}
+[data-theme="light"] .lp-nl-terminal:focus-within{
+  border-bottom-color:rgba(79,70,229,0.5);
+}
+[data-theme="light"] .lp-nl-prompt{
+  color:#4F46E5;
+}
+[data-theme="light"] .lp-nl-input::placeholder{
+  color:#B5AC9A;
+}
+[data-theme="light"] .lp-nl-meta{
+  color:#8B8377;
+}
+[data-theme="light"] .lp-nl-btn{
+  background:#4F46E5;
+  color:#FFFFFF;
+}
+[data-theme="light"] .lp-nl-btn:hover{
+  background:#3B33AB;
+}
+[data-theme="light"] .lp-nl-cursor{
+  background:#4F46E5;
+}
+
+/* Footer Contact form */
+[data-theme="light"] .lp-footer-input{
+  background:#FFFFFF;
+  border-color:#E4DFD4;
+  color:#1A1814;
+}
+[data-theme="light"] .lp-footer-input::placeholder{
+  color:#B5AC9A;
+}
+[data-theme="light"] .lp-footer-input:focus{
+  border-color:rgba(79,70,229,0.6);
+}
+
+/* Footer social icons */
+[data-theme="light"] .lp-footer-social{
+  background:rgba(26,24,20,0.05);
+  border-color:#E4DFD4;
+}
+[data-theme="light"] .lp-footer-social:hover{
+  background:rgba(26,24,20,0.1);
+}
+[data-theme="light"] .lp-footer-social[title="GitHub"],
+[data-theme="light"] .lp-footer-social[title="X"]{
+  color:#1A1814;
+}
+
 /* Story "Every new paper has a place." section */
 [data-theme="light"] .lp-paper-item{
   color:#1A1814;
