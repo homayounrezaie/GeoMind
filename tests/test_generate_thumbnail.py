@@ -1,5 +1,7 @@
+import csv
 import io
 import os
+import tempfile
 import unittest
 from unittest import mock
 
@@ -150,6 +152,21 @@ class GenerateThumbnailTests(unittest.TestCase):
         self.assertEqual(storage.uploads, [])
         self.assertEqual(store.row["thumbnail_status"], "ready")
         self.assertEqual(store.row["thumbnail_url"], url)
+
+    def test_csv_store_adds_thumbnail_columns_when_missing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "papers.csv")
+            with open(path, "w", encoding="utf-8", newline="") as handle:
+                handle.write("id,title\npaper_5,Paper Five\n")
+
+            store = worker.CsvPaperStore(path)
+            store.update_thumbnail("paper_5", thumbnail_url="https://cdn.example.test/thumb.webp", thumbnail_status="ready")
+
+            with open(path, encoding="utf-8", newline="") as handle:
+                rows = list(csv.DictReader(handle))
+
+        self.assertEqual(rows[0]["thumbnail_url"], "https://cdn.example.test/thumb.webp")
+        self.assertEqual(rows[0]["thumbnail_status"], "ready")
 
 
 if __name__ == "__main__":

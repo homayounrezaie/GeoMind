@@ -7,6 +7,7 @@ thumbnails/{paper_id}.webp
 ```
 
 The public URL is written back to the paper row as `thumbnail_url`, with `thumbnail_status` set to `pending`, `ready`, or `failed`.
+Because GeoMind is currently deployed as a static site, generated CSV changes must be committed and pushed, or replaced with a real database/API before deploy.
 
 ## Logic
 

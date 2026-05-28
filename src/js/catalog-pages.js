@@ -889,7 +889,8 @@ function paperWebsiteUrl(row, primaryUrl) {
 }
 
 function paperThumbnailUrl(row) {
-  return row.thumbnail_url || rawPaper(row).thumbnail_url || '';
+  const raw = rawPaper(row);
+  return row.thumbnail_url || row.thumbnail || raw.thumbnail_url || raw.thumbnail || raw.image_url || '';
 }
 
 function githubRepoName(url) {
