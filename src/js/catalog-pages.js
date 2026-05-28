@@ -78,6 +78,9 @@ const paperPreviewQueue = [];
 const PAPER_PREVIEW_CONCURRENCY = 2;
 let paperPreviewObserver = null;
 let paperPreviewActive = 0;
+let paperPreviewModal = null;
+let paperPreviewReturnFocus = null;
+let paperPreviewModalRequest = 0;
 let pdfjsPromise = null;
 let paperPreviewManifestPromise = null;
 
@@ -155,6 +158,20 @@ async function init(cfg) {
     state.page = Number(button.dataset.page);
     renderList(cfg, els);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  els.list.addEventListener('click', event => {
+    const preview = event.target.closest('[data-preview-zoom]');
+    if (!preview) return;
+    openPaperPreviewModal(preview);
+  });
+
+  els.list.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    const preview = event.target.closest('[data-preview-zoom]');
+    if (!preview) return;
+    event.preventDefault();
+    openPaperPreviewModal(preview);
   });
 }
 
@@ -260,12 +277,16 @@ function renderPaperItem(cfg, row) {
   const citationPace = paperCitationPace(row, citationCount);
   const source = row.venue || row.discovered_via || 'Paper';
   const actions = paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code });
-  const staticPreview = paperPreviewPath(row);
+  const staticPreview = pdfUrl ? paperPreviewPath(row) : '';
+  const canPreview = Boolean(pdfUrl || staticPreview);
+  const previewAttrs = canPreview
+    ? `role="button" tabindex="0" data-preview-zoom data-preview-title="${escapeAttr(title)}" aria-label="Open first page preview for ${escapeAttr(title)}"`
+    : 'aria-hidden="true"';
 
   return `
     <article class="research-item">
-      <div class="research-paper-mark ${pdfUrl || staticPreview ? 'has-pdf-preview' : ''}" ${pdfUrl ? `data-pdf-preview="${escapeAttr(pdfUrl)}"` : ''} ${staticPreview ? `data-static-preview="${escapeAttr(staticPreview)}" data-paper-id="${escapeAttr(row.id)}"` : ''} aria-hidden="true">
-        ${pdfUrl || staticPreview ? '<div class="research-paper-preview"><img class="research-paper-image" alt="" decoding="async"><canvas class="research-paper-canvas"></canvas></div>' : ''}
+      <div class="research-paper-mark ${canPreview ? 'has-pdf-preview' : ''}" ${pdfUrl ? `data-pdf-preview="${escapeAttr(pdfUrl)}"` : ''} ${staticPreview ? `data-static-preview="${escapeAttr(staticPreview)}" data-paper-id="${escapeAttr(row.id)}"` : ''} ${previewAttrs}>
+        ${canPreview ? '<div class="research-paper-preview"><img class="research-paper-image" alt="" decoding="async"><canvas class="research-paper-canvas"></canvas></div>' : ''}
         <div class="research-paper-fallback">
           <span class="research-paper-year">${escapeHtml(String(year).slice(0, 4))}</span>
           <b>${escapeHtml(truncate(source, 18))}</b>
@@ -351,62 +372,21 @@ async function renderPaperPreview(element) {
   if (await renderStaticPaperPreview(element)) return;
   if (!url) return;
 
-  let loadingTask = null;
-  let pdf = null;
-  let rendered = false;
-
   try {
     element.dataset.previewState = 'loading';
     element.classList.add('is-loading');
-    const pdfjs = await loadPdfJs();
-    loadingTask = pdfjs.getDocument({
-      url,
-      withCredentials: false,
-      stopAtErrors: false,
-    });
-    pdf = await loadingTask.promise;
-    const firstPage = await pdf.getPage(1);
-    if (!element.isConnected) return;
-
     const canvas = element.querySelector('.research-paper-canvas');
     if (!canvas) return;
-    const box = element.getBoundingClientRect();
-    const baseViewport = firstPage.getViewport({ scale: 1 });
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const scale = Math.min(box.width / baseViewport.width, box.height / baseViewport.height) * dpr;
-    const viewport = firstPage.getViewport({ scale });
-    const cssWidth = viewport.width / dpr;
-    const cssHeight = viewport.height / dpr;
-
-    canvas.width = Math.ceil(viewport.width);
-    canvas.height = Math.ceil(viewport.height);
-    canvas.style.width = `${cssWidth}px`;
-    canvas.style.height = `${cssHeight}px`;
-
-    const context = canvas.getContext('2d', { alpha: false });
-    context.fillStyle = '#fff';
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    await firstPage.render({ canvasContext: context, viewport }).promise;
+    await renderPdfFirstPageToCanvas(url, canvas, element.getBoundingClientRect());
     if (!element.isConnected) return;
     element.dataset.previewState = 'rendered';
     element.classList.remove('is-loading');
     element.classList.add('is-rendered');
-    rendered = true;
   } catch (error) {
     element.dataset.previewState = 'error';
     element.classList.remove('is-loading');
     element.classList.add('is-error');
     console.debug('Paper preview failed', url, error);
-  } finally {
-    try {
-      if (rendered) {
-        await pdf?.cleanup?.();
-      } else {
-        await loadingTask?.destroy?.();
-      }
-    } catch {
-      // Best-effort cleanup only.
-    }
   }
 }
 
@@ -414,11 +394,13 @@ async function renderStaticPaperPreview(element) {
   const id = element.dataset.paperId;
   const src = element.dataset.staticPreview;
   if (!id || !src) return false;
+  const image = element.querySelector('.research-paper-image');
+  if (element.classList.contains('has-static-preview') && image?.currentSrc) return true;
+
   const manifest = await loadPaperPreviewManifest();
   if (!manifest.has(id)) return false;
 
   return new Promise(resolve => {
-    const image = element.querySelector('.research-paper-image');
     if (!image) {
       resolve(false);
       return;
@@ -444,6 +426,50 @@ async function loadPaperPreviewManifest() {
   return paperPreviewManifestPromise;
 }
 
+async function renderPdfFirstPageToCanvas(url, canvas, box) {
+  let loadingTask = null;
+  let pdf = null;
+  let rendered = false;
+
+  try {
+    const pdfjs = await loadPdfJs();
+    loadingTask = pdfjs.getDocument({
+      url,
+      withCredentials: false,
+      stopAtErrors: false,
+    });
+    pdf = await loadingTask.promise;
+    const firstPage = await pdf.getPage(1);
+    const baseViewport = firstPage.getViewport({ scale: 1 });
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const scale = Math.min(box.width / baseViewport.width, box.height / baseViewport.height) * dpr;
+    const viewport = firstPage.getViewport({ scale });
+    const cssWidth = viewport.width / dpr;
+    const cssHeight = viewport.height / dpr;
+
+    canvas.width = Math.ceil(viewport.width);
+    canvas.height = Math.ceil(viewport.height);
+    canvas.style.width = `${cssWidth}px`;
+    canvas.style.height = `${cssHeight}px`;
+
+    const context = canvas.getContext('2d', { alpha: false });
+    context.fillStyle = '#fff';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    await firstPage.render({ canvasContext: context, viewport }).promise;
+    rendered = true;
+  } finally {
+    try {
+      if (rendered) {
+        await pdf?.cleanup?.();
+      } else {
+        await loadingTask?.destroy?.();
+      }
+    } catch {
+      // Best-effort cleanup only.
+    }
+  }
+}
+
 async function loadPdfJs() {
   if (!pdfjsPromise) {
     pdfjsPromise = Promise.all([
@@ -455,6 +481,99 @@ async function loadPdfJs() {
     });
   }
   return pdfjsPromise;
+}
+
+function ensurePaperPreviewModal() {
+  if (paperPreviewModal) return paperPreviewModal;
+
+  const modal = document.createElement('div');
+  modal.className = 'research-preview-modal';
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="research-preview-backdrop" data-preview-close></div>
+    <div class="research-preview-dialog" role="dialog" aria-modal="true" aria-label="Paper first page preview">
+      <button type="button" class="research-preview-close" data-preview-close aria-label="Close preview">${iconSvg('close')}</button>
+      <div class="research-preview-head">
+        <span>First page</span>
+        <strong data-preview-modal-title></strong>
+      </div>
+      <div class="research-preview-stage">
+        <img class="research-preview-image" alt="">
+        <canvas class="research-preview-canvas"></canvas>
+        <div class="research-preview-loading">Loading preview</div>
+        <div class="research-preview-error">Preview unavailable</div>
+      </div>
+    </div>
+  `;
+  modal.addEventListener('click', event => {
+    if (event.target.closest('[data-preview-close]')) closePaperPreviewModal();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !modal.hidden) closePaperPreviewModal();
+  });
+  document.body.append(modal);
+  paperPreviewModal = modal;
+  return modal;
+}
+
+async function openPaperPreviewModal(source) {
+  const modal = ensurePaperPreviewModal();
+  const requestId = ++paperPreviewModalRequest;
+  const title = source.dataset.previewTitle || 'Paper';
+  const url = source.dataset.pdfPreview || '';
+  const titleTarget = modal.querySelector('[data-preview-modal-title]');
+  const image = modal.querySelector('.research-preview-image');
+  const canvas = modal.querySelector('.research-preview-canvas');
+  const stage = modal.querySelector('.research-preview-stage');
+
+  paperPreviewReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  if (titleTarget) titleTarget.textContent = title;
+  modal.hidden = false;
+  modal.classList.remove('is-rendered', 'is-error', 'is-image', 'is-canvas');
+  modal.classList.add('is-open', 'is-loading');
+  document.body.classList.add('has-research-preview-modal');
+  canvas.removeAttribute('style');
+  canvas.width = 0;
+  canvas.height = 0;
+  image.removeAttribute('src');
+  image.alt = title;
+  modal.querySelector('.research-preview-close')?.focus({ preventScroll: true });
+
+  try {
+    await renderStaticPaperPreview(source);
+    const staticImage = source.classList.contains('has-static-preview')
+      ? source.querySelector('.research-paper-image')
+      : null;
+    if (staticImage?.currentSrc) {
+      image.src = staticImage.currentSrc;
+      await image.decode().catch(() => {});
+      if (modal.hidden || requestId !== paperPreviewModalRequest) return;
+      modal.classList.remove('is-loading');
+      modal.classList.add('is-rendered', 'is-image');
+      return;
+    }
+
+    if (!url) throw new Error('No PDF URL available');
+    await renderPdfFirstPageToCanvas(url, canvas, stage.getBoundingClientRect());
+    if (modal.hidden || requestId !== paperPreviewModalRequest) return;
+    modal.classList.remove('is-loading');
+    modal.classList.add('is-rendered', 'is-canvas');
+  } catch (error) {
+    console.debug('Full paper preview failed', url, error);
+    if (modal.hidden || requestId !== paperPreviewModalRequest) return;
+    modal.classList.remove('is-loading');
+    modal.classList.add('is-error');
+  }
+}
+
+function closePaperPreviewModal() {
+  if (!paperPreviewModal) return;
+  paperPreviewModalRequest += 1;
+  paperPreviewModal.hidden = true;
+  paperPreviewModal.classList.remove('is-open', 'is-loading', 'is-rendered', 'is-error', 'is-image', 'is-canvas');
+  document.body.classList.remove('has-research-preview-modal');
+  paperPreviewReturnFocus?.focus?.({ preventScroll: true });
+  paperPreviewReturnFocus = null;
 }
 
 function hydrateGithubStats(root) {
@@ -536,6 +655,7 @@ function iconSvg(name) {
     huggingface: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9.5a2 2 0 1 1 4 0m3 0a2 2 0 1 1 4 0M7 14c1.4 1.5 3 2.2 5 2.2s3.6-.7 5-2.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
     database: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="7" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 5v10c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 10c0 1.7 3.1 3 7 3s7-1.3 7-3" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
     box: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm0 9 8-4.5M12 12 4 7.5M12 12v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',
+    close: '<svg class="research-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
   };
   return icons[name] || '';
 }
