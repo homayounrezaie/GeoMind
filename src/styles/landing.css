@@ -2657,15 +2657,18 @@ a.lp-terminal-row.is-link:focus-visible::before{
 .lp-footer-social{
   display:flex;align-items:center;justify-content:center;
   width:32px;height:32px;border-radius:8px;
-  background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.1);
-  text-decoration:none;opacity:0.85;
-  transition:opacity 0.15s,transform 0.15s;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.62);
+  text-decoration:none;
+  transition:background .15s, border-color .15s, color .15s, transform .15s;
 }
-.lp-footer-social:hover{opacity:1;transform:translateY(-2px)}
-.lp-footer-social[title="GitHub"]{color:#fff}
-.lp-footer-social[title="X"]{color:#fff}
-.lp-footer-social[title="Email"]{color:#EA4335}
-.lp-footer-social[title="LinkedIn"]{color:#0A66C2}
+.lp-footer-social:hover{
+  background:rgba(129,140,248,0.12);
+  border-color:rgba(129,140,248,0.4);
+  color:#fff;
+  transform:translateY(-1px);
+}
 .lp-footer-bottom{
   display:flex;justify-content:space-between;align-items:center;
   padding:var(--s-2) var(--s-5);
@@ -4079,14 +4082,13 @@ a.lp-terminal-row.is-link:focus-visible::before{
 
 /* Footer social icons */
 [data-theme="light"] .lp-footer-social{
-  background:rgba(26,24,20,0.05);
+  background:rgba(26,24,20,0.04);
   border-color:#E4DFD4;
+  color:#5A554C;
 }
 [data-theme="light"] .lp-footer-social:hover{
-  background:rgba(26,24,20,0.1);
-}
-[data-theme="light"] .lp-footer-social[title="GitHub"],
-[data-theme="light"] .lp-footer-social[title="X"]{
+  background:rgba(79,70,229,0.1);
+  border-color:rgba(79,70,229,0.42);
   color:#1A1814;
 }
 
