@@ -334,9 +334,9 @@ const GEO_LAYER_DATA = [
       { name: 'Onboard Satellite Classification', lat: 49.61, lon: 6.13 },
       { name: 'SenPa-MAE', lat: 48.14, lon: 11.58 },
       { name: 'FG-MAE', lat: 48.14, lon: 11.58 },
-      { name: 'EarthGPT', lat: 30.59, lon: 114.3 },
+      { name: 'EarthGPT', lat: 24.59, lon: 112.3 },
       { name: 'UrbanLLaVA', lat: 39.9, lon: 116.4 },
-      { name: 'ChatEarthBench', lat: 31.23, lon: 121.47 },
+      { name: 'ChatEarthBench', lat: 34.23, lon: 123.47 },
     ],
   },
   {
@@ -344,11 +344,11 @@ const GEO_LAYER_DATA = [
     label: 'datasets',
     color: '#22C55E',
     items: [
-      { name: 'Core-VIIRS-Nighttime-Light', lat: 0, lon: 0 },
+      { name: 'Core-VIIRS-Nighttime-Light', lat: -16, lon: -35 },
       { name: 'GROC', lat: 52.37, lon: 4.9 },
       { name: 'sapnhap-bando-vn', lat: 21.03, lon: 105.85 },
       { name: 'EarthVLSet', lat: 30.59, lon: 114.3 },
-      { name: 'Core-AlphaEarth-Embeddings', lat: 0, lon: 24 },
+      { name: 'Core-AlphaEarth-Embeddings', lat: 18, lon: -62 },
       { name: 'pangaea2-vhr', lat: 18, lon: -14 },
       { name: 'vietnam-real-estates', lat: 10.82, lon: 106.63 },
       { name: 'CropClimateX', lat: 39.83, lon: -98.58 },
@@ -356,7 +356,7 @@ const GEO_LAYER_DATA = [
       { name: 'EuroSAT', lat: 50.11, lon: 8.68 },
       { name: 'Core-DEM', lat: -18, lon: 32 },
       { name: 'China Building Footprints', lat: 39.9, lon: 116.4 },
-      { name: 'COP-GEN-Benchmark', lat: 12, lon: 18 },
+      { name: 'COP-GEN-Benchmark', lat: -20, lon: 82 },
       { name: 'SWIFTT bark beetle', lat: 48.2, lon: 16.37 },
       { name: 'Project NOAH Hazard Maps', lat: 14.6, lon: 121.0 },
       { name: 'LUCAS-MEGA', lat: 50.85, lon: 4.35 },
@@ -366,7 +366,7 @@ const GEO_LAYER_DATA = [
       { name: 'Africa FAOSTAT Land Cover', lat: -1.29, lon: 36.82 },
       { name: 'Cambodia flood response', lat: 11.56, lon: 104.92 },
       { name: 'UNOSAT Vietnam Cyclone YAGI', lat: 21.03, lon: 105.85 },
-      { name: 'Somalia drought response', lat: 2.05, lon: 45.32 },
+      { name: 'Somalia drought response', lat: -8.95, lon: 45.32 },
       { name: 'South Sudan flood locations', lat: 4.85, lon: 31.62 },
       { name: 'Delhi Sentinel-2', lat: 28.61, lon: 77.2 },
     ],
@@ -407,22 +407,26 @@ const GEO_LAYER_DATA = [
 
 const GEO_MARKER_OFFSETS = [
   [0, 0],
-  [0, -26],
-  [0, 26],
-  [58, 0],
-  [-58, 0],
-  [58, -26],
-  [-58, 26],
-  [58, 26],
-  [-58, -26],
-  [0, -52],
-  [0, 52],
-  [116, 0],
-  [-116, 0],
-  [116, -26],
-  [-116, 26],
-  [116, 26],
-  [-116, -26],
+  [0, -34],
+  [0, 34],
+  [76, 0],
+  [-76, 0],
+  [76, -34],
+  [-76, 34],
+  [76, 34],
+  [-76, -34],
+  [0, -68],
+  [0, 68],
+  [152, 0],
+  [-152, 0],
+  [152, -34],
+  [-152, 34],
+  [152, 34],
+  [-152, -34],
+  [76, -68],
+  [-76, 68],
+  [76, 68],
+  [-76, -68],
 ];
 
 function initGeoLayerMap() {
@@ -440,12 +444,13 @@ function initGeoLayerMap() {
   function mapDrawRect(rect) {
     const sourceRatio = 2;
     const isMobile = window.matchMedia('(max-width: 860px)').matches;
+    const yShift = rect.height * (isMobile ? 0.09 : 0.07);
     if (isMobile) {
       const drawHeight = rect.height * 0.86;
       const drawWidth = drawHeight * sourceRatio;
       return {
         x: (rect.width - drawWidth) / 2,
-        y: (rect.height - drawHeight) / 2,
+        y: (rect.height - drawHeight) / 2 + yShift,
         width: drawWidth,
         height: drawHeight,
       };
@@ -455,12 +460,12 @@ function initGeoLayerMap() {
     if (rectRatio > sourceRatio) {
       const drawWidth = rect.width;
       const drawHeight = drawWidth / sourceRatio;
-      return { x: 0, y: (rect.height - drawHeight) / 2, width: drawWidth, height: drawHeight };
+      return { x: 0, y: (rect.height - drawHeight) / 2 + yShift, width: drawWidth, height: drawHeight };
     }
 
     const drawHeight = rect.height;
     const drawWidth = drawHeight * sourceRatio;
-    return { x: (rect.width - drawWidth) / 2, y: 0, width: drawWidth, height: drawHeight };
+    return { x: (rect.width - drawWidth) / 2, y: yShift, width: drawWidth, height: drawHeight };
   }
 
   function project(marker, draw) {
@@ -482,6 +487,81 @@ function initGeoLayerMap() {
     marker.el.classList.toggle('is-below', p.y < rect.height * 0.28);
     marker.el.classList.toggle('is-above', p.y > rect.height * 0.72);
     marker.el.classList.toggle('is-pinched', index % 4 === 0);
+  }
+
+  function estimateLabel(entry, isMobile) {
+    const maxWidth = entry.marker.el.closest('[data-layer="companies"]') ? 178 : 168;
+    const width = Math.min(isMobile ? 86 : maxWidth, Math.max(isMobile ? 54 : 70, entry.marker.name.length * (isMobile ? 5.1 : 6.3) + 20));
+    return { width, height: isMobile ? 17 : 21 };
+  }
+
+  function labelBox(entry, p, rect, isMobile) {
+    const { width, height } = entry.metrics || estimateLabel(entry, isMobile);
+    let left = p.x + 10;
+    let top = p.y - height / 2;
+
+    if (p.x > rect.width * 0.68) {
+      left = p.x - 10 - width;
+    } else if (p.y < rect.height * 0.28) {
+      left = p.x - width / 2;
+      top = p.y + 10;
+    } else if (p.y > rect.height * 0.72) {
+      left = p.x - width / 2;
+      top = p.y - height - 10;
+    }
+
+    return { left, right: left + width, top, bottom: top + height, width, height };
+  }
+
+  function boxesOverlap(a, b) {
+    const gap = 5;
+    return a.left < b.right + gap && a.right + gap > b.left && a.top < b.bottom + gap && a.bottom + gap > b.top;
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function keepLabelInBounds(entry, rect, isMobile, xMin, xMax, yMin, yMax) {
+    let box = labelBox(entry, entry.p, rect, isMobile);
+    if (box.left < 6) entry.p.x = clamp(entry.p.x + (6 - box.left), xMin, xMax);
+    if (box.right > rect.width - 6) entry.p.x = clamp(entry.p.x - (box.right - rect.width + 6), xMin, xMax);
+    if (box.top < 6) entry.p.y = clamp(entry.p.y + (6 - box.top), yMin, yMax);
+    if (box.bottom > rect.height - 6) entry.p.y = clamp(entry.p.y - (box.bottom - rect.height + 6), yMin, yMax);
+    entry.box = labelBox(entry, entry.p, rect, isMobile);
+  }
+
+  function resolveLabelCollisions(entries, rect, isMobile, mobileClamp) {
+    const xMin = mobileClamp;
+    const xMax = rect.width - mobileClamp;
+    const yMin = 24;
+    const yMax = rect.height - 46;
+
+    entries.forEach(entry => {
+      entry.metrics = estimateLabel(entry, isMobile);
+      keepLabelInBounds(entry, rect, isMobile, xMin, xMax, yMin, yMax);
+    });
+
+    for (let pass = 0; pass < 16; pass += 1) {
+      let moved = false;
+      for (let i = 0; i < entries.length; i += 1) {
+        for (let j = i + 1; j < entries.length; j += 1) {
+          const a = entries[i];
+          const b = entries[j];
+          if (!boxesOverlap(a.box, b.box)) continue;
+
+          const yDirection = b.p.y >= a.p.y ? 1 : -1;
+          const xDirection = b.p.x >= a.p.x ? 1 : -1;
+          const yPush = isMobile ? 18 : 24;
+          const xPush = isMobile ? 16 : 24;
+          b.p.y = clamp(b.p.y + yPush * yDirection, yMin, yMax);
+          b.p.x = clamp(b.p.x + xPush * xDirection, xMin, xMax);
+          keepLabelInBounds(b, rect, isMobile, xMin, xMax, yMin, yMax);
+          moved = true;
+        }
+      }
+      if (!moved) break;
+    }
   }
 
   function positionMarkers() {
@@ -506,12 +586,37 @@ function initGeoLayerMap() {
     projected.forEach(entry => {
       const offset = GEO_MARKER_OFFSETS[entry.clusterIndex % GEO_MARKER_OFFSETS.length];
       const scale = isMobile ? 0.62 : 1;
-      const p = {
+      entry.p = {
         x: Math.min(Math.max(entry.p.x + offset[0] * scale, mobileClamp), rect.width - mobileClamp),
         y: Math.min(Math.max(entry.p.y + offset[1] * scale, 28), rect.height - 42),
       };
-      setMarkerPlacement(entry.marker, p, rect, entry.index);
     });
+
+    if (isMobile) {
+      const lanes = [[], []];
+      [...projected]
+        .sort((a, b) => a.p.y - b.p.y || a.p.x - b.p.x)
+        .forEach((entry, index) => lanes[index % 2].push(entry));
+      lanes.forEach((lane, laneIndex) => {
+        lane.sort((a, b) => a.p.y - b.p.y || a.p.x - b.p.x);
+        const yStart = rect.height * 0.17;
+        const yEnd = rect.height * 0.79;
+        const step = lane.length > 1 ? (yEnd - yStart) / (lane.length - 1) : 0;
+        const viewportLeft = laneIndex === 0 ? 190 : 292;
+        const xAnchor = laneIndex === 1
+          ? viewportLeft + 86 + 10 - rect.left
+          : viewportLeft - rect.left - 10;
+        lane.forEach((entry, index) => {
+          entry.p.x = clamp(xAnchor, mobileClamp, rect.width - mobileClamp);
+          entry.p.y = clamp(yStart + step * index, 24, rect.height - 46);
+        });
+      });
+      projected.forEach(entry => setMarkerPlacement(entry.marker, entry.p, rect, entry.index));
+      return;
+    }
+
+    resolveLabelCollisions(projected, rect, isMobile, mobileClamp);
+    projected.forEach(entry => setMarkerPlacement(entry.marker, entry.p, rect, entry.index));
   }
 
   function updateIndex(layer) {
