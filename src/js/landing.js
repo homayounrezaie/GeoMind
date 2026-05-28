@@ -649,8 +649,14 @@ function initDatasetQuery() {
       <span class="lp-ds-row-span">${escHtml(item.span)}</span>
     </div>`;
     const thumbs = `<div class="lp-ds-row-thumbs">
-      <img src="${escAttr(item.a)}" alt="${escAttr(item.altA || item.name)}" loading="lazy" decoding="async">
-      <img src="${escAttr(item.b)}" alt="${escAttr(item.altB || item.name)}" loading="lazy" decoding="async">
+      <figure>
+        <img src="${escAttr(item.a)}" alt="${escAttr(item.altA || item.name)}" loading="lazy" decoding="async">
+        <figcaption>${escHtml(item.altA || '')}</figcaption>
+      </figure>
+      <figure>
+        <img src="${escAttr(item.b)}" alt="${escAttr(item.altB || item.name)}" loading="lazy" decoding="async">
+        <figcaption>${escHtml(item.altB || '')}</figcaption>
+      </figure>
     </div>`;
     const meta = `<dl class="lp-ds-row-meta">${item.meta.map(([k, v]) => `
       <div><dt>${escHtml(k)}</dt><dd>${escHtml(v)}</dd></div>
