@@ -2294,21 +2294,21 @@ const TERMINAL_FLOW = [
     command: 'ls',
     comment: 'nine routes through the GeoAI landscape',
     output: [
-      { name: 'learn/' },
-      { name: 'foundation-models/', statsKey: 'models' },
-      { name: 'techniques/' },
-      { name: 'tasks/' },
-      { name: 'stack/' },
-      { name: 'papers/',            statsKey: 'papers' },
-      { name: 'datasets/',          statsKey: 'datasets' },
-      { name: 'companies/',         statsKey: 'companies' },
-      { name: 'jobs/' },
+      { name: 'learn/',             href: 'pages/learn.html' },
+      { name: 'foundation-models/', href: 'pages/foundation-models.html', statsKey: 'models' },
+      { name: 'techniques/',        href: 'pages/app.html#techniques',    statsKey: 'techniques' },
+      { name: 'tasks/',             href: 'pages/app.html#tasks',         statsKey: 'tasks' },
+      { name: 'stack/',             href: 'pages/app.html#stack' },
+      { name: 'papers/',            href: 'pages/paper-with-code.html',   statsKey: 'papers' },
+      { name: 'datasets/',          href: 'pages/datasets.html',          statsKey: 'datasets' },
+      { name: 'companies/',         href: 'pages/companies.html',         statsKey: 'companies' },
+      { name: 'jobs/',              href: 'pages/job-market.html' },
     ],
   },
   {
     cwd: '~/main/learn',
     command: 'cd learn && ls',
-    comment: 'fundamentals for geospatial AI — concepts, sensors, math, methods',
+    comment: 'these topics are fundamentals to go deeper in GeoAI',
     output: [
       { name: 'geospatial/' },
       { name: 'remote-sensing/' },
@@ -2319,30 +2319,25 @@ const TERMINAL_FLOW = [
     ],
   },
   {
-    cwd: '~/main/tasks',
-    command: 'cd tasks && ls',
-    comment: 'what GeoAI does — applications that turn pixels into decisions',
-    output: [
-      { name: 'segmentation/' },
-      { name: 'object-detection/' },
-      { name: 'change-detection/' },
-      { name: 'classification/' },
-      { name: 'tracking/' },
-      { name: 'anomaly-detection/' },
-    ],
-  },
-  {
     cwd: '~/main/foundation-models',
     command: 'cd foundation-models && ls',
-    comment: 'pre-trained backbones of modern GeoAI — VLMs, EO models, agents',
-    output: [
-      { name: 'vlms/' },
-      { name: 'multimodal/' },
-      { name: 'earth-observation/' },
-      { name: 'self-supervised/' },
-      { name: 'embeddings/' },
-      { name: 'agents/' },
-    ],
+    dynamicSource: 'models',
+    countKey: 'models',
+    commentTemplate: 'top 10 of {count} models — most cited',
+  },
+  {
+    cwd: '~/main/techniques',
+    command: 'cd techniques && ls',
+    dynamicSource: 'techniques',
+    countKey: 'techniques',
+    commentTemplate: 'top 10 of {count} techniques',
+  },
+  {
+    cwd: '~/main/tasks',
+    command: 'cd tasks && ls',
+    dynamicSource: 'tasks',
+    countKey: 'tasks',
+    commentTemplate: 'top 10 of {count} tasks',
   },
   {
     cwd: '~/main/stack',
@@ -2356,6 +2351,44 @@ const TERMINAL_FLOW = [
       { name: 'aws/' },
       { name: 'docker/' },
       { name: 'mlops/' },
+    ],
+  },
+  {
+    cwd: '~/main/papers',
+    command: 'cd papers && ls',
+    dynamicSource: 'papers',
+    countKey: 'papers',
+    commentTemplate: 'top 10 of {count} papers — most cited',
+  },
+  {
+    cwd: '~/main/datasets',
+    command: 'cd datasets && ls',
+    dynamicSource: 'datasets',
+    countKey: 'datasets',
+    commentTemplate: 'top 10 of {count} datasets — most downloaded',
+  },
+  {
+    cwd: '~/main/companies',
+    command: 'cd companies && ls',
+    dynamicSource: 'companies',
+    countKey: 'companies',
+    commentTemplate: 'top 10 of {count} companies',
+  },
+  {
+    cwd: '~/main/jobs',
+    command: 'cd jobs && ls',
+    comment: 'roles, hiring signals, and skill maps in GeoAI',
+    output: [
+      { name: 'ml-engineer/' },
+      { name: 'data-scientist/' },
+      { name: 'gis-developer/' },
+      { name: 'remote-sensing-engineer/' },
+      { name: 'research-scientist/' },
+      { name: 'computer-vision-engineer/' },
+      { name: 'backend-engineer/' },
+      { name: 'product-manager/' },
+      { name: 'founding-engineer/' },
+      { name: 'field-applications/' },
     ],
   },
 ];
@@ -2425,6 +2458,20 @@ function initTerminalExplorer() {
     return pausedByUser || pausedByHover;
   }
 
+  function resolveStep(step) {
+    let items = step.output;
+    let comment = step.comment;
+    if (step.dynamicSource) {
+      const highlights = (STATS.highlights && STATS.highlights[step.dynamicSource]) || [];
+      items = highlights.map(name => ({ name: `${name}/` }));
+    }
+    if (step.commentTemplate) {
+      const count = step.countKey != null ? formatStat(STATS[step.countKey]) : '';
+      comment = step.commentTemplate.replace('{count}', count);
+    }
+    return { items: items || [], comment };
+  }
+
   function setOutput(items, comment) {
     outputEl.innerHTML = '';
     let cursor = 0;
@@ -2437,8 +2484,15 @@ function initTerminalExplorer() {
       cursor = 1;
     }
     items.forEach((item, index) => {
-      const row = document.createElement('span');
-      row.className = 'lp-terminal-row';
+      const row = item.href
+        ? document.createElement('a')
+        : document.createElement('span');
+      row.className = item.href ? 'lp-terminal-row is-link' : 'lp-terminal-row';
+      if (item.href) {
+        row.href = item.href;
+        row.target = '_blank';
+        row.rel = 'noopener';
+      }
       const name = document.createElement('span');
       name.className = 'lp-terminal-row-name';
       name.textContent = item.name;
@@ -2489,10 +2543,11 @@ function initTerminalExplorer() {
     outputEl.innerHTML = '';
     screen.classList.add('is-typing');
 
+    const resolved = resolveStep(step);
     typeCommand(step.command, () => {
       screen.classList.remove('is-typing');
       const t = window.setTimeout(() => {
-        setOutput(step.output, step.comment);
+        setOutput(resolved.items, resolved.comment);
         scheduleNext();
       }, preOutputBeat);
       typingTimers.push(t);
