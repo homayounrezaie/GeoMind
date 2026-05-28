@@ -698,6 +698,236 @@ nav,section,footer{position:relative;z-index:1}
 }
 [data-theme="light"] .lp-cat-line-num{color:#9A9285}
 [data-theme="light"] .lp-cat-line::before{color:#4F46E5}
+
+/* ── Terminal explorer ─────────────────────── */
+.lp-terminal{
+  position:relative;
+  max-width:880px;
+  margin:0 auto;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(129,140,248,0.12), transparent 60%),
+    linear-gradient(180deg, rgba(15,23,42,0.55), rgba(2,6,23,0.7));
+  box-shadow:0 28px 90px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.04);
+  overflow:hidden;
+  font-family:'SF Mono','Menlo','Consolas',monospace;
+  animation:fadeUp 0.8s 0.4s cubic-bezier(0.16,1,0.3,1) both;
+}
+.lp-terminal-chrome{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 18px;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  background:rgba(0,0,0,0.22);
+}
+.lp-terminal-dot{
+  width:11px;
+  height:11px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.14);
+  flex:0 0 auto;
+}
+.lp-terminal-dot--r{background:#ff5f57}
+.lp-terminal-dot--y{background:#febc2e}
+.lp-terminal-dot--g{background:#28c840}
+.lp-terminal-path{
+  margin-left:14px;
+  color:rgba(255,255,255,0.42);
+  font-size:12px;
+  letter-spacing:.02em;
+  font-variant-numeric:tabular-nums;
+  transition:color .2s;
+}
+.lp-terminal-screen{
+  position:relative;
+  min-height:300px;
+  padding:24px 22px 28px;
+}
+.lp-terminal-screen::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 3px);
+  mix-blend-mode:overlay;
+  opacity:0.6;
+}
+.lp-terminal-line{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:8px;
+  margin-bottom:16px;
+}
+.lp-terminal-prompt{
+  color:#818cf8;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:0;
+}
+.lp-terminal-prompt [data-terminal-cwd]{color:#a5b4fc}
+.lp-terminal-command{
+  color:rgba(255,255,255,0.94);
+  font-size:14px;
+  white-space:pre;
+}
+.lp-terminal-caret{
+  display:inline-block;
+  width:8px;
+  height:1em;
+  margin-left:2px;
+  background:#a5b4fc;
+  vertical-align:-0.12em;
+  animation:lpTerminalCaret 1s steps(1) infinite;
+}
+.lp-terminal-screen.is-typing .lp-terminal-caret{
+  animation:none;
+  opacity:1;
+}
+@keyframes lpTerminalCaret{
+  0%,49%{opacity:1}
+  50%,100%{opacity:0}
+}
+.lp-terminal-output{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  padding-left:18px;
+}
+.lp-terminal-row{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  max-width:100%;
+  padding:4px 10px;
+  margin-left:-10px;
+  border-radius:6px;
+  color:rgba(255,255,255,0.72);
+  font-size:14px;
+  text-decoration:none;
+  opacity:0;
+  transform:translateY(4px);
+  animation:lpTerminalRowIn .42s cubic-bezier(0.16,1,0.3,1) forwards;
+  transition:background .15s, color .15s;
+}
+.lp-terminal-row::before{
+  content:'  ';
+  margin-right:2px;
+  color:#a5b4fc;
+  white-space:pre;
+}
+.lp-terminal-row:hover,
+.lp-terminal-row:focus-visible{
+  background:rgba(129,140,248,0.1);
+  color:#fff;
+  outline:none;
+}
+.lp-terminal-row:hover::before,
+.lp-terminal-row:focus-visible::before{
+  content:'> ';
+}
+@keyframes lpTerminalRowIn{
+  to{opacity:1;transform:translateY(0)}
+}
+.lp-terminal-controls{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  padding:12px 18px;
+  border-top:1px solid rgba(255,255,255,0.05);
+  background:rgba(0,0,0,0.22);
+}
+.lp-terminal-btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:7px;
+  padding:6px 14px;
+  font-family:inherit;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:rgba(255,255,255,0.72);
+  cursor:pointer;
+  transition:background .15s, color .15s, border-color .15s;
+}
+.lp-terminal-btn:hover,
+.lp-terminal-btn:focus-visible{
+  background:rgba(129,140,248,0.12);
+  border-color:rgba(129,140,248,0.42);
+  color:#fff;
+  outline:none;
+}
+.lp-terminal-btn[aria-pressed="true"]{
+  background:rgba(129,140,248,0.18);
+  border-color:rgba(129,140,248,0.5);
+  color:#fff;
+}
+.lp-terminal-explore{
+  margin-left:6px;
+  background:#6366F1;
+  border-radius:7px;
+  padding:7px 16px;
+  font-size:12px;
+  font-weight:680;
+  letter-spacing:.02em;
+  color:#fff;
+  text-decoration:none;
+  transition:background .15s, transform .15s, box-shadow .15s;
+}
+.lp-terminal-explore:hover{
+  background:#4F46E5;
+  transform:translateY(-1px);
+  box-shadow:0 8px 22px rgba(99,102,241,0.4);
+}
+
+@media (max-width: 720px){
+  .lp-terminal-screen{padding:18px 14px 22px;min-height:260px}
+  .lp-terminal-chrome{padding:10px 14px}
+  .lp-terminal-controls{flex-wrap:wrap;justify-content:flex-start;padding:10px 14px;gap:6px}
+  .lp-terminal-explore{margin-left:auto}
+  .lp-terminal-row{font-size:13px}
+  .lp-terminal-command,
+  .lp-terminal-prompt{font-size:13px}
+  .lp-terminal-path{margin-left:8px;font-size:11px}
+}
+
+[data-theme="light"] .lp-terminal{
+  border-color:#E4DFD4;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(79,70,229,0.08), transparent 60%),
+    #FAF8F4;
+  box-shadow:0 24px 60px rgba(26,24,20,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+[data-theme="light"] .lp-terminal-chrome,
+[data-theme="light"] .lp-terminal-controls{
+  background:rgba(232,225,210,0.4);
+  border-color:#E4DFD4;
+}
+[data-theme="light"] .lp-terminal-path{color:#8B8377}
+[data-theme="light"] .lp-terminal-prompt{color:#4F46E5}
+[data-theme="light"] .lp-terminal-prompt [data-terminal-cwd]{color:#3B33AB}
+[data-theme="light"] .lp-terminal-command{color:#1A1814}
+[data-theme="light"] .lp-terminal-row{color:#3A352D}
+[data-theme="light"] .lp-terminal-row:hover,
+[data-theme="light"] .lp-terminal-row:focus-visible{
+  background:rgba(79,70,229,0.1);
+  color:#1A1814;
+}
+[data-theme="light"] .lp-terminal-row::before{color:#4F46E5}
+[data-theme="light"] .lp-terminal-btn{
+  color:#3A352D;
+  border-color:#E4DFD4;
+}
+[data-theme="light"] .lp-terminal-btn:hover{
+  background:rgba(79,70,229,0.1);
+  border-color:rgba(79,70,229,0.42);
+  color:#1A1814;
+}
+[data-theme="light"] .lp-terminal-caret{background:#4F46E5}
+[data-theme="light"] .lp-terminal-screen::after{display:none}
 .lp-main-category{
   --accent:#93c5fd;
   position:relative;

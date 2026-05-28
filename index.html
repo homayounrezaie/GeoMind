@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260528-1">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260528-2">
 </head>
 <body>
 
@@ -82,26 +82,26 @@
     <p class="lp-sec-label">GeoAI Knowledge Map</p>
     <h2 class="lp-sec-title">Start from the part of GeoAI you need now.</h2>
   </div>
-  <div class="lp-main-categories" aria-label="Main GeoMind categories">
-    <div class="lp-main-categories-intro">
-      <span>Choose the route that matches what you want to learn, build, research, or hire for.</span>
+  <div class="lp-terminal" data-terminal aria-label="GeoMind explorer">
+    <div class="lp-terminal-chrome">
+      <span class="lp-terminal-dot lp-terminal-dot--r" aria-hidden="true"></span>
+      <span class="lp-terminal-dot lp-terminal-dot--y" aria-hidden="true"></span>
+      <span class="lp-terminal-dot lp-terminal-dot--g" aria-hidden="true"></span>
+      <span class="lp-terminal-path" data-terminal-path>~/main</span>
     </div>
-    <div class="lp-main-categories-head">
-      <span class="lp-main-led"></span>
-      <span class="lp-main-prompt">geomind:~/main$</span>
-      <span class="lp-main-command" id="mainCategoryCommand">show all categories</span>
+    <div class="lp-terminal-screen" data-terminal-screen>
+      <div class="lp-terminal-line">
+        <span class="lp-terminal-prompt">geomind:<span data-terminal-cwd>~/main</span>$</span>
+        <span class="lp-terminal-command" data-terminal-command></span>
+        <span class="lp-terminal-caret" data-terminal-caret aria-hidden="true"></span>
+      </div>
+      <div class="lp-terminal-output" data-terminal-output aria-live="polite"></div>
     </div>
-    <ul class="lp-cat-list">
-      <li><a class="lp-cat-line active" href="pages/learn.html" data-command="cd learn"><span class="lp-cat-line-num">01</span><span class="lp-cat-line-name">Learn</span></a></li>
-      <li><a class="lp-cat-line" href="pages/foundation-models.html" data-command="cd foundation-models"><span class="lp-cat-line-num">02</span><span class="lp-cat-line-name">Foundation Models</span></a></li>
-      <li><a class="lp-cat-line" href="pages/app.html#techniques" data-command="cd techniques"><span class="lp-cat-line-num">03</span><span class="lp-cat-line-name">Techniques</span></a></li>
-      <li><a class="lp-cat-line" href="pages/app.html#tasks" data-command="cd tasks"><span class="lp-cat-line-num">04</span><span class="lp-cat-line-name">Tasks &amp; Applications</span></a></li>
-      <li><a class="lp-cat-line" href="pages/app.html#stack" data-command="cd stack"><span class="lp-cat-line-num">05</span><span class="lp-cat-line-name">Stack &amp; Tools</span></a></li>
-      <li><a class="lp-cat-line" href="pages/paper-with-code.html" data-command="cd paper-with-code"><span class="lp-cat-line-num">06</span><span class="lp-cat-line-name">Paper with Code</span></a></li>
-      <li><a class="lp-cat-line" href="pages/datasets.html" data-command="cd datasets"><span class="lp-cat-line-num">07</span><span class="lp-cat-line-name">Datasets</span></a></li>
-      <li><a class="lp-cat-line" href="pages/companies.html" data-command="cd companies"><span class="lp-cat-line-num">08</span><span class="lp-cat-line-name">Companies</span></a></li>
-      <li><a class="lp-cat-line" href="pages/job-market.html" data-command="cd job-market"><span class="lp-cat-line-num">09</span><span class="lp-cat-line-name">Job Market</span></a></li>
-    </ul>
+    <div class="lp-terminal-controls" role="group" aria-label="Terminal controls">
+      <button type="button" class="lp-terminal-btn" data-terminal-pause aria-pressed="false">Pause</button>
+      <button type="button" class="lp-terminal-btn" data-terminal-next>Next</button>
+      <a class="lp-terminal-explore" href="pages/app.html">Explore Route<span aria-hidden="true"> →</span></a>
+    </div>
   </div>
 </section>
 
@@ -1380,7 +1380,7 @@ function nlSubmit(e) {
   window.addEventListener('resize', layoutHeatmaps);
 })();
 </script>
-<script type="module" src="src/js/landing.js?v=20260528-1"></script>
+<script type="module" src="src/js/landing.js?v=20260528-2"></script>
 <script type="module" src="src/js/theme.js"></script>
 </body>
 </html>

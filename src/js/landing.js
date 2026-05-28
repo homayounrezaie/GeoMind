@@ -2284,7 +2284,209 @@ document.addEventListener('DOMContentLoaded', () => {
   initRadial();
   initFeatSwitcher();
   initHeroStatsStream();
+  initTerminalExplorer();
 });
+
+const TERMINAL_FLOW = [
+  {
+    cwd: '~/main',
+    command: 'ls',
+    output: [
+      { name: 'learn/',             href: 'pages/learn.html' },
+      { name: 'foundation-models/', href: 'pages/foundation-models.html' },
+      { name: 'techniques/',        href: 'pages/app.html#techniques' },
+      { name: 'tasks/',             href: 'pages/app.html#tasks' },
+      { name: 'stack/',             href: 'pages/app.html#stack' },
+      { name: 'papers/',            href: 'pages/paper-with-code.html' },
+      { name: 'datasets/',          href: 'pages/datasets.html' },
+      { name: 'companies/',         href: 'pages/companies.html' },
+      { name: 'jobs/',              href: 'pages/job-market.html' },
+    ],
+  },
+  {
+    cwd: '~/main/learn',
+    command: 'cd learn && ls',
+    output: [
+      { name: 'geospatial/',        href: 'pages/learn.html#geospatial' },
+      { name: 'remote-sensing/',    href: 'pages/learn.html#remote-sensing' },
+      { name: 'statistics/',        href: 'pages/learn.html#statistics' },
+      { name: 'physics/',           href: 'pages/learn.html#physics' },
+      { name: 'machine-learning/',  href: 'pages/learn.html#machine-learning' },
+      { name: 'deep-learning/',     href: 'pages/learn.html#deep-learning' },
+    ],
+  },
+  {
+    cwd: '~/main/tasks',
+    command: 'cd tasks && ls',
+    output: [
+      { name: 'segmentation/',      href: 'pages/app.html#tasks-segmentation' },
+      { name: 'object-detection/',  href: 'pages/app.html#tasks-object-detection' },
+      { name: 'change-detection/',  href: 'pages/app.html#tasks-change-detection' },
+      { name: 'classification/',    href: 'pages/app.html#tasks-classification' },
+      { name: 'tracking/',          href: 'pages/app.html#tasks-tracking' },
+      { name: 'anomaly-detection/', href: 'pages/app.html#tasks-anomaly' },
+    ],
+  },
+  {
+    cwd: '~/main/foundation-models',
+    command: 'cd foundation-models && ls',
+    output: [
+      { name: 'vlms/',              href: 'pages/foundation-models.html#vlms' },
+      { name: 'multimodal/',        href: 'pages/foundation-models.html#multimodal' },
+      { name: 'earth-observation/', href: 'pages/foundation-models.html#eo' },
+      { name: 'self-supervised/',   href: 'pages/foundation-models.html#ssl' },
+      { name: 'embeddings/',        href: 'pages/foundation-models.html#embeddings' },
+      { name: 'agents/',            href: 'pages/foundation-models.html#agents' },
+    ],
+  },
+  {
+    cwd: '~/main/stack',
+    command: 'cd stack && ls',
+    output: [
+      { name: 'pytorch/',           href: 'pages/app.html#stack-pytorch' },
+      { name: 'gdal/',              href: 'pages/app.html#stack-gdal' },
+      { name: 'rasterio/',          href: 'pages/app.html#stack-rasterio' },
+      { name: 'postgis/',           href: 'pages/app.html#stack-postgis' },
+      { name: 'aws/',               href: 'pages/app.html#stack-aws' },
+      { name: 'docker/',            href: 'pages/app.html#stack-docker' },
+      { name: 'mlops/',             href: 'pages/app.html#stack-mlops' },
+    ],
+  },
+];
+
+function initTerminalExplorer() {
+  const root = document.querySelector('[data-terminal]');
+  if (!root) return;
+
+  const screen = root.querySelector('[data-terminal-screen]');
+  const commandEl = root.querySelector('[data-terminal-command]');
+  const outputEl = root.querySelector('[data-terminal-output]');
+  const pathEl = root.querySelector('[data-terminal-path]');
+  const cwdEl = root.querySelector('[data-terminal-cwd]');
+  const pauseBtn = root.querySelector('[data-terminal-pause]');
+  const nextBtn = root.querySelector('[data-terminal-next]');
+  if (!screen || !commandEl || !outputEl) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const charDelayMin = 22;
+  const charDelayMax = 48;
+  const punctuationDelay = 90;
+  const outputStagger = 70;
+  const restAfterOutput = 3400;
+  const preOutputBeat = 220;
+
+  let stepIndex = 0;
+  let advanceTimer = null;
+  let typingTimers = [];
+  let pausedByUser = false;
+  let pausedByHover = false;
+
+  function clearAdvanceTimer() {
+    if (advanceTimer) {
+      window.clearTimeout(advanceTimer);
+      advanceTimer = null;
+    }
+  }
+
+  function clearTypingTimers() {
+    typingTimers.forEach(window.clearTimeout);
+    typingTimers = [];
+  }
+
+  function isPaused() {
+    return pausedByUser || pausedByHover;
+  }
+
+  function setOutput(items) {
+    outputEl.innerHTML = '';
+    items.forEach((item, index) => {
+      const row = document.createElement('a');
+      row.className = 'lp-terminal-row';
+      row.href = item.href;
+      row.textContent = item.name;
+      row.style.animationDelay = reduceMotion ? '0ms' : `${index * outputStagger}ms`;
+      outputEl.appendChild(row);
+    });
+  }
+
+  function typeCommand(text, onDone) {
+    commandEl.textContent = '';
+    if (reduceMotion) {
+      commandEl.textContent = text;
+      onDone();
+      return;
+    }
+
+    let i = 0;
+    const tick = () => {
+      if (i >= text.length) {
+        onDone();
+        return;
+      }
+      const ch = text.charAt(i);
+      commandEl.textContent += ch;
+      i += 1;
+      const base = (ch === '&' || ch === ' ' || ch === '/') ? punctuationDelay : (charDelayMin + Math.random() * (charDelayMax - charDelayMin));
+      const t = window.setTimeout(tick, base);
+      typingTimers.push(t);
+    };
+    tick();
+  }
+
+  function runStep(idx) {
+    clearAdvanceTimer();
+    clearTypingTimers();
+    stepIndex = ((idx % TERMINAL_FLOW.length) + TERMINAL_FLOW.length) % TERMINAL_FLOW.length;
+    const step = TERMINAL_FLOW[stepIndex];
+
+    if (pathEl) pathEl.textContent = step.cwd;
+    if (cwdEl) cwdEl.textContent = step.cwd;
+    outputEl.innerHTML = '';
+    screen.classList.add('is-typing');
+
+    typeCommand(step.command, () => {
+      screen.classList.remove('is-typing');
+      const t = window.setTimeout(() => {
+        setOutput(step.output);
+        scheduleNext();
+      }, preOutputBeat);
+      typingTimers.push(t);
+    });
+  }
+
+  function scheduleNext() {
+    clearAdvanceTimer();
+    if (isPaused()) return;
+    advanceTimer = window.setTimeout(() => runStep(stepIndex + 1), restAfterOutput);
+  }
+
+  function togglePause() {
+    pausedByUser = !pausedByUser;
+    if (pauseBtn) {
+      pauseBtn.textContent = pausedByUser ? 'Resume' : 'Pause';
+      pauseBtn.setAttribute('aria-pressed', String(pausedByUser));
+    }
+    if (pausedByUser) {
+      clearAdvanceTimer();
+    } else if (!pausedByHover) {
+      scheduleNext();
+    }
+  }
+
+  if (pauseBtn) pauseBtn.addEventListener('click', togglePause);
+  if (nextBtn) nextBtn.addEventListener('click', () => runStep(stepIndex + 1));
+
+  root.addEventListener('mouseenter', () => {
+    pausedByHover = true;
+    clearAdvanceTimer();
+  });
+  root.addEventListener('mouseleave', () => {
+    pausedByHover = false;
+    if (!pausedByUser) scheduleNext();
+  });
+
+  runStep(0);
+}
 
 function initHeroStatsStream() {
   const el = document.querySelector('.lp-hero-stats');
