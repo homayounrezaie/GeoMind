@@ -1530,22 +1530,33 @@ a.lp-terminal-row.is-link:focus-visible::before{
   font-family:'SF Mono','Menlo',monospace;
   font-size:12px;
   font-weight:600;
+  line-height:1;
   text-decoration:none;
   transition:background .16s,border-color .16s,color .16s,transform .16s;
 }
 .lp-clarity-icon{
-  display:inline-grid;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   place-items:center;
   width:16px;
   height:16px;
   color:#7d8590;
   flex:0 0 auto;
+  line-height:1;
   transition:color .16s,transform .16s;
 }
 .lp-clarity-icon svg{
   display:block;
   width:16px;
   height:16px;
+  flex:0 0 auto;
+}
+.lp-clarity-links a > span:not(.lp-clarity-icon){
+  display:inline-flex;
+  align-items:center;
+  line-height:1;
+  transform:translateY(0.5px);
 }
 .lp-clarity-links a:hover .lp-clarity-icon,
 .lp-clarity-links a:focus-visible .lp-clarity-icon{
