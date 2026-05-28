@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Foundation Models — GeoMind</title>
-<link rel="stylesheet" href="../src/styles/landing.css?v=20260527-5">
+<link rel="stylesheet" href="../src/styles/landing.css?v=20260528-7">
 </head>
 <body class="category-page catalog-page" data-catalog="models">
 <nav class="lp-nav">
@@ -27,7 +27,7 @@
     </button>
   </div>
 </nav>
-<main class="category-shell catalog-shell">
+<main class="category-shell catalog-shell catalog-shell-research">
   <section class="catalog-hero">
     <div>
       <p class="category-label" data-catalog-label>Model Index</p>
@@ -35,17 +35,33 @@
       <p class="catalog-intro" data-catalog-intro>Loading models...</p>
     </div>
   </section>
-  <section class="catalog-toolbar" aria-label="Catalog controls">
-    <input data-catalog-search type="search" autocomplete="off" spellcheck="false" placeholder="Search models...">
-    <div class="catalog-filters" data-catalog-filters></div>
-  </section>
-  <div class="catalog-resultbar">
-    <span data-catalog-status>Loading results</span>
+  <div class="research-layout">
+    <aside class="research-sidebar" aria-label="Model filters">
+      <div class="research-side-group">
+        <p class="research-side-title">Quick Filters</p>
+        <div class="research-filter-list" data-catalog-filters></div>
+      </div>
+    </aside>
+    <section class="research-main" aria-label="Model list">
+      <section class="catalog-toolbar research-toolbar" aria-label="Catalog controls">
+        <label class="research-search">
+          <svg class="research-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input data-catalog-search type="search" autocomplete="off" spellcheck="false" placeholder="Search models, authors, abbreviations">
+        </label>
+        <div class="research-sort-tabs" data-paper-sort>
+          <button type="button" class="is-active" data-sort="cited">most cited</button>
+          <button type="button" data-sort="newest">newest</button>
+        </div>
+      </section>
+      <div class="catalog-resultbar research-resultbar">
+        <span data-catalog-status>Loading results</span>
+      </div>
+      <section class="catalog-list research-list" data-catalog-list aria-live="polite"></section>
+      <nav class="catalog-pager research-pager" data-catalog-pager aria-label="Catalog pagination"></nav>
+    </section>
   </div>
-  <section class="catalog-list" data-catalog-list aria-live="polite"></section>
-  <nav class="catalog-pager" data-catalog-pager aria-label="Catalog pagination"></nav>
 </main>
-<script type="module" src="../src/js/catalog-pages.js?v=20260527-5"></script>
+<script type="module" src="../src/js/catalog-pages.js?v=20260528-7"></script>
 <script type="module" src="../src/js/theme.js"></script>
 </body>
 </html>

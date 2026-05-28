@@ -7,14 +7,17 @@ const CONFIG = {
     searchPlaceholder: 'Search papers, authors, methods',
     empty: 'No papers match this query.',
     titleField: 'title',
-    subtitle: row => joinClean([row.authors, row.venue]),
     description: row => row.abstract,
     url: row => row.url || doiUrl(row.doi),
-    codeUrl: row => row.code_url,
-    metric: row => numberLabel(row.citation_count, 'citation'),
     sortValue: row => paperSortValue(row),
-    tags: () => [],
-    meta: row => joinClean([row.year, row.venue]),
+    bylineFields: row => [truncateAuthors(row.authors), row.venue, row.year],
+    score: row => ({ value: Number(row.citation_count) || 0, label: 'citations' }),
+    venueMarkSource: row => row.venue || 'Paper',
+    pdfUrl: row => paperPdfUrl(row),
+    githubUrl: row => paperGithubUrl(row),
+    huggingFaceUrl: row => paperHuggingFaceUrl(row),
+    codeUrl: row => paperCodeUrl(row),
+    thumbnailUrl: row => paperThumbnailUrl(row),
     filters: [
       { key: 'all', label: 'All papers' },
       { key: 'top-ai', label: 'Top AI venues', test: row => isTopAiVenue(row) },
@@ -25,18 +28,21 @@ const CONFIG = {
     file: 'foundation-models.csv',
     label: 'Model Index',
     title: 'Foundation Models',
-    intro: 'Browse model cards, weights, remote sensing foundation models, vision-language systems, agents, and related model resources.',
-    searchPlaceholder: 'Search models, developers, sections, weights...',
+    intro: 'Browse foundation models for remote sensing, multimodal systems, agents, and related model resources.',
+    searchPlaceholder: 'Search models, authors, abbreviations',
     empty: 'No models match this query.',
     titleField: 'title',
-    subtitle: row => joinClean([row.authors, row.venue, row.abbreviation]),
-    description: row => row.notes || row.awesome_section || row.source_query,
+    description: row => row.notes || row.awesome_section || row.source_query || '',
     url: row => row.code_weights_url || row.paper_url || row.url || doiUrl(row.doi),
-    codeUrl: row => row.code_weights_url,
-    metric: row => row.publication_type || row.status,
-    sortValue: row => Number(row.year) || 0,
-    tags: row => splitValues(row.category || row.awesome_section || row.notes),
-    meta: row => joinClean([row.year, row.category, row.source]),
+    sortValue: row => modelSortValue(row),
+    bylineFields: row => [row.abbreviation, truncateAuthors(row.authors), row.venue || row.category, row.year],
+    score: row => ({ value: Number(row.citation_count) || 0, label: 'citations' }),
+    venueMarkSource: row => row.abbreviation || row.venue || row.category || 'Model',
+    pdfUrl: row => row.open_pdf_url || row.paper_url || (row.arxiv_id ? `https://arxiv.org/pdf/${row.arxiv_id}` : ''),
+    githubUrl: row => githubRepoName(row.code_weights_url) ? row.code_weights_url : '',
+    huggingFaceUrl: row => /huggingface\.co/i.test(row.code_weights_url || '') ? row.code_weights_url : '',
+    codeUrl: row => row.code_weights_url || '',
+    thumbnailUrl: () => '',
     filters: [
       { key: 'all', label: 'All' },
       { key: 'weights', label: 'Weights', test: row => row.code_weights_url },
@@ -50,17 +56,20 @@ const CONFIG = {
     label: 'Dataset Index',
     title: 'Datasets',
     intro: 'Browse geospatial datasets with task categories, source links, download signals, tags, and descriptions.',
-    searchPlaceholder: 'Search datasets, tasks, tags, publishers...',
+    searchPlaceholder: 'Search datasets, tasks, publishers',
     empty: 'No datasets match this query.',
     titleField: 'name',
-    subtitle: row => joinClean([row.dataset_id, row.task_categories]),
-    description: row => row.description || row.tags || row.matched_terms,
+    description: row => row.description || row.tags || row.matched_terms || '',
     url: row => row.url,
+    sortValue: row => datasetSortValue(row),
+    bylineFields: row => [row.dataset_id, row.task_categories, row.size_categories, row.last_modified ? `updated ${formatDate(row.last_modified)}` : ''],
+    score: row => ({ value: Number(row.downloads) || 0, label: 'downloads' }),
+    venueMarkSource: row => row.dataset_id || row.name || 'Dataset',
+    pdfUrl: () => '',
+    githubUrl: row => /github\.com/i.test(row.url || '') ? row.url : '',
+    huggingFaceUrl: row => /huggingface\.co/i.test(row.url || '') ? row.url : '',
     codeUrl: () => '',
-    metric: row => numberLabel(row.downloads, 'download') || numberLabel(row.likes, 'like'),
-    sortValue: row => Number(row.downloads) || Number(row.trending_score) || 0,
-    tags: row => splitValues(row.task_categories || row.size_categories || row.tags || row.matched_terms),
-    meta: row => joinClean([row.size_categories, row.languages, row.last_modified ? `updated ${formatDate(row.last_modified)}` : '']),
+    thumbnailUrl: () => '',
     filters: [
       { key: 'all', label: 'All' },
       { key: 'hugging-face', label: 'Hugging Face', test: row => includesAny(row, ['huggingface.co', 'hugging-face']) },
@@ -101,6 +110,9 @@ async function init(cfg) {
     els.search.value = initialQuery.trim();
   }
   renderFilters(els.filters, cfg);
+
+  const initialSort = els.sort?.querySelector('button.is-active')?.dataset.sort;
+  if (initialSort) state.sort = initialSort;
 
   try {
     const csv = await fetchCsv(cfg.file);
@@ -226,11 +238,9 @@ function renderList(cfg, els) {
     return;
   }
 
-  els.list.innerHTML = visible.map(row => page === 'papers' ? renderPaperItem(cfg, row) : renderItem(cfg, row)).join('');
-  if (page === 'papers') {
-    hydrateGithubStats(els.list);
-    hydratePaperPreviews(els.list);
-  }
+  els.list.innerHTML = visible.map(row => renderResearchItem(cfg, row)).join('');
+  hydrateGithubStats(els.list);
+  hydratePaperPreviews(els.list);
   renderPager(els.pager, pageCount);
 }
 
@@ -249,27 +259,25 @@ function renderPaperSummary(container, rows) {
   ].join('');
 }
 
-function renderPaperItem(cfg, row) {
+function renderResearchItem(cfg, row) {
   const title = row[cfg.titleField] || 'Untitled';
   const url = cfg.url(row);
-  const authors = truncateAuthors(row.authors);
-  const venue = row.venue;
   const fullAbstract = cleanText(cfg.description(row));
   const shortLimit = 200;
   const isExpandable = fullAbstract.length > shortLimit;
   const shortAbstract = isExpandable ? fullAbstract.slice(0, shortLimit).trim() : fullAbstract;
-  const citationCount = Number(row.citation_count) || 0;
-  const year = row.year || 'unknown';
-  const pdfUrl = paperPdfUrl(row);
-  const githubUrl = paperGithubUrl(row);
-  const huggingFaceUrl = paperHuggingFaceUrl(row);
-  const code = paperCodeUrl(row) || githubUrl || huggingFaceUrl || cfg.codeUrl(row);
+  const year = row.year || (row.last_modified ? String(row.last_modified).slice(0, 4) : '');
+  const pdfUrl = cfg.pdfUrl ? cfg.pdfUrl(row) : '';
+  const githubUrl = cfg.githubUrl ? cfg.githubUrl(row) : '';
+  const huggingFaceUrl = cfg.huggingFaceUrl ? cfg.huggingFaceUrl(row) : '';
+  const code = (cfg.codeUrl ? cfg.codeUrl(row) : '') || githubUrl || huggingFaceUrl;
   const githubRepo = githubRepoName(githubUrl || code);
-  const source = row.venue || 'Paper';
+  const score = cfg.score ? cfg.score(row) : null;
+  const byline = cfg.bylineFields ? joinClean(cfg.bylineFields(row)) : '';
   const chips = paperChips(row, githubRepo);
   const primary = paperPrimaryActions({ pdfUrl, code });
-  const venueMark = paperVenueMark(source);
-  const staticPreview = paperThumbnailUrl(row);
+  const venueMark = paperVenueMark(cfg.venueMarkSource ? cfg.venueMarkSource(row) : 'Paper');
+  const staticPreview = cfg.thumbnailUrl ? cfg.thumbnailUrl(row) : '';
   const canPreview = Boolean(pdfUrl || staticPreview);
   const previewAttrs = canPreview
     ? `role="button" tabindex="0" data-preview-zoom data-preview-title="${escapeAttr(title)}" aria-label="Open first page preview for ${escapeAttr(title)}"`
@@ -295,18 +303,18 @@ function renderPaperItem(cfg, row) {
         <div class="research-paper-fallback">
           <span class="research-paper-fallback-year">${escapeHtml(String(year).slice(0, 4))}</span>
           <strong>${escapeHtml(venueMark)}</strong>
-          <em>paper</em>
+          <em>${escapeHtml(page === 'datasets' ? 'dataset' : page === 'models' ? 'model' : 'paper')}</em>
         </div>
         ${pdfUrl ? '<span class="research-paper-loading">Loading preview</span>' : ''}
       </div>
       <div class="research-item-body">
         <h2>${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>` : escapeHtml(title)}</h2>
-        <p class="research-byline">${escapeHtml(joinClean([authors, venue, year]))}</p>
+        ${byline ? `<p class="research-byline">${escapeHtml(byline)}</p>` : ''}
         ${abstractHtml}
         ${metaHtml}
       </div>
-      <div class="research-citation-score ${citationCount ? '' : 'is-empty'}">
-        ${citationCount ? `<strong>${escapeHtml(compactNumber(citationCount))}</strong><span>citations</span>` : ''}
+      <div class="research-citation-score ${score?.value ? '' : 'is-empty'}">
+        ${score?.value ? `<strong>${escapeHtml(compactNumber(score.value))}</strong><span>${escapeHtml(score.label)}</span>` : ''}
       </div>
     </article>
   `;
@@ -751,6 +759,22 @@ function paperSortValue(row) {
   if (state.sort === 'newest') return year * 100000 + citations;
   if (state.sort === 'cited') return citations * 100000 + year;
   return citations * 1000 + year * 8;
+}
+
+function modelSortValue(row) {
+  const year = Number(row.year) || 0;
+  const citations = Number(row.citation_count) || 0;
+  if (state.sort === 'newest') return year * 100000 + citations;
+  return citations * 100000 + year;
+}
+
+function datasetSortValue(row) {
+  const downloads = Number(row.downloads) || 0;
+  const likes = Number(row.likes) || 0;
+  const updated = Date.parse(row.last_modified || row.created_at || '') || 0;
+  if (state.sort === 'likes') return likes * 1e7 + downloads;
+  if (state.sort === 'recent') return updated;
+  return downloads;
 }
 
 function isTopAiVenue(row) {
