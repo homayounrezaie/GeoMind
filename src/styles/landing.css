@@ -164,14 +164,13 @@ nav,section,footer{position:relative;z-index:1}
 .lp-hero-shell{
   position:relative;
   z-index:1;
-  width:min(1440px,100%);
+  width:min(var(--container),100%);
   display:grid;
-  grid-template-columns:minmax(0,0.82fr) minmax(560px,1.18fr);
-  gap:var(--s-5);
+  grid-template-columns:1fr;
   align-items:center;
 }
 .lp-hero-copy{
-  text-align:left;
+  text-align:center;
 }
 .lp-hero-eyebrow{
   display:inline-flex;align-items:center;gap:var(--s-1);
@@ -235,7 +234,7 @@ nav,section,footer{position:relative;z-index:1}
   color:rgba(255,255,255,0.22);
 }
 .lp-hero-actions{
-  display:flex;align-items:center;gap:var(--s-2);
+  display:flex;align-items:center;justify-content:center;gap:var(--s-2);
   animation:fadeUp 0.8s 0.32s cubic-bezier(0.16,1,0.3,1) both;
 }
 .lp-cta-primary{
@@ -248,20 +247,6 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-cta-primary:hover{background:#4F46E5;transform:translateY(-2px);box-shadow:0 0 48px rgba(99,102,241,0.55)}
 .lp-cta-primary:active{transform:translateY(0)}
-.lp-hero-graph-link{
-  position:relative;
-  display:block;
-  min-height:540px;
-  max-height:760px;
-  color:#fff;
-  text-decoration:none;
-  animation:fadeUp 0.8s 0.42s cubic-bezier(0.16,1,0.3,1) both;
-}
-.lp-hero-graph-link:focus-visible{outline:2px solid rgba(129,140,248,0.72);outline-offset:8px}
-.lp-hero-graph-viz{
-  height:clamp(540px,50vw,760px);
-  border-radius:0;
-}
 /* Categories */
 .lp-category-section{
   width:min(var(--container-wide),100%);
@@ -2963,15 +2948,13 @@ nav,section,footer{position:relative;z-index:1}
     opacity:.03;
     background-size:auto 86%;
   }
-  .lp-hero-shell{grid-template-columns:1fr;gap:var(--s-5)}
+  .lp-hero-shell{grid-template-columns:1fr}
   .lp-hero-copy{text-align:center}
   .lp-hero-eyebrow{margin-left:auto;margin-right:auto}
   .lp-title,
   .lp-desc{margin-left:auto;margin-right:auto}
   .lp-hero-proof{justify-content:center;margin-left:auto;margin-right:auto}
   .lp-hero-actions{justify-content:center}
-  .lp-hero-graph-link{width:100%;min-height:280px;margin:0 auto}
-  .lp-hero-graph-viz{height:280px}
   .lp-insight-section{padding:var(--s-7) var(--s-3)}
   .lp-feat-layout{grid-template-columns:1fr;gap:var(--s-5)}
   .lp-feat-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-2)}

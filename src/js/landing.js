@@ -1656,6 +1656,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCanvas();
   initMainCategories();
   initRadial();
-  initGraphCloud('lpHeroGraphCanvas');
   initFeatSwitcher();
 });
