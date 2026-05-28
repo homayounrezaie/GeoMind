@@ -1149,10 +1149,11 @@ nav,section,footer{position:relative;z-index:1}
 .lp-model-visual h3{
   margin:0 0 var(--s-2);
   color:#fff;
+  font-family:ui-serif,Georgia,Cambria,'Times New Roman',Times,serif;
   font-size:clamp(24px,3vw,36px);
-  font-weight:800;
-  letter-spacing:-.04em;
-  line-height:var(--lh-tight);
+  font-weight:500;
+  letter-spacing:-.02em;
+  line-height:1.04;
 }
 .lp-model-visual p{
   margin:0;
