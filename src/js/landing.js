@@ -83,7 +83,7 @@ function initHeroLiveIndicator() {
 function initScrollReveal() {
   if (!document.documentElement.classList.contains('has-reveal')) return;
   const targets = [...document.querySelectorAll(
-    '.lp-sec-title, .lp-sec-label, .lp-intro-copy, .gm-heatmap-intro, .lp-paper-stage, .lp-ds-query, .lp-terminal'
+    '.lp-sec-title, .lp-sec-label, .lp-intro-copy, .gm-heatmap-intro'
   )];
   if (!targets.length) return;
 
@@ -98,9 +98,16 @@ function initScrollReveal() {
       entry.target.classList.add('is-revealed');
       observer.unobserve(entry.target);
     });
-  }, { rootMargin: '0px 0px -10%', threshold: 0.02 });
+  }, { rootMargin: '0px 0px -8%', threshold: 0 });
 
   targets.forEach(el => observer.observe(el));
+
+  // Safety net: anything still hidden after ~3 s gets revealed regardless,
+  // so unusual scroll behavior (e.g. headless screenshots) never leaves
+  // content stuck invisible.
+  window.setTimeout(() => {
+    targets.forEach(el => el.classList.add('is-revealed'));
+  }, 3000);
 }
 
 const TERMINAL_FLOW = [

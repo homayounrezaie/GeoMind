@@ -4195,10 +4195,7 @@ a.lp-terminal-row.is-link:focus-visible::before{
 html.has-reveal .lp-sec-title,
 html.has-reveal .lp-sec-label,
 html.has-reveal .lp-intro-copy,
-html.has-reveal .gm-heatmap-intro,
-html.has-reveal .lp-paper-stage,
-html.has-reveal .lp-ds-query,
-html.has-reveal .lp-terminal{
+html.has-reveal .gm-heatmap-intro{
   opacity:0;
   transform:translateY(18px);
   will-change:opacity, transform;
@@ -4206,10 +4203,7 @@ html.has-reveal .lp-terminal{
 html.has-reveal .lp-sec-title.is-revealed,
 html.has-reveal .lp-sec-label.is-revealed,
 html.has-reveal .lp-intro-copy.is-revealed,
-html.has-reveal .gm-heatmap-intro.is-revealed,
-html.has-reveal .lp-paper-stage.is-revealed,
-html.has-reveal .lp-ds-query.is-revealed,
-html.has-reveal .lp-terminal.is-revealed{
+html.has-reveal .gm-heatmap-intro.is-revealed{
   opacity:1;
   transform:translateY(0);
   transition:opacity .7s cubic-bezier(.16,1,.3,1),
