@@ -1191,8 +1191,9 @@ nav,section,footer{position:relative;z-index:1}
   color:#6366F1;margin-bottom:var(--s-2);
 }
 .lp-sec-title{
-  font-size:var(--t-h2);font-weight:800;letter-spacing:-.04em;
-  color:#fff;margin-bottom:var(--s-2);line-height:var(--lh-tight);text-align:center;
+  font-family:ui-serif,Georgia,Cambria,'Times New Roman',Times,serif;
+  font-size:var(--t-h2);font-weight:500;letter-spacing:-.02em;
+  color:#fff;margin-bottom:var(--s-2);line-height:1.02;text-align:center;
 }
 .lp-sec-sub{font-size:var(--t-meta);line-height:var(--lh-body);color:rgba(255,255,255,0.38);margin-bottom:var(--s-5)}
 .lp-section-head .lp-sec-sub{
