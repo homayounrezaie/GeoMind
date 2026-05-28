@@ -327,21 +327,29 @@
       width:var(--cell);
       height:var(--cell);
       border-radius:3px;
-      background:#161b22;
-      outline:1px solid rgba(255,255,255,.025);
+      background:rgba(129,140,248,0.04);
+      outline:1px solid rgba(129,140,248,0.05);
       opacity:0;
-      transform:translateY(2px);
+      transform:translateY(3px) scale(0.94);
+      transition:transform .18s ease, outline-color .18s ease, filter .18s ease;
     }
     .gm-gh-cell[data-future="true"]{
-      background:rgba(22,27,34,.42);
-      outline:1px dashed rgba(125,133,144,.22);
+      background:rgba(129,140,248,0.025);
+      outline:1px dashed rgba(129,140,248,0.12);
     }
-    .gm-gh-cell[data-level="1"]{background:#0e4429}
-    .gm-gh-cell[data-level="2"]{background:#006d32}
-    .gm-gh-cell[data-level="3"]{background:#26a641}
-    .gm-gh-cell[data-level="4"]{background:#39d353}
+    .gm-gh-cell[data-level="1"]{background:rgba(99,102,241,0.18)}
+    .gm-gh-cell[data-level="2"]{background:rgba(99,102,241,0.42)}
+    .gm-gh-cell[data-level="3"]{background:rgba(99,102,241,0.72)}
+    .gm-gh-cell[data-level="4"]{background:#a5b4fc}
+    .gm-gh-cell:hover,
+    .gm-gh-cell:focus-visible{
+      transform:scale(1.18);
+      outline-color:rgba(165,180,252,0.6);
+      filter:brightness(1.18);
+      z-index:3;
+    }
     .gm-gh-chart.is-revealing .gm-gh-cell{
-      animation:gmCellIn 200ms ease-out var(--delay,0ms) forwards;
+      animation:gmCellIn 320ms cubic-bezier(0.16,1,0.3,1) var(--delay,0ms) forwards;
     }
     .gm-gh-chart.is-complete .gm-gh-cell,
     .gm-gh-chart.reduced-motion .gm-gh-cell{
@@ -349,7 +357,7 @@
       transform:none;
     }
     @keyframes gmCellIn{
-      to{opacity:1;transform:none}
+      to{opacity:1;transform:translateY(0) scale(1)}
     }
     .gm-gh-dot{
       position:absolute;
@@ -438,13 +446,13 @@
       width:11px;
       height:11px;
       border-radius:2px;
-      background:#161b22;
-      outline:1px solid rgba(255,255,255,.025);
+      background:rgba(129,140,248,0.04);
+      outline:1px solid rgba(129,140,248,0.06);
     }
-    .gm-gh-swatch[data-level="1"]{background:#0e4429}
-    .gm-gh-swatch[data-level="2"]{background:#006d32}
-    .gm-gh-swatch[data-level="3"]{background:#26a641}
-    .gm-gh-swatch[data-level="4"]{background:#39d353}
+    .gm-gh-swatch[data-level="1"]{background:rgba(99,102,241,0.18)}
+    .gm-gh-swatch[data-level="2"]{background:rgba(99,102,241,0.42)}
+    .gm-gh-swatch[data-level="3"]{background:rgba(99,102,241,0.72)}
+    .gm-gh-swatch[data-level="4"]{background:#a5b4fc}
     .gm-gh-tip{
       position:fixed;
       z-index:9999;
@@ -486,7 +494,7 @@
   <div class="gm-heatmap-wrap">
     <div class="gm-heatmap-intro">
       <h2 id="insight-title">What is emerging in GeoAI?</h2>
-      <p>The Geo AI space is growing quickly, new models, papers, datasets, and tools keep showing up, and they're spreading across more platforms every month. These two charts make the movement easy to see at a glance: what's being built, and where it lands.</p>
+      <p>Two charts. What is being built, and where it lands.</p>
     </div>
     <div id="geoaiHeatmaps"></div>
   </div>
@@ -767,7 +775,7 @@ function nlSubmit(e) {
   const ROW_GAP = 6;
   const LABEL_W = 130;
   const LABEL_PAD = 14;
-  const STAGGER = 12;
+  const STAGGER = 16;
   const START = new Date('2021-01-01T00:00:00');
   const END = new Date('2026-07-31T23:59:59');
   const START_YEAR = START.getFullYear();
@@ -845,13 +853,13 @@ function nlSubmit(e) {
   const charts = [
     {
       title: 'Tracking Geo Foundation Models',
-      subtitle: 'A monthly view of how models, papers, datasets, benchmarks, and tools are building up across GeoAI.',
+      subtitle: 'How models, papers, datasets, benchmarks, and tools build up across GeoAI, month by month.',
       legend: true,
       rows: ecosystemRows.map(spec => makeRow(spec, milestones[spec.id] || [])),
     },
     {
       title: 'Activity by Platform',
-      subtitle: 'A monthly view of where the work lands across Hugging Face, arXiv, GitHub, Papers with Code, and Kaggle.',
+      subtitle: 'Where the work lands — Hugging Face, arXiv, GitHub, Papers with Code, and Kaggle.',
       legend: true,
       rows: platformRows.map(spec => makeRow(spec, [])),
     },
@@ -1037,7 +1045,7 @@ function nlSubmit(e) {
         if (monthIndex > todayIndex) cellEl.dataset.future = 'true';
         cellEl.style.gridColumn = String(monthIndex + 1);
         cellEl.style.gridRow = String(rowIndex + 1);
-        cellEl.style.setProperty('--delay', `${monthIndex * STAGGER}ms`);
+        cellEl.style.setProperty('--delay', `${(monthIndex + rowIndex * 3) * STAGGER}ms`);
         cellEl.tabIndex = 0;
         cellEl.setAttribute('aria-label', `${row.name}: ${examples.join(', ') || 'No highlighted items'}, ${formatRange(month)}`);
         cellEl.addEventListener('mouseenter', event => {
