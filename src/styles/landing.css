@@ -3806,6 +3806,39 @@ a.lp-terminal-row.is-link:focus-visible::before{
 [data-theme="light"] .research-citation-score span{
   color:#9A9285;
 }
+
+/* Light-theme overrides for sections that were dark-only */
+[data-theme="light"] .gm-heatmap-intro h2{
+  color:#1A1814;
+}
+[data-theme="light"] .gm-heatmap-intro p{
+  color:#5A554C;
+}
+[data-theme="light"] .lp-model-visual-kicker{
+  color:#8B8377;
+}
+[data-theme="light"] .lp-model-visual h3{
+  color:#1A1814;
+}
+[data-theme="light"] .lp-model-visual p{
+  color:#5A554C;
+}
+[data-theme="light"] .lp-model-visual figcaption{
+  color:#8B8377;
+}
+[data-theme="light"] .lp-mosaic-credit{
+  color:#8B8377;
+}
+[data-theme="light"] .lp-story-text{
+  color:#5A554C;
+}
+[data-theme="light"] .lp-mosaic-caption{
+  color:#1A1814;
+}
+[data-theme="light"] .lp-mosaic-caption span{
+  color:#4F46E5;
+}
+
 @media(max-width:860px){
   .lp-hero{
     display:flex;
