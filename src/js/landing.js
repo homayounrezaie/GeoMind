@@ -274,28 +274,167 @@ const CAPITAL_LIGHTS = [
   ["ZW","Zimbabwe","Harare",-17.82,31.03],
 ];
 
-function initCapitalLights() {
-  const mount = document.getElementById('lpCapitalLights');
+const GEO_LAYER_DATA = [
+  {
+    id: 'models',
+    label: 'models',
+    color: '#8B5CF6',
+    items: [
+      { name: 'Prithvi', lat: 38.89, lon: -77.05 },
+      { name: 'Prithvi-EO-2.0', lat: 38.89, lon: -77.05 },
+      { name: 'TerraMind', lat: 46.92, lon: 7.47 },
+      { name: 'TerraMind-NYC-Adapters', lat: 40.71, lon: -74.01 },
+      { name: 'TerraMind-base-Flood-NYC', lat: 40.71, lon: -74.01 },
+      { name: 'TerraMind-HYPERVIEW', lat: 52.23, lon: 21.01 },
+      { name: 'TerraMind-Methane', lat: 52.23, lon: 21.01 },
+      { name: 'SatMAE', lat: 37.43, lon: -122.17 },
+      { name: 'Scale-MAE', lat: 37.87, lon: -122.27 },
+      { name: 'SkySense', lat: 39.9, lon: 116.4 },
+      { name: 'SkySense++', lat: 39.9, lon: 116.4 },
+      { name: 'RingMo-SAM', lat: 39.9, lon: 116.4 },
+      { name: 'RingMo-Agent', lat: 39.9, lon: 116.4 },
+      { name: 'GeoChat', lat: 24.47, lon: 54.37 },
+      { name: 'RemoteCLIP', lat: -35.28, lon: 149.13 },
+      { name: 'DOFA', lat: 48.14, lon: 11.58 },
+      { name: 'DOFA-CLIP', lat: 48.14, lon: 11.58 },
+      { name: 'CROMA', lat: 43.47, lon: -80.54 },
+      { name: 'GFM', lat: 28.6, lon: -81.2 },
+      { name: 'PANGAEA', lat: 48.86, lon: 2.35 },
+      { name: 'AlphaEarth benchmark', lat: 37.43, lon: -122.17 },
+      { name: 'Planaura-1.0', lat: 45.42, lon: -75.69 },
+      { name: 'FloodSense', lat: 29.76, lon: -95.37 },
+      { name: 'Llama3-MS-CLIP-base', lat: 38.89, lon: -77.05 },
+      { name: 'sattxt', lat: 45.5, lon: -73.57 },
+    ],
+  },
+  {
+    id: 'papers',
+    label: 'papers',
+    color: '#38BDF8',
+    items: [
+      { name: 'Seasonal Contrast', lat: 45.5, lon: -73.57 },
+      { name: 'SSL in Remote Sensing Review', lat: 48.14, lon: 11.58 },
+      { name: 'Prithvi paper', lat: 38.89, lon: -77.05 },
+      { name: 'GeoChat paper', lat: 24.47, lon: 54.37 },
+      { name: 'SatMAE paper', lat: 37.43, lon: -122.17 },
+      { name: 'Scale-MAE paper', lat: 37.87, lon: -122.27 },
+      { name: 'RemoteCLIP paper', lat: -35.28, lon: 149.13 },
+      { name: 'SkySense paper', lat: 39.9, lon: 116.4 },
+      { name: 'TerraMind paper', lat: 46.92, lon: 7.47 },
+      { name: 'PANGAEA paper', lat: 48.86, lon: 2.35 },
+      { name: 'CROMA paper', lat: 43.47, lon: -80.54 },
+      { name: 'DOFA paper', lat: 48.14, lon: 11.58 },
+      { name: 'RingMo-SAM paper', lat: 39.9, lon: 116.4 },
+      { name: 'VRSBench', lat: 24.71, lon: 46.67 },
+      { name: 'GFM paper', lat: 28.6, lon: -81.2 },
+      { name: 'Generalist Geospatial AI', lat: 38.89, lon: -77.05 },
+      { name: 'Harvesting AlphaEarth', lat: 37.43, lon: -122.17 },
+      { name: 'Brazilian Atlantic Forest', lat: -23.55, lon: -46.63 },
+      { name: 'Slum Detection AlphaEarth', lat: 39.9, lon: 116.4 },
+      { name: 'Onboard Satellite Classification', lat: 49.61, lon: 6.13 },
+      { name: 'SenPa-MAE', lat: 48.14, lon: 11.58 },
+      { name: 'FG-MAE', lat: 48.14, lon: 11.58 },
+      { name: 'EarthGPT', lat: 30.59, lon: 114.3 },
+      { name: 'UrbanLLaVA', lat: 39.9, lon: 116.4 },
+      { name: 'ChatEarthBench', lat: 31.23, lon: 121.47 },
+    ],
+  },
+  {
+    id: 'datasets',
+    label: 'datasets',
+    color: '#22C55E',
+    items: [
+      { name: 'Core-VIIRS-Nighttime-Light', lat: 0, lon: 0 },
+      { name: 'GROC', lat: 52.37, lon: 4.9 },
+      { name: 'sapnhap-bando-vn', lat: 21.03, lon: 105.85 },
+      { name: 'EarthVLSet', lat: 30.59, lon: 114.3 },
+      { name: 'Core-AlphaEarth-Embeddings', lat: 0, lon: 24 },
+      { name: 'pangaea2-vhr', lat: 18, lon: -14 },
+      { name: 'vietnam-real-estates', lat: 10.82, lon: 106.63 },
+      { name: 'CropClimateX', lat: 39.83, lon: -98.58 },
+      { name: 'GOCE satellite telemetry', lat: 52.22, lon: 4.42 },
+      { name: 'EuroSAT', lat: 50.11, lon: 8.68 },
+      { name: 'Core-DEM', lat: -18, lon: 32 },
+      { name: 'China Building Footprints', lat: 39.9, lon: 116.4 },
+      { name: 'COP-GEN-Benchmark', lat: 12, lon: 18 },
+      { name: 'SWIFTT bark beetle', lat: 48.2, lon: 16.37 },
+      { name: 'Project NOAH Hazard Maps', lat: 14.6, lon: 121.0 },
+      { name: 'LUCAS-MEGA', lat: 50.85, lon: 4.35 },
+      { name: 'Amazon Sentinel-2 Forest', lat: -3.1, lon: -60.0 },
+      { name: 'DOTAv2', lat: 39.9, lon: 116.4 },
+      { name: 'alps_eurodem', lat: 46.8, lon: 8.2 },
+      { name: 'Africa FAOSTAT Land Cover', lat: -1.29, lon: 36.82 },
+      { name: 'Cambodia flood response', lat: 11.56, lon: 104.92 },
+      { name: 'UNOSAT Vietnam Cyclone YAGI', lat: 21.03, lon: 105.85 },
+      { name: 'Somalia drought response', lat: 2.05, lon: 45.32 },
+      { name: 'South Sudan flood locations', lat: 4.85, lon: 31.62 },
+      { name: 'Delhi Sentinel-2', lat: 28.61, lon: 77.2 },
+    ],
+  },
+  {
+    id: 'companies',
+    label: 'companies',
+    color: '#F59E0B',
+    items: [
+      { name: 'Abonmarche Consultants', lat: 38.89, lon: -77.05 },
+      { name: 'Advanced Drone Solutions', lat: 45.42, lon: -75.69 },
+      { name: 'Advanced Infrastructure', lat: 51.5, lon: -0.08 },
+      { name: 'adesso SE', lat: 52.52, lon: 13.4 },
+      { name: 'Accenture', lat: 52.37, lon: 4.9 },
+      { name: 'Agronomeye', lat: -35.28, lon: 149.13 },
+      { name: 'Acclimatise', lat: 46.92, lon: 7.47 },
+      { name: 'AAM Sky Geospatial Solutions', lat: 28.61, lon: 77.2 },
+      { name: 'AG-Carto', lat: 48.86, lon: 2.35 },
+      { name: 'Apliter Termografia', lat: 24.47, lon: 54.37 },
+      { name: 'Acidhub Consultoria', lat: -15.79, lon: -47.88 },
+      { name: 'AAM Group', lat: -41.29, lon: 174.78 },
+      { name: 'ACCA software', lat: 41.9, lon: 12.5 },
+      { name: 'Advexure', lat: 35.68, lon: 139.76 },
+      { name: 'AfriGIS', lat: -25.75, lon: 28.19 },
+      { name: 'axmann geoinformation', lat: 48.21, lon: 16.37 },
+      { name: 'Abtemas SL', lat: 40.42, lon: -3.7 },
+      { name: 'AirForestry', lat: 59.33, lon: 18.07 },
+      { name: 'Associacao Florestal EDT', lat: 38.72, lon: -9.14 },
+      { name: 'Ayesa Advanced Technologies', lat: 4.71, lon: -74.07 },
+      { name: 'AiDash', lat: 19.43, lon: -99.13 },
+      { name: 'Abdulrahman Jazzar Engineering', lat: 24.71, lon: 46.67 },
+      { name: 'Arbigtec Technology', lat: 39.9, lon: 116.4 },
+      { name: 'AGS', lat: 1.35, lon: 103.82 },
+      { name: 'Agizo Africa Ltd', lat: -1.29, lon: 36.82 },
+    ],
+  },
+];
+
+const GEO_MARKER_OFFSETS = [
+  [0, 0],
+  [0, -26],
+  [0, 26],
+  [58, 0],
+  [-58, 0],
+  [58, -26],
+  [-58, 26],
+  [58, 26],
+  [-58, -26],
+  [0, -52],
+  [0, 52],
+  [116, 0],
+  [-116, 0],
+  [116, -26],
+  [-116, 26],
+  [116, 26],
+  [-116, -26],
+];
+
+function initGeoLayerMap() {
+  const mount = document.getElementById('lpGeoLayerMap');
   if (!mount || mount.dataset.ready === 'true') return;
   mount.dataset.ready = 'true';
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const markers = CAPITAL_LIGHTS.map(([code, country, capital, lat, lon]) => {
-    const dot = document.createElement('span');
-    dot.className = 'lp-capital-dot';
-    dot.dataset.code = code;
-    mount.appendChild(dot);
-    return { code, country, capital, lat, lon, dot, x: 0, y: 0 };
-  });
-
-  const label = document.getElementById('lpCapitalReadout');
-  if (!label) return;
-
-  const labelTitle = label.querySelector('strong');
-  const labelMeta = label.querySelector('span');
-  let activeIndex = -1;
-  let shuffledOrder = [];
-  let shuffledCursor = 0;
+  const indexItems = Array.from(document.querySelectorAll('.lp-hero-index [data-layer]'));
+  const layerDuration = 5000;
+  let activeLayer = 0;
+  let markers = [];
   let timer = null;
 
   function mapDrawRect(rect) {
@@ -331,52 +470,96 @@ function initCapitalLights() {
     };
   }
 
+  function clearMarkers() {
+    markers.forEach(marker => marker.el.remove());
+    markers = [];
+  }
+
+  function setMarkerPlacement(marker, p, rect, index) {
+    marker.el.style.setProperty('--x', `${p.x}px`);
+    marker.el.style.setProperty('--y', `${p.y}px`);
+    marker.el.classList.toggle('is-left', p.x > rect.width * 0.68);
+    marker.el.classList.toggle('is-below', p.y < rect.height * 0.28);
+    marker.el.classList.toggle('is-above', p.y > rect.height * 0.72);
+    marker.el.classList.toggle('is-pinched', index % 4 === 0);
+  }
+
   function positionMarkers() {
     const rect = mount.getBoundingClientRect();
     const draw = mapDrawRect(rect);
-    markers.forEach(marker => {
+    const isMobile = window.matchMedia('(max-width: 860px)').matches;
+    const mobileClamp = isMobile ? Math.min(132, rect.width * 0.24) : 0;
+    const projected = markers.map((marker, index) => {
       const p = project(marker, draw);
-      marker.x = p.x;
-      marker.y = p.y;
-      marker.dot.style.setProperty('--x', `${p.x}px`);
-      marker.dot.style.setProperty('--y', `${p.y}px`);
+      return { marker, index, p };
     });
-    if (activeIndex >= 0) setActive(activeIndex);
+    const groups = new Map();
+
+    projected.forEach(entry => {
+      const key = `${Math.round(entry.p.x / 84)}:${Math.round(entry.p.y / 42)}`;
+      const group = groups.get(key) || [];
+      entry.clusterIndex = group.length;
+      group.push(entry);
+      groups.set(key, group);
+    });
+
+    projected.forEach(entry => {
+      const offset = GEO_MARKER_OFFSETS[entry.clusterIndex % GEO_MARKER_OFFSETS.length];
+      const scale = isMobile ? 0.62 : 1;
+      const p = {
+        x: Math.min(Math.max(entry.p.x + offset[0] * scale, mobileClamp), rect.width - mobileClamp),
+        y: Math.min(Math.max(entry.p.y + offset[1] * scale, 28), rect.height - 42),
+      };
+      setMarkerPlacement(entry.marker, p, rect, entry.index);
+    });
   }
 
-  function setActive(index) {
-    if (!markers.length) return;
-    if (activeIndex >= 0) markers[activeIndex]?.dot.classList.remove('is-active');
-    activeIndex = (index + markers.length) % markers.length;
-    const marker = markers[activeIndex];
-    marker.dot.classList.add('is-active');
-    labelTitle.textContent = marker.capital;
-    labelMeta.textContent = `${marker.country} · ${marker.code}`;
+  function updateIndex(layer) {
+    indexItems.forEach(item => {
+      item.classList.toggle('is-active', item.dataset.layer === layer.id);
+    });
+  }
+
+  function renderLayer(index) {
+    activeLayer = (index + GEO_LAYER_DATA.length) % GEO_LAYER_DATA.length;
+    const layer = GEO_LAYER_DATA[activeLayer];
+    mount.dataset.layer = layer.id;
+    mount.style.setProperty('--layer-color', layer.color);
+    clearMarkers();
+
+    layer.items.forEach(item => {
+      const marker = document.createElement('span');
+      marker.className = 'lp-geo-marker';
+
+      const pin = document.createElement('span');
+      pin.className = 'lp-geo-pin';
+
+      const name = document.createElement('span');
+      name.className = 'lp-geo-name';
+      name.textContent = item.name;
+
+      marker.append(pin, name);
+      mount.appendChild(marker);
+      markers.push({ ...item, el: marker });
+    });
+
+    positionMarkers();
+    updateIndex(layer);
     mount.classList.add('is-ready');
-    label.classList.add('is-ready');
+    window.requestAnimationFrame(() => {
+      markers.forEach((marker, markerIndex) => {
+        window.setTimeout(() => marker.el.classList.add('is-visible'), markerIndex * 18);
+      });
+    });
   }
 
-  function reshuffleOrder() {
-    shuffledOrder = markers.map((_, index) => index);
-    for (let i = shuffledOrder.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledOrder[i], shuffledOrder[j]] = [shuffledOrder[j], shuffledOrder[i]];
-    }
-    if (shuffledOrder.length > 1 && shuffledOrder[0] === activeIndex) {
-      const swapIndex = 1 + Math.floor(Math.random() * (shuffledOrder.length - 1));
-      [shuffledOrder[0], shuffledOrder[swapIndex]] = [shuffledOrder[swapIndex], shuffledOrder[0]];
-    }
-    shuffledCursor = 0;
-  }
-
-  function nextRandomIndex() {
-    if (shuffledCursor >= shuffledOrder.length) reshuffleOrder();
-    return shuffledOrder[shuffledCursor++];
+  function nextLayer() {
+    renderLayer(activeLayer + 1);
   }
 
   function start() {
     if (reduceMotion || timer) return;
-    timer = window.setInterval(() => setActive(nextRandomIndex()), 620);
+    timer = window.setInterval(nextLayer, layerDuration);
   }
 
   function stop() {
@@ -396,8 +579,7 @@ function initCapitalLights() {
     else start();
   });
 
-  positionMarkers();
-  setActive(nextRandomIndex());
+  renderLayer(0);
   start();
 }
 
@@ -1980,7 +2162,7 @@ function initPythonApi(onDone) {
 document.addEventListener('DOMContentLoaded', () => {
   initCanvas();
   initMainCategories();
-  initCapitalLights();
+  initGeoLayerMap();
   initRadial();
   initFeatSwitcher();
 });
