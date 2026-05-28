@@ -1117,13 +1117,7 @@ a.lp-terminal-row.is-link:focus-visible::before{
   background:#0b0d14;
   box-shadow:0 18px 38px rgba(0,0,0,0.22);
   cursor:pointer;
-  opacity:0;
-  transform:scale(.965);
-  transition:opacity .45s ease,transform .45s ease,box-shadow .16s ease;
-}
-.lp-mosaic-tile.is-visible{
-  opacity:1;
-  transform:scale(1);
+  transition:transform .16s ease,box-shadow .16s ease;
 }
 .lp-mosaic-tile:hover,
 .lp-mosaic-tile:focus-visible{
@@ -3837,6 +3831,52 @@ a.lp-terminal-row.is-link:focus-visible::before{
 }
 [data-theme="light"] .lp-mosaic-caption span{
   color:#4F46E5;
+}
+[data-theme="light"] .lp-mosaic-tile{
+  background:#E4DFD4;
+  box-shadow:0 10px 24px rgba(26,24,20,0.08);
+}
+
+/* Story "Every new paper has a place." section */
+[data-theme="light"] .lp-paper-item{
+  color:#1A1814;
+  border-left-color:#E4DFD4;
+}
+[data-theme="light"] .lp-paper-item:hover{
+  background:rgba(79,70,229,0.04);
+}
+[data-theme="light"] .lp-paper-item.is-active{
+  background:rgba(79,70,229,0.08);
+  border-left-color:transparent;
+}
+[data-theme="light"] .lp-paper-item-name{
+  color:#5A554C;
+}
+[data-theme="light"] .lp-paper-item.is-active .lp-paper-item-name{
+  color:#1A1814;
+}
+[data-theme="light"] .lp-paper-item-title{
+  color:#8B8377;
+}
+[data-theme="light"] .lp-paper-item.is-active .lp-paper-item-title{
+  color:#3A352D;
+}
+[data-theme="light"] .lp-paper-item-meta{
+  color:#9A9285;
+}
+[data-theme="light"] .lp-paper-item-progress i{
+  background:#4F46E5;
+}
+[data-theme="light"] .lp-story-cta{
+  border-color:rgba(79,70,229,0.32);
+  background:rgba(79,70,229,0.08);
+  color:#3B33AB;
+}
+[data-theme="light"] .lp-story-cta:hover,
+[data-theme="light"] .lp-story-cta:focus-visible{
+  background:rgba(79,70,229,0.18);
+  border-color:rgba(79,70,229,0.55);
+  color:#1A1814;
 }
 
 @media(max-width:860px){
