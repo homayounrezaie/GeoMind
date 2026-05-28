@@ -2685,21 +2685,6 @@ nav,section,footer{position:relative;z-index:1}
   font-size:10px;
   letter-spacing:.08em;
 }
-.research-meta-tags{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  flex:0 0 auto;
-  min-width:0;
-}
-.research-meta-tags span{
-  color:rgba(255,255,255,0.58);
-  font-family:'SF Mono','Menlo',monospace;
-  font-size:11px;
-  font-weight:850;
-  line-height:1.25;
-  white-space:nowrap;
-}
 .research-links{
   display:inline-flex;
   flex-wrap:nowrap;
@@ -2891,7 +2876,6 @@ nav,section,footer{position:relative;z-index:1}
 [data-theme="light"] .research-filter-list .catalog-chip,
 [data-theme="light"] .research-resultbar,
 [data-theme="light"] .research-stat span,
-[data-theme="light"] .research-meta-tags span,
 [data-theme="light"] .research-links a{
   color:#9A9285;
 }
