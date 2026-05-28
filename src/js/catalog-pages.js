@@ -712,11 +712,26 @@ function catalogSearchUrl(file, query) {
 }
 
 function paperDomains(row) {
+  const raw = rawPaper(row);
   const values = splitValues(row.task || row.method_family || row.modality || row.matched_terms || row.tags || row.topic_query)
     .map(value => normalizeDomain(value))
     .filter(Boolean)
     .filter(value => !['unspecified', 'unknown', 'source', 'catalogue', 'arxiv'].includes(value));
+  if (isSurveyPaper(row, raw)) values.unshift('survey');
   return [...new Set(values)].slice(0, 6);
+}
+
+function isSurveyPaper(row, raw = rawPaper(row)) {
+  const text = [
+    row.title,
+    row.venue,
+    row.tags,
+    row.matched_terms,
+    raw.publication_type,
+    raw.status,
+    raw.notes,
+  ].map(value => String(value || '').toLowerCase()).join(' ');
+  return /\b(survey|review|overview)\b/.test(text) || text.includes('candidate_survey');
 }
 
 function paperPdfUrl(row) {
