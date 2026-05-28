@@ -1513,9 +1513,10 @@ a.lp-terminal-row.is-link:focus-visible::before{
 .lp-clarity-links{
   display:flex;
   flex-wrap:wrap;
-  justify-content:flex-start;
+  justify-content:center;
   gap:var(--s-1);
-  margin-top:var(--s-1);
+  width:min(580px,100%);
+  margin:var(--s-1) auto 0;
 }
 .lp-clarity-links a{
   display:inline-flex;
