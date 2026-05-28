@@ -2291,7 +2291,7 @@ function initHeroStatsStream() {
   if (!el || el.dataset.streamed === 'true') return;
   el.dataset.streamed = 'true';
 
-  const fullText = (el.textContent || '').trim();
+  const fullText = (el.dataset.streamText || el.textContent || '').trim();
   if (!fullText) return;
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
