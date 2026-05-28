@@ -426,6 +426,7 @@ nav,section,footer{position:relative;z-index:1}
 }
 .lp-hero-stats{
   margin:var(--s-4) auto 0;
+  min-height:1.4em;
   color:rgba(255,255,255,0.42);
   font-family:'SF Mono','Menlo',monospace;
   font-size:12px;
@@ -433,7 +434,24 @@ nav,section,footer{position:relative;z-index:1}
   letter-spacing:.02em;
   font-variant-numeric:tabular-nums;
   text-align:center;
-  animation:fadeUp 0.8s 0.42s cubic-bezier(0.16,1,0.3,1) both;
+}
+.lp-hero-stats-caret{
+  display:inline-block;
+  width:7px;
+  height:1em;
+  margin-left:3px;
+  vertical-align:-0.12em;
+  background:currentColor;
+  opacity:.78;
+  animation:lpHeroCaretBlink 0.95s steps(1) infinite;
+}
+@keyframes lpHeroCaretBlink{
+  0%,49%{opacity:.78}
+  50%,100%{opacity:0}
+}
+.lp-hero-stats.is-streamed .lp-hero-stats-caret{
+  animation:none;
+  opacity:0;
 }
 [data-theme="light"] .lp-hero-stats{
   color:#8B8377;

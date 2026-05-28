@@ -2283,4 +2283,45 @@ document.addEventListener('DOMContentLoaded', () => {
   initGeoLayerMap();
   initRadial();
   initFeatSwitcher();
+  initHeroStatsStream();
 });
+
+function initHeroStatsStream() {
+  const el = document.querySelector('.lp-hero-stats');
+  if (!el || el.dataset.streamed === 'true') return;
+  el.dataset.streamed = 'true';
+
+  const fullText = (el.textContent || '').trim();
+  if (!fullText) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    el.classList.add('is-streamed');
+    return;
+  }
+
+  el.textContent = '';
+  el.classList.add('is-streaming');
+  const caret = document.createElement('span');
+  caret.className = 'lp-hero-stats-caret';
+  caret.setAttribute('aria-hidden', 'true');
+  el.appendChild(caret);
+
+  let i = 0;
+  const charInterval = 26;
+  const punctuationPause = 110;
+  const step = () => {
+    if (i >= fullText.length) {
+      el.classList.remove('is-streaming');
+      el.classList.add('is-streamed');
+      window.setTimeout(() => caret.remove(), 1400);
+      return;
+    }
+    const char = fullText.charAt(i);
+    caret.insertAdjacentText('beforebegin', char);
+    i += 1;
+    const delay = char === '·' || char === ',' ? punctuationPause : charInterval;
+    window.setTimeout(step, delay);
+  };
+  window.setTimeout(step, 820);
+}
