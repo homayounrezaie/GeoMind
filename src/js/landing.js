@@ -2306,7 +2306,7 @@ const TERMINAL_FLOW = [
     ],
   },
   {
-    cwd: '~/main/learn',
+    cwd: '~/main',
     command: 'cd learn && ls',
     comment: 'these topics are fundamentals to go deeper in GeoAI',
     output: [
@@ -2319,22 +2319,22 @@ const TERMINAL_FLOW = [
     ],
   },
   {
-    cwd: '~/main/foundation-models',
+    cwd: '~/main',
     command: 'cd foundation-models && ls | head -10',
     dynamicSource: 'models',
   },
   {
-    cwd: '~/main/techniques',
+    cwd: '~/main',
     command: 'cd techniques && ls | head -10',
     dynamicSource: 'techniques',
   },
   {
-    cwd: '~/main/tasks',
+    cwd: '~/main',
     command: 'cd tasks && ls | head -10',
     dynamicSource: 'tasks',
   },
   {
-    cwd: '~/main/stack',
+    cwd: '~/main',
     command: 'cd stack && ls',
     comment: 'the toolchain — libraries, databases, compute, deployment',
     output: [
@@ -2348,22 +2348,22 @@ const TERMINAL_FLOW = [
     ],
   },
   {
-    cwd: '~/main/papers',
+    cwd: '~/main',
     command: 'cd papers && ls | head -10',
     dynamicSource: 'papers',
   },
   {
-    cwd: '~/main/datasets',
+    cwd: '~/main',
     command: 'cd datasets && ls | head -10',
     dynamicSource: 'datasets',
   },
   {
-    cwd: '~/main/companies',
+    cwd: '~/main',
     command: 'cd companies && ls | head -10',
     dynamicSource: 'companies',
   },
   {
-    cwd: '~/main/jobs',
+    cwd: '~/main',
     command: 'cd jobs && ls',
     comment: 'roles, hiring signals, and skill maps in GeoAI',
     output: [
