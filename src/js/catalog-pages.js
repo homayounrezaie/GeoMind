@@ -264,6 +264,7 @@ function renderPaperItem(cfg, row) {
   const authors = truncateAuthors(row.authors);
   const venue = row.venue || row.conference;
   const description = truncate(cleanText(cfg.description(row)), 320);
+  const tags = paperDomains(row).slice(0, 1);
   const citationCount = Number(row.citations || row.citation_count) || 0;
   const year = row.year || 'unknown';
   const pdfUrl = paperPdfUrl(row);
@@ -280,6 +281,7 @@ function renderPaperItem(cfg, row) {
   const canPreview = Boolean(pdfUrl || staticPreview);
   const meta = [
     stats && `<div class="research-stats">${stats}</div>`,
+    tags.length && `<div class="research-meta-tags">${tags.map(tag => `<span>${escapeHtml(titleCase(tag))}</span>`).join('')}</div>`,
     actions && `<div class="research-links">${actions}</div>`,
   ].filter(Boolean).join('');
   const previewAttrs = canPreview
