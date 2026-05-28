@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import csv
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -114,7 +115,8 @@ def main() -> None:
         "companies": top_names(companies, ["name", "company_name"]),
     }
 
-    payload = {**counts, "highlights": highlights}
+    generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    payload = {**counts, "generated_at": generated_at, "highlights": highlights}
     OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     summary_counts = " ".join(f"{k}={v:,}" for k, v in counts.items())

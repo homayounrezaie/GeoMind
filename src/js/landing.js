@@ -51,9 +51,34 @@ document.addEventListener('DOMContentLoaded', async () => {
   initScrollReveal();
   await loadStats();
   initHeroStatsStream();
+  initHeroLiveIndicator();
   initTerminalExplorer();
   initDatasetQuery();
 });
+
+function initHeroLiveIndicator() {
+  const text = document.querySelector('[data-hero-live-text]');
+  if (!text) return;
+  const generatedAt = STATS && STATS.generated_at;
+  if (!generatedAt) {
+    text.textContent = 'indexing live';
+    return;
+  }
+  function update() {
+    const t = new Date(generatedAt).getTime();
+    if (!Number.isFinite(t)) { text.textContent = 'indexing live'; return; }
+    const diff = Math.max(0, (Date.now() - t) / 1000);
+    let label;
+    if (diff < 60)              label = 'synced just now';
+    else if (diff < 3600)       label = `synced ${Math.floor(diff / 60)} min ago`;
+    else if (diff < 86400)      label = `synced ${Math.floor(diff / 3600)} h ago`;
+    else if (diff < 86400 * 7)  label = `synced ${Math.floor(diff / 86400)} d ago`;
+    else                        label = `synced ${Math.floor(diff / 86400 / 7)} w ago`;
+    text.textContent = label;
+  }
+  update();
+  window.setInterval(update, 60000);
+}
 
 function initScrollReveal() {
   if (!document.documentElement.classList.contains('has-reveal')) return;
