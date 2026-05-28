@@ -161,6 +161,82 @@ nav,section,footer{position:relative;z-index:1}
   mask-image:radial-gradient(ellipse at center, #000 35%, transparent 75%);
   -webkit-mask-image:radial-gradient(ellipse at center, #000 35%, transparent 75%);
 }
+.lp-capital-lights{
+  position:absolute;
+  inset:-12% -8%;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+  opacity:.9;
+  contain:layout style;
+  mask-image:radial-gradient(ellipse at center, #000 34%, transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse at center, #000 34%, transparent 78%);
+}
+.lp-capital-dot{
+  position:absolute;
+  left:0;
+  top:0;
+  width:4px;
+  height:4px;
+  margin:-2px 0 0 -2px;
+  border-radius:999px;
+  background:rgba(165,180,252,.24);
+  opacity:.16;
+  transform:translate(var(--x),var(--y)) scale(.72);
+  transition:opacity .26s ease,transform .26s ease,background .26s ease,box-shadow .26s ease;
+}
+.lp-capital-dot.is-active{
+  opacity:1;
+  background:#fff;
+  transform:translate(var(--x),var(--y)) scale(1.85);
+  box-shadow:
+    0 0 12px 4px rgba(165,180,252,.82),
+    0 0 38px 14px rgba(99,102,241,.32);
+}
+.lp-capital-readout{
+  position:absolute;
+  right:calc(8vw + clamp(22px,4vw,64px));
+  bottom:clamp(28px,6vh,72px);
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  max-width:min(220px,30vw);
+  padding:7px 9px;
+  border:1px solid rgba(165,180,252,.24);
+  border-radius:7px;
+  background:rgba(9,9,15,.54);
+  color:rgba(255,255,255,.88);
+  box-shadow:0 12px 34px rgba(0,0,0,.22),0 0 28px rgba(99,102,241,.14);
+  backdrop-filter:blur(8px);
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+  transition:opacity .22s ease,transform .22s ease;
+}
+.lp-capital-readout.is-ready{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.lp-capital-readout strong{
+  overflow:hidden;
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.15;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.lp-capital-readout span{
+  overflow:hidden;
+  color:rgba(255,255,255,.46);
+  font-family:'SF Mono','Menlo',monospace;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.04em;
+  line-height:1.1;
+  text-overflow:ellipsis;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
 .lp-hero-shell{
   position:relative;
   z-index:1;
@@ -2947,6 +3023,17 @@ nav,section,footer{position:relative;z-index:1}
     inset:0 -28%;
     opacity:.03;
     background-size:auto 86%;
+  }
+  .lp-capital-lights{
+    inset:0 -28%;
+    opacity:.68;
+  }
+  .lp-capital-dot{
+    width:3px;
+    height:3px;
+  }
+  .lp-capital-readout{
+    display:none;
   }
   .lp-hero-shell{grid-template-columns:1fr}
   .lp-hero-copy{text-align:center}

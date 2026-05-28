@@ -76,6 +76,311 @@ function initMainCategories() {
   setActive(document.querySelector('.lp-main-category.active') || cards[0], false);
 }
 
+const CAPITAL_LIGHTS = [
+  ["AF","Afghanistan","Kabul",34.52,69.18],
+  ["AL","Albania","Tirana",41.32,19.82],
+  ["DZ","Algeria","Algiers",36.75,3.05],
+  ["AD","Andorra","Andorra la Vella",42.5,1.52],
+  ["AO","Angola","Luanda",-8.83,13.22],
+  ["AG","Antigua and Barbuda","Saint John's",17.12,-61.85],
+  ["AR","Argentina","Buenos Aires",-34.58,-58.67],
+  ["AM","Armenia","Yerevan",40.17,44.5],
+  ["AU","Australia","Canberra",-35.27,149.13],
+  ["AT","Austria","Vienna",48.2,16.37],
+  ["AZ","Azerbaijan","Baku",40.38,49.87],
+  ["BS","Bahamas","Nassau",25.08,-77.35],
+  ["BH","Bahrain","Manama",26.23,50.57],
+  ["BD","Bangladesh","Dhaka",23.72,90.4],
+  ["BB","Barbados","Bridgetown",13.1,-59.62],
+  ["BY","Belarus","Minsk",53.9,27.57],
+  ["BE","Belgium","Brussels",50.83,4.33],
+  ["BZ","Belize","Belmopan",17.25,-88.77],
+  ["BJ","Benin","Porto-Novo",6.48,2.62],
+  ["BT","Bhutan","Thimphu",27.47,89.63],
+  ["BO","Bolivia","Sucre",-19.02,-65.26],
+  ["BA","Bosnia and Herzegovina","Sarajevo",43.87,18.42],
+  ["BW","Botswana","Gaborone",-24.63,25.9],
+  ["BR","Brazil","Brasília",-15.79,-47.88],
+  ["BN","Brunei","Bandar Seri Begawan",4.88,114.93],
+  ["BG","Bulgaria","Sofia",42.68,23.32],
+  ["BF","Burkina Faso","Ouagadougou",12.37,-1.52],
+  ["BI","Burundi","Gitega",-3.43,29.93],
+  ["KH","Cambodia","Phnom Penh",11.55,104.92],
+  ["CM","Cameroon","Yaoundé",3.85,11.5],
+  ["CA","Canada","Ottawa",45.42,-75.7],
+  ["CV","Cape Verde","Praia",14.92,-23.52],
+  ["CF","Central African Republic","Bangui",4.37,18.58],
+  ["TD","Chad","N'Djamena",12.1,15.03],
+  ["CL","Chile","Santiago",-33.45,-70.67],
+  ["CN","China","Beijing",39.92,116.38],
+  ["CO","Colombia","Bogotá",4.71,-74.07],
+  ["KM","Comoros","Moroni",-11.7,43.23],
+  ["CR","Costa Rica","San José",9.93,-84.09],
+  ["HR","Croatia","Zagreb",45.8,16],
+  ["CU","Cuba","Havana",23.12,-82.35],
+  ["CY","Cyprus","Nicosia",35.17,33.37],
+  ["CZ","Czechia","Prague",50.08,14.47],
+  ["DK","Denmark","Copenhagen",55.67,12.58],
+  ["DJ","Djibouti","Djibouti",11.58,43.15],
+  ["DM","Dominica","Roseau",15.3,-61.4],
+  ["DO","Dominican Republic","Santo Domingo",18.47,-69.9],
+  ["CD","DR Congo","Kinshasa",-4.32,15.3],
+  ["EC","Ecuador","Quito",-0.22,-78.5],
+  ["EG","Egypt","Cairo",30.05,31.25],
+  ["SV","El Salvador","San Salvador",13.7,-89.2],
+  ["GQ","Equatorial Guinea","Ciudad de la Paz",1.35,10.49],
+  ["ER","Eritrea","Asmara",15.33,38.93],
+  ["EE","Estonia","Tallinn",59.43,24.72],
+  ["SZ","Eswatini","Mbabane",-26.32,31.13],
+  ["ET","Ethiopia","Addis Ababa",9.03,38.7],
+  ["FJ","Fiji","Suva",-18.13,178.42],
+  ["FI","Finland","Helsinki",60.17,24.93],
+  ["FR","France","Paris",48.87,2.33],
+  ["GA","Gabon","Libreville",0.38,9.45],
+  ["GM","Gambia","Banjul",13.45,-16.57],
+  ["GE","Georgia","Tbilisi",41.68,44.83],
+  ["DE","Germany","Berlin",52.52,13.4],
+  ["GH","Ghana","Accra",5.55,-0.22],
+  ["GR","Greece","Athens",37.98,23.73],
+  ["GD","Grenada","St. George's",32.38,-64.68],
+  ["GT","Guatemala","Guatemala City",14.62,-90.52],
+  ["GN","Guinea","Conakry",9.5,-13.7],
+  ["GW","Guinea-Bissau","Bissau",11.85,-15.58],
+  ["GY","Guyana","Georgetown",6.8,-58.15],
+  ["HT","Haiti","Port-au-Prince",18.53,-72.33],
+  ["HN","Honduras","Tegucigalpa",14.1,-87.22],
+  ["HU","Hungary","Budapest",47.5,19.08],
+  ["IS","Iceland","Reykjavik",64.15,-21.95],
+  ["IN","India","New Delhi",28.6,77.2],
+  ["ID","Indonesia","Jakarta",-6.17,106.82],
+  ["IR","Iran","Tehran",35.7,51.42],
+  ["IQ","Iraq","Baghdad",33.33,44.4],
+  ["IE","Ireland","Dublin",53.32,-6.23],
+  ["IL","Israel","Jerusalem",31.77,35.23],
+  ["IT","Italy","Rome",41.9,12.48],
+  ["CI","Ivory Coast","Yamoussoukro",6.82,-5.27],
+  ["JM","Jamaica","Kingston",18,-76.79],
+  ["JP","Japan","Tokyo",35.68,139.75],
+  ["JO","Jordan","Amman",31.95,35.93],
+  ["KZ","Kazakhstan","Astana",51.16,71.45],
+  ["KE","Kenya","Nairobi",-1.28,36.82],
+  ["KI","Kiribati","South Tarawa",1.33,172.98],
+  ["XK","Kosovo","Pristina",42.67,21.17],
+  ["KW","Kuwait","Kuwait City",29.37,47.97],
+  ["KG","Kyrgyzstan","Bishkek",42.87,74.6],
+  ["LA","Laos","Vientiane",17.97,102.6],
+  ["LV","Latvia","Riga",56.95,24.1],
+  ["LB","Lebanon","Beirut",33.87,35.5],
+  ["LS","Lesotho","Maseru",-29.32,27.48],
+  ["LR","Liberia","Monrovia",6.3,-10.8],
+  ["LY","Libya","Tripoli",32.88,13.17],
+  ["LI","Liechtenstein","Vaduz",47.13,9.52],
+  ["LT","Lithuania","Vilnius",54.68,25.32],
+  ["LU","Luxembourg","Luxembourg",49.6,6.12],
+  ["MG","Madagascar","Antananarivo",-18.92,47.52],
+  ["MW","Malawi","Lilongwe",-13.97,33.78],
+  ["MY","Malaysia","Kuala Lumpur",3.17,101.7],
+  ["MV","Maldives","Malé",4.17,73.51],
+  ["ML","Mali","Bamako",12.65,-8],
+  ["MT","Malta","Valletta",35.88,14.5],
+  ["MH","Marshall Islands","Majuro",7.1,171.38],
+  ["MR","Mauritania","Nouakchott",18.07,-15.97],
+  ["MU","Mauritius","Port Louis",-20.15,57.48],
+  ["MX","Mexico","Mexico City",19.43,-99.13],
+  ["FM","Micronesia","Palikir",6.92,158.15],
+  ["MD","Moldova","Chișinău",47.01,28.9],
+  ["MC","Monaco","Monaco",43.73,7.42],
+  ["MN","Mongolia","Ulan Bator",47.92,106.91],
+  ["ME","Montenegro","Podgorica",42.43,19.27],
+  ["MA","Morocco","Rabat",34.02,-6.82],
+  ["MZ","Mozambique","Maputo",-25.95,32.58],
+  ["MM","Myanmar","Naypyidaw",19.76,96.07],
+  ["NA","Namibia","Windhoek",-22.57,17.08],
+  ["NR","Nauru","Yaren",-0.55,166.92],
+  ["NP","Nepal","Kathmandu",27.72,85.32],
+  ["NL","Netherlands","Amsterdam",52.35,4.92],
+  ["NZ","New Zealand","Wellington",-41.3,174.78],
+  ["NI","Nicaragua","Managua",12.13,-86.25],
+  ["NE","Niger","Niamey",13.52,2.12],
+  ["NG","Nigeria","Abuja",9.08,7.53],
+  ["KP","North Korea","Pyongyang",39.02,125.75],
+  ["MK","North Macedonia","Skopje",42,21.43],
+  ["NO","Norway","Oslo",59.92,10.75],
+  ["OM","Oman","Muscat",23.62,58.58],
+  ["PK","Pakistan","Islamabad",33.68,73.05],
+  ["PW","Palau","Ngerulmud",7.5,134.62],
+  ["PA","Panama","Panama City",8.97,-79.53],
+  ["PG","Papua New Guinea","Port Moresby",-9.45,147.18],
+  ["PY","Paraguay","Asunción",-25.28,-57.57],
+  ["PE","Peru","Lima",-12.05,-77.05],
+  ["PH","Philippines","Manila",14.6,120.97],
+  ["PL","Poland","Warsaw",52.25,21],
+  ["PT","Portugal","Lisbon",38.72,-9.13],
+  ["QA","Qatar","Doha",25.28,51.53],
+  ["CG","Republic of the Congo","Brazzaville",-4.25,15.28],
+  ["RO","Romania","Bucharest",44.43,26.1],
+  ["RU","Russia","Moscow",55.75,37.6],
+  ["RW","Rwanda","Kigali",-1.95,30.05],
+  ["KN","Saint Kitts and Nevis","Basseterre",17.3,-62.72],
+  ["LC","Saint Lucia","Castries",14,-61],
+  ["VC","Saint Vincent and the Grenadines","Kingstown",13.13,-61.22],
+  ["WS","Samoa","Apia",-13.82,-171.77],
+  ["SM","San Marino","City of San Marino",43.94,12.45],
+  ["ST","São Tomé and Príncipe","São Tomé",0.34,6.73],
+  ["SA","Saudi Arabia","Riyadh",24.65,46.7],
+  ["SN","Senegal","Dakar",14.73,-17.63],
+  ["RS","Serbia","Belgrade",44.83,20.5],
+  ["SC","Seychelles","Victoria",-4.62,55.45],
+  ["SL","Sierra Leone","Freetown",8.48,-13.23],
+  ["SG","Singapore","Singapore",1.28,103.85],
+  ["SK","Slovakia","Bratislava",48.15,17.12],
+  ["SI","Slovenia","Ljubljana",46.05,14.52],
+  ["SB","Solomon Islands","Honiara",-9.43,159.95],
+  ["SO","Somalia","Mogadishu",2.07,45.33],
+  ["ZA","South Africa","Pretoria",-25.7,28.22],
+  ["KR","South Korea","Seoul",37.55,126.98],
+  ["SS","South Sudan","Juba",4.85,31.62],
+  ["ES","Spain","Madrid",40.4,-3.68],
+  ["LK","Sri Lanka","Sri Jayawardenepura Kotte",6.89,79.9],
+  ["SD","Sudan","Khartoum",15.6,32.53],
+  ["SR","Suriname","Paramaribo",5.83,-55.17],
+  ["SE","Sweden","Stockholm",59.33,18.05],
+  ["CH","Switzerland","Bern",46.92,7.47],
+  ["SY","Syria","Damascus",33.5,36.3],
+  ["TJ","Tajikistan","Dushanbe",38.55,68.77],
+  ["TZ","Tanzania","Dodoma",-6.16,35.75],
+  ["TH","Thailand","Bangkok",13.75,100.52],
+  ["TL","Timor-Leste","Dili",-8.58,125.6],
+  ["TG","Togo","Lomé",6.14,1.21],
+  ["TO","Tonga","Nuku'alofa",-21.13,-175.2],
+  ["TT","Trinidad and Tobago","Port of Spain",10.65,-61.52],
+  ["TN","Tunisia","Tunis",36.8,10.18],
+  ["TR","Turkey","Ankara",39.93,32.87],
+  ["TM","Turkmenistan","Ashgabat",37.95,58.38],
+  ["TV","Tuvalu","Funafuti",-8.52,179.22],
+  ["UG","Uganda","Kampala",0.32,32.55],
+  ["UA","Ukraine","Kyiv",50.43,30.52],
+  ["AE","United Arab Emirates","Abu Dhabi",24.47,54.37],
+  ["GB","United Kingdom","London",51.5,-0.08],
+  ["US","United States","Washington, D.C.",38.89,-77.05],
+  ["UY","Uruguay","Montevideo",-34.85,-56.17],
+  ["UZ","Uzbekistan","Tashkent",41.32,69.25],
+  ["VU","Vanuatu","Port Vila",-17.73,168.32],
+  ["VA","Vatican City","Vatican City",41.9,12.45],
+  ["VE","Venezuela","Caracas",10.48,-66.87],
+  ["VN","Vietnam","Hanoi",21.03,105.85],
+  ["YE","Yemen","Sana'a",15.37,44.19],
+  ["ZM","Zambia","Lusaka",-15.42,28.28],
+  ["ZW","Zimbabwe","Harare",-17.82,31.03],
+];
+
+function initCapitalLights() {
+  const mount = document.getElementById('lpCapitalLights');
+  if (!mount || mount.dataset.ready === 'true') return;
+  mount.dataset.ready = 'true';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const markers = CAPITAL_LIGHTS.map(([code, country, capital, lat, lon]) => {
+    const dot = document.createElement('span');
+    dot.className = 'lp-capital-dot';
+    dot.dataset.code = code;
+    mount.appendChild(dot);
+    return { code, country, capital, lat, lon, dot, x: 0, y: 0 };
+  });
+
+  const label = document.getElementById('lpCapitalReadout');
+  if (!label) return;
+
+  const labelTitle = label.querySelector('strong');
+  const labelMeta = label.querySelector('span');
+  let activeIndex = -1;
+  let timer = null;
+
+  function mapDrawRect(rect) {
+    const sourceRatio = 2;
+    const isMobile = window.matchMedia('(max-width: 860px)').matches;
+    if (isMobile) {
+      const drawHeight = rect.height * 0.86;
+      const drawWidth = drawHeight * sourceRatio;
+      return {
+        x: (rect.width - drawWidth) / 2,
+        y: (rect.height - drawHeight) / 2,
+        width: drawWidth,
+        height: drawHeight,
+      };
+    }
+
+    const rectRatio = rect.width / Math.max(rect.height, 1);
+    if (rectRatio > sourceRatio) {
+      const drawWidth = rect.width;
+      const drawHeight = drawWidth / sourceRatio;
+      return { x: 0, y: (rect.height - drawHeight) / 2, width: drawWidth, height: drawHeight };
+    }
+
+    const drawHeight = rect.height;
+    const drawWidth = drawHeight * sourceRatio;
+    return { x: (rect.width - drawWidth) / 2, y: 0, width: drawWidth, height: drawHeight };
+  }
+
+  function project(marker, draw) {
+    return {
+      x: draw.x + ((marker.lon + 180) / 360) * draw.width,
+      y: draw.y + ((90 - marker.lat) / 180) * draw.height,
+    };
+  }
+
+  function positionMarkers() {
+    const rect = mount.getBoundingClientRect();
+    const draw = mapDrawRect(rect);
+    markers.forEach(marker => {
+      const p = project(marker, draw);
+      marker.x = p.x;
+      marker.y = p.y;
+      marker.dot.style.setProperty('--x', `${p.x}px`);
+      marker.dot.style.setProperty('--y', `${p.y}px`);
+    });
+    if (activeIndex >= 0) setActive(activeIndex);
+  }
+
+  function setActive(index) {
+    if (!markers.length) return;
+    if (activeIndex >= 0) markers[activeIndex]?.dot.classList.remove('is-active');
+    activeIndex = (index + markers.length) % markers.length;
+    const marker = markers[activeIndex];
+    marker.dot.classList.add('is-active');
+    labelTitle.textContent = marker.capital;
+    labelMeta.textContent = `${marker.country} · ${marker.code}`;
+    mount.classList.add('is-ready');
+    label.classList.add('is-ready');
+  }
+
+  function start() {
+    if (reduceMotion || timer) return;
+    timer = window.setInterval(() => setActive(activeIndex + 1), 620);
+  }
+
+  function stop() {
+    if (!timer) return;
+    window.clearInterval(timer);
+    timer = null;
+  }
+
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(positionMarkers, 120);
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else start();
+  });
+
+  positionMarkers();
+  setActive(0);
+  start();
+}
+
 /* ── Radial infographic ───────────────────── */
 function initRadial() {
   const wrap = document.getElementById('lp-radial-wrap');
@@ -1655,6 +1960,7 @@ function initPythonApi(onDone) {
 document.addEventListener('DOMContentLoaded', () => {
   initCanvas();
   initMainCategories();
+  initCapitalLights();
   initRadial();
   initFeatSwitcher();
 });
