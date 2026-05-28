@@ -277,6 +277,7 @@ function renderPaperItem(cfg, row) {
   const citationPace = paperCitationPace(row, citationCount);
   const source = row.venue || row.discovered_via || 'Paper';
   const actions = paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code });
+  const stats = paperStats({ githubRepo, citationCount, citationPace });
   const staticPreview = paperThumbnailUrl(row);
   const canPreview = Boolean(pdfUrl || staticPreview);
   const previewAttrs = canPreview
@@ -299,26 +300,9 @@ function renderPaperItem(cfg, row) {
         <h2>${url ? `<a href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(title)}</a>` : escapeHtml(title)}</h2>
         <p class="research-byline">${escapeHtml(joinClean([authors, venue, year]))}</p>
         ${description ? `<p class="research-abstract">${escapeHtml(description)}</p>` : ''}
+        ${stats ? `<div class="research-stats">${stats}</div>` : ''}
         ${tags.length ? `<div class="research-tags">${tags.map(tag => `<span>${escapeHtml(titleCase(tag))}</span>`).join('')}</div>` : ''}
         ${actions ? `<div class="research-links">${actions}</div>` : ''}
-      </div>
-      <div class="research-stats">
-        <div class="research-stat ${githubRepo ? '' : 'is-empty'}" ${githubRepo ? `data-github-repo="${escapeAttr(githubRepo)}"` : ''}>
-          <div class="research-stat-value">
-            ${iconSvg('github')}
-            <strong data-github-stars>${githubRepo ? '...' : '-'}</strong>
-          </div>
-          <span>stars</span>
-          ${githubRepo ? `<a href="${escapeAttr(`https://github.com/${githubRepo}`)}" target="_blank" rel="noopener">${escapeHtml(githubRepo)}</a>` : ''}
-        </div>
-        <div class="research-stat ${citationCount ? '' : 'is-empty'}">
-          <div class="research-stat-value">
-            ${iconSvg('trend')}
-            <strong>${citationCount ? escapeHtml(compactNumber(citationCount)) : '-'}</strong>
-          </div>
-          <span>citations</span>
-          <small>${citationPace ? `${escapeHtml(citationPace)} / yr` : 'no citation data'}</small>
-        </div>
       </div>
     </article>
   `;
@@ -596,6 +580,26 @@ function paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websit
     huggingFaceUrl && paperAction('huggingface', 'Hugging Face', huggingFaceUrl),
     websiteUrl && paperAction('globe', 'Website', websiteUrl),
     code && code !== githubUrl && code !== huggingFaceUrl && code !== websiteUrl && paperAction('code', 'Code', code),
+  ].filter(Boolean).join('');
+}
+
+function paperStats({ githubRepo, citationCount, citationPace }) {
+  return [
+    githubRepo && `
+      <span class="research-stat" data-github-repo="${escapeAttr(githubRepo)}">
+        ${iconSvg('github')}
+        <strong data-github-stars>...</strong>
+        <span>stars</span>
+      </span>
+    `,
+    citationCount && `
+      <span class="research-stat">
+        ${iconSvg('trend')}
+        <strong>${escapeHtml(compactNumber(citationCount))}</strong>
+        <span>citations</span>
+        ${citationPace ? `<small>${escapeHtml(citationPace)} / yr</small>` : ''}
+      </span>
+    `,
   ].filter(Boolean).join('');
 }
 
