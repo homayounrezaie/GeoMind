@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoMind — GeoAI Knowledge Map</title>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260528-10">
+<link rel="stylesheet" href="src/styles/landing.css?v=20260528-11">
 </head>
 <body>
 
@@ -479,128 +479,32 @@
   </div>
 </section>
 
-<!-- DATASET MOSAIC -->
-<section class="lp-mosaic-section" aria-labelledby="mosaic-title">
+<!-- DATASETS QUERY -->
+<section class="lp-ds-section" aria-labelledby="ds-title">
   <div class="lp-section-head">
-    <h2 class="lp-sec-title" id="mosaic-title">Same Earth. Many signals.</h2>
+    <h2 class="lp-sec-title" id="ds-title">Same Earth. Many signals.</h2>
     <p class="lp-sec-sub">Every layer in GeoMind connects to real datasets. Here's what they look like.</p>
   </div>
-
-  <div class="lp-mosaic-grid" id="lpMosaicGrid" aria-label="Earth observation dataset modality mosaic">
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#esa-worldcover">
-      <img class="lp-mosaic-img-a" src="public/datasets/esa-worldcover-nile-a.webp" alt="ESA WorldCover source Sentinel-2 RGB tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/esa-worldcover-nile-b.webp" alt="ESA WorldCover land-cover class tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">ESA WorldCover · Sentinel-2 RGB · Nile Delta</span><span class="lp-mosaic-cap-b">ESA WorldCover · land-cover classes · 10 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#hls">
-      <img class="lp-mosaic-img-a" src="public/datasets/hls-landsat-swir-a.webp" alt="HLS Landsat RGB tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/hls-landsat-swir-b.webp" alt="HLS Landsat SWIR false color tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">HLS Landsat · RGB · 30 m</span><span class="lp-mosaic-cap-b">HLS Landsat · SWIR/NIR/Red · 30 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#jrc-global-surface-water">
-      <img class="lp-mosaic-img-a" src="public/datasets/jrc-water-amazon-a.webp" alt="JRC Global Surface Water occurrence tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/jrc-water-amazon-b.webp" alt="JRC Global Surface Water seasonality tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">JRC Global Surface Water · occurrence</span><span class="lp-mosaic-cap-b">JRC Global Surface Water · seasonality</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#landsat">
-      <img class="lp-mosaic-img-a" src="public/datasets/landsat-la-thermal-a.webp" alt="Landsat Los Angeles RGB tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/landsat-la-thermal-b.webp" alt="Landsat Los Angeles thermal tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">Landsat · RGB urban/coast · 30 m</span><span class="lp-mosaic-cap-b">Landsat · thermal infrared · 100 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#landsat">
-      <img class="lp-mosaic-img-a" src="public/datasets/landsat-nile-thermal-a.webp" alt="Landsat Nile RGB tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/landsat-nile-thermal-b.webp" alt="Landsat Nile thermal tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">Landsat · agriculture and city · 30 m</span><span class="lp-mosaic-cap-b">Landsat · thermal infrared · 100 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#landsat">
-      <img class="lp-mosaic-img-a" src="public/datasets/landsat-thermal-a.webp" alt="Landsat Phoenix RGB tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/landsat-thermal-b.webp" alt="Landsat Phoenix thermal tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">Landsat · RGB desert city · 30 m</span><span class="lp-mosaic-cap-b">Landsat · thermal infrared · 100 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#modis">
-      <img class="lp-mosaic-img-a" src="public/datasets/modis-vi-iowa-a.webp" alt="MODIS NDVI tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/modis-vi-iowa-b.webp" alt="MODIS EVI tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">MODIS · NDVI · 500 m</span><span class="lp-mosaic-cap-b">MODIS · EVI · 500 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#nasadem">
-      <img class="lp-mosaic-img-a" src="public/datasets/nasadem-grand-canyon-a.webp" alt="NASADEM hillshade tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/nasadem-grand-canyon-b.webp" alt="NASADEM elevation color ramp tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">NASADEM · hillshade · 30 m</span><span class="lp-mosaic-cap-b">NASADEM · elevation ramp · 30 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#nrcan-landcover">
-      <img class="lp-mosaic-img-a" src="public/datasets/nrcan-landcover-calgary-a.webp" alt="NRCan Sentinel-2 RGB tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/nrcan-landcover-calgary-b.webp" alt="NRCan land-cover class tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">NRCan Land Cover · Sentinel-2 RGB</span><span class="lp-mosaic-cap-b">NRCan Land Cover · classes · 30 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#sentinel-1">
-      <img class="lp-mosaic-img-a" src="public/datasets/sentinel1-delta-bangladesh-a.webp" alt="Sentinel-1 Bangladesh delta VV tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/sentinel1-delta-bangladesh-b.webp" alt="Sentinel-1 Bangladesh delta VH tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">Sentinel-1 · SAR VV · delta channels</span><span class="lp-mosaic-cap-b">Sentinel-1 · SAR VH · wetland texture</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#sentinel-1">
-      <img class="lp-mosaic-img-a" src="public/datasets/sentinel1-sar-a.webp" alt="Sentinel-1 Rotterdam VV tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/sentinel1-sar-b.webp" alt="Sentinel-1 Rotterdam VH tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">Sentinel-1 · SAR VV · 10 m</span><span class="lp-mosaic-cap-b">Sentinel-1 · SAR VH · 10 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#sentinel-2">
-      <img class="lp-mosaic-img-a" src="public/datasets/sentinel2-agriculture-iowa-a.webp" alt="Sentinel-2 Iowa RGB agriculture tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/sentinel2-agriculture-iowa-b.webp" alt="Sentinel-2 Iowa NDVI tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">Sentinel-2 · RGB cropland · 10 m</span><span class="lp-mosaic-cap-b">Sentinel-2 · NDVI crop vigor · 10 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#sentinel-2">
-      <img class="lp-mosaic-img-a" src="public/datasets/sentinel2-ndvi-a.webp" alt="Sentinel-2 Bay Area RGB tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/sentinel2-ndvi-b.webp" alt="Sentinel-2 Bay Area NDVI tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">Sentinel-2 · RGB true color · 10 m</span><span class="lp-mosaic-cap-b">Sentinel-2 · NDVI false color · 10 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#sentinel-2">
-      <img class="lp-mosaic-img-a" src="public/datasets/sentinel2-paris-urban-a.webp" alt="Sentinel-2 Paris RGB tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/sentinel2-paris-urban-b.webp" alt="Sentinel-2 Paris NDVI tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">Sentinel-2 · RGB urban region · 10 m</span><span class="lp-mosaic-cap-b">Sentinel-2 · NDVI parks and canopy · 10 m</span></span>
-    </button>
-    <button class="lp-mosaic-tile" type="button" data-mode="a" data-href="pages/datasets.html#sentinel-2">
-      <img class="lp-mosaic-img-a" src="public/datasets/sentinel2-water-bay-a.webp" alt="Sentinel-2 Bay Area water RGB tile" loading="lazy">
-      <img class="lp-mosaic-img-b" src="public/datasets/sentinel2-water-bay-b.webp" alt="Sentinel-2 Bay Area water index tile" loading="lazy">
-      <span class="lp-mosaic-caption"><span class="lp-mosaic-cap-a">Sentinel-2 · RGB bay scene · 10 m</span><span class="lp-mosaic-cap-b">Sentinel-2 · MNDWI water signal · 20 m</span></span>
-    </button>
+  <div class="lp-ds-query" data-ds-query aria-label="GeoMind dataset samples">
+    <div class="lp-ds-chrome">
+      <span class="lp-ds-dot lp-ds-dot--r" aria-hidden="true"></span>
+      <span class="lp-ds-dot lp-ds-dot--y" aria-hidden="true"></span>
+      <span class="lp-ds-dot lp-ds-dot--g" aria-hidden="true"></span>
+      <span class="lp-ds-path" data-ds-path>~/datasets</span>
+      <span class="lp-ds-page" data-ds-page></span>
+    </div>
+    <div class="lp-ds-screen" data-ds-screen>
+      <div class="lp-ds-line">
+        <span class="lp-ds-prompt">geomind:~/datasets$</span>
+        <span class="lp-ds-command" data-ds-command></span>
+        <span class="lp-ds-caret" data-ds-caret aria-hidden="true"></span>
+      </div>
+      <p class="lp-ds-comment" data-ds-comment hidden></p>
+      <div class="lp-ds-results" data-ds-results aria-live="polite"></div>
+    </div>
   </div>
-
-  <p class="lp-mosaic-credit">Imagery: Copernicus Sentinel data, USGS/NASA Landsat and elevation products, ESA WorldCover, JRC Global Surface Water, Natural Resources Canada, MODIS, HLS, and Microsoft Planetary Computer.</p>
   <a class="lp-story-cta" href="pages/datasets.html">Browse all datasets →</a>
 </section>
-
-<script>
-(() => {
-  const grid = document.getElementById('lpMosaicGrid');
-  if (!grid) return;
-  const tiles = [...grid.querySelectorAll('.lp-mosaic-tile')];
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  tiles.forEach((tile, index) => {
-    tile.addEventListener('mouseenter', () => tile.dataset.hover = 'true');
-    tile.addEventListener('mouseleave', () => delete tile.dataset.hover);
-    tile.addEventListener('click', () => { window.location.href = tile.dataset.href; });
-    if (reduce) tile.classList.add('is-visible');
-    else setTimeout(() => tile.classList.add('is-visible'), index * 40);
-  });
-  if (reduce) return;
-  const cols = 5;
-  const recent = [];
-  const adjacent = (a, b) => a !== b && (Math.abs(a - b) === cols || (Math.floor(a / cols) === Math.floor(b / cols) && Math.abs(a - b) === 1));
-  const flipOne = () => {
-    const candidates = tiles
-      .map((tile, index) => ({ tile, index }))
-      .filter(({ tile, index }) => !tile.dataset.hover && !tile.classList.contains('is-flipping') && !recent.some(prev => adjacent(index, prev)));
-    if (!candidates.length) return;
-    const { tile, index } = candidates[Math.floor(Math.random() * candidates.length)];
-    tile.classList.add('is-flipping');
-    tile.classList.toggle('is-flipped');
-    tile.dataset.mode = tile.classList.contains('is-flipped') ? 'b' : 'a';
-    recent.unshift(index);
-    recent.length = 4;
-    setTimeout(() => tile.classList.remove('is-flipping'), 650);
-  };
-  setInterval(flipOne, 3000);
-})();
-</script>
 
 <!-- STORY -->
 <section class="lp-story-section">
@@ -1380,7 +1284,7 @@ function nlSubmit(e) {
   window.addEventListener('resize', layoutHeatmaps);
 })();
 </script>
-<script type="module" src="src/js/landing.js?v=20260528-6"></script>
+<script type="module" src="src/js/landing.js?v=20260528-7"></script>
 <script type="module" src="src/js/theme.js"></script>
 </body>
 </html>
