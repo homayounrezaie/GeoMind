@@ -48,11 +48,35 @@ function initCanvas() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   initCanvas();
+  initScrollReveal();
   await loadStats();
   initHeroStatsStream();
   initTerminalExplorer();
   initDatasetQuery();
 });
+
+function initScrollReveal() {
+  if (!document.documentElement.classList.contains('has-reveal')) return;
+  const targets = [...document.querySelectorAll(
+    '.lp-sec-title, .lp-sec-label, .lp-intro-copy, .gm-heatmap-intro, .lp-paper-stage, .lp-ds-query, .lp-terminal'
+  )];
+  if (!targets.length) return;
+
+  if (typeof IntersectionObserver !== 'function') {
+    targets.forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-revealed');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -10%', threshold: 0.02 });
+
+  targets.forEach(el => observer.observe(el));
+}
 
 const TERMINAL_FLOW = [
   {
