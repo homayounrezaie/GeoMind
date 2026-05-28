@@ -53,7 +53,7 @@ function initCanvas() {
 
 function initMainCategories() {
   const deck = document.querySelector('.lp-main-categories');
-  const cards = document.querySelectorAll('.lp-main-category');
+  const cards = document.querySelectorAll('.lp-main-category, .lp-cat-line');
   const command = document.getElementById('mainCategoryCommand');
   if (!deck || !cards.length) return;
 
