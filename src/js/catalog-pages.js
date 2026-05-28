@@ -82,7 +82,6 @@ let paperPreviewModal = null;
 let paperPreviewReturnFocus = null;
 let paperPreviewModalRequest = 0;
 let pdfjsPromise = null;
-let paperPreviewManifestPromise = null;
 
 const page = document.body.dataset.catalog;
 const config = CONFIG[page];
@@ -277,7 +276,7 @@ function renderPaperItem(cfg, row) {
   const citationPace = paperCitationPace(row, citationCount);
   const source = row.venue || row.discovered_via || 'Paper';
   const actions = paperActions(row, { pdfUrl, arxivUrl, githubUrl, huggingFaceUrl, websiteUrl, code });
-  const staticPreview = pdfUrl ? paperPreviewPath(row) : '';
+  const staticPreview = paperThumbnailUrl(row);
   const canPreview = Boolean(pdfUrl || staticPreview);
   const previewAttrs = canPreview
     ? `role="button" tabindex="0" data-preview-zoom data-preview-title="${escapeAttr(title)}" aria-label="Open first page preview for ${escapeAttr(title)}"`
@@ -285,7 +284,7 @@ function renderPaperItem(cfg, row) {
 
   return `
     <article class="research-item">
-      <div class="research-paper-mark ${canPreview ? 'has-pdf-preview' : ''}" ${pdfUrl ? `data-pdf-preview="${escapeAttr(pdfUrl)}"` : ''} ${staticPreview ? `data-static-preview="${escapeAttr(staticPreview)}" data-paper-id="${escapeAttr(row.id)}"` : ''} ${previewAttrs}>
+      <div class="research-paper-mark ${canPreview ? 'has-pdf-preview' : ''}" ${pdfUrl ? `data-pdf-preview="${escapeAttr(pdfUrl)}"` : ''} ${staticPreview ? `data-static-preview="${escapeAttr(staticPreview)}"` : ''} ${previewAttrs}>
         ${canPreview ? '<div class="research-paper-preview"><img class="research-paper-image" alt="" decoding="async"><canvas class="research-paper-canvas"></canvas></div>' : ''}
         <div class="research-paper-fallback">
           <span class="research-paper-year">${escapeHtml(String(year).slice(0, 4))}</span>
@@ -391,14 +390,10 @@ async function renderPaperPreview(element) {
 }
 
 async function renderStaticPaperPreview(element) {
-  const id = element.dataset.paperId;
   const src = element.dataset.staticPreview;
-  if (!id || !src) return false;
+  if (!src) return false;
   const image = element.querySelector('.research-paper-image');
   if (element.classList.contains('has-static-preview') && image?.currentSrc) return true;
-
-  const manifest = await loadPaperPreviewManifest();
-  if (!manifest.has(id)) return false;
 
   return new Promise(resolve => {
     if (!image) {
@@ -414,16 +409,6 @@ async function renderStaticPaperPreview(element) {
     image.onerror = () => resolve(false);
     image.src = src;
   });
-}
-
-async function loadPaperPreviewManifest() {
-  if (!paperPreviewManifestPromise) {
-    paperPreviewManifestPromise = fetch('../paper-previews/manifest.json')
-      .then(response => response.ok ? response.json() : [])
-      .then(ids => new Set(Array.isArray(ids) ? ids : []))
-      .catch(() => new Set());
-  }
-  return paperPreviewManifestPromise;
 }
 
 async function renderPdfFirstPageToCanvas(url, canvas, box) {
@@ -903,9 +888,8 @@ function paperWebsiteUrl(row, primaryUrl) {
   return project;
 }
 
-function paperPreviewPath(row) {
-  const id = String(row.id || '').trim();
-  return id ? `../paper-previews/${encodeURIComponent(id)}.webp` : '';
+function paperThumbnailUrl(row) {
+  return row.thumbnail_url || rawPaper(row).thumbnail_url || '';
 }
 
 function githubRepoName(url) {

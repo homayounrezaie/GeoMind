@@ -40,16 +40,6 @@ body{
 }
 body.has-research-preview-modal{overflow:hidden}
 
-/* Subtle grid overlay */
-body::before{
-  content:'';
-  position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size:60px 60px;
-}
-
 /* Glow orbs */
 body::after{
   content:'';
@@ -2753,11 +2743,6 @@ nav,section,footer{position:relative;z-index:1}
 [data-theme="light"] body{
   background:#FAF8F4;
   color:#1A1814;
-}
-[data-theme="light"] body::before{
-  background-image:
-    linear-gradient(rgba(26,24,20,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,24,20,0.035) 1px, transparent 1px);
 }
 [data-theme="light"] body::after{display:none}
 [data-theme="light"] .lp-nav,
