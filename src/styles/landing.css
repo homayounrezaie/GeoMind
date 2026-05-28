@@ -397,9 +397,9 @@ nav,section,footer{position:relative;z-index:1}
   margin:0 auto var(--s-4);
   color:#a5b4fc;
   font-family:'SF Mono','Menlo',monospace;
-  font-size:13px;
+  font-size:17px;
   font-weight:700;
-  letter-spacing:.18em;
+  letter-spacing:.16em;
   text-transform:uppercase;
   animation:fadeUp 0.8s 0.12s cubic-bezier(0.16,1,0.3,1) both;
 }
