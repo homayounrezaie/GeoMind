@@ -3432,7 +3432,11 @@ nav,section,footer{position:relative;z-index:1}
 }
 @media(max-width:860px){
   .lp-hero{
-    min-height:430px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:var(--s-5);
+    min-height:auto;
     padding:clamp(28px,6vh,52px) var(--s-3) clamp(32px,6vh,52px);
     background:
       radial-gradient(circle at 74% 18%,rgba(99,102,241,.12),transparent 34%),
@@ -3474,10 +3478,14 @@ nav,section,footer{position:relative;z-index:1}
   .lp-hero-shell{grid-template-columns:1fr}
   .lp-hero-copy{text-align:center}
   .lp-hero-index{
-    left:var(--s-3);
-    top:36%;
-    min-height:184px;
-    gap:22px;
+    position:static;
+    transform:none;
+    align-self:flex-start;
+    left:auto;
+    top:auto;
+    min-height:auto;
+    gap:14px;
+    margin:0 auto 0 0;
     padding-left:18px;
     font-size:10.5px;
   }
@@ -3709,11 +3717,9 @@ nav,section,footer{position:relative;z-index:1}
   .lp-feat2-icon{width:32px;height:32px}
   .lp-feat2-title{margin-bottom:0}
   .lp-feat2-desc{display:none}
-  .lp-hero{min-height:430px;padding:clamp(28px,6vh,52px) var(--s-3) clamp(32px,6vh,52px)}
+  .lp-hero{min-height:auto;padding:clamp(28px,6vh,52px) var(--s-3) clamp(32px,6vh,52px)}
   .lp-hero-index{
-    top:36%;
-    min-height:184px;
-    gap:20px;
+    gap:12px;
   }
   .lp-title{font-size:clamp(40px,12vw,56px);letter-spacing:-.04em}
   .lp-desc{font-size:var(--t-body);margin-bottom:var(--s-4)}
