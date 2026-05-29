@@ -1,11 +1,11 @@
 {
-  "papers": 18185,
-  "models": 11274,
-  "datasets": 3953,
+  "papers": 18229,
+  "models": 11275,
+  "datasets": 3955,
   "techniques": 1934,
-  "tasks": 385,
+  "tasks": 389,
   "companies": 4773,
-  "generated_at": "2026-05-28T18:53:54+00:00",
+  "generated_at": "2026-05-29T15:18:10+00:00",
   "highlights": {
     "papers": [
       "Aion Framework: Dimensional Emerg…",

@@ -384,3 +384,7 @@ Weakly supervised segmentation,task
 Zero-shot classification,task
 Zero-shot learning,task
 Zero-shot segmentation,task
+Remote sensing foundation model evaluation,source-derived
+Mars science task evaluation,source-derived
+Agricultural field boundary segmentation,source-derived
+Crop type classification,source-derived
