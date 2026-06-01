@@ -44,11 +44,12 @@ const CONFIG = {
     codeUrl: row => row.code_weights_url || '',
     thumbnailUrl: () => '',
     filters: [
-      { key: 'all', label: 'All' },
+      { key: 'foundation', label: 'Foundation', test: row => row._type === 'foundation' },
+      { key: 'finetune', label: 'Fine-tunes', test: row => row._type === 'finetune' },
+      { key: 'task', label: 'Task models', test: row => row._type === 'task' },
+      { key: 'code', label: 'Code', test: row => row._type === 'code' },
       { key: 'weights', label: 'Weights', test: row => row.code_weights_url },
-      { key: 'vlm', label: 'Vision-language', test: row => includesAny(row, ['vision_language', 'vision-language', 'vlm']) },
-      { key: 'agents', label: 'Agents', test: row => includesAny(row, ['agent']) },
-      { key: 'recent', label: 'Recent', test: row => Number(row.year) >= 2025 },
+      { key: 'all', label: 'All' },
     ],
   },
   datasets: {
@@ -80,6 +81,31 @@ const CONFIG = {
   },
 };
 
+// Classify each model row so the Foundation Models page can separate genuine
+// foundation models from fine-tunes, task-specific models, code repos, and the
+// scraped paper candidates. Computed at load time — no data migration needed.
+const FM_TOKENS = [
+  'prithvi', 'clay', 'satmae', 'scale-mae', 'scalemae', 'ringmo', 'satlas',
+  'dofa', 'croma', 'spectralgpt', 'terramind', 'presto', 'remoteclip',
+  'skysense', 'geochat', 'rsgpt', 'terratorch', 'foundation',
+];
+const FT_TOKENS = ['lora', 'adapter', 'finetune', 'fine-tune', 'qlora', 'distil'];
+const FM_ORGS = ['ibm-nasa-geospatial/', 'made-with-clay/', 'wherobots/'];
+
+function classifyModelType(row) {
+  const status = (row.status || '').toLowerCase();
+  const title = (row.title || '').toLowerCase();
+  if (status.includes('adapter') || FT_TOKENS.some(t => title.includes(t))) return 'finetune';
+  if (status === 'github_repo' || row.venue === 'GitHub') return 'code';
+  if ((row.abbreviation || '').trim() || (row.awesome_section || '').trim()) return 'foundation';
+  if (status === 'huggingface_model' || row.venue === 'Hugging Face') {
+    if (FT_TOKENS.some(t => title.includes(t))) return 'finetune';
+    if (FM_ORGS.some(o => title.startsWith(o)) || FM_TOKENS.some(t => title.includes(t))) return 'foundation';
+    return 'task';
+  }
+  return 'paper';
+}
+
 const PAGE_SIZE = 20;
 const DATA_VERSION = '20260527-6';
 const state = { rows: [], filtered: [], page: 1, query: '', filter: 'all', sort: 'trending' };
@@ -110,6 +136,7 @@ async function init(cfg) {
     els.search.value = initialQuery.trim();
   }
   renderFilters(els.filters, cfg);
+  state.filter = cfg.filters[0].key; // default to the first chip (e.g. "Foundation")
 
   const initialSort = els.sort?.querySelector('button.is-active')?.dataset.sort;
   if (initialSort) state.sort = initialSort;
@@ -117,6 +144,9 @@ async function init(cfg) {
   try {
     const csv = await fetchCsv(cfg.file);
     state.rows = parseCsv(csv).filter(row => row[cfg.titleField]);
+    if (page === 'models') {
+      state.rows.forEach(row => { row._type = classifyModelType(row); });
+    }
     state.filtered = [...state.rows];
     if (page === 'papers') {
       renderPaperSummary(els.summary, state.rows);
