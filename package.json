@@ -4,8 +4,9 @@
   "description": "Inspired by [roadmap.sh](https://roadmap.sh/).",
   "main": "index.js",
   "scripts": {
+    "api": "python3 tools/generate_api.py",
     "dev": "vite",
-    "build": "vite build && mkdir -p dist/src/panels dist/data && cp src/panels/*.html dist/src/panels/ && cp data/* dist/data/",
+    "build": "npm run api && vite build && mkdir -p dist/src/panels dist/data dist/api && cp src/panels/*.html dist/src/panels/ && cp data/* dist/data/ && cp api/*.json dist/api/",
     "preview": "vite preview"
   },
   "repository": {

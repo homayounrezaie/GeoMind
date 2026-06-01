@@ -1,0 +1,42 @@
+[
+  {
+    "id": "planet-careers",
+    "title": "Planet Labs Careers",
+    "organization": "Planet Labs",
+    "type": "company-careers",
+    "url": "https://www.planet.com/company/careers/",
+    "tags": ["satellite", "remote-sensing", "earth-observation"]
+  },
+  {
+    "id": "maxar-careers",
+    "title": "Maxar Technologies Careers",
+    "organization": "Maxar Technologies",
+    "type": "company-careers",
+    "url": "https://www.maxar.com/careers",
+    "tags": ["satellite", "geospatial", "defense"]
+  },
+  {
+    "id": "esri-careers",
+    "title": "Esri Careers",
+    "organization": "Esri",
+    "type": "company-careers",
+    "url": "https://www.esri.com/en-us/about/careers/job-search",
+    "tags": ["gis", "geospatial-software", "geoai"]
+  },
+  {
+    "id": "radiant-earth-jobs",
+    "title": "Radiant Earth Jobs",
+    "organization": "Radiant Earth",
+    "type": "job-board",
+    "url": "https://radiant.earth/jobs/",
+    "tags": ["earth-observation", "climate", "open-data"]
+  },
+  {
+    "id": "osgeo-jobs",
+    "title": "OSGeo Jobs",
+    "organization": "OSGeo",
+    "type": "job-board",
+    "url": "https://www.osgeo.org/jobs/",
+    "tags": ["open-source", "gis", "geospatial"]
+  }
+]

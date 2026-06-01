@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-06-01T03:33:39+00:00",
+  "endpoints": [
+    {
+      "name": "benchmarks",
+      "path": "/api/benchmarks.json",
+      "count": 888
+    },
+    {
+      "name": "companies",
+      "path": "/api/companies.json",
+      "count": 4773
+    },
+    {
+      "name": "datasets",
+      "path": "/api/datasets.json",
+      "count": 3955
+    },
+    {
+      "name": "jobs",
+      "path": "/api/jobs.json",
+      "count": 5
+    },
+    {
+      "name": "learn",
+      "path": "/api/learn.json",
+      "count": 7
+    },
+    {
+      "name": "metrics",
+      "path": "/api/metrics.json",
+      "count": 92
+    },
+    {
+      "name": "models",
+      "path": "/api/models.json",
+      "count": 11275
+    },
+    {
+      "name": "papers",
+      "path": "/api/papers.json",
+      "count": 18229
+    },
+    {
+      "name": "tasks",
+      "path": "/api/tasks.json",
+      "count": 389
+    },
+    {
+      "name": "techniques",
+      "path": "/api/techniques.json",
+      "count": 1934
+    }
+  ]
+}

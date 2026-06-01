@@ -1,0 +1,51 @@
+[
+  {
+    "id": "geospatial",
+    "title": "Geospatial",
+    "type": "course-category",
+    "path": "geospatial/",
+    "description": "Core GIS, spatial data, coordinate systems, vector/raster data, and geospatial analysis."
+  },
+  {
+    "id": "remote-sensing",
+    "title": "Remote Sensing",
+    "type": "course-category",
+    "path": "remote-sensing/",
+    "description": "Satellite imagery, sensors, bands, indices, image interpretation, and Earth observation workflows."
+  },
+  {
+    "id": "statistics",
+    "title": "Statistics",
+    "type": "course-category",
+    "path": "statistics/",
+    "description": "Probability, statistical inference, regression, uncertainty, and evaluation for geospatial data."
+  },
+  {
+    "id": "linear-algebra",
+    "title": "Linear Algebra",
+    "type": "course-category",
+    "path": "linear-algebra/",
+    "description": "Vectors, matrices, transformations, decompositions, embeddings, and the math behind machine learning models."
+  },
+  {
+    "id": "physics",
+    "title": "Physics",
+    "type": "course-category",
+    "path": "physics/",
+    "description": "Physical principles behind sensing, radiation, atmosphere, optics, SAR, and environmental systems."
+  },
+  {
+    "id": "machine-learning",
+    "title": "Machine Learning",
+    "type": "course-category",
+    "path": "machine-learning/",
+    "description": "Classical machine learning methods, feature engineering, model evaluation, and applied ML workflows."
+  },
+  {
+    "id": "deep-learning",
+    "title": "Deep Learning",
+    "type": "course-category",
+    "path": "deep-learning/",
+    "description": "Neural networks, CNNs, transformers, foundation models, multimodal learning, and GeoAI architectures."
+  }
+]
