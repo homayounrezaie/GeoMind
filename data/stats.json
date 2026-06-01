@@ -1,12 +1,12 @@
 {
   "papers": 18230,
-  "models": 11276,
-  "datasets": 4302,
-  "benchmarks": 1012,
+  "models": 12026,
+  "datasets": 4672,
+  "benchmarks": 1819,
   "techniques": 1934,
   "tasks": 389,
   "companies": 4773,
-  "generated_at": "2026-06-01T22:50:02+00:00",
+  "generated_at": "2026-06-01T22:58:41+00:00",
   "highlights": {
     "papers": [
       "Aion Framework: Dimensional Emerg…",
@@ -28,9 +28,9 @@
       "RVSA",
       "MillionAID",
       "RSP",
+      "TransGeo",
       "Scale-MAE",
-      "SkySense",
-      "SatMAE; fMoW-S2"
+      "SkySense"
     ],
     "datasets": [
       "sat-image-boundingbox-sft-full",
