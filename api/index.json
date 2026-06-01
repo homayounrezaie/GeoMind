@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-01T23:22:32+00:00",
+  "generated_at": "2026-06-01T23:36:37+00:00",
   "endpoints": [
     {
       "name": "benchmarks",
       "path": "/api/benchmarks.json",
-      "count": 1822
+      "count": 1785
     },
     {
       "name": "companies",
@@ -14,7 +14,7 @@
     {
       "name": "datasets",
       "path": "/api/datasets.json",
-      "count": 4857
+      "count": 4637
     },
     {
       "name": "jobs",
@@ -34,12 +34,12 @@
     {
       "name": "models",
       "path": "/api/models.json",
-      "count": 12224
+      "count": 1030
     },
     {
       "name": "papers",
       "path": "/api/papers.json",
-      "count": 18333
+      "count": 18203
     },
     {
       "name": "tasks",

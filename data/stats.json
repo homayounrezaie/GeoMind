@@ -1,12 +1,12 @@
 {
-  "papers": 18333,
-  "models": 12224,
-  "datasets": 4857,
-  "benchmarks": 1822,
+  "papers": 18203,
+  "models": 1030,
+  "datasets": 4637,
+  "benchmarks": 1785,
   "techniques": 1934,
   "tasks": 389,
   "companies": 4773,
-  "generated_at": "2026-06-01T23:22:30+00:00",
+  "generated_at": "2026-06-01T23:36:36+00:00",
   "highlights": {
     "papers": [
       "Aion Framework: Dimensional Emerg…",
@@ -26,11 +26,11 @@
       "SeCo",
       "RingMo",
       "RVSA",
-      "MillionAID",
       "RSP",
-      "TransGeo",
       "Scale-MAE",
-      "SkySense"
+      "SkySense",
+      "SatMAE; fMoW-S2",
+      "HyperSIGMA"
     ],
     "datasets": [
       "sat-image-boundingbox-sft-full",
