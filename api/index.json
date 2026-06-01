@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T04:31:59+00:00",
+  "generated_at": "2026-06-01T04:35:32+00:00",
   "endpoints": [
     {
       "name": "benchmarks",
@@ -14,7 +14,7 @@
     {
       "name": "datasets",
       "path": "/api/datasets.json",
-      "count": 3955
+      "count": 3958
     },
     {
       "name": "jobs",

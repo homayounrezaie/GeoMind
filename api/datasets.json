@@ -70078,6 +70078,100 @@
     "description": "Paper-derived dataset candidate from dataset_candidates.csv. Mentioned in 1 paper(s), observed 2023-2023. Review before treating as a verified canonical dataset. Evidence: paper_2312_14303:title:Geo2SigMap: High-Fidelity RF Signal Mapping Using Geographic Databases"
   },
   {
+    "dataset_id": "cvgl/cvusa",
+    "name": "CVUSA",
+    "url": "https://mvrl.cse.wustl.edu/datasets/cvusa/",
+    "matched_terms": [
+      "cross-view",
+      "geo-localization",
+      "street-view",
+      "satellite",
+      "benchmark",
+      "geo2"
+    ],
+    "task_categories": [
+      "cross-view-geo-localization"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "cross-view",
+      "geo-localization",
+      "street-view",
+      "satellite",
+      "benchmark",
+      "cvusa",
+      "geo2",
+      "source:manual"
+    ],
+    "description": "Cross-View USA benchmark for ground-to-aerial / street-view-to-satellite geo-localization. Geo² evaluates cross-view geo-localization and synthesis on CVUSA."
+  },
+  {
+    "dataset_id": "cvgl/cvact",
+    "name": "CVACT",
+    "url": "https://github.com/Liumouliu/OriCNN",
+    "matched_terms": [
+      "cross-view",
+      "geo-localization",
+      "street-view",
+      "satellite",
+      "benchmark",
+      "canberra",
+      "geo2"
+    ],
+    "task_categories": [
+      "cross-view-geo-localization"
+    ],
+    "size_categories": [
+      "100K<n<1M"
+    ],
+    "tags": [
+      "cross-view",
+      "geo-localization",
+      "street-view",
+      "satellite",
+      "benchmark",
+      "cvact",
+      "canberra",
+      "geo2",
+      "source:manual"
+    ],
+    "description": "Cross-View ACT / Canberra benchmark introduced with Lending Orientation to Neural Networks for Cross-view Geo-localization. Geo² evaluates cross-view geo-localization and synthesis on CVACT."
+  },
+  {
+    "dataset_id": "cvgl/vigor",
+    "name": "VIGOR",
+    "url": "https://github.com/Jeff-Zilence/VIGOR",
+    "matched_terms": [
+      "cross-view",
+      "geo-localization",
+      "street-view",
+      "aerial",
+      "satellite",
+      "benchmark",
+      "geo2"
+    ],
+    "task_categories": [
+      "cross-view-geo-localization"
+    ],
+    "size_categories": [
+      "100K<n<1M"
+    ],
+    "tags": [
+      "cross-view",
+      "geo-localization",
+      "street-view",
+      "aerial",
+      "satellite",
+      "benchmark",
+      "vigor",
+      "geo2",
+      "source:manual"
+    ],
+    "description": "VIGOR benchmark for cross-view image geo-localization beyond one-to-one retrieval. Geo² evaluates cross-view geo-localization and synthesis on VIGOR."
+  },
+  {
     "dataset_id": "paper-candidate/geoagentbench",
     "name": "GeoAgentBench",
     "matched_terms": [
