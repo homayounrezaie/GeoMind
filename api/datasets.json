@@ -110353,5 +110353,1850 @@
       "source:manual"
     ],
     "description": "WiDS Datathon 2019 benchmark for predicting whether high-resolution Planet satellite image chips contain oil palm plantations, using an annotated dataset provided by Planet and Figure Eight."
+  },
+  {
+    "dataset_id": "dirs/scene-classification/mlrsn",
+    "name": "MLRSN",
+    "url": "https://data.mendeley.com/datasets/7j9bv9vwsx/2",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "scene-classification",
+      "MLRSN"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "image-classification",
+      "scene-classification"
+    ],
+    "size_categories": [
+      "100K<n<1M"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "scene-classification",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed scene classification benchmark dataset/resource. #Cat.: 46; #Images per cat.: 600; #Images: 109,161; Resolution (m): 0.1 to 10; Image size: 256×256; GL/IT/SP: ✗✗✗; Year: 2020. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/tas",
+    "name": "TAS",
+    "url": "https://ai.stanford.edu/~koller/Papers/Heitz%2BKoller%3AECCV08.pdf",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "TAS"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: HBB; #Cat.: 1; #Instances: 1,319; #Images: 30; Resolution (m): --; Image width: 792; GL/IT/SP: ✗✗✗; Year: 2008. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/orids",
+    "name": "ORIDS",
+    "url": "https://sourceforge.net/projects/oirds/files/OIRDS%20-%20Vehicles/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "ORIDS"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: OBB; #Cat.: 5; #Instances: 1,800; #Images: 900; Resolution (m): up to 0.08; Image width: 256 to 640; GL/IT/SP: ✓✓✓; Year: 2009. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/sztaki-inria",
+    "name": "SZTAKI-INRIA",
+    "url": "http://web.eee.sztaki.hu/remotesensing/building_benchmark.html",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "SZTAKI-INRIA"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: OBB; #Cat.: 1; #Instances: 665; #Images: 9; Resolution (m): --; Image width: ~800; GL/IT/SP: ✗✗✗; Year: 2012. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/dlr-mvda",
+    "name": "DLR-MVDA",
+    "url": "https://www.dlr.de/en/eoc/about-us/remote-sensing-technology-institute/photogrammetry-and-image-analysis/public-datasets/dlr-mvda",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "DLR-MVDA"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: OBB; #Cat.: 2; #Instances: 14,235; #Images: 20; Resolution (m): 0.13; Image width: 5,616; GL/IT/SP: ✗✗✓; Year: 2015. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/cowc",
+    "name": "COWC",
+    "url": "https://gdo152.llnl.gov/cowc",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "COWC"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: CP; #Cat.: 1; #Instances: 32,716; #Images: 53; Resolution (m): 0.15; Image width: 2,000 to 19,000; GL/IT/SP: ✓✗✗; Year: 2016. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/rsod",
+    "name": "RSOD",
+    "url": "https://github.com/RSIA-LIESMARS-WHU/RSOD-Dataset-",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "RSOD"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: HBB; #Cat.: 4; #Instances: 6,950; #Images: 976; Resolution (m): 0.3 to 3; Image width: ~1,000; GL/IT/SP: ✗✗✗; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/carpk",
+    "name": "CARPK",
+    "url": "https://lafi.github.io/LPN/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "CARPK"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: HBB; #Cat.: 1; #Instances: 89,777; #Images: 1,448; Resolution (m): --; Image width: 1,280; GL/IT/SP: ✗✗✓; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/ssdd-ssdd-plus",
+    "name": "SSDD/SSDD+",
+    "url": "https://www.mdpi.com/2072-4292/13/18/3690",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "SSDD/SSDD+"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: HBB/OBB; #Cat.: 1; #Instances: 2,456; #Images: 1,160; Resolution (m): 1 to 15; Image width: ~500; GL/IT/SP: ✗✗✓; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/spacenet1-6",
+    "name": "SpaceNet1-6",
+    "url": "https://registry.opendata.aws/spacenet/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "SpaceNet1-6"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: Polygon; #Cat.: 1; #Instances: 859,982; #Images: --; Resolution (m): up to 0.3; Image width: --; GL/IT/SP: ✓✓✓; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/levir",
+    "name": "LEVIR",
+    "url": "https://pan.baidu.com/s/1geTwAVD",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "LEVIR"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: HBB; #Cat.: 3; #Instances: 11,000; #Images: 22,000; Resolution (m): 0.2 to 1; Image width: 800; GL/IT/SP: ✗✗✗; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/dota-v1-0",
+    "name": "DOTA-v1.0",
+    "url": "https://captain-whu.github.io/DOTA/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "DOTA-v1.0"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: OBB; #Cat.: 15; #Instances: 188,282; #Images: 2,806; Resolution (m): up to 0.3; Image width: 800 to 4,000; GL/IT/SP: ✗✗✗; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/deepglobe-building",
+    "name": "DeepGlobe Building",
+    "url": "https://competitions.codalab.org/competitions/18544",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "DeepGlobe Building"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: Polygon; #Cat.: 2; #Instances: 302,701; #Images: 24586; Resolution (m): 0.3; Image width: 650; GL/IT/SP: ✗✗✓; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/opensarship",
+    "name": "OpenSARShip",
+    "url": "https://research.monash.edu/en/publications/opensarship-a-dataset-dedicated-to-sentinel-1-ship-interpretation/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "OpenSARShip"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: Chip; #Cat.: 1; #Instances: 1,1346; #Images: 41; Resolution (m): ~10; Image width: --; GL/IT/SP: ✓✓✓; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/crowdai-mapping-challenge",
+    "name": "CrowdAI Mapping Challenge",
+    "url": "https://www.crowdai.org/challenges/mapping-challenge",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "CrowdAI Mapping Challenge"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "100K<n<1M"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: Polygon; #Cat.: 1; #Instances: 2,910,917; #Images: 341,058; Resolution (m): --; Image width: 300; GL/IT/SP: ✗✗✗; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/hrrsd",
+    "name": "HRRSD",
+    "url": "https://gitee.com/cofferlait/TGRS-HRRSD-Dataset",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "HRRSD"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: HBB; #Cat.: 13; #Instances: 55,740; #Images: 21,761; Resolution (m): 0.15 to 1.2; Image width: 152 to 10,569; GL/IT/SP: ✗✗✗; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/dota-v1-5",
+    "name": "DOTA-v1.5",
+    "url": "https://captain-whu.github.io/DOAI2019/dataset.html",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "DOTA-v1.5"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: OBB; #Cat.: 16; #Instances: 402,089; #Images: 2,806; Resolution (m): up to 0.3; Image width: 800 to 13,000; GL/IT/SP: ✗✗✗; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/sar-ship-dataset",
+    "name": "SAR-Ship-Dataset",
+    "url": "https://github.com/CAESAR-Radi/SAR-Ship-Dataset",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "SAR-Ship-Dataset"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: HBB; #Cat.: 1; #Instances: 5,9535; #Images: 43,819; Resolution (m): up to 0.3; Image width: 256; GL/IT/SP: ✗✗✓; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/air-sarship",
+    "name": "AIR-SARShip",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8434279/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "AIR-SARShip"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: HBB; #Cat.: 1; #Instances: 2,040; #Images: 300; Resolution (m): 1;3; Image width: 1,000; GL/IT/SP: ✓✓✓; Year: 2020. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/object-detection/rareplanes",
+    "name": "RarePlanes",
+    "url": "https://registry.opendata.aws/rareplanes/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "object-detection",
+      "RarePlanes"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "object-detection"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "object-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed object detection benchmark dataset/resource. #Annot.: Polygon; #Cat.: 1; #Instances: 644,258; #Images: 50,253; Resolution (m): 0.3; Image width: --; GL/IT/SP: ✓✓✓; Year: 2020. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/kenney-space-center",
+    "name": "Kennedy Space Center",
+    "url": "https://www.selectdataset.com/dataset/d63c1d7f1a80b070ac9b2aef839d2c36",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Kennedy Space Center"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 13; #Images: 1; Resolution (m): 18; #Bands: 224 bands; Image size: 512×614; GL/IT/SP: ✗✓✓; Year: 2005. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/botswana",
+    "name": "Botswana",
+    "url": "http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes#Botswana",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Botswana"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 14; #Images: 1; Resolution (m): 30; #Bands: 242 bands; Image size: 1,476×256; GL/IT/SP: ✗✓✓; Year: 2005. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/salinas",
+    "name": "Salinas",
+    "url": "https://zenodo.org/records/15771735",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Salinas"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 16; #Images: 1; Resolution (m): 3.7; #Bands: 224 bands; Image size: 512×217; GL/IT/SP: ✗✗✓; Year: --. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/university-of-pavia",
+    "name": "University of Pavia",
+    "url": "http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes#Pavia_University_scene",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "University of Pavia"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 9; #Images: 1; Resolution (m): 1.3; #Bands: 115 bands; Image size: 610×340; GL/IT/SP: ✗✗✓; Year: --. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/pavia-centre",
+    "name": "Pavia Centre",
+    "url": "http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes#Pavia_Centre_scene",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Pavia Centre"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 9; #Images: 1; Resolution (m): 1.3; #Bands: 115 bands; Image size: 1,096×492; GL/IT/SP: ✗✗✓; Year: --. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/massachusetts-buildings",
+    "name": "Massachusetts Buildings",
+    "url": "https://www.cs.toronto.edu/~vmnih/data/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Massachusetts Buildings"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 2; #Images: 151; Resolution (m): 1; #Bands: RGB; Image size: 1,500×1,500; GL/IT/SP: ✓✓✗; Year: 2013. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/massachusetts-roads",
+    "name": "Massachusetts Roads",
+    "url": "https://www.cs.toronto.edu/~vmnih/data/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Massachusetts Roads"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 2; #Images: 1,171; Resolution (m): 1; #Bands: RGB; Image size: 1,500×1,500; GL/IT/SP: ✓✓✗; Year: 2013. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/indian-pines",
+    "name": "Indian Pines",
+    "url": "https://purr.purdue.edu/publications/1947/1",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Indian Pines"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 16; #Images: 1; Resolution (m): 20; #Bands: 224; Image size: 145×145; GL/IT/SP: ✓✓✓; Year: 2015. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/zurich-summer",
+    "name": "Zurich Summer",
+    "url": "https://sites.google.com/site/michelevolpiresearch/data/zurich-dataset",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Zurich Summer"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 8; #Images: 20; Resolution (m): 0.62; #Bands: bands; Image size: 1,000×1,150; GL/IT/SP: ✓✓✓; Year: 2015. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/sparcs-validation",
+    "name": "SPARCS Validation",
+    "url": "https://www.usgs.gov/core-science-systems/nli/landsat/spatial-procedures-automated-removal-cloud-and-shadow-sparcs",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "SPARCS Validation"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 7; #Images: 80; Resolution (m): 30; #Bands: NIR, RGB; Image size: 1000×1000; GL/IT/SP: ✓✓✓; Year: 2016. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/biome",
+    "name": "Biome",
+    "url": "https://landsat.usgs.gov/landsat-8-cloud-cover-assessment-validation-data",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Biome"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 4; #Images: 96; Resolution (m): 30; #Bands: 11; Image size: ~9000×9000; GL/IT/SP: ✓✓✓; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/inria-dataset",
+    "name": "Inria Dataset",
+    "url": "https://project.inria.fr/aerialimagelabeling/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Inria Dataset"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 2; #Images: 360; Resolution (m): 0.3; #Bands: 11; Image size: 5000×5000; GL/IT/SP: ✗✗✗; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/evlab-ss",
+    "name": "EvLab-SS",
+    "url": "https://www.selectdataset.com/dataset/a49a9ca32b849d72a4295f389947fcdd",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "EvLab-SS"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 10; #Images: 60; Resolution (m): 0.1 to 2; #Bands: RGB; Image size: 4,500×4,500; GL/IT/SP: ✗✗✓; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/rit-18",
+    "name": "RIT-18",
+    "url": "https://github.com/rmkemker/RIT-18",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "RIT-18"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 18; #Images: 3; Resolution (m): 0.047; #Bands: RGB; Image size: 9,000×6,000; GL/IT/SP: ✓✓✓; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/city-osm",
+    "name": "CITY-OSM",
+    "url": "https://zenodo.org/record/1154821#.YAJWkdAzZPY",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "CITY-OSM"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 3; #Images: 1,671; Resolution (m): 0.1; #Bands: 6 bands; Image size: 2500×2500 to 3300×33300; GL/IT/SP: ✗✗✗; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/dstl-sifd",
+    "name": "Dstl-SIFD",
+    "url": "https://www.kaggle.com/c/dstl-satellite-imagery-feature-detection/overview",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Dstl-SIFD"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 10; #Images: 57; Resolution (m): up to 0.3; #Bands: RGB; Image size: ~3,350×3,400; GL/IT/SP: ✓✗✓; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/ieee-grss-data-fusion-contest-2017",
+    "name": "IEEE GRSS Data Fusion Contest 2017",
+    "url": "https://www.grss-ieee.org/community/technical-committees/2017-ieee-grss-data-fusion-contest/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "IEEE GRSS Data Fusion Contest 2017"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 17; #Images: 30; Resolution (m): 1.4; #Bands: up to 16; Image size: 643×666,374×515; GL/IT/SP: ✓✓✓; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/ieee-grss-data-fusion-contest-2018",
+    "name": "IEEE GRSS Data Fusion Contest 2018",
+    "url": "https://www.grss-ieee.org/community/technical-committees/2018-ieee-grss-data-fusion-contest/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "IEEE GRSS Data Fusion Contest 2018"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 20; #Images: 1; Resolution (m): 1; #Bands: 9; Image size: 4172×1202; GL/IT/SP: ✓✓✓; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/dlrsd",
+    "name": "DLRSD",
+    "url": "https://sites.google.com/view/zhouwx/dataset#h.p_hQS2jYeaFpV0",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "DLRSD"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 17; #Images: 2,100; Resolution (m): 0.3; #Bands: RGB; Image size: 256×256; GL/IT/SP: ✗✗✗; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/deepglobe-land-cover",
+    "name": "DeepGlobe Land Cover",
+    "url": "https://competitions.codalab.org/competitions/18468",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "DeepGlobe Land Cover"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 7; #Images: 1,146; Resolution (m): 0.5; #Bands: RGB; Image size: 2,448×2,448; GL/IT/SP: ✗✗✓; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/so2sat-lc242",
+    "name": "So2Sat LC242",
+    "url": "https://mediatum.ub.tum.de/1454690",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "So2Sat LC242"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "100K<n<1M"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 17; #Images: 400,673; Resolution (m): 10; #Bands: RGB; Image size: 32×32; GL/IT/SP: ✓✗✓; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/shakeel-et-al",
+    "name": "Shakeel et al.",
+    "url": "https://captain-whu.github.io/DiRS/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Shakeel et al."
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 1; #Images: 2,682; Resolution (m): 0.3; #Bands: NIR,RGB; Image size: 300×300; GL/IT/SP: ✗✗✗; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/alcd-cloud-masks",
+    "name": "ALCD Cloud Masks",
+    "url": "https://zenodo.org/record/1460961#.YAJco-gzaUk",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "ALCD Cloud Masks"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 8; #Images: 38; Resolution (m): 10; #Bands: RGB; Image size: 1,830×1,830; GL/IT/SP: ✓✓✓; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/dronedeploy",
+    "name": "DroneDeploy",
+    "url": "https://github.com/dronedeploy/dd-ml-segmentation-benchmark",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "DroneDeploy"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 7; #Images: 55; Resolution (m): 0.1; #Bands: RGB; Image size: up to 12,039×13,854; GL/IT/SP: ✗✗✗; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/slovenia-lulc",
+    "name": "Slovenia LULC",
+    "url": "http://eo-learn.sentinel-hub.com/?prefix=",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Slovenia LULC"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 10; #Images: 940; Resolution (m): 10; #Bands: RGB; Image size: 5,00×5,00; GL/IT/SP: ✓✓✓; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/landconvernet",
+    "name": "LandConverNet",
+    "url": "https://source.coop/radiantearth/landcovernet/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "LandConverNet"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 7; #Images: 1,980; Resolution (m): 10; #Bands: 6; Image size: 256×256; GL/IT/SP: ✓✓✓; Year: 2020. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/uavid",
+    "name": "UAVid",
+    "url": "https://uavid.nl/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "UAVid"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 8; #Images: 420; Resolution (m): --; #Bands: NIR,RGB; Image size: ~4,000×2,160; GL/IT/SP: ✗✗✓; Year: 2020. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/semantic-segmentation/agriculture-vision",
+    "name": "Agriculture-Vision",
+    "url": "https://www.agriculture-vision.com/dataset-terms",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "semantic-segmentation",
+      "Agriculture-Vision"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "semantic-segmentation",
+      "image-segmentation"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "semantic-segmentation",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed semantic segmentation benchmark dataset/resource. #Cat.: 9; #Images: 94,986; Resolution (m): 0.1,15,0.2; #Bands: RGB; Image size: 512×512; GL/IT/SP: ✗✗✓; Year: 2020. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/sztaki-airchange",
+    "name": "SZTAKI AirChange",
+    "url": "http://web.eee.sztaki.hu/remotesensing/airchange_benchmark.html",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "SZTAKI AirChange"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 2; #Image pairs: 13; Resolution (m): 1.5; #Bands: RGB; Image size: 952×640; GL/IT/SP: ✗✓✗; Year: 2009. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/aicd",
+    "name": "AICD",
+    "url": "https://zenodo.org/records/13290067",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "AICD"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 2; #Image pairs: 1,000; Resolution (m): 0.5; #Bands: 115 bands; Image size: 800×600; GL/IT/SP: ✗✗✗; Year: 2011. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/taizhou-data",
+    "name": "Taizhou Data",
+    "url": "https://www.mdpi.com/2072-4292/11/3/240",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Taizhou Data"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 4; #Image pairs: 1; Resolution (m): 30; #Bands: 6 bands; Image size: 400×400; GL/IT/SP: ✓✓✓; Year: 2014. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/kunshan-data",
+    "name": "Kunshan Data",
+    "url": "https://www.mdpi.com/2072-4292/11/3/240",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Kunshan Data"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 3; #Image pairs: 1; Resolution (m): 30; #Bands: 6 bands; Image size: 800×800; GL/IT/SP: ✓✓✓; Year: 2014. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/cross-sensor-bastrop",
+    "name": "Cross-sensor Bastrop",
+    "url": "https://sites.google.com/site/michelevolpiresearch/codes/cross-sensor",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Cross-sensor Bastrop"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 2; #Image pairs: 4; Resolution (m): 30, 120; #Bands: 7,9; Image size: 444×300;1534×808; GL/IT/SP: ✓✓✓; Year: 2015. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/mts-wh",
+    "name": "MtS-WH",
+    "url": "https://github.com/rulixiang/MtS-WH-Dataset",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "MtS-WH"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 9; #Image pairs: 1; Resolution (m): 1; #Bands: NIR, RGB; Image size: 7,200×6,000; GL/IT/SP: ✓✓✓; Year: 2017. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/yancheng",
+    "name": "Yancheng",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Yancheng"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 4; #Image pairs: 2; Resolution (m): 30; #Bands: 242 bands; Image size: 400×145; GL/IT/SP: ✓✓✓; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/getnet-dataset",
+    "name": "GETNET dataset",
+    "url": "https://drive.google.com/file/d/1cWy6KqE0rymSk5-ytqr7wM1yLMKLukfP/view",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "GETNET dataset"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 2; #Image pairs: 1; Resolution (m): 30; #Bands: 198; Image size: 463×241; GL/IT/SP: ✗✓✓; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/urban-rural-boundary-of-wuhan",
+    "name": "Urban-rural boundary of Wuhan",
+    "url": "https://isprs-archives.copernicus.org/articles/XLII-3/2315/2018/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Urban-rural boundary of Wuhan"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 20; #Image pairs: 1; Resolution (m): 4/30; #Bands: 4/9 bands; Image size: 960×960; GL/IT/SP: ✓✓✓; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/hermiston-city-area-oregon",
+    "name": "Hermiston City area, Oregon",
+    "url": "https://wiki.citius.usc.es/hiperespectral:sae-cd",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Hermiston City area, Oregon"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 5; #Image pairs: 1; Resolution (m): 30; #Bands: 242 bands; Image size: 390×200; GL/IT/SP: ✓✓✓; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/season-varing-dataset",
+    "name": "Season-varing Dataset",
+    "url": "https://drive.google.com/file/d/1GX656JqqOyBi_Ef0w65kDGVto-nHrNs9/edit",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Season-varing Dataset"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 2; #Image pairs: 16,000; Resolution (m): 0.03 to 0.1; #Bands: RGB; Image size: 256×256; GL/IT/SP: ✗✗✗; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/abcd",
+    "name": "ABCD",
+    "url": "https://github.com/gistairc/ABCDdataset",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "ABCD"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 2; #Image pairs: 16,950; Resolution (m): 0.4; #Bands: RGB; Image size: 128×128;160×160; GL/IT/SP: ✗✓✗; Year: 2018. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/california-flood-dataset",
+    "name": "California flood dataset",
+    "url": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8798991",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "California flood dataset"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 2; #Image pairs: 1; Resolution (m): 5,30; #Bands: RGB,11; Image size: 1534×808; GL/IT/SP: ✓✓✓; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/lopez-fandino-et-al",
+    "name": "Lopez-Fandino et al.",
+    "url": "https://citius.usc.es/investigacion/datasets/hyperspectral-change-detection-dataset",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Lopez-Fandino et al."
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 5; #Image pairs: 2; Resolution (m): 20; #Bands: 224; Image size: 984×740;600×500; GL/IT/SP: ✗✓✓; Year: 2019. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/google-dataset",
+    "name": "Google Dataset",
+    "url": "https://github.com/daifeng2016/Change-Detection-Dataset-for-High-Resolution-Satellite-Imagery",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Google Dataset"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 2; #Image pairs: 1067; Resolution (m): 0.55; #Bands: RGB; Image size: 256×256; GL/IT/SP: ✓✓✗; Year: 2020. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/zhang-et-al",
+    "name": "Zhang et al.",
+    "url": "https://github.com/MinZHANG-WHU/FDCNN",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "Zhang et al."
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: 2; #Image pairs: 4; Resolution (m): 2,2.4,5.8; #Bands: NIR,RGB; Image size: 1,431×1,431;458×559;1,154×740; GL/IT/SP: ✓✓✓; Year: 2020. Source: DiRS benchmark table."
+  },
+  {
+    "dataset_id": "dirs/change-detection/spacenet7",
+    "name": "SpaceNet7",
+    "url": "https://registry.opendata.aws/spacenet/",
+    "matched_terms": [
+      "source:DiRS",
+      "benchmark-table",
+      "change-detection",
+      "SpaceNet7"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "change-detection"
+    ],
+    "size_categories": [
+      "n<1K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "benchmark",
+      "change-detection",
+      "dirs",
+      "source:manual"
+    ],
+    "description": "DiRS-listed change detection benchmark dataset/resource. #Cat.: --; #Image pairs: 24; Resolution (m): 4; #Bands: RGB; Image size: --; GL/IT/SP: ✓✓✓; Year: 2020. Source: DiRS benchmark table."
   }
 ]
