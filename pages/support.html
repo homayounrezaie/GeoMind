@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support GeoMind</title>
+<link rel="icon" type="image/png" href="../public/logo.png">
+<link rel="stylesheet" href="../src/styles/landing.css?v=20260601-1">
+<style>
+body.support-page{
+  background:#fbfaf6;
+  color:#113f2a;
+}
+body.support-page::after{display:none}
+.support-nav{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:28px 34px 0;
+}
+.support-brand{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:#113f2a;
+  font-weight:800;
+  text-decoration:none;
+}
+.support-brand img{width:34px;height:34px;object-fit:contain}
+.support-home{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:0 14px;
+  border:1px solid rgba(17,63,42,0.14);
+  border-radius:8px;
+  color:#113f2a;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+  background:#fff;
+}
+.support-wrap{
+  width:min(1180px, calc(100% - 56px));
+  margin:0 auto;
+  padding:54px 0 80px;
+}
+.support-title{
+  max-width:960px;
+  font-size:clamp(48px, 6.6vw, 84px);
+  line-height:1.05;
+  font-weight:500;
+  letter-spacing:0;
+  color:#0f3f2a;
+  margin:0 0 82px;
+}
+.support-grid{
+  display:grid;
+  grid-template-columns:minmax(280px, 0.92fr) minmax(360px, 0.78fr);
+  gap:76px;
+  align-items:start;
+}
+.support-art{
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.support-pixel-map{
+  --cell:76px;
+  display:grid;
+  grid-template-columns:repeat(7, var(--cell));
+  grid-template-rows:repeat(6, var(--cell));
+  position:relative;
+  opacity:.95;
+}
+.support-pixel-map span{
+  border:1px solid rgba(17,63,42,0.16);
+  background:#dcece3;
+}
+.support-pixel-map span:nth-child(1){grid-column:2;grid-row:1;background:#cfe8dc}
+.support-pixel-map span:nth-child(2){grid-column:3;grid-row:1;background:#e2f1ea}
+.support-pixel-map span:nth-child(3){grid-column:5;grid-row:1;background:#d6eadf}
+.support-pixel-map span:nth-child(4){grid-column:6;grid-row:1;background:#eef6f1}
+.support-pixel-map span:nth-child(5){grid-column:1;grid-row:2;background:#edf5f0}
+.support-pixel-map span:nth-child(6){grid-column:2;grid-row:2;background:#d8eee3}
+.support-pixel-map span:nth-child(7){grid-column:3;grid-row:2;background:#cae7da}
+.support-pixel-map span:nth-child(8){grid-column:4;grid-row:2;background:#eef4f0}
+.support-pixel-map span:nth-child(9){grid-column:5;grid-row:2;background:#b7dfce}
+.support-pixel-map span:nth-child(10){grid-column:6;grid-row:2;background:#eef5f0}
+.support-pixel-map span:nth-child(11){grid-column:7;grid-row:2;background:#edf3ef}
+.support-pixel-map span:nth-child(12){grid-column:1;grid-row:3;background:#f0f6f2}
+.support-pixel-map span:nth-child(13){grid-column:2;grid-row:3;background:#c1e2d1}
+.support-pixel-map span:nth-child(14){grid-column:3;grid-row:3;background:#dff0e8}
+.support-pixel-map span:nth-child(15){grid-column:4;grid-row:3;background:#e7f3ed}
+.support-pixel-map span:nth-child(16){grid-column:5;grid-row:3;background:#d4eadf}
+.support-pixel-map span:nth-child(17){grid-column:6;grid-row:3;background:#cde7da}
+.support-pixel-map span:nth-child(18){grid-column:7;grid-row:3;background:#edf4ef}
+.support-pixel-map span:nth-child(19){grid-column:2;grid-row:4;background:#edf4ef}
+.support-pixel-map span:nth-child(20){grid-column:3;grid-row:4;background:#cce7da}
+.support-pixel-map span:nth-child(21){grid-column:4;grid-row:4;background:#b9dfcd}
+.support-pixel-map span:nth-child(22){grid-column:5;grid-row:4;background:#d7ece2}
+.support-pixel-map span:nth-child(23){grid-column:6;grid-row:4;background:#cbe6d9}
+.support-pixel-map span:nth-child(24){grid-column:3;grid-row:5;background:#eff6f2}
+.support-pixel-map span:nth-child(25){grid-column:4;grid-row:5;background:#50b98b}
+.support-pixel-map span:nth-child(26){grid-column:5;grid-row:5;background:#1f8d66}
+.support-pixel-map span:nth-child(27){grid-column:4;grid-row:6;background:#2eb77c}
+.support-pixel-map strong{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:92px;
+  font-weight:600;
+  letter-spacing:0;
+  color:rgba(17,63,42,0.34);
+  text-shadow:0 1px 0 rgba(255,255,255,0.5);
+}
+.support-copy{
+  max-width:520px;
+  padding-top:26px;
+}
+.support-copy p{
+  font-size:26px;
+  line-height:1.55;
+  color:#123f2b;
+  margin:0 0 46px;
+}
+.support-copy strong{font-weight:800}
+.support-actions-title{
+  font-size:34px;
+  line-height:1.2;
+  color:#0f3f2a;
+  margin:0 0 22px;
+}
+.support-actions{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  max-width:470px;
+}
+.support-btn{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  min-height:66px;
+  padding:0 22px 0 24px;
+  border-radius:8px;
+  color:#0f3f2a;
+  text-decoration:none;
+  font-size:19px;
+  font-weight:800;
+  border:1px solid rgba(17,63,42,0.14);
+  background:#fff;
+  transition:transform .15s,border-color .15s,box-shadow .15s,background .15s;
+}
+.support-btn:hover{
+  transform:translateY(-1px);
+  border-color:rgba(17,63,42,0.28);
+  box-shadow:0 18px 34px rgba(17,63,42,0.09);
+}
+.support-btn-primary{
+  color:#fff;
+  background:#46ba8b;
+  border-color:#46ba8b;
+}
+.support-btn-primary:hover{
+  background:#2fa978;
+  border-color:#2fa978;
+}
+.support-btn svg{width:20px;height:20px;flex-shrink:0}
+.support-note{
+  margin-top:26px;
+  font-size:15px;
+  line-height:1.7;
+  color:rgba(17,63,42,0.62);
+}
+@media(max-width:920px){
+  .support-title{margin-bottom:44px}
+  .support-grid{grid-template-columns:1fr;gap:28px}
+  .support-art{min-height:auto;justify-content:flex-start}
+  .support-pixel-map{--cell:min(12vw, 62px)}
+  .support-copy{padding-top:0}
+}
+@media(max-width:620px){
+  .support-nav{padding:20px 18px 0}
+  .support-wrap{width:min(100% - 32px, 1180px);padding-top:40px}
+  .support-title{font-size:42px}
+  .support-pixel-map strong{font-size:58px}
+  .support-copy p{font-size:20px}
+  .support-actions-title{font-size:28px}
+  .support-btn{font-size:16px;min-height:58px}
+}
+</style>
+</head>
+<body class="support-page">
+<nav class="support-nav">
+  <a class="support-brand" href="../index.html">
+    <img src="../public/logo.png" alt="">
+    <span>GeoMind</span>
+  </a>
+  <a class="support-home" href="../index.html">Home</a>
+</nav>
+
+<main class="support-wrap">
+  <h1 class="support-title">Support the GeoMind project</h1>
+
+  <section class="support-grid" aria-label="Support GeoMind">
+    <div class="support-art" aria-hidden="true">
+      <div class="support-pixel-map">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <strong>GeoAI</strong>
+      </div>
+    </div>
+
+    <div class="support-copy">
+      <p><strong>GeoMind is an open-source roadmap for Geospatial AI.</strong> If you find it useful, consider contributing data, code, ideas, or funding.</p>
+
+      <h2 class="support-actions-title">Help us make it happen:</h2>
+      <div class="support-actions">
+        <a class="support-btn" href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener">
+          <span>Contribute on GitHub</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+        <a class="support-btn" href="https://github.com/homayounrezaie/GeoMind/issues/new?title=Submit%20GeoAI%20resource&body=Type%3A%20paper%20%2F%20model%20%2F%20dataset%20%2F%20job%20%2F%20other%0AName%3A%0ALink%3A%0AWhy%20it%20matters%3A" target="_blank" rel="noopener">
+          <span>Submit paper, model, dataset, job...</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </a>
+        <a class="support-btn support-btn-primary" href="https://github.com/sponsors/homayounrezaie" target="_blank" rel="noopener">
+          <span>Support the Project</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.35-9.4-8.3C.5 9.25 2.4 5 6.4 5c2 0 3.45 1.1 4.25 2.35C11.45 6.1 12.9 5 14.9 5c4 0 5.9 4.25 3.8 7.7C16.3 16.65 12 21 12 21Z"/></svg>
+        </a>
+      </div>
+      <p class="support-note">Submissions can include papers, models, datasets, benchmarks, tools, companies, job posts, or corrections to existing records.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>
