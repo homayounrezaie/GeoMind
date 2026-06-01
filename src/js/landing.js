@@ -178,7 +178,7 @@ const TERMINAL_FLOW = [
   },
 ];
 
-const STATS_DEFAULTS = { papers: 17409, models: 11090, datasets: 2790, benchmarks: 1012, companies: 4773 };
+const STATS_DEFAULTS = { papers: 18230, models: 11276, datasets: 4030, benchmarks: 1012, companies: 4773 };
 let STATS = { ...STATS_DEFAULTS };
 let STATS_PROMISE = null;
 
