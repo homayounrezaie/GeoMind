@@ -19,9 +19,10 @@
     <kbd>⌘K</kbd>
   </label>
   <nav class="docs-toplinks" aria-label="API docs navigation">
-    <a href="api.html">Docs</a>
-    <a href="api-get-started.html">Get started</a>
-    <a href="api-endpoint.html?endpoint=papers">Endpoints</a>
+    <button type="button" class="docs-icon-link docs-theme-toggle" data-theme-toggle aria-label="Switch theme" title="Switch theme">
+      <svg class="docs-icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="docs-icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+    </button>
     <a class="docs-icon-link" href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener" aria-label="GitHub">
       <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
     </a>
@@ -86,15 +87,54 @@ print(index['endpoints'])</code></pre></div>
       </details>
 
       <details class="docs-step" id="step-auth" data-doc-section>
-        <summary>Authentication</summary>
+        <summary>Auth</summary>
         <div class="docs-step-body">
-          <p>There is no authentication. GeoMind exposes versioned public data snapshots over GitHub Pages — no API key, no auth header, and no server-side rate limit. Treat each file as a read-only snapshot that refreshes when the site is rebuilt.</p>
+          <p>GeoMind is a fully public, read-only API — there is no key to create and no <code>Authorization</code> header to send. Every endpoint is a static JSON file you can request directly.</p>
           <div class="docs-reference">
             <div><span>Method</span><strong>GET</strong></div>
             <div><span>Base URL</span><strong>https://homayounrezaie.github.io/GeoMind/api/</strong></div>
             <div><span>Format</span><strong>JSON</strong></div>
             <div><span>Auth</span><strong>None</strong></div>
           </div>
+
+          <h3 class="docs-subhead">Read any endpoint</h3>
+          <p>Send a plain GET request — no credentials required.</p>
+          <div class="docs-tabs" data-tabs>
+            <div class="docs-tablist" role="tablist" aria-label="Language">
+              <button class="docs-tab" role="tab" data-tab="js" aria-selected="true">JavaScript</button>
+              <button class="docs-tab" role="tab" data-tab="py" aria-selected="false">Python</button>
+              <button class="docs-tab" role="tab" data-tab="http" aria-selected="false">HTTP</button>
+              <button type="button" class="docs-copy" data-copy-code>Copy</button>
+            </div>
+            <div class="docs-tabpanel" data-panel="js"><pre><code>// No headers, no token.
+const papers = await fetch('https://homayounrezaie.github.io/GeoMind/api/papers.json')
+  .then(r =&gt; r.json());</code></pre></div>
+            <div class="docs-tabpanel" data-panel="py" hidden><pre><code># No headers, no token.
+import requests
+
+papers = requests.get('https://homayounrezaie.github.io/GeoMind/api/papers.json').json()</code></pre></div>
+            <div class="docs-tabpanel" data-panel="http" hidden><pre><code>curl https://homayounrezaie.github.io/GeoMind/api/papers.json</code></pre></div>
+          </div>
+
+          <h3 class="docs-subhead">Call it from the browser</h3>
+          <p>Responses are served with open CORS headers, so you can fetch GeoMind directly from a web app on any origin.</p>
+          <div class="docs-code">
+            <div class="docs-code-head"><span>HTTP</span><button type="button" data-copy-code>Copy</button></div>
+            <pre><code>curl -I https://homayounrezaie.github.io/GeoMind/api/papers.json
+# access-control-allow-origin: *</code></pre>
+          </div>
+
+          <div class="docs-callout" style="margin-top:22px">
+            <h2>GeoMind API access &amp; usage</h2>
+            <ul>
+              <li><strong>Public &amp; read-only.</strong> Endpoints are versioned JSON snapshots served over GitHub Pages; they refresh when the site is rebuilt.</li>
+              <li><strong>No keys, no limits.</strong> There are no accounts or per-request rate limits — please cache responses rather than re-fetching the same file in a loop.</li>
+              <li><strong>Billing.</strong> Free. There is no charge to use the API.</li>
+              <li><strong>Integration.</strong> Every endpoint returns a JSON array; discover them all from <a href="../api/index.json">index.json</a>.</li>
+            </ul>
+          </div>
+
+          <p class="docs-support">Need help with any of this? Open an issue on <a href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener">GitHub</a>.</p>
         </div>
       </details>
 
@@ -170,7 +210,7 @@ for ep in index['endpoints']:
   <aside class="docs-toc" aria-label="On this page">
     <p>On this page</p>
     <a href="#step-base">Set the base URL</a>
-    <a href="#step-auth">Authentication</a>
+    <a href="#step-auth">Auth</a>
     <a href="#step-fetch">Fetch an endpoint</a>
     <a href="#step-discover">Discover endpoints</a>
   </aside>

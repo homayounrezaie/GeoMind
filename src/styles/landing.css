@@ -5133,7 +5133,7 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
 }
 .docs-page::after{display:none}
 .docs-page .docs-topbar{
-  grid-template-columns:248px minmax(280px,520px) 1fr;
+  grid-template-columns:1fr minmax(0,440px) 1fr;
   height:64px;
   padding:0 24px;
   border-color:var(--lp-border);
@@ -5144,7 +5144,10 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
   font-size:15px;
   font-weight:700;
   color:var(--lp-text);
+  justify-self:start;
 }
+.docs-page .docs-search{justify-self:stretch}
+.docs-page .docs-toplinks{justify-self:end}
 .docs-page .docs-logo{
   width:28px;
   height:28px;
@@ -5731,3 +5734,58 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
   cursor:pointer;
 }
 .docs-tabs .docs-copy:hover{background:rgba(255,255,255,.12)}
+
+/* Header theme toggle + icon visibility */
+.docs-page .docs-toplinks button.docs-icon-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  padding:0;
+  border:0;
+  border-radius:7px;
+  background:transparent;
+  color:var(--lp-muted);
+  cursor:pointer;
+}
+.docs-page .docs-toplinks button.docs-icon-link:hover{
+  background:rgba(255,255,255,.06);
+  color:var(--lp-text);
+}
+[data-theme="light"] .docs-page .docs-toplinks button.docs-icon-link:hover{background:#f6f7fb}
+.docs-icon-link svg{width:16px;height:16px}
+.docs-theme-toggle .docs-icon-sun,
+.docs-theme-toggle .docs-icon-moon{display:none}
+[data-theme="dark"] .docs-theme-toggle .docs-icon-sun{display:block}
+[data-theme="light"] .docs-theme-toggle .docs-icon-moon{display:block}
+
+/* Auth step: sub-headings, info-card bullets, support line */
+.docs-subhead{
+  margin:24px 0 8px;
+  color:var(--lp-text);
+  font-size:15px;
+  font-weight:700;
+}
+.docs-page .docs-callout ul{
+  display:grid;
+  gap:9px;
+  margin:10px 0 0;
+  padding-left:18px;
+}
+.docs-page .docs-callout li{
+  color:var(--lp-muted);
+  font-size:14px;
+  line-height:1.55;
+}
+.docs-page .docs-callout li strong{color:var(--lp-text)}
+.docs-support{
+  margin-top:16px;
+  color:var(--lp-muted);
+  font-size:14px;
+}
+.docs-support a{
+  color:var(--lp-accent-strong);
+  font-weight:700;
+  text-decoration:none;
+}
