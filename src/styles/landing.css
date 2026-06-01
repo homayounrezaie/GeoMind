@@ -129,6 +129,18 @@ nav,section,footer{position:relative;z-index:1}
 .lp-nav-action span{
   white-space:nowrap;
 }
+.lp-nav-support{
+  min-height:36px;
+  padding:0 14px;
+  color:#fff;
+  border-color:rgba(99,102,241,0.5);
+  background:linear-gradient(135deg, rgba(99,102,241,0.9), rgba(6,182,212,0.76));
+  box-shadow:0 10px 26px rgba(6,182,212,0.12);
+}
+.lp-nav-support:hover{
+  border-color:rgba(255,255,255,0.38);
+  background:linear-gradient(135deg, #4f46e5, #0891b2);
+}
 .lp-nav-tertiary{
   display:inline-flex;align-items:center;justify-content:center;
   min-height:34px;
@@ -4007,6 +4019,16 @@ a.lp-terminal-row.is-link:focus-visible::before{
   border-color:#D8D0C0;
   background:#F5F1E8;
 }
+[data-theme="light"] .lp-nav-support{
+  color:#fff;
+  border-color:rgba(43,89,118,0.28);
+  background:linear-gradient(135deg, #2f6f95, #4c7d5f);
+  box-shadow:0 10px 24px rgba(47,111,149,0.16);
+}
+[data-theme="light"] .lp-nav-support:hover{
+  border-color:rgba(26,24,20,0.2);
+  background:linear-gradient(135deg, #285f80, #3f6d52);
+}
 [data-theme="light"] .lp-nav-tertiary{
   color:#5A554C;
 }
@@ -4438,6 +4460,7 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
     justify-content:flex-start;
   }
   .lp-nav-action{padding:0 10px}
+  .lp-nav-support{padding:0 12px}
   .lp-nav-tertiary{padding:0 4px}
   .lp-nav-cta{padding:8px 12px}
   .lp-nav-link{display:none}
