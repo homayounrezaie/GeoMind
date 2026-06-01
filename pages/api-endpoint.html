@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoMind API · Endpoint</title>
+<link rel="icon" type="image/png" href="../public/logo.png">
+<link rel="stylesheet" href="../src/styles/landing.css?v=20260531-1">
+</head>
+<body class="api-page docs-page">
+<header class="docs-topbar">
+  <a class="docs-brand" href="../index.html" aria-label="GeoMind home">
+    <img src="../public/logo.png" alt="" class="docs-logo">
+    <span>GeoMind</span>
+  </a>
+  <label class="docs-search">
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="m20.7 19.3-4.1-4.1a7.5 7.5 0 1 0-1.4 1.4l4.1 4.1a1 1 0 0 0 1.4-1.4ZM5.5 11a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0Z"/></svg>
+    <input type="search" data-docs-search placeholder="Search docs..." autocomplete="off" spellcheck="false">
+    <kbd>⌘K</kbd>
+  </label>
+  <nav class="docs-toplinks" aria-label="API docs navigation">
+    <a href="api.html">Docs</a>
+    <a href="api-get-started.html">Get started</a>
+    <a href="api-endpoint.html?endpoint=papers">Endpoints</a>
+    <a class="docs-icon-link" href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+    </a>
+  </nav>
+</header>
+
+<div class="docs-layout">
+  <aside class="docs-sidebar" aria-label="Documentation sections">
+    <p class="docs-nav-label">Navigation</p>
+    <p class="docs-sidebar-title">Documentation</p>
+    <a href="api.html"><span>Welcome</span></a>
+    <a href="api-get-started.html"><span>Get started</span></a>
+    <p class="docs-sidebar-title">Endpoints</p>
+    <a href="api-endpoint.html?endpoint=papers"><span>Papers</span></a>
+    <a href="api-endpoint.html?endpoint=models"><span>Models</span></a>
+    <a href="api-endpoint.html?endpoint=datasets"><span>Datasets</span></a>
+    <a href="api-endpoint.html?endpoint=companies"><span>Companies</span></a>
+    <a href="api-endpoint.html?endpoint=benchmarks"><span>Benchmarks</span></a>
+    <a href="api-endpoint.html?endpoint=tasks"><span>Tasks</span></a>
+    <a href="api-endpoint.html?endpoint=metrics"><span>Metrics</span></a>
+    <a href="api-endpoint.html?endpoint=techniques"><span>Techniques</span></a>
+    <a href="api-endpoint.html?endpoint=learn"><span>Learn</span></a>
+    <a href="api-endpoint.html?endpoint=jobs"><span>Jobs</span></a>
+  </aside>
+
+  <main class="docs-main">
+    <section class="docs-article" id="overview" data-doc-section>
+      <p class="docs-kicker">Endpoint</p>
+      <h1 data-ep-title>Endpoint</h1>
+      <p class="docs-lede" data-ep-desc>Loading endpoint…</p>
+      <div class="docs-endpoint-meta">
+        <span class="docs-pill docs-pill-get"><strong>GET</strong></span>
+        <span class="docs-pill" data-ep-path>/api/…</span>
+        <span class="docs-pill" data-ep-count>… records</span>
+      </div>
+    </section>
+
+    <section class="docs-article" id="request" data-doc-section>
+      <h2 class="docs-grid-label">Request</h2>
+      <p>Fetch the full JSON array for this endpoint. No key or header is required.</p>
+      <div class="docs-tabs" data-tabs>
+        <div class="docs-tablist" role="tablist" aria-label="Language">
+          <button class="docs-tab" role="tab" data-tab="js" aria-selected="true">JavaScript</button>
+          <button class="docs-tab" role="tab" data-tab="py" aria-selected="false">Python</button>
+          <button class="docs-tab" role="tab" data-tab="http" aria-selected="false">HTTP</button>
+          <button type="button" class="docs-copy" data-copy-code>Copy</button>
+        </div>
+        <div class="docs-tabpanel" data-panel="js"><pre><code data-ep-code="js"></code></pre></div>
+        <div class="docs-tabpanel" data-panel="py" hidden><pre><code data-ep-code="py"></code></pre></div>
+        <div class="docs-tabpanel" data-panel="http" hidden><pre><code data-ep-code="http"></code></pre></div>
+      </div>
+    </section>
+
+    <section class="docs-article" id="response" data-doc-section>
+      <h2 class="docs-grid-label">Response</h2>
+      <p>A live sample of the first record returned by this endpoint.</p>
+      <div class="docs-code">
+        <div class="docs-code-head"><span>200 · application/json</span><button type="button" data-copy-code>Copy</button></div>
+        <pre><code data-ep-response>Loading sample…</code></pre>
+      </div>
+      <p class="docs-response-status" data-ep-status></p>
+    </section>
+
+    <nav class="docs-pager" aria-label="Pagination">
+      <a data-ep-prev href="api-get-started.html">
+        <span>Previous</span>
+        <strong data-ep-prev-label>← Get started</strong>
+      </a>
+      <a class="docs-pager-next" data-ep-next href="api.html">
+        <span>Next</span>
+        <strong data-ep-next-label>Welcome →</strong>
+      </a>
+    </nav>
+  </main>
+
+  <aside class="docs-toc" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#overview">Overview</a>
+    <a href="#request">Request</a>
+    <a href="#response">Response</a>
+  </aside>
+</div>
+
+<script type="module" src="../src/js/theme.js"></script>
+<script type="module" src="../src/js/api-docs.js"></script>
+<script type="module" src="../src/js/api-endpoint.js"></script>
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GeoMind API Docs</title>
+<title>GeoMind API · Welcome</title>
 <link rel="icon" type="image/png" href="../public/logo.png">
-<link rel="stylesheet" href="../src/styles/landing.css?v=20260527-5">
+<link rel="stylesheet" href="../src/styles/landing.css?v=20260531-1">
 </head>
 <body class="api-page docs-page">
 <header class="docs-topbar">
@@ -19,9 +19,9 @@
     <kbd>⌘K</kbd>
   </label>
   <nav class="docs-toplinks" aria-label="API docs navigation">
-    <a href="#welcome">Docs</a>
-    <a href="#endpoints">Endpoints</a>
-    <a href="#reference">Reference</a>
+    <a href="api.html">Docs</a>
+    <a href="api-get-started.html">Get started</a>
+    <a href="api-endpoint.html?endpoint=papers">Endpoints</a>
     <a class="docs-icon-link" href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener" aria-label="GitHub">
       <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
     </a>
@@ -31,18 +31,20 @@
 <div class="docs-layout">
   <aside class="docs-sidebar" aria-label="Documentation sections">
     <p class="docs-nav-label">Navigation</p>
-    <p class="docs-sidebar-title">GeoMind API</p>
-    <a class="is-active" href="#welcome" data-doc-link><span>Welcome</span></a>
-    <a href="#quickstart" data-doc-link><span>Get started</span></a>
-    <a href="#endpoints" data-doc-link><span>Endpoints</span></a>
-    <a href="#schema" data-doc-link><span>Schema</span></a>
-    <a href="#reference" data-doc-link><span>HTTP reference</span></a>
-    <p class="docs-sidebar-title">Datasets</p>
-    <a href="../api/papers.json" data-doc-link><span>Papers</span></a>
-    <a href="../api/models.json" data-doc-link><span>Models</span></a>
-    <a href="../api/datasets.json" data-doc-link><span>Datasets</span></a>
-    <a href="../api/companies.json" data-doc-link><span>Companies</span></a>
-    <a href="../api/jobs.json" data-doc-link><span>Jobs</span></a>
+    <p class="docs-sidebar-title">Documentation</p>
+    <a class="is-active" href="api.html"><span>Welcome</span></a>
+    <a href="api-get-started.html"><span>Get started</span></a>
+    <p class="docs-sidebar-title">Endpoints</p>
+    <a href="api-endpoint.html?endpoint=papers"><span>Papers</span></a>
+    <a href="api-endpoint.html?endpoint=models"><span>Models</span></a>
+    <a href="api-endpoint.html?endpoint=datasets"><span>Datasets</span></a>
+    <a href="api-endpoint.html?endpoint=companies"><span>Companies</span></a>
+    <a href="api-endpoint.html?endpoint=benchmarks"><span>Benchmarks</span></a>
+    <a href="api-endpoint.html?endpoint=tasks"><span>Tasks</span></a>
+    <a href="api-endpoint.html?endpoint=metrics"><span>Metrics</span></a>
+    <a href="api-endpoint.html?endpoint=techniques"><span>Techniques</span></a>
+    <a href="api-endpoint.html?endpoint=learn"><span>Learn</span></a>
+    <a href="api-endpoint.html?endpoint=jobs"><span>Jobs</span></a>
   </aside>
 
   <main class="docs-main">
@@ -55,171 +57,111 @@
         <h2>Documentation Index</h2>
         <p>Fetch the complete endpoint index at <a href="../api/index.json">/api/index.json</a>. Use it to discover available datasets and record counts before loading a full endpoint.</p>
       </div>
+    </section>
 
-      <h2 class="docs-question">What kind of GeoAI data are you looking for?</h2>
-      <div class="docs-segment" role="tablist" aria-label="API categories">
-        <button type="button" class="is-active" data-doc-segment="popular" aria-selected="true">Popular</button>
-        <button type="button" data-doc-segment="everything" aria-selected="false">Everything</button>
-      </div>
-
-      <div class="docs-card-grid docs-panel" data-doc-panel="popular">
-        <a class="docs-card" href="../api/papers.json">
+    <section class="docs-article" id="popular" data-doc-section>
+      <h2 class="docs-grid-label">Popular</h2>
+      <div class="docs-card-grid">
+        <a class="docs-card" href="api-endpoint.html?endpoint=papers">
           <span class="docs-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6V3Zm8 1.5V7h2.5M9 11h6M9 15h6"/></svg></span>
           <strong>Papers</strong>
           <p>Research papers, citations, abstracts, venues, code links, and PDFs.</p>
-          <span class="docs-count">18,229 records</span>
+          <span class="docs-count" data-count="papers" data-count-suffix=" records">18,229 records</span>
         </a>
-        <a class="docs-card" href="../api/models.json">
+        <a class="docs-card" href="api-endpoint.html?endpoint=models">
           <span class="docs-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 0v18M4 7l8 4 8-4"/></svg></span>
           <strong>Models</strong>
           <p>Foundation models and model candidates across geospatial AI.</p>
-          <span class="docs-count">11,275 records</span>
+          <span class="docs-count" data-count="models" data-count-suffix=" records">11,275 records</span>
         </a>
-        <a class="docs-card" href="../api/datasets.json">
+        <a class="docs-card" href="api-endpoint.html?endpoint=datasets">
           <span class="docs-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6c0-1.1 3.6-2 8-2s8 .9 8 2-3.6 2-8 2-8-.9-8-2Zm0 0v6c0 1.1 3.6 2 8 2s8-.9 8-2V6M4 12v6c0 1.1 3.6 2 8 2s8-.9 8-2v-6"/></svg></span>
           <strong>Datasets</strong>
           <p>Geospatial datasets with tags, task categories, and usage signals.</p>
-          <span class="docs-count">3,955 records</span>
+          <span class="docs-count" data-count="datasets" data-count-suffix=" records">3,955 records</span>
         </a>
       </div>
+    </section>
 
-      <div class="docs-everything-grid docs-panel" data-doc-panel="everything" hidden>
-        <a href="../api/papers.json">
+    <section class="docs-article" id="everything" data-doc-section>
+      <h2 class="docs-grid-label">Everything</h2>
+      <div class="docs-everything-grid">
+        <a href="api-endpoint.html?endpoint=papers">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6V3Zm8 1.5V7h2.5M9 11h6M9 15h6"/></svg></span>
           <strong>Papers</strong>
           <p>Citations &amp; PDFs</p>
-          <span class="docs-count">18,229</span>
+          <span class="docs-count" data-count="papers">18,229</span>
         </a>
-        <a href="../api/models.json">
+        <a href="api-endpoint.html?endpoint=models">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 0v18M4 7l8 4 8-4"/></svg></span>
           <strong>Models</strong>
           <p>Foundation models</p>
-          <span class="docs-count">11,275</span>
+          <span class="docs-count" data-count="models">11,275</span>
         </a>
-        <a href="../api/datasets.json">
+        <a href="api-endpoint.html?endpoint=datasets">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6c0-1.1 3.6-2 8-2s8 .9 8 2-3.6 2-8 2-8-.9-8-2Zm0 0v6c0 1.1 3.6 2 8 2s8-.9 8-2V6M4 12v6c0 1.1 3.6 2 8 2s8-.9 8-2v-6"/></svg></span>
           <strong>Datasets</strong>
           <p>Tags &amp; usage signals</p>
-          <span class="docs-count">3,955</span>
+          <span class="docs-count" data-count="datasets">3,955</span>
         </a>
-        <a href="../api/companies.json">
+        <a href="api-endpoint.html?endpoint=companies">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M8 21v-7h8v7M8 9h.01M12 9h.01M16 9h.01"/></svg></span>
           <strong>Companies</strong>
           <p>GeoAI market map</p>
-          <span class="docs-count">4,773</span>
+          <span class="docs-count" data-count="companies">4,773</span>
         </a>
-        <a href="../api/benchmarks.json">
+        <a href="api-endpoint.html?endpoint=benchmarks">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-5M12 16V8M16 16v-9"/></svg></span>
           <strong>Benchmarks</strong>
           <p>Scores and evidence</p>
-          <span class="docs-count">888</span>
+          <span class="docs-count" data-count="benchmarks">888</span>
         </a>
-        <a href="../api/tasks.json">
+        <a href="api-endpoint.html?endpoint=tasks">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 11 3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
           <strong>Tasks</strong>
           <p>Applications &amp; labels</p>
-          <span class="docs-count">389</span>
+          <span class="docs-count" data-count="tasks">389</span>
         </a>
-        <a href="../api/metrics.json">
+        <a href="api-endpoint.html?endpoint=metrics">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20a8 8 0 1 0-8-8M12 12l4-4M12 12H7"/></svg></span>
           <strong>Metrics</strong>
           <p>Evaluation measures</p>
-          <span class="docs-count">92</span>
+          <span class="docs-count" data-count="metrics">92</span>
         </a>
-        <a href="../api/techniques.json">
+        <a href="api-endpoint.html?endpoint=techniques">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v5M12 17v5M4.93 4.93l3.54 3.54M15.54 15.54l3.53 3.53M2 12h5M17 12h5M4.93 19.07l3.54-3.53M15.54 8.46l3.53-3.53"/></svg></span>
           <strong>Techniques</strong>
           <p>Methods &amp; algorithms</p>
-          <span class="docs-count">1,934</span>
+          <span class="docs-count" data-count="techniques">1,934</span>
         </a>
-        <a href="../api/learn.json">
+        <a href="api-endpoint.html?endpoint=learn">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4Zm0 0v6m4-4.2V17c0 1 2.2 2 5 2s5-1 5-2v-6.2"/></svg></span>
           <strong>Learn</strong>
           <p>Guides &amp; explainers</p>
-          <span class="docs-count">7</span>
+          <span class="docs-count" data-count="learn">7</span>
         </a>
-        <a href="../api/jobs.json">
+        <a href="api-endpoint.html?endpoint=jobs">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1M4 7h16v12H4zM4 12h16"/></svg></span>
           <strong>Jobs</strong>
           <p>Career sources</p>
-          <span class="docs-count">5</span>
+          <span class="docs-count" data-count="jobs">5</span>
         </a>
       </div>
+
+      <nav class="docs-pager" aria-label="Pagination">
+        <a class="docs-pager-next" href="api-get-started.html" style="margin-left:auto">
+          <span>Next</span>
+          <strong>Get started →</strong>
+        </a>
+      </nav>
     </section>
-
-    <section class="docs-article" id="quickstart" data-doc-section>
-      <h2>Get started</h2>
-      <p>GeoMind currently exposes static JSON over GitHub Pages. There is no API key, auth header, or server-side rate limit. Treat the files as versioned public data snapshots that refresh when the site is rebuilt.</p>
-      <div class="docs-code">
-        <div class="docs-code-head"><span>JavaScript</span><button type="button" data-copy-code>Copy</button></div>
-        <pre><code>const base = 'https://homayounrezaie.github.io/GeoMind/api/';
-const index = await fetch(`${base}index.json`).then(res =&gt; res.json());
-const papers = await fetch(`${base}papers.json`).then(res =&gt; res.json());
-
-console.log(index.endpoints);
-console.log(papers[0]);</code></pre>
-      </div>
-    </section>
-
-    <section class="docs-article" id="endpoints" data-doc-section>
-      <h2>Endpoints</h2>
-      <p>Each endpoint returns a JSON array except <code>index.json</code>, which returns metadata for discovery.</p>
-      <div class="docs-endpoint-grid">
-        <a href="../api/papers.json"><strong>papers</strong><span>Research papers with citations, links, abstracts, venues, and source metadata.</span></a>
-        <a href="../api/models.json"><strong>models</strong><span>Foundation model candidates and references for geospatial AI.</span></a>
-        <a href="../api/datasets.json"><strong>datasets</strong><span>Geospatial and remote-sensing datasets with tags and usage signals.</span></a>
-        <a href="../api/companies.json"><strong>companies</strong><span>Organizations across geospatial, EO, GIS, analytics, and UAV markets.</span></a>
-        <a href="../api/benchmarks.json"><strong>benchmarks</strong><span>Benchmark rows connecting papers, tasks, datasets, metrics, and scores.</span></a>
-        <a href="../api/tasks.json"><strong>tasks</strong><span>GeoAI task names and categories.</span></a>
-        <a href="../api/metrics.json"><strong>metrics</strong><span>Evaluation metrics and metric families.</span></a>
-        <a href="../api/techniques.json"><strong>techniques</strong><span>Methods, algorithms, and learning techniques.</span></a>
-        <a href="../api/learn.json"><strong>learn</strong><span>Guides and explainers for getting started with GeoAI.</span></a>
-        <a href="../api/jobs.json"><strong>jobs</strong><span>Career and job-board sources across the GeoAI market.</span></a>
-      </div>
-    </section>
-
-    <section class="docs-article" id="schema" data-doc-section>
-      <h2>Schema</h2>
-      <p>Records keep source field names so the API remains close to the underlying catalog. Empty CSV values are omitted, numeric fields are typed as numbers, boolean flags are typed as booleans, and common delimited fields are converted to arrays.</p>
-      <div class="docs-code">
-        <div class="docs-code-head"><span>Paper record</span><button type="button" data-copy-code>Copy</button></div>
-        <pre><code>{
-  "id": "paper_2001_00425",
-  "year": 2020,
-  "title": "Kalman Filtering and Expectation Maximization...",
-  "authors": ["Ricardo Augusto Borsoi", "Tales Imbiriba"],
-  "venue": "arXiv",
-  "doi": "10.48550/arXiv.2001.00425",
-  "url": "https://arxiv.org/abs/2001.00425",
-  "pdf_url": "https://arxiv.org/pdf/2001.00425"
-}</code></pre>
-      </div>
-    </section>
-
-    <section class="docs-article" id="reference" data-doc-section>
-      <h2>HTTP reference</h2>
-      <div class="docs-reference">
-        <div><span>Method</span><strong>GET</strong></div>
-        <div><span>Base URL</span><strong>https://homayounrezaie.github.io/GeoMind/api/</strong></div>
-        <div><span>Format</span><strong>JSON</strong></div>
-        <div><span>Auth</span><strong>None</strong></div>
-      </div>
-      <div class="docs-code">
-        <div class="docs-code-head"><span>cURL</span><button type="button" data-copy-code>Copy</button></div>
-        <pre><code>curl https://homayounrezaie.github.io/GeoMind/api/index.json
-curl https://homayounrezaie.github.io/GeoMind/api/models.json</code></pre>
-      </div>
-    </section>
-
   </main>
 
   <aside class="docs-toc" aria-label="On this page">
     <p>On this page</p>
     <a href="#welcome">Welcome</a>
-    <a href="#quickstart">Get started</a>
-    <a href="#endpoints">Endpoints</a>
-    <a href="#schema">Schema</a>
-    <a href="#reference">HTTP reference</a>
+    <a href="#popular">Popular</a>
+    <a href="#everything">Everything</a>
   </aside>
 </div>
 

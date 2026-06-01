@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoMind API · Get started</title>
+<link rel="icon" type="image/png" href="../public/logo.png">
+<link rel="stylesheet" href="../src/styles/landing.css?v=20260531-1">
+</head>
+<body class="api-page docs-page">
+<header class="docs-topbar">
+  <a class="docs-brand" href="../index.html" aria-label="GeoMind home">
+    <img src="../public/logo.png" alt="" class="docs-logo">
+    <span>GeoMind</span>
+  </a>
+  <label class="docs-search">
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="m20.7 19.3-4.1-4.1a7.5 7.5 0 1 0-1.4 1.4l4.1 4.1a1 1 0 0 0 1.4-1.4ZM5.5 11a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0Z"/></svg>
+    <input type="search" data-docs-search placeholder="Search docs..." autocomplete="off" spellcheck="false">
+    <kbd>⌘K</kbd>
+  </label>
+  <nav class="docs-toplinks" aria-label="API docs navigation">
+    <a href="api.html">Docs</a>
+    <a href="api-get-started.html">Get started</a>
+    <a href="api-endpoint.html?endpoint=papers">Endpoints</a>
+    <a class="docs-icon-link" href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+    </a>
+  </nav>
+</header>
+
+<div class="docs-layout">
+  <aside class="docs-sidebar" aria-label="Documentation sections">
+    <p class="docs-nav-label">Navigation</p>
+    <p class="docs-sidebar-title">Documentation</p>
+    <a href="api.html"><span>Welcome</span></a>
+    <a class="is-active" href="api-get-started.html"><span>Get started</span></a>
+    <p class="docs-sidebar-title">Endpoints</p>
+    <a href="api-endpoint.html?endpoint=papers"><span>Papers</span></a>
+    <a href="api-endpoint.html?endpoint=models"><span>Models</span></a>
+    <a href="api-endpoint.html?endpoint=datasets"><span>Datasets</span></a>
+    <a href="api-endpoint.html?endpoint=companies"><span>Companies</span></a>
+    <a href="api-endpoint.html?endpoint=benchmarks"><span>Benchmarks</span></a>
+    <a href="api-endpoint.html?endpoint=tasks"><span>Tasks</span></a>
+    <a href="api-endpoint.html?endpoint=metrics"><span>Metrics</span></a>
+    <a href="api-endpoint.html?endpoint=techniques"><span>Techniques</span></a>
+    <a href="api-endpoint.html?endpoint=learn"><span>Learn</span></a>
+    <a href="api-endpoint.html?endpoint=jobs"><span>Jobs</span></a>
+  </aside>
+
+  <main class="docs-main">
+    <section class="docs-article" id="get-started" data-doc-section>
+      <p class="docs-kicker">GeoMind API</p>
+      <h1>Get started</h1>
+      <p class="docs-lede">Fetch GeoAI data over plain HTTP — no keys, no SDK, no rate limits.</p>
+
+      <div class="docs-callout">
+        <h2>Documentation Index</h2>
+        <p>Fetch the complete endpoint index at <a href="../api/index.json">/api/index.json</a>. Use it to discover available datasets and record counts before loading a full endpoint.</p>
+      </div>
+    </section>
+
+    <div class="docs-steps">
+      <details class="docs-step" id="step-base" data-doc-section open>
+        <summary>Set the base URL</summary>
+        <div class="docs-step-body">
+          <p>Every endpoint is a static JSON file served under one base URL. There is nothing to install — fetch it from the browser, a script, or the command line.</p>
+          <div class="docs-tabs" data-tabs>
+            <div class="docs-tablist" role="tablist" aria-label="Language">
+              <button class="docs-tab" role="tab" data-tab="js" aria-selected="true">JavaScript</button>
+              <button class="docs-tab" role="tab" data-tab="py" aria-selected="false">Python</button>
+              <button class="docs-tab" role="tab" data-tab="http" aria-selected="false">HTTP</button>
+              <button type="button" class="docs-copy" data-copy-code>Copy</button>
+            </div>
+            <div class="docs-tabpanel" data-panel="js"><pre><code>const BASE = 'https://homayounrezaie.github.io/GeoMind/api/';
+
+const index = await fetch(BASE + 'index.json').then(r =&gt; r.json());
+console.log(index.endpoints);</code></pre></div>
+            <div class="docs-tabpanel" data-panel="py" hidden><pre><code>import requests
+
+BASE = 'https://homayounrezaie.github.io/GeoMind/api/'
+index = requests.get(BASE + 'index.json').json()
+print(index['endpoints'])</code></pre></div>
+            <div class="docs-tabpanel" data-panel="http" hidden><pre><code>curl https://homayounrezaie.github.io/GeoMind/api/index.json</code></pre></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="docs-step" id="step-auth" data-doc-section>
+        <summary>Authentication</summary>
+        <div class="docs-step-body">
+          <p>There is no authentication. GeoMind exposes versioned public data snapshots over GitHub Pages — no API key, no auth header, and no server-side rate limit. Treat each file as a read-only snapshot that refreshes when the site is rebuilt.</p>
+          <div class="docs-reference">
+            <div><span>Method</span><strong>GET</strong></div>
+            <div><span>Base URL</span><strong>https://homayounrezaie.github.io/GeoMind/api/</strong></div>
+            <div><span>Format</span><strong>JSON</strong></div>
+            <div><span>Auth</span><strong>None</strong></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="docs-step" id="step-fetch" data-doc-section>
+        <summary>Fetch an endpoint</summary>
+        <div class="docs-step-body">
+          <p>Each endpoint returns a JSON array of records. Load one and read the first row to see its shape.</p>
+          <div class="docs-tabs" data-tabs>
+            <div class="docs-tablist" role="tablist" aria-label="Language">
+              <button class="docs-tab" role="tab" data-tab="js" aria-selected="true">JavaScript</button>
+              <button class="docs-tab" role="tab" data-tab="py" aria-selected="false">Python</button>
+              <button class="docs-tab" role="tab" data-tab="http" aria-selected="false">HTTP</button>
+              <button type="button" class="docs-copy" data-copy-code>Copy</button>
+            </div>
+            <div class="docs-tabpanel" data-panel="js"><pre><code>const res = await fetch('https://homayounrezaie.github.io/GeoMind/api/papers.json');
+const papers = await res.json();
+
+console.log(papers.length); // 18229
+console.log(papers[0]);</code></pre></div>
+            <div class="docs-tabpanel" data-panel="py" hidden><pre><code>import requests
+
+papers = requests.get('https://homayounrezaie.github.io/GeoMind/api/papers.json').json()
+print(len(papers))  # 18229
+print(papers[0])</code></pre></div>
+            <div class="docs-tabpanel" data-panel="http" hidden><pre><code>curl https://homayounrezaie.github.io/GeoMind/api/papers.json</code></pre></div>
+          </div>
+          <div class="docs-callout" style="margin-top:18px">
+            <p style="margin:0">Browse the request and a live sample response for every endpoint in the <a href="api-endpoint.html?endpoint=papers">Endpoints reference</a>.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="docs-step" id="step-discover" data-doc-section>
+        <summary>Discover endpoints</summary>
+        <div class="docs-step-body">
+          <p>The index lists every endpoint with its path and record count, so you can size a request before loading a full file.</p>
+          <div class="docs-tabs" data-tabs>
+            <div class="docs-tablist" role="tablist" aria-label="Language">
+              <button class="docs-tab" role="tab" data-tab="js" aria-selected="true">JavaScript</button>
+              <button class="docs-tab" role="tab" data-tab="py" aria-selected="false">Python</button>
+              <button class="docs-tab" role="tab" data-tab="http" aria-selected="false">HTTP</button>
+              <button type="button" class="docs-copy" data-copy-code>Copy</button>
+            </div>
+            <div class="docs-tabpanel" data-panel="js"><pre><code>const index = await fetch('https://homayounrezaie.github.io/GeoMind/api/index.json')
+  .then(r =&gt; r.json());
+
+for (const ep of index.endpoints) {
+  console.log(ep.name, ep.count, ep.path);
+}</code></pre></div>
+            <div class="docs-tabpanel" data-panel="py" hidden><pre><code>import requests
+
+index = requests.get('https://homayounrezaie.github.io/GeoMind/api/index.json').json()
+for ep in index['endpoints']:
+    print(ep['name'], ep['count'], ep['path'])</code></pre></div>
+            <div class="docs-tabpanel" data-panel="http" hidden><pre><code>curl https://homayounrezaie.github.io/GeoMind/api/index.json</code></pre></div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <nav class="docs-pager" aria-label="Pagination">
+      <a href="api.html">
+        <span>Previous</span>
+        <strong>← Welcome</strong>
+      </a>
+      <a class="docs-pager-next" href="api-endpoint.html?endpoint=papers">
+        <span>Next</span>
+        <strong>Papers →</strong>
+      </a>
+    </nav>
+  </main>
+
+  <aside class="docs-toc" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#step-base">Set the base URL</a>
+    <a href="#step-auth">Authentication</a>
+    <a href="#step-fetch">Fetch an endpoint</a>
+    <a href="#step-discover">Discover endpoints</a>
+  </aside>
+</div>
+
+<script type="module" src="../src/js/theme.js"></script>
+<script type="module" src="../src/js/api-docs.js"></script>
+</body>
+</html>

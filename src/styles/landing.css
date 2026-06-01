@@ -5530,3 +5530,204 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
 @media(max-width:520px){
   .docs-everything-grid{grid-template-columns:1fr}
 }
+
+/* ===== Bytez-style multi-page docs components ===== */
+/* Section label above a card grid (Popular / Everything) */
+.docs-grid-label{
+  margin:30px 0 14px;
+  color:var(--lp-text);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.docs-grid-label:first-of-type{margin-top:26px}
+
+/* Numbered accordion steps (Get started) */
+.docs-steps{
+  display:grid;
+  gap:14px;
+  margin:24px 0 8px;
+  counter-reset:docstep;
+}
+.docs-step{
+  border:1px solid var(--lp-border);
+  border-radius:12px;
+  background:var(--lp-surface);
+  overflow:hidden;
+}
+.docs-step > summary{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 18px;
+  list-style:none;
+  cursor:pointer;
+  color:var(--lp-text);
+  font-size:17px;
+  font-weight:700;
+}
+.docs-step > summary::-webkit-details-marker{display:none}
+.docs-step > summary::before{
+  counter-increment:docstep;
+  content:counter(docstep);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  background:rgba(var(--lp-accent-rgb),.14);
+  color:var(--lp-accent-strong);
+  font-size:14px;
+  font-weight:800;
+}
+.docs-step > summary::after{
+  content:'';
+  width:9px;
+  height:9px;
+  margin-left:auto;
+  border-right:2px solid var(--lp-soft);
+  border-bottom:2px solid var(--lp-soft);
+  transform:rotate(45deg);
+  transition:transform .18s ease;
+}
+.docs-step[open] > summary::after{transform:rotate(-135deg)}
+.docs-step-body{
+  padding:0 18px 18px 60px;
+}
+.docs-step-body p{margin:0 0 14px}
+.docs-step-body p:first-child{margin-top:2px}
+
+/* Code tabs (shared by Get started + endpoint pages) */
+.docs-tabs{
+  margin:16px 0 0;
+  border:1px solid var(--lp-border);
+  border-radius:12px;
+  overflow:hidden;
+  background:#0c0d14;
+}
+.docs-tablist{
+  display:flex;
+  gap:2px;
+  padding:6px 6px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:rgba(var(--lp-accent-rgb),.05);
+}
+.docs-tab{
+  appearance:none;
+  border:0;
+  padding:9px 14px;
+  border-radius:8px 8px 0 0;
+  background:transparent;
+  color:rgba(255,255,255,.55);
+  font:700 12.5px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  cursor:pointer;
+}
+.docs-tab:hover{color:rgba(255,255,255,.85)}
+.docs-tab[aria-selected="true"]{
+  background:#0c0d14;
+  color:var(--lp-accent-strong);
+  box-shadow:inset 0 -2px 0 var(--lp-accent);
+}
+.docs-tabpanel{margin:0}
+.docs-tabpanel[hidden]{display:none}
+.docs-tabs pre{
+  margin:0;
+  padding:18px;
+  overflow:auto;
+}
+.docs-tabs code{
+  color:#e3def7;
+  font-family:'SF Mono','Menlo',monospace;
+  font-size:13px;
+  line-height:1.65;
+  white-space:pre;
+}
+.docs-tabs .docs-code-head{
+  background:transparent;
+  border-bottom:0;
+  padding-top:6px;
+}
+
+/* Endpoint page: meta row + response */
+.docs-endpoint-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0 0 22px;
+}
+.docs-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  height:30px;
+  padding:0 12px;
+  border:1px solid var(--lp-border);
+  border-radius:999px;
+  background:var(--lp-surface);
+  color:var(--lp-muted);
+  font:600 12.5px/1 'SF Mono','Menlo',monospace;
+}
+.docs-pill strong{color:var(--lp-text);font-weight:800}
+.docs-pill-get{
+  border-color:rgba(var(--lp-accent-rgb),.4);
+  background:rgba(var(--lp-accent-rgb),.12);
+  color:var(--lp-accent-strong);
+}
+.docs-response-status{
+  margin:18px 0 0;
+  color:var(--lp-soft);
+  font-size:13px;
+}
+.docs-response-status[data-state="error"]{color:#ff9b9b}
+
+/* Prev / next page navigation */
+.docs-pager{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:14px;
+}
+.docs-pager a{
+  flex:1 1 0;
+  min-width:0;
+  padding:14px 16px;
+  border:1px solid var(--lp-border);
+  border-radius:12px;
+  background:var(--lp-surface);
+  color:var(--lp-text);
+  text-decoration:none;
+}
+.docs-pager a:hover{
+  border-color:var(--lp-border-strong);
+  background:rgba(var(--lp-accent-rgb),.07);
+}
+.docs-pager .docs-pager-next{text-align:right}
+.docs-pager span{
+  display:block;
+  color:var(--lp-soft);
+  font-size:12px;
+  font-weight:600;
+}
+.docs-pager strong{font-size:15px;font-weight:700}
+@media(max-width:800px){
+  .docs-step-body{padding-left:18px}
+  .docs-pager{flex-direction:column}
+}
+
+.docs-tabs .docs-copy{
+  margin-left:auto;
+  align-self:center;
+  height:28px;
+  padding:0 10px;
+  margin-right:4px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:6px;
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  font:700 12px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  cursor:pointer;
+}
+.docs-tabs .docs-copy:hover{background:rgba(255,255,255,.12)}
