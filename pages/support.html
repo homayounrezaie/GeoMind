@@ -47,15 +47,6 @@ body.support-page::after{display:none}
   font-size:11px;
   line-height:1;
 }
-.support-title{
-  max-width:980px;
-  margin:28px 0 84px;
-  color:#103b29;
-  font-size:clamp(40px, 6vw, 68px);
-  line-height:1.06;
-  font-weight:460;
-  letter-spacing:0;
-}
 .support-layout{
   display:grid;
   grid-template-columns:minmax(300px, .92fr) minmax(360px, .68fr);
@@ -251,7 +242,6 @@ body.support-page::after{display:none}
   line-height:1.7;
 }
 @media(max-width:960px){
-  .support-title{margin-bottom:46px}
   .support-layout{grid-template-columns:1fr;gap:28px}
   .support-heart-stage{min-height:auto;justify-content:flex-start;padding-top:0}
   .support-pixel-heart{--cell:min(12vw, 62px)}
@@ -261,7 +251,6 @@ body.support-page::after{display:none}
   .support-shell{width:min(100% - 32px, 1160px)}
   .support-nav{min-height:64px}
   .support-brand span span{display:none}
-  .support-title{font-size:38px;margin-top:20px}
   .support-lede{font-size:16px}
   .support-facts li{font-size:16px}
   .support-actions-title{font-size:26px}
@@ -280,8 +269,6 @@ body.support-page::after{display:none}
 </nav>
 
 <main class="support-shell">
-  <h1 class="support-title">Support the GeoMind project</h1>
-
   <section class="support-layout" aria-label="Support GeoMind">
     <div class="support-heart-stage" aria-hidden="true">
       <div class="support-pixel-heart">
