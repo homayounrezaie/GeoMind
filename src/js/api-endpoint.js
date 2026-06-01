@@ -72,6 +72,54 @@ if (next) {
   setText('[data-ep-next-label]', 'Welcome →');
 }
 
+// Filter & paginate snippets, tailored to the endpoint's actual fields.
+function setFilterSnippets(record) {
+  const n = ep.name;
+  const url = `${DISPLAY_BASE}${n}.json`;
+  const keys = Object.keys(record || {});
+  const textField = ['title', 'name', 'label', 'question'].find(k => typeof record?.[k] === 'string')
+    || keys.find(k => typeof record[k] === 'string') || 'title';
+  const hasYear = typeof record?.year === 'number';
+
+  const js = [
+    `const ${n} = await fetch('${url}').then(r => r.json());`,
+    ``,
+    `// First 10 records`,
+    `const page = ${n}.slice(0, 10);`,
+    ...(hasYear ? [``, `// Filter by year`, `const recent = ${n}.filter(r => r.year >= 2020);`] : []),
+    ``,
+    `// Keyword search`,
+    `const hits = ${n}.filter(r =>`,
+    `  r.${textField}?.toLowerCase().includes('query'));`,
+  ].join('\n');
+
+  const py = [
+    `import requests`,
+    ``,
+    `${n} = requests.get('${url}').json()`,
+    ``,
+    `# First 10 records`,
+    `page = ${n}[:10]`,
+    ...(hasYear ? [``, `# Filter by year`, `recent = [r for r in ${n} if r.get('year', 0) >= 2020]`] : []),
+    ``,
+    `# Keyword search`,
+    `hits = [r for r in ${n} if 'query' in str(r.get('${textField}', '')).lower()]`,
+  ].join('\n');
+
+  const http = [
+    `# First 10 records`,
+    `curl -s ${url} | jq '.[:10]'`,
+    ...(hasYear ? [``, `# Filter by year`, `curl -s ${url} | jq 'map(select(.year >= 2020))'`] : []),
+    ``,
+    `# Keyword search`,
+    `curl -s ${url} | jq 'map(select(.${textField} | ascii_downcase | contains("query")))'`,
+  ].join('\n');
+
+  setText('[data-ep-filter="js"]', js);
+  setText('[data-ep-filter="py"]', py);
+  setText('[data-ep-filter="http"]', http);
+}
+
 // Live count + sample response
 const responseEl = document.querySelector('[data-ep-response]');
 const statusEl = document.querySelector('[data-ep-status]');
@@ -92,8 +140,10 @@ fetch(`${FETCH_BASE}${ep.name}.json`)
     if (statusEl && Array.isArray(rows)) {
       statusEl.textContent = `Showing record 1 of ${rows.length.toLocaleString()}.`;
     }
+    setFilterSnippets(sample);
   })
   .catch(() => {
     responseEl.textContent = `// Could not load ${ep.name}.json`;
     if (statusEl) { statusEl.textContent = 'Sample response unavailable.'; statusEl.dataset.state = 'error'; }
+    setFilterSnippets(null);
   });
