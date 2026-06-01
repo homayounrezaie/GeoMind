@@ -110124,5 +110124,234 @@
       "geospatial; remote-sensing; source-derived; hannah-kerner"
     ],
     "description": "Successor to Geo-Bench with broader task and domain coverage for Earth observation foundation models. Source: Hannah Kerner website / hannah-rae.github.io _data YAML; imported 2026-05-29. Repo: https://github.com/The-AI-Alliance/GEO-Bench-2. GitHub stars: 28; forks: 3."
+  },
+  {
+    "dataset_id": "scene-classification/brazilian-coffee-scenes",
+    "name": "Brazilian Coffee Scenes",
+    "url": "https://patreo.dcc.ufmg.br/2017/11/12/brazilian-coffee-scenes-dataset/",
+    "matched_terms": [
+      "scene-classification",
+      "remote-sensing",
+      "benchmark",
+      "coffee",
+      "spot",
+      "source:manual-scholar-citations"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "image-classification",
+      "scene-classification"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "scene-classification",
+      "benchmark",
+      "agriculture",
+      "coffee",
+      "spot",
+      "source:manual"
+    ],
+    "description": "Remote sensing scene-classification benchmark built from SPOT imagery over coffee-growing counties in Minas Gerais Brazil. The balanced folds contain coffee and non-coffee tiles for crop-scene classification."
+  },
+  {
+    "dataset_id": "scene-classification/rsc11",
+    "name": "RSC11",
+    "url": "https://hyper.ai/en/datasets/5443",
+    "matched_terms": [
+      "scene-classification",
+      "remote-sensing",
+      "benchmark",
+      "google-earth",
+      "source:manual-scholar-citations"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "image-classification",
+      "scene-classification"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "scene-classification",
+      "benchmark",
+      "google-earth",
+      "source:manual"
+    ],
+    "description": "High-resolution remote sensing scene-classification benchmark with 1,232 Google Earth images across 11 scene categories at 512 x 512 pixels."
+  },
+  {
+    "dataset_id": "scene-classification/rsi-cb128",
+    "name": "RSI-CB128",
+    "url": "https://github.com/lehaifeng/RSI-CB",
+    "matched_terms": [
+      "scene-classification",
+      "remote-sensing",
+      "benchmark",
+      "google-earth",
+      "bing-maps",
+      "source:manual-scholar-citations"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "image-classification",
+      "scene-classification"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "scene-classification",
+      "benchmark",
+      "google-earth",
+      "bing-maps",
+      "rsi-cb",
+      "source:manual"
+    ],
+    "description": "RSI-CB sub-dataset for remote sensing scene classification with 128 x 128 image chips, 45 scene classes, and about 36,000 images collected from Google Earth and Bing Maps."
+  },
+  {
+    "dataset_id": "scene-classification/rsi-cb256",
+    "name": "RSI-CB256",
+    "url": "https://github.com/lehaifeng/RSI-CB",
+    "matched_terms": [
+      "scene-classification",
+      "remote-sensing",
+      "benchmark",
+      "google-earth",
+      "bing-maps",
+      "source:manual-scholar-citations"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "image-classification",
+      "scene-classification"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "scene-classification",
+      "benchmark",
+      "google-earth",
+      "bing-maps",
+      "rsi-cb",
+      "source:manual"
+    ],
+    "description": "RSI-CB sub-dataset for remote sensing scene classification with 256 x 256 image chips, 35 scene classes, and about 24,000 images collected from Google Earth and Bing Maps."
+  },
+  {
+    "dataset_id": "scene-classification/planet-uas",
+    "name": "Planet-UAS",
+    "url": "https://www.kaggle.com/competitions/planet-understanding-the-amazon-from-space/overview",
+    "matched_terms": [
+      "scene-classification",
+      "multi-label",
+      "remote-sensing",
+      "benchmark",
+      "planet",
+      "amazon",
+      "source:manual-scholar-citations"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "multi-label-classification",
+      "scene-classification"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "multi-label",
+      "scene-classification",
+      "benchmark",
+      "planet",
+      "amazon",
+      "kaggle",
+      "source:manual"
+    ],
+    "description": "Multi-label satellite image classification benchmark from Planet's Understanding the Amazon from Space Kaggle competition, with about 40,480 256 x 256 image chips and 17 atmospheric and land-cover labels."
+  },
+  {
+    "dataset_id": "scene-classification/masati",
+    "name": "MASATI",
+    "url": "https://www.iuii.ua.es/datasets/masati/",
+    "matched_terms": [
+      "scene-classification",
+      "ship-detection",
+      "maritime",
+      "remote-sensing",
+      "benchmark",
+      "source:manual-scholar-citations"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "image-classification",
+      "object-detection"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "maritime",
+      "ship-detection",
+      "scene-classification",
+      "benchmark",
+      "source:manual"
+    ],
+    "description": "MAritime SATellite Imagery dataset for maritime scene classification and ship detection, with 7,389 optical aerial or satellite images across sea, coast, land, ship, multi-ship, coast-ship, and detail classes."
+  },
+  {
+    "dataset_id": "scene-classification/wids-datathon-2019",
+    "name": "WiDS Datathon 2019 Oil Palm Plantation",
+    "url": "https://www.widsworldwide.org/events/event/wids-datathon-2019-predicting-deforestation-by-identifying-oil-palm-plantation/",
+    "matched_terms": [
+      "satellite-classification",
+      "remote-sensing",
+      "benchmark",
+      "oil-palm",
+      "planet",
+      "source:manual-scholar-citations"
+    ],
+    "downloads": 0,
+    "likes": 0,
+    "trending_score": 0.0,
+    "task_categories": [
+      "image-classification"
+    ],
+    "size_categories": [
+      "10K<n<100K"
+    ],
+    "tags": [
+      "remote-sensing",
+      "satellite-imagery",
+      "benchmark",
+      "oil-palm",
+      "planet",
+      "deforestation",
+      "wids",
+      "source:manual"
+    ],
+    "description": "WiDS Datathon 2019 benchmark for predicting whether high-resolution Planet satellite image chips contain oil palm plantations, using an annotated dataset provided by Planet and Figure Eight."
   }
 ]
