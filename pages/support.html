@@ -5,22 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support GeoMind</title>
 <link rel="icon" type="image/png" href="../public/logo.png">
-<link rel="stylesheet" href="../src/styles/landing.css?v=20260601-4">
+<link rel="stylesheet" href="../src/styles/landing.css?v=20260601-5">
 <style>
 body.support-page{
   min-height:100vh;
-  background:#fbfaf6;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(72,189,143,.12), transparent 28%),
+    linear-gradient(180deg,#fbfaf6 0%,#f4f8f1 100%);
   color:#103b29;
 }
 body.support-page::after{display:none}
 .support-shell{
-  width:min(1160px, calc(100% - 48px));
+  width:min(1140px, calc(100% - 48px));
   margin:0 auto;
 }
 .support-nav{
+  min-height:72px;
   display:flex;
   align-items:center;
-  min-height:72px;
 }
 .support-brand{
   display:inline-flex;
@@ -29,11 +31,7 @@ body.support-page::after{display:none}
   color:#103b29;
   text-decoration:none;
 }
-.support-brand img{
-  width:34px;
-  height:34px;
-  object-fit:contain;
-}
+.support-brand img{width:34px;height:34px;object-fit:contain}
 .support-brand strong{
   display:block;
   font-size:14px;
@@ -43,37 +41,150 @@ body.support-page::after{display:none}
 .support-brand span span{
   display:block;
   margin-top:5px;
-  color:rgba(16,59,41,.58);
+  color:rgba(16,59,41,.55);
   font-size:11px;
   line-height:1;
 }
-.support-layout{
+.support-main{
+  padding:36px 0 84px;
+}
+.support-hero{
   display:grid;
-  grid-template-columns:minmax(300px, .92fr) minmax(360px, .68fr);
-  gap:72px;
+  grid-template-columns:minmax(0, .9fr) minmax(360px, .74fr);
+  gap:62px;
   align-items:start;
 }
-.support-heart-stage{
-  grid-column:2;
-  grid-row:1;
-  min-height:500px;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding-top:24px;
+.support-copy{
+  padding-top:22px;
 }
-
+.support-lede{
+  max-width:680px;
+  margin:0 0 18px;
+  color:#103b29;
+  font-size:clamp(25px, 3.4vw, 42px);
+  line-height:1.18;
+  font-weight:430;
+  letter-spacing:0;
+}
+.support-lede strong{
+  font-weight:760;
+}
+.support-sub{
+  max-width:620px;
+  margin:0 0 34px;
+  color:rgba(16,59,41,.68);
+  font-size:16px;
+  line-height:1.72;
+}
+.support-ways-title{
+  margin:0 0 14px;
+  color:#103b29;
+  font-size:22px;
+  line-height:1.2;
+  font-weight:760;
+}
+.support-ways{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  max-width:640px;
+}
+.support-way{
+  min-height:116px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:18px;
+  border:1px solid rgba(16,59,41,.11);
+  border-radius:8px;
+  background:rgba(255,255,255,.72);
+  color:#103b29;
+  text-decoration:none;
+  box-shadow:0 18px 40px rgba(16,59,41,.055);
+  transition:transform .15s,border-color .15s,box-shadow .15s,background .15s;
+}
+.support-way:hover{
+  transform:translateY(-2px);
+  border-color:rgba(16,59,41,.22);
+  background:#fff;
+  box-shadow:0 24px 48px rgba(16,59,41,.085);
+}
+.support-way.is-primary{
+  background:#45bd8d;
+  border-color:#45bd8d;
+  color:#fff;
+}
+.support-way.is-primary:hover{background:#35aa7c}
+.support-way-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.support-way-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  background:rgba(69,189,141,.1);
+  color:#16865f;
+}
+.support-way.is-primary .support-way-icon{
+  background:rgba(255,255,255,.18);
+  color:#fff;
+}
+.support-way-icon svg{width:18px;height:18px}
+.support-way-arrow{
+  color:currentColor;
+  opacity:.52;
+  font-size:16px;
+}
+.support-way h2{
+  margin:18px 0 7px;
+  color:inherit;
+  font-size:16px;
+  line-height:1.25;
+  font-weight:760;
+  letter-spacing:0;
+}
+.support-way p{
+  margin:0;
+  color:rgba(16,59,41,.62);
+  font-size:13px;
+  line-height:1.56;
+}
+.support-way.is-primary p{color:rgba(255,255,255,.78)}
+.support-panel{
+  border:1px solid rgba(16,59,41,.1);
+  border-radius:8px;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 26px 70px rgba(16,59,41,.1);
+  overflow:hidden;
+  backdrop-filter:blur(18px);
+}
+.support-heart-card{
+  min-height:330px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid rgba(16,59,41,.1);
+  background:
+    radial-gradient(circle at 50% 54%, rgba(69,189,141,.16), transparent 46%),
+    linear-gradient(180deg, rgba(255,255,255,.9), rgba(238,247,241,.7));
+}
 .support-pixel-heart{
-  --cell:42px;
+  --cell:34px;
   display:grid;
   grid-template-columns:repeat(11, var(--cell));
   grid-template-rows:repeat(10, var(--cell));
-  position:relative;
+  filter:drop-shadow(0 20px 34px rgba(22,134,95,.16));
 }
 .support-pixel-heart span{
   width:var(--cell);
   height:var(--cell);
-  border:1px solid rgba(16,59,41,.16);
+  border:1px solid rgba(16,59,41,.14);
   background:#dcefe5;
 }
 .support-pixel-heart span:nth-child(4n+1){background:#c6e7d6}
@@ -139,167 +250,80 @@ body.support-page::after{display:none}
 .support-pixel-heart span:nth-child(57){grid-column:6;grid-row:8}
 .support-pixel-heart span:nth-child(58){grid-column:7;grid-row:8}
 .support-pixel-heart span:nth-child(59){grid-column:6;grid-row:9}
-.support-copy{
-  grid-column:1;
-  grid-row:1;
-  padding-top:18px;
-}
-.support-lede{
-  margin:0 0 30px;
-  color:#103b29;
-  font-size:18px;
-  line-height:1.62;
-  font-weight:380;
-}
-.support-lede strong{
-  font-weight:720;
-}
-.support-facts{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-  margin:0 0 44px;
-  padding:0;
-  list-style:none;
-}
-.support-facts li{
-  position:relative;
-  padding-left:28px;
-  color:#103b29;
-  font-size:20px;
-  line-height:1.55;
-  font-weight:380;
-}
-.support-facts li::before{
-  content:'';
-  position:absolute;
-  left:2px;
-  top:.72em;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#103b29;
-}
-.support-facts strong{
-  font-weight:760;
-}
-.support-facts a{
-  color:#12855d;
-  text-decoration:underline;
-  text-underline-offset:4px;
-}
-.support-actions-title{
-  margin:0 0 18px;
-  color:#103b29;
-  font-size:32px;
-  line-height:1.18;
-  font-weight:760;
-}
 .support-donation{
-  max-width:470px;
-  margin-bottom:26px;
+  padding:22px;
 }
-.support-field{
-  margin-bottom:12px;
+.support-donation h2{
+  margin:0 0 16px;
+  color:#103b29;
+  font-size:22px;
+  line-height:1.2;
+  font-weight:760;
 }
+.support-field{margin-bottom:12px}
 .support-field label{
   display:block;
   margin-bottom:6px;
   color:#103b29;
-  font-size:17px;
+  font-size:13px;
   font-weight:760;
 }
 .support-select{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  min-height:58px;
-  padding:0 18px;
-  border:1px solid rgba(16,59,41,.18);
+  min-height:50px;
+  padding:0 14px;
+  border:1px solid rgba(16,59,41,.15);
   border-radius:8px;
   background:#fff;
   color:#103b29;
-  font-size:18px;
-  font-weight:380;
+  font-size:15px;
 }
-.support-select svg{
-  width:18px;
-  height:18px;
-  color:#103b29;
-}
+.support-select svg{width:16px;height:16px}
 .support-donate{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-height:62px;
-  width:260px;
-  margin-top:8px;
+  min-height:54px;
+  width:100%;
+  margin-top:6px;
   border-radius:8px;
-  background:#49bd8f;
+  background:#45bd8d;
   color:#fff;
   text-decoration:none;
-  font-size:18px;
+  font-size:15px;
   font-weight:780;
   transition:background .15s,transform .15s;
 }
 .support-donate:hover{
-  background:#32a77a;
+  background:#35aa7c;
   transform:translateY(-1px);
-}
-.support-other{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:10px;
-  max-width:620px;
-  margin:26px 0 80px;
-}
-.support-btn{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  min-height:58px;
-  padding:0 16px;
-  border:1px solid rgba(16,59,41,.14);
-  border-radius:8px;
-  background:#fff;
-  color:#103b29;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:720;
-  transition:border-color .15s,box-shadow .15s,transform .15s;
-}
-.support-btn:hover{
-  transform:translateY(-1px);
-  border-color:rgba(16,59,41,.28);
-  box-shadow:0 16px 32px rgba(16,59,41,.08);
 }
 .support-note{
   max-width:760px;
-  padding-top:30px;
-  border-top:1px solid rgba(16,59,41,.12);
-  color:rgba(16,59,41,.66);
-  font-size:14px;
-  line-height:1.7;
+  margin-top:34px;
+  padding-top:24px;
+  border-top:1px solid rgba(16,59,41,.1);
+  color:rgba(16,59,41,.58);
+  font-size:13px;
+  line-height:1.68;
 }
-@media(max-width:960px){
-  .support-layout{grid-template-columns:1fr;gap:28px}
-  .support-heart-stage,
-  .support-copy{grid-column:auto;grid-row:auto}
-  .support-heart-stage{min-height:auto;justify-content:flex-start;padding-top:0}
-  .support-pixel-heart{--cell:min(42px, calc((100vw - 48px) / 11))}
-  .support-copy{padding-top:0}
+@media(max-width:980px){
+  .support-main{padding-top:20px}
+  .support-hero{grid-template-columns:1fr;gap:26px}
+  .support-panel{max-width:560px}
 }
 @media(max-width:620px){
-  .support-shell{width:min(100% - 32px, 1160px)}
+  .support-shell{width:min(100% - 32px, 1140px)}
   .support-nav{min-height:64px}
   .support-brand span span{display:none}
-  .support-lede{font-size:16px}
-  .support-facts li{font-size:16px}
-  .support-actions-title{font-size:26px}
-  .support-select{font-size:16px;min-height:54px}
-  .support-donate{width:100%;font-size:16px}
-  .support-other{grid-template-columns:1fr}
+  .support-copy{padding-top:0}
+  .support-lede{font-size:24px}
+  .support-sub{font-size:14px}
+  .support-ways{grid-template-columns:1fr}
+  .support-heart-card{min-height:240px}
+  .support-pixel-heart{--cell:min(29px, calc((100vw - 72px) / 11))}
 }
 </style>
 </head>
@@ -311,30 +335,62 @@ body.support-page::after{display:none}
   </a>
 </nav>
 
-<main class="support-shell">
-  <section class="support-layout" aria-label="Support GeoMind">
-    <div class="support-heart-stage" aria-hidden="true">
-      <div class="support-pixel-heart">
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
+<main class="support-shell support-main">
+  <section class="support-hero" aria-label="Support GeoMind">
+    <div class="support-copy">
+      <h1 class="support-lede"><strong>GeoMind is an open-source roadmap for Geospatial AI.</strong> If you find it useful, consider contributing data, code, ideas, or funding.</h1>
+      <p class="support-sub">You can support in these ways.</p>
+
+      <div class="support-ways" aria-label="Ways to support GeoMind">
+        <a class="support-way" href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener">
+          <span class="support-way-top">
+            <span class="support-way-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .7A11.3 11.3 0 0 0 8.4 22.8c.57.1.78-.24.78-.55v-2.1c-3.18.7-3.85-1.35-3.85-1.35-.52-1.33-1.27-1.69-1.27-1.69-1.04-.7.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.54-.29-5.21-1.27-5.21-5.65 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.03 0 0 .96-.31 3.15 1.17a10.9 10.9 0 0 1 5.73 0c2.18-1.48 3.14-1.17 3.14-1.17.63 1.57.24 2.74.12 3.03.74.8 1.18 1.82 1.18 3.07 0 4.4-2.68 5.36-5.23 5.64.41.36.77 1.06.77 2.13v3.16c0 .31.21.66.79.55A11.3 11.3 0 0 0 12 .7Z"/></svg></span>
+            <span class="support-way-arrow">↗</span>
+          </span>
+          <span><h2>Contribute on GitHub</h2><p>Improve data files, fix links, or help with the API and site.</p></span>
+        </a>
+
+        <a class="support-way" href="https://github.com/homayounrezaie/GeoMind/issues/new?title=Submit%20GeoAI%20resource&body=Type%3A%20paper%20%2F%20model%20%2F%20dataset%20%2F%20job%20%2F%20other%0AName%3A%0ALink%3A%0AWhy%20it%20matters%3A" target="_blank" rel="noopener">
+          <span class="support-way-top">
+            <span class="support-way-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            <span class="support-way-arrow">↗</span>
+          </span>
+          <span><h2>Submit paper, model, dataset, job...</h2><p>Send a structured resource suggestion with a name, link, and reason.</p></span>
+        </a>
+
+        <a class="support-way" href="https://github.com/homayounrezaie/GeoMind/issues" target="_blank" rel="noopener">
+          <span class="support-way-top">
+            <span class="support-way-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 9h8M8 13h5"/></svg></span>
+            <span class="support-way-arrow">↗</span>
+          </span>
+          <span><h2>Submit feedback</h2><p>Report confusing pages, missing context, broken data, or roadmap ideas.</p></span>
+        </a>
+
+        <a class="support-way is-primary" href="https://github.com/sponsors/homayounrezaie" target="_blank" rel="noopener">
+          <span class="support-way-top">
+            <span class="support-way-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.4-8.3C.5 9.25 2.4 5 6.4 5c2 0 3.45 1.1 4.25 2.35C11.45 6.1 12.9 5 14.9 5c4 0 5.9 4.25 3.8 7.7C16.3 16.65 12 21 12 21Z"/></svg></span>
+            <span class="support-way-arrow">↗</span>
+          </span>
+          <span><h2>Support the Project</h2><p>Help fund maintenance, source audits, docs, imports, and hosting.</p></span>
+        </a>
       </div>
+
+      <p class="support-note">Funding support helps keep GeoMind open, maintained, and easier for the GeoAI community to improve together. Organizations able to make a larger contribution ($2,000+/year) can sponsor ongoing maintenance through GitHub Sponsors.</p>
     </div>
 
-    <div class="support-copy">
-      <p class="support-lede"><strong>GeoMind is an open-source roadmap for Geospatial AI.</strong> If you find it useful, consider contributing data, code, ideas, or funding.</p>
-
-      <ul class="support-facts">
-        <li><strong>Community supported</strong> through open data contributions, code improvements, feedback, and project funding.</li>
-        <li><strong>Funding helps maintain</strong> source audits, link checks, API docs, data imports, and hosting for 2026.</li>
-        <li>Organizations able to make a <strong>larger contribution ($2,000+/year)</strong> can sponsor ongoing maintenance through <a href="https://github.com/sponsors/homayounrezaie" target="_blank" rel="noopener">GitHub Sponsors</a>.</li>
-      </ul>
-
-      <h2 class="support-actions-title">Help us make it happen:</h2>
+    <aside class="support-panel" aria-label="Funding support">
+      <div class="support-heart-card" aria-hidden="true">
+        <div class="support-pixel-heart">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
       <div class="support-donation">
+        <h2>Help us make it happen:</h2>
         <div class="support-field">
           <label>Donation frequency:</label>
           <div class="support-select"><span>Monthly donation</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div>
@@ -345,25 +401,8 @@ body.support-page::after{display:none}
         </div>
         <a class="support-donate" href="https://github.com/sponsors/homayounrezaie" target="_blank" rel="noopener">Donate monthly</a>
       </div>
-    </div>
+    </aside>
   </section>
-
-  <div class="support-other" aria-label="Other ways to help">
-    <a class="support-btn" href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener">
-      <span>Contribute on GitHub</span><span aria-hidden="true">↗</span>
-    </a>
-    <a class="support-btn" href="https://github.com/homayounrezaie/GeoMind/issues/new?title=Submit%20GeoAI%20resource&body=Type%3A%20paper%20%2F%20model%20%2F%20dataset%20%2F%20job%20%2F%20other%0AName%3A%0ALink%3A%0AWhy%20it%20matters%3A" target="_blank" rel="noopener">
-      <span>Submit paper, model, dataset, job...</span><span aria-hidden="true">↗</span>
-    </a>
-    <a class="support-btn" href="https://github.com/homayounrezaie/GeoMind/issues" target="_blank" rel="noopener">
-      <span>Submit feedback</span><span aria-hidden="true">↗</span>
-    </a>
-    <a class="support-btn" href="https://github.com/sponsors/homayounrezaie" target="_blank" rel="noopener">
-      <span>Support the Project</span><span aria-hidden="true">↗</span>
-    </a>
-  </div>
-
-  <p class="support-note">Submissions can include papers, models, datasets, benchmarks, tools, companies, job posts, or corrections to existing records. Funding support helps keep GeoMind open, maintained, and easier for the GeoAI community to improve together.</p>
 </main>
 </body>
 </html>
