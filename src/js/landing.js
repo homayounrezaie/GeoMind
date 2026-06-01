@@ -51,34 +51,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   initScrollReveal();
   await loadStats();
   initHeroStatsStream();
-  initHeroLiveIndicator();
   initTerminalExplorer();
   initDatasetQuery();
 });
-
-function initHeroLiveIndicator() {
-  const text = document.querySelector('[data-hero-live-text]');
-  if (!text) return;
-  const generatedAt = STATS && STATS.generated_at;
-  if (!generatedAt) {
-    text.textContent = 'indexing live';
-    return;
-  }
-  function update() {
-    const t = new Date(generatedAt).getTime();
-    if (!Number.isFinite(t)) { text.textContent = 'indexing live'; return; }
-    const diff = Math.max(0, (Date.now() - t) / 1000);
-    let label;
-    if (diff < 60)              label = 'synced just now';
-    else if (diff < 3600)       label = `synced ${Math.floor(diff / 60)} min ago`;
-    else if (diff < 86400)      label = `synced ${Math.floor(diff / 3600)} h ago`;
-    else if (diff < 86400 * 7)  label = `synced ${Math.floor(diff / 86400)} d ago`;
-    else                        label = `synced ${Math.floor(diff / 86400 / 7)} w ago`;
-    text.textContent = label;
-  }
-  update();
-  window.setInterval(update, 60000);
-}
 
 function initScrollReveal() {
   if (!document.documentElement.classList.contains('has-reveal')) return;
@@ -203,7 +178,7 @@ const TERMINAL_FLOW = [
   },
 ];
 
-const STATS_DEFAULTS = { papers: 17409, models: 11090, datasets: 2790, companies: 4773 };
+const STATS_DEFAULTS = { papers: 17409, models: 11090, datasets: 2790, benchmarks: 1012, companies: 4773 };
 let STATS = { ...STATS_DEFAULTS };
 let STATS_PROMISE = null;
 
@@ -223,6 +198,13 @@ function loadStats() {
 
 function formatStat(value) {
   return Number(value || 0).toLocaleString();
+}
+
+function statValue(key) {
+  if (key === 'datasets_plus_benchmarks') {
+    return Number(STATS.datasets || 0) + Number(STATS.benchmarks || 0);
+  }
+  return Number(STATS[key] || 0);
 }
 
 function initTerminalExplorer() {
@@ -307,10 +289,10 @@ function initTerminalExplorer() {
       name.className = 'lp-terminal-row-name';
       name.textContent = item.name;
       row.appendChild(name);
-      if (item.statsKey && STATS[item.statsKey] != null) {
+      if (item.statsKey && statValue(item.statsKey) > 0) {
         const count = document.createElement('span');
         count.className = 'lp-terminal-row-count';
-        count.textContent = `${formatStat(STATS[item.statsKey])} entries`;
+        count.textContent = `${formatStat(statValue(item.statsKey))} entries`;
         row.appendChild(count);
       }
       row.style.animationDelay = reduceMotion ? '0ms' : `${(index + cursor) * outputStagger}ms`;
@@ -411,7 +393,7 @@ function initHeroStatsStream() {
   if (!el || el.dataset.streamed === 'true') return;
   el.dataset.streamed = 'true';
 
-  const fromStats = `${formatStat(STATS.papers)} papers · ${formatStat(STATS.models)} models · ${formatStat(STATS.datasets)} datasets · ${formatStat(STATS.companies)} companies`;
+  const fromStats = `${formatStat(STATS.papers)} papers · ${formatStat(STATS.models)} models · ${formatStat(statValue('datasets_plus_benchmarks'))} datasets+benchmarks · ${formatStat(STATS.companies)} companies`;
   const fallback = (el.dataset.streamText || el.textContent || '').trim();
   const fullText = fromStats || fallback;
   if (!fullText) return;
@@ -802,9 +784,10 @@ function initHeroStatsCountUp(root) {
   items.forEach(item => {
     const key = item.dataset.statKey;
     const fallback = Number(item.dataset.statDefault) || 0;
-    const live = Number(STATS[key] || 0);
+    const live = statValue(key);
     item.dataset.statTarget = String(live || fallback);
-    item.setAttribute('aria-label', `${Number(item.dataset.statTarget).toLocaleString()} ${key}`);
+    const label = item.querySelector('span')?.textContent || key;
+    item.setAttribute('aria-label', `${Number(item.dataset.statTarget).toLocaleString()} ${label}`);
   });
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

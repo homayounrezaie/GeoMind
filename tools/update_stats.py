@@ -93,6 +93,7 @@ def main() -> None:
     papers = read_csv(DATA / "papers.csv")
     models = read_csv(DATA / "foundation-models.csv")
     datasets = read_csv(DATA / "datasets.csv")
+    benchmarks = read_csv(DATA / "benchmarks.csv")
     techniques = read_csv(DATA / "techniques.csv")
     tasks = read_csv(DATA / "tasks.csv")
     companies = read_json_list(DATA / "companies.json")
@@ -101,6 +102,7 @@ def main() -> None:
         "papers": len(papers),
         "models": len(models),
         "datasets": len(datasets),
+        "benchmarks": len(benchmarks),
         "techniques": len(techniques),
         "tasks": len(tasks),
         "companies": len(companies),

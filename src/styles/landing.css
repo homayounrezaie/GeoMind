@@ -145,9 +145,9 @@ nav,section,footer{position:relative;z-index:1}
 /* ── Hero ──────────────────────────────────── */
 .lp-hero{
   position:relative;
-  min-height:calc(88vh - 72px);
+  min-height:calc(76vh - 72px);
   display:flex;align-items:center;justify-content:center;
-  padding:var(--s-7) var(--s-4);
+  padding:var(--s-7) var(--s-4) var(--s-4);
   overflow:hidden;
 }
 .lp-hero-bg{
@@ -570,7 +570,7 @@ nav,section,footer{position:relative;z-index:1}
 .lp-intro-section{
   width:min(var(--container-wide),100%);
   margin:0 auto;
-  padding:var(--s-4) var(--s-4) var(--s-5);
+  padding:var(--s-1) var(--s-4) var(--s-5);
 }
 .lp-intro-shell{
   max-width:var(--container-text);
@@ -2663,7 +2663,7 @@ a.lp-terminal-row.is-link:focus-visible::before{
 
 /* ── Newsletter ─────────────────────────────── */
 .lp-nl-section{
-  padding:var(--s-7) var(--s-4);
+  padding:var(--s-7) var(--s-4) calc(var(--s-7) * 2);
   border-top:0.5px solid rgba(255,255,255,0.06);
 }
 .lp-nl-wrap{max-width:var(--container-text);margin:0 auto}
@@ -4232,34 +4232,6 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
 }
 
 /* Live indicator under the hero stats */
-.lp-hero-live{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  margin:var(--s-2) auto 0;
-  color:rgba(255,255,255,0.42);
-  font-family:'SF Mono','Menlo',monospace;
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  animation:fadeUp 0.8s 0.55s cubic-bezier(0.16,1,0.3,1) both;
-}
-.lp-hero-live-dot{
-  display:inline-block;
-  width:7px;
-  height:7px;
-  border-radius:999px;
-  background:#22c55e;
-  box-shadow:0 0 0 0 rgba(34,197,94,0.55);
-  animation:lpLivePulse 1.8s ease-out infinite;
-}
-@keyframes lpLivePulse{
-  0%   { box-shadow:0 0 0 0 rgba(34,197,94,0.55); }
-  70%  { box-shadow:0 0 0 7px rgba(34,197,94,0); }
-  100% { box-shadow:0 0 0 0 rgba(34,197,94,0); }
-}
-[data-theme="light"] .lp-hero-live{color:#8B8377}
 
 /* Hero proof grid — light theme + count-up styling */
 [data-theme="light"] .lp-hero-stat:hover,
