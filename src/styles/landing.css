@@ -5485,7 +5485,7 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
 .docs-page .docs-article{
   border-bottom:0;
   margin-bottom:0;
-  padding-bottom:48px;
+  padding-bottom:42px;
 }
 .docs-page .docs-kicker{
   margin-bottom:12px;
@@ -5520,7 +5520,7 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
   line-height:1.75;
 }
 .docs-page .docs-callout{
-  margin:26px 0 34px;
+  margin:24px 0 32px;
   padding:18px 20px;
   border-color:#d8ddff;
   border-radius:12px;
@@ -5617,6 +5617,65 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
   font-size:14px;
   line-height:1.55;
 }
+.docs-everything-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:18px;
+}
+.docs-everything-grid a{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  grid-template-rows:auto auto;
+  gap:2px 12px;
+  align-items:center;
+  min-height:72px;
+  padding:13px 14px;
+  border:1px solid #e7e9f0;
+  border-radius:12px;
+  background:#fff;
+  color:#667085;
+  text-decoration:none;
+  box-shadow:0 1px 2px rgba(15,23,42,.03);
+}
+.docs-everything-grid a:hover{
+  border-color:#cfd6ff;
+  box-shadow:0 8px 22px rgba(15,23,42,.07);
+}
+.docs-mini-icon{
+  grid-row:1 / span 2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border:1px solid #e6e8ee;
+  border-radius:10px;
+  background:#f8fafc;
+  color:#6d5efc;
+}
+.docs-mini-icon svg{
+  width:18px;
+  height:18px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.docs-everything-grid strong{
+  min-width:0;
+  color:#111827;
+  font-size:15px;
+  font-weight:700;
+}
+.docs-everything-grid p{
+  min-width:0;
+  margin:0!important;
+  color:#667085!important;
+  font-size:13px!important;
+  line-height:1.35!important;
+}
 .docs-page .docs-endpoint-grid{
   gap:12px;
 }
@@ -5670,6 +5729,9 @@ html.has-reveal .gm-heatmap-intro.is-revealed{
     gap:20px;
   }
   .docs-page .docs-card-grid{
+    grid-template-columns:1fr;
+  }
+  .docs-everything-grid{
     grid-template-columns:1fr;
   }
 }
