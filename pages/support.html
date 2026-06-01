@@ -157,40 +157,33 @@ body.support-page::after{display:none}
 }
 .support-way.is-primary p{color:rgba(255,255,255,.78)}
 .support-panel{
-  border:1px solid rgba(16,59,41,.1);
-  border-radius:8px;
-  background:rgba(255,255,255,.78);
-  box-shadow:0 26px 70px rgba(16,59,41,.1);
-  overflow:hidden;
-  backdrop-filter:blur(18px);
+  display:flex;
+  flex-direction:column;
+  gap:22px;
 }
 .support-heart-card{
   min-height:330px;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-bottom:1px solid rgba(16,59,41,.1);
-  background:
-    radial-gradient(circle at 50% 54%, rgba(69,189,141,.16), transparent 46%),
-    linear-gradient(180deg, rgba(255,255,255,.9), rgba(238,247,241,.7));
 }
 .support-pixel-heart{
   --cell:34px;
   display:grid;
   grid-template-columns:repeat(11, var(--cell));
   grid-template-rows:repeat(10, var(--cell));
-  filter:drop-shadow(0 20px 34px rgba(22,134,95,.16));
+  filter:drop-shadow(0 20px 34px rgba(216,29,97,.16));
 }
 .support-pixel-heart span{
   width:var(--cell);
   height:var(--cell);
   border:1px solid rgba(16,59,41,.14);
-  background:#dcefe5;
+  background:#f4dfe7;
 }
-.support-pixel-heart span:nth-child(4n+1){background:#c6e7d6}
-.support-pixel-heart span:nth-child(4n+2){background:#b4ddca}
-.support-pixel-heart span:nth-child(4n+3){background:#91d1b2}
-.support-pixel-heart span:nth-child(4n+4){background:#64bf91}
+.support-pixel-heart span:nth-child(4n+1){background:#f3d8e2}
+.support-pixel-heart span:nth-child(4n+2){background:#efb8cc}
+.support-pixel-heart span:nth-child(4n+3){background:#e85d93}
+.support-pixel-heart span:nth-child(4n+4){background:#d81d61}
 .support-pixel-heart span:nth-child(1){grid-column:3;grid-row:1}
 .support-pixel-heart span:nth-child(2){grid-column:4;grid-row:1}
 .support-pixel-heart span:nth-child(3){grid-column:8;grid-row:1}
@@ -252,6 +245,11 @@ body.support-page::after{display:none}
 .support-pixel-heart span:nth-child(59){grid-column:6;grid-row:9}
 .support-donation{
   padding:22px;
+  border:1px solid rgba(16,59,41,.1);
+  border-radius:8px;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 26px 70px rgba(16,59,41,.1);
+  backdrop-filter:blur(18px);
 }
 .support-donation h2{
   margin:0 0 16px;
