@@ -20,6 +20,23 @@ docsSearch?.addEventListener('input', () => {
   target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
+const segmentButtons = [...document.querySelectorAll('[data-doc-segment]')];
+const panels = [...document.querySelectorAll('[data-doc-panel]')];
+
+segmentButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const value = button.getAttribute('data-doc-segment');
+    segmentButtons.forEach(other => {
+      const isActive = other === button;
+      other.classList.toggle('is-active', isActive);
+      other.setAttribute('aria-selected', String(isActive));
+    });
+    panels.forEach(panel => {
+      panel.hidden = panel.getAttribute('data-doc-panel') !== value;
+    });
+  });
+});
+
 document.querySelectorAll('[data-copy-code]').forEach(button => {
   button.addEventListener('click', async () => {
     const code = button.closest('.docs-code')?.querySelector('code')?.textContent || '';

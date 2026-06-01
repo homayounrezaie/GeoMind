@@ -57,59 +57,92 @@
       </div>
 
       <h2 class="docs-question">What kind of GeoAI data are you looking for?</h2>
-      <div class="docs-segment" aria-label="API categories">
-        <button type="button" class="is-active">Popular</button>
-        <button type="button">Everything</button>
+      <div class="docs-segment" role="tablist" aria-label="API categories">
+        <button type="button" class="is-active" data-doc-segment="popular" aria-selected="true">Popular</button>
+        <button type="button" data-doc-segment="everything" aria-selected="false">Everything</button>
       </div>
 
-      <div class="docs-card-grid">
+      <div class="docs-card-grid docs-panel" data-doc-panel="popular">
         <a class="docs-card" href="../api/papers.json">
-          <span class="docs-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6V3Zm8 1.5V7h2.5"/></svg></span>
+          <span class="docs-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6V3Zm8 1.5V7h2.5M9 11h6M9 15h6"/></svg></span>
           <strong>Papers</strong>
           <p>Research papers, citations, abstracts, venues, code links, and PDFs.</p>
+          <span class="docs-count">18,229 records</span>
         </a>
         <a class="docs-card" href="../api/models.json">
           <span class="docs-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 0v18M4 7l8 4 8-4"/></svg></span>
           <strong>Models</strong>
           <p>Foundation models and model candidates across geospatial AI.</p>
+          <span class="docs-count">11,275 records</span>
         </a>
         <a class="docs-card" href="../api/datasets.json">
           <span class="docs-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6c0-1.1 3.6-2 8-2s8 .9 8 2-3.6 2-8 2-8-.9-8-2Zm0 0v6c0 1.1 3.6 2 8 2s8-.9 8-2V6M4 12v6c0 1.1 3.6 2 8 2s8-.9 8-2v-6"/></svg></span>
           <strong>Datasets</strong>
           <p>Geospatial datasets with tags, task categories, and usage signals.</p>
+          <span class="docs-count">3,955 records</span>
         </a>
       </div>
 
-      <div class="docs-everything-grid">
+      <div class="docs-everything-grid docs-panel" data-doc-panel="everything" hidden>
+        <a href="../api/papers.json">
+          <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6V3Zm8 1.5V7h2.5M9 11h6M9 15h6"/></svg></span>
+          <strong>Papers</strong>
+          <p>Citations &amp; PDFs</p>
+          <span class="docs-count">18,229</span>
+        </a>
+        <a href="../api/models.json">
+          <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 0v18M4 7l8 4 8-4"/></svg></span>
+          <strong>Models</strong>
+          <p>Foundation models</p>
+          <span class="docs-count">11,275</span>
+        </a>
+        <a href="../api/datasets.json">
+          <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6c0-1.1 3.6-2 8-2s8 .9 8 2-3.6 2-8 2-8-.9-8-2Zm0 0v6c0 1.1 3.6 2 8 2s8-.9 8-2V6M4 12v6c0 1.1 3.6 2 8 2s8-.9 8-2v-6"/></svg></span>
+          <strong>Datasets</strong>
+          <p>Tags &amp; usage signals</p>
+          <span class="docs-count">3,955</span>
+        </a>
         <a href="../api/companies.json">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M8 21v-7h8v7M8 9h.01M12 9h.01M16 9h.01"/></svg></span>
           <strong>Companies</strong>
           <p>GeoAI market map</p>
+          <span class="docs-count">4,773</span>
         </a>
         <a href="../api/benchmarks.json">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-5M12 16V8M16 16v-9"/></svg></span>
           <strong>Benchmarks</strong>
           <p>Scores and evidence</p>
+          <span class="docs-count">888</span>
         </a>
         <a href="../api/tasks.json">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 11 3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
           <strong>Tasks</strong>
-          <p>Applications and labels</p>
+          <p>Applications &amp; labels</p>
+          <span class="docs-count">389</span>
         </a>
         <a href="../api/metrics.json">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20a8 8 0 1 0-8-8M12 12l4-4M12 12H7"/></svg></span>
           <strong>Metrics</strong>
           <p>Evaluation measures</p>
+          <span class="docs-count">92</span>
         </a>
         <a href="../api/techniques.json">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v5M12 17v5M4.93 4.93l3.54 3.54M15.54 15.54l3.53 3.53M2 12h5M17 12h5M4.93 19.07l3.54-3.53M15.54 8.46l3.53-3.53"/></svg></span>
           <strong>Techniques</strong>
-          <p>Methods and algorithms</p>
+          <p>Methods &amp; algorithms</p>
+          <span class="docs-count">1,934</span>
+        </a>
+        <a href="../api/learn.json">
+          <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4Zm0 0v6m4-4.2V17c0 1 2.2 2 5 2s5-1 5-2v-6.2"/></svg></span>
+          <strong>Learn</strong>
+          <p>Guides &amp; explainers</p>
+          <span class="docs-count">7</span>
         </a>
         <a href="../api/jobs.json">
           <span class="docs-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1M4 7h16v12H4zM4 12h16"/></svg></span>
           <strong>Jobs</strong>
           <p>Career sources</p>
+          <span class="docs-count">5</span>
         </a>
       </div>
     </section>
@@ -140,6 +173,8 @@ console.log(papers[0]);</code></pre>
         <a href="../api/tasks.json"><strong>tasks</strong><span>GeoAI task names and categories.</span></a>
         <a href="../api/metrics.json"><strong>metrics</strong><span>Evaluation metrics and metric families.</span></a>
         <a href="../api/techniques.json"><strong>techniques</strong><span>Methods, algorithms, and learning techniques.</span></a>
+        <a href="../api/learn.json"><strong>learn</strong><span>Guides and explainers for getting started with GeoAI.</span></a>
+        <a href="../api/jobs.json"><strong>jobs</strong><span>Career and job-board sources across the GeoAI market.</span></a>
       </div>
     </section>
 
