@@ -243,59 +243,12 @@ body.support-page::after{display:none}
   line-height:1.7;
   color:rgba(16,59,41,0.62);
 }
-.support-section{
-  margin-top:80px;
-  padding-top:34px;
-  border-top:1px solid rgba(16,59,41,0.12);
-}
-.support-section h2{
-  font-size:38px;
-  line-height:1.15;
-  color:#0f3f2a;
-  margin:0 0 26px;
-}
-.support-card-grid{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:16px;
-}
-.support-card{
-  min-height:190px;
-  padding:24px;
-  border:1px solid rgba(16,59,41,0.12);
-  border-radius:8px;
-  background:#fff;
-}
-.support-card span{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:36px;
-  height:36px;
-  margin-bottom:18px;
-  border-radius:8px;
-  color:#fff;
-  background:#1f8d66;
-}
-.support-card h3{
-  font-size:20px;
-  line-height:1.25;
-  color:#0f3f2a;
-  margin:0 0 10px;
-}
-.support-card p{
-  font-size:15px;
-  line-height:1.65;
-  color:rgba(16,59,41,0.66);
-  margin:0;
-}
 @media(max-width:960px){
   .support-title{margin-bottom:46px}
   .support-hero{grid-template-columns:1fr;gap:36px}
   .support-map{min-height:auto;padding:34px 0}
   .support-pixel-map{--cell:min(12vw, 62px)}
   .support-main{padding-top:0}
-  .support-card-grid{grid-template-columns:1fr}
 }
 @media(max-width:620px){
   .support-nav{padding:20px 18px 0}
@@ -304,7 +257,7 @@ body.support-page::after{display:none}
   .support-pixel-map strong{font-size:54px}
   .support-lede{font-size:21px}
   .support-facts li{font-size:17px}
-  .support-actions-title,.support-section h2{font-size:28px}
+  .support-actions-title{font-size:28px}
   .support-btn{font-size:15px;min-height:58px;padding:0 16px}
 }
 </style>
@@ -367,27 +320,6 @@ body.support-page::after{display:none}
         </a>
       </div>
       <p class="support-note">Submissions can include papers, models, datasets, benchmarks, tools, companies, job posts, or corrections to existing records.</p>
-    </div>
-  </section>
-
-  <section class="support-section" aria-label="Ways to help">
-    <h2>What support improves</h2>
-    <div class="support-card-grid">
-      <article class="support-card">
-        <span aria-hidden="true">01</span>
-        <h3>Better coverage</h3>
-        <p>Help add new releases, missing datasets, benchmark tables, company records, API endpoints, and source links.</p>
-      </article>
-      <article class="support-card">
-        <span aria-hidden="true">02</span>
-        <h3>Cleaner data</h3>
-        <p>Fix broken links, remove duplicates, normalize fields, and turn scattered lists into structured, searchable data.</p>
-      </article>
-      <article class="support-card">
-        <span aria-hidden="true">03</span>
-        <h3>Useful tools</h3>
-        <p>Support better docs, API workflows, contribution forms, import scripts, and quality checks for GeoAI knowledge.</p>
-      </article>
     </div>
   </section>
 </main>
