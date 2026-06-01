@@ -250143,5 +250143,41 @@
     "code_weights_label": "code",
     "code_weights_url": "https://github.com/fieldsoftheworld/ftw-prue",
     "awesome_section": "Hannah Kerner Code & data / Models"
+  },
+  {
+    "id": "manual_dvlt_deja_view",
+    "year": 2026,
+    "title": "Déjà View",
+    "authors": [
+      "Alessandro Burzio",
+      "Tobias Fischer",
+      "Sven Elflein",
+      "Qunjie Zhou",
+      "Riccardo de Lutio",
+      "Jiawei Ren",
+      "Jiahui Huang",
+      "Shengyu Huang",
+      "Marc Pollefeys",
+      "Laura Leal-Taixé",
+      "Zan Gojcic",
+      "Haithem Turki"
+    ],
+    "venue": "arXiv",
+    "category": "foundation_models",
+    "publication_type": "preprint",
+    "doi": "10.48550/arXiv.2605.30215",
+    "arxiv_id": "2605.30215",
+    "url": "https://research.nvidia.com/labs/dvl/projects/dvlt/",
+    "open_pdf_url": "https://arxiv.org/pdf/2605.30215",
+    "source": "NVIDIA DVL project page",
+    "source_query": "https://research.nvidia.com/labs/dvl/projects/dvlt/",
+    "status": "candidate_model",
+    "notes": "Déjà View / DVLT is a 117M-parameter recurrent transformer for multi-view 3D reconstruction. It uses a DINOv2-initialized per-view state and a weight-tied looped transformer block for K refinement steps. Official implementation: https://github.com/nv-tlabs/dvlt. Model weights: https://huggingface.co/nvidia/dvlt.",
+    "abbreviation": "DVLT",
+    "paper_label": "arXiv",
+    "paper_url": "https://arxiv.org/abs/2605.30215",
+    "code_weights_label": "model weights",
+    "code_weights_url": "https://huggingface.co/nvidia/dvlt",
+    "awesome_section": "NVIDIA DVL / 3D Reconstruction"
   }
 ]
