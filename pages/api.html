@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoMind | API</title>
+<link rel="icon" type="image/png" href="../public/logo.png">
+<link rel="stylesheet" href="../src/styles/landing.css?v=20260527-5">
+</head>
+<body class="api-page">
+<nav class="lp-nav">
+  <a class="lp-nav-brand" href="../index.html">
+    <div class="lp-nav-logo-wrap">
+      <img src="../public/logo.png" alt="GeoMind" class="lp-nav-logo">
+    </div>
+    <div class="lp-nav-brand-text">
+      <span class="lp-nav-name">GeoMind</span>
+      <span class="lp-nav-subtag">Geospatial AI, structured.</span>
+    </div>
+  </a>
+  <div class="lp-nav-right">
+    <a class="lp-nav-action" href="foundation-models.html"><span>Models</span></a>
+    <a class="lp-nav-action" href="paper-with-code.html"><span>Papers</span></a>
+    <a class="lp-nav-action" href="datasets.html"><span>Datasets</span></a>
+    <button class="lp-theme-toggle" data-theme-toggle type="button" aria-label="Switch theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 4.5a7.5 7.5 0 1 0 7.5 7.5A6.8 6.8 0 0 1 12 4.5Z" fill="currentColor"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-4a1 1 0 0 1 1 1v1.2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 14.8a1 1 0 0 1 1 1V20a1 1 0 1 1-2 0v-1.2a1 1 0 0 1 1-1ZM4 11h1.2a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2Zm14.8 0H20a1 1 0 1 1 0 2h-1.2a1 1 0 1 1 0-2ZM6.3 4.9l.8.8a1 1 0 0 1-1.4 1.4l-.8-.8a1 1 0 1 1 1.4-1.4Zm12 12 .8.8a1 1 0 0 1-1.4 1.4l-.8-.8a1 1 0 0 1 1.4-1.4Zm.8-10.6-.8.8a1 1 0 0 1-1.4-1.4l.8-.8a1 1 0 1 1 1.4 1.4Zm-12 12-.8.8a1 1 0 0 1-1.4-1.4l.8-.8a1 1 0 0 1 1.4 1.4Z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main class="api-shell">
+  <section class="api-hero">
+    <p class="api-label">GeoMind API</p>
+    <h1 class="api-title">Dynamic access to the GeoAI map.</h1>
+    <div class="api-url-row">
+      <code data-api-url>Loading endpoint...</code>
+      <button class="api-copy" type="button" data-copy-url>Copy</button>
+    </div>
+  </section>
+
+  <section class="api-workspace">
+    <aside class="api-sidebar">
+      <div class="api-endpoints" data-api-endpoints></div>
+    </aside>
+
+    <section class="api-results">
+      <div class="api-toolbar">
+        <div class="api-search-wrap">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="m20.7 19.3-4.1-4.1a7.5 7.5 0 1 0-1.4 1.4l4.1 4.1a1 1 0 0 0 1.4-1.4ZM5.5 11a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0Z"/></svg>
+          <input type="search" data-api-search placeholder="Search current endpoint" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="api-status" data-api-status></div>
+      </div>
+      <div class="api-list" data-api-list></div>
+    </section>
+  </section>
+</main>
+
+<script type="module" src="../src/js/theme.js"></script>
+<script type="module" src="../src/js/api-explorer.js"></script>
+</body>
+</html>

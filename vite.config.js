@@ -16,6 +16,7 @@ export default defineConfig({
         jobMarket: resolve(__dirname, 'pages/job-market.html'),
         companies: resolve(__dirname, 'pages/companies.html'),
         learn: resolve(__dirname, 'pages/learn.html'),
+        api: resolve(__dirname, 'pages/api.html'),
       },
     },
   },
