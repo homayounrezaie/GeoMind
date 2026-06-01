@@ -257,6 +257,7 @@ BAD_DATASET_PATTERNS = [
 MODEL_KEEP_STATUSES = {
     "candidate_model",
     "candidate_adapter_model",
+    "candidate_tokenizer",
     "github_repo",
     "huggingface_model",
 }
@@ -286,7 +287,7 @@ def row_text(row: dict[str, str]) -> str:
 
 
 def real_model_link(row: dict[str, str]) -> bool:
-    url = (row.get("code_weights_url") or "").strip()
+    url = (row.get("code_weights_url") or "").split(";")[0].strip()
     if url.startswith("https://github.com/"):
         return True
     if url.startswith("https://huggingface.co/") and "/papers/" not in url and "/datasets/" not in url:
@@ -312,6 +313,7 @@ def clean_models() -> tuple[int, set[str]]:
 
     for row in rows:
         row_id = row.get("id", "")
+        row["code_weights_url"] = (row.get("code_weights_url") or "").split(";")[0].strip()
         if row.get("status") not in MODEL_KEEP_STATUSES:
             removed_ids.add(row_id)
             reasons["not_model_status"] += 1

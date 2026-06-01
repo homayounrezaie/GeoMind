@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T23:36:37+00:00",
+  "generated_at": "2026-06-01T23:43:39+00:00",
   "endpoints": [
     {
       "name": "benchmarks",
@@ -34,7 +34,7 @@
     {
       "name": "models",
       "path": "/api/models.json",
-      "count": 1030
+      "count": 1088
     },
     {
       "name": "papers",
