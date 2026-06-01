@@ -6,7 +6,7 @@
   "scripts": {
     "api": "python3 tools/generate_api.py",
     "dev": "vite",
-    "build": "npm run api && vite build && mkdir -p dist/src/panels dist/data dist/api && cp src/panels/*.html dist/src/panels/ && cp data/* dist/data/ && cp api/*.json dist/api/",
+    "build": "npm run api && vite build && mkdir -p dist/src/panels dist/data dist/api && cp src/panels/*.html dist/src/panels/ && find data -maxdepth 1 -type f -exec cp {} dist/data/ \\; && cp api/*.json dist/api/",
     "preview": "vite preview"
   },
   "repository": {
