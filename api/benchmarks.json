@@ -29476,5 +29476,53 @@
     "evidence_source": "source:paper-extraction|paper:source_paper_aethervision-bench-an-open-vocabulary-rgb-infr_92914317f2|dataset_evidence:text_phrase",
     "confidence": 0.35,
     "extraction_method": "paper_text_candidate"
+  },
+  {
+    "benchmark_id": "structured_ingest_image-classification_sukiewang-poi-benchmark_overall_accuracy",
+    "task_id": "task_image_classification",
+    "task_name": "Image Classification",
+    "dataset_id": "sukiewang/poi-benchmark",
+    "dataset_name": "poi-benchmark",
+    "metric_id": "overall_accuracy",
+    "metric_name": "Overall Accuracy",
+    "metric_abbreviation": "OA",
+    "higher_is_better": true,
+    "status": "candidate",
+    "evidence": "Structured source identified dataset/resource as benchmark or challenge: poi-benchmark.",
+    "evidence_source": "source:structured-ingest|https://huggingface.co/datasets/sukiewang/poi-benchmark|source:huggingface-ingest/tag:task_categories:image-to-text/tag:task_categories:visual-question-answering/tag:task_categories:image-classification/tag:language:zh/tag:language:en/tag:license:cc-by-4.0/tag:size_categories:100K<n<1M/tag:format:webdataset/tag:modality:image/tag:modality:text/tag:library:datasets/tag:library:webdataset",
+    "confidence": 0.4,
+    "extraction_method": "structured_source_dataset_flag"
+  },
+  {
+    "benchmark_id": "structured_ingest_image-classification_zenodo-18904135_overall_accuracy",
+    "task_id": "task_image_classification",
+    "task_name": "Image Classification",
+    "dataset_id": "zenodo/18904135",
+    "dataset_name": "DGGS Benchmark Replication Study - Results Dataset",
+    "metric_id": "overall_accuracy",
+    "metric_name": "Overall Accuracy",
+    "metric_abbreviation": "OA",
+    "higher_is_better": true,
+    "status": "candidate",
+    "evidence": "Structured source identified dataset/resource as benchmark or challenge: DGGS Benchmark Replication Study - Results Dataset.",
+    "evidence_source": "source:structured-ingest|https://zenodo.org/records/18904135|source:zenodo/record:18904135",
+    "confidence": 0.4,
+    "extraction_method": "structured_source_dataset_flag"
+  },
+  {
+    "benchmark_id": "structured_ingest_object-detection_zenodo-19100554_mean_average_precision",
+    "task_id": "task_object_detection",
+    "task_name": "Object Detection",
+    "dataset_id": "zenodo/19100554",
+    "dataset_name": "Demining Research Community Seeded Field Multimodal Landmine Detection Dataset",
+    "metric_id": "mean_average_precision",
+    "metric_name": "Mean Average Precision",
+    "metric_abbreviation": "mAP",
+    "higher_is_better": true,
+    "status": "candidate",
+    "evidence": "Structured source identified dataset/resource as benchmark or challenge: Demining Research Community Seeded Field Multimodal Landmine Detection Dataset.",
+    "evidence_source": "source:structured-ingest|https://zenodo.org/records/19100554|source:zenodo/record:19100554/keyword:Landmine Detection/keyword:Mine Action/keyword:UXO/keyword:Landmine/keyword:Humanitarian Mine Action/keyword:UAV",
+    "confidence": 0.4,
+    "extraction_method": "structured_source_dataset_flag"
   }
 ]
