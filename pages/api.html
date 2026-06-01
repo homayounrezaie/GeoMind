@@ -3,61 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GeoMind | API</title>
+<title>GeoMind API Docs</title>
 <link rel="icon" type="image/png" href="../public/logo.png">
 <link rel="stylesheet" href="../src/styles/landing.css?v=20260527-5">
 </head>
-<body class="api-page">
-<nav class="lp-nav">
-  <a class="lp-nav-brand" href="../index.html">
-    <div class="lp-nav-logo-wrap">
-      <img src="../public/logo.png" alt="GeoMind" class="lp-nav-logo">
-    </div>
-    <div class="lp-nav-brand-text">
-      <span class="lp-nav-name">GeoMind</span>
-      <span class="lp-nav-subtag">Geospatial AI, structured.</span>
-    </div>
+<body class="api-page docs-page">
+<header class="docs-topbar">
+  <a class="docs-brand" href="../index.html" aria-label="GeoMind home">
+    <img src="../public/logo.png" alt="" class="docs-logo">
+    <span>GeoMind</span>
   </a>
-  <div class="lp-nav-right">
-    <a class="lp-nav-action" href="foundation-models.html"><span>Models</span></a>
-    <a class="lp-nav-action" href="paper-with-code.html"><span>Papers</span></a>
-    <a class="lp-nav-action" href="datasets.html"><span>Datasets</span></a>
+  <label class="docs-search">
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="m20.7 19.3-4.1-4.1a7.5 7.5 0 1 0-1.4 1.4l4.1 4.1a1 1 0 0 0 1.4-1.4ZM5.5 11a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0Z"/></svg>
+    <input type="search" data-docs-search placeholder="Search docs..." autocomplete="off" spellcheck="false">
+    <kbd>⌘K</kbd>
+  </label>
+  <nav class="docs-toplinks" aria-label="API docs navigation">
+    <a href="#endpoints">Endpoints</a>
+    <a href="#reference">Reference</a>
+    <a href="#explorer">Explorer</a>
     <button class="lp-theme-toggle" data-theme-toggle type="button" aria-label="Switch theme">
       <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 4.5a7.5 7.5 0 1 0 7.5 7.5A6.8 6.8 0 0 1 12 4.5Z" fill="currentColor"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-4a1 1 0 0 1 1 1v1.2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 14.8a1 1 0 0 1 1 1V20a1 1 0 1 1-2 0v-1.2a1 1 0 0 1 1-1ZM4 11h1.2a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2Zm14.8 0H20a1 1 0 1 1 0 2h-1.2a1 1 0 1 1 0-2ZM6.3 4.9l.8.8a1 1 0 0 1-1.4 1.4l-.8-.8a1 1 0 1 1 1.4-1.4Zm12 12 .8.8a1 1 0 0 1-1.4 1.4l-.8-.8a1 1 0 0 1 1.4-1.4Zm.8-10.6-.8.8a1 1 0 0 1-1.4-1.4l.8-.8a1 1 0 1 1 1.4 1.4Zm-12 12-.8.8a1 1 0 0 1-1.4-1.4l.8-.8a1 1 0 0 1 1.4 1.4Z" fill="currentColor"/></svg>
     </button>
-  </div>
-</nav>
+  </nav>
+</header>
 
-<main class="api-shell">
-  <section class="api-hero">
-    <p class="api-label">GeoMind API</p>
-    <h1 class="api-title">Dynamic access to the GeoAI map.</h1>
-    <div class="api-url-row">
-      <code data-api-url>Loading endpoint...</code>
-      <button class="api-copy" type="button" data-copy-url>Copy</button>
-    </div>
-  </section>
+<div class="docs-layout">
+  <aside class="docs-sidebar" aria-label="Documentation sections">
+    <p class="docs-sidebar-title">GeoMind API</p>
+    <a class="is-active" href="#welcome" data-doc-link>Welcome</a>
+    <a href="#quickstart" data-doc-link>Get started</a>
+    <a href="#endpoints" data-doc-link>Endpoints</a>
+    <a href="#schema" data-doc-link>Schema</a>
+    <a href="#reference" data-doc-link>HTTP reference</a>
+    <a href="#explorer" data-doc-link>Explorer</a>
+    <p class="docs-sidebar-title">Datasets</p>
+    <a href="../api/papers.json" data-doc-link>Papers</a>
+    <a href="../api/models.json" data-doc-link>Models</a>
+    <a href="../api/datasets.json" data-doc-link>Datasets</a>
+    <a href="../api/companies.json" data-doc-link>Companies</a>
+    <a href="../api/jobs.json" data-doc-link>Jobs</a>
+  </aside>
 
-  <section class="api-workspace">
-    <aside class="api-sidebar">
-      <div class="api-endpoints" data-api-endpoints></div>
-    </aside>
+  <main class="docs-main">
+    <section class="docs-article" id="welcome" data-doc-section>
+      <p class="docs-kicker">GeoMind API</p>
+      <h1>Welcome</h1>
+      <p class="docs-lede">Structured access to GeoAI papers, models, datasets, companies, tasks, metrics, benchmarks, jobs, and learning paths.</p>
 
-    <section class="api-results">
-      <div class="api-toolbar">
-        <div class="api-search-wrap">
-          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="m20.7 19.3-4.1-4.1a7.5 7.5 0 1 0-1.4 1.4l4.1 4.1a1 1 0 0 0 1.4-1.4ZM5.5 11a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0Z"/></svg>
-          <input type="search" data-api-search placeholder="Search current endpoint" autocomplete="off" spellcheck="false">
-        </div>
-        <div class="api-status" data-api-status></div>
+      <div class="docs-callout">
+        <h2>Documentation Index</h2>
+        <p>Fetch the complete endpoint index at <a href="../api/index.json">/api/index.json</a>. Use it to discover available datasets and record counts before loading a full endpoint.</p>
       </div>
-      <div class="api-list" data-api-list></div>
+
+      <div class="docs-card-grid">
+        <a class="docs-card" href="#quickstart">
+          <span>Start</span>
+          <strong>Get started</strong>
+          <p>Fetch the index and load your first records.</p>
+        </a>
+        <a class="docs-card" href="#endpoints">
+          <span>Browse</span>
+          <strong>Endpoints</strong>
+          <p>See the public JSON files available today.</p>
+        </a>
+        <a class="docs-card" href="#explorer">
+          <span>Try</span>
+          <strong>Explorer</strong>
+          <p>Search records directly in the docs.</p>
+        </a>
+      </div>
     </section>
-  </section>
-</main>
+
+    <section class="docs-article" id="quickstart" data-doc-section>
+      <h2>Get started</h2>
+      <p>GeoMind currently exposes static JSON over GitHub Pages. There is no API key, auth header, or server-side rate limit. Treat the files as versioned public data snapshots that refresh when the site is rebuilt.</p>
+      <div class="docs-code">
+        <div class="docs-code-head"><span>JavaScript</span><button type="button" data-copy-code>Copy</button></div>
+        <pre><code>const base = 'https://homayounrezaie.github.io/GeoMind/api/';
+const index = await fetch(`${base}index.json`).then(res =&gt; res.json());
+const papers = await fetch(`${base}papers.json`).then(res =&gt; res.json());
+
+console.log(index.endpoints);
+console.log(papers[0]);</code></pre>
+      </div>
+    </section>
+
+    <section class="docs-article" id="endpoints" data-doc-section>
+      <h2>Endpoints</h2>
+      <p>Each endpoint returns a JSON array except <code>index.json</code>, which returns metadata for discovery.</p>
+      <div class="docs-endpoint-grid">
+        <a href="../api/papers.json"><strong>papers</strong><span>Research papers with citations, links, abstracts, venues, and source metadata.</span></a>
+        <a href="../api/models.json"><strong>models</strong><span>Foundation model candidates and references for geospatial AI.</span></a>
+        <a href="../api/datasets.json"><strong>datasets</strong><span>Geospatial and remote-sensing datasets with tags and usage signals.</span></a>
+        <a href="../api/companies.json"><strong>companies</strong><span>Organizations across geospatial, EO, GIS, analytics, and UAV markets.</span></a>
+        <a href="../api/benchmarks.json"><strong>benchmarks</strong><span>Benchmark rows connecting papers, tasks, datasets, metrics, and scores.</span></a>
+        <a href="../api/tasks.json"><strong>tasks</strong><span>GeoAI task names and categories.</span></a>
+        <a href="../api/metrics.json"><strong>metrics</strong><span>Evaluation metrics and metric families.</span></a>
+        <a href="../api/techniques.json"><strong>techniques</strong><span>Methods, algorithms, and learning techniques.</span></a>
+      </div>
+    </section>
+
+    <section class="docs-article" id="schema" data-doc-section>
+      <h2>Schema</h2>
+      <p>Records keep source field names so the API remains close to the underlying catalog. Empty CSV values are omitted, numeric fields are typed as numbers, boolean flags are typed as booleans, and common delimited fields are converted to arrays.</p>
+      <div class="docs-code">
+        <div class="docs-code-head"><span>Paper record</span><button type="button" data-copy-code>Copy</button></div>
+        <pre><code>{
+  "id": "paper_2001_00425",
+  "year": 2020,
+  "title": "Kalman Filtering and Expectation Maximization...",
+  "authors": ["Ricardo Augusto Borsoi", "Tales Imbiriba"],
+  "venue": "arXiv",
+  "doi": "10.48550/arXiv.2001.00425",
+  "url": "https://arxiv.org/abs/2001.00425",
+  "pdf_url": "https://arxiv.org/pdf/2001.00425"
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="docs-article" id="reference" data-doc-section>
+      <h2>HTTP reference</h2>
+      <div class="docs-reference">
+        <div><span>Method</span><strong>GET</strong></div>
+        <div><span>Base URL</span><strong>https://homayounrezaie.github.io/GeoMind/api/</strong></div>
+        <div><span>Format</span><strong>JSON</strong></div>
+        <div><span>Auth</span><strong>None</strong></div>
+      </div>
+      <div class="docs-code">
+        <div class="docs-code-head"><span>cURL</span><button type="button" data-copy-code>Copy</button></div>
+        <pre><code>curl https://homayounrezaie.github.io/GeoMind/api/index.json
+curl https://homayounrezaie.github.io/GeoMind/api/models.json</code></pre>
+      </div>
+    </section>
+
+    <section class="docs-article docs-explorer-article" id="explorer" data-doc-section>
+      <p class="docs-kicker">Interactive</p>
+      <h2>API Explorer</h2>
+      <div class="api-url-row">
+        <code data-api-url>Loading endpoint...</code>
+        <button class="api-copy" type="button" data-copy-url>Copy</button>
+      </div>
+      <section class="api-workspace">
+        <aside class="api-sidebar">
+          <div class="api-endpoints" data-api-endpoints></div>
+        </aside>
+
+        <section class="api-results">
+          <div class="api-toolbar">
+            <div class="api-search-wrap">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="m20.7 19.3-4.1-4.1a7.5 7.5 0 1 0-1.4 1.4l4.1 4.1a1 1 0 0 0 1.4-1.4ZM5.5 11a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0Z"/></svg>
+              <input type="search" data-api-search placeholder="Search current endpoint" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="api-status" data-api-status></div>
+          </div>
+          <div class="api-list" data-api-list></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <aside class="docs-toc" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#welcome">Welcome</a>
+    <a href="#quickstart">Get started</a>
+    <a href="#endpoints">Endpoints</a>
+    <a href="#schema">Schema</a>
+    <a href="#reference">HTTP reference</a>
+    <a href="#explorer">Explorer</a>
+  </aside>
+</div>
 
 <script type="module" src="../src/js/theme.js"></script>
+<script type="module" src="../src/js/api-docs.js"></script>
 <script type="module" src="../src/js/api-explorer.js"></script>
 </body>
 </html>

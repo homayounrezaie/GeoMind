@@ -184,6 +184,7 @@ function absoluteEndpointUrl(endpoint) {
 }
 
 function syncUrl() {
+  if (document.body.classList.contains('docs-page')) return;
   const params = new URLSearchParams();
   if (state.current) params.set('endpoint', state.current);
   if (state.query) params.set('q', state.query);
