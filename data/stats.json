@@ -1,12 +1,12 @@
 {
   "papers": 18230,
   "models": 11276,
-  "datasets": 4030,
+  "datasets": 4163,
   "benchmarks": 1012,
   "techniques": 1934,
   "tasks": 389,
   "companies": 4773,
-  "generated_at": "2026-06-01T19:22:13+00:00",
+  "generated_at": "2026-06-01T22:42:43+00:00",
   "highlights": {
     "papers": [
       "Aion Framework: Dimensional Emerg…",
