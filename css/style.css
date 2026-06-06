@@ -436,16 +436,26 @@ h2 {
 .resource-table td {
   padding: 15px 20px 15px 0;
   border-bottom: 1px solid var(--soft-line);
-  color: var(--text);
-  font-size: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
   line-height: 1.35;
   text-align: left;
   vertical-align: middle;
 }
 
 .resource-table th {
-  color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
+}
+
+.resource-table td:first-child {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.resource-table a {
+  color: var(--link);
   font-weight: 400;
 }
 
