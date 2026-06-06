@@ -1,0 +1,41 @@
+# ---------- CORE (required) ----------
+name: BigEarthNet
+organization: TU Berlin          # org or lead authors
+year: 2019
+task: Multi-label classification   # vocab below
+modality: Sentinel-1 / Sentinel-2  # short sensor/modality label for the table
+resolution: 10–60 m
+metric: micro-mAP                # primary headline metric
+links:
+  card: pages/benchmarks/bigearthnet.html
+  leaderboard: https://...
+  paper: https://arxiv.org/abs/xxxx.xxxxx
+
+# ---------- EXTENDED (optional) ----------
+
+publication:
+  venue: IGARSS 2019
+  project_page: null
+
+measures:
+  capability: What ability this benchmark tests.
+  why: Why it matters for GeoAI.
+
+# vocab: classification | segmentation | detection | change_detection |
+#        retrieval | captioning | vqa | forecasting | generation
+tasks: [classification]
+
+data:
+  datasets: []                   # link to dataset card slugs
+  # vocab: optical | sar | lidar | dem | climate | text | time_series
+  modalities: [optical, sar]
+  resolution: 10–60 m
+  num_samples: null
+  splits: null                   # e.g. { train: ..., test: ... }
+
+evaluation:
+  metrics: [micro-mAP, macro-mAP]
+
+resources:
+  code: null
+  data: null

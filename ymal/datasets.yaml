@@ -1,0 +1,37 @@
+# ---------- CORE (required) ----------
+name: SEN12MS
+organization: TU Munich          # org or lead authors
+year: 2019
+task: Multi-sensor learning      # primary task (vocab below)
+modality: Sentinel-1 / Sentinel-2  # short sensor/modality label for the table
+resolution: 10–60 m
+license: open                    # open | restricted | closed
+links:
+  card: pages/datasets/sen12ms.html
+  download: https://...
+  paper: https://arxiv.org/abs/xxxx.xxxxx
+
+# ---------- EXTENDED (optional) ----------
+
+publication:
+  venue: arXiv 2019
+  project_page: null
+
+why:
+  gap: What was missing that this dataset fills.
+  enables: What it makes possible.
+
+content:
+  # vocab: optical | sar | lidar | dem | climate | text | time_series
+  modalities: [optical, sar]
+  # vocab: masks | boxes | scene_labels | captions | none
+  label_type: scene_labels
+  num_classes: null
+
+# vocab: classification | segmentation | detection | change_detection |
+#        retrieval | captioning | vqa | forecasting | generation
+tasks: [classification]
+
+resources:
+  code: null
+  huggingface: null

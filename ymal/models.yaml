@@ -1,0 +1,35 @@
+# ---------- CORE (required — drives the table + card header) ----------
+name: SatCLIP
+organization: Microsoft          # org or lead authors
+year: 2025
+category: Foundation Model       # Foundation Model | VLM | Segmentation | Detection | Forecasting | Generation | Other
+# tasks / applications — vocab: classification | segmentation | detection | change_detection |
+#                                retrieval | captioning | vqa | forecasting | generation
+tasks: [classification, retrieval]
+venue: AAAI 2025                 # conference / journal / "arXiv 2025" / "—"
+license: open                    # open | closed
+links:
+  card: pages/models/satclip.html
+  paper: https://arxiv.org/abs/xxxx.xxxxx
+  code: https://github.com/microsoft/satclip
+
+# ---------- EXTENDED (optional) ----------
+
+publication:
+  project_page: null
+
+why:
+  problem: What gap or limitation this model addresses.
+  innovation: The core new idea.
+  contribution: The main takeaway / result.
+
+# vocab: optical | sar | lidar | dem | climate | text | time_series
+inputs: [optical, text]
+
+# vocab: embeddings | masks | boxes | captions | forecasts | generated_imagery
+outputs: [embeddings]
+
+resources:
+  huggingface: null
+  weights: null
+  demo: null
