@@ -272,14 +272,14 @@ h2 {
 
 .resource-controls {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   align-items: center;
   margin-bottom: 24px;
 }
 
 .paper-controls {
-  grid-template-columns: minmax(0, 1fr) auto 168px auto;
+  grid-template-columns: minmax(0, 1fr) 168px;
 }
 
 .company-filter {
@@ -404,6 +404,18 @@ h2 {
 .submit-resource-button:focus-visible::after {
   opacity: 1;
   transform: translateX(50%) translateY(0);
+}
+
+.header-submit-button {
+  min-height: 40px;
+  margin-left: auto;
+  padding: 0 16px;
+  font-size: 14.5px;
+}
+
+.header-submit-button::after {
+  top: calc(100% + 10px);
+  bottom: auto;
 }
 
 .resource-count {
@@ -1196,6 +1208,19 @@ h2 {
     cursor: pointer;
   }
 
+  .resource-site-header .menu-button {
+    order: 3;
+    margin-left: 0;
+  }
+
+  .resource-site-header .header-submit-button {
+    order: 2;
+    margin-left: auto;
+    margin-right: 12px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+
   .menu-button span,
   .menu-button::before,
   .menu-button::after {
@@ -1339,7 +1364,7 @@ h2 {
     gap: 12px;
   }
 
-  .submit-resource-button {
+  .resource-controls .submit-resource-button {
     width: 100%;
   }
 
