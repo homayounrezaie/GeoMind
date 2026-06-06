@@ -1084,7 +1084,7 @@ h2 {
 }
 
 .site-footer .footer-links h3 {
-  margin: 0 0 4px;
+  margin: 0;
   color: var(--text);
   font-size: 15px;
   font-weight: 550;
