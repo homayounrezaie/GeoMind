@@ -244,9 +244,6 @@ function initResourceList(controls) {
   }));
   rows = fallbackRows;
   totalCount = rows.length;
-  const itemLabel =
-    searchInput?.placeholder?.replace(/^Search\s+/i, "").trim().toLowerCase() || "items";
-
   const sortState = { column: "year", direction: "desc" };
   const dynamicColumns = Array.from(table?.querySelectorAll("thead th[data-field]") || []).map(
     (header) => ({
@@ -382,7 +379,7 @@ function initResourceList(controls) {
   }
 
   async function loadDynamicRows() {
-    count.textContent = `Loading ${itemLabel}...`;
+    count.textContent = "";
 
     try {
       const response = await fetch(resourceSrc);
@@ -457,7 +454,6 @@ function initResourceList(controls) {
 
       return matchesSearch && matchesVenue && matchesCompany;
     });
-    const isFiltered = Boolean(query || selectedVenue || selectedCompany !== "all");
     const totalPages = Math.max(1, Math.ceil(matchingRows.length / pageSize));
 
     currentPage = Math.min(currentPage, totalPages);
@@ -475,9 +471,7 @@ function initResourceList(controls) {
 
     tableBody.replaceChildren(...visibleRows);
 
-    count.textContent = isFiltered
-      ? `Showing ${matchingRows.length.toLocaleString()} of ${totalCount.toLocaleString()} ${itemLabel}`
-      : `Total: ${totalCount.toLocaleString()} ${itemLabel}`;
+    count.textContent = totalCount.toLocaleString();
     updateSortHeaders();
     renderPager(matchingRows.length);
   }
