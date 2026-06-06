@@ -98,6 +98,14 @@ tabModeQuery.addEventListener("change", syncPanels);
 syncPanels();
 
 function getRowYear(row) {
+  const visibleYear = Array.from(row.cells)
+    .map((cell) => cell.textContent.trim())
+    .find((text) => /^(19|20)\d{2}$/.test(text));
+
+  if (visibleYear) {
+    return Number(visibleYear);
+  }
+
   const explicitYear = Number(row.dataset.year);
 
   if (Number.isFinite(explicitYear) && explicitYear > 0) {
@@ -112,7 +120,7 @@ function initResourceList(controls) {
   const section = controls.closest("section");
   const searchInput = controls.querySelector("[data-resource-search]");
   const venueFilter = controls.querySelector("[data-venue-filter]");
-  const sortButtons = Array.from(controls.querySelectorAll("[data-sort-order]"));
+  const sortSelect = controls.querySelector("[data-sort-order]");
   const tableBody = section?.querySelector("tbody");
   const tableWrap = section?.querySelector(".resource-table-wrap");
 
@@ -122,7 +130,12 @@ function initResourceList(controls) {
 
   const pageSize = Number(controls.dataset.pageSize || section.dataset.pageSize || 20);
   const pager = document.createElement("nav");
+  const count = document.createElement("p");
   let currentPage = 1;
+
+  count.className = "resource-count";
+  count.setAttribute("aria-live", "polite");
+  searchInput?.closest(".search-control")?.after(count);
 
   pager.className = "table-pager";
   pager.setAttribute("aria-label", "Table pagination");
@@ -136,10 +149,12 @@ function initResourceList(controls) {
     venue: row.dataset.venue || "",
     year: getRowYear(row),
   }));
+  const totalCount = rows.length;
+  const itemLabel =
+    searchInput?.placeholder?.replace(/^Search\s+/i, "").trim().toLowerCase() || "items";
 
   function getSortOrder() {
-    const activeButton = sortButtons.find((button) => button.classList.contains("is-active"));
-    return activeButton?.dataset.sortOrder || "new";
+    return sortSelect?.value || "new";
   }
 
   function createPagerButton(label, disabled, onClick) {
@@ -193,6 +208,7 @@ function initResourceList(controls) {
 
       return matchesSearch && matchesVenue;
     });
+    const isFiltered = Boolean(query || selectedVenue);
     const totalPages = Math.max(1, Math.ceil(matchingRows.length / pageSize));
 
     currentPage = Math.min(currentPage, totalPages);
@@ -206,6 +222,9 @@ function initResourceList(controls) {
       tableBody.append(item.row);
     });
 
+    count.textContent = isFiltered
+      ? `Showing ${matchingRows.length.toLocaleString()} of ${totalCount.toLocaleString()} ${itemLabel}`
+      : `Total: ${totalCount.toLocaleString()} ${itemLabel}`;
     renderPager(matchingRows.length);
   }
 
@@ -219,17 +238,9 @@ function initResourceList(controls) {
     applyState();
   });
 
-  sortButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      sortButtons.forEach((item) => {
-        const isActive = item === button;
-        item.classList.toggle("is-active", isActive);
-        item.setAttribute("aria-pressed", String(isActive));
-      });
-
-      currentPage = 1;
-      applyState();
-    });
+  sortSelect?.addEventListener("change", () => {
+    currentPage = 1;
+    applyState();
   });
 
   applyState();

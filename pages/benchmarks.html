@@ -32,13 +32,13 @@
             <span class="visually-hidden">Search benchmarks</span>
             <input type="search" placeholder="Search benchmarks" data-resource-search />
           </label>
-          <div class="sort-control" aria-label="Sort benchmarks">
-            <span>Sort</span>
-            <button class="is-active" type="button" data-sort-order="new" aria-pressed="true">
-              New
-            </button>
-            <button type="button" data-sort-order="old" aria-pressed="false">Old</button>
-          </div>
+          <label class="sort-control">
+            <span>Sort:</span>
+            <select data-sort-order>
+              <option value="new">Newest first</option>
+              <option value="old">Oldest first</option>
+            </select>
+          </label>
         </div>
         <div class="resource-table-wrap">
           <table class="resource-table">
