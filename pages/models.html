@@ -27,11 +27,23 @@
       <h1 class="visually-hidden" id="models-title">Models</h1>
 
       <section class="content-section" aria-label="GeoAI model cards">
-        <div class="resource-controls" data-resource-list>
+        <div class="resource-controls model-controls" data-resource-list>
           <label class="search-control">
             <span class="visually-hidden">Search models</span>
             <input type="search" placeholder="Search models" data-resource-search />
           </label>
+          <div class="company-filter" data-company-filter aria-label="Filter models by company">
+            <button class="is-active" type="button" data-company="all" aria-pressed="true">All</button>
+            <button type="button" data-company="google" aria-pressed="false">Google</button>
+            <button type="button" data-company="meta" aria-pressed="false">Meta</button>
+            <button type="button" data-company="microsoft" aria-pressed="false">Microsoft</button>
+            <button type="button" data-company="nvidia" aria-pressed="false">NVIDIA</button>
+            <button type="button" data-company="ibm" aria-pressed="false">IBM</button>
+            <button type="button" data-company="amazon" aria-pressed="false">Amazon</button>
+            <button type="button" data-company="allen-ai" aria-pressed="false">Allen AI</button>
+            <button type="button" data-company="nasa" aria-pressed="false">NASA</button>
+            <button type="button" data-company="esa" aria-pressed="false">ESA</button>
+          </div>
           <label class="sort-control">
             <span>Sort:</span>
             <select data-sort-order>

@@ -116,11 +116,37 @@ function getRowYear(row) {
   return match ? Number(match[0]) : 0;
 }
 
+function getRowCompanyKeys(row) {
+  const text = [
+    row.textContent,
+    ...Array.from(row.querySelectorAll("a")).map((link) => link.href),
+  ]
+    .join(" ")
+    .toLowerCase();
+  const checks = {
+    google: [/\bgoogle\b/, /deepmind/, /alphaearth/],
+    meta: [/\bmeta ai\b/, /facebookresearch/, /segment-anything/],
+    microsoft: [/\bmicrosoft\b/, /msr-?ai/, /ai4science/],
+    nvidia: [/\bnvidia\b/],
+    ibm: [/\bibm\b/, /ibm-nasa-geospatial/, /prithvi/, /terramind/, /terratorch/],
+    amazon: [/\bamazon\b/, /\baws\b/],
+    "allen-ai": [/\ballen ai\b/, /allenai/, /satlas/, /olmoearth/],
+    nasa: [/\bnasa\b/, /ibm-nasa-geospatial/, /prithvi/],
+    esa: [/\besa\b/, /esa-philab/, /phileo/],
+  };
+
+  return Object.entries(checks)
+    .filter(([, patterns]) => patterns.some((pattern) => pattern.test(text)))
+    .map(([key]) => key);
+}
+
 function initResourceList(controls) {
   const section = controls.closest("section");
   const searchInput = controls.querySelector("[data-resource-search]");
   const venueFilter = controls.querySelector("[data-venue-filter]");
   const sortSelect = controls.querySelector("[data-sort-order]");
+  const companyFilter = controls.querySelector("[data-company-filter]");
+  const companyButtons = Array.from(companyFilter?.querySelectorAll("[data-company]") || []);
   const tableBody = section?.querySelector("tbody");
   const tableWrap = section?.querySelector(".resource-table-wrap");
 
@@ -147,6 +173,7 @@ function initResourceList(controls) {
     row,
     searchText: row.textContent.toLowerCase(),
     venue: row.dataset.venue || "",
+    companies: getRowCompanyKeys(row),
     year: getRowYear(row),
   }));
   const totalCount = rows.length;
@@ -155,6 +182,13 @@ function initResourceList(controls) {
 
   function getSortOrder() {
     return sortSelect?.value || "new";
+  }
+
+  function getSelectedCompany() {
+    return (
+      companyButtons.find((button) => button.classList.contains("is-active"))?.dataset.company ||
+      "all"
+    );
   }
 
   function createPagerButton(label, disabled, onClick) {
@@ -194,6 +228,7 @@ function initResourceList(controls) {
   function applyState() {
     const query = (searchInput?.value || "").trim().toLowerCase();
     const selectedVenue = venueFilter?.value || "";
+    const selectedCompany = getSelectedCompany();
     const sortOrder = getSortOrder();
 
     const orderedRows = [...rows].sort((first, second) => {
@@ -205,10 +240,12 @@ function initResourceList(controls) {
     const matchingRows = orderedRows.filter((item) => {
       const matchesSearch = !query || item.searchText.includes(query);
       const matchesVenue = !selectedVenue || item.venue === selectedVenue;
+      const matchesCompany =
+        selectedCompany === "all" || item.companies.includes(selectedCompany);
 
-      return matchesSearch && matchesVenue;
+      return matchesSearch && matchesVenue && matchesCompany;
     });
-    const isFiltered = Boolean(query || selectedVenue);
+    const isFiltered = Boolean(query || selectedVenue || selectedCompany !== "all");
     const totalPages = Math.max(1, Math.ceil(matchingRows.length / pageSize));
 
     currentPage = Math.min(currentPage, totalPages);
@@ -241,6 +278,19 @@ function initResourceList(controls) {
   sortSelect?.addEventListener("change", () => {
     currentPage = 1;
     applyState();
+  });
+
+  companyButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      companyButtons.forEach((item) => {
+        const isActive = item === button;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+      });
+
+      currentPage = 1;
+      applyState();
+    });
   });
 
   applyState();
