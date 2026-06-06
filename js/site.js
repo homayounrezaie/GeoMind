@@ -170,26 +170,30 @@ function getCardLinkLabel(searchInput) {
   return `View ${singularLabels[itemLabel] || "resource"} card`;
 }
 
+function decorateSourceLink(link, cardLinkLabel, showSourceIcons) {
+  const source = getSourceKind(link);
+  const icon = document.createElement("span");
+  const text = document.createElement("span");
+
+  link.classList.add("source-link");
+  link.textContent = "";
+  text.textContent = cardLinkLabel;
+
+  if (source && showSourceIcons) {
+    icon.className = `source-icon source-icon-${source.type}`;
+    icon.setAttribute("aria-hidden", "true");
+    link.setAttribute("aria-label", `${cardLinkLabel} on ${source.label}`);
+    link.append(icon);
+  }
+
+  link.append(text);
+}
+
 function decorateSourceLinks(table, cardLinkLabel) {
   const showSourceIcons = table?.dataset.sourceIcons !== "false";
 
   table?.querySelectorAll("tbody td:last-child a").forEach((link) => {
-    const source = getSourceKind(link);
-    const icon = document.createElement("span");
-    const text = document.createElement("span");
-
-    link.classList.add("source-link");
-    link.textContent = "";
-    text.textContent = cardLinkLabel;
-
-    if (source && showSourceIcons) {
-      icon.className = `source-icon source-icon-${source.type}`;
-      icon.setAttribute("aria-hidden", "true");
-      link.setAttribute("aria-label", `${cardLinkLabel} on ${source.label}`);
-      link.append(icon);
-    }
-
-    link.append(text);
+    decorateSourceLink(link, cardLinkLabel, showSourceIcons);
   });
 }
 
@@ -202,6 +206,7 @@ function initResourceList(controls) {
   const tableBody = section?.querySelector("tbody");
   const tableWrap = section?.querySelector(".resource-table-wrap");
   const table = section?.querySelector(".resource-table");
+  const resourceSrc = controls.dataset.resourceSrc || table?.dataset.resourceSrc || "";
 
   if (!section || !tableBody) {
     return;
@@ -212,6 +217,8 @@ function initResourceList(controls) {
   const count = document.createElement("p");
   const cardLinkLabel = getCardLinkLabel(searchInput);
   let currentPage = 1;
+  let rows = [];
+  let totalCount = 0;
 
   count.className = "resource-count";
   count.setAttribute("aria-live", "polite");
@@ -224,7 +231,7 @@ function initResourceList(controls) {
 
   decorateSourceLinks(table, cardLinkLabel);
 
-  const rows = Array.from(tableBody.querySelectorAll("tr")).map((row, index) => ({
+  const fallbackRows = Array.from(tableBody.querySelectorAll("tr")).map((row, index) => ({
     index,
     row,
     name: row.cells[0]?.textContent.trim().toLowerCase() || "",
@@ -233,11 +240,18 @@ function initResourceList(controls) {
     companies: getRowCompanyKeys(row),
     year: getRowYear(row),
   }));
-  const totalCount = rows.length;
+  rows = fallbackRows;
+  totalCount = rows.length;
   const itemLabel =
     searchInput?.placeholder?.replace(/^Search\s+/i, "").trim().toLowerCase() || "items";
 
   const sortState = { column: "year", direction: "desc" };
+  const dynamicColumns = Array.from(table?.querySelectorAll("thead th[data-field]") || []).map(
+    (header) => ({
+      field: header.dataset.field || "",
+      isLink: header.dataset.linkField === "true" || header.dataset.field === "sourceUrl",
+    })
+  );
 
   function getSelectedCompany() {
     return (
@@ -310,6 +324,86 @@ function initResourceList(controls) {
     updateSortHeaders();
   }
 
+  function createDynamicRow(data) {
+    const row = document.createElement("tr");
+    const showSourceIcons = table?.dataset.sourceIcons !== "false";
+
+    if (data.venueKey) {
+      row.dataset.venue = data.venueKey;
+    }
+
+    if (Number.isFinite(Number(data.year))) {
+      row.dataset.year = String(Number(data.year));
+    }
+
+    dynamicColumns.forEach(({ field, isLink }) => {
+      const cell = document.createElement("td");
+
+      if (isLink) {
+        const link = document.createElement("a");
+        const url = String(data[field] || "");
+
+        link.href = url || "#";
+        if (/^https?:\/\//i.test(url)) {
+          link.target = "_blank";
+          link.rel = "noreferrer";
+        }
+        decorateSourceLink(link, cardLinkLabel, showSourceIcons);
+        cell.append(link);
+      } else {
+        cell.textContent = String(data[field] || "");
+      }
+
+      row.append(cell);
+    });
+
+    return row;
+  }
+
+  function normalizeDynamicItem(data, index) {
+    const firstField = dynamicColumns[0]?.field || "title";
+    const name = String(data[firstField] || data.name || data.title || "").toLowerCase();
+    const searchText = String(
+      data.searchText || dynamicColumns.map(({ field }) => data[field] || "").join(" ")
+    ).toLowerCase();
+
+    return {
+      index,
+      item: data,
+      row: null,
+      name,
+      searchText,
+      venue: data.venueKey || data.venue || "",
+      companies: [],
+      year: Number(data.year) || 0,
+    };
+  }
+
+  async function loadDynamicRows() {
+    count.textContent = `Loading ${itemLabel}...`;
+
+    try {
+      const response = await fetch(resourceSrc);
+
+      if (!response.ok) {
+        throw new Error(`Unable to load ${resourceSrc}`);
+      }
+
+      const payload = await response.json();
+      const items = Array.isArray(payload) ? payload : payload.items || [];
+
+      rows = items.map(normalizeDynamicItem);
+      totalCount = rows.length;
+      currentPage = 1;
+      applyState();
+    } catch {
+      rows = fallbackRows;
+      totalCount = rows.length;
+      currentPage = 1;
+      applyState();
+    }
+  }
+
   function renderPager(matchCount) {
     const totalPages = Math.ceil(matchCount / pageSize);
 
@@ -368,7 +462,14 @@ function initResourceList(controls) {
 
     const pageStart = (currentPage - 1) * pageSize;
     const pageEnd = pageStart + pageSize;
-    const visibleRows = matchingRows.slice(pageStart, pageEnd).map((item) => item.row);
+    const visibleRows = matchingRows.slice(pageStart, pageEnd).map((item) => {
+      if (item.row) {
+        return item.row;
+      }
+
+      item.row = createDynamicRow(item.item);
+      return item.row;
+    });
 
     tableBody.replaceChildren(...visibleRows);
 
@@ -403,6 +504,12 @@ function initResourceList(controls) {
   });
 
   initSortableHeaders();
+
+  if (resourceSrc && dynamicColumns.length) {
+    loadDynamicRows();
+    return;
+  }
+
   applyState();
 }
 
