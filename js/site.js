@@ -158,7 +158,19 @@ function getSourceKind(link) {
   return null;
 }
 
-function decorateSourceLinks(table) {
+function getCardLinkLabel(searchInput) {
+  const itemLabel = searchInput?.placeholder?.replace(/^Search\s+/i, "").trim().toLowerCase();
+  const singularLabels = {
+    benchmarks: "benchmark",
+    datasets: "dataset",
+    models: "model",
+    papers: "paper",
+  };
+
+  return `View ${singularLabels[itemLabel] || "resource"} card`;
+}
+
+function decorateSourceLinks(table, cardLinkLabel) {
   table?.querySelectorAll("tbody td:last-child a").forEach((link) => {
     const source = getSourceKind(link);
     const icon = document.createElement("span");
@@ -166,12 +178,12 @@ function decorateSourceLinks(table) {
 
     link.classList.add("source-link");
     link.textContent = "";
-    text.textContent = "View";
+    text.textContent = cardLinkLabel;
 
     if (source) {
       icon.className = `source-icon source-icon-${source.type}`;
       icon.setAttribute("aria-hidden", "true");
-      link.setAttribute("aria-label", `View on ${source.label}`);
+      link.setAttribute("aria-label", `${cardLinkLabel} on ${source.label}`);
       link.append(icon);
     }
 
@@ -196,6 +208,7 @@ function initResourceList(controls) {
   const pageSize = Number(controls.dataset.pageSize || section.dataset.pageSize || 20);
   const pager = document.createElement("nav");
   const count = document.createElement("p");
+  const cardLinkLabel = getCardLinkLabel(searchInput);
   let currentPage = 1;
 
   count.className = "resource-count";
@@ -207,7 +220,7 @@ function initResourceList(controls) {
   pager.hidden = true;
   tableWrap?.after(pager);
 
-  decorateSourceLinks(table);
+  decorateSourceLinks(table, cardLinkLabel);
 
   const rows = Array.from(tableBody.querySelectorAll("tr")).map((row, index) => ({
     index,
