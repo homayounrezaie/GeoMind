@@ -867,6 +867,13 @@ h2 {
 
 .empty-page {
   min-height: 280px;
+  padding: 96px 0;
+}
+
+.empty-page h1 {
+  margin: 0;
+  font-size: clamp(44px, 6vw, 72px);
+  line-height: 1.05;
 }
 
 .legal-page {
@@ -1573,6 +1580,7 @@ h2 {
 
   .empty-page {
     min-height: 180px;
+    padding: 64px 0;
   }
 }
 
