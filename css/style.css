@@ -440,23 +440,16 @@ h2 {
 }
 
 .model-name-with-tag {
-  display: grid;
-  width: 100%;
+  display: inline-flex;
   align-items: center;
-  grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: 12px;
+  gap: 10px;
   max-width: 100%;
+  white-space: nowrap;
 }
 
 .model-name-text {
   min-width: 0;
-  overflow-wrap: anywhere;
-  white-space: nowrap;
-}
-
-.model-name-with-tag .org-tag {
-  grid-column: 2;
-  justify-self: end;
+  overflow-wrap: normal;
 }
 
 .org-tag {
