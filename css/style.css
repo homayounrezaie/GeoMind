@@ -1551,19 +1551,56 @@ h2 {
     text-align: right;
   }
 
+  .resource-panel .resource-table-models td:first-child {
+    display: flex;
+    align-items: center;
+    justify-self: stretch;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .resource-panel .resource-table-papers td:first-child {
+    justify-self: stretch;
+    width: 100%;
+    min-width: 0;
+  }
+
   .resource-table-models .model-name-with-tag {
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px 8px;
-    white-space: normal;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .resource-table-models .model-name-text {
-    overflow-wrap: anywhere;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .resource-panel .resource-table-models tbody tr,
+  .resource-panel .resource-table-papers tbody tr {
+    grid-template-columns: minmax(0, 1fr) max-content;
+    column-gap: 14px;
+  }
+
+  .resource-panel .resource-table-models .org-tag {
+    display: block;
+    flex: 0 0 auto;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .resource-table-papers td:first-child {
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .browse-row {
