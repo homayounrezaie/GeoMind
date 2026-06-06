@@ -853,6 +853,10 @@ h2 {
   line-height: 1.35;
 }
 
+.empty-page {
+  min-height: 280px;
+}
+
 .legal-page {
   width: min(960px, calc(100% - 48px));
 }
@@ -1540,6 +1544,10 @@ h2 {
 
   .model-card-summary {
     padding: 42px 0;
+  }
+
+  .empty-page {
+    min-height: 180px;
   }
 }
 
