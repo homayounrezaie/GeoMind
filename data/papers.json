@@ -93604,6 +93604,20 @@
     "searchText": "SpectralKAN: Weighted Activation Distribution Kolmogorov-Arnold Network for Hyperspectral Image Change Detection Yanheng Wang; Xiaohan Yu; Yongsheng Gao; Jianjun Sha; Jian Wang; Shiyong Yan; Kai Qin; Yonggang Zhang; Lianru Gao Change Detection arXiv 2024 10.48550/arXiv.2407.00949"
   },
   {
+    "id": "paper_2311_07113",
+    "title": "SpectralGPT: Spectral Remote Sensing Foundation Model",
+    "topic": "Foundation Models",
+    "venueYear": "IEEE TPAMI 2024",
+    "venue": "IEEE TPAMI",
+    "venueKey": "ieee",
+    "year": 2024,
+    "sourceUrl": "https://github.com/danfenghong/IEEE_TPAMI_SpectralGPT",
+    "citationCount": 0,
+    "doi": "10.1109/TPAMI.2024.3362475",
+    "rawPaperId": "paper_2311_07113",
+    "searchText": "SpectralGPT: Spectral Remote Sensing Foundation Model Danfeng Hong Bing Zhang Xuyang Li Yuxuan Li Chenyu Li Jing Yao Naoto Yokoya Hao Li Pedram Ghamisi Xiuping Jia Antonio Plaza Paolo Gamba Jon Atli Benediktsson Jocelyn Chanussot Foundation Models IEEE TPAMI 2024 10.1109/TPAMI.2024.3362475 GitHub"
+  },
+  {
     "id": "paper_2408_08447",
     "title": "SpectralEarth: Training Hyperspectral Foundation Models at Scale",
     "topic": "Self-Supervised Learning",
@@ -125046,20 +125060,6 @@
     "doi": "10.48550/arXiv.2310.01898",
     "rawPaperId": "paper_2310_01898",
     "searchText": "Spectro-spatial hyperspectral image reconstruction from interferometric acquisitions Daniele Picone; Mohamad Jouni; Mauro Dalla-Mura Transformer Models arXiv 2023 10.48550/arXiv.2310.01898"
-  },
-  {
-    "id": "paper_2311_07113",
-    "title": "SpectralGPT: Spectral Remote Sensing Foundation Model",
-    "topic": "Change Detection",
-    "venueYear": "arXiv 2023",
-    "venue": "arXiv",
-    "venueKey": "arxiv",
-    "year": 2023,
-    "sourceUrl": "https://arxiv.org/abs/2311.07113",
-    "citationCount": 0,
-    "doi": "10.48550/arXiv.2311.07113",
-    "rawPaperId": "paper_2311_07113",
-    "searchText": "SpectralGPT: Spectral Remote Sensing Foundation Model Danfeng Hong; Bing Zhang; Xuyang Li; Yuxuan Li; Chenyu Li; Jing Yao; Naoto Yokoya; Hao Li; Pedram Ghamisi; Xiuping Jia; Antonio Plaza; Paolo Gamba; Jon Atli Benediktsson; Jocelyn Chanussot Change Detection arXiv 2023 10.48550/arXiv.2311.07113"
   },
   {
     "id": "paper_2304_05961",

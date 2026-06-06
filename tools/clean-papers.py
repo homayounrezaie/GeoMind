@@ -280,6 +280,26 @@ CURATED_PAPERS = [
     },
 ]
 
+CURATED_PAPER_UPDATES = [
+    {
+        "matchTitle": "SpectralGPT: Spectral Remote Sensing Foundation Model",
+        "topic": "Foundation Models",
+        "venueYear": "IEEE TPAMI 2024",
+        "venue": "IEEE TPAMI",
+        "venueKey": "ieee",
+        "year": 2024,
+        "sourceUrl": "https://github.com/danfenghong/IEEE_TPAMI_SpectralGPT",
+        "citationCount": 0,
+        "doi": "10.1109/TPAMI.2024.3362475",
+        "searchText": (
+            "SpectralGPT: Spectral Remote Sensing Foundation Model "
+            "Danfeng Hong Bing Zhang Xuyang Li Yuxuan Li Chenyu Li Jing Yao Naoto Yokoya Hao Li "
+            "Pedram Ghamisi Xiuping Jia Antonio Plaza Paolo Gamba Jon Atli Benediktsson Jocelyn Chanussot "
+            "Foundation Models IEEE TPAMI 2024 10.1109/TPAMI.2024.3362475 GitHub"
+        ),
+    },
+]
+
 
 def clean_text(value: str) -> str:
     value = re.sub(r"[\x00-\x1f\x7f-\x9f]", " ", value or "")
@@ -530,6 +550,17 @@ def clean_rows(rows: list[dict[str, str]]) -> list[dict[str, object]]:
                 ),
             }
         )
+
+    for update in CURATED_PAPER_UPDATES:
+        match_key = key_for(str(update["matchTitle"]))
+        match = next((row for row in cleaned if key_for(str(row["title"])) == match_key), None)
+
+        if not match:
+            continue
+
+        for key, value in update.items():
+            if key != "matchTitle":
+                match[key] = value
 
     existing_ids = {str(row["id"]) for row in cleaned}
     existing_urls = {str(row["sourceUrl"]) for row in cleaned}
