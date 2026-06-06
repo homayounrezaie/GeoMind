@@ -1,0 +1,17 @@
+# ---- FILTERABLE (keep these clean) ----
+title: Machine Learning Engineer, Remote Sensing
+company: Planet
+location: San Francisco, CA       # free text, as scraped
+remote: hybrid                    # remote | hybrid | onsite | unknown
+type: full_time                   # full_time | internship | contract | unknown
+posted: 2026-06-01                # YYYY-MM-DD  (for sort/recency filter)
+apply_url: https://...
+
+# ---- DEDUP (so re-scrapes don't make duplicates) ----
+id: planet-3869162                # source + native id, must be unique
+source: startup.jobs              # site scraped from
+
+# ---- RAW (scrape whatever, leave unstructured) ----
+description: |
+  Full job text goes here, as scraped. Salary, requirements,
+  responsibilities, etc. — no need to split into fields.
