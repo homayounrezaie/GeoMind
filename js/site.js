@@ -140,7 +140,7 @@ function getRowCompanyKeys(row) {
     .map(([key]) => key);
 }
 
-function getSourceKind(link, includeRemoteFallback = false) {
+function getSourceKind(link) {
   try {
     const host = new URL(link.href, window.location.href).hostname.replace(/^www\./, "");
 
@@ -152,9 +152,6 @@ function getSourceKind(link, includeRemoteFallback = false) {
       return { label: "Hugging Face", type: "huggingface" };
     }
 
-    if (includeRemoteFallback && /^https?:\/\//i.test(link.href)) {
-      return { label: "Remote source", type: "remote" };
-    }
   } catch {
     return null;
   }
@@ -175,7 +172,11 @@ function getCardLinkLabel(searchInput) {
 }
 
 function decorateSourceLink(link, cardLinkLabel, showSourceIcons) {
-  const source = getSourceKind(link, cardLinkLabel === "View dataset card");
+  const isDatasetCard = cardLinkLabel === "View dataset card";
+  const source =
+    isDatasetCard && /^https?:\/\//i.test(link.href)
+      ? { label: "Remote source", type: "remote" }
+      : getSourceKind(link);
   const icon = document.createElement("span");
   const text = document.createElement("span");
 
