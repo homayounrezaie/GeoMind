@@ -1043,7 +1043,7 @@ h2 {
 
 .footer-directory {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 220px) minmax(150px, 220px);
   gap: 48px;
   align-items: start;
   margin-top: 96px;
