@@ -8,8 +8,8 @@
       name="description"
       content="Simple, structured overviews of Geospatial AI models, datasets, benchmarks, and papers."
     />
-    <link rel="icon" type="image/png" href="assets/img/geomind-logo.png" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="icon" type="image/png" href="images/geomind-logo.png" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header class="site-header">
@@ -17,13 +17,14 @@
         <span></span>
       </button>
       <a class="brand" href="./" aria-label="GeoMind home">
-        <img src="assets/img/geomind-logo.png" alt="" />
+        <img src="images/geomind-logo.png" alt="" />
         <span>GeoMind</span>
       </a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="models/">Models</a>
-        <a href="datasets-benchmarks/">Datasets &amp; Benchmarks</a>
-        <a href="papers/">Papers</a>
+        <a href="pages/models.html">Models</a>
+        <a href="pages/datasets.html">Datasets</a>
+        <a href="pages/benchmarks.html">Benchmarks</a>
+        <a href="pages/papers.html">Papers</a>
       </nav>
     </header>
 
@@ -58,7 +59,18 @@
           aria-controls="datasets"
           data-tab-target="datasets"
         >
-          Datasets &amp; Benchmarks
+          Datasets
+        </button>
+        <button
+          class="category-tab"
+          id="tab-benchmarks"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="benchmarks"
+          data-tab-target="benchmarks"
+        >
+          Benchmarks
         </button>
         <button
           class="category-tab"
@@ -81,7 +93,7 @@
         aria-labelledby="tab-models"
       >
         <div class="section-heading">
-          <h2 id="models-title">Models <span class="section-count">1,088 models</span></h2>
+          <h2 id="models-title">Models <span class="section-count">703 models</span></h2>
         </div>
 
         <div class="resource-table-wrap">
@@ -99,25 +111,25 @@
                 <td>TESSERA</td>
                 <td>Foundation Model</td>
                 <td>CVPR 2026</td>
-                <td><a href="models/">View model card</a></td>
+                <td><a href="pages/models.html">View model card</a></td>
               </tr>
               <tr data-year="2025">
                 <td>AlphaEarth</td>
                 <td>Foundation Model</td>
                 <td>2025</td>
-                <td><a href="models/alphaearth/">View model card</a></td>
+                <td><a href="pages/models/alphaearth.html">View model card</a></td>
               </tr>
               <tr data-year="2023">
                 <td>Prithvi</td>
                 <td>Foundation Model</td>
                 <td>2023</td>
-                <td><a href="models/">View model card</a></td>
+                <td><a href="pages/models.html">View model card</a></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="browse-row">
-          <a class="gradient-text" href="models/">Browse all models</a>
+          <a class="gradient-text" href="pages/models.html">Browse all models</a>
         </div>
       </section>
 
@@ -130,7 +142,7 @@
       >
         <div class="section-heading">
           <h2 id="datasets-title">
-            Datasets &amp; Benchmarks <span class="section-count">6,422 entries</span>
+            Datasets <span class="section-count">4,637 datasets</span>
           </h2>
         </div>
 
@@ -138,7 +150,7 @@
           <table class="resource-table">
             <thead>
               <tr>
-                <th scope="col">Dataset / Benchmark</th>
+                <th scope="col">Dataset</th>
                 <th scope="col">Task</th>
                 <th scope="col">Sensor / Modality</th>
                 <th scope="col">Resolution</th>
@@ -151,27 +163,81 @@
                 <td>Scene classification</td>
                 <td>Optical imagery</td>
                 <td>Sub-meter to meter scale</td>
-                <td><a href="datasets-benchmarks/">View dataset card</a></td>
-              </tr>
-              <tr data-year="2019">
-                <td>BigEarthNet</td>
-                <td>Multi-label classification</td>
-                <td>Sentinel-1 / Sentinel-2</td>
-                <td>10-60 m</td>
-                <td><a href="datasets-benchmarks/">View benchmark card</a></td>
+                <td><a href="pages/datasets.html">View dataset card</a></td>
               </tr>
               <tr data-year="2016">
                 <td>SpaceNet</td>
                 <td>Building and road extraction</td>
                 <td>Satellite imagery</td>
                 <td>High resolution</td>
-                <td><a href="datasets-benchmarks/">View dataset card</a></td>
+                <td><a href="pages/datasets.html">View dataset card</a></td>
+              </tr>
+              <tr data-year="2019">
+                <td>SEN12MS</td>
+                <td>Multi-sensor learning</td>
+                <td>Sentinel-1 / Sentinel-2</td>
+                <td>10-60 m</td>
+                <td><a href="pages/datasets.html">View dataset card</a></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="browse-row">
-          <a class="gradient-text" href="datasets-benchmarks/">Browse all datasets &amp; benchmarks</a>
+          <a class="gradient-text" href="pages/datasets.html">Browse all datasets</a>
+        </div>
+      </section>
+
+      <section
+        class="content-section resource-panel"
+        id="benchmarks"
+        data-panel="benchmarks"
+        role="tabpanel"
+        aria-labelledby="tab-benchmarks"
+      >
+        <div class="section-heading">
+          <h2 id="benchmarks-title">
+            Benchmarks <span class="section-count">1,796 benchmarks</span>
+          </h2>
+        </div>
+
+        <div class="resource-table-wrap">
+          <table class="resource-table">
+            <thead>
+              <tr>
+                <th scope="col">Benchmark</th>
+                <th scope="col">Task</th>
+                <th scope="col">Sensor / Modality</th>
+                <th scope="col">Resolution</th>
+                <th scope="col"><span class="visually-hidden">Link</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-year="2019">
+                <td>BigEarthNet</td>
+                <td>Multi-label classification</td>
+                <td>Sentinel-1 / Sentinel-2</td>
+                <td>10-60 m</td>
+                <td><a href="pages/benchmarks.html">View benchmark card</a></td>
+              </tr>
+              <tr data-year="2018">
+                <td>xView</td>
+                <td>Object detection</td>
+                <td>Optical imagery</td>
+                <td>0.3 m</td>
+                <td><a href="pages/benchmarks.html">View benchmark card</a></td>
+              </tr>
+              <tr data-year="2016">
+                <td>SpaceNet Challenge</td>
+                <td>Building and road extraction</td>
+                <td>Satellite imagery</td>
+                <td>High resolution</td>
+                <td><a href="pages/benchmarks.html">View benchmark card</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="browse-row">
+          <a class="gradient-text" href="pages/benchmarks.html">Browse all benchmarks</a>
         </div>
       </section>
 
@@ -183,7 +249,7 @@
         aria-labelledby="tab-papers"
       >
         <div class="section-heading">
-          <h2 id="papers-title">Papers <span class="section-count">18,203 papers</span></h2>
+          <h2 id="papers-title">Papers <span class="section-count">18,204 papers</span></h2>
         </div>
 
         <div class="resource-table-wrap">
@@ -201,25 +267,25 @@
                 <td>Foundation Models for Generalist Geospatial AI</td>
                 <td>Foundation models</td>
                 <td>2024</td>
-                <td><a href="papers/">View paper card</a></td>
+                <td><a href="pages/papers.html">View paper card</a></td>
               </tr>
               <tr data-venue="neurips" data-year="2022">
                 <td>SatMAE</td>
                 <td>Self-supervised</td>
                 <td>NeurIPS 2022</td>
-                <td><a href="papers/satmae/">View paper card</a></td>
+                <td><a href="pages/papers/satmae.html">View paper card</a></td>
               </tr>
               <tr data-venue="other" data-year="2025">
                 <td>Earth Observation with Multimodal AI</td>
                 <td>Multimodal learning</td>
                 <td>2025</td>
-                <td><a href="papers/">View paper card</a></td>
+                <td><a href="pages/papers.html">View paper card</a></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="browse-row">
-          <a class="gradient-text" href="papers/">Browse all papers</a>
+          <a class="gradient-text" href="pages/papers.html">Browse all papers</a>
         </div>
       </section>
     </main>
@@ -270,12 +336,19 @@
       </section>
 
       <section class="footer-directory" aria-label="GeoMind links">
-        <a class="footer-wordmark" href="./" aria-label="GeoMind home">
-          <img src="assets/img/geomind-logo.png" alt="" />
-          <span>GeoMind</span>
-        </a>
+        <div class="footer-brand-block">
+          <div class="footer-wordmark" aria-label="GeoMind">
+            <img src="images/geomind-logo.png" alt="" />
+            <span>GeoMind</span>
+          </div>
+          <p>
+            GeoAI is fragmented. We bring structure to it through visual cards for models,
+            datasets, benchmarks, and papers.
+          </p>
+        </div>
         <nav class="footer-links" aria-label="GeoMind links">
-          <a href="about/">About GeoMind</a>
+          <a href="pages/about.html">About GeoMind</a>
+          <a href="pages/about.html">Our team</a>
           <a href="https://github.com/homayounrezaie/GeoMind/issues/new" target="_blank" rel="noreferrer">Submit</a>
           <a href="https://github.com/homayounrezaie/GeoMind/graphs/contributors" target="_blank" rel="noreferrer">Contributor</a>
           <a href="https://github.com/homayounrezaie/GeoMind/issues/new" target="_blank" rel="noreferrer">Contact</a>
@@ -283,11 +356,11 @@
       </section>
 
       <nav class="footer-legal" aria-label="Legal links">
-        <a href="privacy/">Privacy</a>
-        <a href="terms/">Terms</a>
-        <a href="cookies/">Manage cookies</a>
+        <a href="pages/privacy.html">Privacy</a>
+        <a href="pages/terms.html">Terms</a>
+        <a href="pages/cookies.html">Manage cookies</a>
       </nav>
     </footer>
-    <script src="assets/js/tabs.js"></script>
+    <script src="js/site.js"></script>
   </body>
 </html>

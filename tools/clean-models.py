@@ -11,9 +11,12 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_PATH = ROOT / "data" / "foundation-models.csv"
+SOURCE_PATHS = [
+    ROOT / "data" / "raw" / "foundation-models.csv",
+    ROOT / "data" / "foundation-models.csv",
+]
 JSON_PATH = ROOT / "data" / "models.json"
-MODELS_PAGE_PATH = ROOT / "models" / "index.html"
+MODELS_PAGE_PATH = ROOT / "pages" / "models.html"
 
 INVALID_LABELS = {
     "",
@@ -100,7 +103,7 @@ CURATED_MODELS = [
         "category": "Foundation Model",
         "venueYear": "2025",
         "year": 2025,
-        "sourceUrl": "alphaearth/",
+        "sourceUrl": "models/alphaearth.html",
         "source": "curated",
         "rawStatus": "curated",
         "rawCategory": "foundation_models",
@@ -307,14 +310,15 @@ def should_skip(row: dict[str, str], name: str) -> bool:
 
 def cleaned_models() -> list[dict[str, object]]:
     models: list[dict[str, object]] = list(CURATED_MODELS)
+    source_path = next((path for path in SOURCE_PATHS if path.exists()), None)
 
-    if not SOURCE_PATH.exists():
+    if source_path is None:
         raise SystemExit(
-            "Missing data/foundation-models.csv. Raw CSV exports are local inputs and are not "
-            "committed to the GitHub Pages site."
+            "Missing data/raw/foundation-models.csv. Raw CSV exports are local inputs and are "
+            "not committed to the GitHub Pages site."
         )
 
-    with SOURCE_PATH.open(newline="", encoding="utf-8") as handle:
+    with source_path.open(newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
             name = normalize_name(row)
 
@@ -363,8 +367,12 @@ def render_rows(models: list[dict[str, object]]) -> str:
         name = html_ascii(str(item.get("name", "")))
         category = html_ascii(str(item.get("category", "")))
         venue_year = html_ascii(str(item.get("venueYear", "")))
-        url = html_ascii(str(item.get("sourceUrl", "")) or "./")
-        target = "" if str(item.get("sourceUrl", "")).startswith(("alphaearth/", "./", "../")) else ' target="_blank" rel="noreferrer"'
+        url = html_ascii(str(item.get("sourceUrl", "")) or "models.html")
+        target = (
+            ""
+            if str(item.get("sourceUrl", "")).startswith(("models/", "./", "../"))
+            else ' target="_blank" rel="noreferrer"'
+        )
 
         rows.append(
             "\n".join(

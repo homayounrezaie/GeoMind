@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Datasets - GeoMind</title>
+    <link rel="icon" type="image/png" href="../images/geomind-logo.png" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <button class="menu-button" type="button" aria-label="Open navigation">
+        <span></span>
+      </button>
+      <a class="brand" href="../" aria-label="GeoMind home">
+        <img src="../images/geomind-logo.png" alt="" />
+        <span>GeoMind</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="models.html">Models</a>
+        <a class="is-active" href="datasets.html" aria-current="page">Datasets</a>
+        <a href="benchmarks.html">Benchmarks</a>
+        <a href="papers.html">Papers</a>
+      </nav>
+    </header>
+    <main class="list-page">
+      <h1 class="visually-hidden" id="datasets-title">Datasets</h1>
+
+      <section class="content-section" aria-label="GeoAI dataset cards">
+        <div class="resource-controls" data-resource-list>
+          <label class="search-control">
+            <span class="visually-hidden">Search datasets</span>
+            <input type="search" placeholder="Search datasets" data-resource-search />
+          </label>
+          <div class="sort-control" aria-label="Sort datasets">
+            <span>Sort</span>
+            <button class="is-active" type="button" data-sort-order="new" aria-pressed="true">
+              New
+            </button>
+            <button type="button" data-sort-order="old" aria-pressed="false">Old</button>
+          </div>
+        </div>
+        <div class="resource-table-wrap">
+          <table class="resource-table">
+            <thead>
+              <tr>
+                <th scope="col">Dataset</th>
+                <th scope="col">Task</th>
+                <th scope="col">Sensor / Modality</th>
+                <th scope="col">Resolution</th>
+                <th scope="col"><span class="visually-hidden">Link</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-year="2020">
+                <td>Million-AID</td>
+                <td>Scene classification</td>
+                <td>Optical imagery</td>
+                <td>Sub-meter to meter scale</td>
+                <td><a href="datasets.html">View dataset card</a></td>
+              </tr>
+              <tr data-year="2019">
+                <td>SEN12MS</td>
+                <td>Multi-sensor learning</td>
+                <td>Sentinel-1 / Sentinel-2</td>
+                <td>10-60 m</td>
+                <td><a href="datasets.html">View dataset card</a></td>
+              </tr>
+              <tr data-year="2016">
+                <td>SpaceNet</td>
+                <td>Building and road extraction</td>
+                <td>Satellite imagery</td>
+                <td>High resolution</td>
+                <td><a href="datasets.html">View dataset card</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="../js/site.js"></script>
+  </body>
+</html>

@@ -1,3 +1,47 @@
+const menuButtons = Array.from(document.querySelectorAll(".menu-button"));
+
+function closeMenu(header, button) {
+  header.classList.remove("is-menu-open");
+  button.setAttribute("aria-expanded", "false");
+  button.setAttribute("aria-label", "Open navigation");
+}
+
+menuButtons.forEach((button) => {
+  const header = button.closest(".site-header");
+  const menuLinks = Array.from(header?.querySelectorAll(".main-nav a") || []);
+
+  if (!header) {
+    return;
+  }
+
+  button.setAttribute("aria-expanded", "false");
+
+  button.addEventListener("click", () => {
+    const isOpen = header.classList.toggle("is-menu-open");
+
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+  });
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => closeMenu(header, button));
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  menuButtons.forEach((button) => {
+    const header = button.closest(".site-header");
+
+    if (header) {
+      closeMenu(header, button);
+    }
+  });
+});
+
 const tabs = Array.from(document.querySelectorAll("[data-tab-target]"));
 const panels = Array.from(document.querySelectorAll(".resource-panel"));
 const tabModeQuery = window.matchMedia("(max-width: 1024px)");

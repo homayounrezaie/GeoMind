@@ -1,1 +1,1 @@
-![GeoMind homepage](assets/img/homepage-screenshot.png)
+![GeoMind homepage](images/homepage-screenshot.png)

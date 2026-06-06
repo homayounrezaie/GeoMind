@@ -4,5 +4,7 @@ node_modules/
 dist/
 _site/
 data/*.csv
+data/raw/*.csv
 __pycache__/
 *.pyc
+test-results/
