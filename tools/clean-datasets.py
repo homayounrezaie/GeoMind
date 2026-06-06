@@ -492,6 +492,10 @@ def replace_between(text: str, start_pattern: str, end_pattern: str, replacement
 def update_datasets_page(rows: list[dict[str, object]]) -> None:
     page = DATASETS_PAGE_PATH.read_text()
     page = page.replace("<th scope=\"col\">Resolution</th>", "<th scope=\"col\">Size / Resolution</th>")
+    page = page.replace(
+        "<th scope=\"col\">View dataset card</th>",
+        '<th scope="col"><span class="visually-hidden">Link</span></th>',
+    )
     page = replace_between(page, r"<tbody>\n", r"\n\s*</tbody>", render_rows(rows))
     DATASETS_PAGE_PATH.write_text(page)
 
