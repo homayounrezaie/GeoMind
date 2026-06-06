@@ -171,6 +171,8 @@ function getCardLinkLabel(searchInput) {
 }
 
 function decorateSourceLinks(table, cardLinkLabel) {
+  const showSourceIcons = table?.dataset.sourceIcons !== "false";
+
   table?.querySelectorAll("tbody td:last-child a").forEach((link) => {
     const source = getSourceKind(link);
     const icon = document.createElement("span");
@@ -180,7 +182,7 @@ function decorateSourceLinks(table, cardLinkLabel) {
     link.textContent = "";
     text.textContent = cardLinkLabel;
 
-    if (source) {
+    if (source && showSourceIcons) {
       icon.className = `source-icon source-icon-${source.type}`;
       icon.setAttribute("aria-hidden", "true");
       link.setAttribute("aria-label", `${cardLinkLabel} on ${source.label}`);
