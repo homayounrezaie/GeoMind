@@ -9,7 +9,7 @@ tasks: [classification, retrieval]
 venue: AAAI 2025                 # conference / journal / "arXiv 2025" / "—"
 license: open                    # open | closed
 links:
-  card: pages/models/satclip.html
+  card: cards/models/satclip.html
   paper: https://arxiv.org/abs/xxxx.xxxxx
   code: https://github.com/microsoft/satclip
 

@@ -5,7 +5,7 @@ topic: Self-Supervised Learning  # SSL | Foundation Model | Segmentation | Surve
 venue: NeurIPS 2022              # conference or journal, e.g. "NeurIPS 2022" | "IEEE TGRS 2022" | "arXiv 2022"
 year: 2022
 links:
-  card: pages/papers/satmae.html
+  card: cards/papers/satmae.html
   paper: https://arxiv.org/abs/2207.08051
 
 # ---------- EXTENDED (optional) ----------

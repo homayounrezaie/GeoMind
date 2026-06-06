@@ -2,6 +2,7 @@
 
 This folder separates published site data from local raw exports.
 
+- Published card pages live in `../cards/`.
 - `models.json` is the cleaned, committed model index used by the public site.
 - `datasets.json` is the cleaned, committed dataset index generated from dataset-hosted geospatial rows.
 - `benchmarks.json` is the cleaned benchmark index generated from high-confidence benchmark rows.
