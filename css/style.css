@@ -1083,6 +1083,14 @@ h2 {
   align-items: start;
 }
 
+.site-footer .footer-links h3 {
+  margin: 0 0 4px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.35;
+}
+
 .site-footer .footer-links a {
   color: var(--muted);
   font-size: 15px;
