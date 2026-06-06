@@ -1,1317 +1,316 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GeoMind | GeoAI Hub</title>
-<link rel="icon" type="image/png" href="public/logo.png">
-<script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('has-reveal');</script>
-<link rel="stylesheet" href="src/styles/landing.css?v=20260528-18">
-</head>
-<body>
-<a class="lp-skip-link" href="#main">Skip to content</a>
-
-<!-- NAV -->
-<nav class="lp-nav">
-  <a class="lp-nav-brand" href="index.html">
-    <div class="lp-nav-logo-wrap">
-      <img src="public/logo.png" alt="GeoMind" class="lp-nav-logo">
-      <canvas id="logoCanvas" width="32" height="32" class="lp-nav-canvas"></canvas>
-    </div>
-    <div class="lp-nav-brand-text">
-      <span class="lp-nav-name">GeoMind</span>
-      <span class="lp-nav-subtag">Geospatial AI, structured.</span>
-    </div>
-  </a>
-  <div class="lp-nav-right">
-    <a class="lp-nav-action lp-nav-support" href="pages/support.html">
-      <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
-        <path d="M12 21s-7-4.35-9.4-8.3C.5 9.25 2.4 5 6.4 5c2 0 3.45 1.1 4.25 2.35C11.45 6.1 12.9 5 14.9 5c4 0 5.9 4.25 3.8 7.7C16.3 16.65 12 21 12 21Z" fill="currentColor"/>
-      </svg>
-      <span>Support</span>
-    </a>
-    <button class="lp-theme-toggle" data-theme-toggle type="button" aria-label="Switch theme">
-      <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-        <path d="M12 4.5a7.5 7.5 0 1 0 7.5 7.5A6.8 6.8 0 0 1 12 4.5Z" fill="currentColor"/>
-      </svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-        <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-4a1 1 0 0 1 1 1v1.2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 14.8a1 1 0 0 1 1 1V20a1 1 0 1 1-2 0v-1.2a1 1 0 0 1 1-1ZM4 11h1.2a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2Zm14.8 0H20a1 1 0 1 1 0 2h-1.2a1 1 0 1 1 0-2ZM6.3 4.9l.8.8a1 1 0 0 1-1.4 1.4l-.8-.8a1 1 0 1 1 1.4-1.4Zm12 12 .8.8a1 1 0 0 1-1.4 1.4l-.8-.8a1 1 0 0 1 1.4-1.4Zm.8-10.6-.8.8a1 1 0 0 1-1.4-1.4l.8-.8a1 1 0 1 1 1.4 1.4Zm-12 12-.8.8a1 1 0 0 1-1.4-1.4l.8-.8a1 1 0 0 1 1.4 1.4Z" fill="currentColor"/>
-      </svg>
-    </button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="lp-hero" id="main">
-  <div class="lp-hero-shell">
-    <div class="lp-hero-copy">
-      <p class="lp-hero-eyebrow">GeoAI is fragmented!</p>
-      <h1 class="lp-hero-proof">We map it,<br>so you can follow it.</h1>
-      <div class="lp-hero-actions">
-        <a class="lp-cta-primary" href="pages/app.html">Try GeoMind</a>
-        <a class="lp-cta-secondary" href="pages/api.html">Explore API</a>
-      </div>
-      <div class="lp-hero-proof-grid" data-hero-stats aria-label="GeoMind coverage">
-        <a class="lp-hero-stat" href="pages/paper-with-code.html" data-stat-key="papers" data-stat-default="17409">
-          <strong data-stat-value>0</strong>
-          <span>papers</span>
-        </a>
-        <a class="lp-hero-stat" href="pages/foundation-models.html" data-stat-key="models" data-stat-default="11090">
-          <strong data-stat-value>0</strong>
-          <span>models</span>
-        </a>
-        <a class="lp-hero-stat" href="pages/datasets.html" data-stat-key="datasets_plus_benchmarks" data-stat-default="5042">
-          <strong data-stat-value>0</strong>
-          <span>datasets+benchmarks</span>
-        </a>
-        <a class="lp-hero-stat" href="pages/companies.html" data-stat-key="companies" data-stat-default="4773">
-          <strong data-stat-value>0</strong>
-          <span>companies</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INTRO -->
-<section class="lp-intro-section" id="intro">
-  <div class="lp-intro-shell">
-    <p class="lp-intro-copy"><strong>GeoAI is moving fast.</strong> New foundation models, papers, and benchmarks appear almost every week — the hard part is no longer finding information, it's understanding how everything connects. GeoMind is a place for us to work on this, together!</p>
-    <div class="lp-clarity-links" aria-label="Public resources connected through GeoMind">
-      <a href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener">
-        <span class="lp-clarity-icon" aria-hidden="true"><svg viewBox="0 0 98 96"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/></svg></span>
-        <span>GitHub</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GeoMind</title>
+    <meta
+      name="description"
+      content="Simple, structured overviews of Geospatial AI models, datasets, benchmarks, and papers."
+    />
+    <link rel="icon" type="image/png" href="assets/img/geomind-logo.png" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <button class="menu-button" type="button" aria-label="Open navigation">
+        <span></span>
+      </button>
+      <a class="brand" href="./" aria-label="GeoMind home">
+        <img src="assets/img/geomind-logo.png" alt="" />
+        <span>GeoMind</span>
       </a>
-      <a href="https://paperswithcode.com/" target="_blank" rel="noopener">
-        <span class="lp-clarity-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linejoin="round"/></svg></span>
-        <span>Papers with Code</span>
-      </a>
-      <a href="https://www.kaggle.com/" target="_blank" rel="noopener">
-        <span class="lp-clarity-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336z"/></svg></span>
-        <span>Kaggle</span>
-      </a>
-      <a href="https://huggingface.co/" target="_blank" rel="noopener">
-        <span class="lp-clarity-icon lp-clarity-icon-face" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFD21E"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" fill="none"/><circle cx="9" cy="10" r="1" fill="#1a1a1a"/><circle cx="15" cy="10" r="1" fill="#1a1a1a"/><path d="M7 8.5c.5-1 1.5-1.5 2-1M17 8.5c-.5-1-1.5-1.5-2-1" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg></span>
-        <span>Hugging Face</span>
-      </a>
-    </div>
-  </div>
-</section>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="models/">Models</a>
+        <a href="datasets-benchmarks/">Datasets &amp; Benchmarks</a>
+        <a href="papers/">Papers</a>
+      </nav>
+    </header>
 
-<!-- CATEGORIES -->
-<section class="lp-category-section" id="categories">
-  <div class="lp-section-head">
-    <p class="lp-sec-label">GeoAI Knowledge Map</p>
-    <h2 class="lp-sec-title">Pick a route.</h2>
-  </div>
-  <div class="lp-terminal" data-terminal aria-label="GeoMind explorer">
-    <div class="lp-terminal-chrome">
-      <span class="lp-terminal-dot lp-terminal-dot--r" aria-hidden="true"></span>
-      <span class="lp-terminal-dot lp-terminal-dot--y" aria-hidden="true"></span>
-      <span class="lp-terminal-dot lp-terminal-dot--g" aria-hidden="true"></span>
-      <span class="lp-terminal-path" data-terminal-path>~/main</span>
-    </div>
-    <div class="lp-terminal-screen" data-terminal-screen>
-      <div class="lp-terminal-line">
-        <span class="lp-terminal-prompt">geomind:<span data-terminal-cwd>~/main</span>$</span>
-        <span class="lp-terminal-command" data-terminal-command></span>
-        <span class="lp-terminal-caret" data-terminal-caret aria-hidden="true"></span>
-      </div>
-      <div class="lp-terminal-output" data-terminal-output aria-live="polite"></div>
-    </div>
-  </div>
-</section>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <h1 id="page-title">GeoMind</h1>
+        <p class="tagline">
+          GeoAI is fragmented. We turn it into <span class="gradient-text">visual cards</span> so
+          you can explore models, datasets, benchmarks, and papers.
+        </p>
+      </section>
 
-<!-- INSIGHT -->
-<section class="lp-insight-section" aria-labelledby="insight-title">
-  <style>
-    .gm-heatmap-wrap{
-      max-width:1600px;
-      margin:0 auto;
-      color:#c9d1d9;
-      --cell:14px;
-      --gap:3px;
-      --row-gap:6px;
-      --label-w:130px;
-      --label-pad:14px;
-    }
-    .lp-insight-section{
-      max-width:1700px;
-      padding-left:.75rem;
-      padding-right:.75rem;
-    }
-    .gm-heatmap-intro{
-      max-width:760px;
-      margin:0 auto 56px;
-      text-align:center;
-    }
-    .gm-heatmap-intro h2{
-      color:#fff;
-      font-family:ui-serif,Georgia,Cambria,'Times New Roman',Times,serif;
-      font-size:clamp(26px,4vw,42px);
-      font-weight:500;
-      letter-spacing:-.02em;
-      line-height:1.04;
-      margin-bottom:.75rem;
-    }
-    .gm-heatmap-intro p{
-      color:#7d8590;
-      font-size:14px;
-      line-height:1.7;
-      margin:0;
-    }
-    .gm-gh-chart{
-      margin:0 0 60px;
-      text-align:center;
-    }
-    .gm-gh-chart:last-child{margin-bottom:0}
-    .gm-gh-title{
-      color:#c7d2fe;
-      font-family:ui-serif,Georgia,Cambria,'Times New Roman',Times,serif;
-      font-size:24px;
-      font-weight:500;
-      letter-spacing:-.01em;
-      line-height:1.05;
-      width:var(--cells-w);
-      max-width:calc(100% - var(--label-w) - var(--label-pad));
-      margin:0 auto 8px calc((100% - var(--chart-w)) / 2 + var(--label-w) + var(--label-pad));
-      padding-top:10px;
-      text-align:left;
-    }
-    [data-theme="light"] .gm-gh-title{color:#3B33AB;}
-    [data-theme="light"] .gm-gh-label{color:#5A554C;}
-    .gm-gh-subtitle{
-      width:var(--cells-w);
-      max-width:calc(100% - var(--label-w) - var(--label-pad));
-      color:#7d8590;
-      font-size:13px;
-      line-height:1.6;
-      margin:0 auto 22px calc((100% - var(--chart-w)) / 2 + var(--label-w) + var(--label-pad));
-      text-align:left;
-    }
-    .gm-gh-scroll{
-      overflow-x:hidden;
-      overflow-y:visible;
-      padding-bottom:2px;
-    }
-    .gm-gh-stage{
-      position:relative;
-      width:var(--chart-w);
-      min-height:126px;
-      margin:0 auto;
-    }
-    .gm-gh-axis{
-      position:relative;
-      width:var(--cells-w);
-      height:30px;
-      margin-left:calc(var(--label-w) + var(--label-pad));
-    }
-    .gm-gh-year{
-      position:absolute;
-      white-space:nowrap;
-    }
-    .gm-gh-year{
-      top:0;
-      color:#fff;
-      font-size:13px;
-      font-weight:700;
-      line-height:16px;
-      transform:translateX(-50%);
-    }
-    .gm-gh-body{
-      display:grid;
-      grid-template-columns:var(--label-w) max-content;
-      column-gap:var(--label-pad);
-      align-items:start;
-    }
-    .gm-gh-labels{
-      display:grid;
-      grid-template-rows:repeat(var(--rows),var(--cell));
-      row-gap:var(--row-gap);
-    }
-    .gm-gh-label{
-      color:rgba(255,255,255,0.62);
-      font-family:'SF Mono','Menlo',monospace;
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      line-height:var(--cell);
-      text-align:right;
-      white-space:nowrap;
-    }
-    .gm-gh-label.has-icon{
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-      line-height:1;
-    }
-    .gm-platform-icon{
-      position:relative;
-      display:inline-grid;
-      place-items:center;
-      width:var(--icon-size,18px);
-      height:var(--icon-size,18px);
-      color:#7d8590;
-      outline:none;
-    }
-    .gm-platform-icon.is-wide{
-      width:46px;
-    }
-    .gm-platform-icon svg,
-    .gm-platform-icon img{
-      display:block;
-      width:var(--icon-svg-size,16px);
-      height:var(--icon-svg-size,16px);
-      flex:0 0 auto;
-    }
-    .gm-platform-icon.is-wide svg{
-      width:46px;
-      height:17px;
-    }
-    .gm-platform-icon img{
-      filter:grayscale(1);
-      opacity:.78;
-      transition:opacity .16s ease, filter .16s ease;
-    }
-    .gm-platform-icon svg{
-      opacity:.86;
-      transition:opacity .16s ease, transform .16s ease;
-    }
-    .gm-platform-icon:hover svg{
-      opacity:1;
-      transform:translateY(-1px);
-    }
-    .gm-platform-icon:hover img{
-      opacity:1;
-      filter:none;
-    }
-    .gm-platform-icon::after{
-      content:attr(aria-label);
-      position:absolute;
-      top:50%;
-      right:24px;
-      z-index:5;
-      opacity:0;
-      transform:translate(4px,-50%);
-      padding:4px 6px;
-      border:1px solid #30363d;
-      border-radius:4px;
-      background:#161b22;
-      color:#f0f6fc;
-      font-size:11px;
-      font-weight:700;
-      line-height:1.2;
-      white-space:nowrap;
-      pointer-events:none;
-      transition:opacity .16s ease, transform .16s ease;
-    }
-    .gm-platform-icon:hover::after,
-    .gm-platform-icon:focus-visible::after{
-      opacity:1;
-      transform:translate(0,-50%);
-    }
-    .gm-platform-icon-fallback{
-      display:none;
-      color:#7d8590;
-      font-size:10px;
-      font-weight:700;
-      letter-spacing:.02em;
-    }
-    .gm-gh-cells{
-      position:relative;
-      display:grid;
-      grid-template-columns:repeat(var(--columns),var(--cell));
-      grid-template-rows:repeat(var(--rows),var(--cell));
-      grid-auto-flow:column;
-      column-gap:var(--gap);
-      row-gap:var(--row-gap);
-      width:max-content;
-    }
-    .gm-gh-cell{
-      position:relative;
-      width:var(--cell);
-      height:var(--cell);
-      border-radius:3px;
-      background:rgba(129,140,248,0.04);
-      outline:1px solid rgba(129,140,248,0.05);
-      opacity:0;
-      transform:translateY(3px) scale(0.94);
-      transition:transform .18s ease, outline-color .18s ease, filter .18s ease;
-    }
-    .gm-gh-cell[data-future="true"]{
-      background:rgba(129,140,248,0.025);
-      outline:1px dashed rgba(129,140,248,0.12);
-    }
-    .gm-gh-cell[data-level="1"]{background:rgba(99,102,241,0.18)}
-    .gm-gh-cell[data-level="2"]{background:rgba(99,102,241,0.42)}
-    .gm-gh-cell[data-level="3"]{background:rgba(99,102,241,0.72)}
-    .gm-gh-cell[data-level="4"]{background:#a5b4fc}
-    .gm-gh-cell:hover,
-    .gm-gh-cell:focus-visible{
-      transform:scale(1.18);
-      outline-color:rgba(165,180,252,0.6);
-      filter:brightness(1.18);
-      z-index:3;
-    }
-    .gm-gh-chart.is-revealing .gm-gh-cell{
-      animation:gmCellIn 320ms cubic-bezier(0.16,1,0.3,1) var(--delay,0ms) forwards;
-    }
-    .gm-gh-chart.is-complete .gm-gh-cell,
-    .gm-gh-chart.reduced-motion .gm-gh-cell{
-      opacity:1;
-      transform:none;
-    }
-    @keyframes gmCellIn{
-      to{opacity:1;transform:translateY(0) scale(1)}
-    }
-    .gm-gh-dot{
-      position:absolute;
-      top:calc(var(--cell) * -.42);
-      left:50%;
-      width:var(--dot-size,3px);
-      height:var(--dot-size,3px);
-      border-radius:999px;
-      background:#7d8590;
-      opacity:0;
-      transform:translateX(-50%);
-      pointer-events:none;
-    }
-    .gm-gh-chart.is-complete .gm-gh-dot,
-    .gm-gh-chart.reduced-motion .gm-gh-dot{
-      opacity:1;
-    }
-    .gm-gh-today{
-      position:absolute;
-      top:-30px;
-      bottom:-2px;
-      width:2.5px;
-      background:#f85149;
-      z-index:2;
-      pointer-events:none;
-    }
-    .gm-gh-today span{
-      position:absolute;
-      top:2px;
-      right:0;
-      color:#f85149;
-      font-size:11px;
-      font-weight:600;
-      white-space:nowrap;
-    }
-    .gm-gh-pill{
-      position:absolute;
-      z-index:4;
-      display:none;
-      max-width:180px;
-      padding:3px 6px;
-      border-radius:4px;
-      border:1px solid #30363d;
-      background:#21262d;
-      color:#fff;
-      font-size:11px;
-      font-weight:700;
-      line-height:1.25;
-      white-space:nowrap;
-      pointer-events:none;
-      transform:translateY(0);
-    }
-    .gm-gh-pill.is-visible{
-      display:block;
-      animation:gmPillIn 200ms ease-out forwards;
-    }
-    .gm-gh-pill.is-leaving{
-      display:block;
-      animation:gmPillOut 200ms ease-out forwards;
-    }
-    @keyframes gmPillIn{
-      from{opacity:0;transform:translateY(6px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-    @keyframes gmPillOut{
-      from{opacity:1;transform:translateY(0)}
-      to{opacity:0;transform:translateY(-4px)}
-    }
-    .gm-gh-footer{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      margin-top:12px;
-      margin-left:calc(var(--label-w) + var(--label-pad));
-      color:#7d8590;
-      font-size:11px;
-    }
-    .gm-gh-legend{
-      display:flex;
-      align-items:center;
-      gap:5px;
-      margin-left:auto;
-    }
-    .gm-gh-swatch{
-      width:11px;
-      height:11px;
-      border-radius:2px;
-      background:rgba(129,140,248,0.04);
-      outline:1px solid rgba(129,140,248,0.06);
-    }
-    .gm-gh-swatch[data-level="1"]{background:rgba(99,102,241,0.18)}
-    .gm-gh-swatch[data-level="2"]{background:rgba(99,102,241,0.42)}
-    .gm-gh-swatch[data-level="3"]{background:rgba(99,102,241,0.72)}
-    .gm-gh-swatch[data-level="4"]{background:#a5b4fc}
-    .gm-gh-tip{
-      position:fixed;
-      z-index:9999;
-      display:none;
-      max-width:260px;
-      padding:8px 10px;
-      border-radius:6px;
-      background:#161b22;
-      color:#c9d1d9;
-      border:1px solid #30363d;
-      font-size:12px;
-      line-height:1.45;
-      pointer-events:none;
-      box-shadow:0 8px 24px rgba(0,0,0,.28);
-    }
-    .gm-gh-tip strong{display:block;color:#f0f6fc;margin-bottom:2px}
-    .gm-gh-tip span{display:block;color:#c9d1d9}
-    .gm-gh-tip small{display:block;color:#7d8590;margin-top:4px;font-size:11px}
-    @media(max-width:640px){
-      .gm-heatmap-intro{text-align:left;margin-bottom:44px}
-      .gm-gh-chart{margin-bottom:72px}
-      .gm-gh-footer{margin-left:var(--label-w);min-width:260px}
-      .gm-gh-swatch{width:8px;height:8px}
-    }
-    @media(prefers-reduced-motion:reduce){
-      .gm-gh-cell,
-      .gm-gh-chart.is-revealing .gm-gh-cell{
-        animation:none;
-        opacity:1;
-        transform:none;
-      }
-      .gm-gh-pill,
-      .gm-gh-pill.is-visible,
-      .gm-gh-pill.is-leaving{
-        animation:none;
-      }
-    }
-  </style>
-  <div class="gm-heatmap-wrap">
-    <div class="gm-heatmap-intro">
-      <h2 id="insight-title">What is emerging in GeoAI?</h2>
-      <p>Two charts. What is being built, and where it lands.</p>
-    </div>
-    <div id="geoaiHeatmaps"></div>
-  </div>
-</section>
+      <nav class="category-tabs" aria-label="GeoMind categories">
+        <button
+          class="category-tab is-active"
+          id="tab-models"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="models"
+          data-tab-target="models"
+        >
+          Models
+        </button>
+        <button
+          class="category-tab"
+          id="tab-datasets"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="datasets"
+          data-tab-target="datasets"
+        >
+          Datasets &amp; Benchmarks
+        </button>
+        <button
+          class="category-tab"
+          id="tab-papers"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="papers"
+          data-tab-target="papers"
+        >
+          Papers
+        </button>
+      </nav>
 
-<!-- DATASETS QUERY -->
-<section class="lp-ds-section" aria-labelledby="ds-title">
-  <div class="lp-section-head">
-    <h2 class="lp-sec-title" id="ds-title">Same Earth. Many signals.</h2>
-    <p class="lp-sec-sub">Every layer in GeoMind connects to real datasets. Here's what they look like.</p>
-  </div>
-  <div class="lp-ds-query" data-ds-query aria-label="GeoMind dataset samples">
-    <div class="lp-ds-chrome">
-      <span class="lp-ds-dot lp-ds-dot--r" aria-hidden="true"></span>
-      <span class="lp-ds-dot lp-ds-dot--y" aria-hidden="true"></span>
-      <span class="lp-ds-dot lp-ds-dot--g" aria-hidden="true"></span>
-      <span class="lp-ds-path" data-ds-path>~/datasets</span>
-      <span class="lp-ds-page" data-ds-page></span>
-    </div>
-    <div class="lp-ds-screen" data-ds-screen>
-      <div class="lp-ds-line">
-        <span class="lp-ds-prompt">geomind:~/datasets$</span>
-        <span class="lp-ds-command" data-ds-command></span>
-        <span class="lp-ds-caret" data-ds-caret aria-hidden="true"></span>
-      </div>
-      <p class="lp-ds-comment" data-ds-comment hidden></p>
-      <div class="lp-ds-results" data-ds-results aria-live="polite"></div>
-    </div>
-  </div>
-  <a class="lp-story-cta" href="pages/datasets.html">Browse datasets →</a>
-</section>
-
-<!-- STORY -->
-<section class="lp-story-section">
-  <div class="lp-story-inner">
-    <div class="lp-story-head">
-      <h2 class="lp-sec-title">Every new paper has a place.</h2>
-      <p class="lp-story-text">Each model, benchmark, and dataset slots into a layer, so you can tell at a glance what it replaces, what it builds on, and where it fits.</p>
-    </div>
-    <div class="lp-paper-stage" id="lpPaperStage" aria-label="Recognized GeoAI papers indexed in GeoMind">
-      <div class="lp-paper-list" role="tablist">
-        <a class="lp-paper-item is-active" role="tab" data-idx="0" href="pages/paper-with-code.html#prithvi-100m">
-          <span class="lp-paper-item-body">
-            <span class="lp-paper-item-name">Prithvi-100M</span>
-            <span class="lp-paper-item-title">Foundation Models for Generalist Geospatial AI</span>
-            <span class="lp-paper-item-meta">Jakubik et al. · 2023 · arXiv</span>
-          </span>
-          <span class="lp-paper-item-progress"><i></i></span>
-        </a>
-        <a class="lp-paper-item" role="tab" data-idx="1" href="pages/paper-with-code.html#satmae">
-          <span class="lp-paper-item-body">
-            <span class="lp-paper-item-name">SatMAE</span>
-            <span class="lp-paper-item-title">Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery</span>
-            <span class="lp-paper-item-meta">Cong et al. · 2022 · NeurIPS</span>
-          </span>
-          <span class="lp-paper-item-progress"><i></i></span>
-        </a>
-        <a class="lp-paper-item" role="tab" data-idx="2" href="pages/paper-with-code.html#scale-mae">
-          <span class="lp-paper-item-body">
-            <span class="lp-paper-item-name">Scale-MAE</span>
-            <span class="lp-paper-item-title">A Scale-Aware Masked Autoencoder for Multiscale Geospatial Representation Learning</span>
-            <span class="lp-paper-item-meta">Reed et al. · 2023 · ICCV</span>
-          </span>
-          <span class="lp-paper-item-progress"><i></i></span>
-        </a>
-        <a class="lp-paper-item" role="tab" data-idx="3" href="pages/paper-with-code.html#ringmo">
-          <span class="lp-paper-item-body">
-            <span class="lp-paper-item-name">RingMo</span>
-            <span class="lp-paper-item-title">A Remote Sensing Foundation Model With Masked Image Modeling</span>
-            <span class="lp-paper-item-meta">Sun et al. · 2022 · IEEE TGRS</span>
-          </span>
-          <span class="lp-paper-item-progress"><i></i></span>
-        </a>
-        <a class="lp-paper-item" role="tab" data-idx="4" href="pages/paper-with-code.html#geoclip">
-          <span class="lp-paper-item-body">
-            <span class="lp-paper-item-name">GeoCLIP</span>
-            <span class="lp-paper-item-title">CLIP-Inspired Alignment between Locations and Images for Worldwide Geo-localization</span>
-            <span class="lp-paper-item-meta">Cepeda et al. · 2023 · NeurIPS</span>
-          </span>
-          <span class="lp-paper-item-progress"><i></i></span>
-        </a>
-        <a class="lp-paper-item" role="tab" data-idx="5" href="pages/paper-with-code.html#clay">
-          <span class="lp-paper-item-body">
-            <span class="lp-paper-item-name">Clay</span>
-            <span class="lp-paper-item-title">Clay Foundation Model</span>
-            <span class="lp-paper-item-meta">Clay Foundation team · 2024 · Technical report</span>
-          </span>
-          <span class="lp-paper-item-progress"><i></i></span>
-        </a>
-      </div>
-      <div class="lp-paper-preview" aria-hidden="true">
-        <figure class="lp-paper-slide is-active" data-idx="0">
-          <img src="public/papers/prithvi.png" alt="First page of the Prithvi-100M paper" loading="lazy">
-        </figure>
-        <figure class="lp-paper-slide" data-idx="1">
-          <img src="public/papers/satmae.png" alt="First page of the SatMAE paper" loading="lazy">
-        </figure>
-        <figure class="lp-paper-slide" data-idx="2">
-          <img src="public/papers/scale-mae.png" alt="First page of the Scale-MAE paper" loading="lazy">
-        </figure>
-        <figure class="lp-paper-slide" data-idx="3">
-          <img src="public/papers/ringmo.png" alt="Public source page for the RingMo paper" loading="lazy">
-        </figure>
-        <figure class="lp-paper-slide" data-idx="4">
-          <img src="public/papers/geoclip.png" alt="First page of the GeoCLIP paper" loading="lazy">
-        </figure>
-        <figure class="lp-paper-slide" data-idx="5">
-          <img src="public/papers/clay.png" alt="Public Clay Foundation Model documentation page" loading="lazy">
-        </figure>
-      </div>
-    </div>
-    <a class="lp-story-cta" href="pages/paper-with-code.html">Browse papers →</a>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="lp-nl-section">
-  <div class="lp-nl-wrap">
-    <div class="lp-nl-card">
-      <p class="lp-nl-simple">Subscribe to know what is going on in GeoAI.</p>
-
-      <form class="lp-nl-form" onsubmit="nlSubmit(event)">
-        <div class="lp-nl-terminal" onclick="this.querySelector('input')?.focus()">
-          <span class="lp-nl-prompt">geomind:~$</span>
-          <span class="lp-nl-cursor" id="nl-cursor"></span>
-          <input class="lp-nl-input" type="email" placeholder="you@domain.com" required>
-          <button class="lp-nl-btn" type="submit">Subscribe</button>
+      <section
+        class="content-section resource-panel is-active"
+        id="models"
+        data-panel="models"
+        role="tabpanel"
+        aria-labelledby="tab-models"
+      >
+        <div class="section-heading">
+          <h2 id="models-title">Models <span class="section-count">1,088 models</span></h2>
         </div>
-      </form>
 
-      <p class="lp-nl-meta">every tuesday · unsubscribe anytime</p>
-    </div>
-  </div>
-</section>
+        <div class="resource-table-wrap">
+          <table class="resource-table">
+            <thead>
+              <tr>
+                <th scope="col">Model name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Venue / Year</th>
+                <th scope="col"><span class="visually-hidden">Link</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-year="2026">
+                <td>TESSERA</td>
+                <td>Foundation Model</td>
+                <td>CVPR 2026</td>
+                <td><a href="models/">View model card</a></td>
+              </tr>
+              <tr data-year="2025">
+                <td>AlphaEarth</td>
+                <td>Foundation Model</td>
+                <td>2025</td>
+                <td><a href="models/alphaearth/">View model card</a></td>
+              </tr>
+              <tr data-year="2023">
+                <td>Prithvi</td>
+                <td>Foundation Model</td>
+                <td>2023</td>
+                <td><a href="models/">View model card</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="browse-row">
+          <a class="gradient-text" href="models/">Browse all models</a>
+        </div>
+      </section>
 
-<footer class="lp-footer">
-  <div class="lp-footer-top">
-    <div class="lp-footer-brand">
-      <img src="public/logo.png" alt="GeoMind" class="lp-footer-logo">
-      <div class="lp-footer-brand-text">
-        <span class="lp-footer-name">GeoMind</span>
-        <span class="lp-footer-tagline">Geospatial AI, structured.</span>
-      </div>
-      <p class="lp-footer-brand-desc">GeoMind helps you follow a fragmented GeoAI field and understand how the important pieces connect.</p>
-    </div>
+      <section
+        class="content-section resource-panel"
+        id="datasets"
+        data-panel="datasets"
+        role="tabpanel"
+        aria-labelledby="tab-datasets"
+      >
+        <div class="section-heading">
+          <h2 id="datasets-title">
+            Datasets &amp; Benchmarks <span class="section-count">6,422 entries</span>
+          </h2>
+        </div>
 
-    <div class="lp-footer-cols">
-      <div class="lp-footer-col">
-        <p class="lp-footer-col-title">Products</p>
-        <a href="pages/learn.html">Learn</a>
-        <a href="pages/paper-with-code.html">Papers</a>
-        <a href="pages/app.html#tasks">Tasks &amp; Applications</a>
-        <a href="pages/app.html#stack">Stack &amp; Tools</a>
-        <a href="pages/companies.html">Companies</a>
-        <a href="pages/api.html">API</a>
-      </div>
-      <div class="lp-footer-col">
-        <p class="lp-footer-col-title">Community</p>
-        <a href="pages/newsletter.html">Newsletter</a>
-        <a href="https://github.com/homayounrezaie/GeoMind/issues" target="_blank" rel="noopener">Feedback</a>
-        <a href="pages/jobposting.html">Post a Job</a>
-      </div>
-      <div class="lp-footer-col">
-        <p class="lp-footer-col-title">GeoMind</p>
-        <a href="#">About</a>
-        <a href="#">Team</a>
-      </div>
-      <div class="lp-footer-col lp-footer-col-contact">
-        <p class="lp-footer-col-title">Contact</p>
-        <form class="lp-footer-form" onsubmit="footerContact(event)">
-          <input class="lp-footer-input" type="text" placeholder="Your name" required>
-          <input class="lp-footer-input" type="email" placeholder="your@email.com" required>
-          <textarea class="lp-footer-input lp-footer-textarea" placeholder="Your message…" required></textarea>
-          <button class="lp-footer-submit" type="submit">Send →</button>
+        <div class="resource-table-wrap">
+          <table class="resource-table">
+            <thead>
+              <tr>
+                <th scope="col">Dataset / Benchmark</th>
+                <th scope="col">Task</th>
+                <th scope="col">Sensor / Modality</th>
+                <th scope="col">Resolution</th>
+                <th scope="col"><span class="visually-hidden">Link</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-year="2020">
+                <td>Million-AID</td>
+                <td>Scene classification</td>
+                <td>Optical imagery</td>
+                <td>Sub-meter to meter scale</td>
+                <td><a href="datasets-benchmarks/">View dataset card</a></td>
+              </tr>
+              <tr data-year="2019">
+                <td>BigEarthNet</td>
+                <td>Multi-label classification</td>
+                <td>Sentinel-1 / Sentinel-2</td>
+                <td>10-60 m</td>
+                <td><a href="datasets-benchmarks/">View benchmark card</a></td>
+              </tr>
+              <tr data-year="2016">
+                <td>SpaceNet</td>
+                <td>Building and road extraction</td>
+                <td>Satellite imagery</td>
+                <td>High resolution</td>
+                <td><a href="datasets-benchmarks/">View dataset card</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="browse-row">
+          <a class="gradient-text" href="datasets-benchmarks/">Browse all datasets &amp; benchmarks</a>
+        </div>
+      </section>
+
+      <section
+        class="content-section resource-panel"
+        id="papers"
+        data-panel="papers"
+        role="tabpanel"
+        aria-labelledby="tab-papers"
+      >
+        <div class="section-heading">
+          <h2 id="papers-title">Papers <span class="section-count">18,203 papers</span></h2>
+        </div>
+
+        <div class="resource-table-wrap">
+          <table class="resource-table">
+            <thead>
+              <tr>
+                <th scope="col">Paper title</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Venue / Year</th>
+                <th scope="col"><span class="visually-hidden">Link</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-venue="other" data-year="2024">
+                <td>Foundation Models for Generalist Geospatial AI</td>
+                <td>Foundation models</td>
+                <td>2024</td>
+                <td><a href="papers/">View paper card</a></td>
+              </tr>
+              <tr data-venue="neurips" data-year="2022">
+                <td>SatMAE</td>
+                <td>Self-supervised</td>
+                <td>NeurIPS 2022</td>
+                <td><a href="papers/satmae/">View paper card</a></td>
+              </tr>
+              <tr data-venue="other" data-year="2025">
+                <td>Earth Observation with Multimodal AI</td>
+                <td>Multimodal learning</td>
+                <td>2025</td>
+                <td><a href="papers/">View paper card</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="browse-row">
+          <a class="gradient-text" href="papers/">Browse all papers</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="GeoMind footer">
+      <section class="social-section" aria-labelledby="follow-title">
+        <h2 id="follow-title">Follow us</h2>
+        <nav class="social-links" aria-label="Social links">
+          <a href="#" aria-label="X">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.6 10.7 21.1 2h-1.8l-6.5 7.5L7.6 2h-6l7.9 11.4L1.6 22h1.8l6.9-7.9 5.5 7.9h6l-8.2-11.3Zm-2.4 2.7-.8-1.1L4 3.3h2.7l5.1 7.2.8 1.1 6.7 9.4h-2.7l-5.4-7.6Z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.6 4.6 12 4.6 12 4.6s-5.6 0-7.5.5a3 3 0 0 0-2.1 2.1A31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 7.5.5 7.5.5s5.6 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.8 7.7H1.9V22h2.9V7.7ZM3.4 1a2.1 2.1 0 1 0 0 4.2A2.1 2.1 0 0 0 3.4 1Zm8.1 6.7H8.7V22h2.8v-7.1c0-1.9.4-3.7 2.7-3.7 2.2 0 2.2 2.1 2.2 3.8v7h2.9v-7.9c0-3.9-.9-6.8-5.3-6.8-2.1 0-3.5 1.1-4.1 2.2h-.1V7.7Z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .9A11.1 11.1 0 0 0 .9 12c0 4.9 3.2 9.1 7.6 10.6.6.1.8-.2.8-.6v-2.1c-3.1.7-3.7-1.3-3.7-1.3-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.5 2.9 3.2 2.1.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.2-3-.1-.3-.5-1.5.1-3 0 0 .9-.3 3.1 1.1.9-.2 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3.1-1.1 3.1-1.1.6 1.5.2 2.7.1 3 .7.8 1.2 1.8 1.2 3 0 4.3-2.6 5.2-5.1 5.5.4.3.8 1 .8 2.1V22c0 .4.2.7.8.6A11.1 11.1 0 0 0 23.1 12 11.1 11.1 0 0 0 12 .9Z" />
+            </svg>
+          </a>
+        </nav>
+      </section>
+
+      <section class="signup-section" aria-labelledby="signup-title">
+        <h2 id="signup-title">Sign up for updates on our latest innovations</h2>
+        <p>
+          I accept GeoMind's Terms and Conditions and acknowledge that my information will be used
+          in accordance with GeoMind's Privacy Policy.
+        </p>
+        <form class="signup-form">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" type="email" placeholder="Get the latest updates" />
+          <button type="submit">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3.5 5.5 20.5 12 3.5 18.5v-5l10-1.5-10-1.5v-5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" />
+            </svg>
+            <span>Sign up</span>
+          </button>
         </form>
-      </div>
-    </div>
-  </div>
+      </section>
 
-  <div class="lp-footer-bottom">
-    <span>© 2025 GeoMind. Open source.</span>
-    <div class="lp-footer-socials">
-      <a class="lp-footer-social" href="https://github.com/homayounrezaie/GeoMind" target="_blank" rel="noopener" title="GitHub">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      </a>
-      <a class="lp-footer-social" href="https://x.com" target="_blank" rel="noopener" title="X">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.261 5.632 5.903-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>
-      </a>
-      <a class="lp-footer-social" href="mailto:contact@geomind.ai" title="Email">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </a>
-      <a class="lp-footer-social" href="https://linkedin.com" target="_blank" rel="noopener" title="LinkedIn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-    </div>
-    <span>Built with ♥ for the GeoAI community.</span>
-  </div>
-</footer>
-
-<script>
-function footerContact(e) {
-  e.preventDefault();
-  e.target.innerHTML = '<p style="color:#4ade80;font-size:13px;margin:0">Message sent! We\'ll get back to you soon.</p>';
-}
-document.querySelector('.lp-nl-input')?.addEventListener('focus', () => {
-  document.getElementById('nl-cursor')?.style.setProperty('display', 'none');
-});
-document.querySelector('.lp-nl-input')?.addEventListener('blur', () => {
-  document.getElementById('nl-cursor')?.style.setProperty('display', 'inline-block');
-});
-function nlSubmit(e) {
-  e.preventDefault();
-  const terminal = e.target.querySelector('.lp-nl-terminal');
-  const input = e.target.querySelector('.lp-nl-input');
-  const cursor = e.target.querySelector('.lp-nl-cursor');
-  const button = e.target.querySelector('.lp-nl-btn');
-
-  input?.remove();
-  cursor?.remove();
-  button?.remove();
-
-  if (!terminal.querySelector('.lp-nl-success')) {
-    terminal.insertAdjacentHTML('beforeend', '<span class="lp-nl-success">subscribed ✓</span>');
-  }
-}
-
-</script>
-<script>
-(function() {
-  const stage = document.getElementById('lpPaperStage');
-  if (!stage) return;
-  const items = Array.from(stage.querySelectorAll('.lp-paper-item'));
-  const slides = Array.from(stage.querySelectorAll('.lp-paper-slide'));
-  if (!items.length) return;
-  const DUR = 5000;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let current = 0;
-  let timer = null;
-  let userPaused = false;
-  let hoverPaused = false;
-
-  function show(i) {
-    current = i;
-    items.forEach((el, idx) => {
-      el.classList.toggle('is-active', idx === i);
-      const bar = el.querySelector('.lp-paper-item-progress i');
-      if (bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
-    });
-    slides.forEach((el, idx) => el.classList.toggle('is-active', idx === i));
-  }
-  function next() { show((current + 1) % items.length); }
-  function start() {
-    if (reduced || userPaused) return;
-    stop();
-    timer = setInterval(() => { if (!hoverPaused) next(); }, DUR);
-  }
-  function stop() { if (timer) { clearInterval(timer); timer = null; } }
-
-  items.forEach((el, i) => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      userPaused = true;
-      stop();
-      show(i);
-      items.forEach(it => it.classList.add('is-paused'));
-    });
-  });
-  stage.addEventListener('mouseenter', () => { hoverPaused = true; }, true);
-  stage.addEventListener('mouseleave', () => { hoverPaused = false; });
-
-  start();
-})();
-</script>
-<script>
-(function() {
-  const CELL = 14;
-  const GAP = 3;
-  const ROW_GAP = 6;
-  const LABEL_W = 130;
-  const LABEL_PAD = 14;
-  const STAGGER = 16;
-  const START = new Date('2021-01-01T00:00:00');
-  const END = new Date('2026-07-31T23:59:59');
-  const START_YEAR = START.getFullYear();
-  const END_YEAR = END.getFullYear();
-  const activeTransientPills = [];
-  const today = new Date();
-  const months = buildMonths(START, END);
-  const todayIndex = clamp((today.getFullYear() - START_YEAR) * 12 + today.getMonth(), 0, months.length - 1);
-
-  const milestones = {
-    models: [
-      { date: '2021-03', name: 'SeCo' },
-      { date: '2021-11', name: 'GASSL' },
-      { date: '2022-07', name: 'RingMo' },
-      { date: '2022-10', name: 'SatMAE' },
-      { date: '2023-04', name: 'Scale-MAE' },
-      { date: '2023-08', name: 'Prithvi-100M (NASA·IBM)' },
-      { date: '2023-11', name: 'SatlasPretrain (AI2)' },
-      { date: '2024-01', name: 'Clay v0' },
-      { date: '2024-02', name: 'SpectralGPT' },
-      { date: '2024-04', name: 'RemoteCLIP' },
-      { date: '2024-06', name: 'Clay v1' },
-      { date: '2024-09', name: 'Prithvi-EO-2.0' },
-      { date: '2025-02', name: 'TerraMind (IBM·ESA)' },
-    ],
-    datasets: [
-      { date: '2021-05', name: 'BigEarthNet-MM' },
-      { date: '2022-09', name: 'fMoW-Sentinel' },
-      { date: '2023-06', name: 'SatlasPretrain (data)' },
-      { date: '2023-10', name: 'Major TOM' },
-      { date: '2024-05', name: 'Clay Pretrain Corpus' },
-    ],
-    papers: [
-      { date: '2022-07', name: 'FM for EO (survey)' },
-      { date: '2023-08', name: 'Prithvi paper' },
-      { date: '2024-04', name: 'Clay technical report' },
-      { date: '2025-01', name: 'TerraMind paper' },
-    ],
-    benchmarks: [
-      { date: '2023-09', name: 'GEO-Bench' },
-      { date: '2024-02', name: 'PhilEO-Bench' },
-      { date: '2024-07', name: 'PANGAEA' },
-    ],
-    tools: [
-      { date: '2021-10', name: 'TorchGeo' },
-      { date: '2023-05', name: 'segment-geospatial' },
-      { date: '2024-03', name: 'TerraTorch (IBM)' },
-    ],
-  };
-
-  const ecosystemRows = [
-    { id: 'models', name: 'Models', weight: 1.08, seed: 11, examples: ['SeCo', 'SatMAE', 'Prithvi-100M', 'SatlasPretrain', 'Clay', 'SpectralGPT', 'RemoteCLIP', 'TerraMind', 'AlphaEarth Foundations'] },
-    { id: 'papers', name: 'Papers', weight: 1.22, seed: 23, examples: ['SatMAE paper', 'Prithvi paper', 'Clay technical report', 'RemoteCLIP paper', 'TerraMind paper', 'GEO-Bench paper', 'PANGAEA paper'] },
-    { id: 'datasets', name: 'Datasets', weight: .88, seed: 37, examples: ['BigEarthNet-MM', 'fMoW-Sentinel', 'SatlasPretrain data', 'Major TOM', 'Clay Pretrain Corpus', 'SpaceNet', 'SEN12MS'] },
-    { id: 'benchmarks', name: 'Benchmarks', weight: .78, seed: 43, examples: ['GEO-Bench', 'PhilEO-Bench', 'PANGAEA', 'fMoW', 'BigEarthNet', 'Sen1Floods11'] },
-    { id: 'tools', name: 'Tools & Frameworks', weight: .72, seed: 59, examples: ['TorchGeo', 'TerraTorch', 'segment-geospatial', 'Rasterio', 'GeoPandas', 'geemap', 'xarray'] },
-  ];
-
-  const resourceIcons = {
-    github: '<svg width="16" height="16" viewBox="0 0 98 96" aria-hidden="true"><path fill="#fff" fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/></svg>',
-    paperswithcode: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#EF4444" stroke="#EF4444" stroke-width="0.5" stroke-linejoin="round"/></svg>',
-    kaggle: '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#20BEFF" d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336z"/></svg>',
-    huggingface: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#FFD21E"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="10" r="1" fill="#1a1a1a"/><circle cx="15" cy="10" r="1" fill="#1a1a1a"/><path d="M7 8.5c.5-1 1.5-1.5 2-1M17 8.5c-.5-1-1.5-1.5-2-1" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/></svg>',
-    arxiv: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15.3 1.2 22.2 8.1 8.6 22.8 1.8 15.9 15.3 1.2Z" fill="#8b867d"/><path d="M4.4 2.1 21.9 19.6 17.9 23.6.4 6.1 4.4 2.1Z" fill="#b81e3e"/></svg>',
-  };
-
-  const platformRows = [
-    { id: 'huggingface', name: 'Hugging Face', weight: 1.2, seed: 7, iconSvg: resourceIcons.huggingface, examples: ['Prithvi', 'Clay', 'TerraMind', 'SatlasPretrain', 'RemoteCLIP'] },
-    { id: 'arxiv', name: 'arXiv', weight: 1.16, seed: 19, iconSvg: resourceIcons.arxiv, examples: ['SatMAE', 'Scale-MAE', 'RemoteCLIP', 'SpectralGPT', 'TerraMind'] },
-    { id: 'github', name: 'GitHub', weight: 1.02, seed: 31, iconSvg: resourceIcons.github, examples: ['TorchGeo', 'TerraTorch', 'segment-geospatial', 'geemap', 'Rasterio'] },
-    { id: 'pwc', name: 'Papers With Code', weight: .76, seed: 47, iconSvg: resourceIcons.paperswithcode, examples: ['GEO-Bench', 'PANGAEA', 'fMoW', 'BigEarthNet', 'PhilEO-Bench'] },
-    { id: 'kaggle', name: 'Kaggle', weight: .62, seed: 61, iconSvg: resourceIcons.kaggle, examples: ['SpaceNet', 'xView', 'SEN12MS', 'DeepGlobe', 'Open Buildings'] },
-  ];
-
-  const charts = [
-    {
-      title: 'Tracking Geo Foundation Models',
-      subtitle: 'How models, papers, datasets, benchmarks, and tools build up across GeoAI, month by month.',
-      legend: true,
-      rows: ecosystemRows.map(spec => makeRow(spec, milestones[spec.id] || [])),
-    },
-    {
-      title: 'Activity by Platform',
-      subtitle: 'Where the work lands — Hugging Face, arXiv, GitHub, Papers with Code, and Kaggle.',
-      legend: true,
-      rows: platformRows.map(spec => makeRow(spec, [])),
-    },
-  ];
-
-  function buildMonths(start, end) {
-    const total = (end.getFullYear() - start.getFullYear()) * 12 + end.getMonth() - start.getMonth() + 1;
-    return Array.from({ length: total }, (_, index) => {
-      const date = new Date(start.getFullYear(), start.getMonth() + index, 1);
-      const year = date.getFullYear();
-      const month = date.getMonth();
-      return {
-        index,
-        year,
-        month,
-        from: new Date(year, month, 1),
-        to: new Date(year, month + 1, 0),
-      };
-    });
-  }
-
-  function makeRow(spec, milestoneList) {
-    const counts = months.map(month => mockCount(month, spec.weight, spec.seed));
-    milestoneList.forEach(item => {
-      const index = monthIndexForDate(item.date);
-      if (index >= 0) counts[index] = Math.max(counts[index], 18);
-    });
-    return { ...spec, counts, milestones: milestoneList };
-  }
-
-  function activeProfile(date) {
-    const year = date.getFullYear();
-    if (year <= 2021) return { active: 0.06, min: 1, max: 2 };
-    if (year === 2022) return { active: 0.08, min: 1, max: 2 };
-    if (year === 2023) return { active: 0.1, min: 1, max: 2 };
-    if (year === 2024) return { active: 0.3, min: 1, max: 3 };
-    if (year === 2025) return { active: 0.6, min: 2, max: 4 };
-    return { active: 0.8, min: 3, max: 4 };
-  }
-
-  function mockCount(month, weight, seed) {
-    if (month.index > todayIndex) return 0;
-    const profile = activeProfile(month.from);
-    const noise = seeded(seed * 1009 + month.index * 31);
-    const wave = (Math.sin(month.index * 0.39 + seed) + 1) / 2;
-    const active = noise < Math.min(0.96, profile.active * weight + wave * 0.05);
-    if (!active) return 0;
-    const level = Math.max(profile.min, Math.min(profile.max, profile.min + Math.floor(seeded(seed + month.index * 17) * (profile.max - profile.min + 1))));
-    return Math.max(1, Math.round(level * (2 + weight * 3) + wave * level * 2));
-  }
-
-  function seeded(value) {
-    const x = Math.sin(value * 12.9898) * 43758.5453;
-    return x - Math.floor(x);
-  }
-
-  function level(count) {
-    if (!count) return 0;
-    if (count <= 7) return 1;
-    if (count <= 14) return 2;
-    if (count <= 23) return 3;
-    return 4;
-  }
-
-  function axisLabels() {
-    const years = [];
-    for (let year = START_YEAR; year <= END_YEAR; year += 1) {
-      const yearMonths = months.filter(month => month.year === year);
-      if (!yearMonths.length) continue;
-      const first = yearMonths[0].index;
-      const count = yearMonths.length;
-      const width = count * CELL + Math.max(0, count - 1) * GAP;
-      years.push({ label: String(year), first, count, left: first * (CELL + GAP) + width / 2 });
-    }
-    return { years };
-  }
-
-  function monthIndexForDate(value) {
-    const date = parseMonth(value);
-    const index = (date.getFullYear() - START_YEAR) * 12 + date.getMonth();
-    if (index < 0 || index >= months.length) return -1;
-    return index;
-  }
-
-  function parseMonth(value) {
-    const [year, month] = value.split('-').map(Number);
-    return new Date(year, month - 1, 1);
-  }
-
-  function clamp(value, min, max) {
-    return Math.max(min, Math.min(max, value));
-  }
-
-  function formatRange(month) {
-    return month.from.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-  }
-
-  function renderHeatmap(chart, mount, tooltip) {
-    const columns = months.length;
-    const cellsW = columns * CELL + Math.max(0, columns - 1) * GAP;
-    const chartW = LABEL_W + LABEL_PAD + cellsW;
-    const chartEl = document.createElement('section');
-    chartEl.className = 'gm-gh-chart';
-    chartEl.style.setProperty('--columns', String(columns));
-    chartEl.style.setProperty('--rows', String(chart.rows.length));
-    chartEl.style.setProperty('--cell', `${CELL}px`);
-    chartEl.style.setProperty('--gap', `${GAP}px`);
-    chartEl.style.setProperty('--row-gap', `${ROW_GAP}px`);
-    chartEl.style.setProperty('--label-w', `${LABEL_W}px`);
-    chartEl.style.setProperty('--label-pad', `${LABEL_PAD}px`);
-    chartEl.style.setProperty('--label-font', '12px');
-    chartEl.style.setProperty('--icon-size', '18px');
-    chartEl.style.setProperty('--icon-svg-size', '16px');
-    chartEl.style.setProperty('--dot-size', '3px');
-    chartEl.style.setProperty('--cells-w', `${cellsW}px`);
-    chartEl.style.setProperty('--chart-w', `${chartW}px`);
-    chartEl.innerHTML = `
-      <h3 class="gm-gh-title">${chart.title}</h3>
-      ${chart.subtitle ? `<p class="gm-gh-subtitle">${chart.subtitle}</p>` : ''}
-      <div class="gm-gh-scroll">
-        <div class="gm-gh-stage">
-          <div class="gm-gh-axis"></div>
-          <div class="gm-gh-body">
-            <div class="gm-gh-labels"></div>
-            <div class="gm-gh-cells"></div>
-          </div>
-          <div class="gm-gh-footer">
-            <span></span>
-            ${chart.legend ? '<div class="gm-gh-legend"><span>Less</span><span class="gm-gh-swatch"></span><span class="gm-gh-swatch" data-level="1"></span><span class="gm-gh-swatch" data-level="2"></span><span class="gm-gh-swatch" data-level="3"></span><span class="gm-gh-swatch" data-level="4"></span><span>More</span></div>' : ''}
-          </div>
+      <section class="footer-columns" aria-label="Featured GeoMind resources">
+        <div>
+          <h2>Models</h2>
+          <ul>
+            <li><a href="models/">Prithvi</a></li>
+            <li><a href="models/">SatlasPretrain</a></li>
+            <li><a href="models/">Clay</a></li>
+            <li><a href="models/">TESSERA</a></li>
+            <li><a href="models/alphaearth/">AlphaEarth</a></li>
+            <li><a class="footer-more" href="models/">More</a></li>
+          </ul>
         </div>
-      </div>
-    `;
+        <div>
+          <h2>Datasets &amp; Benchmarks</h2>
+          <ul>
+            <li><a href="datasets-benchmarks/">BigEarthNet</a></li>
+            <li><a href="datasets-benchmarks/">SpaceNet</a></li>
+            <li><a href="datasets-benchmarks/">Million-AID</a></li>
+            <li><a href="datasets-benchmarks/">xView</a></li>
+            <li><a href="datasets-benchmarks/">SEN12MS</a></li>
+            <li><a class="footer-more" href="datasets-benchmarks/">More</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Papers</h2>
+          <ul>
+            <li><a href="papers/">Prithvi EO-1.0</a></li>
+            <li><a href="papers/satmae/">SatMAE</a></li>
+            <li><a href="papers/">RemoteCLIP</a></li>
+            <li><a href="papers/">Scale-MAE</a></li>
+            <li><a href="papers/">Geo-Bench</a></li>
+            <li><a class="footer-more" href="papers/">More</a></li>
+          </ul>
+        </div>
+      </section>
 
-    const axis = chartEl.querySelector('.gm-gh-axis');
-    const labels = axisLabels();
-    labels.years.forEach(year => {
-      const label = document.createElement('span');
-      label.className = 'gm-gh-year';
-      label.dataset.first = String(year.first);
-      label.dataset.count = String(year.count);
-      label.style.left = `${year.left}px`;
-      label.textContent = year.label;
-      axis.appendChild(label);
-    });
-
-    const rowLabels = chartEl.querySelector('.gm-gh-labels');
-    chart.rows.forEach(row => {
-      const label = document.createElement('div');
-      label.className = 'gm-gh-label';
-      if (row.iconSvg || row.fallback) {
-        label.classList.add('has-icon');
-        label.innerHTML = `<span class="gm-platform-icon${row.wideIcon ? ' is-wide' : ''}" role="img" aria-label="${row.name}" title="${row.name}" tabindex="0">${row.iconSvg || ''}<span class="gm-platform-icon-fallback"${row.iconSvg ? '' : ' style="display:inline"'}>${row.fallback || row.name}</span></span>`;
-      } else {
-        label.textContent = row.name;
-      }
-      rowLabels.appendChild(label);
-    });
-
-    const cells = chartEl.querySelector('.gm-gh-cells');
-    const milestoneEntries = [];
-    const milestoneCellMap = new Map();
-
-    chart.rows.forEach((row, rowIndex) => {
-      (row.milestones || []).forEach(item => {
-        const col = monthIndexForDate(item.date);
-        if (col < 0) return;
-        const key = `${rowIndex}:${col}`;
-        if (!milestoneCellMap.has(key)) milestoneCellMap.set(key, []);
-        milestoneCellMap.get(key).push(item.name);
-        milestoneEntries.push({ ...item, rowIndex, col, rowName: row.name });
-      });
-    });
-
-    months.forEach((month, monthIndex) => {
-      chart.rows.forEach((row, rowIndex) => {
-        const count = row.counts[monthIndex] || 0;
-        const names = milestoneCellMap.get(`${rowIndex}:${monthIndex}`) || [];
-        const examples = cellExamples(row, monthIndex, names, count);
-        const cellEl = document.createElement('span');
-        cellEl.className = 'gm-gh-cell';
-        cellEl.dataset.level = String(level(count));
-        if (monthIndex > todayIndex) cellEl.dataset.future = 'true';
-        cellEl.style.gridColumn = String(monthIndex + 1);
-        cellEl.style.gridRow = String(rowIndex + 1);
-        cellEl.style.setProperty('--delay', `${(monthIndex + rowIndex * 3) * STAGGER}ms`);
-        cellEl.tabIndex = 0;
-        cellEl.setAttribute('aria-label', `${row.name}: ${examples.join(', ') || 'No highlighted items'}, ${formatRange(month)}`);
-        cellEl.addEventListener('mouseenter', event => {
-          showTip(event, tooltip, row, month, examples);
-          if (names.length) showHoverPill(cells, cellEl, monthIndex, rowIndex, names.join(' · '));
-        });
-        cellEl.addEventListener('mousemove', event => moveTip(event, tooltip));
-        cellEl.addEventListener('mouseleave', () => {
-          hideTip(tooltip);
-          hideHoverPill(cellEl);
-        });
-        cellEl.addEventListener('focus', event => {
-          showTip(event, tooltip, row, month, examples);
-          if (names.length) showHoverPill(cells, cellEl, monthIndex, rowIndex, names.join(' · '));
-        });
-        cellEl.addEventListener('blur', () => {
-          hideTip(tooltip);
-          hideHoverPill(cellEl);
-        });
-        if (names.length) {
-          cellEl.dataset.milestone = names.join(' · ');
-          const dot = document.createElement('span');
-          dot.className = 'gm-gh-dot';
-          cellEl.appendChild(dot);
-        }
-        cells.appendChild(cellEl);
-      });
-    });
-
-    if (chart.today) {
-      const marker = document.createElement('div');
-      marker.className = 'gm-gh-today';
-      marker.innerHTML = '<span>Today</span>';
-      cells.appendChild(marker);
-    }
-
-    mount.appendChild(chartEl);
-    layoutHeatmap(chartEl);
-    setupReveal(chartEl, milestoneEntries, cells);
-  }
-
-  function layoutHeatmaps() {
-    document.querySelectorAll('.gm-gh-chart').forEach(layoutHeatmap);
-  }
-
-  function layoutHeatmap(chartEl) {
-    const scroll = chartEl.querySelector('.gm-gh-scroll');
-    if (!scroll) return;
-
-    const columns = months.length;
-    const viewport = window.innerWidth;
-    let labelW = LABEL_W;
-    let labelPad = LABEL_PAD;
-    let gap = GAP;
-    let rowGap = ROW_GAP;
-
-    if (viewport <= 480) {
-      labelW = 72;
-      labelPad = 6;
-      gap = 1;
-      rowGap = 2;
-    } else if (viewport <= 640) {
-      labelW = 84;
-      labelPad = 8;
-      gap = 1;
-      rowGap = 3;
-    } else if (viewport <= 900) {
-      labelW = 112;
-      labelPad = 10;
-      gap = 2;
-      rowGap = 4;
-    }
-
-    const available = Math.max(0, scroll.clientWidth);
-    const usable = Math.max(0, available - labelW - labelPad - Math.max(0, columns - 1) * gap);
-    let cell = Math.min(CELL, usable / columns);
-
-    if (cell < 5 && viewport <= 640) {
-      labelW = viewport <= 480 ? 64 : 76;
-      labelPad = 6;
-      gap = 1;
-      rowGap = 2;
-      const compactUsable = Math.max(0, available - labelW - labelPad - Math.max(0, columns - 1) * gap);
-      cell = Math.min(CELL, compactUsable / columns);
-    }
-
-    cell = Math.max(2.5, Math.min(CELL, cell));
-    rowGap = Math.max(2, Math.min(ROW_GAP, Math.round(cell * .5)));
-
-    const cellsW = columns * cell + Math.max(0, columns - 1) * gap;
-    const chartW = labelW + labelPad + cellsW;
-    const labelFont = Math.max(9, Math.min(12, cell * 1.05));
-    const iconSize = Math.max(10, Math.min(18, cell + 4));
-    const iconSvgSize = Math.max(9, Math.min(16, cell + 2));
-    const dotSize = Math.max(2, Math.min(3, cell * .24));
-
-    chartEl.style.setProperty('--cell', `${cell}px`);
-    chartEl.style.setProperty('--gap', `${gap}px`);
-    chartEl.style.setProperty('--row-gap', `${rowGap}px`);
-    chartEl.style.setProperty('--label-w', `${labelW}px`);
-    chartEl.style.setProperty('--label-pad', `${labelPad}px`);
-    chartEl.style.setProperty('--label-font', `${labelFont}px`);
-    chartEl.style.setProperty('--icon-size', `${iconSize}px`);
-    chartEl.style.setProperty('--icon-svg-size', `${iconSvgSize}px`);
-    chartEl.style.setProperty('--dot-size', `${dotSize}px`);
-    chartEl.style.setProperty('--cells-w', `${cellsW}px`);
-    chartEl.style.setProperty('--chart-w', `${chartW}px`);
-    chartEl._gmLayout = { cell, gap, rowGap, labelW, labelPad, cellsW, chartW };
-
-    chartEl.querySelectorAll('.gm-gh-year').forEach(label => {
-      const first = Number(label.dataset.first || 0);
-      const count = Number(label.dataset.count || 1);
-      const width = count * cell + Math.max(0, count - 1) * gap;
-      label.style.left = `${first * (cell + gap) + width / 2}px`;
-    });
-
-    const todayMarker = chartEl.querySelector('.gm-gh-today');
-    if (todayMarker) {
-      todayMarker.style.left = `${todayIndex * (cell + gap) + cell / 2 - 1.25}px`;
-    }
-  }
-
-  function layoutFor(cells) {
-    return cells.closest('.gm-gh-chart')?._gmLayout || {
-      cell: CELL,
-      gap: GAP,
-      rowGap: ROW_GAP,
-    };
-  }
-
-  function setupReveal(chartEl, milestoneEntries, cells) {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) {
-      chartEl.classList.add('reduced-motion', 'is-complete');
-      return;
-    }
-    const run = () => {
-      if (chartEl.dataset.revealed) return;
-      chartEl.dataset.revealed = 'true';
-      chartEl.classList.add('is-revealing');
-      scheduleMilestonePills(cells, milestoneEntries);
-      setTimeout(() => chartEl.classList.add('is-complete'), months.length * STAGGER + 1250);
-    };
-    if (!('IntersectionObserver' in window)) {
-      run();
-      return;
-    }
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        run();
-        observer.unobserve(chartEl);
-      });
-    }, { threshold: .3 });
-    observer.observe(chartEl);
-  }
-
-  function scheduleMilestonePills(cells, entries) {
-    entries
-      .slice()
-      .sort((a, b) => a.col - b.col || a.rowIndex - b.rowIndex)
-      .forEach((entry, index) => {
-        const delay = entry.col * STAGGER + (index % 2) * 100;
-        window.setTimeout(() => showTransientPill(cells, entry.col, entry.rowIndex, entry.name), delay);
-      });
-  }
-
-  function showTransientPill(cells, col, row, text) {
-    while (activeTransientPills.length >= 2) {
-      removePill(activeTransientPills.shift(), true);
-    }
-    const pill = createPill(cells, col, row, text);
-    activeTransientPills.push(pill);
-    pill.classList.add('is-visible');
-    window.setTimeout(() => {
-      removePill(pill);
-    }, 800);
-  }
-
-  function removePill(pill, immediate = false) {
-    if (!pill || !pill.isConnected) return;
-    const index = activeTransientPills.indexOf(pill);
-    if (index >= 0) activeTransientPills.splice(index, 1);
-    if (immediate) {
-      pill.remove();
-      return;
-    }
-    pill.classList.remove('is-visible');
-    pill.classList.add('is-leaving');
-    window.setTimeout(() => pill.remove(), 220);
-  }
-
-  function showHoverPill(cells, cell, col, row, text) {
-    hideHoverPill(cell);
-    const pill = createPill(cells, col, row, text);
-    pill.classList.add('is-visible');
-    cell._gmPill = pill;
-  }
-
-  function hideHoverPill(cell) {
-    if (!cell._gmPill) return;
-    cell._gmPill.remove();
-    cell._gmPill = null;
-  }
-
-  function createPill(cells, col, row, text) {
-    const layout = layoutFor(cells);
-    const x = col * (layout.cell + layout.gap);
-    const y = row * (layout.cell + layout.rowGap) - 30;
-    const pill = document.createElement('span');
-    pill.className = 'gm-gh-pill';
-    pill.textContent = text;
-    pill.style.left = `${x}px`;
-    pill.style.top = `${y}px`;
-    cells.appendChild(pill);
-    requestAnimationFrame(() => {
-      const maxLeft = Math.max(0, cells.offsetWidth - pill.offsetWidth);
-      const left = Math.min(x, maxLeft);
-      pill.style.left = `${left}px`;
-    });
-    return pill;
-  }
-
-  function cellExamples(row, monthIndex, milestoneNames, count) {
-    if (!count && !milestoneNames.length) return [];
-    const pool = [...milestoneNames, ...(row.examples || [])];
-    const unique = [...new Set(pool)];
-    if (!unique.length) return [];
-    if (milestoneNames.length) return unique.slice(0, 3);
-    const start = Math.floor(seeded(row.seed * 53 + monthIndex * 11) * unique.length);
-    return Array.from({ length: Math.min(3, unique.length) }, (_, offset) => unique[(start + offset) % unique.length]);
-  }
-
-  function showTip(event, tooltip, row, bucket, examples) {
-    const names = examples.length ? examples.join(' · ') : 'No highlighted items yet';
-    tooltip.innerHTML = `<strong>${row.name}</strong><span>${names}</span><small>${formatRange(bucket)}</small>`;
-    tooltip.style.display = 'block';
-    moveTip(event, tooltip);
-  }
-
-  function moveTip(event, tooltip) {
-    tooltip.style.left = `${event.clientX + 12}px`;
-    tooltip.style.top = `${event.clientY + 12}px`;
-  }
-
-  function hideTip(tooltip) {
-    tooltip.style.display = 'none';
-  }
-
-  const mount = document.getElementById('geoaiHeatmaps');
-  if (!mount) return;
-  const tooltip = document.createElement('div');
-  tooltip.className = 'gm-gh-tip';
-  document.body.appendChild(tooltip);
-  charts.forEach(chart => renderHeatmap(chart, mount, tooltip));
-  layoutHeatmaps();
-  window.addEventListener('resize', layoutHeatmaps);
-})();
-</script>
-<script type="module" src="src/js/landing.js?v=20260528-12"></script>
-<script type="module" src="src/js/theme.js"></script>
-</body>
+      <nav class="footer-legal" aria-label="Legal links">
+        <a href="about/">About GeoMind</a>
+        <a href="privacy/">Privacy</a>
+        <a href="terms/">Terms</a>
+        <a href="cookies/">Manage cookies</a>
+      </nav>
+    </footer>
+    <script src="assets/js/tabs.js"></script>
+  </body>
 </html>

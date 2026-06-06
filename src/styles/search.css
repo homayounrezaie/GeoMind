@@ -1,3 +1,0 @@
-/* ── Search state styles ───────────────────── */
-body.searching .panel{display:block;margin-bottom:10px}
-body.searching .panel+.panel{margin-top:0}

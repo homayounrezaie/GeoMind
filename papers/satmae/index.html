@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SatMAE - GeoMind</title>
+    <meta
+      name="description"
+      content="GeoMind paper card for SatMAE, a masked autoencoder pretraining framework for temporal and multispectral satellite imagery."
+    />
+    <link rel="icon" type="image/png" href="../../assets/img/geomind-logo.png" />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <button class="menu-button" type="button" aria-label="Open navigation">
+        <span></span>
+      </button>
+      <a class="brand" href="../../" aria-label="GeoMind home">
+        <img src="../../assets/img/geomind-logo.png" alt="" />
+        <span>GeoMind</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../../models/">Models</a>
+        <a href="../../datasets-benchmarks/">Datasets &amp; Benchmarks</a>
+        <a class="is-active" href="../" aria-current="page">Papers</a>
+      </nav>
+    </header>
+
+    <main class="model-card-page">
+      <article class="model-card-article">
+        <header class="model-card-hero">
+          <p class="model-card-meta">NeurIPS 2022 / Self-supervised</p>
+          <h1>SatMAE</h1>
+          <p>
+            A masked autoencoder pretraining framework for learning from temporal and multispectral
+            satellite imagery.
+          </p>
+        </header>
+
+        <section class="model-card-summary" aria-label="SatMAE overview">
+          <div>
+            <h2>Short Summary</h2>
+            <p>
+              SatMAE adapts masked autoencoding to satellite imagery, using temporal structure and
+              spectral band groups to pretrain stronger remote-sensing representations.
+            </p>
+          </div>
+          <div>
+            <h2>Key Contribution</h2>
+            <p>
+              The paper introduces temporal embeddings, independent masking across time, and
+              spectral positional encodings for multispectral inputs.
+            </p>
+          </div>
+          <div>
+            <h2>Why It Matters</h2>
+            <p>
+              It helped establish masked image modeling as a practical self-supervised path for
+              Earth observation tasks with limited labels.
+            </p>
+          </div>
+        </section>
+
+        <section class="model-card-details" aria-labelledby="metadata-title">
+          <h2 id="metadata-title">Metadata</h2>
+          <div class="detail-grid">
+            <div>
+              <span>Full title</span>
+              <strong>SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery</strong>
+            </div>
+            <div>
+              <span>Venue / Year</span>
+              <strong>Advances in Neural Information Processing Systems 35, 2022</strong>
+            </div>
+            <div>
+              <span>Topic</span>
+              <strong>Self-supervised representation learning for remote sensing</strong>
+            </div>
+            <div>
+              <span>Method</span>
+              <strong>Masked autoencoder with Vision Transformers</strong>
+            </div>
+            <div>
+              <span>Modality</span>
+              <strong>Temporal and multispectral satellite imagery</strong>
+            </div>
+            <div>
+              <span>Authors</span>
+              <strong>Yezhen Cong, Samar Khanna, Chenlin Meng, Patrick Liu, Erik Rozi, Yutong He, Marshall Burke, David B. Lobell, Stefano Ermon</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="model-card-details" aria-labelledby="contributions-title">
+          <h2 id="contributions-title">Key Contributions</h2>
+          <div class="detail-grid">
+            <div>
+              <span>Temporal pretraining</span>
+              <strong>Uses temporal embeddings and masking strategies designed for satellite image time series.</strong>
+            </div>
+            <div>
+              <span>Multispectral pretraining</span>
+              <strong>Groups spectral bands and gives them spectral positional encodings.</strong>
+            </div>
+            <div>
+              <span>Transfer learning</span>
+              <strong>Reports gains on downstream land cover classification and semantic segmentation tasks.</strong>
+            </div>
+            <div>
+              <span>Open resources</span>
+              <strong>Provides paper, project page, and official code for follow-up work.</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="model-card-links compact-links" aria-labelledby="resources-title">
+          <h2 id="resources-title">Resources</h2>
+          <a href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/01c561df365429f33fcd7a7faa44c985-Abstract-Conference.html">NeurIPS paper page</a>
+          <a href="https://arxiv.org/abs/2207.08051">arXiv</a>
+          <a href="https://sustainlab-group.github.io/SatMAE/">Project page</a>
+          <a href="https://github.com/sustainlab-group/SatMAE">GitHub</a>
+          <a href="https://huggingface.co/papers/2207.08051">Hugging Face</a>
+        </section>
+
+      </article>
+    </main>
+  </body>
+</html>

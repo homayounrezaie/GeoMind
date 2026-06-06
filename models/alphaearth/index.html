@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AlphaEarth Foundations - GeoMind</title>
+    <meta
+      name="description"
+      content="GeoMind model card for AlphaEarth Foundations, a geospatial AI model for planetary mapping and monitoring."
+    />
+    <link rel="icon" type="image/png" href="../../assets/img/geomind-logo.png" />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <button class="menu-button" type="button" aria-label="Open navigation">
+        <span></span>
+      </button>
+      <a class="brand" href="../../" aria-label="GeoMind home">
+        <img src="../../assets/img/geomind-logo.png" alt="" />
+        <span>GeoMind</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="is-active" href="../" aria-current="page">Models</a>
+        <a href="../../datasets-benchmarks/">Datasets &amp; Benchmarks</a>
+        <a href="../../papers/">Papers</a>
+      </nav>
+    </header>
+
+    <main class="model-card-page">
+      <article class="model-card-article">
+        <header class="model-card-hero">
+          <p class="model-card-meta">July 30, 2025 / Science</p>
+          <h1>AlphaEarth Foundations</h1>
+          <p>
+            A geospatial AI model that integrates Earth observation data into compact embeddings
+            for global mapping and monitoring.
+          </p>
+        </header>
+
+        <figure class="model-card-media">
+          <img
+            src="https://lh3.googleusercontent.com/jfsVXHx9kDSyXCnQBEoijKPEE76CHunOO2wq8c-6y596cNbzk8LB1OKGcanX1tkEDtHCWRNCyuluCcggoqgVdYc3KmKSyVUS59eTeY99U_HEDLG5NQ=w1440-h810-n-nu"
+            alt="Satellite imagery collage illustrating AlphaEarth Foundations mapping data"
+          />
+        </figure>
+
+        <section class="model-card-summary" aria-label="AlphaEarth overview">
+          <div>
+            <h2>What It Is</h2>
+            <p>
+              AlphaEarth Foundations acts like a virtual satellite: it combines diverse Earth
+              observation sources into a unified representation for terrestrial land and coastal
+              waters.
+            </p>
+          </div>
+          <div>
+            <h2>Core Output</h2>
+            <p>
+              The system creates compact 64-dimensional embedding fields, including annual
+              embeddings released through Google Earth Engine as the Satellite Embedding dataset.
+            </p>
+          </div>
+          <div>
+            <h2>Primary Uses</h2>
+            <p>
+              The model supports ecosystem classification, agriculture and environmental change
+              analysis, deforestation monitoring, urban expansion tracking, and water resource
+              assessment.
+            </p>
+          </div>
+        </section>
+
+        <section class="model-card-details" aria-labelledby="details-title">
+          <h2 id="details-title">Model Details</h2>
+          <div class="detail-grid">
+            <div>
+              <span>Category</span>
+              <strong>Foundation Model</strong>
+            </div>
+            <div>
+              <span>Organization</span>
+              <strong>Google DeepMind / Google Earth Engine</strong>
+            </div>
+            <div>
+              <span>Spatial unit</span>
+              <strong>10x10 m land and coastal water squares</strong>
+            </div>
+            <div>
+              <span>Embedding size</span>
+              <strong>64 components</strong>
+            </div>
+            <div>
+              <span>Dataset access</span>
+              <strong>Satellite Embedding dataset in Google Earth Engine</strong>
+            </div>
+            <div>
+              <span>Reported result</span>
+              <strong>24% lower error rate on average than tested alternatives</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="model-card-links" aria-labelledby="resources-title">
+          <h2 id="resources-title">Resources</h2>
+          <a href="https://deepmind.google/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/">Google DeepMind article</a>
+          <a href="https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_SATELLITE_EMBEDDING_V1_ANNUAL">Satellite Embedding dataset</a>
+          <a href="https://arxiv.org/abs/2507.22291">Paper</a>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

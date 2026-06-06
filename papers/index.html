@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Papers - GeoMind</title>
+    <link rel="icon" type="image/png" href="../assets/img/geomind-logo.png" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <button class="menu-button" type="button" aria-label="Open navigation">
+        <span></span>
+      </button>
+      <a class="brand" href="../" aria-label="GeoMind home">
+        <img src="../assets/img/geomind-logo.png" alt="" />
+        <span>GeoMind</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../models/">Models</a>
+        <a href="../datasets-benchmarks/">Datasets &amp; Benchmarks</a>
+        <a class="is-active" href="./" aria-current="page">Papers</a>
+      </nav>
+    </header>
+
+    <main class="list-page">
+      <h1 class="visually-hidden" id="papers-title">Papers</h1>
+
+      <section class="content-section" aria-label="GeoAI paper cards">
+        <div class="resource-controls paper-controls" data-resource-list>
+          <label class="search-control">
+            <span class="visually-hidden">Search papers</span>
+            <input type="search" placeholder="Search papers" data-resource-search />
+          </label>
+          <label class="filter-control">
+            <span class="visually-hidden">Filter papers by venue</span>
+            <select data-venue-filter>
+              <option value="">All venues</option>
+              <option value="cvpr">CVPR</option>
+              <option value="iccv">ICCV</option>
+              <option value="eccv">ECCV</option>
+              <option value="neurips">NeurIPS</option>
+              <option value="icml">ICML</option>
+              <option value="iclr">ICLR</option>
+              <option value="aaai">AAAI</option>
+              <option value="ijcai">IJCAI</option>
+            </select>
+          </label>
+          <div class="sort-control" aria-label="Sort papers">
+            <span>Sort</span>
+            <button class="is-active" type="button" data-sort-order="new" aria-pressed="true">
+              New
+            </button>
+            <button type="button" data-sort-order="old" aria-pressed="false">Old</button>
+          </div>
+        </div>
+        <div class="resource-table-wrap">
+          <table class="resource-table">
+            <thead>
+              <tr>
+                <th scope="col">Paper title</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Venue / Year</th>
+                <th scope="col"><span class="visually-hidden">Link</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-venue="neurips" data-year="2022">
+                <td>SatMAE</td>
+                <td>Self-supervised</td>
+                <td>NeurIPS 2022</td>
+                <td><a href="satmae/">View paper card</a></td>
+              </tr>
+              <tr data-venue="iccv" data-year="2023">
+                <td>Segment Anything</td>
+                <td>Segmentation</td>
+                <td>ICCV 2023</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="cvpr" data-year="2022">
+                <td>Masked Autoencoders Are Scalable Vision Learners</td>
+                <td>Self-Supervised Learning</td>
+                <td>CVPR 2022</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="iclr" data-year="2021">
+                <td>An Image is Worth 16x16 Words</td>
+                <td>Vision Transformers (ViTs)</td>
+                <td>ICLR 2021</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="iccv" data-year="2021">
+                <td>Emerging Properties in Self-Supervised Vision Transformers</td>
+                <td>Self-Supervised Learning</td>
+                <td>ICCV 2021</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="icml" data-year="2021">
+                <td>Learning Transferable Visual Models From Natural Language Supervision</td>
+                <td>Vision-Language Models (VLMs)</td>
+                <td>ICML 2021</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="eccv" data-year="2020">
+                <td>End-to-End Object Detection with Transformers</td>
+                <td>Object Detection</td>
+                <td>ECCV 2020</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="neurips" data-year="2020">
+                <td>Denoising Diffusion Probabilistic Models</td>
+                <td>Diffusion Models</td>
+                <td>NeurIPS 2020</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="neurips" data-year="2020">
+                <td>FixMatch</td>
+                <td>Semi-Supervised Learning</td>
+                <td>NeurIPS 2020</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="icml" data-year="2020">
+                <td>A Simple Framework for Contrastive Learning of Visual Representations</td>
+                <td>Self-Supervised Learning</td>
+                <td>ICML 2020</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="cvpr" data-year="2020">
+                <td>Momentum Contrast for Unsupervised Visual Representation Learning</td>
+                <td>Unsupervised Learning</td>
+                <td>CVPR 2020</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="neurips" data-year="2019">
+                <td>MixMatch</td>
+                <td>Semi-Supervised Learning</td>
+                <td>NeurIPS 2019</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="iclr" data-year="2018">
+                <td>Graph Attention Networks</td>
+                <td>Graph Neural Networks (GNNs)</td>
+                <td>ICLR 2018</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="neurips" data-year="2017">
+                <td>Attention Is All You Need</td>
+                <td>Transformer Models</td>
+                <td>NeurIPS 2017</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="iccv" data-year="2017">
+                <td>Mask R-CNN</td>
+                <td>Segmentation</td>
+                <td>ICCV 2017</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="icml" data-year="2017">
+                <td>Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</td>
+                <td>Meta-Learning</td>
+                <td>ICML 2017</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="neurips" data-year="2017">
+                <td>Prototypical Networks for Few-shot Learning</td>
+                <td>Few-Shot Learning</td>
+                <td>NeurIPS 2017</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="iclr" data-year="2017">
+                <td>Semi-Supervised Classification with Graph Convolutional Networks</td>
+                <td>Graph Neural Networks (GNNs)</td>
+                <td>ICLR 2017</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="cvpr" data-year="2016">
+                <td>Deep Residual Learning for Image Recognition</td>
+                <td>CNNs</td>
+                <td>CVPR 2016</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="neurips" data-year="2015">
+                <td>Faster R-CNN</td>
+                <td>Object Detection</td>
+                <td>NeurIPS 2015</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+              <tr data-venue="neurips" data-year="2014">
+                <td>Generative Adversarial Nets</td>
+                <td>Generative Models</td>
+                <td>NeurIPS 2014</td>
+                <td><a href="./">View paper card</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="../assets/js/tabs.js"></script>
+  </body>
+</html>

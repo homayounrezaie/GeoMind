@@ -1,0 +1,142 @@
+[
+  {
+    "id": "cnns",
+    "label": "CNNs"
+  },
+  {
+    "id": "attention-mechanisms",
+    "label": "Attention Mechanisms"
+  },
+  {
+    "id": "transformer-models",
+    "label": "Transformer Models"
+  },
+  {
+    "id": "vision-transformers",
+    "label": "Vision Transformers (ViTs)"
+  },
+  {
+    "id": "graph-neural-networks",
+    "label": "Graph Neural Networks (GNNs)"
+  },
+  {
+    "id": "object-detection",
+    "label": "Object Detection"
+  },
+  {
+    "id": "segmentation",
+    "label": "Segmentation"
+  },
+  {
+    "id": "image-super-resolution",
+    "label": "Image Super-Resolution"
+  },
+  {
+    "id": "change-detection",
+    "label": "Change Detection"
+  },
+  {
+    "id": "optical-character-recognition",
+    "label": "Optical Character Recognition (OCR)"
+  },
+  {
+    "id": "time-series",
+    "label": "Time Series"
+  },
+  {
+    "id": "natural-language-processing",
+    "label": "Natural Language Processing (NLP)"
+  },
+  {
+    "id": "large-language-models",
+    "label": "Large Language Models (LLMs)"
+  },
+  {
+    "id": "generative-models",
+    "label": "Generative Models"
+  },
+  {
+    "id": "diffusion-models",
+    "label": "Diffusion Models"
+  },
+  {
+    "id": "unsupervised-learning",
+    "label": "Unsupervised Learning"
+  },
+  {
+    "id": "dimension-reduction",
+    "label": "Dimension Reduction"
+  },
+  {
+    "id": "self-supervised-learning",
+    "label": "Self-Supervised Learning"
+  },
+  {
+    "id": "transfer-learning",
+    "label": "Transfer Learning"
+  },
+  {
+    "id": "knowledge-distillation",
+    "label": "Knowledge Distillation"
+  },
+  {
+    "id": "domain-adaptation",
+    "label": "Domain Adaptation"
+  },
+  {
+    "id": "meta-learning",
+    "label": "Meta-Learning"
+  },
+  {
+    "id": "few-shot-learning",
+    "label": "Few-Shot Learning"
+  },
+  {
+    "id": "one-shot-learning",
+    "label": "One-Shot Learning"
+  },
+  {
+    "id": "semi-supervised-learning",
+    "label": "Semi-Supervised Learning"
+  },
+  {
+    "id": "weakly-supervised-learning",
+    "label": "Weakly-Supervised Learning"
+  },
+  {
+    "id": "active-learning",
+    "label": "Active Learning"
+  },
+  {
+    "id": "multimodal-learning",
+    "label": "Multimodal Learning"
+  },
+  {
+    "id": "cross-modal-representation-learning",
+    "label": "Cross-Modal Representation Learning"
+  },
+  {
+    "id": "vision-language-models",
+    "label": "Vision-Language Models (VLMs)"
+  },
+  {
+    "id": "multimodal-llms",
+    "label": "Multimodal LLMs"
+  },
+  {
+    "id": "physics-informed-neural-networks",
+    "label": "Physics-Informed Neural Networks (PINNs)"
+  },
+  {
+    "id": "world-models",
+    "label": "World Models"
+  },
+  {
+    "id": "reinforcement-learning",
+    "label": "Reinforcement Learning"
+  },
+  {
+    "id": "neural-reasoning",
+    "label": "Neural Reasoning"
+  }
+]
