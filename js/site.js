@@ -144,11 +144,11 @@ function initResourceList(controls) {
   const section = controls.closest("section");
   const searchInput = controls.querySelector("[data-resource-search]");
   const venueFilter = controls.querySelector("[data-venue-filter]");
-  const sortSelect = controls.querySelector("[data-sort-order]");
   const companyFilter = controls.querySelector("[data-company-filter]");
   const companyButtons = Array.from(companyFilter?.querySelectorAll("[data-company]") || []);
   const tableBody = section?.querySelector("tbody");
   const tableWrap = section?.querySelector(".resource-table-wrap");
+  const table = section?.querySelector(".resource-table");
 
   if (!section || !tableBody) {
     return;
@@ -171,6 +171,7 @@ function initResourceList(controls) {
   const rows = Array.from(tableBody.querySelectorAll("tr")).map((row, index) => ({
     index,
     row,
+    name: row.cells[0]?.textContent.trim().toLowerCase() || "",
     searchText: row.textContent.toLowerCase(),
     venue: row.dataset.venue || "",
     companies: getRowCompanyKeys(row),
@@ -180,9 +181,7 @@ function initResourceList(controls) {
   const itemLabel =
     searchInput?.placeholder?.replace(/^Search\s+/i, "").trim().toLowerCase() || "items";
 
-  function getSortOrder() {
-    return sortSelect?.value || "new";
-  }
+  const sortState = { column: "year", direction: "desc" };
 
   function getSelectedCompany() {
     return (
@@ -198,6 +197,61 @@ function initResourceList(controls) {
     button.disabled = disabled;
     button.addEventListener("click", onClick);
     return button;
+  }
+
+  function updateSortHeaders() {
+    table?.querySelectorAll("th[data-sort-column]").forEach((header) => {
+      const isActive = header.dataset.sortColumn === sortState.column;
+      const direction = sortState.direction === "asc" ? "ascending" : "descending";
+      const button = header.querySelector("button");
+
+      header.setAttribute("aria-sort", isActive ? direction : "none");
+
+      if (button) {
+        button.dataset.active = String(isActive);
+        button.dataset.direction = isActive ? sortState.direction : "";
+      }
+    });
+  }
+
+  function createSortHeader(header, column, defaultDirection) {
+    const label = header.textContent.trim();
+    const button = document.createElement("button");
+
+    header.dataset.sortColumn = column;
+    header.setAttribute("aria-sort", "none");
+    button.type = "button";
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      if (sortState.column === column) {
+        sortState.direction = sortState.direction === "asc" ? "desc" : "asc";
+      } else {
+        sortState.column = column;
+        sortState.direction = defaultDirection;
+      }
+
+      currentPage = 1;
+      applyState();
+    });
+
+    header.textContent = "";
+    header.append(button);
+  }
+
+  function initSortableHeaders() {
+    const headers = Array.from(table?.querySelectorAll("thead th") || []);
+    const nameHeader = headers[0];
+    const yearHeader = headers.find((header) => /venue\s*\/\s*year/i.test(header.textContent));
+
+    if (nameHeader) {
+      createSortHeader(nameHeader, "name", "asc");
+    }
+
+    if (yearHeader) {
+      createSortHeader(yearHeader, "year", "desc");
+    }
+
+    updateSortHeaders();
   }
 
   function renderPager(matchCount) {
@@ -229,12 +283,18 @@ function initResourceList(controls) {
     const query = (searchInput?.value || "").trim().toLowerCase();
     const selectedVenue = venueFilter?.value || "";
     const selectedCompany = getSelectedCompany();
-    const sortOrder = getSortOrder();
 
     const orderedRows = [...rows].sort((first, second) => {
+      if (sortState.column === "name") {
+        const nameDelta = first.name.localeCompare(second.name, undefined, {
+          sensitivity: "base",
+        });
+        return (sortState.direction === "asc" ? nameDelta : -nameDelta) || first.index - second.index;
+      }
+
       const yearDelta =
-        sortOrder === "old" ? first.year - second.year : second.year - first.year;
-      return yearDelta || first.index - second.index;
+        sortState.direction === "asc" ? first.year - second.year : second.year - first.year;
+      return yearDelta || first.name.localeCompare(second.name, undefined, { sensitivity: "base" });
     });
 
     const matchingRows = orderedRows.filter((item) => {
@@ -262,6 +322,7 @@ function initResourceList(controls) {
     count.textContent = isFiltered
       ? `Showing ${matchingRows.length.toLocaleString()} of ${totalCount.toLocaleString()} ${itemLabel}`
       : `Total: ${totalCount.toLocaleString()} ${itemLabel}`;
+    updateSortHeaders();
     renderPager(matchingRows.length);
   }
 
@@ -271,11 +332,6 @@ function initResourceList(controls) {
   });
 
   venueFilter?.addEventListener("change", () => {
-    currentPage = 1;
-    applyState();
-  });
-
-  sortSelect?.addEventListener("change", () => {
     currentPage = 1;
     applyState();
   });
@@ -293,6 +349,7 @@ function initResourceList(controls) {
     });
   });
 
+  initSortableHeaders();
   applyState();
 }
 

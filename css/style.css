@@ -272,19 +272,14 @@ h2 {
 
 .resource-controls {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 18px;
   align-items: center;
   margin-bottom: 24px;
 }
 
 .paper-controls {
-  grid-template-columns: minmax(0, 1fr) auto 168px auto;
-}
-
-.model-controls .sort-control {
-  grid-column: 3;
-  grid-row: 1;
+  grid-template-columns: minmax(0, 1fr) auto 168px;
 }
 
 .company-filter {
@@ -379,47 +374,6 @@ h2 {
   white-space: nowrap;
 }
 
-.sort-control {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 46px;
-  padding: 0 14px;
-  background: #f8fafd;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.sort-control span {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.sort-control select {
-  min-width: 118px;
-  height: 38px;
-  padding: 0 24px 0 0;
-  background: transparent;
-  border: 0;
-  color: var(--text);
-  cursor: pointer;
-  font: inherit;
-  font-size: 15px;
-  outline: 0;
-  appearance: none;
-}
-
-.sort-control::after {
-  width: 8px;
-  height: 8px;
-  margin-left: -24px;
-  border-right: 2px solid var(--muted);
-  border-bottom: 2px solid var(--muted);
-  content: "";
-  pointer-events: none;
-  transform: translateY(-2px) rotate(45deg);
-}
-
 .resource-table-wrap {
   width: 100%;
   overflow-x: auto;
@@ -446,6 +400,36 @@ h2 {
 
 .resource-table th {
   font-size: 12px;
+}
+
+.resource-table th button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 400;
+}
+
+.resource-table th button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+.resource-table th button[data-active="true"]::after {
+  color: var(--link);
+  content: "↓";
+  font-size: 12px;
+  line-height: 1;
+}
+
+.resource-table th button[data-active="true"][data-direction="asc"]::after {
+  content: "↑";
 }
 
 .resource-table td:first-child {
@@ -1165,7 +1149,6 @@ h2 {
     gap: 12px;
   }
 
-  .model-controls .sort-control,
   .company-filter {
     grid-column: auto;
     grid-row: auto;
@@ -1175,14 +1158,9 @@ h2 {
     justify-content: flex-start;
   }
 
-  .sort-control {
-    justify-self: start;
-  }
-
   .resource-table th,
   .resource-table td {
     padding: 14px 12px 14px 0;
-    font-size: 14px;
     vertical-align: top;
   }
 
