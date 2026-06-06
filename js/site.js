@@ -353,12 +353,9 @@ function initResourceList(controls) {
 
     const pageStart = (currentPage - 1) * pageSize;
     const pageEnd = pageStart + pageSize;
-    const visibleRows = new Set(matchingRows.slice(pageStart, pageEnd).map((item) => item.row));
+    const visibleRows = matchingRows.slice(pageStart, pageEnd).map((item) => item.row);
 
-    orderedRows.forEach((item) => {
-      item.row.hidden = !visibleRows.has(item.row);
-      tableBody.append(item.row);
-    });
+    tableBody.replaceChildren(...visibleRows);
 
     count.textContent = isFiltered
       ? `Showing ${matchingRows.length.toLocaleString()} of ${totalCount.toLocaleString()} ${itemLabel}`

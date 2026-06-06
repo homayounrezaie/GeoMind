@@ -424,7 +424,8 @@ h2 {
 .resource-table th button[data-active="true"]::after {
   color: var(--link);
   content: "↓";
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 1;
 }
 
