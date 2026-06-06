@@ -439,6 +439,81 @@ h2 {
   font-weight: 500;
 }
 
+.model-name-with-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.org-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 2px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.org-tag-google {
+  background: #eaf2ff;
+  border-color: #d4e3ff;
+  color: #1f5aa6;
+}
+
+.org-tag-meta {
+  background: #eef0ff;
+  border-color: #d9ddff;
+  color: #4750a8;
+}
+
+.org-tag-microsoft {
+  background: #ebf7ee;
+  border-color: #d5eadb;
+  color: #2d7040;
+}
+
+.org-tag-nvidia {
+  background: #eef8dc;
+  border-color: #d9edb7;
+  color: #4f741e;
+}
+
+.org-tag-ibm {
+  background: #edf4ff;
+  border-color: #d7e6fb;
+  color: #315d8f;
+}
+
+.org-tag-amazon {
+  background: #fff3dc;
+  border-color: #f1deb8;
+  color: #8a5a00;
+}
+
+.org-tag-allen-ai {
+  background: #edf8f7;
+  border-color: #d2ebe8;
+  color: #2b6f6b;
+}
+
+.org-tag-nasa {
+  background: #f5edff;
+  border-color: #e5d7f8;
+  color: #6b4b92;
+}
+
+.org-tag-esa {
+  background: #f1f4f6;
+  border-color: #dce4ea;
+  color: #4d6476;
+}
+
 .resource-table a {
   color: var(--link);
   font-weight: 400;
