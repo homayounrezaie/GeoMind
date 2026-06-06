@@ -7731,5 +7731,16 @@
     "source": "Hannah Kerner website",
     "rawStatus": "candidate_model",
     "rawCategory": "foundation_models"
+  },
+  {
+    "id": "github_ibrahimshoer93_cesium_splat_streetview",
+    "name": "cesium-splat-streetview",
+    "category": "Research Model",
+    "venueYear": "GitHub 2025",
+    "year": 2025,
+    "sourceUrl": "https://github.com/Ibrahimshoer93/cesium-splat-streetview",
+    "source": "GitHub repository",
+    "rawStatus": "candidate_model",
+    "rawCategory": "research_models"
   }
 ]
