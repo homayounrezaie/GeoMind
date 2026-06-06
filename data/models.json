@@ -1189,12 +1189,12 @@
   },
   {
     "id": "cand10714",
-    "name": "Geo\u00b2",
+    "name": "Geo²",
     "category": "Vision-Location Model",
     "venueYear": "CVPR 2026",
     "year": 2026,
     "sourceUrl": "https://github.com/Fobow/geo-2",
-    "source": "Geo\u00b2 project page",
+    "source": "Geo² project page",
     "rawStatus": "candidate_model",
     "rawCategory": "vision_location"
   },
@@ -1956,6 +1956,17 @@
     "source": "catalogue/models",
     "rawStatus": "candidate_model",
     "rawCategory": "foundation_models"
+  },
+  {
+    "id": "model_microsoft_planetary_explorer",
+    "name": "Planetary-Explorer",
+    "category": "Agent",
+    "venueYear": "GitHub 2026",
+    "year": 2026,
+    "sourceUrl": "https://github.com/microsoft/Planetary-Explorer",
+    "source": "GitHub",
+    "rawStatus": "candidate_model",
+    "rawCategory": "agents"
   },
   {
     "id": "hf0064",
@@ -2981,15 +2992,15 @@
     "rawCategory": "vision_language"
   },
   {
-    "id": "paper_model_unigeoclip",
-    "name": "UNIGEOCLIP",
-    "category": "Research Model",
-    "venueYear": "arXiv 2026",
-    "year": 2026,
-    "sourceUrl": "https://github.com/gastruc/unigeoclip",
-    "source": "paper-extraction",
-    "rawStatus": "candidate_model",
-    "rawCategory": "paper_models"
+    "id": "model_unigeoclip",
+    "name": "UniGeoCLIP",
+    "category": "Vision-Language Model",
+    "venueYear": "CVPR 2025",
+    "year": 2025,
+    "sourceUrl": "https://arxiv.org/abs/2503.02755",
+    "source": "catalogue/models",
+    "rawStatus": "published",
+    "rawCategory": "vision_language_models"
   },
   {
     "id": "cand10707",
@@ -3355,14 +3366,14 @@
     "rawCategory": "foundation_models"
   },
   {
-    "id": "cand10684",
+    "id": "model_anysat",
     "name": "AnySat",
     "category": "Foundation Model",
     "venueYear": "CVPR 2025",
     "year": 2025,
     "sourceUrl": "https://github.com/gastruc/AnySat",
-    "source": "awesome_rsfm_github",
-    "rawStatus": "candidate_model",
+    "source": "catalogue/models",
+    "rawStatus": "published",
     "rawCategory": "foundation_models"
   },
   {
@@ -3641,14 +3652,14 @@
     "rawCategory": "foundation_models"
   },
   {
-    "id": "model_wangyi111_copernicus_fm",
+    "id": "model_copernicus_fm",
     "name": "Copernicus-FM",
     "category": "Foundation Model",
-    "venueYear": "Hugging Face 2025",
+    "venueYear": "ICCV 2025",
     "year": 2025,
-    "sourceUrl": "https://huggingface.co/wangyi111/Copernicus-FM",
+    "sourceUrl": "https://arxiv.org/abs/2503.13439",
     "source": "catalogue/models",
-    "rawStatus": "candidate_model",
+    "rawStatus": "published",
     "rawCategory": "foundation_models"
   },
   {
@@ -4114,15 +4125,15 @@
     "rawCategory": "vision_language"
   },
   {
-    "id": "cand3435",
+    "id": "model_galileo",
     "name": "Galileo",
     "category": "Foundation Model",
-    "venueYear": "ICML 2025",
-    "year": 2025,
+    "venueYear": "NASA Harvest 2024",
+    "year": 2024,
     "sourceUrl": "https://github.com/nasaharvest/galileo",
-    "source": "arXiv",
-    "rawStatus": "candidate_model",
-    "rawCategory": "remote_sensing_pretraining"
+    "source": "catalogue/models",
+    "rawStatus": "published",
+    "rawCategory": "foundation_models"
   },
   {
     "id": "paper_model_generalized-referring-expression-segmentation-on-aerial-photos",
@@ -5709,14 +5720,14 @@
     "rawCategory": "foundation_models"
   },
   {
-    "id": "cand0689",
+    "id": "model_terramind",
     "name": "TerraMind",
     "category": "Foundation Model",
     "venueYear": "ICCV 2025",
     "year": 2025,
-    "sourceUrl": "https://github.com/IBM/terramind",
-    "source": "OpenAlex",
-    "rawStatus": "candidate_model",
+    "sourceUrl": "https://arxiv.org/abs/2504.11171",
+    "source": "catalogue/models",
+    "rawStatus": "published",
     "rawCategory": "foundation_models"
   },
   {
@@ -5753,14 +5764,14 @@
     "rawCategory": "foundation_models"
   },
   {
-    "id": "cand1545",
+    "id": "model_tessera",
     "name": "TESSERA",
     "category": "Foundation Model",
     "venueYear": "CVPR 2026",
-    "year": 2025,
-    "sourceUrl": "https://github.com/ucam-eo/tessera",
-    "source": "OpenAlex",
-    "rawStatus": "candidate_model",
+    "year": 2026,
+    "sourceUrl": "https://arxiv.org/abs/2503.13438",
+    "source": "catalogue/models",
+    "rawStatus": "published",
     "rawCategory": "foundation_models"
   },
   {
@@ -6534,14 +6545,14 @@
     "rawCategory": "paper_models"
   },
   {
-    "id": "cand0278",
+    "id": "model_prithvi",
     "name": "Prithvi",
     "category": "Foundation Model",
-    "venueYear": "arXiv 2023",
-    "year": 2024,
-    "sourceUrl": "https://huggingface.co/ibm-nasa-geospatial",
-    "source": "OpenAlex",
-    "rawStatus": "candidate_model",
+    "venueYear": "NASA + IBM 2023",
+    "year": 2023,
+    "sourceUrl": "https://huggingface.co/ibm-nasa-geospatial/Prithvi-100M",
+    "source": "catalogue/models",
+    "rawStatus": "published",
     "rawCategory": "foundation_models"
   },
   {
@@ -6985,14 +6996,14 @@
     "rawCategory": "vision_language"
   },
   {
-    "id": "hf0018",
+    "id": "model_clay",
     "name": "Clay",
     "category": "Foundation Model",
-    "venueYear": "Hugging Face 2023",
-    "year": 2023,
-    "sourceUrl": "https://huggingface.co/made-with-clay/Clay",
-    "source": "Hugging Face",
-    "rawStatus": "huggingface_model",
+    "venueYear": "Clay Foundation 2024",
+    "year": 2024,
+    "sourceUrl": "https://clay-foundation.github.io/model/",
+    "source": "catalogue/models",
+    "rawStatus": "published",
     "rawCategory": "foundation_models"
   },
   {
@@ -7381,15 +7392,15 @@
     "rawCategory": "foundation_models"
   },
   {
-    "id": "cand0828",
+    "id": "model_scale_mae",
     "name": "Scale-MAE",
     "category": "Foundation Model",
     "venueYear": "ICCV 2023",
     "year": 2023,
     "sourceUrl": "https://github.com/bair-climate-initiative/scale-mae",
-    "source": "OpenAlex",
-    "rawStatus": "candidate_model",
-    "rawCategory": "remote_sensing_pretraining"
+    "source": "catalogue/models",
+    "rawStatus": "published",
+    "rawCategory": "foundation_models"
   },
   {
     "id": "cand2035",
@@ -7612,15 +7623,15 @@
     "rawCategory": "remote_sensing_pretraining"
   },
   {
-    "id": "cand1208",
+    "id": "model_satmae",
     "name": "SatMAE",
     "category": "Foundation Model",
     "venueYear": "NeurIPS 2022",
     "year": 2022,
     "sourceUrl": "https://github.com/sustainlab-group/SatMAE",
-    "source": "OpenAlex",
-    "rawStatus": "candidate_model",
-    "rawCategory": "remote_sensing_pretraining"
+    "source": "catalogue/models",
+    "rawStatus": "published",
+    "rawCategory": "foundation_models"
   },
   {
     "id": "cand0436",
@@ -7742,5 +7753,27 @@
     "source": "GitHub repository",
     "rawStatus": "candidate_model",
     "rawCategory": "research_models"
+  },
+  {
+    "id": "model_aurora",
+    "name": "Aurora",
+    "category": "Weather Foundation Model",
+    "venueYear": "Nature 2025",
+    "year": 2025,
+    "sourceUrl": "https://www.microsoft.com/en-us/research/project/aurora/",
+    "source": "catalogue/models",
+    "rawStatus": "published",
+    "rawCategory": "weather_models"
+  },
+  {
+    "id": "model_geogs",
+    "name": "GeoGS",
+    "category": "3D Geospatial Model",
+    "venueYear": "CVPR 2025",
+    "year": 2025,
+    "sourceUrl": "https://arxiv.org/abs/2503.08708",
+    "source": "catalogue/models",
+    "rawStatus": "published",
+    "rawCategory": "3d_models"
   }
 ]

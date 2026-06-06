@@ -513,10 +513,34 @@ h2 {
   color: #6b4b92;
 }
 
+.org-tag-ibm-nasa {
+  background: #f5edff;
+  border-color: #e5d7f8;
+  color: #6b4b92;
+}
+
 .org-tag-esa {
   background: #f1f4f6;
   border-color: #dce4ea;
   color: #4d6476;
+}
+
+.org-tag-clay {
+  background: #edf7f2;
+  border-color: #d4eadf;
+  color: #32654a;
+}
+
+.org-tag-chinese-academy {
+  background: #fff0f0;
+  border-color: #f0d2d2;
+  color: #8a3a3a;
+}
+
+.org-tag-inria {
+  background: #eef3ff;
+  border-color: #d7e2fb;
+  color: #3c5f9f;
 }
 
 .resource-table a {
