@@ -6788,7 +6788,7 @@
   },
   {
     "id": "paper_model_segment-anything-model-for-road-network-graph-extraction",
-    "name": "Segment Anything Model for Road Network Graph Extraction",
+    "name": "Segment Anything Model (SAM)",
     "category": "Segmentation",
     "venueYear": "arXiv 2024",
     "year": 2024,
