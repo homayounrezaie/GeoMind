@@ -1436,19 +1436,20 @@ h2 {
     padding-bottom: 0;
   }
 
-  .resource-panel .resource-table-benchmarks tbody tr {
-    grid-template-columns: minmax(0, 1fr) max-content;
-    column-gap: 18px;
+  .resource-panel .resource-table tbody tr {
+    grid-template-columns: 58% 42%;
+    column-gap: 0;
     row-gap: 0;
   }
 
-  .resource-panel .resource-table-benchmarks td:first-child {
+  .resource-panel .resource-table td:first-child {
     padding-bottom: 16px;
   }
 
-  .resource-panel .resource-table-benchmarks td:last-child {
+  .resource-panel .resource-table td:last-child {
     grid-column: 2;
     padding-top: 16px;
+    text-align: right;
   }
 
   .resource-table-models .model-name-with-tag {
