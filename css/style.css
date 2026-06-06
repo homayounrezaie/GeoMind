@@ -291,33 +291,29 @@ h2 {
   display: flex;
   grid-column: 1 / -1;
   grid-row: 2;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 2px 0;
-  scrollbar-width: none;
-}
-
-.company-filter::-webkit-scrollbar {
-  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0 2px;
 }
 
 .company-filter button {
-  flex: 0 0 auto;
-  min-height: 34px;
-  padding: 0 13px;
-  background: #f8fafd;
-  border: 0;
-  border-radius: 999px;
-  color: var(--muted);
+  min-height: 54px;
+  padding: 0 28px;
+  background: #fff;
+  border: 1px solid #d0d4d9;
+  border-radius: 16px;
+  color: #55585c;
   cursor: pointer;
   font: inherit;
-  font-size: 14px;
+  font-size: 24px;
+  line-height: 1;
   white-space: nowrap;
 }
 
 .company-filter button.is-active {
-  background: #111318;
-  color: #fff;
+  border-color: #9aa0a6;
+  color: var(--text);
 }
 
 .search-control {
@@ -1162,6 +1158,17 @@ h2 {
   .company-filter {
     grid-column: auto;
     grid-row: auto;
+  }
+
+  .company-filter {
+    justify-content: flex-start;
+  }
+
+  .company-filter button {
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 14px;
+    font-size: 18px;
   }
 
   .sort-control {
