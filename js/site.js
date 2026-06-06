@@ -140,6 +140,45 @@ function getRowCompanyKeys(row) {
     .map(([key]) => key);
 }
 
+function getSourceKind(link) {
+  try {
+    const host = new URL(link.href, window.location.href).hostname.replace(/^www\./, "");
+
+    if (host === "github.com") {
+      return { label: "GitHub", type: "github" };
+    }
+
+    if (host === "huggingface.co") {
+      return { label: "Hugging Face", type: "huggingface" };
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
+function decorateSourceLinks(table) {
+  table?.querySelectorAll("tbody td:last-child a").forEach((link) => {
+    const source = getSourceKind(link);
+    const icon = document.createElement("span");
+    const text = document.createElement("span");
+
+    link.classList.add("source-link");
+    link.textContent = "";
+    text.textContent = "View";
+
+    if (source) {
+      icon.className = `source-icon source-icon-${source.type}`;
+      icon.setAttribute("aria-hidden", "true");
+      link.setAttribute("aria-label", `View on ${source.label}`);
+      link.append(icon);
+    }
+
+    link.append(text);
+  });
+}
+
 function initResourceList(controls) {
   const section = controls.closest("section");
   const searchInput = controls.querySelector("[data-resource-search]");
@@ -167,6 +206,8 @@ function initResourceList(controls) {
   pager.setAttribute("aria-label", "Table pagination");
   pager.hidden = true;
   tableWrap?.after(pager);
+
+  decorateSourceLinks(table);
 
   const rows = Array.from(tableBody.querySelectorAll("tr")).map((row, index) => ({
     index,
