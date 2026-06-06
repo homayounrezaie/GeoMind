@@ -312,8 +312,9 @@ h2 {
 }
 
 .company-filter button.is-active {
-  border-color: #9aa0a6;
-  color: var(--text);
+  background: var(--link);
+  border-color: var(--link);
+  color: #fff;
 }
 
 .search-control {
