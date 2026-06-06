@@ -293,20 +293,20 @@ h2 {
   grid-row: 2;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  padding: 10px 0 2px;
+  gap: 8px;
+  padding: 8px 0 2px;
 }
 
 .company-filter button {
-  min-height: 54px;
-  padding: 0 28px;
+  min-height: 34px;
+  padding: 0 14px;
   background: #fff;
   border: 1px solid #d0d4d9;
-  border-radius: 16px;
+  border-radius: 12px;
   color: #55585c;
   cursor: pointer;
   font: inherit;
-  font-size: 24px;
+  font-size: 13px;
   line-height: 1;
   white-space: nowrap;
 }
@@ -1162,13 +1162,6 @@ h2 {
 
   .company-filter {
     justify-content: flex-start;
-  }
-
-  .company-filter button {
-    min-height: 44px;
-    padding: 0 18px;
-    border-radius: 14px;
-    font-size: 18px;
   }
 
   .sort-control {
