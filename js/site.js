@@ -244,6 +244,8 @@ function initResourceList(controls) {
   }));
   rows = fallbackRows;
   totalCount = rows.length;
+  const countLabel =
+    searchInput?.placeholder?.replace(/^Search\s+/i, "").trim().toLowerCase() || "items";
   const sortState = { column: "year", direction: "desc" };
   const dynamicColumns = Array.from(table?.querySelectorAll("thead th[data-field]") || []).map(
     (header) => ({
@@ -471,7 +473,7 @@ function initResourceList(controls) {
 
     tableBody.replaceChildren(...visibleRows);
 
-    count.textContent = totalCount.toLocaleString();
+    count.textContent = `${totalCount.toLocaleString()} ${countLabel}`;
     updateSortHeaders();
     renderPager(matchingRows.length);
   }
