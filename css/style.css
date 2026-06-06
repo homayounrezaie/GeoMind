@@ -877,6 +877,76 @@ h2 {
   line-height: 1.05;
 }
 
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 40px 24px;
+  padding-bottom: 96px;
+}
+
+.people-section + .people-section {
+  margin-top: 56px;
+}
+
+.people-section-title {
+  margin: 0 0 30px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.person-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.person-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  background: #f1f3f4;
+  color: var(--muted);
+  font-size: 30px;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.person-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.person-name {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.person-linkedin {
+  display: inline-flex;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+.person-linkedin svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.person-card:hover .person-linkedin,
+.person-linkedin:hover {
+  color: var(--link);
+}
+
 .legal-page {
   width: min(960px, calc(100% - 48px));
 }
@@ -1337,6 +1407,10 @@ h2 {
     padding-top: 64px;
   }
 
+  .content-section.resource-panel {
+    padding-top: 64px;
+  }
+
   .category-tabs {
     width: max-content;
     max-width: 100%;
@@ -1659,6 +1733,10 @@ h2 {
 
   .content-section {
     padding: 0 0 68px;
+  }
+
+  .content-section.resource-panel {
+    padding-top: 64px;
   }
 
   h2 {
