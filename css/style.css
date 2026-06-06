@@ -782,6 +782,13 @@ h2 {
   object-fit: cover;
 }
 
+.model-card-media figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 .model-card-summary {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -792,6 +799,8 @@ h2 {
 }
 
 .model-card-summary h2,
+.model-card-story h2,
+.model-card-gallery h2,
 .model-card-details h2,
 .model-card-links h2 {
   margin-bottom: 14px;
@@ -804,6 +813,138 @@ h2 {
   color: var(--muted);
   font-size: 17px;
   line-height: 1.55;
+}
+
+.model-card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0 0 72px;
+  background: var(--soft-line);
+  border: 1px solid var(--soft-line);
+}
+
+.model-card-stats div {
+  min-width: 0;
+  padding: 28px;
+  background: #fff;
+}
+
+.model-card-stats strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 34px;
+  font-weight: 450;
+  line-height: 1;
+}
+
+.model-card-stats span {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.model-card-story,
+.model-card-gallery {
+  padding: 64px 0;
+  border-top: 1px solid var(--line);
+}
+
+.model-card-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(260px, 0.82fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.model-card-story-copy p:not(.model-card-kicker) {
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.model-card-story-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.model-card-kicker {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.model-card-source-note {
+  display: grid;
+  gap: 8px;
+  padding-left: 24px;
+  border-left: 1px solid var(--soft-line);
+}
+
+.model-card-source-note span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.model-card-source-note a {
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.model-card-section-heading {
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.model-card-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.model-card-gallery figure,
+.model-card-story-media figure {
+  margin: 0;
+}
+
+.model-card-gallery img,
+.model-card-story-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.model-card-gallery figcaption,
+.model-card-story-media figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.model-card-mini-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: start;
+}
+
+.model-card-mini-list span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid var(--soft-line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.25;
 }
 
 .model-card-details,
@@ -875,6 +1016,10 @@ h2 {
   margin: 0;
   font-size: clamp(44px, 6vw, 72px);
   line-height: 1.05;
+}
+
+.page-footer-divider {
+  border-bottom: 1px solid var(--line);
 }
 
 .people-grid {
@@ -1496,6 +1641,27 @@ h2 {
     gap: 26px;
   }
 
+  .model-card-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .model-card-story {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .model-card-source-note {
+    padding-top: 20px;
+    padding-left: 0;
+    border-top: 1px solid var(--soft-line);
+    border-left: 0;
+  }
+
+  .model-card-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
   .detail-grid {
     grid-template-columns: 1fr;
   }
@@ -1692,6 +1858,44 @@ h2 {
 
   .model-card-summary {
     padding: 42px 0;
+  }
+
+  .model-card-stats {
+    grid-template-columns: 1fr;
+    margin-bottom: 48px;
+  }
+
+  .model-card-stats div {
+    padding: 24px;
+  }
+
+  .model-card-stats strong {
+    font-size: 30px;
+  }
+
+  .model-card-story,
+  .model-card-gallery {
+    padding: 46px 0;
+  }
+
+  .model-card-story h2,
+  .model-card-gallery h2 {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+
+  .model-card-story-copy p:not(.model-card-kicker) {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .model-card-mini-list {
+    gap: 8px;
+  }
+
+  .model-card-mini-list span {
+    min-height: 34px;
+    font-size: 13px;
   }
 
   .empty-page {

@@ -9,7 +9,7 @@
       content="GeoMind model card for AlphaEarth Foundations, a geospatial AI model for planetary mapping and monitoring."
     />
     <link rel="icon" type="image/png" href="../../images/geomind-logo.png" />
-    <link rel="stylesheet" href="../../css/style.css?v=20260605-6" />
+    <link rel="stylesheet" href="../../css/style.css?v=20260606-12" />
   </head>
   <body>
     <header class="site-header">
@@ -31,11 +31,11 @@
     <main class="model-card-page">
       <article class="model-card-article">
         <header class="model-card-hero">
-          <p class="model-card-meta">July 30, 2025 / Science</p>
+          <p class="model-card-meta">Google DeepMind / Google Earth Engine / July 30, 2025</p>
           <h1>AlphaEarth Foundations</h1>
           <p>
-            A geospatial AI model that integrates Earth observation data into compact embeddings
-            for global mapping and monitoring.
+            An Earth observation foundation model that turns massive, multimodal satellite and
+            geospatial data into compact annual embeddings for global mapping and monitoring.
           </p>
         </header>
 
@@ -44,31 +44,192 @@
             src="https://lh3.googleusercontent.com/jfsVXHx9kDSyXCnQBEoijKPEE76CHunOO2wq8c-6y596cNbzk8LB1OKGcanX1tkEDtHCWRNCyuluCcggoqgVdYc3KmKSyVUS59eTeY99U_HEDLG5NQ=w1440-h810-n-nu"
             alt="Satellite imagery collage illustrating AlphaEarth Foundations mapping data"
           />
+          <figcaption>
+            Source image: Google DeepMind article on AlphaEarth Foundations.
+          </figcaption>
         </figure>
 
         <section class="model-card-summary" aria-label="AlphaEarth overview">
           <div>
             <h2>What It Is</h2>
             <p>
-              AlphaEarth Foundations acts like a virtual satellite: it combines diverse Earth
-              observation sources into a unified representation for terrestrial land and coastal
-              waters.
+              AlphaEarth Foundations functions like a virtual satellite. It characterizes
+              terrestrial land and coastal waters by combining diverse Earth observation streams
+              into one model-ready representation.
             </p>
           </div>
           <div>
             <h2>Core Output</h2>
             <p>
-              The system creates compact 64-dimensional embedding fields, including annual
-              embeddings released through Google Earth Engine as the Satellite Embedding dataset.
+              The model produces 64-dimensional embedding fields that summarize a location through
+              time. Annual embeddings are available in Google Earth Engine as the Satellite
+              Embedding dataset.
             </p>
           </div>
           <div>
             <h2>Primary Uses</h2>
             <p>
-              The model supports ecosystem classification, agriculture and environmental change
-              analysis, deforestation monitoring, urban expansion tracking, and water resource
+              It supports ecosystem classification, agricultural monitoring, deforestation
+              analysis, urban expansion tracking, surface property estimation, and water resource
               assessment.
             </p>
+          </div>
+        </section>
+
+        <section class="model-card-stats" aria-label="AlphaEarth facts">
+          <div>
+            <strong>10x10 m</strong>
+            <span>Analysis squares for land and coastal waters</span>
+          </div>
+          <div>
+            <strong>64</strong>
+            <span>Embedding components per field</span>
+          </div>
+          <div>
+            <strong>16x</strong>
+            <span>Less storage than other tested AI systems</span>
+          </div>
+          <div>
+            <strong>24%</strong>
+            <span>Lower average error rate than tested alternatives</span>
+          </div>
+          <div>
+            <strong>1.4T+</strong>
+            <span>Annual embedding footprints in Earth Engine</span>
+          </div>
+          <div>
+            <strong>50+</strong>
+            <span>Organizations involved in real-world testing</span>
+          </div>
+        </section>
+
+        <section class="model-card-story" aria-labelledby="why-title">
+          <div class="model-card-story-copy">
+            <p class="model-card-kicker">Why It Matters</p>
+            <h2 id="why-title">A consistent view of a changing planet</h2>
+            <p>
+              Satellites capture information-rich imagery and measurements every day, but the data
+              is complex, multimodal, and refreshed at high frequency. AlphaEarth Foundations is
+              designed to connect those disparate signals so analysts can work from a more complete
+              and consistent picture of Earth.
+            </p>
+            <p>
+              DeepMind frames the model as useful for decisions around food security, ecosystem
+              change, deforestation, urban growth, and water resources.
+            </p>
+          </div>
+          <aside class="model-card-source-note">
+            <span>Primary source</span>
+            <a href="https://deepmind.google/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/" target="_blank" rel="noreferrer">
+              Google DeepMind article
+            </a>
+          </aside>
+        </section>
+
+        <section class="model-card-gallery" aria-labelledby="gallery-title">
+          <div class="model-card-section-heading">
+            <p class="model-card-kicker">Visuals</p>
+            <h2 id="gallery-title">Embedding views from the DeepMind article</h2>
+          </div>
+          <div class="model-card-gallery-grid">
+            <figure>
+              <img
+                src="https://lh3.googleusercontent.com/FpTb4pZP1Wok3PFolYgx7xnoSy68iHC-f1q_HuCocGMDWR5yHmpxA_1pqOGoY8TRC_VqLgXyZ3oh1GX-HtGwBY-_08X-lPkk_XTBX9LDZyiZouGuBQ=w1440"
+                alt="AlphaEarth embedding visualization showing agricultural detail"
+              />
+              <figcaption>
+                Three embedding dimensions are mapped to RGB to reveal patterns in Earth
+                observation data.
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://lh3.googleusercontent.com/UKQxamKhBQF9TgbB2kSI7NQiaxGZBd_5OKXMmnG3o4tj5U7V0mPEDouqIZnyMjanPveo2vldDrP22ylWVB70T67Df1jUw4dqwJfDV844T_9BmYGPVA=w1440"
+                alt="AlphaEarth embedding visualization of a difficult-to-image surface"
+              />
+              <figcaption>
+                The article highlights clear structure in areas that are hard to image
+                consistently with conventional satellite passes.
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://lh3.googleusercontent.com/uas-H35cQHKXFfhgklQzQd7Mxdno7KMbOiw-2yZBLTuskrCsfS_yGqmJIpETNZegXrdzNSeiHwG-xGi3Qhn6Ij4giqI7dOdeUmPmNBWFnUKCXgN3gog=w1440"
+                alt="AlphaEarth embedding visualization showing land-use variation"
+              />
+              <figcaption>
+                Embeddings can make land-use variation visible even when it is subtle in raw
+                imagery.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="model-card-story model-card-story-media" aria-labelledby="works-title">
+          <div class="model-card-story-copy">
+            <p class="model-card-kicker">How It Works</p>
+            <h2 id="works-title">A compact representation built from many sources</h2>
+            <p>
+              AlphaEarth Foundations combines public data sources such as optical satellite
+              imagery, radar, 3D laser mapping, and climate simulation outputs. It then produces a
+              compact summary that can be used for downstream mapping and monitoring tasks.
+            </p>
+            <p>
+              DeepMind reports that this compact representation reduces storage requirements and
+              makes planetary-scale analysis more practical.
+            </p>
+          </div>
+          <figure>
+            <img
+              src="https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/original_images/gif.gif"
+              alt="Diagram animation illustrating AlphaEarth Foundations processing Earth observation frames through time"
+            />
+            <figcaption>
+              DeepMind diagram showing the model building a continuous view from unevenly sampled
+              observations.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="model-card-story model-card-story-media" aria-labelledby="embedding-title">
+          <div class="model-card-story-copy">
+            <p class="model-card-kicker">Representation</p>
+            <h2 id="embedding-title">Global embedding fields</h2>
+            <p>
+              Each embedding has 64 components. DeepMind describes the result as a global
+              embedding field that can be queried and used by mapping systems in Earth Engine.
+            </p>
+          </div>
+          <figure>
+            <img
+              src="https://lh3.googleusercontent.com/1fL__KRDBJYACpABdB9ZEhVir8fUmDwc2HHN-_tHlzBHG8HreW1_jtnkrTJ9H95J_qlrqBouWtET3pQzhw4davAYV3qj0UlZ0smZ2kChHyjP4usE=w1440"
+              alt="Diagram of a global embedding field broken down into a single 64-component embedding"
+            />
+            <figcaption>
+              DeepMind diagram of a global embedding field and one 64-component embedding.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="model-card-story" aria-labelledby="dataset-title">
+          <div class="model-card-story-copy">
+            <p class="model-card-kicker">Dataset</p>
+            <h2 id="dataset-title">Satellite Embedding dataset in Earth Engine</h2>
+            <p>
+              The annual Satellite Embedding dataset is available through Google Earth Engine. It
+              contains more than 1.4 trillion embedding footprints per year and is intended to help
+              researchers and organizations build custom maps more quickly.
+            </p>
+          </div>
+          <div class="model-card-mini-list" aria-label="Example users and partners">
+            <span>Global Ecosystems Atlas</span>
+            <span>MapBiomas</span>
+            <span>Food and Agriculture Organization</span>
+            <span>Harvard Forest</span>
+            <span>Group on Earth Observations</span>
+            <span>Oregon State University</span>
+            <span>Spatial Informatics Group</span>
+            <span>Stanford University</span>
           </div>
         </section>
 
@@ -96,6 +257,14 @@
               <strong>Satellite Embedding dataset in Google Earth Engine</strong>
             </div>
             <div>
+              <span>Test partners</span>
+              <strong>50+ organizations</strong>
+            </div>
+            <div>
+              <span>Annual dataset scale</span>
+              <strong>More than 1.4 trillion embedding footprints per year</strong>
+            </div>
+            <div>
               <span>Reported result</span>
               <strong>24% lower error rate on average than tested alternatives</strong>
             </div>
@@ -107,6 +276,7 @@
           <a href="https://deepmind.google/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/">Google DeepMind article</a>
           <a href="https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_SATELLITE_EMBEDDING_V1_ANNUAL">Satellite Embedding dataset</a>
           <a href="https://arxiv.org/abs/2507.22291">Paper</a>
+          <a href="https://medium.com/google-earth/introducing-alphaearth-foundations-in-google-earth-engine-1f3f289f240e">Google Earth Engine blog</a>
         </section>
       </article>
     </main>
