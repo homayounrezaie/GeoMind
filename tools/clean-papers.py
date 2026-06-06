@@ -263,6 +263,23 @@ HOME_TITLE_PATTERNS = (
     "cross scale mae",
 )
 
+CURATED_PAPERS = [
+    {
+        "id": "ieee_11540094",
+        "title": "IEEE Xplore Document 11540094",
+        "topic": "Remote Sensing",
+        "venueYear": "IEEE 2026",
+        "venue": "IEEE",
+        "venueKey": "ieee",
+        "year": 2026,
+        "sourceUrl": "https://ieeexplore.ieee.org/document/11540094",
+        "citationCount": 0,
+        "doi": "",
+        "rawPaperId": "curated_ieee_11540094",
+        "searchText": "IEEE Xplore Document 11540094 Remote Sensing IEEE 2026",
+    },
+]
+
 
 def clean_text(value: str) -> str:
     value = re.sub(r"[\x00-\x1f\x7f-\x9f]", " ", value or "")
@@ -513,6 +530,17 @@ def clean_rows(rows: list[dict[str, str]]) -> list[dict[str, object]]:
                 ),
             }
         )
+
+    existing_ids = {str(row["id"]) for row in cleaned}
+    existing_urls = {str(row["sourceUrl"]) for row in cleaned}
+
+    for row in CURATED_PAPERS:
+        if row["id"] in existing_ids or row["sourceUrl"] in existing_urls:
+            continue
+
+        cleaned.append(row)
+        existing_ids.add(str(row["id"]))
+        existing_urls.add(str(row["sourceUrl"]))
 
     cleaned.sort(
         key=lambda row: (
