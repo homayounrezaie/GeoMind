@@ -173,10 +173,7 @@ function getCardLinkLabel(searchInput) {
 
 function decorateSourceLink(link, cardLinkLabel, showSourceIcons) {
   const isDatasetCard = cardLinkLabel === "View dataset card";
-  const source =
-    isDatasetCard && /^https?:\/\//i.test(link.href)
-      ? { label: "Remote source", type: "remote" }
-      : getSourceKind(link);
+  const source = isDatasetCard ? null : getSourceKind(link);
   const icon = document.createElement("span");
   const text = document.createElement("span");
 
