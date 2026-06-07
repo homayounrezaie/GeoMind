@@ -1,5 +1,18 @@
 [
   {
+    "id": "dataset_esa_philab_maya4",
+    "dataset": "Maya4",
+    "task": "SAR focusing / Signal-domain ML",
+    "sensorModality": "Sentinel-1 SAR / Zarr",
+    "sizeResolution": "1.94 TB / 2,109,564 files",
+    "year": 2026,
+    "sourceUrl": "https://huggingface.co/buckets/ESA-philab/Maya4",
+    "source": "Hugging Face Bucket",
+    "downloads": 0,
+    "likes": 0,
+    "rawDatasetId": "ESA-philab/Maya4"
+  },
+  {
     "id": "dataset_nutonic_sat_image_boundingbox_sft_full",
     "dataset": "sat-image-boundingbox-sft-full",
     "task": "Image-text training",
