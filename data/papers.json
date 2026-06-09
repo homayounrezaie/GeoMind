@@ -1,5 +1,23 @@
 [
   {
+    "id": "paper_2412_17007v2",
+    "title": "Where am I? Cross-View Geo-localization with Natural Language Descriptions",
+    "topic": "Vision-Language Models (VLMs)",
+    "venueYear": "ICCV 2025",
+    "venue": "ICCV",
+    "venueKey": "iccv",
+    "year": 2025,
+    "sourceUrl": "https://arxiv.org/abs/2412.17007v2",
+    "citationCount": 0,
+    "doi": "10.48550/arXiv.2412.17007v2",
+    "authors": "Junyan Ye; Honglin Lin; Leyan Ou; Dairong Chen; Zihao Wang; Qi Zhu; Conghui He; Weijia Li",
+    "codeUrl": "https://github.com/yejy53/CVG-Text",
+    "projectUrl": "https://yejy53.github.io/CVG-Text/",
+    "datasetUrl": "https://huggingface.co/datasets/LHL3341/CVG-Text_full",
+    "rawPaperId": "paper_2412_17007v2",
+    "searchText": "Where am I? Cross-View Geo-localization with Natural Language Descriptions Junyan Ye; Honglin Lin; Leyan Ou; Dairong Chen; Zihao Wang; Qi Zhu; Conghui He; Weijia Li Vision-Language Models (VLMs) ICCV 2025 10.48550/arXiv.2412.17007v2 CVG-Text CrossText2Loc cross-view geo-localization natural language descriptions street-view satellite imagery OpenStreetMap OSM text-guided retrieval"
+  },
+  {
     "id": "cand6103",
     "title": "OrbitalBrain: A Distributed Framework for Training ML Models in Space",
     "topic": "Agriculture and Environment",

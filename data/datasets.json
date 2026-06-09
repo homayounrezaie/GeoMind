@@ -1,5 +1,18 @@
 [
   {
+    "id": "dataset_lhl3341_cvg_text_full",
+    "dataset": "CVG-Text_full",
+    "task": "Cross-view geo-localization",
+    "sensorModality": "Street-view / Satellite imagery / OSM / Text",
+    "sizeResolution": "128 GB / 30K+ coordinates",
+    "year": 2025,
+    "sourceUrl": "https://huggingface.co/datasets/LHL3341/CVG-Text_full",
+    "source": "Hugging Face",
+    "downloads": 85,
+    "likes": 3,
+    "rawDatasetId": "LHL3341/CVG-Text_full"
+  },
+  {
     "id": "dataset_esa_philab_maya4",
     "dataset": "Maya4",
     "task": "SAR focusing / Signal-domain ML",
