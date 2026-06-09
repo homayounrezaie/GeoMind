@@ -166,6 +166,7 @@ function getCardLinkLabel(searchInput) {
     datasets: "dataset",
     models: "model",
     papers: "paper",
+    "papers with code": "paper",
   };
 
   return `View ${singularLabels[itemLabel] || "resource"} card`;
