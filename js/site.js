@@ -326,12 +326,55 @@ function initResourceList(controls) {
     updateSortHeaders();
   }
 
+  function normalizeVenueKey(value) {
+    const venue = String(value || "").trim().toLowerCase();
+
+    if (!venue) {
+      return "";
+    }
+
+    if (venue.startsWith("ieee")) {
+      return "ieee";
+    }
+
+    if (venue.includes("remote sensing")) {
+      return "remote-sensing";
+    }
+
+    return venue.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  function getDynamicField(data, field) {
+    if (field === "venueYear") {
+      return data.venueYear || [data.venue, data.year].filter(Boolean).join(" ");
+    }
+
+    if (field === "sourceUrl") {
+      return (
+        data.sourceUrl ||
+        data.links?.arxiv ||
+        data.links?.pdf ||
+        data.links?.project ||
+        data.links?.code ||
+        data.links?.dataset ||
+        ""
+      );
+    }
+
+    if (field === "topic") {
+      return data.topic || "";
+    }
+
+    return data[field];
+  }
+
   function createDynamicRow(data) {
     const row = document.createElement("tr");
     const showSourceIcons = table?.dataset.sourceIcons !== "false";
+    const venueKey = data.venueKey || normalizeVenueKey(data.venue);
 
-    if (data.venueKey) {
-      row.dataset.venue = data.venueKey;
+    if (venueKey) {
+      row.dataset.venue = venueKey;
     }
 
     if (Number.isFinite(Number(data.year))) {
@@ -343,7 +386,7 @@ function initResourceList(controls) {
 
       if (isLink) {
         const link = document.createElement("a");
-        const url = String(data[field] || "");
+        const url = String(getDynamicField(data, field) || "");
 
         link.href = url || "#";
         if (/^https?:\/\//i.test(url)) {
@@ -353,7 +396,7 @@ function initResourceList(controls) {
         decorateSourceLink(link, cardLinkLabel, showSourceIcons);
         cell.append(link);
       } else {
-        cell.textContent = String(data[field] || "");
+        cell.textContent = String(getDynamicField(data, field) || "");
       }
 
       row.append(cell);
@@ -364,9 +407,16 @@ function initResourceList(controls) {
 
   function normalizeDynamicItem(data, index) {
     const firstField = dynamicColumns[0]?.field || "title";
-    const name = String(data[firstField] || data.name || data.title || "").toLowerCase();
+    const name = String(getDynamicField(data, firstField) || data.name || data.title || "").toLowerCase();
     const searchText = String(
-      data.searchText || dynamicColumns.map(({ field }) => data[field] || "").join(" ")
+      data.searchText ||
+        [
+          ...dynamicColumns.map(({ field }) => getDynamicField(data, field) || ""),
+          data.authors,
+          data.abstract,
+          data.bibtex,
+          data.links && Object.values(data.links).filter(Boolean).join(" "),
+        ].join(" ")
     ).toLowerCase();
 
     return {
@@ -375,7 +425,7 @@ function initResourceList(controls) {
       row: null,
       name,
       searchText,
-      venue: data.venueKey || data.venue || "",
+      venue: data.venueKey || normalizeVenueKey(data.venue),
       companies: [],
       year: Number(data.year) || 0,
     };

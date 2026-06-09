@@ -1,31 +1,16 @@
-# ---------- CORE (required) ----------
-title: "SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery"
-authors: Cong et al.             # short author label for the table
-topic: Self-Supervised Learning  # SSL | Foundation Model | Segmentation | Survey | Detection | VLM | Other
-venue: NeurIPS 2022              # conference or journal, e.g. "NeurIPS 2022" | "IEEE TGRS 2022" | "arXiv 2022"
-year: 2022
+id: ""                # unique slug, e.g. satmae-2022
+title: ""
+authors: ""
+topic: ""             # SSL | Foundation Model | Segmentation | Detection | VLM | Survey | Other
+venue: ""             # e.g. "NeurIPS" | "IEEE TGRS"
+year:
+abstract: ""
+
 links:
-  card: cards/papers/satmae.html
-  paper: https://arxiv.org/abs/2207.08051
+  pdf:
+  arxiv:
+  code:
+  dataset:
+  project:
 
-# ---------- EXTENDED (optional) ----------
-
-publication:
-  arxiv_or_doi: 2207.08051
-  project_page: null
-  code: null
-
-contribution:
-  problem: What problem the paper tackles.
-  idea: The main idea / approach in one line.
-  contribution: The key result or takeaway.
-
-method:
-  approach: Brief description of the method.
-  paradigm: null                 # masked_modeling | contrastive | supervised | diffusion | ...
-
-# vocab reused from the other cards
-data_and_tasks:
-  datasets: []                   # link to dataset card slugs
-  tasks: []                      # classification | segmentation | ...
-  modalities: []                 # optical | sar | lidar | dem | climate | text | time_series
+bibtex: ""
