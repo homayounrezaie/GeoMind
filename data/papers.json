@@ -18747,7 +18747,7 @@
   },
   {
     "id": "cand0442",
-    "title": "Earth Observation for Disaster Mapping:&amp;nbsp;Benchmarks, Methods, Challenges and Future&amp;nbsp;Perspectives",
+    "title": "Earth Observation for Disaster Mapping: Benchmarks, Methods, Challenges and Future Perspectives",
     "topic": "Remote Sensing",
     "venueYear": "SSRN 2026",
     "venue": "SSRN",
@@ -18756,8 +18756,11 @@
     "sourceUrl": "https://doi.org/10.2139/ssrn.6725082",
     "citationCount": 0,
     "doi": "10.2139/ssrn.6725082",
+    "authors": "Hongruixuan Chen; Jian Song; Weihao Xuan; Junjue Wang; Heli Qi; Zeqi Zhou; Pengyu Dai; Olivier Dietrich; Erika Gutierrez; Lars Bromly; Edoardo Nemni; Yafei Ou; Jie Zhao; Zhuo Zheng; Yonghao Xu; Ronny Hänsch; Wenzhe Jiao; Marco Chini; Claudio Persello; Junshi Xia; Shijian Lu; Lixin Wang; Zhe Zhu; Evan Shelhamer; Jocelyn Chanussot; Konrad Schindler; Naoto Yokoya",
+    "codeUrl": "https://github.com/ChenHongruixuan/AnyDisasterMapping",
+    "detailsFile": "data/paper-details/earth-observation-for-disaster-mapping.json",
     "rawPaperId": "cand0442",
-    "searchText": "Earth Observation for Disaster Mapping:&amp;nbsp;Benchmarks, Methods, Challenges and Future&amp;nbsp;Perspectives Hongruixuan Chen; Jian Song; Weihao Xuan; Junjue Wang; Heli Qi; Zeqi Zhou; Pengyu Dai; Olivier Dietrich Remote Sensing SSRN 2026 10.2139/ssrn.6725082"
+    "searchText": "Earth Observation for Disaster Mapping: Benchmarks, Methods, Challenges and Future Perspectives Hongruixuan Chen; Jian Song; Weihao Xuan; Junjue Wang; Heli Qi; Zeqi Zhou; Pengyu Dai; Olivier Dietrich; Erika Gutierrez; Lars Bromly; Edoardo Nemni; Yafei Ou; Jie Zhao; Zhuo Zheng; Yonghao Xu; Ronny Hänsch; Wenzhe Jiao; Marco Chini; Claudio Persello; Junshi Xia; Shijian Lu; Lixin Wang; Zhe Zhu; Evan Shelhamer; Jocelyn Chanussot; Konrad Schindler; Naoto Yokoya Remote Sensing SSRN 2026 10.2139/ssrn.6725082 AnyDisasterMapping disaster mapping flood mapping landslide segmentation wildfire analysis infrastructure damage foundation models benchmarks"
   },
   {
     "id": "cand1492",

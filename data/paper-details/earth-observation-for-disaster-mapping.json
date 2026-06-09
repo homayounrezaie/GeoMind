@@ -1,0 +1,176 @@
+{
+  "id": "cand0442",
+  "slug": "earth-observation-for-disaster-mapping",
+  "title": "Earth Observation for Disaster Mapping: Benchmarks, Methods, Challenges and Future Perspectives",
+  "publication": {
+    "venue": "SSRN",
+    "venueYear": "SSRN 2026",
+    "year": 2026,
+    "month": "May",
+    "doi": "10.2139/ssrn.6725082",
+    "ssrnAbstractId": "6725082",
+    "sourceUrl": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6725082",
+    "doiUrl": "https://doi.org/10.2139/ssrn.6725082"
+  },
+  "authors": [
+    "Hongruixuan Chen",
+    "Jian Song",
+    "Weihao Xuan",
+    "Junjue Wang",
+    "Heli Qi",
+    "Zeqi Zhou",
+    "Pengyu Dai",
+    "Olivier Dietrich",
+    "Erika Gutierrez",
+    "Lars Bromly",
+    "Edoardo Nemni",
+    "Yafei Ou",
+    "Jie Zhao",
+    "Zhuo Zheng",
+    "Yonghao Xu",
+    "Ronny Hänsch",
+    "Wenzhe Jiao",
+    "Marco Chini",
+    "Claudio Persello",
+    "Junshi Xia",
+    "Shijian Lu",
+    "Lixin Wang",
+    "Zhe Zhu",
+    "Evan Shelhamer",
+    "Jocelyn Chanussot",
+    "Konrad Schindler",
+    "Naoto Yokoya"
+  ],
+  "equalContribution": [
+    "Hongruixuan Chen",
+    "Jian Song",
+    "Weihao Xuan",
+    "Junjue Wang"
+  ],
+  "affiliations": [
+    "RIKEN AIP",
+    "The University of Tokyo",
+    "Brown University",
+    "ETH Zurich",
+    "United Nations Satellite Centre",
+    "Barcelona School of Economics",
+    "Technical University of Munich",
+    "Stanford University",
+    "Linköping University",
+    "German Aerospace Center (DLR)",
+    "Texas A&M University",
+    "Luxembourg Institute of Science and Technology",
+    "University of Twente",
+    "Nanyang Technological University",
+    "Indiana University Indianapolis",
+    "University of Connecticut",
+    "The University of British Columbia",
+    "Université Grenoble Alpes"
+  ],
+  "topic": "Remote Sensing",
+  "keywords": [
+    "earth observation",
+    "natural hazards",
+    "disaster mapping",
+    "deep learning",
+    "foundation models",
+    "benchmarking",
+    "infrastructure damage",
+    "flood mapping",
+    "landslide segmentation",
+    "wildfire analysis"
+  ],
+  "abstractSummary": "The paper reviews and benchmarks Earth-observation methods for disaster mapping. It separates disaster extent mapping from infrastructure damage mapping, compares traditional methods, deep learning models, and foundation models, and studies reproducibility across a standardized benchmark suite.",
+  "benchmarkScope": {
+    "methods": "30+ methods",
+    "datasets": "13 datasets",
+    "domains": [
+      "Infrastructure damage",
+      "Flood mapping",
+      "Landslide segmentation",
+      "Wildfire analysis"
+    ],
+    "tasks": [
+      "Segmentation",
+      "Change detection",
+      "Semantic change detection",
+      "Damage assessment"
+    ],
+    "reportedFindings": [
+      "Architectural complexity has diminishing returns for disaster extent mapping.",
+      "Change-detection architectures are more useful for infrastructure damage mapping than for extent mapping.",
+      "Foundation models do not consistently outperform task-specific baselines, especially on non-RGB modalities."
+    ]
+  },
+  "codeRepository": {
+    "name": "AnyDisasterMapping",
+    "owner": "ChenHongruixuan",
+    "url": "https://github.com/ChenHongruixuan/AnyDisasterMapping",
+    "description": "Official code repository for the EO-based disaster mapping review and benchmark.",
+    "starsAtImport": 63,
+    "forksAtImport": 5,
+    "license": "Repository license file present",
+    "primaryLanguage": "Python",
+    "installation": [
+      "Install PyTorch, torchvision, and xformers with a CUDA-compatible wheel index.",
+      "Install the repository in editable mode with pip.",
+      "Build optional ChangeMamba selective scan kernels when using ChangeMamba.",
+      "Place pretrained checkpoints under pretrained_weight/ for supported model families."
+    ],
+    "datasetPreparation": [
+      "scripts/data_prep/infra_damage/README.md",
+      "scripts/data_prep/flood/README.md",
+      "scripts/data_prep/landslide/README.md",
+      "scripts/data_prep/wildfire/README.md"
+    ],
+    "pretrainedWeightFamilies": [
+      "SegFormer",
+      "HRNet",
+      "SAM",
+      "SAM2",
+      "DINOv3",
+      "HyperSIGMA",
+      "SkySense",
+      "SpectralGPT",
+      "ChangeMamba"
+    ],
+    "quickStart": {
+      "train": "python train.py --config configs/infra/xbd/unet.yaml",
+      "evaluate": "python test.py --exp_path results/xbd/unet"
+    },
+    "layout": {
+      "src/core": "Trainer, config loader, registry, augmentation, and metrics.",
+      "src/tasks": "Task handlers for segmentation, change detection, and semantic change detection.",
+      "src/datasets": "Dataset adapters and runtime data contracts.",
+      "src/models": "Model wrappers and vendored third-party implementations.",
+      "configs": "Experiment configurations grouped by disaster domain and dataset.",
+      "scripts/data_prep": "Dataset preparation guides and helper scripts.",
+      "docs": "Architecture and extension documentation."
+    },
+    "topics": [
+      "deep-learning",
+      "earthquakes",
+      "pytorch",
+      "remote-sensing",
+      "object-detection",
+      "semantic-segmentation",
+      "benchmark-suite",
+      "earth-observation",
+      "landslide",
+      "disaster-response",
+      "flood-detection",
+      "foundation-model",
+      "post-disaster-assessment"
+    ]
+  },
+  "citation": {
+    "bibtexKey": "chen2026earthobservationdisastermapping",
+    "type": "misc",
+    "note": "SSRN preprint",
+    "url": "https://ssrn.com/abstract=6725082"
+  },
+  "sourceNotes": [
+    "Paper metadata and DOI were verified from SSRN search metadata and the official GitHub README.",
+    "Repository content was summarized from the official GitHub README instead of mirroring the full paper text."
+  ]
+}
