@@ -2929,7 +2929,7 @@
         "arxiv": "https://arxiv.org/abs/2207.08051",
         "code": "https://github.com/sustainlab-group/SatMAE",
         "checkpoints": null,
-        "dataset": null,
+        "dataset": "https://purl.stanford.edu/vg497cb6002",
         "benchmark": null,
         "model": null,
         "project_page": "https://sustainlab-group.github.io/SatMAE"
