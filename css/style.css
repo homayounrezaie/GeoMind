@@ -1221,7 +1221,7 @@ h2 {
 
 .paper-card-links a:hover,
 .paper-card-links a:focus-visible {
-  color: var(--text);
+  color: var(--link);
   text-decoration: none;
   transform: translateY(-1px);
 }
