@@ -491,16 +491,16 @@
     "presentation": null,
     "abstract": "An expert-crafted benchmark covering GIS, photogrammetry, and GNSS concepts, paired with a multi-stage agent system for high-level remote sensing queries.",
     "links": {
-      "pdf": null,
-      "supp": null,
-      "arxiv": null,
-      "code": null,
+      "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Xiao_GeoMMBench_and_GeoMMAgent_Toward_Expert-Level_Multimodal_Intelligence_in_Geoscience_and_CVPR_2026_paper.pdf",
+      "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Xiao_GeoMMBench_and_GeoMMAgent_CVPR_2026_supplemental.pdf",
+      "arxiv": "https://arxiv.org/abs/2604.08896",
+      "code": "https://github.com/Shihao-Cheng/GeoMMAgent",
       "checkpoints": null,
-      "dataset": null,
+      "dataset": "https://huggingface.co/datasets/AR-X/GeoMMBench",
       "benchmark": null,
       "model": null,
-      "project_page": null
+      "project_page": "https://geo-mm-agi.github.io/"
     },
-    "bibtex": ""
+    "bibtex": "@InProceedings{Xiao_2026_CVPR, author = {Xiao, Aoran and Cheng, Shihao and Xu, Yonghao and Ren, Yexian and Chen, Hongruixuan and Yokoya, Naoto}, title = {GeoMMBench and GeoMMAgent: Toward Expert-Level Multimodal Intelligence in Geoscience and Remote Sensing}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2026}, pages = {34843-34853}}"
   }
 ]
