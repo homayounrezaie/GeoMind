@@ -1109,11 +1109,87 @@ h2 {
   color: var(--muted);
 }
 
+.paper-card-codebox {
+  position: relative;
+}
+
+.paper-card-copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  display: inline-flex;
+  min-width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--soft-line);
+  border-radius: 999px;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.paper-card-copy:hover,
+.paper-card-copy:focus-visible {
+  border-color: #c6ccd2;
+}
+
+.paper-card-copy-icon {
+  position: relative;
+  width: 15px;
+  height: 16px;
+}
+
+.paper-card-copy-icon::before,
+.paper-card-copy-icon::after {
+  position: absolute;
+  width: 10px;
+  height: 12px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  content: "";
+}
+
+.paper-card-copy-icon::before {
+  top: 0;
+  left: 4px;
+  opacity: 0.45;
+}
+
+.paper-card-copy-icon::after {
+  right: 4px;
+  bottom: 0;
+  background: #fff;
+}
+
+.paper-card-copy-label {
+  display: none;
+}
+
+.paper-card-copy.is-copied {
+  background: #f0f7f1;
+  border-color: #cce8d1;
+  color: #137333;
+}
+
+.paper-card-copy.is-copied .paper-card-copy-icon {
+  display: none;
+}
+
+.paper-card-copy.is-copied .paper-card-copy-label {
+  display: inline;
+}
+
 .paper-card-bibtex pre {
   width: 100%;
   max-width: 100%;
   margin: 0;
-  padding: 18px;
+  padding: 18px 58px 18px 18px;
   overflow-x: auto;
   background: #f8fafd;
   border: 1px solid var(--soft-line);

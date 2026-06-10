@@ -929,21 +929,83 @@ function appendPaperImages(parent, images, paperTitle) {
   parent.append(gallery);
 }
 
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // Fall through to the textarea copy fallback.
+    }
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.top = "-1000px";
+  textarea.style.left = "-1000px";
+  document.body.append(textarea);
+  textarea.select();
+
+  try {
+    return document.execCommand("copy");
+  } catch {
+    return false;
+  } finally {
+    textarea.remove();
+  }
+}
+
 function appendPaperBibtex(parent, bibtex) {
   if (!hasResourceValue(bibtex)) {
     return;
   }
 
+  const bibtexText = String(bibtex);
   const section = document.createElement("section");
   const heading = document.createElement("h2");
+  const codeBox = document.createElement("div");
+  const copyButton = document.createElement("button");
+  const copyIcon = document.createElement("span");
+  const copyLabel = document.createElement("span");
   const pre = document.createElement("pre");
   const code = document.createElement("code");
+  let resetTimer = null;
 
   section.className = "paper-card-bibtex";
   heading.textContent = "BibTeX";
-  code.textContent = String(bibtex);
+  codeBox.className = "paper-card-codebox";
+  copyButton.className = "paper-card-copy";
+  copyButton.type = "button";
+  copyButton.title = "Copy BibTeX";
+  copyButton.setAttribute("aria-label", "Copy BibTeX");
+  copyIcon.className = "paper-card-copy-icon";
+  copyIcon.setAttribute("aria-hidden", "true");
+  copyLabel.className = "paper-card-copy-label";
+  copyLabel.textContent = "Copied";
+  copyButton.append(copyIcon, copyLabel);
+  copyButton.addEventListener("click", async () => {
+    const didCopy = await copyTextToClipboard(bibtexText);
+
+    if (!didCopy) {
+      return;
+    }
+
+    window.clearTimeout(resetTimer);
+    copyButton.classList.add("is-copied");
+    copyButton.title = "Copied";
+    copyButton.setAttribute("aria-label", "Copied BibTeX");
+    resetTimer = window.setTimeout(() => {
+      copyButton.classList.remove("is-copied");
+      copyButton.title = "Copy BibTeX";
+      copyButton.setAttribute("aria-label", "Copy BibTeX");
+    }, 2000);
+  });
+  code.textContent = bibtexText;
   pre.append(code);
-  section.append(heading, pre);
+  codeBox.append(copyButton, pre);
+  section.append(heading, codeBox);
   parent.append(section);
 }
 
