@@ -875,26 +875,75 @@ function appendPaperImages(parent, images, paperTitle) {
   const previousButton = document.createElement("button");
   const nextButton = document.createElement("button");
   const count = document.createElement("span");
-  const dots = document.createElement("div");
-  const dotButtons = imageList.map((_, index) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Show image ${index + 1}`);
-    dot.addEventListener("click", () => setActiveImage(index));
-    return dot;
-  });
+  const progress = document.createElement("div");
+  const progressFill = document.createElement("span");
+  const progressHandle = document.createElement("span");
   let activeIndex = 0;
 
   function setActiveImage(index) {
     activeIndex = (index + imageList.length) % imageList.length;
     image.src = imageList[activeIndex];
     image.alt = `${paperTitle || "Paper"} image ${activeIndex + 1}`;
-    count.textContent = `${activeIndex + 1} of ${imageList.length}`;
-    dotButtons.forEach((dot, dotIndex) => {
-      const isActive = dotIndex === activeIndex;
-      dot.classList.toggle("is-active", isActive);
-      dot.setAttribute("aria-current", isActive ? "true" : "false");
-    });
+    count.textContent = `${activeIndex + 1} / ${imageList.length}`;
+
+    if (imageList.length > 1) {
+      const progressValue = (activeIndex / (imageList.length - 1)) * 100;
+      controls.style.setProperty("--paper-slide-progress", `${progressValue}%`);
+      progress.setAttribute("aria-valuenow", String(activeIndex + 1));
+      progress.setAttribute("aria-valuetext", `Image ${activeIndex + 1} of ${imageList.length}`);
+    }
+  }
+
+  function createChevronIcon(direction) {
+    const icon = document.createElement("span");
+    icon.className = `paper-image-chevron paper-image-chevron-${direction}`;
+    icon.setAttribute("aria-hidden", "true");
+    return icon;
+  }
+
+  function getProgressIndex(event) {
+    const rect = progress.getBoundingClientRect();
+    const offset = Math.min(Math.max(event.clientX - rect.left, 0), rect.width);
+    const ratio = rect.width ? offset / rect.width : 0;
+    return Math.round(ratio * (imageList.length - 1));
+  }
+
+  function setImageFromProgress(event) {
+    setActiveImage(getProgressIndex(event));
+  }
+
+  function handleProgressPointerDown(event) {
+    event.preventDefault();
+    progress.setPointerCapture?.(event.pointerId);
+    progress.classList.add("is-dragging");
+    setImageFromProgress(event);
+  }
+
+  function handleProgressPointerMove(event) {
+    if (progress.classList.contains("is-dragging")) {
+      setImageFromProgress(event);
+    }
+  }
+
+  function handleProgressPointerEnd(event) {
+    progress.releasePointerCapture?.(event.pointerId);
+    progress.classList.remove("is-dragging");
+  }
+
+  function handleProgressKeydown(event) {
+    if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveImage(activeIndex - 1);
+    } else if (event.key === "ArrowRight" || event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveImage(activeIndex + 1);
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      setActiveImage(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      setActiveImage(imageList.length - 1);
+    }
   }
 
   gallery.className = "paper-card-images";
@@ -907,21 +956,35 @@ function appendPaperImages(parent, images, paperTitle) {
   controls.className = "paper-image-controls";
   nav.className = "paper-image-nav";
   previousButton.type = "button";
-  previousButton.textContent = "Previous";
+  previousButton.setAttribute("aria-label", "Show previous image");
+  previousButton.append(createChevronIcon("left"));
   previousButton.addEventListener("click", () => setActiveImage(activeIndex - 1));
   nextButton.type = "button";
-  nextButton.textContent = "Next";
+  nextButton.setAttribute("aria-label", "Show next image");
+  nextButton.append(createChevronIcon("right"));
   nextButton.addEventListener("click", () => setActiveImage(activeIndex + 1));
   count.className = "paper-image-count";
-  dots.className = "paper-image-dots";
+  progress.className = "paper-image-progress";
+  progress.setAttribute("role", "slider");
+  progress.setAttribute("tabindex", "0");
+  progress.setAttribute("aria-label", "Paper image position");
+  progress.setAttribute("aria-valuemin", "1");
+  progress.setAttribute("aria-valuemax", String(imageList.length));
+  progressFill.className = "paper-image-progress-fill";
+  progressHandle.className = "paper-image-progress-handle";
+  progress.addEventListener("pointerdown", handleProgressPointerDown);
+  progress.addEventListener("pointermove", handleProgressPointerMove);
+  progress.addEventListener("pointerup", handleProgressPointerEnd);
+  progress.addEventListener("pointercancel", handleProgressPointerEnd);
+  progress.addEventListener("keydown", handleProgressKeydown);
 
   stage.append(image);
   gallery.append(stage);
 
   if (imageList.length > 1) {
-    nav.append(previousButton, nextButton);
-    dots.append(...dotButtons);
-    controls.append(nav, count, dots);
+    progress.append(progressFill, progressHandle);
+    nav.append(previousButton, count, nextButton);
+    controls.append(nav, progress);
     gallery.append(controls);
   }
 

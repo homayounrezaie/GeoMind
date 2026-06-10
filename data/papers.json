@@ -1777,6 +1777,59 @@
       ]
     },
     {
+      "id": "ldpoly-2025",
+      "title": "LDPoly: Latent diffusion for polygonal road outline extraction in large-scale topographic mapping",
+      "authors": "Weiqin Jiao, Hao Cheng, George Vosselman, Claudio Persello",
+      "venue": "ISPRS",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Polygonal road outline extraction from high-resolution aerial images is an important task in large-scale topographic mapping, where roads are represented as vectorized polygons, capturing essential geometric features with minimal vertex redundancy. Despite its importance, no existing method has been explicitly designed for this task. While polygonal building outline extraction has been extensively studied, the unique characteristics of roads, such as branching structures and topological connectivity, pose challenges to these methods. To address this gap, we introduce LDPoly, the first dedicated framework for extracting polygonal road outlines from high-resolution aerial images. Our method leverages a novel Dual-Latent Diffusion Model with a Channel-Embedded Fusion Module, enabling the model to simultaneously generate road masks and vertex heatmaps. A tailored polygonization method is then applied to obtain accurate vectorized road polygons with minimal vertex redundancy. We evaluate LDPoly on a new benchmark dataset, Map2ImLas, which contains detailed polygonal annotations for various topographic objects in several Dutch regions. Our experiments include both in-region and cross-region evaluations, with the latter designed to assess the model's generalization performance on unseen regions. Quantitative and qualitative results demonstrate that LDPoly outperforms state-of-the-art polygon extraction methods across various metrics, including pixel-level coverage, vertex efficiency, polygon regularity, and road connectivity. We also design two new metrics to assess polygon simplicity and boundary smoothness. Moreover, this work represents the first application of diffusion models for extracting precise vectorized object outlines without redundant vertices from remote-sensing imagery, paving the way for future advancements in this field.",
+      "links": {
+        "pdf": "https://www.sciencedirect.com/science/article/pii/S0924271625003934?via%3Dihub",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2504.20645",
+        "code": "https://github.com/HeinzJiao/LDPoly",
+        "checkpoints": null,
+        "dataset": "https://drive.google.com/drive/folders/1jsjuZxFdU9a8q-m0TNCj1MfX9rixTYJl",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://colab.research.google.com/drive/1IW5AGfn3w3y9wSquYgXolGhcVwIWkoNd#scrollTo=eval_run"
+      },
+      "bibtex": "@article{jiao2025ldpoly,\nauthor = {Jiao, Weiqin and Cheng, Hao and Vosselman, George and Persello, Claudio},\ntitle = {LDPoly: Latent diffusion for polygonal road outline extraction in large-scale topographic mapping},\njournal = {ISPRS Journal of Photogrammetry and Remote Sensing},\nvolume = {230},\npages = {820--842},\nyear = {2025},\ndoi = {10.1016/j.isprsjprs.2025.10.005},\npublisher = {Elsevier}\n}",
+      "matched_themes": [
+        "geospatial / GIS / geographic",
+        "remote sensing",
+        "drone / UAV / aerial / overhead"
+      ]
+    },
+    {
+      "id": "roipoly-2025",
+      "title": "RoIPoly: Vectorized building outline extraction using vertex and logit embeddings",
+      "authors": "Weiqin Jiao, Hao Cheng, George Vosselman, Claudio Persello",
+      "venue": "ISPRS",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Polygonal building outlines are crucial for geographic and cartographic applications. The existing approaches for outline extraction from aerial or satellite imagery are typically decomposed into subtasks, e.g., building masking and vectorization, or treat this task as a sequence-to-sequence prediction of ordered vertices. The former lacks efficiency, and the latter often generates redundant vertices, both resulting in suboptimal performance. To handle these issues, we propose a novel Region-of-Interest (RoI) query-based approach called RoIPoly. Specifically, we formulate each vertex as a query and constrain the query attention on the most relevant regions of a potential building, yielding reduced computational overhead and more efficient vertex-level interaction. Moreover, we introduce a novel learnable logit embedding to facilitate vertex classification on the attention map; thus, no post-processing is needed for redundant vertex removal. We evaluated our method on the vectorized building outline extraction dataset CrowdAI and the 2D floorplan reconstruction dataset Structured3D. On the CrowdAI dataset, RoIPoly with a ResNet50 backbone outperforms existing methods with the same or better backbones on most MS-COCO metrics, especially on small buildings, and achieves competitive results in polygon quality and vertex redundancy without any post-processing. On the Structured3D dataset, our method achieves the second-best performance on most metrics among existing methods dedicated to 2D floorplan reconstruction, demonstrating our cross-domain generalization capability. The code is available at: https://github.com/HeinzJiao/RoIPoly.",
+      "links": {
+        "paper": "https://www.sciencedirect.com/science/article/pii/S0924271625001364?via%3Dihub",
+        "pdf": null,
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2407.14920",
+        "code": "https://github.com/HeinzJiao/RoIPoly",
+        "checkpoints": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@article{jiao2025roipoly,\nauthor = {Jiao, Weiqin and Cheng, Hao and Vosselman, George and Persello, Claudio},\ntitle = {RoIPoly: Vectorized building outline extraction using vertex and logit embeddings},\njournal = {ISPRS Journal of Photogrammetry and Remote Sensing},\nvolume = {224},\npages = {317--328},\nyear = {2025},\ndoi = {10.1016/j.isprsjprs.2025.03.030},\npublisher = {Elsevier}\n}",
+      "matched_themes": [
+        "geospatial / GIS / geographic",
+        "remote sensing",
+        "drone / UAV / aerial / overhead"
+      ]
+    },
+    {
       "id": "is-your-2026",
       "title": "Is your VLM Sky-Ready? A Comprehensive Spatial Intelligence Benchmark for UAV Navigation",
       "authors": "Lingfeng Zhang, Yuchen Zhang, Hongsheng Li, Haoxiang Fu, Yingbo Tang, Hangjun Ye, Long Chen, Xiaojun Liang, Xiaoshuai Hao, Wenbo Ding",

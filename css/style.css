@@ -855,7 +855,6 @@ h2 {
   line-height: 1.35;
 }
 
-.paper-image-nav button,
 .paper-image-viewer button {
   display: inline-flex;
   align-items: center;
@@ -907,8 +906,6 @@ h2 {
 
 .paper-card-close:hover,
 .paper-card-close:focus-visible,
-.paper-image-nav button:hover,
-.paper-image-nav button:focus-visible,
 .paper-image-viewer button:hover,
 .paper-image-viewer button:focus-visible {
   border-color: #c6ccd2;
@@ -971,7 +968,7 @@ h2 {
 
 .paper-card-images {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
   max-width: 860px;
   margin-top: 28px;
@@ -996,42 +993,150 @@ h2 {
 }
 
 .paper-image-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
+  --paper-slide-progress: 0%;
+  display: grid;
+  gap: 7px;
+  width: 100%;
+  padding: 0 2px 4px;
 }
 
 .paper-image-nav {
-  display: flex;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) 32px;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.paper-image-nav button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: #f8fafd;
+  border: 1px solid var(--soft-line);
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease,
+    color 160ms ease, transform 160ms ease;
+}
+
+.paper-image-nav button:hover,
+.paper-image-nav button:focus-visible {
+  background: #fff;
+  border-color: #c6ccd2;
+  color: var(--text);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(60, 64, 67, 0.1);
+}
+
+.paper-image-nav button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(60, 64, 67, 0.08);
+}
+
+.paper-image-chevron {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: 1.7px solid currentColor;
+  border-right: 1.7px solid currentColor;
+}
+
+.paper-image-chevron-left {
+  margin-left: 3px;
+  transform: rotate(-135deg);
+}
+
+.paper-image-chevron-right {
+  margin-right: 3px;
+  transform: rotate(45deg);
 }
 
 .paper-image-count {
+  justify-self: center;
+  min-width: 54px;
+  padding: 5px 11px;
+  background: #f8fafd;
+  border: 1px solid var(--soft-line);
+  border-radius: 999px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
   line-height: 1;
+  text-align: center;
   white-space: nowrap;
 }
 
-.paper-image-dots {
-  display: flex;
-  gap: 7px;
-  justify-content: flex-end;
-}
-
-.paper-image-dots button {
-  width: 7px;
-  height: 7px;
-  padding: 0;
-  background: #c8cdd3;
-  border: 0;
+.paper-image-progress {
+  position: relative;
+  width: calc(100% - 12px);
+  height: 16px;
+  margin: 0 6px;
   border-radius: 999px;
   cursor: pointer;
+  outline: none;
+  touch-action: none;
 }
 
-.paper-image-dots button.is-active {
-  background: var(--text);
+.paper-image-progress::before,
+.paper-image-progress-fill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  content: "";
+  transform: translateY(-50%);
+}
+
+.paper-image-progress::before {
+  right: 0;
+  background: var(--soft-line);
+}
+
+.paper-image-progress-fill {
+  width: var(--paper-slide-progress);
+  background: #9aa0a6;
+  transition: width 180ms ease;
+}
+
+.paper-image-progress-handle {
+  position: absolute;
+  top: 50%;
+  left: var(--paper-slide-progress);
+  width: 11px;
+  height: 11px;
+  background: #fff;
+  border: 1.5px solid #9aa0a6;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(60, 64, 67, 0.18);
+  transform: translate(-50%, -50%);
+  transition: left 180ms ease, border-color 160ms ease, box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.paper-image-progress:hover .paper-image-progress-fill,
+.paper-image-progress:focus-visible .paper-image-progress-fill,
+.paper-image-progress.is-dragging .paper-image-progress-fill {
+  background: var(--link);
+}
+
+.paper-image-progress:hover .paper-image-progress-handle,
+.paper-image-progress:focus-visible .paper-image-progress-handle,
+.paper-image-progress.is-dragging .paper-image-progress-handle {
+  border-color: var(--link);
+  box-shadow: 0 3px 12px rgba(26, 115, 232, 0.2);
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.paper-image-progress.is-dragging .paper-image-progress-fill,
+.paper-image-progress.is-dragging .paper-image-progress-handle {
+  transition: none;
 }
 
 .is-paper-viewer-open {
@@ -2366,13 +2471,7 @@ h2 {
   }
 
   .paper-image-controls {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-
-  .paper-image-dots {
-    width: 100%;
-    justify-content: flex-start;
+    gap: 6px;
   }
 
   .paper-image-viewer {
