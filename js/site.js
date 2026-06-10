@@ -354,9 +354,12 @@ function initResourceList(controls) {
         data.sourceUrl ||
         data.links?.arxiv ||
         data.links?.pdf ||
+        data.links?.project_page ||
         data.links?.project ||
         data.links?.code ||
         data.links?.dataset ||
+        data.links?.benchmark ||
+        data.links?.model ||
         ""
       );
     }

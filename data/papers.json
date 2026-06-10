@@ -1,5 +1,5 @@
 [
-{
+  {
     "id": "unigeoseg-2026",
     "title": "UniGeoSeg: Towards Unified Open-World Segmentation for Geospatial Scenes",
     "authors": "Shuo Ni, Di Wang, He Chen, Haonan Guo, Ning Zhang, Jing Zhang",
@@ -14,7 +14,9 @@
       "code": "https://github.com/MiliLab/UniGeoSeg",
       "checkpoints": "https://huggingface.co/nishuo1999/UniGeoSeg",
       "dataset": "https://pan.baidu.com/s/1GldxhdvJqlsI-qyq3Uvqkw",
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": "@InProceedings{Ni_2026_CVPR, author = {Ni, Shuo and Wang, Di and Chen, He and Guo, Haonan and Zhang, Ning and Zhang, Jing}, title = {UniGeoSeg: Towards Unified Open-World Segmentation for Geospatial Scenes}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2026}, pages = {34865-34876}}"
   },
@@ -33,7 +35,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": "@InProceedings{Niu_2026_CVPR, author = {Niu, Xin and Zhao, Manqi and Jiang, Dongsheng and Wu, Yingying and Su, Bing}, title = {ReAttnCLIP: Training-Free Open-Vocabulary Remote Sensing Image Segmentation via Re-defined Attention in CLIP}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2026}, pages = {24980-24989}}"
   },
@@ -52,7 +56,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": "@InProceedings{Chen_2026_CVPR, author = {Chen, Jingzhou and Chen, Dexin and Xiong, Fengchao and Qian, Yuntao and Xiao, Liang}, title = {Balanced Hierarchical Contrastive Learning with Decoupled Queries for Fine-grained Object Detection in Remote Sensing Images}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2026}, pages = {20619-20628}}"
   },
@@ -71,7 +77,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": "https://shuyansy.github.io/terrascope/"
+      "benchmark": null,
+      "model": null,
+      "project_page": "https://shuyansy.github.io/terrascope/"
     },
     "bibtex": ""
   },
@@ -90,7 +98,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -109,7 +119,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -128,7 +140,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -147,7 +161,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": "@InProceedings{Hu_2026_CVPR, author = {Hu, Yu and Gu, Jianyang and Liu, Hao and Cao, Yue and Hamari, Jozsef and Liu, Zheng and Zardadi, Mohsen}, title = {AVION: Aerial Vision-Language Instruction from Offline Teacher to Prompt-Tuned Network}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2026}, pages = {10106-10115}}"
   },
@@ -166,7 +182,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": "@InProceedings{Huang_2026_CVPR, author = {Huang, Zilong and He, Jun and Huang, Xiaobin and Xiong, Ziyi and Luo, Yang and Ye, Junyan and Li, Weijia and Chen, Yiping and Han, Ting}, title = {MajutsuCity: Language-driven Aesthetic-adaptive City Generation with Controllable 3D Assets and Layouts}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2026}, pages = {31608-31618}}"
   },
@@ -185,7 +203,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": "@InProceedings{Li_2026_CVPR, author = {Li, Qixiu and Zhu, Xiang and Li, Xiaoyong and Xu, Xiaolong}, title = {PhyOceanCast: Global Ocean Forecasting with Physics-Informed Diffusion}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2026}, pages = {23652-23662}}"
   },
@@ -204,7 +224,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -223,7 +245,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -242,7 +266,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -261,7 +287,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -280,7 +308,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -299,7 +329,9 @@
       "code": "https://github.com/allenai/olmoearth_pretrain",
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -318,7 +350,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -337,7 +371,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -356,7 +392,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -375,7 +413,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -394,7 +434,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -413,7 +455,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -432,7 +476,9 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   },
@@ -451,9 +497,10 @@
       "code": null,
       "checkpoints": null,
       "dataset": null,
-      "project": null
+      "benchmark": null,
+      "model": null,
+      "project_page": null
     },
     "bibtex": ""
   }
-
 ]
