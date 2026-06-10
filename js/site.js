@@ -210,6 +210,7 @@ function initResourceList(controls) {
   const tableWrap = section?.querySelector(".resource-table-wrap");
   const table = section?.querySelector(".resource-table");
   const resourceSrc = controls.dataset.resourceSrc || table?.dataset.resourceSrc || "";
+  const isPaperList = table?.classList.contains("resource-table-papers");
 
   if (!section || !tableBody) {
     return;
@@ -222,6 +223,7 @@ function initResourceList(controls) {
   let currentPage = 1;
   let rows = [];
   let totalCount = 0;
+  let selectedItem = null;
 
   count.className = "resource-count";
   count.setAttribute("aria-live", "polite");
@@ -230,7 +232,17 @@ function initResourceList(controls) {
   pager.className = "table-pager";
   pager.setAttribute("aria-label", "Table pagination");
   pager.hidden = true;
-  tableWrap?.after(pager);
+
+  const detailPanel = document.createElement("section");
+  detailPanel.className = "paper-detail-panel";
+  detailPanel.hidden = true;
+
+  if (isPaperList) {
+    tableWrap?.after(detailPanel);
+    detailPanel.after(pager);
+  } else {
+    tableWrap?.after(pager);
+  }
 
   decorateSourceLinks(table, cardLinkLabel);
 
@@ -371,6 +383,187 @@ function initResourceList(controls) {
     return data[field];
   }
 
+  function hasDetailValue(value) {
+    if (value === null || value === undefined) {
+      return false;
+    }
+
+    if (typeof value === "string") {
+      return value.trim() !== "";
+    }
+
+    if (Array.isArray(value)) {
+      return value.some(hasDetailValue);
+    }
+
+    if (typeof value === "object") {
+      return Object.values(value).some(hasDetailValue);
+    }
+
+    return true;
+  }
+
+  function formatDetailLabel(value) {
+    const labels = {
+      id: "ID",
+      title: "Title",
+      authors: "Authors",
+      venue: "Venue",
+      year: "Year",
+      presentation: "Presentation",
+      abstract: "Abstract",
+      links: "Links",
+      pdf: "PDF",
+      supp: "Supplement",
+      arxiv: "arXiv",
+      code: "Code",
+      checkpoints: "Checkpoints",
+      dataset: "Dataset",
+      benchmark: "Benchmark",
+      model: "Model",
+      project_page: "Project page",
+      bibtex: "BibTeX",
+      matched_themes: "Matched themes",
+      borderline_reason: "Borderline reason",
+    };
+
+    return (
+      labels[value] ||
+      String(value)
+        .replace(/[_-]+/g, " ")
+        .replace(/\b\w/g, (letter) => letter.toUpperCase())
+    );
+  }
+
+  function appendDetailValue(parent, label, value) {
+    if (!hasDetailValue(value)) {
+      return;
+    }
+
+    const item = document.createElement("div");
+    const term = document.createElement("dt");
+    const description = document.createElement("dd");
+    const wideLabels = new Set(["Abstract", "Links", "BibTeX", "Matched themes", "Borderline reason"]);
+
+    term.textContent = label;
+    if (wideLabels.has(label)) {
+      item.className = "paper-detail-wide";
+    }
+
+    if (Array.isArray(value)) {
+      const list = document.createElement("ul");
+
+      list.className = "paper-detail-list";
+      value.filter(hasDetailValue).forEach((entry) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = String(entry);
+        list.append(listItem);
+      });
+      description.append(list);
+    } else if (typeof value === "object") {
+      const linkList = document.createElement("ul");
+
+      linkList.className = "paper-detail-links";
+      Object.entries(value)
+        .filter(([, entryValue]) => hasDetailValue(entryValue))
+        .forEach(([key, entryValue]) => {
+          const listItem = document.createElement("li");
+          const entryText = String(entryValue);
+
+          if (/^https?:\/\//i.test(entryText)) {
+            const link = document.createElement("a");
+            link.href = entryText;
+            link.target = "_blank";
+            link.rel = "noreferrer";
+            link.textContent = formatDetailLabel(key);
+            listItem.append(link);
+          } else {
+            listItem.textContent = `${formatDetailLabel(key)}: ${entryText}`;
+          }
+
+          linkList.append(listItem);
+        });
+      description.append(linkList);
+    } else if (label === "BibTeX") {
+      const code = document.createElement("code");
+      const pre = document.createElement("pre");
+
+      code.textContent = String(value);
+      pre.append(code);
+      description.append(pre);
+    } else {
+      description.textContent = String(value);
+    }
+
+    item.append(term, description);
+    parent.append(item);
+  }
+
+  function renderPaperDetails(data) {
+    if (!isPaperList || !data) {
+      return;
+    }
+
+    const header = document.createElement("div");
+    const eyebrow = document.createElement("p");
+    const title = document.createElement("h2");
+    const closeButton = document.createElement("button");
+    const details = document.createElement("dl");
+    const orderedFields = [
+      "id",
+      "title",
+      "authors",
+      "venue",
+      "year",
+      "presentation",
+      "abstract",
+      "links",
+      "bibtex",
+      "matched_themes",
+      "borderline_reason",
+    ];
+    const seenFields = new Set(orderedFields);
+
+    header.className = "paper-detail-header";
+    eyebrow.className = "paper-detail-eyebrow";
+    eyebrow.textContent = [data.venue, data.year].filter(hasDetailValue).join(" ");
+    title.textContent = data.title || "Paper details";
+    closeButton.type = "button";
+    closeButton.textContent = "Close";
+    closeButton.addEventListener("click", () => {
+      selectedItem = null;
+      detailPanel.hidden = true;
+      rows.forEach(({ row }) => row?.classList.remove("is-selected"));
+    });
+    header.append(eyebrow, title, closeButton);
+
+    details.className = "paper-detail-grid";
+    orderedFields.forEach((field) => {
+      appendDetailValue(details, formatDetailLabel(field), data[field]);
+    });
+    Object.entries(data)
+      .filter(([field]) => !seenFields.has(field))
+      .forEach(([field, value]) => {
+        appendDetailValue(details, formatDetailLabel(field), value);
+      });
+
+    detailPanel.replaceChildren(header, details);
+    detailPanel.hidden = false;
+  }
+
+  function selectPaper(item) {
+    if (!isPaperList || !item?.item) {
+      return;
+    }
+
+    selectedItem = item;
+    rows.forEach(({ row }) => {
+      row?.classList.toggle("is-selected", row === item.row);
+    });
+    renderPaperDetails(item.item);
+    detailPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
   function createDynamicRow(data) {
     const row = document.createElement("tr");
     const showSourceIcons = table?.dataset.sourceIcons !== "false";
@@ -384,6 +577,12 @@ function initResourceList(controls) {
       row.dataset.year = String(Number(data.year));
     }
 
+    if (isPaperList) {
+      row.tabIndex = 0;
+      row.setAttribute("role", "button");
+      row.setAttribute("aria-label", `Show details for ${data.title || "paper"}`);
+    }
+
     dynamicColumns.forEach(({ field, isLink }) => {
       const cell = document.createElement("td");
 
@@ -391,7 +590,12 @@ function initResourceList(controls) {
         const link = document.createElement("a");
         const url = String(getDynamicField(data, field) || "");
 
-        link.href = url || "#";
+        if (!url) {
+          row.append(cell);
+          return;
+        }
+
+        link.href = url;
         if (/^https?:\/\//i.test(url)) {
           link.target = "_blank";
           link.rel = "noreferrer";
@@ -445,7 +649,7 @@ function initResourceList(controls) {
       }
 
       const payload = await response.json();
-      const items = Array.isArray(payload) ? payload : payload.items || [];
+      const items = Array.isArray(payload) ? payload : payload.items || payload.papers || [];
 
       rows = items.map(normalizeDynamicItem);
       totalCount = rows.length;
@@ -522,10 +726,32 @@ function initResourceList(controls) {
       }
 
       item.row = createDynamicRow(item.item);
+      if (isPaperList) {
+        item.row.addEventListener("click", (event) => {
+          if (event.target.closest("a, button")) {
+            return;
+          }
+
+          selectPaper(item);
+        });
+        item.row.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter" && event.key !== " ") {
+            return;
+          }
+
+          event.preventDefault();
+          selectPaper(item);
+        });
+      }
       return item.row;
     });
 
     tableBody.replaceChildren(...visibleRows);
+    if (isPaperList && selectedItem) {
+      rows.forEach(({ row }) => {
+        row?.classList.toggle("is-selected", row === selectedItem.row);
+      });
+    }
 
     count.textContent = `${totalCount.toLocaleString()} ${countLabel}`;
     updateSortHeaders();
