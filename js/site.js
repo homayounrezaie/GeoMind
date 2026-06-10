@@ -1267,7 +1267,7 @@ function renderPaperCard(container, data, images = []) {
     const linkList = document.createElement("div");
 
     links.className = "paper-card-section paper-card-resources";
-    linksHeading.textContent = "Resources";
+    linksHeading.textContent = "Links";
     linkList.className = "paper-card-links";
     appendPaperLinks(linkList, data.links);
     links.append(linksHeading, linkList);
