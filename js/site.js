@@ -918,6 +918,33 @@ function normalizePaperImageList(images) {
   return images.filter(hasResourceValue).map((image) => String(image));
 }
 
+function createPaperImageChevronIcon(direction) {
+  const icon = document.createElement("span");
+  icon.className = `paper-image-chevron paper-image-chevron-${direction}`;
+  icon.setAttribute("aria-hidden", "true");
+  return icon;
+}
+
+function createPaperImageDot(index, imageCount, onClick) {
+  const dot = document.createElement("button");
+
+  dot.type = "button";
+  dot.className = "paper-image-dot";
+  dot.setAttribute("aria-label", `Show image ${index + 1} of ${imageCount}`);
+  dot.addEventListener("click", onClick);
+
+  return dot;
+}
+
+function updatePaperImageDots(dots, activeIndex) {
+  dots.forEach((dot, index) => {
+    const isActive = index === activeIndex;
+
+    dot.classList.toggle("is-active", isActive);
+    dot.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
 function openPaperImageViewer(images, startIndex, paperTitle) {
   const imageList = normalizePaperImageList(images);
 
@@ -933,14 +960,15 @@ function openPaperImageViewer(images, startIndex, paperTitle) {
   const footer = document.createElement("div");
   const previousButton = document.createElement("button");
   const nextButton = document.createElement("button");
-  const count = document.createElement("span");
+  const dots = document.createElement("div");
+  const dotButtons = [];
   let activeIndex = Math.min(Math.max(startIndex, 0), imageList.length - 1);
 
   function setActiveImage(index) {
     activeIndex = (index + imageList.length) % imageList.length;
     image.src = imageList[activeIndex];
     image.alt = `${paperTitle || "Paper"} image ${activeIndex + 1}`;
-    count.textContent = `${activeIndex + 1} of ${imageList.length}`;
+    updatePaperImageDots(dotButtons, activeIndex);
   }
 
   function closeViewer() {
@@ -977,16 +1005,24 @@ function openPaperImageViewer(images, startIndex, paperTitle) {
   imageWrap.className = "paper-image-viewer-image";
   footer.className = "paper-image-viewer-footer";
   previousButton.type = "button";
-  previousButton.textContent = "Previous";
+  previousButton.className = "paper-image-viewer-arrow paper-image-viewer-arrow-left";
+  previousButton.setAttribute("aria-label", "Show previous image");
+  previousButton.append(createPaperImageChevronIcon("left"));
   previousButton.addEventListener("click", () => setActiveImage(activeIndex - 1));
   nextButton.type = "button";
-  nextButton.textContent = "Next";
+  nextButton.className = "paper-image-viewer-arrow paper-image-viewer-arrow-right";
+  nextButton.setAttribute("aria-label", "Show next image");
+  nextButton.append(createPaperImageChevronIcon("right"));
   nextButton.addEventListener("click", () => setActiveImage(activeIndex + 1));
-  count.className = "paper-image-viewer-count";
+  dots.className = "paper-image-dots";
 
-  if (imageList.length < 2) {
-    previousButton.hidden = true;
-    nextButton.hidden = true;
+  if (imageList.length > 1) {
+    imageList.forEach((_, index) => {
+      const dot = createPaperImageDot(index, imageList.length, () => setActiveImage(index));
+
+      dotButtons.push(dot);
+      dots.append(dot);
+    });
   }
 
   viewer.addEventListener("click", (event) => {
@@ -997,8 +1033,14 @@ function openPaperImageViewer(images, startIndex, paperTitle) {
 
   header.append(closeButton);
   imageWrap.append(image);
-  footer.append(previousButton, count, nextButton);
-  viewer.append(header, imageWrap, footer);
+  if (imageList.length > 1) {
+    imageWrap.append(previousButton, nextButton);
+    footer.append(dots);
+  }
+  viewer.append(header, imageWrap);
+  if (imageList.length > 1) {
+    viewer.append(footer);
+  }
   document.body.append(viewer);
   document.body.classList.add("is-paper-viewer-open");
   document.addEventListener("keydown", handleKeydown);
@@ -1014,85 +1056,26 @@ function appendPaperImages(parent, images, paperTitle) {
   }
 
   const gallery = document.createElement("div");
+  const frame = document.createElement("div");
   const stage = document.createElement("button");
   const image = document.createElement("img");
   const controls = document.createElement("div");
   const nav = document.createElement("div");
   const previousButton = document.createElement("button");
   const nextButton = document.createElement("button");
-  const count = document.createElement("span");
-  const progress = document.createElement("div");
-  const progressFill = document.createElement("span");
-  const progressHandle = document.createElement("span");
+  const dots = document.createElement("div");
+  const dotButtons = [];
   let activeIndex = 0;
 
   function setActiveImage(index) {
     activeIndex = (index + imageList.length) % imageList.length;
     image.src = imageList[activeIndex];
     image.alt = `${paperTitle || "Paper"} image ${activeIndex + 1}`;
-    count.textContent = `${activeIndex + 1} / ${imageList.length}`;
-
-    if (imageList.length > 1) {
-      const progressValue = (activeIndex / (imageList.length - 1)) * 100;
-      controls.style.setProperty("--paper-slide-progress", `${progressValue}%`);
-      progress.setAttribute("aria-valuenow", String(activeIndex + 1));
-      progress.setAttribute("aria-valuetext", `Image ${activeIndex + 1} of ${imageList.length}`);
-    }
-  }
-
-  function createChevronIcon(direction) {
-    const icon = document.createElement("span");
-    icon.className = `paper-image-chevron paper-image-chevron-${direction}`;
-    icon.setAttribute("aria-hidden", "true");
-    return icon;
-  }
-
-  function getProgressIndex(event) {
-    const rect = progress.getBoundingClientRect();
-    const offset = Math.min(Math.max(event.clientX - rect.left, 0), rect.width);
-    const ratio = rect.width ? offset / rect.width : 0;
-    return Math.round(ratio * (imageList.length - 1));
-  }
-
-  function setImageFromProgress(event) {
-    setActiveImage(getProgressIndex(event));
-  }
-
-  function handleProgressPointerDown(event) {
-    event.preventDefault();
-    progress.setPointerCapture?.(event.pointerId);
-    progress.classList.add("is-dragging");
-    setImageFromProgress(event);
-  }
-
-  function handleProgressPointerMove(event) {
-    if (progress.classList.contains("is-dragging")) {
-      setImageFromProgress(event);
-    }
-  }
-
-  function handleProgressPointerEnd(event) {
-    progress.releasePointerCapture?.(event.pointerId);
-    progress.classList.remove("is-dragging");
-  }
-
-  function handleProgressKeydown(event) {
-    if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
-      event.preventDefault();
-      setActiveImage(activeIndex - 1);
-    } else if (event.key === "ArrowRight" || event.key === "ArrowUp") {
-      event.preventDefault();
-      setActiveImage(activeIndex + 1);
-    } else if (event.key === "Home") {
-      event.preventDefault();
-      setActiveImage(0);
-    } else if (event.key === "End") {
-      event.preventDefault();
-      setActiveImage(imageList.length - 1);
-    }
+    updatePaperImageDots(dotButtons, activeIndex);
   }
 
   gallery.className = "paper-card-images";
+  frame.className = "paper-image-frame";
   stage.className = "paper-image-stage";
   stage.type = "button";
   stage.setAttribute("aria-label", "Open paper image full screen");
@@ -1103,34 +1086,29 @@ function appendPaperImages(parent, images, paperTitle) {
   nav.className = "paper-image-nav";
   previousButton.type = "button";
   previousButton.setAttribute("aria-label", "Show previous image");
-  previousButton.append(createChevronIcon("left"));
+  previousButton.append(createPaperImageChevronIcon("left"));
   previousButton.addEventListener("click", () => setActiveImage(activeIndex - 1));
   nextButton.type = "button";
   nextButton.setAttribute("aria-label", "Show next image");
-  nextButton.append(createChevronIcon("right"));
+  nextButton.append(createPaperImageChevronIcon("right"));
   nextButton.addEventListener("click", () => setActiveImage(activeIndex + 1));
-  count.className = "paper-image-count";
-  progress.className = "paper-image-progress";
-  progress.setAttribute("role", "slider");
-  progress.setAttribute("tabindex", "0");
-  progress.setAttribute("aria-label", "Paper image position");
-  progress.setAttribute("aria-valuemin", "1");
-  progress.setAttribute("aria-valuemax", String(imageList.length));
-  progressFill.className = "paper-image-progress-fill";
-  progressHandle.className = "paper-image-progress-handle";
-  progress.addEventListener("pointerdown", handleProgressPointerDown);
-  progress.addEventListener("pointermove", handleProgressPointerMove);
-  progress.addEventListener("pointerup", handleProgressPointerEnd);
-  progress.addEventListener("pointercancel", handleProgressPointerEnd);
-  progress.addEventListener("keydown", handleProgressKeydown);
+  dots.className = "paper-image-dots";
 
   stage.append(image);
-  gallery.append(stage);
+  frame.append(stage);
+  gallery.append(frame);
 
   if (imageList.length > 1) {
-    progress.append(progressFill, progressHandle);
-    nav.append(previousButton, count, nextButton);
-    controls.append(nav, progress);
+    imageList.forEach((_, index) => {
+      const dot = createPaperImageDot(index, imageList.length, () => setActiveImage(index));
+
+      dotButtons.push(dot);
+      dots.append(dot);
+    });
+
+    nav.append(previousButton, nextButton);
+    controls.append(dots);
+    frame.append(nav);
     gallery.append(controls);
   }
 
