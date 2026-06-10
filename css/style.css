@@ -1086,15 +1086,13 @@ h2 {
   display: none;
 }
 
-.paper-card-links,
-.paper-card-themes {
+.paper-card-links {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.paper-card-links a,
-.paper-card-themes span {
+.paper-card-links a {
   display: inline-flex;
   align-items: center;
   min-height: 38px;
@@ -1103,10 +1101,6 @@ h2 {
   border-radius: 999px;
   font-size: 14px;
   line-height: 1.25;
-}
-
-.paper-card-themes span {
-  color: var(--muted);
 }
 
 .paper-card-codebox {
@@ -2396,8 +2390,7 @@ h2 {
     max-height: none;
   }
 
-  .paper-card-links,
-  .paper-card-themes {
+  .paper-card-links {
     gap: 8px;
   }
 

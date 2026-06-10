@@ -1017,7 +1017,6 @@ function renderPaperCard(container, data, images = []) {
   const closeLink = document.createElement("a");
   const title = document.createElement("h1");
   const body = document.createElement("div");
-  const themeList = document.createElement("div");
   const metaText = [data.venue, data.year].filter(hasResourceValue).join(" ");
 
   document.title = `${data.title || "Paper"} - GeoMind`;
@@ -1040,16 +1039,6 @@ function renderPaperCard(container, data, images = []) {
     authors.className = "paper-card-authors";
     authors.textContent = String(data.authors);
     hero.append(authors);
-  }
-
-  if (hasResourceValue(data.matched_themes)) {
-    themeList.className = "paper-card-themes";
-    data.matched_themes.filter(hasResourceValue).forEach((theme) => {
-      const item = document.createElement("span");
-      item.textContent = String(theme);
-      themeList.append(item);
-    });
-    hero.append(themeList);
   }
 
   body.className = "paper-card-body";
