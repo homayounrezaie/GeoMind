@@ -1299,10 +1299,6 @@ h2 {
   background: #fff;
 }
 
-.paper-card-copy-label {
-  display: none;
-}
-
 .paper-card-copy.is-copied {
   background: #f0f7f1;
   border-color: #cce8d1;
@@ -1310,11 +1306,25 @@ h2 {
 }
 
 .paper-card-copy.is-copied .paper-card-copy-icon {
-  display: none;
+  width: 16px;
+  height: 16px;
 }
 
-.paper-card-copy.is-copied .paper-card-copy-label {
-  display: inline;
+.paper-card-copy.is-copied .paper-card-copy-icon::before {
+  top: 3px;
+  left: 2px;
+  width: 11px;
+  height: 6px;
+  border: 0;
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  border-radius: 0;
+  opacity: 1;
+  transform: rotate(-45deg);
+}
+
+.paper-card-copy.is-copied .paper-card-copy-icon::after {
+  display: none;
 }
 
 .paper-card-bibtex pre {

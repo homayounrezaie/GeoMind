@@ -1177,7 +1177,6 @@ function appendPaperBibtex(parent, bibtex) {
   const codeBox = document.createElement("div");
   const copyButton = document.createElement("button");
   const copyIcon = document.createElement("span");
-  const copyLabel = document.createElement("span");
   const pre = document.createElement("pre");
   const code = document.createElement("code");
   let resetTimer = null;
@@ -1191,9 +1190,7 @@ function appendPaperBibtex(parent, bibtex) {
   copyButton.setAttribute("aria-label", "Copy BibTeX");
   copyIcon.className = "paper-card-copy-icon";
   copyIcon.setAttribute("aria-hidden", "true");
-  copyLabel.className = "paper-card-copy-label";
-  copyLabel.textContent = "Copied";
-  copyButton.append(copyIcon, copyLabel);
+  copyButton.append(copyIcon);
   copyButton.addEventListener("click", async () => {
     const didCopy = await copyTextToClipboard(bibtexText);
 
