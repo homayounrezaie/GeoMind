@@ -607,19 +607,6 @@ h2 {
   font-weight: 400;
 }
 
-.resource-table-papers tbody tr[role="link"] {
-  cursor: pointer;
-}
-
-.resource-table-papers tbody tr[role="link"]:hover td {
-  background: #f8fafd;
-}
-
-.resource-table-papers tbody tr[role="link"]:focus-visible {
-  outline: 2px solid var(--link);
-  outline-offset: -2px;
-}
-
 .paper-title-cell {
   display: grid;
   gap: 5px;

@@ -450,12 +450,6 @@ function initResourceList(controls) {
       row.dataset.year = String(Number(data.year));
     }
 
-    if (isPaperList) {
-      row.tabIndex = 0;
-      row.setAttribute("role", "link");
-      row.setAttribute("aria-label", `Open paper card for ${data.title || "paper"}`);
-    }
-
     dynamicColumns.forEach(({ field, isLink }) => {
       const cell = document.createElement("td");
 
@@ -616,29 +610,6 @@ function initResourceList(controls) {
       }
 
       item.row = createDynamicRow(item.item);
-      if (isPaperList) {
-        item.row.addEventListener("click", (event) => {
-          if (event.target.closest("a, button")) {
-            return;
-          }
-
-          const cardUrl = getPaperCardUrl(item.item);
-          if (cardUrl) {
-            window.location.href = cardUrl;
-          }
-        });
-        item.row.addEventListener("keydown", (event) => {
-          if (event.key !== "Enter" && event.key !== " ") {
-            return;
-          }
-
-          event.preventDefault();
-          const cardUrl = getPaperCardUrl(item.item);
-          if (cardUrl) {
-            window.location.href = cardUrl;
-          }
-        });
-      }
       return item.row;
     });
 
