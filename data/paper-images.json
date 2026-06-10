@@ -1,0 +1,14 @@
+{
+  "images": {
+    "aerodgs-2026": [
+      "../images/papers/aerodgs-2026.png"
+    ],
+    "geobridge-2026": [
+      "../images/papers/geobridge-2026.png",
+      "../images/papers/geobridge-2026-1.png"
+    ],
+    "olmoearth-2026": [
+      "../images/papers/olmoearth-2026.png"
+    ]
+  }
+}

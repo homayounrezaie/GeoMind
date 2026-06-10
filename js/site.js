@@ -284,7 +284,6 @@ function initResourceList(controls) {
   let currentPage = 1;
   let rows = [];
   let totalCount = 0;
-  let selectedItem = null;
 
   count.className = "resource-count";
   count.setAttribute("aria-live", "polite");
@@ -293,17 +292,7 @@ function initResourceList(controls) {
   pager.className = "table-pager";
   pager.setAttribute("aria-label", "Table pagination");
   pager.hidden = true;
-
-  const detailPanel = document.createElement("section");
-  detailPanel.className = "paper-detail-panel";
-  detailPanel.hidden = true;
-
-  if (isPaperList) {
-    tableWrap?.after(detailPanel);
-    detailPanel.after(pager);
-  } else {
-    tableWrap?.after(pager);
-  }
+  tableWrap?.after(pager);
 
   decorateSourceLinks(table, cardLinkLabel);
 
@@ -448,135 +437,6 @@ function initResourceList(controls) {
     return data[field];
   }
 
-  function appendDetailValue(parent, label, value) {
-    if (!hasResourceValue(value)) {
-      return;
-    }
-
-    const item = document.createElement("div");
-    const term = document.createElement("dt");
-    const description = document.createElement("dd");
-    const wideLabels = new Set(["Abstract", "Links", "BibTeX", "Matched themes", "Borderline reason"]);
-
-    term.textContent = label;
-    if (wideLabels.has(label)) {
-      item.className = "paper-detail-wide";
-    }
-
-    if (Array.isArray(value)) {
-      const list = document.createElement("ul");
-
-      list.className = "paper-detail-list";
-      value.filter(hasResourceValue).forEach((entry) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = String(entry);
-        list.append(listItem);
-      });
-      description.append(list);
-    } else if (typeof value === "object") {
-      const linkList = document.createElement("ul");
-
-      linkList.className = "paper-detail-links";
-      Object.entries(value)
-        .filter(([, entryValue]) => hasResourceValue(entryValue))
-        .forEach(([key, entryValue]) => {
-          const listItem = document.createElement("li");
-          const entryText = String(entryValue);
-
-          if (/^https?:\/\//i.test(entryText)) {
-            const link = document.createElement("a");
-            link.href = entryText;
-            link.target = "_blank";
-            link.rel = "noreferrer";
-            link.textContent = formatResourceLabel(key);
-            listItem.append(link);
-          } else {
-            listItem.textContent = `${formatResourceLabel(key)}: ${entryText}`;
-          }
-
-          linkList.append(listItem);
-        });
-      description.append(linkList);
-    } else if (label === "BibTeX") {
-      const code = document.createElement("code");
-      const pre = document.createElement("pre");
-
-      code.textContent = String(value);
-      pre.append(code);
-      description.append(pre);
-    } else {
-      description.textContent = String(value);
-    }
-
-    item.append(term, description);
-    parent.append(item);
-  }
-
-  function renderPaperDetails(data) {
-    if (!isPaperList || !data) {
-      return;
-    }
-
-    const header = document.createElement("div");
-    const eyebrow = document.createElement("p");
-    const title = document.createElement("h2");
-    const closeButton = document.createElement("button");
-    const details = document.createElement("dl");
-    const orderedFields = [
-      "id",
-      "title",
-      "authors",
-      "venue",
-      "year",
-      "presentation",
-      "abstract",
-      "links",
-      "bibtex",
-      "matched_themes",
-      "borderline_reason",
-    ];
-    const seenFields = new Set(orderedFields);
-
-    header.className = "paper-detail-header";
-    eyebrow.className = "paper-detail-eyebrow";
-    eyebrow.textContent = [data.venue, data.year].filter(hasResourceValue).join(" ");
-    title.textContent = data.title || "Paper details";
-    closeButton.type = "button";
-    closeButton.textContent = "Close";
-    closeButton.addEventListener("click", () => {
-      selectedItem = null;
-      detailPanel.hidden = true;
-      rows.forEach(({ row }) => row?.classList.remove("is-selected"));
-    });
-    header.append(eyebrow, title, closeButton);
-
-    details.className = "paper-detail-grid";
-    orderedFields.forEach((field) => {
-      appendDetailValue(details, formatResourceLabel(field), data[field]);
-    });
-    Object.entries(data)
-      .filter(([field]) => !seenFields.has(field))
-      .forEach(([field, value]) => {
-        appendDetailValue(details, formatResourceLabel(field), value);
-      });
-
-    detailPanel.replaceChildren(header, details);
-    detailPanel.hidden = false;
-  }
-
-  function selectPaper(item) {
-    if (!isPaperList || !item?.item) {
-      return;
-    }
-
-    selectedItem = item;
-    rows.forEach(({ row }) => {
-      row?.classList.toggle("is-selected", row === item.row);
-    });
-    renderPaperDetails(item.item);
-    detailPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }
-
   function createDynamicRow(data) {
     const row = document.createElement("tr");
     const showSourceIcons = table?.dataset.sourceIcons !== "false";
@@ -592,8 +452,8 @@ function initResourceList(controls) {
 
     if (isPaperList) {
       row.tabIndex = 0;
-      row.setAttribute("role", "button");
-      row.setAttribute("aria-label", `Show details for ${data.title || "paper"}`);
+      row.setAttribute("role", "link");
+      row.setAttribute("aria-label", `Open paper card for ${data.title || "paper"}`);
     }
 
     dynamicColumns.forEach(({ field, isLink }) => {
@@ -615,6 +475,23 @@ function initResourceList(controls) {
         }
         decorateSourceLink(link, cardLinkLabel, showSourceIcons);
         cell.append(link);
+      } else if (isPaperList && field === "title") {
+        const titleWrap = document.createElement("div");
+        const title = document.createElement("span");
+
+        titleWrap.className = "paper-title-cell";
+        title.className = "paper-title-text";
+        title.textContent = String(getDynamicField(data, field) || "");
+        titleWrap.append(title);
+
+        if (hasResourceValue(data.authors)) {
+          const authors = document.createElement("span");
+          authors.className = "paper-title-authors";
+          authors.textContent = String(data.authors);
+          titleWrap.append(authors);
+        }
+
+        cell.append(titleWrap);
       } else {
         cell.textContent = String(getDynamicField(data, field) || "");
       }
@@ -745,7 +622,10 @@ function initResourceList(controls) {
             return;
           }
 
-          selectPaper(item);
+          const cardUrl = getPaperCardUrl(item.item);
+          if (cardUrl) {
+            window.location.href = cardUrl;
+          }
         });
         item.row.addEventListener("keydown", (event) => {
           if (event.key !== "Enter" && event.key !== " ") {
@@ -753,18 +633,16 @@ function initResourceList(controls) {
           }
 
           event.preventDefault();
-          selectPaper(item);
+          const cardUrl = getPaperCardUrl(item.item);
+          if (cardUrl) {
+            window.location.href = cardUrl;
+          }
         });
       }
       return item.row;
     });
 
     tableBody.replaceChildren(...visibleRows);
-    if (isPaperList && selectedItem) {
-      rows.forEach(({ row }) => {
-        row?.classList.toggle("is-selected", row === selectedItem.row);
-      });
-    }
 
     count.textContent = `${totalCount.toLocaleString()} ${countLabel}`;
     updateSortHeaders();
@@ -817,27 +695,6 @@ function appendText(parent, text) {
   return paragraph;
 }
 
-function appendPaperMeta(parent, label, value) {
-  if (!hasResourceValue(value)) {
-    return;
-  }
-
-  const item = document.createElement("div");
-  const term = document.createElement("span");
-  const detail = document.createElement("strong");
-
-  term.textContent = label;
-
-  if (Array.isArray(value)) {
-    detail.textContent = value.filter(hasResourceValue).join(", ");
-  } else {
-    detail.textContent = String(value);
-  }
-
-  item.append(term, detail);
-  parent.append(item);
-}
-
 function appendPaperLinks(parent, links) {
   const entries = Object.entries(links || {}).filter(([, value]) => hasResourceValue(value));
 
@@ -859,6 +716,171 @@ function appendPaperLinks(parent, links) {
   });
 }
 
+function normalizePaperImageList(images) {
+  if (!Array.isArray(images)) {
+    return [];
+  }
+
+  return images.filter(hasResourceValue).map((image) => String(image));
+}
+
+function openPaperImageViewer(images, startIndex, paperTitle) {
+  const imageList = normalizePaperImageList(images);
+
+  if (!imageList.length) {
+    return;
+  }
+
+  const viewer = document.createElement("div");
+  const header = document.createElement("div");
+  const closeButton = document.createElement("button");
+  const imageWrap = document.createElement("div");
+  const image = document.createElement("img");
+  const footer = document.createElement("div");
+  const previousButton = document.createElement("button");
+  const nextButton = document.createElement("button");
+  const count = document.createElement("span");
+  let activeIndex = Math.min(Math.max(startIndex, 0), imageList.length - 1);
+
+  function setActiveImage(index) {
+    activeIndex = (index + imageList.length) % imageList.length;
+    image.src = imageList[activeIndex];
+    image.alt = `${paperTitle || "Paper"} image ${activeIndex + 1}`;
+    count.textContent = `${activeIndex + 1} of ${imageList.length}`;
+  }
+
+  function closeViewer() {
+    document.removeEventListener("keydown", handleKeydown);
+    document.body.classList.remove("is-paper-viewer-open");
+    viewer.remove();
+  }
+
+  function handleKeydown(event) {
+    if (event.key === "Escape") {
+      closeViewer();
+      return;
+    }
+
+    if (imageList.length < 2) {
+      return;
+    }
+
+    if (event.key === "ArrowLeft") {
+      setActiveImage(activeIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      setActiveImage(activeIndex + 1);
+    }
+  }
+
+  viewer.className = "paper-image-viewer";
+  viewer.setAttribute("role", "dialog");
+  viewer.setAttribute("aria-modal", "true");
+  viewer.setAttribute("aria-label", "Paper image viewer");
+  header.className = "paper-image-viewer-header";
+  closeButton.type = "button";
+  closeButton.textContent = "Close";
+  closeButton.addEventListener("click", closeViewer);
+  imageWrap.className = "paper-image-viewer-image";
+  footer.className = "paper-image-viewer-footer";
+  previousButton.type = "button";
+  previousButton.textContent = "Previous";
+  previousButton.addEventListener("click", () => setActiveImage(activeIndex - 1));
+  nextButton.type = "button";
+  nextButton.textContent = "Next";
+  nextButton.addEventListener("click", () => setActiveImage(activeIndex + 1));
+  count.className = "paper-image-viewer-count";
+
+  if (imageList.length < 2) {
+    previousButton.hidden = true;
+    nextButton.hidden = true;
+  }
+
+  viewer.addEventListener("click", (event) => {
+    if (event.target === viewer) {
+      closeViewer();
+    }
+  });
+
+  header.append(closeButton);
+  imageWrap.append(image);
+  footer.append(previousButton, count, nextButton);
+  viewer.append(header, imageWrap, footer);
+  document.body.append(viewer);
+  document.body.classList.add("is-paper-viewer-open");
+  document.addEventListener("keydown", handleKeydown);
+  setActiveImage(activeIndex);
+  closeButton.focus();
+}
+
+function appendPaperImages(parent, images, paperTitle) {
+  const imageList = normalizePaperImageList(images);
+
+  if (!imageList.length) {
+    return;
+  }
+
+  const gallery = document.createElement("div");
+  const stage = document.createElement("button");
+  const image = document.createElement("img");
+  const controls = document.createElement("div");
+  const nav = document.createElement("div");
+  const previousButton = document.createElement("button");
+  const nextButton = document.createElement("button");
+  const count = document.createElement("span");
+  const dots = document.createElement("div");
+  const dotButtons = imageList.map((_, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Show image ${index + 1}`);
+    dot.addEventListener("click", () => setActiveImage(index));
+    return dot;
+  });
+  let activeIndex = 0;
+
+  function setActiveImage(index) {
+    activeIndex = (index + imageList.length) % imageList.length;
+    image.src = imageList[activeIndex];
+    image.alt = `${paperTitle || "Paper"} image ${activeIndex + 1}`;
+    count.textContent = `${activeIndex + 1} of ${imageList.length}`;
+    dotButtons.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+  }
+
+  gallery.className = "paper-card-images";
+  stage.className = "paper-image-stage";
+  stage.type = "button";
+  stage.setAttribute("aria-label", "Open paper image full screen");
+  stage.addEventListener("click", () => openPaperImageViewer(imageList, activeIndex, paperTitle));
+  image.loading = "eager";
+  image.decoding = "async";
+  controls.className = "paper-image-controls";
+  nav.className = "paper-image-nav";
+  previousButton.type = "button";
+  previousButton.textContent = "Previous";
+  previousButton.addEventListener("click", () => setActiveImage(activeIndex - 1));
+  nextButton.type = "button";
+  nextButton.textContent = "Next";
+  nextButton.addEventListener("click", () => setActiveImage(activeIndex + 1));
+  count.className = "paper-image-count";
+  dots.className = "paper-image-dots";
+
+  stage.append(image);
+  gallery.append(stage);
+
+  if (imageList.length > 1) {
+    nav.append(previousButton, nextButton);
+    dots.append(...dotButtons);
+    controls.append(nav, count, dots);
+    gallery.append(controls);
+  }
+
+  setActiveImage(0);
+  parent.append(gallery);
+}
+
 function appendPaperBibtex(parent, bibtex) {
   if (!hasResourceValue(bibtex)) {
     return;
@@ -877,52 +899,67 @@ function appendPaperBibtex(parent, bibtex) {
   parent.append(section);
 }
 
-function renderPaperCard(container, data) {
+function renderPaperCard(container, data, images = []) {
   const article = document.createElement("article");
-  const backLink = document.createElement("a");
   const hero = document.createElement("header");
+  const topbar = document.createElement("div");
   const meta = document.createElement("p");
+  const closeLink = document.createElement("a");
   const title = document.createElement("h1");
   const body = document.createElement("div");
-  const facts = document.createElement("section");
-  const factsHeading = document.createElement("h2");
-  const factGrid = document.createElement("div");
-  const links = document.createElement("section");
-  const linksHeading = document.createElement("h2");
-  const linkList = document.createElement("div");
-  const themes = document.createElement("section");
-  const themesHeading = document.createElement("h2");
   const themeList = document.createElement("div");
   const metaText = [data.venue, data.year].filter(hasResourceValue).join(" ");
 
   document.title = `${data.title || "Paper"} - GeoMind`;
 
   article.className = "paper-card-article";
-  backLink.className = "paper-card-back";
-  backLink.href = "papers.html";
-  backLink.textContent = "Back to papers";
-
   hero.className = "paper-card-hero";
+  topbar.className = "paper-card-topbar";
   meta.className = "paper-card-meta";
   meta.textContent = metaText || "Paper";
+  closeLink.className = "paper-card-close";
+  closeLink.href = "papers.html";
+  closeLink.textContent = "Close";
   title.textContent = data.title || "Paper";
-  hero.append(meta, title);
-  appendText(hero, data.abstract);
+  topbar.append(meta, closeLink);
+  hero.append(topbar, title);
+
+  if (hasResourceValue(data.authors)) {
+    const authors = document.createElement("p");
+    authors.className = "paper-card-authors";
+    authors.textContent = String(data.authors);
+    hero.append(authors);
+  }
+
+  if (hasResourceValue(data.matched_themes)) {
+    themeList.className = "paper-card-themes";
+    data.matched_themes.filter(hasResourceValue).forEach((theme) => {
+      const item = document.createElement("span");
+      item.textContent = String(theme);
+      themeList.append(item);
+    });
+    hero.append(themeList);
+  }
 
   body.className = "paper-card-body";
 
-  facts.className = "paper-card-section";
-  factsHeading.textContent = "Metadata";
-  factGrid.className = "paper-card-facts";
-  appendPaperMeta(factGrid, "Authors", data.authors);
-  appendPaperMeta(factGrid, "Venue", data.venue);
-  appendPaperMeta(factGrid, "Year", data.year);
-  appendPaperMeta(factGrid, "Presentation", data.presentation);
-  appendPaperMeta(factGrid, "Paper ID", data.id);
-  facts.append(factsHeading, factGrid);
-  body.append(facts);
+  if (hasResourceValue(data.abstract) || hasResourceValue(images)) {
+    const abstract = document.createElement("section");
+    const heading = document.createElement("h2");
+
+    abstract.className = "paper-card-section paper-card-abstract";
+    heading.textContent = hasResourceValue(data.abstract) ? "Abstract" : "Images";
+    abstract.append(heading);
+    appendText(abstract, data.abstract);
+    appendPaperImages(abstract, images, data.title);
+    body.append(abstract);
+  }
 
   if (hasResourceValue(data.links)) {
+    const links = document.createElement("section");
+    const linksHeading = document.createElement("h2");
+    const linkList = document.createElement("div");
+
     links.className = "paper-card-section paper-card-resources";
     linksHeading.textContent = "Resources";
     linkList.className = "paper-card-links";
@@ -931,37 +968,14 @@ function renderPaperCard(container, data) {
     body.append(links);
   }
 
-  if (hasResourceValue(data.matched_themes)) {
-    themes.className = "paper-card-section";
-    themesHeading.textContent = "Themes";
-    themeList.className = "paper-card-themes";
-    data.matched_themes.filter(hasResourceValue).forEach((theme) => {
-      const item = document.createElement("span");
-      item.textContent = String(theme);
-      themeList.append(item);
-    });
-    themes.append(themesHeading, themeList);
-    body.append(themes);
-  }
-
-  if (hasResourceValue(data.borderline_reason)) {
-    const section = document.createElement("section");
-    const heading = document.createElement("h2");
-
-    section.className = "paper-card-section";
-    heading.textContent = "Review note";
-    section.append(heading);
-    appendText(section, data.borderline_reason);
-    body.append(section);
-  }
-
   appendPaperBibtex(body, data.bibtex);
-  article.append(backLink, hero, body);
+  article.append(hero, body);
   container.replaceChildren(article);
 }
 
 async function initPaperCardPage(container) {
   const source = container.dataset.paperSource || "../data/papers.json";
+  const imageSource = container.dataset.paperImages || "../data/paper-images.json";
   const params = new URLSearchParams(window.location.search);
   const paperId = params.get("id") || "";
 
@@ -979,13 +993,25 @@ async function initPaperCardPage(container) {
 
     const payload = await response.json();
     const paper = getPaperItems(payload).find((item) => item.id === paperId);
+    let imageMap = {};
 
     if (!paper) {
       container.textContent = "Paper not found.";
       return;
     }
 
-    renderPaperCard(container, paper);
+    try {
+      const imageResponse = await fetch(imageSource);
+
+      if (imageResponse.ok) {
+        const imagePayload = await imageResponse.json();
+        imageMap = imagePayload.images || imagePayload || {};
+      }
+    } catch {
+      imageMap = {};
+    }
+
+    renderPaperCard(container, paper, normalizePaperImageList(paper.images || imageMap[paper.id]));
   } catch {
     container.textContent = "Paper not found.";
   }
