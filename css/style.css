@@ -934,8 +934,9 @@ h2 {
   max-width: 820px;
   margin-bottom: 16px;
   color: #3c4043;
-  font-size: 18px;
-  line-height: 1.55;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.65;
 }
 
 .paper-card-body {
@@ -2037,8 +2038,8 @@ h2 {
   }
 
   .paper-card-authors {
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: 13px;
+    line-height: 1.65;
   }
 
   .model-card-summary {
