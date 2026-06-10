@@ -882,17 +882,25 @@ function appendText(parent, text) {
   return paragraph;
 }
 
-function appendPaperLinks(parent, links) {
-  const entries = Object.entries(links || {})
+function getPaperLinkEntries(links) {
+  return Object.entries(links || {})
     .filter(([, value]) => isValidResourceUrl(value))
     .sort(([firstKey], [secondKey]) => {
       const firstMeta = getPaperResourceMeta(firstKey);
       const secondMeta = getPaperResourceMeta(secondKey);
       return firstMeta.order - secondMeta.order || firstKey.localeCompare(secondKey);
     });
+}
+
+function hasPaperLinks(links) {
+  return getPaperLinkEntries(links).length > 0;
+}
+
+function appendPaperLinks(parent, links) {
+  const entries = getPaperLinkEntries(links);
 
   if (!entries.length) {
-    return;
+    return 0;
   }
 
   entries.forEach(([key, value]) => {
@@ -908,6 +916,171 @@ function appendPaperLinks(parent, links) {
 
     parent.append(link);
   });
+
+  return entries.length;
+}
+
+function splitPaperSentences(text) {
+  if (!hasResourceValue(text)) {
+    return [];
+  }
+
+  const normalized = String(text)
+    .replace(/\s+/g, " ")
+    .replace(/([.!?])(?=[A-Z])/g, "$1 ")
+    .trim();
+
+  return (
+    normalized
+      .match(/[^.!?]+(?:[.!?]+|$)/g)
+      ?.map((sentence) => sentence.trim())
+      .filter(Boolean) || []
+  );
+}
+
+function normalizePaperSummaryItems(value) {
+  if (!hasResourceValue(value)) {
+    return [];
+  }
+
+  if (Array.isArray(value)) {
+    return value
+      .flatMap((item) => normalizePaperSummaryItems(item))
+      .filter((item) => hasResourceValue(item.text));
+  }
+
+  if (typeof value === "object") {
+    return Object.entries(value)
+      .filter(([, text]) => hasResourceValue(text))
+      .map(([label, text]) => ({
+        label: formatResourceLabel(label),
+        text: String(text).trim(),
+      }));
+  }
+
+  return [{ label: "Overview", text: String(value).trim() }];
+}
+
+function findPaperSummarySentence(sentences, patterns, usedIndexes, fallbackIndex) {
+  for (let index = 0; index < sentences.length; index += 1) {
+    const sentence = sentences[index];
+
+    if (!usedIndexes.has(index) && patterns.some((pattern) => pattern.test(sentence))) {
+      usedIndexes.add(index);
+      return sentence;
+    }
+  }
+
+  if (Number.isInteger(fallbackIndex)) {
+    const normalizedIndex = Math.min(Math.max(fallbackIndex, 0), sentences.length - 1);
+
+    if (!usedIndexes.has(normalizedIndex)) {
+      usedIndexes.add(normalizedIndex);
+      return sentences[normalizedIndex];
+    }
+  }
+
+  const nextIndex = sentences.findIndex((_, index) => !usedIndexes.has(index));
+
+  if (nextIndex >= 0) {
+    usedIndexes.add(nextIndex);
+    return sentences[nextIndex];
+  }
+
+  return "";
+}
+
+function getPaperSummaryItems(data) {
+  const explicitSummary = normalizePaperSummaryItems(
+    data.paper_summary || data.summary || data.highlights || data.insights
+  );
+
+  if (explicitSummary.length) {
+    return explicitSummary;
+  }
+
+  const sentences = splitPaperSentences(data.abstract);
+
+  if (!sentences.length) {
+    return [];
+  }
+
+  const usedIndexes = new Set([0]);
+  const items = [
+    {
+      label: "Why it matters",
+      text: sentences[0],
+    },
+    {
+      label: "Core idea",
+      text: findPaperSummarySentence(
+        sentences,
+        [
+          /\b(propose|introduce|present|develop|design|release|construct|curate|combine|integrate|address|tackle|formalize)\b/i,
+          /\b(to address|we propose|we introduce|we present|we design|we release)\b/i,
+        ],
+        usedIndexes,
+        1
+      ),
+    },
+    {
+      label: "Evidence",
+      text: findPaperSummarySentence(
+        sentences,
+        [
+          /\b(experiment|experiments|result|results|achieve|achieves|outperform|demonstrate|state-of-the-art|benchmark|evaluate|surpass|improve|delivers)\b/i,
+        ],
+        usedIndexes,
+        sentences.length - 1
+      ),
+    },
+  ];
+
+  return items.filter((item) => hasResourceValue(item.text));
+}
+
+function appendPaperSummary(parent, data) {
+  const items = getPaperSummaryItems(data);
+
+  if (!items.length) {
+    return;
+  }
+
+  const section = document.createElement("section");
+  const heading = document.createElement("h2");
+  const list = document.createElement("div");
+
+  section.className = "paper-card-section paper-card-summary";
+  heading.textContent = "Paper Summary";
+  list.className = "paper-summary-list";
+
+  items.forEach((item) => {
+    const insight = document.createElement("article");
+    const label = document.createElement("h3");
+    const text = document.createElement("p");
+
+    insight.className = "paper-summary-item";
+    label.className = "paper-summary-label";
+    label.textContent = item.label;
+    text.textContent = item.text;
+    insight.append(label, text);
+    list.append(insight);
+  });
+
+  section.append(heading, list);
+  parent.append(section);
+}
+
+function formatPaperAuthors(authors) {
+  return String(authors)
+    .split(/\s*,\s*/)
+    .map((author) => author.trim())
+    .filter(Boolean)
+    .join(" · ");
+}
+
+function getPaperLead(data) {
+  return [data.one_line_summary, data.summary_line, data.presentation].find(hasResourceValue) || "";
 }
 
 function normalizePaperImageList(images) {
@@ -1202,6 +1375,7 @@ function renderPaperCard(container, data, images = []) {
   const title = document.createElement("h1");
   const body = document.createElement("div");
   const metaText = [data.venue, data.year].filter(hasResourceValue).join(" ");
+  const leadText = getPaperLead(data);
 
   document.title = `${data.title || "Paper"} - GeoMind`;
 
@@ -1221,25 +1395,44 @@ function renderPaperCard(container, data, images = []) {
   if (hasResourceValue(data.authors)) {
     const authors = document.createElement("p");
     authors.className = "paper-card-authors";
-    authors.textContent = String(data.authors);
+    authors.textContent = formatPaperAuthors(data.authors);
     hero.append(authors);
+  }
+
+  if (hasResourceValue(leadText)) {
+    const lead = document.createElement("p");
+    lead.className = "paper-card-lead";
+    lead.textContent = String(leadText);
+    hero.append(lead);
   }
 
   body.className = "paper-card-body";
 
-  if (hasResourceValue(data.abstract) || hasResourceValue(images)) {
+  if (hasResourceValue(data.abstract)) {
     const abstract = document.createElement("section");
     const heading = document.createElement("h2");
 
     abstract.className = "paper-card-section paper-card-abstract";
-    heading.textContent = hasResourceValue(data.abstract) ? "Abstract" : "Images";
+    heading.textContent = "Abstract";
     abstract.append(heading);
     appendText(abstract, data.abstract);
-    appendPaperImages(abstract, images, data.title);
     body.append(abstract);
   }
 
-  if (hasResourceValue(data.links)) {
+  appendPaperSummary(body, data);
+
+  if (hasResourceValue(images)) {
+    const figures = document.createElement("section");
+    const heading = document.createElement("h2");
+
+    figures.className = "paper-card-section paper-card-figures";
+    heading.textContent = "Figures";
+    figures.append(heading);
+    appendPaperImages(figures, images, data.title);
+    body.append(figures);
+  }
+
+  if (hasPaperLinks(data.links)) {
     const links = document.createElement("section");
     const linksHeading = document.createElement("h2");
     const linkList = document.createElement("div");
