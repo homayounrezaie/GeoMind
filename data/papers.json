@@ -1764,12 +1764,12 @@
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Jiao_ACPV-Net_All-Class_Polygonal_Vectorization_for_Seamless_Vector_Map_Generation_from_CVPR_2026_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Jiao_ACPV-Net_All-Class_Polygonal_CVPR_2026_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2603.16616",
-        "code": null,
-        "checkpoints": null,
-        "dataset": null,
+        "code": "https://github.com/HeinzJiao/ACPV-Net",
+        "checkpoints": "https://huggingface.co/HeinzJiao/deventer512_vmamba-s_m_vh-ldm_kl4_b8",
+        "dataset": "https://huggingface.co/datasets/HeinzJiao/Deventer-512",
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://heinzjiao.github.io/acpv-net-project-page/"
       },
       "bibtex": "@InProceedings{Jiao_2026_CVPR,\nauthor = {Jiao, Weiqin and Cheng, Hao and Vosselman, George and Persello, Claudio},\ntitle = {ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery},\nbooktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2026},\npages = {13244-13253}\n}",
       "matched_themes": [

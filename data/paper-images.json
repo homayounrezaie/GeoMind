@@ -1,5 +1,9 @@
 {
   "images": {
+    "acpv-2026": [
+      "../images/papers/acpv-2026.png",
+      "../images/papers/acpv-2026-1.png"
+    ],
     "aerodgs-2026": [
       "../images/papers/aerodgs-2026.png"
     ],
