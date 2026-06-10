@@ -2914,6 +2914,32 @@
         "geo-localization / cross-view / VPR",
         "drone / UAV / aerial / overhead"
       ]
+    },
+    {
+      "id": "paper_2207_08051",
+      "title": "SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery",
+      "authors": "Yezhen Cong, Samar Khanna, Chenlin Meng, Patrick Liu, Erik Rozi, Yutong He, Marshall Burke, David B. Lobell, Stefano Ermon",
+      "venue": "NeurIPS",
+      "year": 2022,
+      "presentation": null,
+      "abstract": "Unsupervised pre-training methods for large vision models have shown to enhance performance on downstream supervised tasks. Developing similar techniques for satellite imagery presents significant opportunities as unlabelled data is plentiful and the inherent temporal and multi-spectral structure provides avenues to further improve existing pre-training strategies. In this paper, we present SatMAE, a pre-training framework for temporal or multi-spectral satellite imagery based on Masked Autoencoder (MAE). To leverage temporal information, we include a temporal embedding along with independently masking image patches across time. In addition, we demonstrate that encoding multi-spectral data as groups of bands with distinct spectral positional encodings is beneficial. Our approach yields strong improvements over previous state-of-the-art techniques, both in terms of supervised learning performance on benchmark datasets, and transfer learning performance on downstream remote sensing tasks, including land cover classification and semantic segmentation. Code and data are available on the project website.",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2207.08051",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2207.08051",
+        "code": "https://github.com/sustainlab-group/SatMAE",
+        "checkpoints": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://sustainlab-group.github.io/SatMAE"
+      },
+      "bibtex": "@inproceedings{satmae2022,\ntitle={Sat{MAE}: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery},\nauthor={Yezhen Cong and Samar Khanna and Chenlin Meng and Patrick Liu and Erik Rozi and Yutong He and Marshall Burke and David B. Lobell and Stefano Ermon},\nbooktitle={Advances in Neural Information Processing Systems},\neditor={Alice H. Oh and Alekh Agarwal and Danielle Belgrave and Kyunghyun Cho},\nyear={2022},\nurl={https://openreview.net/forum?id=WBhqzpF6KYH}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ]
     }
   ],
   "borderline": [
