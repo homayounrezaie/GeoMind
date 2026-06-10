@@ -324,11 +324,17 @@ function initResourceList(controls) {
     );
   }
 
-  function createPagerButton(label, disabled, onClick) {
+  function createPagerButton(label, disabled, onClick, className = "", ariaLabel = "") {
     const button = document.createElement("button");
     button.type = "button";
     button.textContent = label;
     button.disabled = disabled;
+    if (className) {
+      button.className = className;
+    }
+    if (ariaLabel) {
+      button.setAttribute("aria-label", ariaLabel);
+    }
     button.addEventListener("click", onClick);
     return button;
   }
@@ -557,18 +563,89 @@ function initResourceList(controls) {
       return;
     }
 
-    const previousButton = createPagerButton("Previous", currentPage === 1, () => {
-      currentPage -= 1;
-      applyState();
-    });
-    const nextButton = createPagerButton("Next", currentPage === totalPages, () => {
-      currentPage += 1;
-      applyState();
-    });
+    const pageStart = (currentPage - 1) * pageSize + 1;
+    const pageEnd = Math.min(currentPage * pageSize, matchCount);
     const status = document.createElement("span");
+    const pages = document.createElement("div");
+    const visiblePages = new Set([1, totalPages, currentPage, currentPage - 1, currentPage + 1]);
+    const pageItems = [];
 
-    status.textContent = `${currentPage} of ${totalPages}`;
-    pager.append(previousButton, status, nextButton);
+    if (currentPage <= 3) {
+      visiblePages.add(2);
+      visiblePages.add(3);
+    }
+
+    if (currentPage >= totalPages - 2) {
+      visiblePages.add(totalPages - 1);
+      visiblePages.add(totalPages - 2);
+    }
+
+    Array.from(visiblePages)
+      .filter((pageNumber) => pageNumber >= 1 && pageNumber <= totalPages)
+      .sort((first, second) => first - second)
+      .forEach((pageNumber) => {
+        if (pageItems.length && pageNumber - pageItems[pageItems.length - 1] > 1) {
+          pageItems.push("gap");
+        }
+        pageItems.push(pageNumber);
+      });
+
+    const previousButton = createPagerButton(
+      "<",
+      currentPage === 1,
+      () => {
+        currentPage -= 1;
+        applyState();
+      },
+      "table-pager-step",
+      "Previous page"
+    );
+    const nextButton = createPagerButton(
+      ">",
+      currentPage === totalPages,
+      () => {
+        currentPage += 1;
+        applyState();
+      },
+      "table-pager-step",
+      "Next page"
+    );
+
+    status.className = "table-pager-status";
+    status.textContent = `Showing ${pageStart.toLocaleString()}-${pageEnd.toLocaleString()} of ${matchCount.toLocaleString()}`;
+    pages.className = "table-pager-pages";
+    pages.append(previousButton);
+
+    pageItems.forEach((pageItem) => {
+      if (pageItem === "gap") {
+        const gap = document.createElement("span");
+        gap.className = "table-pager-gap";
+        gap.textContent = "...";
+        pages.append(gap);
+        return;
+      }
+
+      const pageButton = createPagerButton(
+        String(pageItem),
+        false,
+        () => {
+          currentPage = pageItem;
+          applyState();
+        },
+        "table-pager-page",
+        `Page ${pageItem}`
+      );
+
+      if (pageItem === currentPage) {
+        pageButton.classList.add("is-active");
+        pageButton.setAttribute("aria-current", "page");
+      }
+
+      pages.append(pageButton);
+    });
+
+    pages.append(nextButton);
+    pager.append(status, pages);
     pager.hidden = false;
   }
 
@@ -890,7 +967,8 @@ function renderPaperCard(container, data, images = []) {
   meta.textContent = metaText || "Paper";
   closeLink.className = "paper-card-close";
   closeLink.href = "papers.html";
-  closeLink.textContent = "Close";
+  closeLink.setAttribute("aria-label", "Close paper card");
+  closeLink.title = "Close";
   title.textContent = data.title || "Paper";
   topbar.append(meta, closeLink);
   hero.append(topbar, title);
