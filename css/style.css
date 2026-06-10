@@ -1194,18 +1194,51 @@ h2 {
 .paper-card-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 7px 0;
+  align-items: center;
+  max-width: 860px;
 }
 
 .paper-card-links a {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 38px;
-  padding: 8px 13px;
-  border: 1px solid var(--soft-line);
-  border-radius: 999px;
-  font-size: 14px;
-  line-height: 1.25;
+  gap: 5px;
+  min-height: 24px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.paper-card-links a + a::before {
+  display: inline-flex;
+  margin: 0 10px 0 3px;
+  color: #bdc1c6;
+  content: "·";
+}
+
+.paper-card-links a:hover,
+.paper-card-links a:focus-visible {
+  color: var(--text);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.paper-card-resource-icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  color: currentColor;
+  opacity: 0.82;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.paper-card-links a:hover .paper-card-resource-icon,
+.paper-card-links a:focus-visible .paper-card-resource-icon {
+  opacity: 1;
+  transform: scale(1.04);
 }
 
 .paper-card-codebox {
@@ -2490,7 +2523,7 @@ h2 {
   }
 
   .paper-card-links {
-    gap: 8px;
+    gap: 8px 0;
   }
 
   .model-card-media {

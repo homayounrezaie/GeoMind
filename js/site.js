@@ -231,7 +231,10 @@ function formatResourceLabel(value) {
     abstract: "Abstract",
     links: "Links",
     pdf: "PDF",
+    paper: "Paper",
     supp: "Supplement",
+    video: "Video",
+    demo: "Demo",
     arxiv: "arXiv",
     code: "Code",
     checkpoints: "Checkpoints",
@@ -250,6 +253,142 @@ function formatResourceLabel(value) {
       .replace(/[_-]+/g, " ")
       .replace(/\b\w/g, (letter) => letter.toUpperCase())
   );
+}
+
+const paperResourceMeta = {
+  paper: {
+    label: "Paper",
+    order: 0,
+    icon: [
+      '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>',
+      '<path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
+      '<path d="M10 9H8"/>',
+      '<path d="M16 13H8"/>',
+      '<path d="M16 17H8"/>',
+    ],
+  },
+  pdf: {
+    label: "PDF",
+    order: 1,
+    icon: [
+      '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>',
+      '<path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
+      '<path d="M10 9H8"/>',
+      '<path d="M16 13H8"/>',
+      '<path d="M16 17H8"/>',
+    ],
+  },
+  supp: {
+    label: "Supplement",
+    order: 2,
+    icon: [
+      '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>',
+      '<path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
+      '<path d="M9 15h6"/>',
+      '<path d="M12 18v-6"/>',
+    ],
+  },
+  video: {
+    label: "Video",
+    order: 3,
+    icon: ['<circle cx="12" cy="12" r="10"/>', '<path d="m10 8 6 4-6 4V8Z"/>'],
+  },
+  demo: {
+    label: "Demo",
+    order: 4,
+    icon: ['<circle cx="12" cy="12" r="10"/>', '<path d="m10 8 6 4-6 4V8Z"/>'],
+  },
+  arxiv: {
+    label: "arXiv",
+    order: 5,
+    icon: [
+      '<path d="M12 7v14"/>',
+      '<path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+    ],
+  },
+  code: {
+    label: "Code",
+    order: 6,
+    icon: ['<path d="m18 16 4-4-4-4"/>', '<path d="m6 8-4 4 4 4"/>', '<path d="m14.5 4-5 16"/>'],
+  },
+  checkpoints: {
+    label: "Checkpoints",
+    order: 7,
+    icon: [
+      '<rect width="16" height="16" x="4" y="4" rx="2"/>',
+      '<rect width="6" height="6" x="9" y="9" rx="1"/>',
+      '<path d="M15 2v2"/>',
+      '<path d="M15 20v2"/>',
+      '<path d="M2 15h2"/>',
+      '<path d="M2 9h2"/>',
+      '<path d="M20 15h2"/>',
+      '<path d="M20 9h2"/>',
+      '<path d="M9 2v2"/>',
+      '<path d="M9 20v2"/>',
+    ],
+  },
+  dataset: {
+    label: "Dataset",
+    order: 8,
+    icon: [
+      '<ellipse cx="12" cy="5" rx="9" ry="3"/>',
+      '<path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>',
+      '<path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>',
+    ],
+  },
+  benchmark: {
+    label: "Benchmark",
+    order: 9,
+    icon: ['<path d="M3 3v18h18"/>', '<path d="M18 17V9"/>', '<path d="M13 17V5"/>', '<path d="M8 17v-3"/>'],
+  },
+  model: {
+    label: "Model",
+    order: 10,
+    icon: [
+      '<path d="M2 7.5 12 2l10 5.5-10 5.5z"/>',
+      '<path d="M2 12.5 12 18l10-5.5"/>',
+      '<path d="M2 17.5 12 23l10-5.5"/>',
+    ],
+  },
+  project_page: {
+    label: "Project Page",
+    order: 11,
+    icon: [
+      '<circle cx="12" cy="12" r="10"/>',
+      '<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>',
+      '<path d="M2 12h20"/>',
+    ],
+  },
+};
+
+function isValidResourceUrl(value) {
+  return hasResourceValue(value) && /^https?:\/\//i.test(String(value).trim());
+}
+
+function getPaperResourceMeta(key) {
+  return (
+    paperResourceMeta[key] || {
+      label: formatResourceLabel(key),
+      order: 100,
+      icon: paperResourceMeta.project_page.icon,
+    }
+  );
+}
+
+function createPaperResourceIcon(key) {
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  const meta = getPaperResourceMeta(key);
+
+  icon.classList.add("paper-card-resource-icon");
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("fill", "none");
+  icon.setAttribute("stroke", "currentColor");
+  icon.setAttribute("stroke-width", "1.8");
+  icon.setAttribute("stroke-linecap", "round");
+  icon.setAttribute("stroke-linejoin", "round");
+  icon.setAttribute("aria-hidden", "true");
+  icon.innerHTML = meta.icon.join("");
+  return icon;
 }
 
 function getPaperCardUrl(data) {
@@ -744,7 +883,13 @@ function appendText(parent, text) {
 }
 
 function appendPaperLinks(parent, links) {
-  const entries = Object.entries(links || {}).filter(([, value]) => hasResourceValue(value));
+  const entries = Object.entries(links || {})
+    .filter(([, value]) => isValidResourceUrl(value))
+    .sort(([firstKey], [secondKey]) => {
+      const firstMeta = getPaperResourceMeta(firstKey);
+      const secondMeta = getPaperResourceMeta(secondKey);
+      return firstMeta.order - secondMeta.order || firstKey.localeCompare(secondKey);
+    });
 
   if (!entries.length) {
     return;
@@ -752,13 +897,14 @@ function appendPaperLinks(parent, links) {
 
   entries.forEach(([key, value]) => {
     const link = document.createElement("a");
-    link.href = String(value);
-    link.textContent = formatResourceLabel(key);
+    const label = document.createElement("span");
+    const meta = getPaperResourceMeta(key);
 
-    if (/^https?:\/\//i.test(link.href)) {
-      link.target = "_blank";
-      link.rel = "noreferrer";
-    }
+    link.href = String(value).trim();
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    label.textContent = meta.label;
+    link.append(createPaperResourceIcon(key), label);
 
     parent.append(link);
   });
