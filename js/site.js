@@ -491,6 +491,251 @@ async function initFeaturedPaperTable(table) {
 
 document.querySelectorAll("[data-featured-paper-table]").forEach(initFeaturedPaperTable);
 
+function getDataItems(payload, key) {
+  if (Array.isArray(payload)) {
+    return payload;
+  }
+
+  return payload?.[key] || payload?.items || [];
+}
+
+function normalizeCombinedResource(item, type, index) {
+  const isDataset = type === "dataset";
+  const title = String(isDataset ? item.dataset || item.name || "" : item.benchmark || item.name || "");
+  const detail = String(
+    isDataset
+      ? item.sensorModality || item.sizeResolution || item.source || ""
+      : item.metric || item.dataset_or_challenge || item.evidence || ""
+  );
+  const url = String(
+    isDataset
+      ? item.sourceUrl || item.source_url || ""
+      : /^https?:\/\//i.test(String(item.source_url || "")) ? item.source_url : ""
+  );
+  const year = Number(item.year) || 0;
+  const task = String(item.task || "");
+  const typeLabel = isDataset ? "Dataset" : "Benchmark";
+  const searchText = [title, typeLabel, task, detail, year, url].join(" ").toLowerCase();
+
+  return {
+    index,
+    type,
+    typeLabel,
+    title,
+    task,
+    detail,
+    url,
+    year,
+    searchText,
+  };
+}
+
+function createCombinedResourceRow(item) {
+  const row = document.createElement("tr");
+  const titleCell = document.createElement("td");
+  const typeCell = document.createElement("td");
+  const taskCell = document.createElement("td");
+  const detailCell = document.createElement("td");
+  const linkCell = document.createElement("td");
+  const typeTag = document.createElement("span");
+
+  row.dataset.type = item.type;
+  if (item.year) {
+    row.dataset.year = String(item.year);
+  }
+
+  titleCell.textContent = item.title;
+  typeTag.className = `resource-type-tag resource-type-${item.type}`;
+  typeTag.textContent = item.typeLabel;
+  typeCell.append(typeTag);
+  taskCell.textContent = item.task;
+  detailCell.textContent = item.detail;
+
+  if (item.url) {
+    const link = document.createElement("a");
+
+    link.href = item.url;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    decorateSourceLink(link, `View ${item.type} card`, true);
+    linkCell.append(link);
+  }
+
+  row.append(titleCell, typeCell, taskCell, detailCell, linkCell);
+  return row;
+}
+
+function renderSimplePager(pager, currentPage, totalPages, matchCount, pageSize, onPageChange) {
+  pager.innerHTML = "";
+
+  if (totalPages <= 1) {
+    pager.hidden = true;
+    return;
+  }
+
+  const pageStart = (currentPage - 1) * pageSize + 1;
+  const pageEnd = Math.min(currentPage * pageSize, matchCount);
+  const previous = document.createElement("button");
+  const next = document.createElement("button");
+  const status = document.createElement("span");
+  const pages = document.createElement("div");
+
+  previous.type = "button";
+  previous.className = "table-pager-step";
+  previous.textContent = "<";
+  previous.disabled = currentPage === 1;
+  previous.setAttribute("aria-label", "Previous page");
+  previous.addEventListener("click", () => onPageChange(currentPage - 1));
+
+  next.type = "button";
+  next.className = "table-pager-step";
+  next.textContent = ">";
+  next.disabled = currentPage === totalPages;
+  next.setAttribute("aria-label", "Next page");
+  next.addEventListener("click", () => onPageChange(currentPage + 1));
+
+  status.className = "table-pager-status";
+  status.textContent = `Showing ${pageStart.toLocaleString()}-${pageEnd.toLocaleString()} of ${matchCount.toLocaleString()}`;
+  pages.className = "table-pager-pages";
+  pages.append(previous, next);
+  pager.append(status, pages);
+  pager.hidden = false;
+}
+
+function getLimitedCombinedItems(items, limit, isBalanced) {
+  if (!limit) {
+    return items;
+  }
+
+  if (!isBalanced) {
+    return items.slice(0, limit);
+  }
+
+  const datasetLimit = Math.ceil(limit / 2);
+  const benchmarkLimit = limit - datasetLimit;
+  const limited = items
+    .filter((item) => item.type === "dataset")
+    .slice(0, datasetLimit)
+    .concat(items.filter((item) => item.type === "benchmark").slice(0, benchmarkLimit));
+
+  return limited
+    .sort((first, second) => second.year - first.year || first.index - second.index)
+    .slice(0, limit);
+}
+
+async function initCombinedResourceTable(table) {
+  const section = table.closest("section");
+  const controls = section?.querySelector("[data-combined-resource-controls]");
+  const searchInput = controls?.querySelector("[data-resource-search]");
+  const typeFilter = controls?.querySelector("[data-resource-type-filter]");
+  const tableBody = table.querySelector("tbody");
+  const tableWrap = table.closest(".resource-table-wrap");
+  const count = document.createElement("p");
+  const pager = document.createElement("nav");
+  const limit = Number(table.dataset.combinedLimit || 0);
+  const isBalanced = table.dataset.combinedBalanced === "true";
+  const pageSize = Number(table.dataset.pageSize || 20);
+  let currentPage = 1;
+  let items = [];
+
+  if (!tableBody) {
+    return;
+  }
+
+  if (controls && !limit) {
+    count.className = "resource-count";
+    count.setAttribute("aria-live", "polite");
+    searchInput?.closest(".search-control")?.after(count);
+    pager.className = "table-pager";
+    pager.setAttribute("aria-label", "Table pagination");
+    pager.hidden = true;
+    tableWrap?.after(pager);
+  }
+
+  function applyState() {
+    const query = String(searchInput?.value || "").trim().toLowerCase();
+    const selectedType = String(typeFilter?.value || "all");
+    const filtered = items.filter((item) => {
+      const matchesType = selectedType === "all" || item.type === selectedType;
+      const matchesQuery = !query || item.searchText.includes(query);
+
+      return matchesType && matchesQuery;
+    });
+    const sorted = filtered.slice().sort((first, second) => {
+      return second.year - first.year || first.index - second.index;
+    });
+    const visible = limit
+      ? getLimitedCombinedItems(sorted, limit, isBalanced)
+      : sorted.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+
+    tableBody.replaceChildren(...visible.map(createCombinedResourceRow));
+
+    if (count) {
+      const label =
+        selectedType === "dataset"
+          ? "datasets"
+          : selectedType === "benchmark"
+            ? "benchmarks"
+            : "resources";
+
+      count.textContent = `${filtered.length.toLocaleString()} ${label}`;
+    }
+
+    if (!limit && pager) {
+      const totalPages = Math.ceil(filtered.length / pageSize);
+
+      renderSimplePager(pager, currentPage, totalPages, filtered.length, pageSize, (page) => {
+        currentPage = page;
+        applyState();
+      });
+    }
+  }
+
+  try {
+    const [datasetsResponse, benchmarksResponse] = await Promise.all([
+      fetch(table.dataset.datasetsSrc || ""),
+      fetch(table.dataset.benchmarksSrc || ""),
+    ]);
+
+    if (!datasetsResponse.ok || !benchmarksResponse.ok) {
+      throw new Error("Unable to load datasets and benchmarks");
+    }
+
+    const [datasetsPayload, benchmarksPayload] = await Promise.all([
+      datasetsResponse.json(),
+      benchmarksResponse.json(),
+    ]);
+    const datasets = getDataItems(datasetsPayload, "datasets").map((item, index) =>
+      normalizeCombinedResource(item, "dataset", index)
+    );
+    const benchmarks = getDataItems(benchmarksPayload, "benchmarks").map((item, index) =>
+      normalizeCombinedResource(item, "benchmark", datasets.length + index)
+    );
+
+    items = datasets.concat(benchmarks);
+    applyState();
+  } catch {
+    tableBody.replaceChildren();
+    if (count) {
+      count.textContent = "";
+    }
+    if (pager) {
+      pager.hidden = true;
+    }
+  }
+
+  searchInput?.addEventListener("input", () => {
+    currentPage = 1;
+    applyState();
+  });
+  typeFilter?.addEventListener("change", () => {
+    currentPage = 1;
+    applyState();
+  });
+}
+
+document.querySelectorAll("[data-combined-resource-table]").forEach(initCombinedResourceTable);
+
 function initResourceList(controls) {
   const section = controls.closest("section");
   const searchInput = controls.querySelector("[data-resource-search]");

@@ -9,7 +9,7 @@
       content="Simple, structured overviews of Geospatial AI models, datasets, benchmarks, and papers with code."
     />
     <link rel="icon" type="image/png" href="images/geomind-logo.png" />
-    <link rel="stylesheet" href="css/style.css?v=20260606-11" />
+    <link rel="stylesheet" href="css/style.css?v=20260610-29" />
   </head>
   <body>
     <header class="site-header">
@@ -22,8 +22,7 @@
       </a>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="pages/models.html">Models</a>
-        <a href="pages/datasets.html">Datasets</a>
-        <a href="pages/benchmarks.html">Benchmarks</a>
+        <a href="pages/datasets.html">Datasets &amp; Benchmarks</a>
         <a href="pages/papers.html">Papers with Code</a>
       </nav>
     </header>
@@ -58,18 +57,7 @@
           aria-controls="datasets"
           data-tab-target="datasets"
         >
-          Datasets
-        </button>
-        <button
-          class="category-tab"
-          id="tab-benchmarks"
-          type="button"
-          role="tab"
-          aria-selected="false"
-          aria-controls="benchmarks"
-          data-tab-target="benchmarks"
-        >
-          Benchmarks
+          Datasets &amp; Benchmarks
         </button>
         <button
           class="category-tab"
@@ -194,103 +182,25 @@
         aria-labelledby="tab-datasets"
       >
         <div class="section-heading">
-          <h2 id="datasets-title">
-            Datasets <span class="section-count">875 datasets</span>
-          </h2>
+          <h2 id="datasets-title">Datasets &amp; Benchmarks</h2>
         </div>
 
         <div class="resource-table-wrap">
-          <table class="resource-table resource-table-datasets">
+          <table class="resource-table resource-table-combined" data-combined-resource-table data-datasets-src="data/datasets.json" data-benchmarks-src="data/benchmarks.json" data-combined-limit="5" data-combined-balanced="true">
             <thead>
               <tr>
-                <th scope="col">Dataset</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
                 <th scope="col">Task</th>
-                <th scope="col">Sensor / Modality</th>
-                <th scope="col">Resolution</th>
+                <th scope="col">Detail</th>
                 <th scope="col"><span class="visually-hidden">Link</span></th>
               </tr>
             </thead>
-            <tbody>
-              <tr data-year="2020">
-                <td>Million-AID</td>
-                <td>Scene classification</td>
-                <td>Optical imagery</td>
-                <td>Sub-meter to meter scale</td>
-                <td><a href="pages/datasets.html">View dataset card</a></td>
-              </tr>
-              <tr data-year="2016">
-                <td>SpaceNet</td>
-                <td>Building and road extraction</td>
-                <td>Satellite imagery</td>
-                <td>High resolution</td>
-                <td><a href="pages/datasets.html">View dataset card</a></td>
-              </tr>
-              <tr data-year="2019">
-                <td>SEN12MS</td>
-                <td>Multi-sensor learning</td>
-                <td>Sentinel-1 / Sentinel-2</td>
-                <td>10-60 m</td>
-                <td><a href="pages/datasets.html">View dataset card</a></td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
         <div class="browse-row">
-          <a class="gradient-text" href="pages/datasets.html">Browse all datasets</a>
-        </div>
-      </section>
-
-      <section
-        class="content-section resource-panel"
-        id="benchmarks"
-        data-panel="benchmarks"
-        role="tabpanel"
-        aria-labelledby="tab-benchmarks"
-      >
-        <div class="section-heading">
-          <h2 id="benchmarks-title">
-            Benchmarks <span class="section-count">1,796 benchmarks</span>
-          </h2>
-        </div>
-
-        <div class="resource-table-wrap">
-          <table class="resource-table resource-table-benchmarks">
-            <thead>
-              <tr>
-                <th scope="col">Benchmark</th>
-                <th scope="col">Task</th>
-                <th scope="col">Sensor / Modality</th>
-                <th scope="col">Resolution</th>
-                <th scope="col"><span class="visually-hidden">Link</span></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr data-year="2019">
-                <td>BigEarthNet</td>
-                <td>Multi-label classification</td>
-                <td>Sentinel-1 / Sentinel-2</td>
-                <td>10-60 m</td>
-                <td><a href="pages/benchmarks.html">View benchmark card</a></td>
-              </tr>
-              <tr data-year="2018">
-                <td>xView</td>
-                <td>Object detection</td>
-                <td>Optical imagery</td>
-                <td>0.3 m</td>
-                <td><a href="pages/benchmarks.html">View benchmark card</a></td>
-              </tr>
-              <tr data-year="2016">
-                <td>SpaceNet Challenge</td>
-                <td>Building and road extraction</td>
-                <td>Satellite imagery</td>
-                <td>High resolution</td>
-                <td><a href="pages/benchmarks.html">View benchmark card</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="browse-row">
-          <a class="gradient-text" href="pages/benchmarks.html">Browse all benchmarks</a>
+          <a class="gradient-text" href="pages/datasets.html">Browse all datasets &amp; benchmarks</a>
         </div>
       </section>
 
@@ -401,6 +311,6 @@
         <a href="pages/cookies.html">Manage cookies</a>
       </nav>
     </footer>
-    <script src="js/site.js?v=20260610-25"></script>
+    <script src="js/site.js?v=20260610-26"></script>
   </body>
 </html>
