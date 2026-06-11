@@ -400,6 +400,97 @@ function getPaperItems(payload) {
   return Array.isArray(payload) ? payload : payload.items || payload.papers || [];
 }
 
+async function initDynamicCount(element) {
+  const source = element.dataset.countSource || "";
+  const label = element.dataset.countLabel || "items";
+
+  if (!source) {
+    return;
+  }
+
+  try {
+    const response = await fetch(source);
+
+    if (!response.ok) {
+      throw new Error(`Unable to load ${source}`);
+    }
+
+    const payload = await response.json();
+    const count = getPaperItems(payload).length;
+    element.textContent = `${count.toLocaleString()} ${label}`;
+  } catch {
+    element.textContent = "";
+  }
+}
+
+document.querySelectorAll("[data-count-source]").forEach(initDynamicCount);
+
+function getPaperImageMap(payload) {
+  return payload?.images || payload || {};
+}
+
+function paperHasImages(paper, imageMap) {
+  const id = String(paper?.id || "").trim();
+
+  return hasResourceValue(paper?.images) || hasResourceValue(imageMap[id]);
+}
+
+function createFeaturedPaperRow(paper, cardBase) {
+  const row = document.createElement("tr");
+  const titleCell = document.createElement("td");
+  const venueCell = document.createElement("td");
+  const linkCell = document.createElement("td");
+  const link = document.createElement("a");
+  const venueText = [paper.venue, paper.year].filter(hasResourceValue).join(" ");
+
+  if (Number.isFinite(Number(paper.year))) {
+    row.dataset.year = String(Number(paper.year));
+  }
+
+  titleCell.textContent = String(paper.title || "");
+  venueCell.textContent = venueText;
+  link.href = `${cardBase}?id=${encodeURIComponent(String(paper.id || ""))}`;
+  decorateSourceLink(link, "View paper card", false);
+  linkCell.append(link);
+  row.append(titleCell, venueCell, linkCell);
+  return row;
+}
+
+async function initFeaturedPaperTable(table) {
+  const source = table.dataset.resourceSrc || "";
+  const imageSource = table.dataset.paperImages || "";
+  const limit = Number(table.dataset.featuredLimit || 5);
+  const cardBase = table.dataset.paperCardBase || "pages/paper.html";
+  const tableBody = table.querySelector("tbody");
+
+  if (!source || !imageSource || !tableBody) {
+    return;
+  }
+
+  try {
+    const [paperResponse, imageResponse] = await Promise.all([fetch(source), fetch(imageSource)]);
+
+    if (!paperResponse.ok || !imageResponse.ok) {
+      throw new Error("Unable to load featured papers");
+    }
+
+    const [paperPayload, imagePayload] = await Promise.all([
+      paperResponse.json(),
+      imageResponse.json(),
+    ]);
+    const imageMap = getPaperImageMap(imagePayload);
+    const papers = getPaperItems(paperPayload)
+      .filter((paper) => paperHasImages(paper, imageMap))
+      .slice(0, limit);
+
+    tableBody.replaceChildren(...papers.map((paper) => createFeaturedPaperRow(paper, cardBase)));
+  } catch {
+    tableBody.replaceChildren();
+  }
+}
+
+document.querySelectorAll("[data-featured-paper-table]").forEach(initFeaturedPaperTable);
+
 function initResourceList(controls) {
   const section = controls.closest("section");
   const searchInput = controls.querySelector("[data-resource-search]");
