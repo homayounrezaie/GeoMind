@@ -854,6 +854,7 @@ function initResourceList(controls) {
     name: row.cells[0]?.textContent.trim().toLowerCase() || "",
     searchText: row.textContent.toLowerCase(),
     venue: row.dataset.venue || "",
+    venueLabel: getFallbackVenueLabel(row),
     companies: getRowCompanyKeys(row),
     year: getRowYear(row),
   }));
@@ -962,6 +963,71 @@ function initResourceList(controls) {
     }
 
     return venue.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  function getVenueLabel(value, key = "") {
+    const label = String(value || "").trim();
+
+    if (label) {
+      return label;
+    }
+
+    return String(key || "")
+      .split("-")
+      .filter(Boolean)
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+
+  function getFallbackVenueLabel(row) {
+    const label = String(row.dataset.venueLabel || "").trim();
+
+    if (label) {
+      return label;
+    }
+
+    return getVenueLabel(
+      String(row.cells[1]?.textContent || "")
+        .replace(/\b(?:19|20)\d{2}\b/g, "")
+        .trim(),
+      row.dataset.venue || ""
+    );
+  }
+
+  function populateVenueFilter(items) {
+    if (!venueFilter) {
+      return;
+    }
+
+    const selectedVenue = venueFilter.value;
+    const allOption = document.createElement("option");
+    const venueOptions = new Map();
+
+    allOption.value = "";
+    allOption.textContent = "All venues";
+
+    items.forEach((item) => {
+      if (!item.venue || venueOptions.has(item.venue)) {
+        return;
+      }
+
+      venueOptions.set(item.venue, item.venueLabel || getVenueLabel("", item.venue));
+    });
+
+    const options = Array.from(venueOptions, ([value, label]) => ({ value, label }))
+      .sort((first, second) => first.label.localeCompare(second.label, undefined, {
+        sensitivity: "base",
+      }))
+      .map(({ value, label }) => {
+        const option = document.createElement("option");
+
+        option.value = value;
+        option.textContent = label;
+        return option;
+      });
+
+    venueFilter.replaceChildren(allOption, ...options);
+    venueFilter.value = venueOptions.has(selectedVenue) ? selectedVenue : "";
   }
 
   function getDynamicField(data, field) {
@@ -1075,6 +1141,7 @@ function initResourceList(controls) {
       name,
       searchText,
       venue: data.venueKey || normalizeVenueKey(data.venue),
+      venueLabel: getVenueLabel(data.venue, data.venueKey || normalizeVenueKey(data.venue)),
       companies: [],
       year: Number(data.year) || 0,
     };
@@ -1096,11 +1163,13 @@ function initResourceList(controls) {
       rows = items.map(normalizeDynamicItem);
       totalCount = rows.length;
       currentPage = 1;
+      populateVenueFilter(rows);
       applyState();
     } catch {
       rows = fallbackRows;
       totalCount = rows.length;
       currentPage = 1;
+      populateVenueFilter(rows);
       applyState();
     }
   }
@@ -1279,6 +1348,7 @@ function initResourceList(controls) {
     return;
   }
 
+  populateVenueFilter(rows);
   applyState();
 }
 
