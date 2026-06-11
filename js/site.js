@@ -892,13 +892,13 @@ function setupExpandableAbstract(section, paragraph) {
 
   toggle.className = "paper-card-abstract-toggle";
   toggle.type = "button";
-  toggle.textContent = "See more";
+  toggle.textContent = "more";
   toggle.setAttribute("aria-expanded", "false");
 
   function updateToggle() {
     const isExpanded = section.classList.contains("is-expanded");
 
-    toggle.textContent = isExpanded ? "See less" : "See more";
+    toggle.textContent = isExpanded ? "less" : "more";
     toggle.setAttribute("aria-expanded", String(isExpanded));
 
     window.requestAnimationFrame(() => {
