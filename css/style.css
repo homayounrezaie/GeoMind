@@ -2571,6 +2571,10 @@ h2 {
     padding-bottom: 48px;
   }
 
+  .paper-card-hero h1 {
+    font-size: 20px;
+  }
+
   .paper-card-body {
     gap: 48px;
   }
