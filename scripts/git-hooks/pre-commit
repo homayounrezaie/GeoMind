@@ -1,0 +1,6 @@
+#!/bin/sh
+# Auto-regenerate data/paper-images.json from images/papers/ before each commit.
+# Install once with: scripts/install-hooks.sh
+ROOT="$(git rev-parse --show-toplevel)"
+python3 "$ROOT/scripts/build-paper-images.py" || exit 1
+git add "$ROOT/data/paper-images.json"
