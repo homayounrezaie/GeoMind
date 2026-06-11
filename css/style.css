@@ -1078,6 +1078,10 @@ h2 {
   overflow-wrap: anywhere;
 }
 
+.paper-card-abstract > p {
+  max-width: none;
+}
+
 .paper-card-abstract-toggle {
   display: none;
   margin: 10px 0 0;
