@@ -1904,6 +1904,34 @@
       ]
     },
     {
+      "id": "ipformer-2025",
+      "title": "IPFormer: Visual 3D Panoptic Scene Completion with Context-Adaptive Instance Proposals",
+      "authors": "Markus Gross, Aya Fahmy, Danit Niwattananan, Dominik Muhle, Rui Song, Daniel Cremers, Henri Meeß",
+      "venue": "NeurIPS",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Semantic Scene Completion (SSC) has emerged as a pivotal approach for jointly learning scene geometry and semantics, enabling downstream applications such as navigation in mobile robotics. The recent generalization to Panoptic Scene Completion (PSC) advances the SSC domain by integrating instance-level information, thereby enhancing object-level sensitivity in scene understanding. While PSC was introduced using LiDAR modality, methods based on camera images remain largely unexplored. Moreover, recent Transformer-based approaches utilize a fixed set of learned queries to reconstruct objects within the scene volume. Although these queries are typically updated with image context during training, they remain static at test time, limiting their ability to dynamically adapt specifically to the observed scene. To overcome these limitations, we propose IPFormer, the first method that leverages context-adaptive instance proposals at train and test time to address vision-based 3D Panoptic Scene Completion. Specifically, IPFormer adaptively initializes these queries as panoptic instance proposals derived from image context and further refines them through attention-based encoding and decoding to reason about semantic instance-voxel relationships. Extensive experimental results show that our approach achieves state-of-the-art in-domain performance, exhibits superior zero-shot generalization on out-of-domain data, and achieves a runtime reduction exceeding 14x.",
+      "links": {
+        "paper": "https://markus-42.github.io/publications/2025/ipformer/",
+        "pdf": "https://arxiv.org/pdf/2506.20671",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2506.20671",
+        "code": "https://github.com/markus-42/ipformer",
+        "checkpoints": null,
+        "video": "https://youtu.be/KlXAvp-mIU4",
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://markus-42.github.io/publications/2025/ipformer/"
+      },
+      "bibtex": "@inproceedings{gross2025ipformer,\ntitle={IPFormer: Visual 3D Panoptic Scene Completion with Context-Adaptive Instance Proposals},\nauthor={Markus Gross and Aya Fahmy and Danit Niwattananan and Dominik Muhle and Rui Song and Daniel Cremers and Henri Mee{\\ss}},\nbooktitle={Advances in Neural Information Processing Systems},\nyear={2025}\n}",
+      "matched_themes": [
+        "3D scene understanding / scene completion",
+        "vision transformers",
+        "panoptic segmentation"
+      ]
+    },
+    {
       "id": "ldpoly-2025",
       "title": "LDPoly: Latent diffusion for polygonal road outline extraction in large-scale topographic mapping",
       "authors": "Weiqin Jiao, Hao Cheng, George Vosselman, Claudio Persello",
