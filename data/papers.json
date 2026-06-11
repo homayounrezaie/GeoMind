@@ -40,7 +40,7 @@
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Hu_AVION_Aerial_Vision-Language_Instruction_from_Offline_Teacher_to_Prompt-Tuned_Network_CVPR_2026_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Hu_AVION_Aerial_Vision-Language_CVPR_2026_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2603.12659",
-        "code": null,
+        "code": "https://github.com/yuhu990424/AVION",
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -191,14 +191,15 @@
       "links": {
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Skuddis_BEV-SLD_Self-Supervised_Scene_Landmark_Detection_for_Global_Localization_with_LiDAR_CVPR_2026_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Skuddis_BEV-SLD_Self-Supervised_Scene_CVPR_2026_supplemental.pdf",
-        "arxiv": null,
-        "code": null,
-        "checkpoints": null,
-        "video": null,
+        "arxiv": "https://arxiv.org/abs/2603.17159",
+        "code": "https://github.com/davidskdds/BEV-SLD",
+        "checkpoints": "https://github.com/davidskdds/BEV-SLD/tree/demo",
+        "video": "https://www.youtube.com/watch?v=x6ggmjvJNK0",
         "dataset": null,
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": null,
+        "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Skuddis_BEV-SLD_Self-Supervised_Scene_Landmark_Detection_for_Global_Localization_with_LiDAR_CVPR_2026_paper.html"
       },
       "bibtex": "@InProceedings{Skuddis_2026_CVPR,\nauthor = {Skuddis, David and Ress, Vincent and Zhang, Wei and Nyako, Vincent Ofosu and Haala, Norbert},\ntitle = {BEV-SLD: Self-Supervised Scene Landmark Detection for Global Localization with LiDAR Bird's-Eye View Images},\nbooktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2026},\npages = {31400-31409}\n}",
       "matched_themes": [
@@ -218,12 +219,12 @@
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Liu_Beyond_Matching_to_Tiles_Bridging_Unaligned_Aerial_and_Satellite_Views_CVPR_2026_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Liu_Beyond_Matching_to_CVPR_2026_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2603.22153",
-        "code": null,
+        "code": "https://github.com/liukejia121/bearinguav",
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://huggingface.co/datasets/HaoyZhou/bearinguav",
         "benchmark": null,
-        "model": null,
+        "model": "https://huggingface.co/HaoyZhou/bearinguav",
         "project_page": null
       },
       "bibtex": "@InProceedings{Liu_2026_CVPR,\nauthor = {Liu, Kejia and Zhou, Haoyang and Xu, Ruoyu and Wang, Peicheng and Song, Mingli and Zhang, Haofei},\ntitle = {Beyond Matching to Tiles: Bridging Unaligned Aerial and Satellite Views for Vision-Only UAV Navigation},\nbooktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2026},\npages = {5359-5368}\n}",
@@ -244,13 +245,14 @@
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Xue_Toward_Low-Cost_yet_Effective_Temporal_Learning_for_UAV_Tracking_CVPR_2026_paper.pdf",
         "supp": null,
         "arxiv": null,
-        "code": null,
+        "code": "https://github.com/GXNU-ZhongLab/LETrack",
         "checkpoints": null,
         "video": null,
         "dataset": null,
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": null,
+        "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Xue_Toward_Low-Cost_yet_Effective_Temporal_Learning_for_UAV_Tracking_CVPR_2026_paper.html"
       },
       "bibtex": "@InProceedings{Xue_2026_CVPR,\nauthor = {Xue, Chaocan and Liang, Qihua and Zhong, Bineng and Zu, Yanting and Xue, Yuanliang and Xia, Haiying and Song, Shuxiang},\ntitle = {Toward Low-Cost yet Effective Temporal Learning for UAV Tracking},\nbooktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2026},\npages = {42538-42548}\n}",
       "matched_themes": [
@@ -269,10 +271,10 @@
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Iaboni_Tri-Modal_Fusion_Transformers_for_UAV-based_Object_Detection_CVPR_2026_paper.pdf",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2604.16630",
-        "code": null,
+        "code": "https://github.com/radlab-sketch/trimodal-uav-det",
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://drive.google.com/file/d/1w71v6n41yqjP7BCr9ni4JdcxMnQ2ocR0/",
         "benchmark": null,
         "model": null,
         "project_page": null
@@ -345,13 +347,13 @@
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ge_AirSim360_A_Panoramic_Simulation_Platform_within_Drone_View_CVPR_2026_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Ge_AirSim360_A_Panoramic_CVPR_2026_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2512.02009",
-        "code": null,
+        "code": "https://github.com/Insta360-Research-Team/AirSim360",
         "checkpoints": null,
-        "video": null,
-        "dataset": null,
+        "video": "https://www.youtube.com/watch?v=epyNEMUIjGU",
+        "dataset": "https://huggingface.co/datasets/Insta360-Research/AirSim360",
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://insta360-research-team.github.io/AirSim360-website/"
       },
       "bibtex": "@InProceedings{Ge_2026_CVPR,\nauthor = {Ge, Xian and Pan, Yuling and Zhang, Yuhang and Li, Xiang and Zhang, Weijun and Zhang, Dizhe and Wan, Zhaoliang and Lin, Xin and Zhang, Xiangkai and Liang, Juntao and Li, Xiangtai and Jiang, WenJie and Du, Bo and Yang, Ming-Hsuan and Qi, Lu},\ntitle = {AirSim360: A Panoramic Simulation Platform within Drone View},\nbooktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2026},\npages = {26931-26940}\n}",
       "matched_themes": [
