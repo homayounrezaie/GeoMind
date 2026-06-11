@@ -280,6 +280,32 @@
       ]
     },
     {
+      "id": "earthmind-2026",
+      "title": "EarthMind: Leveraging Cross-Sensor Data for Advanced Earth Observation Interpretation with a Unified Multimodal LLM",
+      "authors": "Yan Shu, Bin Ren, Zhitong Xiong, Danda Pani Paudel, Luc Van Gool, Begüm Demir, Nicu Sebe, Paolo Rota",
+      "venue": "ICLR",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Earth Observation (EO) data analysis is vital for monitoring environmental and human dynamics. Recent Multimodal Large Language Models (MLLMs) show potential in EO understanding but remain restricted to single-sensor inputs, overlooking the complementarity across heterogeneous modalities. We propose EarthMind, a unified vision-language framework that handles both single- and cross-sensor inputs via an innovative hierarchical cross-modal attention (i.e., HCA) design. Specifically, HCA hierarchically captures visual relationships across sensors and aligns them with language queries, enabling adaptive fusion of optical and Synthetic Aperture Radar (SAR) features. To support cross-sensor learning, we curate FusionEO, a 30K-pair dataset with diverse annotations, and establish EarthMind-Bench, a 2,841-pair benchmark with expert annotations for perception and reasoning tasks. Extensive experiments show that EarthMind achieves state-of-the-art results on EarthMind-Bench and surpasses existing MLLMs on multiple EO benchmarks.",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2506.01667",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2506.01667",
+        "code": "https://github.com/shuyansy/Earth-Observation-VLMs/tree/master/EarthMind",
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://huggingface.co/datasets/sy1998/EarthMind-data",
+        "benchmark": "https://huggingface.co/datasets/sy1998/EarthMind-Bench",
+        "model": "https://huggingface.co/sy1998/EarthMind-4B",
+        "project_page": null
+      },
+      "bibtex": "@InProceedings{Shu_2026_ICLR,\nauthor = {Shu, Yan and Ren, Bin and Xiong, Zhitong and Paudel, Danda Pani and Van Gool, Luc and Demir, Beg\\\"um and Sebe, Nicu and Rota, Paolo},\ntitle = {EarthMind: Leveraging Cross-Sensor Data for Advanced Earth Observation Interpretation with a Unified Multimodal LLM},\nbooktitle = {International Conference on Learning Representations (ICLR)},\nyear = {2026}\n}",
+      "matched_themes": [
+        "Earth observation / land cover",
+        "remote sensing"
+      ]
+    },
+    {
       "id": "airsim360-2026",
       "title": "AirSim360: A Panoramic Simulation Platform within Drone View",
       "authors": "Xian Ge, Yuling Pan, Yuhang Zhang, Xiang Li, Weijun Zhang, Dizhe Zhang, Zhaoliang Wan, Xin Lin, Xiangkai Zhang, Juntao Liang, Xiangtai Li, WenJie Jiang, Bo Du, Ming-Hsuan Yang, Lu Qi",
