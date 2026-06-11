@@ -1040,6 +1040,10 @@ h2 {
   padding-top: 0;
 }
 
+.paper-card-abstract {
+  max-width: 960px;
+}
+
 .paper-card-section h2,
 .paper-card-bibtex h2 {
   margin: 0 0 18px;
