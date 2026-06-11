@@ -153,6 +153,10 @@ function getSourceKind(link) {
       return { label: "Hugging Face", type: "huggingface" };
     }
 
+    if (host === "arxiv.org") {
+      return { label: "arXiv", type: "arxiv" };
+    }
+
   } catch {
     return null;
   }
