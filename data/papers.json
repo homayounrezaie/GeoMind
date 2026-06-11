@@ -3173,6 +3173,34 @@
       ]
     },
     {
+      "id": "cohff-2024",
+      "title": "Collaborative Semantic Occupancy Prediction with Hybrid Feature Fusion in Connected Automated Vehicles",
+      "authors": "Rui Song, Chenwei Liang, Hu Cao, Zhiran Yan, Walter Zimmer, Markus Gross, Andreas Festag, Alois Knoll",
+      "venue": "CVPR",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Collaborative perception in automated vehicles leverages the exchange of information between agents, aiming to elevate perception results. Previous camera-based collaborative 3D perception methods typically employ 3D bounding boxes or bird's eye views as representations of the environment. However, these approaches fall short in offering a comprehensive 3D environmental prediction. To bridge this gap, we introduce the first method for collaborative 3D semantic occupancy prediction. Particularly, it improves local 3D semantic occupancy predictions by hybrid fusion of (i) semantic and occupancy task features, and (ii) compressed orthogonal attention features shared between vehicles. Additionally, due to the lack of a collaborative perception dataset designed for semantic occupancy prediction, we augment a current collaborative perception dataset to include 3D collaborative semantic occupancy labels for a more robust evaluation. The experimental findings highlight that: (i) our collaborative semantic occupancy predictions excel above the results from single vehicles by over 30%, and (ii) models anchored on semantic occupancy outpace state-of-the-art collaborative 3D detection techniques in subsequent perception applications, showcasing enhanced accuracy and enriched semantic-awareness in road environments.",
+      "links": {
+        "paper": "https://rruisong.github.io/publications/CoHFF/",
+        "pdf": "https://arxiv.org/pdf/2402.07635",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2402.07635",
+        "code": "https://github.com/rruisong/CoHFF",
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://drive.google.com/drive/folders/1N7NaoebL8QljtRyCAL_emDsRrCwTr1iw?usp=drive_link",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://rruisong.github.io/publications/CoHFF/"
+      },
+      "bibtex": "@inproceedings{song2024collaborative,\ntitle={Collaborative Semantic Occupancy Prediction with Hybrid Feature Fusion in Connected Automated Vehicles},\nauthor={Song, Rui and Liang, Chenwei and Cao, Hu and Yan, Zhiran and Zimmer, Walter and Gross, Markus and Festag, Andreas and Knoll, Alois},\nbooktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nyear={2024}\n}",
+      "matched_themes": [
+        "3D scene understanding / scene completion",
+        "autonomous driving / vehicles",
+        "multi-agent / collaborative perception"
+      ]
+    },
+    {
       "id": "satmae_2022",
       "title": "SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery",
       "authors": "Yezhen Cong, Samar Khanna, Chenlin Meng, Patrick Liu, Erik Rozi, Yutong He, Marshall Burke, David B. Lobell, Stefano Ermon",
