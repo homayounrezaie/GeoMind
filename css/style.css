@@ -1018,6 +1018,10 @@ h2 {
   overflow-wrap: anywhere;
 }
 
+.paper-card-abstract > p {
+  text-indent: 2ch;
+}
+
 .paper-card-images {
   display: grid;
   gap: 12px;
