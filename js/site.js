@@ -575,29 +575,94 @@ function renderSimplePager(pager, currentPage, totalPages, matchCount, pageSize,
 
   const pageStart = (currentPage - 1) * pageSize + 1;
   const pageEnd = Math.min(currentPage * pageSize, matchCount);
-  const previous = document.createElement("button");
-  const next = document.createElement("button");
   const status = document.createElement("span");
   const pages = document.createElement("div");
+  const visiblePages = new Set([1, totalPages, currentPage, currentPage - 1, currentPage + 1]);
+  const pageItems = [];
 
-  previous.type = "button";
-  previous.className = "table-pager-step";
-  previous.textContent = "<";
-  previous.disabled = currentPage === 1;
-  previous.setAttribute("aria-label", "Previous page");
-  previous.addEventListener("click", () => onPageChange(currentPage - 1));
+  if (currentPage <= 3) {
+    visiblePages.add(2);
+    visiblePages.add(3);
+  }
 
-  next.type = "button";
-  next.className = "table-pager-step";
-  next.textContent = ">";
-  next.disabled = currentPage === totalPages;
-  next.setAttribute("aria-label", "Next page");
-  next.addEventListener("click", () => onPageChange(currentPage + 1));
+  if (currentPage >= totalPages - 2) {
+    visiblePages.add(totalPages - 1);
+    visiblePages.add(totalPages - 2);
+  }
+
+  Array.from(visiblePages)
+    .filter((pageNumber) => pageNumber >= 1 && pageNumber <= totalPages)
+    .sort((first, second) => first - second)
+    .forEach((pageNumber) => {
+      if (pageItems.length && pageNumber - pageItems[pageItems.length - 1] > 1) {
+        pageItems.push("gap");
+      }
+      pageItems.push(pageNumber);
+    });
+
+  function createPagerButton(label, disabled, onClick, className = "", ariaLabel = "") {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.textContent = label;
+    button.disabled = disabled;
+    if (className) {
+      button.className = className;
+    }
+    if (ariaLabel) {
+      button.setAttribute("aria-label", ariaLabel);
+    }
+    button.addEventListener("click", onClick);
+    return button;
+  }
+
+  const previous = createPagerButton(
+    "<",
+    currentPage === 1,
+    () => onPageChange(currentPage - 1),
+    "table-pager-step",
+    "Previous page"
+  );
+  const next = createPagerButton(
+    ">",
+    currentPage === totalPages,
+    () => onPageChange(currentPage + 1),
+    "table-pager-step",
+    "Next page"
+  );
 
   status.className = "table-pager-status";
   status.textContent = `Showing ${pageStart.toLocaleString()}-${pageEnd.toLocaleString()} of ${matchCount.toLocaleString()}`;
   pages.className = "table-pager-pages";
-  pages.append(previous, next);
+  pages.append(previous);
+
+  pageItems.forEach((pageItem) => {
+    if (pageItem === "gap") {
+      const gap = document.createElement("span");
+
+      gap.className = "table-pager-gap";
+      gap.textContent = "...";
+      pages.append(gap);
+      return;
+    }
+
+    const pageButton = createPagerButton(
+      String(pageItem),
+      false,
+      () => onPageChange(pageItem),
+      "table-pager-page",
+      `Page ${pageItem}`
+    );
+
+    if (pageItem === currentPage) {
+      pageButton.classList.add("is-active");
+      pageButton.setAttribute("aria-current", "page");
+    }
+
+    pages.append(pageButton);
+  });
+
+  pages.append(next);
   pager.append(status, pages);
   pager.hidden = false;
 }
