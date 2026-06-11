@@ -741,19 +741,19 @@
       "authors": "Markus Gross, Sai B. Matha, Aya Fahmy, Rui Song, Daniel Cremers, Henri Meeß",
       "venue": "CVPR",
       "year": 2026,
-      "presentation": null,
+      "presentation": "Oral",
       "abstract": "Semantic Scene Completion (SSC) is essential for 3D perception in mobile robotics, as it enables holistic scene understanding by jointly estimating dense volumetric occupancy and per-voxel semantics. Although SSC has been widely studied in terrestrial domains such as autonomous driving, aerial settings like autonomous flying remain largely unexplored, thereby limiting progress on downstream applications. Furthermore, LiDAR sensors are the primary modality for SSC data generation, which poses challenges for most uncrewed aerial vehicles (UAVs) due to flight regulations, mass and energy constraints, and the sparsity of LiDAR point clouds from elevated viewpoints. To address these limitations, we propose a LiDAR-free, camera-based data generation framework. By leveraging classical 3D reconstruction, our framework automates semantic label transfer by lifting <10% of annotated images into the reconstructed point cloud, substantially minimizing manual 3D annotation effort. Based on this framework, we introduce OccuFly, the first real-world, camera-based aerial SSC benchmark, captured across multiple altitudes and all seasons. OccuFly provides over 20,000 samples of images, semantic voxel grids, and metric depth maps across 21 semantic classes in urban, industrial, and rural environments, and follows established data organization for seamless integration. We benchmark both SSC and metric monocular depth estimation on OccuFly, revealing fundamental limitations of current vision foundation models in aerial settings and establishing new challenges for robust 3D scene understanding in the aerial domain. Visit https://github.com/markus-42/occufly.",
       "links": {
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Gross_OccuFly_A_3D_Vision_Benchmark_for_Semantic_Scene_Completion_from_CVPR_2026_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Gross_OccuFly_A_3D_CVPR_2026_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2512.20770",
-        "code": null,
+        "code": "https://github.com/markus-42/occufly",
         "checkpoints": null,
         "video": null,
-        "dataset": null,
-        "benchmark": null,
+        "dataset": "https://huggingface.co/datasets/markus-42/OccuFly",
+        "benchmark": "https://huggingface.co/markus-42/OccuFly-DepthAnythingV2",
         "model": null,
-        "project_page": null
+        "project_page": "https://markus-42.github.io/publications/2026/occufly/"
       },
       "bibtex": "@InProceedings{Gross_2026_CVPR,\nauthor = {Gross, Markus and Matha, Sai B. and Fahmy, Aya and Song, Rui and Cremers, Daniel and Mee{\\ss}, Henri},\ntitle = {OccuFly: A 3D Vision Benchmark for Semantic Scene Completion from the Aerial Perspective},\nbooktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2026},\npages = {21474-21485}\n}",
       "matched_themes": [
