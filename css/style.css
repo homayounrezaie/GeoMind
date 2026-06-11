@@ -1346,6 +1346,13 @@ h2 {
   transition: opacity 160ms ease, transform 160ms ease;
 }
 
+.paper-card-resource-icon-image {
+  display: inline-block;
+  background: currentColor;
+  -webkit-mask: var(--paper-resource-icon) center / contain no-repeat;
+  mask: var(--paper-resource-icon) center / contain no-repeat;
+}
+
 .paper-card-links a:hover .paper-card-resource-icon,
 .paper-card-links a:focus-visible .paper-card-resource-icon {
   opacity: 1;

@@ -1,4 +1,5 @@
 const menuButtons = Array.from(document.querySelectorAll(".menu-button"));
+const siteScriptUrl = document.currentScript?.src || window.location.href;
 
 function closeMenu(header, button) {
   header.classList.remove("is-menu-open");
@@ -301,10 +302,7 @@ const paperResourceMeta = {
   arxiv: {
     label: "arXiv",
     order: 5,
-    icon: [
-      '<path d="M12 7v14"/>',
-      '<path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
-    ],
+    iconImage: "../images/arxiv-logo.svg",
   },
   code: {
     label: "Code",
@@ -376,8 +374,18 @@ function getPaperResourceMeta(key) {
 }
 
 function createPaperResourceIcon(key) {
-  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   const meta = getPaperResourceMeta(key);
+
+  if (meta.iconImage) {
+    const icon = document.createElement("span");
+
+    icon.classList.add("paper-card-resource-icon", "paper-card-resource-icon-image");
+    icon.style.setProperty("--paper-resource-icon", `url("${new URL(meta.iconImage, siteScriptUrl)}")`);
+    icon.setAttribute("aria-hidden", "true");
+    return icon;
+  }
+
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
   icon.classList.add("paper-card-resource-icon");
   icon.setAttribute("viewBox", "0 0 24 24");
