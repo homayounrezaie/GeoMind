@@ -1003,6 +1003,10 @@ h2 {
   max-width: 960px;
 }
 
+.paper-card-bibtex {
+  max-width: 960px;
+}
+
 .paper-image-frame {
   position: relative;
   width: 100%;
