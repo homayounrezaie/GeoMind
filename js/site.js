@@ -1300,18 +1300,20 @@ function setupExpandableAbstract(section, paragraph) {
     return;
   }
 
+  const collapsedLabel = "+ read full abstract";
+  const expandedLabel = "- collapse abstract";
   const toggle = document.createElement("button");
   const mobileQuery = window.matchMedia("(max-width: 600px)");
 
   toggle.className = "paper-card-abstract-toggle";
   toggle.type = "button";
-  toggle.textContent = "more";
+  toggle.textContent = collapsedLabel;
   toggle.setAttribute("aria-expanded", "false");
 
   function updateToggle() {
     const isExpanded = section.classList.contains("is-expanded");
 
-    toggle.textContent = isExpanded ? "less" : "more";
+    toggle.textContent = isExpanded ? expandedLabel : collapsedLabel;
     toggle.setAttribute("aria-expanded", String(isExpanded));
 
     window.requestAnimationFrame(() => {
