@@ -848,10 +848,10 @@ h2 {
 .paper-card-topbar {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 24px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .paper-card-meta {
@@ -861,6 +861,20 @@ h2 {
   font-weight: 600;
   letter-spacing: 0;
   line-height: 1.35;
+}
+
+.paper-card-venue-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 999px;
+  color: #2563eb;
+  font-size: 12.5px;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .paper-image-viewer-header button {
@@ -934,10 +948,10 @@ h2 {
   max-width: 800px;
   margin: 0 0 18px;
   color: var(--paper-title, #171717);
-  font-size: clamp(28px, 2.4vw, 32px);
+  font-size: clamp(24px, 1.8vw, 28px);
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 1.22;
+  line-height: 1.15;
 }
 
 .paper-card-authors {
@@ -945,7 +959,7 @@ h2 {
   margin: 0;
   color: var(--paper-meta);
   font-family: inherit;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.7;
 }
 
@@ -975,18 +989,31 @@ h2 {
 .paper-card-bibtex h2 {
   margin: 0 0 18px;
   color: var(--paper-title);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 650;
   letter-spacing: 0;
   line-height: 1.32;
 }
 
+.paper-card-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.paper-card-section-head h2 {
+  margin-bottom: 0;
+}
+
 .paper-card-section > p {
   width: 100%;
-  max-width: 74ch;
+  max-width: 68ch;
   margin: 0;
   color: var(--paper-body);
-  font-size: 16.5px;
+  font-size: 15.5px;
   line-height: 1.78;
   overflow-wrap: anywhere;
 }
@@ -2276,12 +2303,12 @@ h2 {
   }
 
   .paper-card-hero h1 {
-    font-size: clamp(24px, 6.3vw, 28px);
-    line-height: 1.22;
+    font-size: clamp(24px, 1.8vw, 28px);
+    line-height: 1.15;
   }
 
   .paper-card-authors {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.7;
   }
 
@@ -2528,11 +2555,11 @@ h2 {
 
   .paper-card-section h2,
   .paper-card-bibtex h2 {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .paper-card-section > p {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 1.75;
   }
 

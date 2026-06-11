@@ -1231,14 +1231,14 @@ function renderPaperCard(container, data, images = []) {
   article.className = "paper-card-article";
   hero.className = "paper-card-hero";
   topbar.className = "paper-card-topbar";
-  meta.className = "paper-card-meta";
+  meta.className = "paper-card-meta paper-card-venue-tag";
   meta.textContent = metaText || "Paper";
   closeLink.className = "paper-card-close";
   closeLink.href = "papers.html";
   closeLink.setAttribute("aria-label", "Close paper card");
   closeLink.title = "Close";
   title.textContent = data.title || "Paper";
-  topbar.append(meta, closeLink);
+  topbar.append(closeLink);
   hero.append(topbar, title);
 
   if (hasResourceValue(data.authors)) {
@@ -1259,11 +1259,17 @@ function renderPaperCard(container, data, images = []) {
 
   if (hasResourceValue(data.abstract)) {
     const abstract = document.createElement("section");
+    const headingRow = document.createElement("div");
     const heading = document.createElement("h2");
 
     abstract.className = "paper-card-section paper-card-abstract";
+    headingRow.className = "paper-card-section-head";
     heading.textContent = "Abstract";
-    abstract.append(heading);
+    headingRow.append(heading);
+    if (hasResourceValue(metaText)) {
+      headingRow.append(meta);
+    }
+    abstract.append(headingRow);
     appendText(abstract, data.abstract);
     body.append(abstract);
   }
