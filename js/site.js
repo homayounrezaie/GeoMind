@@ -1385,8 +1385,12 @@ function formatPaperAuthors(authors) {
     .join(" · ");
 }
 
-function getPaperLead(data) {
-  return [data.one_line_summary, data.summary_line, data.presentation].find(hasResourceValue) || "";
+function getPaperLead(data, venueText = "") {
+  if (hasResourceValue(data.presentation)) {
+    return [data.presentation, venueText].filter(hasResourceValue).join(" ");
+  }
+
+  return [data.one_line_summary, data.summary_line].find(hasResourceValue) || "";
 }
 
 function normalizePaperImageList(images) {
@@ -1681,7 +1685,9 @@ function renderPaperCard(container, data, images = []) {
   const title = document.createElement("h1");
   const body = document.createElement("div");
   const metaText = [data.venue, data.year].filter(hasResourceValue).join(" ");
-  const leadText = getPaperLead(data);
+  const hasPresentation = hasResourceValue(data.presentation);
+  const leadText = getPaperLead(data, metaText);
+  const shouldShowMetaTag = hasResourceValue(metaText) && !hasPresentation;
 
   document.title = `${data.title || "Paper"} - GeoMind`;
 
@@ -1708,6 +1714,9 @@ function renderPaperCard(container, data, images = []) {
   if (hasResourceValue(leadText)) {
     const lead = document.createElement("p");
     lead.className = "paper-card-lead";
+    if (hasPresentation) {
+      lead.classList.add("paper-card-presentation-tag");
+    }
     lead.textContent = String(leadText);
     hero.append(lead);
   }
@@ -1723,7 +1732,7 @@ function renderPaperCard(container, data, images = []) {
     headingRow.className = "paper-card-section-head";
     heading.textContent = "Abstract";
     headingRow.append(heading);
-    if (hasResourceValue(metaText)) {
+    if (shouldShowMetaTag) {
       headingRow.append(meta);
     }
     abstract.append(headingRow);

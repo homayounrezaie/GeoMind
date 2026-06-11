@@ -1008,6 +1008,24 @@ h2 {
   line-height: 1.65;
 }
 
+.paper-card-presentation-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  min-height: 24px;
+  padding: 4px 10px;
+  background: #eaf2ff;
+  border: 1px solid #d4e3ff;
+  border-radius: 999px;
+  color: #1f5aa6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .paper-card-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
