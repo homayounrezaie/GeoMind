@@ -1019,7 +1019,8 @@ h2 {
 }
 
 .paper-card-abstract > p {
-  text-indent: 2ch;
+  box-sizing: border-box;
+  padding-left: 2ch;
 }
 
 .paper-card-abstract-toggle {
