@@ -1,6 +1,34 @@
 {
   "papers": [
     {
+      "id": "terratrack-2026",
+      "title": "A workflow to identify and monitor slow-moving landslides through spaceborne optical feature tracking",
+      "authors": "Lorenzo Nava, Maximillian Van Wyk de Vries, Louie Elliot Bell",
+      "venue": "NHESS",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "TerraTrack is an open-source, cloud-based workflow for detecting and monitoring slow-moving landslides from Sentinel-2 optical imagery. The workflow handles area selection, satellite data download and preprocessing, feature tracking, landslide masking, velocity mapping, and time-series generation, with support for running in Google Colaboratory. The paper validates TerraTrack across the Slumgullion, Chaos Canyon, and Tessina-Lamosano sites against independent displacement estimates and expert landslide delineations. The approach is designed to complement InSAR by tracking surface motion from optical imagery and supporting landslide monitoring, situational awareness, and early warning workflows.",
+      "links": {
+        "paper": "https://nhess.copernicus.org/articles/26/2305/2026/",
+        "pdf": "https://nhess.copernicus.org/articles/26/2305/2026/nhess-26-2305-2026.pdf",
+        "supp": "https://nhess.copernicus.org/articles/26/2305/2026/nhess-26-2305-2026-supplement.pdf",
+        "arxiv": null,
+        "code": "https://github.com/lorenzonava96/TerraTrack",
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@Article{nhess-26-2305-2026,\nAUTHOR = {Nava, L. and Van Wyk de Vries, M. and Bell, L. E.},\nTITLE = {A workflow to identify and monitor slow-moving landslides through spaceborne optical feature tracking},\nJOURNAL = {Natural Hazards and Earth System Sciences},\nVOLUME = {26},\nYEAR = {2026},\nNUMBER = {5},\nPAGES = {2305--2318},\nURL = {https://nhess.copernicus.org/articles/26/2305/2026/},\nDOI = {10.5194/nhess-26-2305-2026}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "geospatial / GIS / geographic",
+        "Earth-science / disaster mapping"
+      ]
+    },
+    {
       "id": "avion-2026",
       "title": "AVION: Aerial Vision-Language Instruction from Offline Teacher to Prompt-Tuned Network",
       "authors": "Yu Hu, Jianyang Gu, Hao Liu, Yue Cao, Jozsef Hamari, Zheng Liu, Mohsen Zardadi",
