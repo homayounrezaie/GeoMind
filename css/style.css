@@ -1022,6 +1022,33 @@ h2 {
   text-indent: 2ch;
 }
 
+.paper-card-abstract-toggle {
+  display: none;
+  margin: 10px 0 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: #2563eb;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.25;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.paper-card-abstract-toggle:hover,
+.paper-card-abstract-toggle:focus-visible {
+  color: #1d4ed8;
+  text-decoration: none;
+  transform: translateX(2px);
+}
+
+.paper-card-abstract-toggle[hidden] {
+  display: none !important;
+}
+
 .paper-card-images {
   display: grid;
   gap: 12px;
@@ -2565,6 +2592,23 @@ h2 {
   .paper-card-section > p {
     font-size: 15.5px;
     line-height: 1.75;
+  }
+
+  .paper-card-abstract:not(.is-expanded) .paper-card-abstract-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+  }
+
+  .paper-card-abstract.is-expanded .paper-card-abstract-text {
+    display: block;
+    overflow: visible;
+  }
+
+  .paper-card-abstract-toggle {
+    display: inline-flex;
+    align-items: center;
   }
 
   .paper-card-images {

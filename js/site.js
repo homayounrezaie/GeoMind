@@ -882,6 +882,50 @@ function appendText(parent, text) {
   return paragraph;
 }
 
+function setupExpandableAbstract(section, paragraph) {
+  if (!section || !paragraph) {
+    return;
+  }
+
+  const toggle = document.createElement("button");
+  const mobileQuery = window.matchMedia("(max-width: 600px)");
+
+  toggle.className = "paper-card-abstract-toggle";
+  toggle.type = "button";
+  toggle.textContent = "See more";
+  toggle.setAttribute("aria-expanded", "false");
+
+  function updateToggle() {
+    const isExpanded = section.classList.contains("is-expanded");
+
+    toggle.textContent = isExpanded ? "See less" : "See more";
+    toggle.setAttribute("aria-expanded", String(isExpanded));
+
+    window.requestAnimationFrame(() => {
+      const wasExpanded = section.classList.contains("is-expanded");
+
+      section.classList.remove("is-expanded");
+      const clampedHeight = paragraph.getBoundingClientRect().height;
+      section.classList.add("is-expanded");
+      const expandedHeight = paragraph.getBoundingClientRect().height;
+      section.classList.toggle("is-expanded", wasExpanded);
+      const hasOverflow = expandedHeight > clampedHeight + 1;
+
+      toggle.hidden = !mobileQuery.matches || !hasOverflow;
+    });
+  }
+
+  toggle.addEventListener("click", () => {
+    section.classList.toggle("is-expanded");
+    updateToggle();
+  });
+
+  paragraph.classList.add("paper-card-abstract-text");
+  section.append(toggle);
+  updateToggle();
+  window.addEventListener("resize", updateToggle);
+}
+
 function getPaperLinkEntries(links) {
   return Object.entries(links || {})
     .filter(([, value]) => isValidResourceUrl(value))
@@ -1270,7 +1314,7 @@ function renderPaperCard(container, data, images = []) {
       headingRow.append(meta);
     }
     abstract.append(headingRow);
-    appendText(abstract, data.abstract);
+    setupExpandableAbstract(abstract, appendText(abstract, data.abstract));
     body.append(abstract);
   }
 
