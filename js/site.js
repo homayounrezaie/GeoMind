@@ -625,9 +625,19 @@ function getPaperItems(payload) {
   return Array.isArray(payload) ? payload : payload.items || payload.papers || [];
 }
 
+function normalizeCountLabel(label) {
+  const value = String(label || "items").trim().toLowerCase();
+
+  if (value === "papers with code") {
+    return "papers";
+  }
+
+  return value || "items";
+}
+
 async function initDynamicCount(element) {
   const source = element.dataset.countSource || "";
-  const label = element.dataset.countLabel || "items";
+  const label = normalizeCountLabel(element.dataset.countLabel || "items");
 
   if (!source) {
     return;
@@ -933,9 +943,9 @@ async function initCombinedResourceTable(table) {
   }
 
   if (controls && !limit) {
-    count.className = "resource-count";
+    count.className = "resource-count resource-count-under-search";
     count.setAttribute("aria-live", "polite");
-    searchInput?.closest(".search-control")?.after(count);
+    searchInput?.closest(".search-control")?.append(count);
     pager.className = "table-pager";
     pager.setAttribute("aria-label", "Table pagination");
     pager.hidden = true;
@@ -966,7 +976,7 @@ async function initCombinedResourceTable(table) {
           ? "datasets"
           : selectedType === "benchmark"
             ? "benchmarks"
-            : "resources";
+            : "datasets & benchmarks";
 
       count.textContent = `${filtered.length.toLocaleString()} ${label}`;
     }
@@ -1050,14 +1060,11 @@ function initResourceList(controls) {
   let rows = [];
   let totalCount = 0;
 
-  count.className = "resource-count";
-  if (isPaperList) {
-    count.classList.add("resource-count-under-search");
-  }
+  count.className = "resource-count resource-count-under-search";
   count.setAttribute("aria-live", "polite");
 
   const searchControl = searchInput?.closest(".search-control");
-  if (isPaperList && searchControl) {
+  if (searchControl) {
     searchControl.append(count);
   } else {
     searchControl?.after(count);
@@ -1082,8 +1089,9 @@ function initResourceList(controls) {
   }));
   rows = fallbackRows;
   totalCount = rows.length;
-  const countLabel =
-    searchInput?.placeholder?.replace(/^Search\s+/i, "").trim().toLowerCase() || "items";
+  const countLabel = normalizeCountLabel(
+    searchInput?.placeholder?.replace(/^Search\s+/i, "").trim() || "items"
+  );
   const sortState = { column: "year", direction: "desc" };
   const dynamicColumns = Array.from(table?.querySelectorAll("thead th[data-field]") || []).map(
     (header) => ({
@@ -1535,9 +1543,7 @@ function initResourceList(controls) {
 
     tableBody.replaceChildren(...visibleRows);
 
-    count.textContent = isPaperList
-      ? `${matchingRows.length.toLocaleString()} ${countLabel}`
-      : `${matchingRows.length.toLocaleString()} from ${totalCount.toLocaleString()} ${countLabel}`;
+    count.textContent = `${matchingRows.length.toLocaleString()} ${countLabel}`;
     updateSortHeaders();
     renderPager(matchingRows.length);
   }

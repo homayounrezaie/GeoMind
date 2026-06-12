@@ -262,7 +262,7 @@ h2 {
   padding: 0 12px;
   background: #f8fafd;
   border-radius: 999px;
-  color: var(--muted);
+  color: var(--link);
   font-size: 14px;
   font-weight: 400;
   line-height: 1;
@@ -284,7 +284,8 @@ h2 {
 }
 
 .combined-controls {
-  grid-template-columns: 190px minmax(0, 1fr) auto;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: start;
 }
 
 .company-filter {
@@ -602,7 +603,7 @@ body.is-submit-modal-open {
   min-height: 46px;
   margin: 0;
   padding: 0;
-  color: var(--muted);
+  color: var(--link);
   font-size: 16px;
   font-weight: 450;
   line-height: 1;
