@@ -1519,6 +1519,14 @@ body.is-submit-modal-open {
   color: #8a5a00;
 }
 
+.paper-table-metric-cell {
+  white-space: nowrap;
+}
+
+.paper-table-stat {
+  min-height: 22px;
+}
+
 .paper-stat-github-icon {
   width: 13px;
   height: 13px;
@@ -1669,6 +1677,31 @@ body.is-submit-modal-open {
 .resource-table-papers th:nth-child(2),
 .resource-table-papers td:nth-child(2) {
   width: 28%;
+  padding-right: 0;
+  white-space: nowrap;
+}
+
+.resource-table-papers-full th:first-child,
+.resource-table-papers-full td:first-child {
+  width: 55%;
+}
+
+.resource-table-papers-full th:nth-child(2),
+.resource-table-papers-full td:nth-child(2) {
+  width: 14%;
+  padding-right: 20px;
+  white-space: nowrap;
+}
+
+.resource-table-papers-full th:nth-child(3),
+.resource-table-papers-full td:nth-child(3) {
+  width: 11%;
+  white-space: nowrap;
+}
+
+.resource-table-papers-full th:nth-child(4),
+.resource-table-papers-full td:nth-child(4) {
+  width: 20%;
   padding-right: 0;
   white-space: nowrap;
 }

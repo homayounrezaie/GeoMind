@@ -2012,10 +2012,20 @@ function initResourceList(controls) {
   function initSortableHeaders() {
     const headers = Array.from(table?.querySelectorAll("thead th") || []);
     const nameHeader = headers[0];
+    const citationsHeader = headers.find((header) => header.dataset.field === "citations");
+    const githubStarsHeader = headers.find((header) => header.dataset.field === "githubStars");
     const yearHeader = headers.find((header) => /venue\s*\/\s*year/i.test(header.textContent));
 
     if (nameHeader) {
       createSortHeader(nameHeader, "name", "asc");
+    }
+
+    if (citationsHeader) {
+      createSortHeader(citationsHeader, "citations", "desc");
+    }
+
+    if (githubStarsHeader) {
+      createSortHeader(githubStarsHeader, "githubStars", "desc");
     }
 
     if (yearHeader) {
@@ -2114,6 +2124,14 @@ function initResourceList(controls) {
       return data.venueYear || [data.venue, data.year].filter(Boolean).join(" ");
     }
 
+    if (field === "citations") {
+      return formatPaperCount(getPaperCitationCount(data));
+    }
+
+    if (field === "githubStars") {
+      return formatPaperCount(getPaperGithubStarCount(data));
+    }
+
     if (field === "sourceUrl") {
       if (isPaperList) {
         return getPaperCardUrl(data);
@@ -2189,6 +2207,28 @@ function initResourceList(controls) {
         }
 
         cell.append(titleWrap);
+      } else if (isPaperList && field === "citations") {
+        const stat = document.createElement("span");
+        const citations = getPaperCitationCount(data);
+
+        cell.className = "paper-table-metric-cell";
+        stat.className = "paper-stat paper-stat-citations paper-table-stat";
+        stat.setAttribute("aria-label", `${formatPaperCount(citations)} citations`);
+        stat.textContent = `${formatPaperCount(citations)} citations`;
+        cell.append(stat);
+      } else if (isPaperList && field === "githubStars") {
+        const stat = document.createElement("span");
+        const githubStars = getPaperGithubStarCount(data);
+
+        cell.className = "paper-table-metric-cell";
+        stat.className = "paper-stat paper-stat-github paper-table-stat";
+        stat.setAttribute("aria-label", `${formatPaperCount(githubStars)} GitHub stars`);
+        stat.append(
+          createPaperGithubIcon(),
+          document.createTextNode(formatPaperCount(githubStars)),
+          createPaperStarIcon()
+        );
+        cell.append(stat);
       } else {
         cell.textContent = String(getDynamicField(data, field) || "");
       }
@@ -2234,6 +2274,8 @@ function initResourceList(controls) {
       venueLabel: getVenueLabel(data.venue, data.venueKey || normalizeVenueKey(data.venue)),
       companies: [],
       year: Number(data.year) || 0,
+      citations: getPaperCitationCount(data),
+      githubStars: getPaperGithubStarCount(data),
     };
   }
 
@@ -2371,6 +2413,22 @@ function initResourceList(controls) {
           sensitivity: "base",
         });
         return (sortState.direction === "asc" ? nameDelta : -nameDelta) || first.index - second.index;
+      }
+
+      if (sortState.column === "citations") {
+        const citationDelta =
+          sortState.direction === "asc"
+            ? first.citations - second.citations
+            : second.citations - first.citations;
+        return citationDelta || second.year - first.year || first.index - second.index;
+      }
+
+      if (sortState.column === "githubStars") {
+        const starDelta =
+          sortState.direction === "asc"
+            ? first.githubStars - second.githubStars
+            : second.githubStars - first.githubStars;
+        return starDelta || second.year - first.year || first.index - second.index;
       }
 
       const yearDelta =
