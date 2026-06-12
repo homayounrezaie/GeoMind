@@ -1054,7 +1054,7 @@ function createResourceEditModal() {
           </button>
         </div>
         <div class="edit-modal-fields"></div>
-        <label class="edit-modal-images-label" for="edit-modal-image-upload">Upload image</label>
+        <label class="edit-modal-images-label" for="edit-modal-image-upload">Images</label>
         <label class="edit-modal-upload-card" for="edit-modal-image-upload">
           <input id="edit-modal-image-upload" class="edit-modal-image-upload" type="file" accept="image/*" multiple />
           <span class="edit-modal-upload-icon" aria-hidden="true">
@@ -1064,17 +1064,13 @@ function createResourceEditModal() {
               <path d="M5 19h14"></path>
             </svg>
           </span>
-          <span class="edit-modal-upload-copy">
-            <span class="edit-modal-upload-title">Drop images or browse</span>
-            <span class="edit-modal-upload-text">PNG, JPG, or WebP files for the review request.</span>
-          </span>
-          <span class="edit-modal-upload-action">Choose files</span>
+          <span class="edit-modal-upload-title">Upload image</span>
         </label>
         <p class="submit-modal-hint edit-modal-upload-hint"></p>
         <p class="submit-modal-error" role="alert" hidden></p>
         <div class="submit-modal-actions">
-          <button class="submit-modal-primary" type="submit">Submit for review</button>
           <button class="submit-modal-secondary" type="button" data-edit-modal-cancel>Cancel</button>
+          <button class="submit-modal-primary" type="submit">Submit for review</button>
         </div>
       </form>
     </div>
