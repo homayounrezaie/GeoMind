@@ -1,6 +1,54 @@
 const menuButtons = Array.from(document.querySelectorAll(".menu-button"));
 const siteScriptUrl = document.currentScript?.src || window.location.href;
 
+function getContributorHref() {
+  const path = window.location.pathname;
+
+  if (path.includes("/cards/")) {
+    return "../../pages/contributor.html";
+  }
+
+  if (path.endsWith("/") || path.endsWith("/index.html")) {
+    return "pages/contributor.html";
+  }
+
+  return "contributor.html";
+}
+
+function createHeaderUserButton() {
+  const button = document.createElement("a");
+
+  button.className = "header-user-button";
+  button.href = getContributorHref();
+  button.setAttribute("aria-label", "User");
+  button.setAttribute("data-tooltip", "User");
+  button.innerHTML = `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="8" r="4"></circle>
+      <path d="M4 21a8 8 0 0 1 16 0"></path>
+    </svg>
+  `;
+  return button;
+}
+
+function initHeaderUserButtons() {
+  document.querySelectorAll(".site-header").forEach((header) => {
+    if (header.querySelector(".header-user-button")) {
+      return;
+    }
+
+    const oldSubmit = header.querySelector(".header-submit-button[data-submit-modal-trigger]");
+    const userButton = createHeaderUserButton();
+
+    if (oldSubmit) {
+      oldSubmit.replaceWith(userButton);
+      return;
+    }
+
+    header.append(userButton);
+  });
+}
+
 function closeMenu(header, button) {
   header.classList.remove("is-menu-open");
   button.setAttribute("aria-expanded", "false");
@@ -97,6 +145,8 @@ tabs.forEach((tab) => {
 
 tabModeQuery.addEventListener("change", syncPanels);
 syncPanels();
+
+initHeaderUserButtons();
 
 const submitModalTriggers = Array.from(document.querySelectorAll("[data-submit-modal-trigger]"));
 const submitIssueUrl = "https://github.com/homayounrezaie/GeoMind/issues/new";

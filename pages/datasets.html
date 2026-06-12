@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Datasets &amp; Benchmarks - GeoMind</title>
     <link rel="icon" type="image/png" href="../images/geomind-logo.png" />
-    <link rel="stylesheet" href="../css/style.css?v=20260612-16" />
+    <link rel="stylesheet" href="../css/style.css?v=20260612-17" />
   </head>
   <body>
     <header class="site-header resource-site-header">
@@ -21,7 +21,12 @@
         <a href="models.html">Models</a>
         <a class="is-active" href="datasets.html" aria-current="page">Datasets &amp; Benchmarks</a>
       </nav>
-      <a class="submit-resource-button header-submit-button" href="https://github.com/homayounrezaie/GeoMind/issues/new" target="_blank" rel="noreferrer" aria-label="Submit a dataset or benchmark" data-tooltip="Submit a dataset or benchmark" data-submit-modal-trigger data-submit-kind="dataset">Submit</a>
+      <a class="header-user-button" href="contributor.html" aria-label="User" data-tooltip="User">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"></circle>
+          <path d="M4 21a8 8 0 0 1 16 0"></path>
+        </svg>
+      </a>
     </header>
 
     <main class="list-page">
@@ -41,6 +46,12 @@
             <span class="visually-hidden">Search datasets and benchmarks</span>
             <input type="search" placeholder="Search datasets and benchmarks" data-resource-search />
           </label>
+          <button class="submit-icon-button" type="button" aria-label="Submit a dataset or benchmark" data-tooltip="Submit dataset" data-submit-modal-trigger data-submit-kind="dataset">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5v14"></path>
+              <path d="M5 12h14"></path>
+            </svg>
+          </button>
         </div>
         <div class="resource-table-wrap">
           <table class="resource-table resource-table-combined" data-combined-resource-table data-datasets-src="../data/datasets.json" data-benchmarks-src="../data/benchmarks.json">
@@ -58,6 +69,6 @@
         </div>
       </section>
     </main>
-    <script src="../js/site.js?v=20260612-16"></script>
+    <script src="../js/site.js?v=20260612-17"></script>
   </body>
 </html>
