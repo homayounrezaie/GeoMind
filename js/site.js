@@ -242,6 +242,7 @@ function formatResourceLabel(value) {
     demo: "Demo",
     arxiv: "arXiv",
     code: "Code",
+    paperswithcode: "Papers with Code",
     checkpoints: "Checkpoints",
     dataset: "Dataset",
     benchmark: "Benchmark",
@@ -313,9 +314,14 @@ const paperResourceMeta = {
     order: 6,
     icon: ['<path d="m18 16 4-4-4-4"/>', '<path d="m6 8-4 4 4 4"/>', '<path d="m14.5 4-5 16"/>'],
   },
+  paperswithcode: {
+    label: "Papers with Code",
+    order: 7,
+    icon: ['<path d="m18 16 4-4-4-4"/>', '<path d="m6 8-4 4 4 4"/>', '<path d="m14.5 4-5 16"/>'],
+  },
   checkpoints: {
     label: "Checkpoints",
-    order: 7,
+    order: 8,
     icon: [
       '<rect width="16" height="16" x="4" y="4" rx="2"/>',
       '<rect width="6" height="6" x="9" y="9" rx="1"/>',
@@ -331,7 +337,7 @@ const paperResourceMeta = {
   },
   dataset: {
     label: "Dataset",
-    order: 8,
+    order: 9,
     icon: [
       '<ellipse cx="12" cy="5" rx="9" ry="3"/>',
       '<path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>',
@@ -340,12 +346,12 @@ const paperResourceMeta = {
   },
   benchmark: {
     label: "Benchmark",
-    order: 9,
+    order: 10,
     icon: ['<path d="M3 3v18h18"/>', '<path d="M18 17V9"/>', '<path d="M13 17V5"/>', '<path d="M8 17v-3"/>'],
   },
   model: {
     label: "Model",
-    order: 10,
+    order: 11,
     icon: [
       '<path d="M2 7.5 12 2l10 5.5-10 5.5z"/>',
       '<path d="M2 12.5 12 18l10-5.5"/>',
@@ -354,7 +360,7 @@ const paperResourceMeta = {
   },
   project_page: {
     label: "Project Page",
-    order: 11,
+    order: 12,
     icon: [
       '<circle cx="12" cy="12" r="10"/>',
       '<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>',
