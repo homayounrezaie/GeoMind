@@ -19,20 +19,6 @@ function getHeaderUserIconMarkup() {
   `;
 }
 
-function getContributorHref() {
-  const path = window.location.pathname;
-
-  if (path.includes("/cards/")) {
-    return "../../pages/contributor.html";
-  }
-
-  if (path.endsWith("/") || path.endsWith("/index.html")) {
-    return "pages/contributor.html";
-  }
-
-  return "contributor.html";
-}
-
 function closeHeaderUserMenu(menu) {
   const button = menu.querySelector(".header-user-button");
   const dropdown = menu.querySelector(".header-user-dropdown");
@@ -106,17 +92,6 @@ function createHeaderUserMenu() {
   });
 
   return menu;
-}
-
-function createHeaderUserButton() {
-  const button = document.createElement("a");
-
-  button.className = "header-user-button";
-  button.href = getContributorHref();
-  button.setAttribute("aria-label", "User");
-  button.setAttribute("data-tooltip", "User");
-  button.innerHTML = getHeaderUserIconMarkup();
-  return button;
 }
 
 function initHeaderUserButtons() {
@@ -1030,7 +1005,7 @@ function getResourceEditModalDescription(resource) {
             ? "this model"
             : "this resource";
 
-  return `Add, remove, or update URLs associated with ${label}. Include project pages, code, datasets, checkpoints, videos, and other official links.`;
+  return `Add or update URLs associated with ${label}. Include project pages, code, datasets, checkpoints, videos, and other official links.`;
 }
 
 function createEditModalRemoveIcon() {
