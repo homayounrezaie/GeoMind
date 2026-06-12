@@ -1,6 +1,1798 @@
 {
   "papers": [
     {
+      "id": "real-noise-decoupling-for-hyperspectral-image-denoising-2026",
+      "title": "Real Noise Decoupling for Hyperspectral Image Denoising",
+      "authors": "Yingkai Zhang, Tao Zhang, Jing Nie, Ying Fu",
+      "venue": "AAAI",
+      "year": 2026,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1609/aaai.v40i15.38291",
+        "pdf": "https://arxiv.org/pdf/2511.17196",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2511.17196",
+        "code": "https://github.com/yingkai-zhang/RND.git",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "lamamba-linear-attention-mamba-for-hyperspectral-image-denoising-2025",
+      "title": "LaMamba: Linear Attention Mamba for Hyperspectral Image Denoising",
+      "authors": "Puhong Duan, Yichen Luo, Xudong Kang, Shutao Li",
+      "venue": "IEEE TGRS",
+      "year": 2025,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2025.3613739",
+        "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11177616",
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/PuhongDuan/LaMamba.git",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-restoration-via-the-collaboration-of-low-2025",
+      "title": "Hyperspectral image restoration via the collaboration of low-rank tensor denoising and completion",
+      "authors": "Tianheng Zhang, Jianli Zhao, Sheng Fang, Zhe Li, Qing Zhang, Maoguo Gong",
+      "venue": "Pattern Recognition",
+      "year": 2025,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1016/j.patcog.2025.111629",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "bridging-fourier-and-spatial-spectral-domains-for-hyperspectral-2024",
+      "title": "Bridging Fourier and Spatial-Spectral Domains for Hyperspectral Image Denoising",
+      "authors": "Jiahua Xiao, Yang Liu, Shizhou Zhang, Xing Wei",
+      "venue": "ACM MM",
+      "year": 2024,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1145/3664647.3681461",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hybrid-spatial-spectral-neural-network-for-hyperspectral-image-2024",
+      "title": "Hybrid Spatial-Spectral Neural Network for Hyperspectral Image Denoising",
+      "authors": "Hao Liang, Chengjie Ke, Kun Li",
+      "venue": "ECCV",
+      "year": 2024,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1007/978-3-031-91838-4_17",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/lianghao2000/HSSD_official",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-via-spatialspectral-recurrent-transformer-2024",
+      "title": "Hyperspectral Image Denoising via Spatial–Spectral Recurrent Transformer",
+      "authors": "Guanyiman Fu, Fengchao Xiong, Jianfeng Lu, Jun Zhou, Jiantao Zhou, Yuntao Qian",
+      "venue": "IEEE TGRS",
+      "year": 2024,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2024.3374953",
+        "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10463066",
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/lronkitty/SSRT",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "ssumamba-spatialspectral-selective-state-space-model-for-hyperspectral-2024",
+      "title": "SSUMamba: Spatial–Spectral Selective State Space Model for Hyperspectral Image Denoising",
+      "authors": "Guanyiman Fu, Fengchao Xiong, Jianfeng Lu, Jun Zhou",
+      "venue": "IEEE TGRS",
+      "year": 2024,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2024.3446812",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/lronkitty/SSUMamba",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "flex-dld-deep-low-rank-decomposition-model-with-2024",
+      "title": "Flex-DLD: Deep Low-Rank Decomposition Model With Flexible Priors for Hyperspectral Image Denoising and Restoration",
+      "authors": "Yurong Chen, Hui Zhang, Yaonan Wang, Yimin Yang, Q. M. Jonathan Wu",
+      "venue": "IEEE TIP",
+      "year": 2024,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tip.2024.3360902",
+        "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10423584",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "latent-diffusion-enhanced-rectangle-transformer-for-hyperspectral-image-2024",
+      "title": "Latent Diffusion Enhanced Rectangle Transformer for Hyperspectral Image Restoration",
+      "authors": "Miaoyu Li, Ying Fu, Tao Zhang, Ji Liu, Dejing Dou, Chenggang Yan, Yulun Zhang",
+      "venue": "IEEE TPAMI",
+      "year": 2024,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tpami.2024.3475249",
+        "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10713101",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "spectral-aggregation-cross-square-transformer-for-hyperspectral-image-2024",
+      "title": "Spectral Aggregation Cross-Square Transformer for Hyperspectral Image Denoising",
+      "authors": "Yang Liu, Yantao Ji, Jiahua Xiao, Yu Guo, Peilin Jiang, Haiwei Yang, Fei Wang",
+      "venue": "Pattern Recognition",
+      "year": 2024,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1007/978-3-031-78354-8_29",
+        "pdf": "https://link.springer.com/content/pdf/10.1007/978-3-031-78354-8_29.pdf?pdf=inline%20link",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "deep-spatial-spectral-global-reasoning-network-for-hyperspectral-2021",
+      "title": "Deep Spatial-Spectral Global Reasoning Network for Hyperspectral Image Denoising",
+      "authors": "Xiangyong Cao, Xueyang Fu, Chen Xu, Deyu Meng",
+      "venue": "IEEE TGRS",
+      "year": 2021,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2021.3069241",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/xiangyongcao/GRN",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "double-low-rank-matrix-decomposition-for-hyperspectral-image-2021",
+      "title": "Double Low-Rank Matrix Decomposition for Hyperspectral Image Denoising and Destriping",
+      "authors": "Hongyan Zhang, Jingyi Cai, Wei He, Huanfeng Shen, Liangpei Zhang",
+      "venue": "IEEE TGRS",
+      "year": 2021,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2021.3061148",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-based-on-global-and-nonlocal-2021",
+      "title": "Hyperspectral Image Denoising Based on Global and Nonlocal Low-Rank Factorizations",
+      "authors": "Lina Zhuang, Xiyou Fu, Michael K. Ng, José M. Bioucas‐Dias",
+      "venue": "IEEE TGRS",
+      "year": 2021,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2020.3046038",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-using-a-3-d-attention-2021",
+      "title": "Hyperspectral Image Denoising Using a 3-D Attention Denoising Network",
+      "authors": "Qian Shi, Xiaopei Tang, Taoru Yang, Rong Liu, Liangpei Zhang",
+      "venue": "IEEE TGRS",
+      "year": 2021,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2020.3045273",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-via-clustering-based-latent-variable-2021",
+      "title": "Hyperspectral Image Denoising via Clustering-Based Latent Variable in Variational Bayesian Framework",
+      "authors": "Peyman Azimpour, Tahereh Bahraini, Hadi Sadoghi Yazdi",
+      "venue": "IEEE TGRS",
+      "year": 2021,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2019.2939512",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "uncertainty-quantification-of-hyperspectral-image-denoising-frameworks-based-2021",
+      "title": "Uncertainty Quantification of Hyperspectral Image Denoising Frameworks Based on Sliding-Window Low-Rank Matrix Approximation",
+      "authors": "Jingwei Song, Shaobo Xia, Jun Wang, Mitesh Patel, Dong Chen",
+      "venue": "IEEE TGRS",
+      "year": 2021,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2021.3065570",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-restoration-via-cnn-denoiser-prior-regularized-2020",
+      "title": "Hyperspectral image restoration via CNN denoiser prior regularized low-rank tensor recovery",
+      "authors": "Haijin Zeng, Xiaozhen Xie, Haojie Cui, Yuan Zhao, Jifeng Ning",
+      "venue": "CVIU",
+      "year": 2020,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1016/j.cviu.2020.103004",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-using-sure-based-unsupervised-convolutional-2020",
+      "title": "Hyperspectral Image Denoising Using SURE-Based Unsupervised Convolutional Neural Networks",
+      "authors": "Han V. Nguyen, Magnús Ö. Úlfarsson, Jóhannes R. Sveinsson",
+      "venue": "IEEE TGRS",
+      "year": 2020,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2020.3008844",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "3-d-quasi-recurrent-neural-network-for-hyperspectral-2020",
+      "title": "3-D Quasi-Recurrent Neural Network for Hyperspectral Image Denoising",
+      "authors": "Kaixuan Wei, Ying Fu, Hua Huang",
+      "venue": "IEEE TNNLS",
+      "year": 2020,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tnnls.2020.2978756",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "a-low-rank-tensor-dictionary-learning-method-for-2020",
+      "title": "A Low-Rank Tensor Dictionary Learning Method for Hyperspectral Image Denoising",
+      "authors": "Xiao Gong, Wei Chen, Jie Chen",
+      "venue": "IEEE TSP",
+      "year": 2020,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tsp.2020.2971441",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "deep-spatio-spectral-bayesian-posterior-for-hyperspectral-image-2020",
+      "title": "Deep spatio-spectral Bayesian posterior for hyperspectral image non-i.i.d. noise removal",
+      "authors": "Qiang Zhang, Qiangqiang Yuan, Jie Li, Fujun Sun, Liangpei Zhang",
+      "venue": "ISPRS P&RS",
+      "year": 2020,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1016/j.isprsjprs.2020.04.010",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "deep-spatial-spectral-representation-learning-for-hyperspectral-image-2019",
+      "title": "Deep Spatial-spectral Representation Learning for Hyperspectral Image Denoising",
+      "authors": "Weisheng Dong, Huan Wang, Fangfang Wu, Guangming Shi, Xin Li",
+      "venue": "IEEE TCI",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tci.2019.2911881",
+        "pdf": "https://ieeexplore.ieee.org/document/8734833",
+        "supp": null,
+        "arxiv": null,
+        "code": "http://see.xidian.edu.cn/faculty/wsdong/Code_release/DENOISE_NG_ST.tar.gz",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "a-3-d-atrous-convolution-neural-network-for-2019",
+      "title": "A 3-D Atrous Convolution Neural Network for Hyperspectral Image Denoising",
+      "authors": "Wei Liu, Joonwhoan Lee",
+      "venue": "IEEE TGRS",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2019.2901737",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "a-novel-rank-approximation-method-for-mixture-noise-2019",
+      "title": "A Novel Rank Approximation Method for Mixture Noise Removal of Hyperspectral Images",
+      "authors": "Hailiang Ye, Hong Li, Bing Yang, Feilong Cao, Yuanyan Tang",
+      "venue": "IEEE TGRS",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2019.2891288",
+        "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8632962",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "a-single-model-cnn-for-hyperspectral-image-denoising-2019",
+      "title": "A Single Model CNN for Hyperspectral Image Denoising",
+      "authors": "Alessandro Maffei, Juan M. Haut, Mercedes E. Paoletti, Javier Plaza, Lorenzo Bruzzone, Antonio Plaza",
+      "venue": "IEEE TGRS",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2019.2952062",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hybrid-noise-removal-in-hyperspectral-imagery-with-a-2019",
+      "title": "Hybrid Noise Removal in Hyperspectral Imagery With a Spatial-Spectral Gradient Network",
+      "authors": "Qiang Zhang, Qiangqiang Yuan, Jie Li, Xinxin Liu, Huanfeng Shen, Liangpei Zhang",
+      "venue": "IEEE TGRS",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2019.2912909",
+        "pdf": "https://arxiv.org/pdf/1810.00495",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/1810.00495",
+        "code": "https://github.com/WHUQZhang/SSGN",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "nonlocal-low-rank-regularized-tensor-decomposition-for-hyperspectral-2019",
+      "title": "Nonlocal Low-Rank Regularized Tensor Decomposition for Hyperspectral Image Denoising",
+      "authors": "Jize Xue, Yongqiang Zhao, Wenzhi Liao, Jonathan Cheung-Wai Chan",
+      "venue": "IEEE TGRS",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2019.2897316",
+        "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8657368",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "nonlocal-tensor-ring-decomposition-for-hyperspectral-image-denoising-2019",
+      "title": "Nonlocal Tensor-Ring Decomposition for Hyperspectral Image Denoising",
+      "authors": "Yong Chen, Wei He, Naoto Yokoya, Ting‐Zhu Huang, Xi-Le Zhao",
+      "venue": "IEEE TGRS",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2019.2946050",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "color-image-and-multispectral-image-denoising-using-block-2019",
+      "title": "Color Image and Multispectral Image Denoising Using Block Diagonal Representation",
+      "authors": "Zhaoming Kong, Xiaowei Yang",
+      "venue": "IEEE TIP",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tip.2019.2907478",
+        "pdf": "https://arxiv.org/pdf/1902.03954.pdf",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/1902.03954",
+        "code": "http://openremotesensing.net/wp-content/uploads/2018/03/MatlabCodes.zip",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-via-matrix-factorization-and-deep-2019",
+      "title": "Hyperspectral image denoising via matrix factorization and deep prior regularization",
+      "authors": "Baihong Lin, Xiaoming Tao, Jianhua Lu",
+      "venue": "IEEE TIP",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tip.2019.2928627",
+        "pdf": "https://ieeexplore.ieee.org/abstract/document/8767025",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "deep-hyperspectral-prior-denoising-inpainting-super-resolution-2019",
+      "title": "Deep Hyperspectral Prior: Denoising, Inpainting, Super-Resolution",
+      "authors": "Oleksii Sidorov, Jon Yngve Hardeberg",
+      "venue": "arXiv",
+      "year": 2019,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": null,
+        "pdf": "https://arxiv.org/pdf/1902.00301",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/1902.00301",
+        "code": "https://github.com/acecreamu/deep-hs-prior",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "fast-superpixel-based-subspace-low-rank-learning-method-2018",
+      "title": "Fast Superpixel based Subspace Low Rank Learning Method for Hyperspectral Denoising",
+      "authors": "Le Sun, Byeungwoo Jeon, Bushra Naz Soomro, Yuhui Zheng, Zebin Wu, Liang Xiao",
+      "venue": "IEEE Access",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/access.2018.2808474",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "http://www.escience.cn/system/file?fileId=97575",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "fast-hyperspectral-image-denoising-and-inpainting-based-on-2018",
+      "title": "Fast hyperspectral image denoising and inpainting based on low-rank and sparse representations",
+      "authors": "Lina Zhuang, José M. Bioucas‐Dias",
+      "venue": "IEEE J-STARS",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/jstars.2018.2796570",
+        "pdf": "http://www.lx.it.pt/~bioucas/files/submitted_ieee_jstars_2017.pdf",
+        "supp": null,
+        "arxiv": "http://arxiv.org/abs/2103.06842",
+        "code": "http://www.lx.it.pt/~bioucas/code/Demo_FastHyDe_FastHyIn.rar",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-using-local-low-rank-matrix-2018",
+      "title": "Hyperspectral Image Denoising Using Local Low-Rank Matrix Recovery and Global Spatial-Spectral Total Variation",
+      "authors": "Wei He, Hongyan Zhang, Huanfeng Shen, Liangpei Zhang",
+      "venue": "IEEE J-STARS",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/jstars.2018.2800701",
+        "pdf": "http://www.lmars.whu.edu.cn/prof_web/zhanghongyan/papers/Hyperspectral%20Image%20Denoising%20Using%20Local%20Low-Rank%20Matrix%20Recovery%20and%20Global%20Spatial-Spectral%20Total%20Variation.pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": "http://www.lmars.whu.edu.cn/prof_web/zhanghongyan/resource/LLRGTV.rar",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hsi-denet-hyperspectral-image-restoration-via-convolutional-neural-2018",
+      "title": "HSI-DeNet: Hyperspectral Image Restoration via Convolutional Neural Network",
+      "authors": "Yi Chang, Luxin Yan, Houzhang Fang, Sheng Zhong, Wenshan Liao",
+      "venue": "IEEE TGRS",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2018.2859203",
+        "pdf": "http://www.escience.cn/system/download/100951",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "http://www.escience.cn/people/changyi/index.html"
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-employing-a-spatial-spectral-deep-2018",
+      "title": "Hyperspectral Image Denoising Employing a Spatial-Spectral Deep Residual Convolutional Neural Network",
+      "authors": "Qiangqiang Yuan, Qiang Zhang, Jie Li, Huanfeng Shen, Liangpei Zhang",
+      "venue": "IEEE TGRS",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2018.2865197",
+        "pdf": "https://arxiv.org/pdf/1806.00183",
+        "supp": null,
+        "arxiv": "http://arxiv.org/abs/1806.00183",
+        "code": "https://github.com/WHUQZhang/HSID-CNN",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-by-fusing-the-selected-related-2018",
+      "title": "Hyperspectral Image Denoising by Fusing the Selected Related Bands",
+      "authors": "Xiangtao Zheng, Yuan Yuan, Xiaoqiang Lu",
+      "venue": "IEEE TGRS",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2018.2875304",
+        "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8527652",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "intracluster-structured-low-rank-matrix-analysis-method-for-2018",
+      "title": "Intracluster Structured Low-Rank Matrix Analysis Method for Hyperspectral Denoising",
+      "authors": "Wei Wei, Lei Zhang, Yining Jiao, Chunna Tian, Cong Wang, Yanning Zhang",
+      "venue": "IEEE TGRS",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2018.2862384",
+        "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8527652",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "spatial-spectral-total-variation-regularized-low-rank-tensor-2018",
+      "title": "Spatial-Spectral Total Variation Regularized Low-Rank Tensor Decomposition for Hyperspectral Image Denoising",
+      "authors": "Haiyan Fan, Chang Li, Yulan Guo, Gangyao Kuang, Jiayi Ma",
+      "venue": "IEEE TGRS",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2018.2833473",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "a-novel-3d-anisotropic-total-variation-regularized-low-2018",
+      "title": "A Novel 3D Anisotropic Total Variation Regularized Low Rank Method for Hyperspectral Image Mixed Denoising",
+      "authors": "Le Sun, Tianming Zhan, Zebin Wu, Byeungwoo Jeon",
+      "venue": "ISPRS IJGI",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://www.mdpi.com/2220-9964/7/10/412",
+        "pdf": "https://www.mdpi.com/2220-9964/7/10/412/pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-via-minimizing-the-partial-sum-2018",
+      "title": "Hyperspectral Image Denoising via Minimizing the Partial Sum of Singular Values and Superpixel Segmentation",
+      "authors": "Yang Liu, Caifeng Shan, Quanxue Gao, Xinbo Gao, Jungong Han, Rongmei Cui",
+      "venue": "Neurocomputing",
+      "year": 2018,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1016/j.neucom.2018.11.039",
+        "pdf": "https://ac.els-cdn.com/S0925231218313705/1-s2.0-S0925231218313705-main.pdf?_tid=b9341448-ec31-43ee-9984-5b4653353341&acdnat=1543139827_163d7541ba7ab463ee3cc9dcfdcb09f4",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-restoration-using-low-rank-representation-on-2017",
+      "title": "Hyperspectral Image Restoration Using Low-Rank Representation on Spectral Difference Image",
+      "authors": "Le Sun, Byeungwoo Jeon, Yuhui Zheng, Zebin Wu",
+      "venue": "IEEE GRSL",
+      "year": 2017,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/lgrs.2017.2701805",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "http://www.escience.cn/system/file?fileId=90518",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-imagery-denoising-by-deep-learning-with-trainable-2017",
+      "title": "Hyperspectral imagery denoising by deep learning with trainable nonlinearity function",
+      "authors": "Weiying Xie, Yunsong Li",
+      "venue": "IEEE GRSL",
+      "year": 2017,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/lgrs.2017.2743738",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-restoration-using-low-rank-tensor-recovery-2017",
+      "title": "Hyperspectral image restoration using low-rank tensor recovery",
+      "authors": "Haiyan Fan, Yunjin Chen, Yulan Guo, Hongyan Zhang, Gangyao Kuang",
+      "venue": "IEEE J-STARS",
+      "year": 2017,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/jstars.2017.2714338",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "denoising-hyperspectral-image-with-non-i-i-d-2017",
+      "title": "Denoising Hyperspectral Image with Non-i.i.d. Noise Structure",
+      "authors": "Yang Chen, Xiangyong Cao, Qian Zhao, Deyu Meng, Zongben Xu",
+      "venue": "IEEE TCYB",
+      "year": 2017,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tcyb.2017.2677944",
+        "pdf": "http://arxiv.org/pdf/1702.00098v1.pdf",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/1702.00098",
+        "code": "http://gr.xjtu.edu.cn/c/document_library/get_file?folderId=2406028&name=DLFE-88042.zip",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-with-superpixel-segmentation-and-low-2017",
+      "title": "Hyperspectral Image Denoising with Superpixel Segmentation and Low-Rank Representation",
+      "authors": "Fan Fan, Yong Ma, Chang Li, Xiaoguang Mei, Jun Huang, Jiayi Ma",
+      "venue": "Information Sciences",
+      "year": 2017,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1016/j.ins.2017.02.044",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "http://www.escience.cn/system/file?fileId=19",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-with-a-combined-spatial-and-2016",
+      "title": "Hyperspectral image denoising with a combined spatial and spectral hyperspectral total variation model",
+      "authors": "Cheng Jiang, Hongyan Zhang, Liangpei Zhang, Huanfeng Shen, Qiangqiang Yuan",
+      "venue": "CJRS",
+      "year": 2016,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1080/07038992.2016.1158094",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-restoration-via-iteratively-regularized-weighted-schatten-2016",
+      "title": "Hyperspectral image restoration via iteratively regularized weighted Schatten p-norm minimization",
+      "authors": "Yuan Xie, Yanyun Qu, Dacheng Tao, Weiwei Wu, Qiangqiang Yuan, Wensheng Zhang",
+      "venue": "IEEE TGRS",
+      "year": 2016,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2016.2547879",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "noise-removal-from-hyperspectral-image-with-joint-spectral-2016",
+      "title": "Noise removal from hyperspectral image with joint spectral-spatial distributed sparse representation",
+      "authors": "Jie Li, Qiangqiang Yuan, Huanfeng Shen, Liangpei Zhang",
+      "venue": "IEEE TGRS",
+      "year": 2016,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2016.2564639",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-via-noise-adjusted-iterative-low-2015",
+      "title": "Hyperspectral Image Denoising via Noise-Adjusted Iterative Low-Rank Matrix Approximation",
+      "authors": "Wei He, Hongyan Zhang, Liangpei Zhang, Huanfeng Shen",
+      "venue": "IEEE J-STARS",
+      "year": 2015,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/jstars.2015.2398433",
+        "pdf": "http://www.lmars.whu.edu.cn/prof_web/zhanghongyan/papers/Hyperspectral%20Image%20Denoising%20via%20Noise-Adjusted%20Iterative%20Low-Rank%20Matrix%20Approximation.pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": "http://www.lmars.whu.edu.cn/prof_web/zhanghongyan/resource/NAILRMA_HSI%20denoising.zip",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "spectralspatial-adaptive-sparse-representation-for-hyperspectral-image-denoising-2015",
+      "title": "Spectral–Spatial Adaptive Sparse Representation for Hyperspectral Image Denoising",
+      "authors": "Ting Lu, Shutao Li, Leyuan Fang, Yi Ma, Jón Atli Benediktsson",
+      "venue": "IEEE TGRS",
+      "year": 2015,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2015.2457614",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "spectralspatial-kernel-regularized-for-hyperspectral-image-denoising-2015",
+      "title": "Spectral–spatial kernel regularized for hyperspectral image denoising",
+      "authors": "Yuan Yuan, Xiangtao Zheng, Xiaoqiang Lu",
+      "venue": "IEEE TGRS",
+      "year": 2015,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2014.2385082",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-via-sparse-representation-and-low-2014",
+      "title": "Hyperspectral image denoising via sparse representation and low-rank constraint",
+      "authors": "Yongqiang Zhao, Jingxiang Yang",
+      "venue": "IEEE TGRS",
+      "year": 2014,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2014.2321557",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "http://pan.baidu.com/s/1sjNTijj",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-using-first-order-spectral-roughness-2013",
+      "title": "Hyperspectral Image Denoising Using First Order Spectral Roughness Penalty in Wavelet Domain",
+      "authors": "Behnood Rasti, Jóhannes R. Sveinsson, Magnús Ö. Úlfarsson, Jón Atli Benediktsson",
+      "venue": "IEEE J-STARS",
+      "year": 2013,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/jstars.2013.2272879",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-restoration-using-low-rank-matrix-recovery-2013",
+      "title": "Hyperspectral image restoration using low-rank matrix recovery",
+      "authors": "Hongyan Zhang, Wei He, Liangpei Zhang, Huanfeng Shen, Qiangqiang Yuan",
+      "venue": "IEEE TGRS",
+      "year": 2013,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2013.2284280",
+        "pdf": "http://www.lmars.whu.edu.cn/prof_web/zhanghongyan/papers/Hyperspectral%20Image%20Restoration%20Using%20Low-Rank%20Matrix%20Recovery.pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": "http://www.lmars.whu.edu.cn/prof_web/zhanghongyan/resource/LRMR_HSI%20restoration.zip",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-imagery-restoration-using-nonlocal-spectral-spatial-structured-2012",
+      "title": "Hyperspectral imagery restoration using nonlocal spectral-spatial structured sparse representation with noise estimation",
+      "authors": "Yuntao Qian, Minchao Ye",
+      "venue": "IEEE J-STARS",
+      "year": 2012,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/jstars.2012.2232904",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "denoising-of-hyperspectral-images-using-the-parafac-model-2012",
+      "title": "Denoising of hyperspectral images using the parafac model and statistical performance analysis",
+      "authors": "Xuefeng Liu, Salah Bourennane, Caroline Fossati",
+      "venue": "IEEE TGRS",
+      "year": 2012,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2012.2187063",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-employing-a-spectralspatial-adaptive-total-2012",
+      "title": "Hyperspectral image denoising employing a spectral–spatial adaptive total variation model",
+      "authors": "Qiangqiang Yuan, Liangpei Zhang, Huanfeng Shen",
+      "venue": "IEEE TGRS",
+      "year": 2012,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2012.2185054",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "3-d-nonlocal-means-filter-with-noise-estimation-2012",
+      "title": "3-D nonlocal means filter with noise estimation for hyperspectral imagery denoising",
+      "authors": "Yuntao Qian, Yanhao Shen, Minchao Ye, Qi Wang",
+      "venue": "IGARSS",
+      "year": 2012,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/igarss.2012.6351287",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-using-3d-wavelets-2012",
+      "title": "Hyperspectral image denoising using 3D wavelets",
+      "authors": "Behnood Rasti, Jóhannes R. Sveinsson, Magnús Ö. Úlfarsson, Jón Atli Benediktsson",
+      "venue": "IGARSS",
+      "year": 2012,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/igarss.2012.6351286",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "hyperspectral-image-denoising-with-cubic-total-variation-model-2012",
+      "title": "Hyperspectral image denoising with cubic total variation model",
+      "authors": "Hong Liang",
+      "venue": "ISPRS",
+      "year": 2012,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.5194/isprsannals-i-7-95-2012",
+        "pdf": "https://isprs-annals.copernicus.org/articles/I-7/95/2012/isprsannals-I-7-95-2012.pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "denoising-and-dimensionality-reduction-using-multilinear-tools-for-2008",
+      "title": "Denoising and dimensionality reduction using multilinear tools for hyperspectral images",
+      "authors": "N. Renard, S. Bourennane, Jacques Blanc-Talon",
+      "venue": "IEEE GRSL",
+      "year": 2008,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/lgrs.2008.915736",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "noise-reduction-of-hyperspectral-imagery-using-hybrid-spatial-2006",
+      "title": "Noise reduction of hyperspectral imagery using hybrid spatial-spectral derivative-domain wavelet shrinkage",
+      "authors": "Hisham Othman, Shen‐En Qian",
+      "venue": "IEEE TGRS",
+      "year": 2006,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/tgrs.2005.860982",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
+      "id": "wavelet-based-hyperspectral-image-estimation-2004",
+      "title": "Wavelet-based hyperspectral image estimation",
+      "authors": "Ian C. Atkinson, Farzad Kamalabadi, Douglas L. Jones",
+      "venue": "IGARSS",
+      "year": 2004,
+      "presentation": null,
+      "abstract": null,
+      "links": {
+        "paper": "https://doi.org/10.1109/igarss.2003.1293903",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "multispectral / hyperspectral / SAR"
+      ]
+    },
+    {
       "id": "terratrack-2026",
       "title": "A workflow to identify and monitor slow-moving landslides through spaceborne optical feature tracking",
       "authors": "Lorenzo Nava, Maximillian Van Wyk de Vries, Louie Elliot Bell",
@@ -8234,10 +10026,12 @@
       "presentation": null,
       "abstract": "Hyperspectral images (HSIs) are frequently noisy and of low resolution due to the constraints of imaging devices. Recently launched satellites can concurrently acquire HSIs and panchromatic (PAN) images, enabling the restoration of HSIs to generate clean and high-resolution imagery through fusing PAN images for denoising and super-resolution. However, previous studies treated these two tasks as independent processes, resulting in accumulated errors. This paper introduces Hyperspectral Image Joint Pandenoising and Pansharpening (Hipandas), a novel learning paradigm that reconstructs high quality HSIs from noisy low-resolution HSIs (NLRHS) and high-resolution PAN images. The proposed unsupervised Hipandas framework consists of a guided denoising network, a guided super-resolution network, and a PAN reconstruction network, utilizing an HSI low-rank prior and a newly introduced detail-oriented low-rank prior. The interconnection of these networks complicates the training process, necessitating a two-stage training strategy to ensure effective training. Experimental results on both simulated and real-world datasets indicate that the proposed method surpasses state-of-the-art algorithms, yielding more accurate and visually pleasing HRHS images. The code is available at https://github.com/shuangxu96/Hipandas.",
       "links": {
+        "paper": "https://doi.org/10.1109/iccv51701.2025.01116",
         "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Xu_Hipandas_Hyperspectral_Image_Joint_Denoising_and_Super-Resolution_by_Image_Fusion_ICCV_2025_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Xu_Hipandas_Hyperspectral_Image_ICCV_2025_supplemental.pdf",
-        "arxiv": null,
+        "arxiv": "http://arxiv.org/abs/2412.04201",
         "code": "https://github.com/shuangxu96/Hipandas",
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -8965,10 +10759,12 @@
       "presentation": null,
       "abstract": "Hyperspectral images (HSIs) often suffer from diverse and unknown degradations during imaging, leading to severe spectral and spatial distortions. Existing HSI restoration methods typically rely on specific degradation assumptions, limiting their effectiveness in complex scenarios. In this paper, we propose MP-HSIR, a novel multi-prompt framework that effectively integrates spectral, textual, and visual prompts to achieve universal HSI restoration across diverse degradation types and intensities. Specifically, we develop a prompt-guided spatial-spectral transformer, which incorporates spatial self-attention and a prompt-guided dual-branch spectral self-attention. Since degradations affect spectral features differently, we introduce spectral prompts in the local spectral branch to provide universal low-rank spectral patterns as prior knowledge for enhancing spectral reconstruction. Furthermore, the text-visual synergistic prompt fuses high-level semantic representations with fine-grained visual features to encode degradation information, thereby guiding the restoration process. Extensive experiments on 9 HSI restoration tasks, including all-in-one scenarios, generalization tests, and real-world cases, demonstrate that MP-HSIR not only consistently outperforms existing all-in-one methods but also surpasses state-of-the-art task-specific approaches across multiple tasks. The code and models are available at https://github.com/ZhehuiWu/MP-HSIR.",
       "links": {
+        "paper": "https://doi.org/10.1109/iccv51701.2025.01209",
         "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Wu_MP-HSIR_A_Multi-Prompt_Framework_for_Universal_Hyperspectral_Image_Restoration_ICCV_2025_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Wu_MP-HSIR_A_Multi-Prompt_ICCV_2025_supplemental.pdf",
-        "arxiv": null,
+        "arxiv": "https://arxiv.org/abs/2503.09131",
         "code": "https://github.com/ZhehuiWu/MP-HSIR",
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -13502,10 +15298,12 @@
       "presentation": null,
       "abstract": "Capitalizing on the talent of self-attention in capturing non-local features, Transformer architectures have exhibited remarkable performance in single hyperspectral image restoration. For hyperspectral images, each pixel is located in the hyperspectral image cubes with a large spectral dimension and two spatial dimensions. Although uni-dimensional self-attention, like channel self-attention or spatial self-attention, builds long-range dependencies in spectral or spatial dimensions, they lack more comprehensive interactions across dimensions. To tackle the above drawback, we propose a VolFormer, a volumetric self-attention embedded Transformer network for single hyperspectral image restoration. Specifically, we propose volumetric self-attention (VolSA), which extends the interaction from 2D flat to 3D cube. VolSA can simultaneously model token interaction in the 3D cube, mining the potential correlations between the hyperspectral image cube. An attention decomposition form is proposed to reduce the computational burden of modeling volumetric information. In practical terms, VolSA adapts double similarity matrixes in spatial and channel dimensions to implicitly model 3D context information while transforming the complexity from cubic to quadratic. Additionally, we introduce the explicit spectral location prior to enhance the proposed self-attention. This property allows the target token to perceive global spectral information while simultaneously assigning different levels of attention to tokens at varying wavelength bands. Extensive experiments demonstrate that VolFormer achieves record-high performance on hyperspectral image super-resolution, denoise and classification benchmarks. Particularly, VolSA is portable and achieves inspiring results in hyperspectral classification. The source code is available at https://github.com/yudadabing/VolFormer.",
       "links": {
+        "paper": "https://doi.org/10.1109/cvpr52734.2025.02616",
         "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Yu_VolFormer_Explore_More_Comprehensive_Cube_Interaction_for_Hyperspectral_Image_Restoration_CVPR_2025_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Yu_VolFormer_Explore_More_CVPR_2025_supplemental.pdf",
         "arxiv": null,
         "code": "https://github.com/yudadabing/VolFormer",
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -18411,10 +20209,12 @@
       "presentation": null,
       "abstract": "Hyperspectral images (HSIs) have extensive applications in various fields such as medicine agriculture and industry. Nevertheless acquiring high signal-to-noise ratio HSI poses a challenge due to narrow-band spectral filtering. Consequently the importance of HSI denoising is substantial especially for snapshot hyperspectral imaging technology. While most previous HSI denoising methods are supervised creating supervised training datasets for the diverse scenes hyperspectral cameras and scan parameters is impractical. In this work we present Diff-Unmix a self-supervised denoising method for HSI using diffusion denoising generative models. Specifically Diff-Unmix addresses the challenge of recovering noise-degraded HSI through a fusion of Spectral Unmixing and conditional abundance generation. Firstly it employs a learnable block-based spectral unmixing strategy complemented by a pure transformer-based backbone. Then we introduce a self-supervised generative diffusion network to enhance abundance maps from the spectral unmixing block. This network reconstructs noise-free Unmixing probability distributions effectively mitigating noise-induced degradations within these components. Finally the reconstructed HSI is reconstructed through unmixing reconstruction by blending the diffusion-adjusted abundance map with the spectral endmembers. Experimental results on both simulated and real-world noisy datasets show that Diff-Unmix achieves state-of-the-art performance.",
       "links": {
+        "paper": "https://doi.org/10.1109/cvpr52733.2024.02628",
         "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zeng_Unmixing_Diffusion_for_Self-Supervised_Hyperspectral_Image_Denoising_CVPR_2024_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2024/supplemental/Zeng_Unmixing_Diffusion_for_CVPR_2024_supplemental.pdf",
         "arxiv": null,
-        "code": "null",
+        "code": null,
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -19020,10 +20820,12 @@
       "presentation": null,
       "abstract": "Hyperspectral image (HSI) restoration aims at recovering clean images from degraded observations and plays a vital role in downstream tasks. Existing model-based methods have limitations in accurately modeling the complex image characteristics with handcraft priors and deep learning-based methods suffer from poor generalization ability. To alleviate these issues this paper proposes an unsupervised HSI restoration framework with pre-trained diffusion model (HIR-Diff) which restores the clean HSIs from the product of two low-rank components i.e. the reduced image and the coefficient matrix. Specifically the reduced image which has a low spectral dimension lies in the image field and can be inferred from our improved diffusion model where a new guidance function with total variation (TV) prior is designed to ensure that the reduced image can be well sampled. The coefficient matrix can be effectively pre-estimated based on singular value decomposition (SVD) and rank-revealing QR (RRQR) factorization. Furthermore a novel exponential noise schedule is proposed to accelerate the restoration process (about 5xacceleration for denoising) with little performance decrease. Extensive experimental results validate the superiority of our method in both performance and speed on a variety of HSI restoration tasks including HSI denoising noisy HSI super-resolution and noisy HSI inpainting. The code is available at https://github.com/LiPang/HIRDiff.",
       "links": {
+        "paper": "https://doi.org/10.1109/cvpr52733.2024.00290",
         "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Pang_HIR-Diff_Unsupervised_Hyperspectral_Image_Restoration_Via_Improved_Diffusion_Models_CVPR_2024_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2024/supplemental/Pang_HIR-Diff_Unsupervised_Hyperspectral_CVPR_2024_supplemental.pdf",
         "arxiv": null,
         "code": "https://github.com/LiPang/HIRDiff",
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -82826,18 +84628,20 @@
         "paper": "https://openaccess.thecvf.com/content_CVPR_2019/html/He_Non-Local_Meets_Global_An_Integrated_Paradigm_for_Hyperspectral_Denoising_CVPR_2019_paper.html",
         "pdf": "https://openaccess.thecvf.com/content_CVPR_2019/papers/He_Non-Local_Meets_Global_An_Integrated_Paradigm_for_Hyperspectral_Denoising_CVPR_2019_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content_CVPR_2019/supplemental/He_Non-Local_Meets_Global_CVPR_2019_supplemental.pdf",
-        "arxiv": null,
+        "arxiv": "https://arxiv.org/abs/1809.03298",
         "code": null,
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://sites.google.com/site/rshewei/home"
       },
       "bibtex": "@InProceedings{He_2019_CVPR,\nauthor = {He, Wei and Yao, Quanming and Li, Chao and Yokoya, Naoto and Zhao, Qibin},\ntitle = {Non-Local Meets Global: An Integrated Paradigm for Hyperspectral Denoising},\nbooktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2019}\n}",
       "matched_themes": [
-        "multispectral / hyperspectral / SAR"
+        "multispectral / hyperspectral / SAR",
+        "remote sensing"
       ]
     },
     {
@@ -91446,7 +93250,8 @@
         "pdf": "https://openaccess.thecvf.com/content_cvpr_2017/papers/Chang_Hyper-Laplacian_Regularized_Unidirectional_CVPR_2017_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content_cvpr_2017/supplemental/Chang_Hyper-Laplacian_Regularized_Unidirectional_2017_CVPR_supplemental.pdf",
         "arxiv": null,
-        "code": null,
+        "code": "http://www.escience.cn/system/file?fileId=91483",
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -91456,7 +93261,8 @@
       },
       "bibtex": "@InProceedings{Chang_2017_CVPR,\nauthor = {Chang, Yi and Yan, Luxin and Zhong, Sheng},\ntitle = {Hyper-Laplacian Regularized Unidirectional Low-Rank Tensor Recovery for Multispectral Image Denoising},\nbooktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {July},\nyear = {2017}\n}",
       "matched_themes": [
-        "multispectral / hyperspectral / SAR"
+        "multispectral / hyperspectral / SAR",
+        "remote sensing"
       ]
     },
     {
@@ -92428,7 +94234,8 @@
         "pdf": "https://openaccess.thecvf.com/content_cvpr_2016/papers/Xie_Multispectral_Images_Denoising_CVPR_2016_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content_cvpr_2016/supplemental/Xie_Multispectral_Images_Denoising_2016_CVPR_supplemental.pdf",
         "arxiv": null,
-        "code": null,
+        "code": "http://gr.xjtu.edu.cn/c/document_library/get_file?folderId=2343711&name=DLFE-86323.zip",
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -92438,7 +94245,8 @@
       },
       "bibtex": "@InProceedings{Xie_2016_CVPR,\nauthor = {Xie, Qi and Zhao, Qian and Meng, Deyu and Xu, Zongben and Gu, Shuhang and Zuo, Wangmeng and Zhang, Lei},\ntitle = {Multispectral Images Denoising by Intrinsic Tensor Sparsity Regularization},\nbooktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2016}\n}",
       "matched_themes": [
-        "multispectral / hyperspectral / SAR"
+        "multispectral / hyperspectral / SAR",
+        "remote sensing"
       ]
     },
     {
@@ -94516,6 +96324,7 @@
         "supp": null,
         "arxiv": null,
         "code": null,
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -94526,7 +96335,8 @@
       "bibtex": "@InProceedings{Fu_2015_ICCV,\nauthor = {Fu, Ying and Lam, Antony and Sato, Imari and Sato, Yoichi},\ntitle = {Adaptive Spatial-Spectral Dictionary Learning for Hyperspectral Image Denoising},\nbooktitle = {Proceedings of the IEEE International Conference on Computer Vision (ICCV)},\nmonth = {December},\nyear = {2015}\n}",
       "matched_themes": [
         "Earth observation / land cover",
-        "multispectral / hyperspectral / SAR"
+        "multispectral / hyperspectral / SAR",
+        "remote sensing"
       ]
     },
     {
@@ -101972,7 +103782,8 @@
         "pdf": "https://openaccess.thecvf.com/content_cvpr_2014/papers/Peng_Decomposable_Nonlocal_Tensor_2014_CVPR_paper.pdf",
         "supp": null,
         "arxiv": null,
-        "code": null,
+        "code": "http://gr.xjtu.edu.cn/c/document_library/get_file?folderId=1766524&name=DLFE-38410.zip",
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -101982,7 +103793,8 @@
       },
       "bibtex": "@InProceedings{Peng_2014_CVPR,\nauthor = {Peng, Yi and Meng, Deyu and Xu, Zongben and Gao, Chenqiang and Yang, Yi and Zhang, Biao},\ntitle = {Decomposable Nonlocal Tensor Dictionary Learning for Multispectral Image Denoising},\nbooktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2014}\n}",
       "matched_themes": [
-        "multispectral / hyperspectral / SAR"
+        "multispectral / hyperspectral / SAR",
+        "remote sensing"
       ]
     },
     {
@@ -145648,7 +147460,8 @@
         "pdf": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/07745.pdf",
         "supp": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/07745-supp.pdf",
         "arxiv": null,
-        "code": null,
+        "code": "https://github.com/MIV-XJTU/RAS2S",
+        "paperswithcode": null,
         "checkpoints": null,
         "video": null,
         "dataset": null,
@@ -145658,7 +147471,8 @@
       },
       "bibtex": "@InProceedings{Xiao_2024_ECCV_4,\nauthor = {JiaHua Xiao and Yang Liu and Xing Wei},\ntitle = {Region-Aware Sequence-to-Sequence Learning for Hyperspectral Denoising},\nbooktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},\nmonth = {October},\nyear = {2024}\n}",
       "matched_themes": [
-        "multispectral / hyperspectral / SAR"
+        "multispectral / hyperspectral / SAR",
+        "remote sensing"
       ]
     },
     {
