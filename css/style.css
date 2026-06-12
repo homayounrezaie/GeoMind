@@ -691,7 +691,7 @@ body.is-submit-modal-open {
   margin: 0 32px 8px 0;
   font-family: Inter, "Google Sans Flex", Arial, Helvetica, sans-serif;
   font-size: 26px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.12;
 }
 
@@ -717,7 +717,7 @@ body.is-submit-modal-open {
 }
 
 .edit-modal-review-note strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .edit-modal-review-note span {
@@ -747,7 +747,7 @@ body.is-submit-modal-open {
   margin-bottom: 12px;
   color: #202124;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
 }
 
@@ -793,7 +793,7 @@ body.is-submit-modal-open {
   cursor: pointer;
   font: inherit;
   font-size: 21px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1;
   transition: background 160ms ease, transform 160ms ease;
 }
@@ -828,7 +828,7 @@ body.is-submit-modal-open {
 
 .edit-modal-link-row {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+  grid-template-columns: auto 138px minmax(0, 1fr) auto auto;
   gap: 14px;
   align-items: center;
   min-height: 76px;
@@ -875,14 +875,15 @@ body.is-submit-modal-open {
 .edit-modal-link-type {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 0 15px;
-  background: #f1f5f9;
-  border-radius: 3px;
-  color: #111827;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1;
+  min-width: 0;
+  min-height: 32px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  color: #202124;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.15;
   white-space: nowrap;
 }
 
@@ -895,7 +896,7 @@ body.is-submit-modal-open {
   border-radius: 3px;
   color: #fff;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1;
   white-space: nowrap;
 }
@@ -961,7 +962,7 @@ body.is-submit-modal-open {
   cursor: pointer;
   font: inherit;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .edit-modal .edit-modal-image-upload:hover::file-selector-button,
@@ -1039,7 +1040,7 @@ body.is-submit-modal-open {
   min-height: 56px;
   border-radius: 3px;
   font-size: 21px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .edit-modal .submit-modal-primary {
@@ -3482,11 +3483,12 @@ body.is-submit-modal-open {
 
   .edit-modal-link-type {
     grid-column: 2;
+    grid-row: 1;
     width: max-content;
     max-width: 100%;
     min-height: 28px;
-    padding: 0 11px;
-    font-size: 13px;
+    padding: 0;
+    font-size: 15px;
   }
 
   .edit-modal-official-pill {
@@ -3499,6 +3501,8 @@ body.is-submit-modal-open {
   }
 
   .edit-modal .edit-modal-link-input {
+    grid-column: 2;
+    grid-row: 2;
     font-size: 16px;
   }
 

@@ -1179,7 +1179,7 @@ function createResourceEditModal() {
         renderLinkRows();
       });
 
-      row.append(icon, input, type, official, remove);
+      row.append(icon, type, input, official, remove);
       fields.append(row);
     });
   }
