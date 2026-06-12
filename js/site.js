@@ -987,12 +987,31 @@ function openResourceEditModal(resource, trigger) {
 
 function createResourceEditButton(resource) {
   const button = document.createElement("button");
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  const label = document.createElement("span");
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  const line = document.createElementNS("http://www.w3.org/2000/svg", "path");
   const title = getResourceEditTitle(resource);
 
+  icon.classList.add("resource-edit-icon");
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("fill", "none");
+  icon.setAttribute("stroke", "currentColor");
+  icon.setAttribute("stroke-width", "2");
+  icon.setAttribute("stroke-linecap", "round");
+  icon.setAttribute("stroke-linejoin", "round");
+  icon.setAttribute("aria-hidden", "true");
+  path.setAttribute(
+    "d",
+    "M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"
+  );
+  line.setAttribute("d", "m15 5 4 4");
+  icon.append(path, line);
+  label.textContent = "Edit";
   button.type = "button";
   button.className = "resource-edit-button";
-  button.textContent = "Edit";
   button.setAttribute("aria-label", `Edit links for ${title}`);
+  button.append(icon, label);
   button.addEventListener("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
