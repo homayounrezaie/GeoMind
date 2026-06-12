@@ -1139,7 +1139,7 @@ body.is-submit-modal-open {
   padding: 0;
   background: #fffafa;
   border: 1px solid #ffe1e1;
-  border-radius: 50%;
+  border-radius: 4px;
   color: #c43e3a;
   cursor: pointer;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
@@ -1790,7 +1790,7 @@ body.is-submit-modal-open {
   justify-content: flex-end;
   gap: 24px;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 28px;
 }
 
 .paper-card-title-row {
@@ -1853,7 +1853,7 @@ body.is-submit-modal-open {
   justify-content: center;
   background: #fffafa;
   border: 1px solid #ffe1e1;
-  border-radius: 999px;
+  border-radius: 4px;
   color: #c43e3a;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
     transform 160ms ease;
@@ -3508,6 +3508,7 @@ body.is-submit-modal-open {
 
   .paper-card-topbar {
     align-items: flex-start;
+    margin-bottom: 20px;
   }
 
   .paper-card-title-row,
