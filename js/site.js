@@ -588,28 +588,6 @@ function createSaveButton({ type, id, title, url }) {
   return button;
 }
 
-function appendSaveButtonToTitleCell(cell, options) {
-  if (!cell || cell.querySelector(".resource-save-button")) {
-    return null;
-  }
-
-  const content = document.createElement("div");
-  const wrap = document.createElement("div");
-  const saveButton = createSaveButton(options);
-
-  content.className = "resource-title-content";
-  wrap.className = "resource-title-with-save";
-
-  while (cell.firstChild) {
-    content.append(cell.firstChild);
-  }
-
-  wrap.append(content, saveButton);
-  cell.classList.add("resource-title-cell");
-  cell.append(wrap);
-  return saveButton;
-}
-
 function formatResourceLabel(value) {
   const labels = {
     id: "ID",
@@ -1134,12 +1112,6 @@ function createFeaturedPaperRow(paper, cardBase) {
   }
 
   titleCell.textContent = String(paper.title || "");
-  appendSaveButtonToTitleCell(titleCell, {
-    type: "paper",
-    id: paper.id,
-    title: paper.title,
-    url: paperUrl,
-  });
   venueCell.textContent = venueText;
   link.href = paperUrl;
   decorateSourceLink(link, "View paper card", false);
@@ -1246,12 +1218,6 @@ function createCombinedResourceRow(item) {
   }
 
   titleCell.textContent = item.title;
-  appendSaveButtonToTitleCell(titleCell, {
-    type: item.type,
-    id: item.id,
-    title: item.title,
-    url: item.url,
-  });
   typeTag.className = `resource-type-tag resource-type-${item.type}`;
   typeTag.textContent = item.typeLabel;
   typeCell.append(typeTag);
@@ -1818,7 +1784,6 @@ function initResourceList(controls) {
       } else if (isPaperList && field === "title") {
         const titleWrap = document.createElement("div");
         const title = document.createElement("span");
-        const paperUrl = getPaperCardUrl(data);
 
         titleWrap.className = "paper-title-cell";
         title.className = "paper-title-text";
@@ -1833,12 +1798,6 @@ function initResourceList(controls) {
         }
 
         cell.append(titleWrap);
-        appendSaveButtonToTitleCell(cell, {
-          type: "paper",
-          id: data.id,
-          title: data.title,
-          url: paperUrl,
-        });
       } else {
         cell.textContent = String(getDynamicField(data, field) || "");
       }
@@ -2091,18 +2050,10 @@ function decorateStaticModelRow(row, index = 0) {
   const titleCell = row?.cells?.[0];
   const linkCell = row?.cells?.[row.cells.length - 1];
   const link = linkCell?.querySelector("a");
-  const title = titleCell?.querySelector(".resource-title-content")?.textContent.trim() ||
-    titleCell?.textContent.trim() ||
-    "";
+  const title = titleCell?.textContent.trim() || "";
   const id = row?.dataset?.id || link?.href || title || index;
   const url = link?.href || "";
 
-  appendSaveButtonToTitleCell(titleCell, {
-    type: "model",
-    id,
-    title,
-    url,
-  });
   appendEditButtonToLinkCell(linkCell, {
     type: "model",
     id,
@@ -2114,7 +2065,7 @@ function decorateStaticModelRow(row, index = 0) {
   });
 }
 
-function initStaticModelTableSaveButtons(table) {
+function initStaticModelTableActions(table) {
   table.querySelectorAll("tbody tr").forEach((row, index) => decorateStaticModelRow(row, index));
 }
 
@@ -2202,7 +2153,7 @@ function initModelCardResourceEditButtons() {
   });
 }
 
-document.querySelectorAll(".resource-table-models").forEach(initStaticModelTableSaveButtons);
+document.querySelectorAll(".resource-table-models").forEach(initStaticModelTableActions);
 initModelCardSaveButtons();
 initModelCardResourceEditButtons();
 

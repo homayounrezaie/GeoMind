@@ -868,24 +868,6 @@ body.is-submit-modal-open {
   overflow-wrap: normal;
 }
 
-.resource-title-cell {
-  vertical-align: top;
-}
-
-.resource-title-with-save {
-  display: flex;
-  width: 100%;
-  min-width: 0;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.resource-title-content {
-  min-width: 0;
-  flex: 1 1 auto;
-}
-
 .resource-save-button {
   display: inline-flex;
   width: 38px;
@@ -933,17 +915,6 @@ body.is-submit-modal-open {
 
 .resource-save-button.is-saved .resource-save-icon path {
   fill: currentColor;
-}
-
-.resource-title-cell .resource-save-button {
-  width: 32px;
-  min-width: 32px;
-  min-height: 32px;
-}
-
-.resource-title-cell .resource-save-icon {
-  width: 18px;
-  height: 18px;
 }
 
 .org-tag {
@@ -3197,16 +3168,6 @@ body.is-submit-modal-open {
   .resource-table-papers td:first-child {
     overflow-wrap: break-word;
     word-break: normal;
-  }
-
-  .resource-title-with-save {
-    gap: 10px;
-  }
-
-  .resource-title-cell .resource-save-button {
-    min-height: 30px;
-    width: 30px;
-    min-width: 30px;
   }
 
   .browse-row {
