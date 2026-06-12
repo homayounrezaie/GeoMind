@@ -719,6 +719,278 @@ function getPaperResourceMeta(key) {
   );
 }
 
+const editableResourceLinkKeys = [
+  "paper",
+  "pdf",
+  "supp",
+  "arxiv",
+  "code",
+  "paperswithcode",
+  "checkpoints",
+  "video",
+  "dataset",
+  "benchmark",
+  "model",
+  "project_page",
+];
+
+let resourceEditModalController = null;
+
+function getResourceEditTitle(resource) {
+  return String(resource?.title || resource?.name || "resource").trim();
+}
+
+function getResourceEditLinks(resource) {
+  const links = {};
+  const resourceLinks = resource?.links || {};
+
+  editableResourceLinkKeys.forEach((key) => {
+    links[key] = hasResourceValue(resourceLinks[key]) ? String(resourceLinks[key]).trim() : "";
+  });
+
+  if (hasResourceValue(resource?.url)) {
+    const urlKey =
+      resource.type === "dataset"
+        ? "dataset"
+        : resource.type === "benchmark"
+          ? "benchmark"
+          : resource.type === "model"
+            ? "model"
+            : "project_page";
+
+    links[urlKey] = links[urlKey] || String(resource.url).trim();
+  }
+
+  return links;
+}
+
+function getResourceEditImages(resource) {
+  if (Array.isArray(resource?.images)) {
+    return resource.images.filter(hasResourceValue).map((image) => String(image).trim());
+  }
+
+  return [];
+}
+
+function isHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function getResourceEditIssueUrl(resource, links, images) {
+  const issueUrl = new URL(submitIssueUrl);
+  const resourceTitle = getResourceEditTitle(resource);
+  const resourceType = String(resource?.type || "resource");
+  const linkRows = editableResourceLinkKeys.map((key) => {
+    const label = getPaperResourceMeta(key).label;
+    const value = links[key]?.trim() || "";
+
+    return `${label}: ${value || "(empty)"}`;
+  });
+  const imageRows = images.length ? images.map((image) => `- ${image}`) : ["(empty)"];
+  const issueBody = [
+    `Resource type: ${resourceType}`,
+    `Resource ID: ${resource?.id || "(none)"}`,
+    `Title: ${resourceTitle}`,
+    "",
+    "Links:",
+    ...linkRows,
+    "",
+    "Images:",
+    ...imageRows,
+    "",
+    "Submitted from:",
+    window.location.href,
+  ].join("\n");
+
+  issueUrl.searchParams.set("title", `Edit ${resourceType}: ${resourceTitle}`.slice(0, 180));
+  issueUrl.searchParams.set("body", issueBody);
+  return issueUrl.toString();
+}
+
+function createResourceEditModal() {
+  const modal = document.createElement("div");
+  let activeResource = null;
+  let previousFocus = null;
+
+  modal.className = "submit-modal edit-modal";
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="submit-modal-panel edit-modal-panel" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title" aria-describedby="edit-modal-description">
+      <button class="submit-modal-close" type="button" aria-label="Close edit dialog" data-edit-modal-close></button>
+      <h2 id="edit-modal-title">Edit links</h2>
+      <p id="edit-modal-description" class="submit-modal-description"></p>
+      <form class="submit-modal-form edit-modal-form" novalidate>
+        <div class="edit-modal-fields"></div>
+        <label class="edit-modal-images-label" for="edit-modal-images">Image URLs</label>
+        <textarea id="edit-modal-images" rows="4" placeholder="https://example.com/image-1.png&#10;https://example.com/image-2.png"></textarea>
+        <p class="submit-modal-hint">Use full http(s) URLs. Put one image URL per line.</p>
+        <p class="submit-modal-error" role="alert" hidden></p>
+        <div class="submit-modal-actions">
+          <button class="submit-modal-primary" type="submit">Submit edits</button>
+          <button class="submit-modal-secondary" type="button" data-edit-modal-cancel>Cancel</button>
+        </div>
+      </form>
+    </div>
+  `;
+
+  const description = modal.querySelector("#edit-modal-description");
+  const form = modal.querySelector(".edit-modal-form");
+  const fields = modal.querySelector(".edit-modal-fields");
+  const imagesInput = modal.querySelector("#edit-modal-images");
+  const error = modal.querySelector(".submit-modal-error");
+  const closeButtons = Array.from(
+    modal.querySelectorAll("[data-edit-modal-close], [data-edit-modal-cancel]")
+  );
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.classList.remove("is-submit-modal-open");
+    previousFocus?.focus();
+    previousFocus = null;
+    activeResource = null;
+  }
+
+  function renderFields(resource) {
+    const links = getResourceEditLinks(resource);
+
+    fields.replaceChildren(
+      ...editableResourceLinkKeys.map((key) => {
+        const field = document.createElement("label");
+        const label = document.createElement("span");
+        const input = document.createElement("input");
+
+        field.className = "edit-modal-field";
+        label.textContent = getPaperResourceMeta(key).label;
+        input.type = "url";
+        input.autocomplete = "url";
+        input.inputMode = "url";
+        input.name = key;
+        input.placeholder = "https://...";
+        input.value = links[key] || "";
+        field.append(label, input);
+        return field;
+      })
+    );
+  }
+
+  function openModal(resource, trigger) {
+    activeResource = resource || {};
+    previousFocus = trigger || document.activeElement;
+    description.textContent = `Update links or add image URLs for ${getResourceEditTitle(activeResource)}.`;
+    error.textContent = "";
+    error.hidden = true;
+    renderFields(activeResource);
+    imagesInput.value = getResourceEditImages(activeResource).join("\n");
+    modal.hidden = false;
+    document.body.classList.add("is-submit-modal-open");
+    window.setTimeout(() => fields.querySelector("input")?.focus(), 0);
+  }
+
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", closeModal);
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  form.addEventListener("submit", (event) => {
+    const links = {};
+    const invalidLabels = [];
+    const imageUrls = imagesInput.value
+      .split(/\n+/)
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+    event.preventDefault();
+
+    fields.querySelectorAll("input").forEach((input) => {
+      const value = input.value.trim();
+      const key = input.name;
+
+      links[key] = value;
+      if (value && !isHttpUrl(value)) {
+        invalidLabels.push(getPaperResourceMeta(key).label);
+      }
+    });
+
+    imageUrls.forEach((url) => {
+      if (!isHttpUrl(url)) {
+        invalidLabels.push("Image URLs");
+      }
+    });
+
+    if (invalidLabels.length) {
+      error.textContent = `Use full http(s) links for: ${Array.from(new Set(invalidLabels)).join(", ")}.`;
+      error.hidden = false;
+      return;
+    }
+
+    window.open(getResourceEditIssueUrl(activeResource, links, imageUrls), "_blank", "noopener");
+    closeModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (modal.hidden || event.key !== "Escape") {
+      return;
+    }
+
+    event.preventDefault();
+    closeModal();
+  });
+
+  document.body.append(modal);
+  return { open: openModal };
+}
+
+function openResourceEditModal(resource, trigger) {
+  if (!resourceEditModalController) {
+    resourceEditModalController = createResourceEditModal();
+  }
+
+  resourceEditModalController.open(resource, trigger);
+}
+
+function createResourceEditButton(resource) {
+  const button = document.createElement("button");
+  const title = getResourceEditTitle(resource);
+
+  button.type = "button";
+  button.className = "resource-edit-button";
+  button.textContent = "Edit";
+  button.setAttribute("aria-label", `Edit links for ${title}`);
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    openResourceEditModal(resource, button);
+  });
+  return button;
+}
+
+function appendEditButtonToLinkCell(cell, resource) {
+  if (!cell || cell.querySelector(".resource-edit-button")) {
+    return null;
+  }
+
+  const actions = document.createElement("div");
+  const editButton = createResourceEditButton(resource);
+
+  actions.className = "resource-link-actions";
+  while (cell.firstChild) {
+    actions.append(cell.firstChild);
+  }
+  actions.append(editButton);
+  cell.append(actions);
+  return editButton;
+}
+
 function createPaperResourceIcon(key) {
   const meta = getPaperResourceMeta(key);
 
@@ -823,6 +1095,14 @@ function createFeaturedPaperRow(paper, cardBase) {
   link.href = paperUrl;
   decorateSourceLink(link, "View paper card", false);
   linkCell.append(link);
+  appendEditButtonToLinkCell(linkCell, {
+    type: "paper",
+    id: paper.id,
+    title: paper.title,
+    url: paperUrl,
+    links: paper.links,
+    images: paper.images,
+  });
   row.append(titleCell, venueCell, linkCell);
   return row;
 }
@@ -938,6 +1218,16 @@ function createCombinedResourceRow(item) {
     decorateSourceLink(link, `View ${item.type} card`, true);
     linkCell.append(link);
   }
+
+  appendEditButtonToLinkCell(linkCell, {
+    type: item.type,
+    id: item.id,
+    title: item.title,
+    url: item.url,
+    links: {
+      [item.type]: item.url,
+    },
+  });
 
   row.append(titleCell, typeCell, taskCell, detailCell, linkCell);
   return row;
@@ -1466,6 +1756,16 @@ function initResourceList(controls) {
         }
         decorateSourceLink(link, cardLinkLabel, showSourceIcons);
         cell.append(link);
+        if (isPaperList && field === "sourceUrl") {
+          appendEditButtonToLinkCell(cell, {
+            type: "paper",
+            id: data.id,
+            title: data.title,
+            url,
+            links: data.links,
+            images: data.images,
+          });
+        }
       } else if (isPaperList && field === "title") {
         const titleWrap = document.createElement("div");
         const title = document.createElement("span");
@@ -1684,6 +1984,10 @@ function initResourceList(controls) {
     const pageEnd = pageStart + pageSize;
     const visibleRows = matchingRows.slice(pageStart, pageEnd).map((item) => {
       if (item.row) {
+        if (table?.classList.contains("resource-table-models")) {
+          decorateStaticModelRow(item.row, item.index);
+        }
+
         return item.row;
       }
 
@@ -1734,19 +2038,35 @@ function initResourceList(controls) {
 
 document.querySelectorAll("[data-resource-list]").forEach(initResourceList);
 
-function initStaticModelTableSaveButtons(table) {
-  table.querySelectorAll("tbody tr").forEach((row, index) => {
-    const titleCell = row.cells[0];
-    const link = row.cells[row.cells.length - 1]?.querySelector("a");
-    const title = titleCell?.textContent.trim() || "";
+function decorateStaticModelRow(row, index = 0) {
+  const titleCell = row?.cells?.[0];
+  const linkCell = row?.cells?.[row.cells.length - 1];
+  const link = linkCell?.querySelector("a");
+  const title = titleCell?.querySelector(".resource-title-content")?.textContent.trim() ||
+    titleCell?.textContent.trim() ||
+    "";
+  const id = row?.dataset?.id || link?.href || title || index;
+  const url = link?.href || "";
 
-    appendSaveButtonToTitleCell(titleCell, {
-      type: "model",
-      id: row.dataset.id || link?.href || title || index,
-      title,
-      url: link?.href || "",
-    });
+  appendSaveButtonToTitleCell(titleCell, {
+    type: "model",
+    id,
+    title,
+    url,
   });
+  appendEditButtonToLinkCell(linkCell, {
+    type: "model",
+    id,
+    title,
+    url,
+    links: {
+      model: url,
+    },
+  });
+}
+
+function initStaticModelTableSaveButtons(table) {
+  table.querySelectorAll("tbody tr").forEach((row, index) => decorateStaticModelRow(row, index));
 }
 
 function initModelCardSaveButtons() {
@@ -1773,8 +2093,69 @@ function initModelCardSaveButtons() {
   });
 }
 
+function getModelCardLinkKey(link, index) {
+  const text = String(link.textContent || "").toLowerCase();
+  const href = String(link.href || "").toLowerCase();
+
+  if (text.includes("paper") || href.includes("arxiv.org")) {
+    return "paper";
+  }
+
+  if (text.includes("dataset")) {
+    return "dataset";
+  }
+
+  if (text.includes("github") || href.includes("github.com")) {
+    return "code";
+  }
+
+  if (text.includes("model") || href.includes("huggingface.co")) {
+    return "model";
+  }
+
+  return index === 0 ? "project_page" : `project_page_${index}`;
+}
+
+function initModelCardResourceEditButtons() {
+  document.querySelectorAll(".model-card-links").forEach((section) => {
+    const heading = section.querySelector("h2");
+    const title = document.querySelector(".model-card-hero h1")?.textContent.trim() || "Model";
+    const links = {};
+
+    if (!heading || section.querySelector(".resource-edit-button")) {
+      return;
+    }
+
+    Array.from(section.querySelectorAll("a")).forEach((link, index) => {
+      const key = getModelCardLinkKey(link, index);
+
+      if (editableResourceLinkKeys.includes(key) && !links[key]) {
+        links[key] = link.href;
+      } else if (!links.project_page) {
+        links.project_page = link.href;
+      }
+    });
+
+    const headingRow = document.createElement("div");
+
+    headingRow.className = "model-card-links-head";
+    heading.before(headingRow);
+    headingRow.append(
+      heading,
+      createResourceEditButton({
+        type: "model",
+        id: window.location.pathname,
+        title,
+        url: window.location.href,
+        links,
+      })
+    );
+  });
+}
+
 document.querySelectorAll(".resource-table-models").forEach(initStaticModelTableSaveButtons);
 initModelCardSaveButtons();
+initModelCardResourceEditButtons();
 
 function appendText(parent, text) {
   if (!hasResourceValue(text)) {
@@ -2183,6 +2564,14 @@ function renderPaperCard(container, data, images = []) {
   const hasPresentation = hasResourceValue(data.presentation);
   const leadText = getPaperLead(data, metaText);
   const shouldShowMetaTag = hasResourceValue(metaText) && !hasPresentation;
+  const editResource = {
+    type: "paper",
+    id: data.id,
+    title: data.title,
+    url: window.location.href,
+    links: data.links,
+    images,
+  };
 
   document.title = `${data.title || "Paper"} - GeoMind`;
 
@@ -2256,16 +2645,22 @@ function renderPaperCard(container, data, images = []) {
     body.append(figures);
   }
 
-  if (hasPaperLinks(data.links)) {
+  {
     const links = document.createElement("section");
+    const linksHeadingRow = document.createElement("div");
     const linksHeading = document.createElement("h2");
     const linkList = document.createElement("div");
 
     links.className = "paper-card-section paper-card-resources";
+    linksHeadingRow.className = "paper-card-section-head paper-card-links-head";
     linksHeading.textContent = "Links";
     linkList.className = "paper-card-links";
-    appendPaperLinks(linkList, data.links);
-    links.append(linksHeading, linkList);
+    linksHeadingRow.append(linksHeading, createResourceEditButton(editResource));
+    links.append(linksHeadingRow);
+    if (hasPaperLinks(data.links)) {
+      appendPaperLinks(linkList, data.links);
+      links.append(linkList);
+    }
     body.append(links);
   }
 
