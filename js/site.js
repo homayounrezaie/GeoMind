@@ -1,6 +1,7 @@
 const menuButtons = Array.from(document.querySelectorAll(".menu-button"));
 const siteScriptUrl = document.currentScript?.src || window.location.href;
 const paperListReturnStorageKey = "geomind:paper-list-return-url";
+let headerUserMenuId = 0;
 
 function getHeaderUserIconMarkup() {
   return `
@@ -32,6 +33,81 @@ function getContributorHref() {
   return "contributor.html";
 }
 
+function closeHeaderUserMenu(menu) {
+  const button = menu.querySelector(".header-user-button");
+  const dropdown = menu.querySelector(".header-user-dropdown");
+
+  menu.classList.remove("is-open");
+  button?.setAttribute("aria-expanded", "false");
+  if (dropdown) {
+    dropdown.hidden = true;
+  }
+}
+
+function closeHeaderUserMenus(exceptMenu = null) {
+  document.querySelectorAll(".header-user-menu.is-open").forEach((menu) => {
+    if (menu !== exceptMenu) {
+      closeHeaderUserMenu(menu);
+    }
+  });
+}
+
+function createHeaderUserMenu() {
+  const menu = document.createElement("div");
+  const dropdownId = `header-user-menu-${(headerUserMenuId += 1)}`;
+
+  menu.className = "header-user-menu";
+  menu.innerHTML = `
+    <button class="header-user-button" type="button" aria-label="Profile" data-tooltip="Profile" aria-haspopup="menu" aria-expanded="false" aria-controls="${dropdownId}">
+      ${getHeaderUserIconMarkup()}
+    </button>
+    <div class="header-user-dropdown" id="${dropdownId}" role="menu" hidden>
+      <div class="header-user-summary">
+        <strong>Homayoun Rezaie</strong>
+        <span>@Homayoun</span>
+      </div>
+      <div class="header-user-menu-section">
+        <button class="header-user-menu-item" type="button" role="menuitem">Saved items</button>
+        <button class="header-user-menu-item" type="button" role="menuitem">Settings</button>
+      </div>
+      <div class="header-user-menu-section">
+        <button class="header-user-menu-item" type="button" role="menuitem">Log out</button>
+      </div>
+    </div>
+  `;
+
+  const button = menu.querySelector(".header-user-button");
+  const dropdown = menu.querySelector(".header-user-dropdown");
+
+  button.addEventListener("click", (event) => {
+    const isOpen = menu.classList.toggle("is-open");
+
+    event.preventDefault();
+    event.stopPropagation();
+    closeHeaderUserMenus(menu);
+    button.setAttribute("aria-expanded", String(isOpen));
+    dropdown.hidden = !isOpen;
+  });
+
+  dropdown.querySelectorAll(".header-user-menu-item").forEach((item) => {
+    item.addEventListener("click", () => closeHeaderUserMenu(menu));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target)) {
+      closeHeaderUserMenu(menu);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeHeaderUserMenu(menu);
+    }
+  });
+
+  return menu;
+}
+
 function createHeaderUserButton() {
   const button = document.createElement("a");
 
@@ -45,24 +121,26 @@ function createHeaderUserButton() {
 
 function initHeaderUserButtons() {
   document.querySelectorAll(".site-header").forEach((header) => {
+    if (header.querySelector(".header-user-menu")) {
+      return;
+    }
+
     const existingUserButton = header.querySelector(".header-user-button");
+    const userMenu = createHeaderUserMenu();
 
     if (existingUserButton) {
-      existingUserButton.innerHTML = getHeaderUserIconMarkup();
-      existingUserButton.setAttribute("data-tooltip", "Profile");
-      existingUserButton.setAttribute("aria-label", "Profile");
+      existingUserButton.replaceWith(userMenu);
       return;
     }
 
     const oldSubmit = header.querySelector(".header-submit-button[data-submit-modal-trigger]");
-    const userButton = createHeaderUserButton();
 
     if (oldSubmit) {
-      oldSubmit.replaceWith(userButton);
+      oldSubmit.replaceWith(userMenu);
       return;
     }
 
-    header.append(userButton);
+    header.append(userMenu);
   });
 }
 

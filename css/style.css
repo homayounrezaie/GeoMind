@@ -90,19 +90,28 @@ a:hover {
   color: var(--link);
 }
 
+.header-user-menu {
+  position: relative;
+  display: inline-flex;
+  margin-left: auto;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
 .header-user-button {
   position: relative;
   display: inline-flex;
   width: 44px;
   height: 44px;
-  margin-left: auto;
   align-items: center;
   justify-content: center;
   background: transparent;
   border: 0;
   border-radius: 0;
   color: #202124;
+  cursor: pointer;
   flex: 0 0 auto;
+  font: inherit;
   box-shadow: none;
   transition: opacity 160ms ease, transform 160ms ease;
 }
@@ -190,6 +199,82 @@ a:hover {
   transform: translateX(50%) translateY(0);
 }
 
+.header-user-menu.is-open .header-user-button::after {
+  opacity: 0;
+}
+
+.header-user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 40;
+  width: 230px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e3e7ee;
+  border-radius: 5px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.13);
+  color: #202124;
+  text-align: left;
+}
+
+.header-user-dropdown[hidden] {
+  display: none;
+}
+
+.header-user-summary {
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.header-user-summary strong {
+  color: #202124;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.header-user-summary span {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.header-user-menu-section {
+  display: grid;
+  padding: 6px 0;
+}
+
+.header-user-menu-section + .header-user-menu-section {
+  border-top: 1px solid #edf0f4;
+}
+
+.header-user-menu-item {
+  display: flex;
+  width: 100%;
+  min-height: 38px;
+  align-items: center;
+  padding: 0 16px;
+  background: transparent;
+  border: 0;
+  color: #202124;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.header-user-menu-item:hover,
+.header-user-menu-item:focus-visible {
+  background: #f7f9fc;
+  outline: 0;
+}
+
+.header-submit-button + .header-user-menu,
 .header-submit-button + .header-user-button {
   margin-left: 12px;
 }
@@ -3217,10 +3302,14 @@ body.is-submit-modal-open {
     margin-left: 0;
   }
 
-  .header-user-button {
+  .header-user-menu {
     order: 2;
     margin-left: auto;
     margin-right: 12px;
+  }
+
+  .header-user-button {
+    margin-left: 0;
   }
 
   .resource-site-header .header-submit-button {
