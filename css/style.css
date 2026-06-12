@@ -351,7 +351,7 @@ h2 {
 }
 
 .combined-controls {
-  grid-template-columns: 190px minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) 190px auto;
   align-items: start;
 }
 
@@ -2846,12 +2846,13 @@ body.is-submit-modal-open {
   }
 
   .paper-controls .search-control,
-  .combined-controls .filter-control,
+  .combined-controls .search-control,
   .model-controls .company-filter {
     grid-column: 1 / -1;
   }
 
-  .paper-controls .filter-control {
+  .paper-controls .filter-control,
+  .combined-controls .filter-control {
     grid-column: 1;
   }
 
