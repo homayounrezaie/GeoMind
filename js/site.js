@@ -659,32 +659,32 @@ const paperResourceMeta = {
   },
   video: {
     label: "Video",
-    order: 3,
+    order: 7,
     icon: ['<circle cx="12" cy="12" r="10"/>', '<path d="m10 8 6 4-6 4V8Z"/>'],
   },
   demo: {
     label: "Demo",
-    order: 4,
+    order: 7.5,
     icon: ['<circle cx="12" cy="12" r="10"/>', '<path d="m10 8 6 4-6 4V8Z"/>'],
   },
   arxiv: {
     label: "arXiv",
-    order: 5,
+    order: 3,
     iconImage: "../images/arxiv-logo.svg",
   },
   code: {
     label: "Code",
-    order: 6,
+    order: 4,
     icon: ['<path d="m18 16 4-4-4-4"/>', '<path d="m6 8-4 4 4 4"/>', '<path d="m14.5 4-5 16"/>'],
   },
   paperswithcode: {
     label: "Papers with Code",
-    order: 7,
+    order: 5,
     icon: ['<path d="m18 16 4-4-4-4"/>', '<path d="m6 8-4 4 4 4"/>', '<path d="m14.5 4-5 16"/>'],
   },
   checkpoints: {
     label: "Checkpoints",
-    order: 8,
+    order: 6,
     icon: [
       '<rect width="16" height="16" x="4" y="4" rx="2"/>',
       '<rect width="6" height="6" x="9" y="9" rx="1"/>',
@@ -722,7 +722,7 @@ const paperResourceMeta = {
     ],
   },
   project_page: {
-    label: "Project Page",
+    label: "Project page",
     order: 12,
     icon: [
       '<circle cx="12" cy="12" r="10"/>',
@@ -768,7 +768,6 @@ const editableResourceLinkKeys = [
   "paperswithcode",
   "checkpoints",
   "video",
-  "demo",
   "dataset",
   "benchmark",
   "model",
@@ -996,6 +995,7 @@ function createResourceEditModal() {
   const modal = document.createElement("div");
   let activeResource = null;
   let activeLinks = {};
+  let activeImageRefs = [];
   let previousFocus = null;
 
   modal.className = "submit-modal edit-modal";
@@ -1019,9 +1019,9 @@ function createResourceEditModal() {
           </button>
         </div>
         <div class="edit-modal-fields"></div>
-        <label class="edit-modal-images-label" for="edit-modal-images">Image URLs</label>
-        <textarea id="edit-modal-images" rows="4" placeholder="https://example.com/image-1.png&#10;https://example.com/image-2.png"></textarea>
-        <p class="submit-modal-hint">Use full http(s) URLs. Put one image URL per line.</p>
+        <label class="edit-modal-images-label" for="edit-modal-image-upload">Upload image</label>
+        <input id="edit-modal-image-upload" class="edit-modal-image-upload" type="file" accept="image/*" multiple />
+        <p class="submit-modal-hint edit-modal-upload-hint"></p>
         <p class="submit-modal-error" role="alert" hidden></p>
         <div class="submit-modal-actions">
           <button class="submit-modal-primary" type="submit">Submit for review</button>
@@ -1037,7 +1037,8 @@ function createResourceEditModal() {
   const fields = modal.querySelector(".edit-modal-fields");
   const addInput = modal.querySelector("#edit-modal-add-url");
   const addButton = modal.querySelector("[data-edit-modal-add]");
-  const imagesInput = modal.querySelector("#edit-modal-images");
+  const imageUpload = modal.querySelector("#edit-modal-image-upload");
+  const uploadHint = modal.querySelector(".edit-modal-upload-hint");
   const error = modal.querySelector(".submit-modal-error");
   const closeButtons = Array.from(
     modal.querySelectorAll("[data-edit-modal-close], [data-edit-modal-cancel]")
@@ -1049,6 +1050,7 @@ function createResourceEditModal() {
     previousFocus?.focus();
     previousFocus = null;
     activeResource = null;
+    activeImageRefs = [];
   }
 
   function collectLinkInputs() {
@@ -1065,9 +1067,7 @@ function createResourceEditModal() {
   }
 
   function renderLinkRows() {
-    const rows = getEditableResourceLinkKeys(activeResource, activeLinks).filter((key) =>
-      hasResourceValue(activeLinks[key])
-    );
+    const rows = getEditableResourceLinkKeys(activeResource, activeLinks);
 
     fields.replaceChildren();
 
@@ -1090,6 +1090,9 @@ function createResourceEditModal() {
       const meta = getPaperResourceMeta(key);
 
       row.className = "edit-modal-link-row";
+      if (!hasResourceValue(activeLinks[key])) {
+        row.classList.add("is-empty");
+      }
       row.dataset.linkKey = key;
       icon.className = "edit-modal-link-icon";
       icon.setAttribute("aria-hidden", "true");
@@ -1100,6 +1103,7 @@ function createResourceEditModal() {
       input.inputMode = "url";
       input.name = key;
       input.value = activeLinks[key] || "";
+      input.placeholder = "Add URL";
       input.setAttribute("aria-label", `${meta.label} URL`);
       type.className = "edit-modal-link-type";
       type.textContent = meta.label;
@@ -1111,7 +1115,7 @@ function createResourceEditModal() {
       remove.append(createEditModalRemoveIcon());
       remove.addEventListener("click", () => {
         collectLinkInputs();
-        delete activeLinks[key];
+        activeLinks[key] = "";
         renderLinkRows();
       });
 
@@ -1147,6 +1151,7 @@ function createResourceEditModal() {
   function openModal(resource, trigger) {
     activeResource = resource || {};
     activeLinks = getResourceEditLinks(activeResource);
+    activeImageRefs = getResourceEditImages(activeResource);
     previousFocus = trigger || document.activeElement;
     title.textContent = getResourceEditModalTitle(activeResource);
     description.textContent = getResourceEditModalDescription(activeResource);
@@ -1154,7 +1159,10 @@ function createResourceEditModal() {
     error.hidden = true;
     addInput.value = "";
     renderLinkRows();
-    imagesInput.value = getResourceEditImages(activeResource).join("\n");
+    imageUpload.value = "";
+    uploadHint.textContent = activeImageRefs.length
+      ? `Existing images: ${activeImageRefs.length}. Choose image files to request new uploads.`
+      : "Choose one or more image files to include with the review request.";
     modal.hidden = false;
     document.body.classList.add("is-submit-modal-open");
     window.setTimeout(() => addInput.focus(), 0);
@@ -1181,10 +1189,10 @@ function createResourceEditModal() {
   form.addEventListener("submit", (event) => {
     const links = collectLinkInputs();
     const invalidLabels = [];
-    const imageUrls = imagesInput.value
-      .split(/\n+/)
-      .map((line) => line.trim())
-      .filter(Boolean);
+    const imageRefs = [
+      ...activeImageRefs,
+      ...Array.from(imageUpload.files || []).map((file) => `Upload: ${file.name}`),
+    ];
 
     event.preventDefault();
 
@@ -1194,19 +1202,13 @@ function createResourceEditModal() {
       }
     });
 
-    imageUrls.forEach((url) => {
-      if (!isHttpUrl(url)) {
-        invalidLabels.push("Image URLs");
-      }
-    });
-
     if (invalidLabels.length) {
       error.textContent = `Use full http(s) links for: ${Array.from(new Set(invalidLabels)).join(", ")}.`;
       error.hidden = false;
       return;
     }
 
-    window.open(getResourceEditIssueUrl(activeResource, links, imageUrls), "_blank", "noopener");
+    window.open(getResourceEditIssueUrl(activeResource, links, imageRefs), "_blank", "noopener");
     closeModal();
   });
 

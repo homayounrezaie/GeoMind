@@ -657,7 +657,7 @@ body.is-submit-modal-open {
   margin: 0 32px 8px 0;
   font-family: Inter, "Google Sans Flex", Arial, Helvetica, sans-serif;
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.12;
 }
 
@@ -683,7 +683,7 @@ body.is-submit-modal-open {
 }
 
 .edit-modal-review-note strong {
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .edit-modal-review-note span {
@@ -713,7 +713,7 @@ body.is-submit-modal-open {
   margin-bottom: 12px;
   color: #202124;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -828,7 +828,7 @@ body.is-submit-modal-open {
   color: #202124;
   font: inherit;
   font-size: 20px;
-  font-weight: 650;
+  font-weight: 400;
   line-height: 1.2;
   text-overflow: ellipsis;
 }
@@ -847,7 +847,7 @@ body.is-submit-modal-open {
   border-radius: 999px;
   color: #111827;
   font-size: 16px;
-  font-weight: 650;
+  font-weight: 500;
   line-height: 1;
   white-space: nowrap;
 }
@@ -861,9 +861,17 @@ body.is-submit-modal-open {
   border-radius: 8px;
   color: #fff;
   font-size: 17px;
-  font-weight: 650;
+  font-weight: 500;
   line-height: 1;
   white-space: nowrap;
+}
+
+.edit-modal-link-row.is-empty {
+  background: rgba(251, 252, 254, 0.72);
+}
+
+.edit-modal-link-row.is-empty .edit-modal-link-input {
+  color: #64748b;
 }
 
 .edit-modal-remove {
@@ -895,13 +903,36 @@ body.is-submit-modal-open {
   margin-top: 8px;
 }
 
-.edit-modal #edit-modal-images {
-  min-height: 96px;
+.edit-modal .edit-modal-image-upload {
+  width: 100%;
+  min-height: 54px;
+  padding: 8px;
   background: #fff;
   border: 2px solid #d1d5db;
   border-radius: 10px;
   color: #243044;
+  cursor: pointer;
+  font: inherit;
   font-size: 16px;
+}
+
+.edit-modal .edit-modal-image-upload::file-selector-button {
+  min-height: 36px;
+  margin-right: 14px;
+  padding: 0 16px;
+  background: #f1f5f9;
+  border: 0;
+  border-radius: 7px;
+  color: #111827;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.edit-modal .edit-modal-image-upload:hover::file-selector-button,
+.edit-modal .edit-modal-image-upload:focus-visible::file-selector-button {
+  background: #e2e8f0;
 }
 
 .submit-modal-hint,
