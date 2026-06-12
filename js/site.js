@@ -98,6 +98,213 @@ tabs.forEach((tab) => {
 tabModeQuery.addEventListener("change", syncPanels);
 syncPanels();
 
+const submitModalTriggers = Array.from(document.querySelectorAll("[data-submit-modal-trigger]"));
+const submitIssueUrl = "https://github.com/homayounrezaie/GeoMind/issues/new";
+const submitModalConfig = {
+  paper: {
+    title: "Submit a paper",
+    description:
+      "Index an arXiv paper or add a non-arXiv paper, technical report, or model release page.",
+    label: "arXiv ID or paper URL",
+    placeholder: "2501.12345 · https://arxiv.org/abs/2501.12345 · https://blog.example.com/release",
+    hint: "Paste an arXiv ID like 2501.12345 or any paper/blog URL.",
+    action: "Submit paper",
+    resourceType: "paper",
+    issueTitle: "Submit paper",
+    bodyLabel: "Paper URL or arXiv ID",
+    emptyMessage: "Enter an arXiv ID or paper URL.",
+  },
+  dataset: {
+    title: "Submit a dataset",
+    description: "Add a dataset or benchmark page that belongs in GeoMind.",
+    label: "Dataset or benchmark URL",
+    placeholder: "https://huggingface.co/datasets/example/data · https://example.com/benchmark",
+    hint: "Paste a dataset, benchmark, paper, or project page URL.",
+    action: "Submit dataset",
+    resourceType: "dataset or benchmark",
+    issueTitle: "Submit dataset",
+    bodyLabel: "Dataset or benchmark URL",
+    emptyMessage: "Enter a dataset or benchmark URL.",
+  },
+  model: {
+    title: "Submit a model",
+    description: "Add a model, checkpoint, demo, or model release page that belongs in GeoMind.",
+    label: "Model URL",
+    placeholder: "https://huggingface.co/org/model · https://github.com/org/model",
+    hint: "Paste a model, checkpoint, demo, paper, or project page URL.",
+    action: "Submit model",
+    resourceType: "model",
+    issueTitle: "Submit model",
+    bodyLabel: "Model URL",
+    emptyMessage: "Enter a model URL.",
+  },
+};
+
+function createSubmitModal() {
+  const modal = document.createElement("div");
+
+  modal.className = "submit-modal";
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="submit-modal-panel" role="dialog" aria-modal="true" aria-labelledby="submit-modal-title" aria-describedby="submit-modal-description">
+      <button class="submit-modal-close" type="button" aria-label="Close submit dialog" data-submit-modal-close></button>
+      <h2 id="submit-modal-title"></h2>
+      <p id="submit-modal-description" class="submit-modal-description"></p>
+      <form class="submit-modal-form" novalidate>
+        <label for="submit-modal-input"></label>
+        <input id="submit-modal-input" type="text" autocomplete="url" />
+        <p class="submit-modal-hint"></p>
+        <p class="submit-modal-error" role="alert" hidden></p>
+        <div class="submit-modal-actions">
+          <button class="submit-modal-primary" type="submit"></button>
+          <button class="submit-modal-secondary" type="button" data-submit-modal-cancel>Cancel</button>
+        </div>
+      </form>
+    </div>
+  `;
+
+  document.body.append(modal);
+  return modal;
+}
+
+function initSubmitModal() {
+  if (!submitModalTriggers.length) {
+    return;
+  }
+
+  const modal = createSubmitModal();
+  const panel = modal.querySelector(".submit-modal-panel");
+  const title = modal.querySelector("#submit-modal-title");
+  const description = modal.querySelector("#submit-modal-description");
+  const form = modal.querySelector(".submit-modal-form");
+  const label = modal.querySelector("label");
+  const input = modal.querySelector("#submit-modal-input");
+  const hint = modal.querySelector(".submit-modal-hint");
+  const error = modal.querySelector(".submit-modal-error");
+  const primary = modal.querySelector(".submit-modal-primary");
+  const closeButtons = Array.from(
+    modal.querySelectorAll("[data-submit-modal-close], [data-submit-modal-cancel]")
+  );
+  let activeConfig = submitModalConfig.paper;
+  let previousFocus = null;
+
+  function setModalContent(config) {
+    title.textContent = config.title;
+    description.textContent = config.description;
+    label.textContent = config.label;
+    input.placeholder = config.placeholder;
+    hint.textContent = config.hint;
+    primary.textContent = config.action;
+    error.textContent = "";
+    error.hidden = true;
+    input.value = "";
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.classList.remove("is-submit-modal-open");
+    previousFocus?.focus();
+    previousFocus = null;
+  }
+
+  function openModal(kind, trigger) {
+    activeConfig = submitModalConfig[kind] || submitModalConfig.paper;
+    previousFocus = trigger || document.activeElement;
+    setModalContent(activeConfig);
+    modal.hidden = false;
+    document.body.classList.add("is-submit-modal-open");
+    window.setTimeout(() => input.focus(), 0);
+  }
+
+  function getIssueUrl(value) {
+    const issueUrl = new URL(submitIssueUrl);
+    const source = window.location.href;
+    const issueTitle = `${activeConfig.issueTitle}: ${value}`.slice(0, 180);
+    const issueBody = [
+      `Resource type: ${activeConfig.resourceType}`,
+      "",
+      `${activeConfig.bodyLabel}:`,
+      value,
+      "",
+      "Submitted from:",
+      source,
+    ].join("\n");
+
+    issueUrl.searchParams.set("title", issueTitle);
+    issueUrl.searchParams.set("body", issueBody);
+    return issueUrl.toString();
+  }
+
+  submitModalTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal(trigger.dataset.submitKind || "paper", trigger);
+    });
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", closeModal);
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  form.addEventListener("submit", (event) => {
+    const value = input.value.trim();
+
+    event.preventDefault();
+
+    if (!value) {
+      error.textContent = activeConfig.emptyMessage;
+      error.hidden = false;
+      input.focus();
+      return;
+    }
+
+    window.open(getIssueUrl(value), "_blank", "noopener");
+    closeModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (modal.hidden) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+
+    if (event.key !== "Tab") {
+      return;
+    }
+
+    const focusable = Array.from(
+      panel.querySelectorAll("button, input, select, textarea, a[href], [tabindex]:not([tabindex='-1'])")
+    ).filter((item) => !item.disabled && item.offsetParent !== null);
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (!first || !last) {
+      return;
+    }
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+}
+
+initSubmitModal();
+
 function getRowYear(row) {
   const visibleYear = Array.from(row.cells)
     .map((cell) => cell.textContent.trim())
