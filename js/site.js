@@ -820,12 +820,7 @@ function getPaperResourceMeta(key) {
 }
 
 const editableResourceLinkKeys = [
-  "paper",
-  "pdf",
-  "supp",
-  "arxiv",
   "code",
-  "paperswithcode",
   "checkpoints",
   "video",
   "dataset",
@@ -840,16 +835,6 @@ function getResourceEditTitle(resource) {
   return String(resource?.title || resource?.name || "resource").trim();
 }
 
-function getResourceFallbackLinkKey(resource) {
-  return resource.type === "dataset"
-    ? "dataset"
-    : resource.type === "benchmark"
-      ? "benchmark"
-      : resource.type === "model"
-        ? "model"
-        : "project_page";
-}
-
 function getResourceLinkSortOrder(key) {
   const normalizedKey = String(key).replace(/_\d+$/, "");
   const meta = paperResourceMeta[key] || paperResourceMeta[normalizedKey];
@@ -861,14 +846,10 @@ function getEditableResourceLinkKeys(resource, links = resource?.links || {}) {
   const keys = new Set(editableResourceLinkKeys);
 
   Object.keys(links || {}).forEach((key) => {
-    if (key) {
+    if (key && editableResourceLinkKeys.includes(key)) {
       keys.add(key);
     }
   });
-
-  if (hasResourceValue(resource?.url)) {
-    keys.add(getResourceFallbackLinkKey(resource));
-  }
 
   return Array.from(keys).sort(
     (firstKey, secondKey) =>
@@ -884,12 +865,6 @@ function getResourceEditLinks(resource) {
   getEditableResourceLinkKeys(resource, resourceLinks).forEach((key) => {
     links[key] = hasResourceValue(resourceLinks[key]) ? String(resourceLinks[key]).trim() : "";
   });
-
-  if (hasResourceValue(resource?.url)) {
-    const urlKey = getResourceFallbackLinkKey(resource);
-
-    links[urlKey] = links[urlKey] || String(resource.url).trim();
-  }
 
   return links;
 }
