@@ -1379,12 +1379,7 @@ function createFeaturedPaperRow(paper, cardBase) {
   }
 
   titleCell.textContent = String(paper.title || "");
-  venueCell.append(
-    createPaperMetadataStrip(paper, venueText, {
-      className: "paper-list-meta",
-      venueClassName: "paper-list-venue-tag",
-    })
-  );
+  venueCell.textContent = venueText;
   link.href = paperUrl;
   decorateSourceLink(link, "View paper card", false);
   linkCell.append(link);
@@ -2114,13 +2109,6 @@ function initResourceList(controls) {
         }
 
         cell.append(titleWrap);
-      } else if (isPaperList && field === "venueYear") {
-        cell.append(
-          createPaperMetadataStrip(data, getDynamicField(data, field), {
-            className: "paper-list-meta",
-            venueClassName: "paper-list-venue-tag",
-          })
-        );
       } else {
         cell.textContent = String(getDynamicField(data, field) || "");
       }
@@ -2607,7 +2595,7 @@ function createPaperStarIcon() {
 function createPaperMetadataStrip(
   data,
   venueText = "",
-  { className = "paper-meta-strip", venueClassName = "paper-list-venue-tag" } = {}
+  { className = "paper-meta-strip", venueClassName = "paper-card-meta paper-card-venue-tag" } = {}
 ) {
   const strip = document.createElement("div");
   const citations = getPaperCitationCount(data);
