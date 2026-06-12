@@ -2696,18 +2696,19 @@ function renderPaperCard(container, data, images = []) {
     const links = document.createElement("section");
     const linksHeadingRow = document.createElement("div");
     const linksHeading = document.createElement("h2");
+    const linksRow = document.createElement("div");
     const linkList = document.createElement("div");
 
     links.className = "paper-card-section paper-card-resources";
-    linksHeadingRow.className = "paper-card-section-head paper-card-links-head";
+    linksHeadingRow.className = "paper-card-section-head";
+    linksRow.className = "paper-card-links-row";
     linksHeading.textContent = "Links";
     linkList.className = "paper-card-links";
-    linksHeadingRow.append(linksHeading, createResourceEditButton(editResource));
+    linksHeadingRow.append(linksHeading);
     links.append(linksHeadingRow);
-    if (hasPaperLinks(data.links)) {
-      appendPaperLinks(linkList, data.links);
-      links.append(linkList);
-    }
+    appendPaperLinks(linkList, data.links);
+    linksRow.append(linkList, createResourceEditButton(editResource));
+    links.append(linksRow);
     body.append(links);
   }
 

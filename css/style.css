@@ -1518,8 +1518,20 @@ body.is-submit-modal-open {
   margin-bottom: 0;
 }
 
-.paper-card-links-head .resource-edit-button {
-  flex: 0 0 auto;
+.paper-card-resources {
+  max-width: 960px;
+}
+
+.paper-card-links-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+  width: 100%;
+}
+
+.paper-card-links-row .resource-edit-button {
+  margin-top: -4px;
 }
 
 .paper-card-section > p {
@@ -1794,7 +1806,8 @@ body.is-submit-modal-open {
   flex-wrap: wrap;
   gap: 7px 0;
   align-items: center;
-  max-width: 760px;
+  min-width: 0;
+  max-width: none;
 }
 
 .paper-card-links a {
