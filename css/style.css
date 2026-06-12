@@ -209,13 +209,15 @@ a:hover {
   top: calc(100% + 8px);
   right: 0;
   z-index: 40;
-  width: 230px;
+  width: 248px;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #e3e7ee;
-  border-radius: 5px;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.13);
-  color: #202124;
+  padding: 6px;
+  background: #fffaf2;
+  border: 1px solid #eadfce;
+  border-radius: 6px;
+  box-shadow: 0 14px 34px rgba(54, 39, 20, 0.12), 0 2px 8px rgba(54, 39, 20, 0.08);
+  color: #25211d;
+  font-family: "Inter", "Google Sans Flex", Arial, Helvetica, sans-serif;
   text-align: left;
 }
 
@@ -226,44 +228,48 @@ a:hover {
 .header-user-summary {
   display: grid;
   gap: 2px;
-  padding: 14px 16px 12px;
-  border-bottom: 1px solid #edf0f4;
+  padding: 11px 12px 10px;
+  background: #fff3df;
+  border: 1px solid #f0ddc0;
+  border-radius: 5px;
 }
 
 .header-user-summary strong {
-  color: #202124;
-  font-size: 14px;
+  color: #25211d;
+  font-size: 13.5px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .header-user-summary span {
-  color: #64748b;
-  font-size: 13px;
-  line-height: 1.25;
+  color: #77695a;
+  font-size: 12.5px;
+  line-height: 1.3;
 }
 
 .header-user-menu-section {
   display: grid;
-  padding: 6px 0;
+  padding: 5px 0 0;
 }
 
 .header-user-menu-section + .header-user-menu-section {
-  border-top: 1px solid #edf0f4;
+  margin-top: 5px;
+  border-top: 1px solid #efe4d6;
 }
 
 .header-user-menu-item {
   display: flex;
   width: 100%;
-  min-height: 38px;
+  min-height: 34px;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 10px;
   background: transparent;
   border: 0;
-  color: #202124;
+  border-radius: 4px;
+  color: #2f2a24;
   cursor: pointer;
   font: inherit;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 400;
   line-height: 1.2;
   text-align: left;
@@ -271,7 +277,7 @@ a:hover {
 
 .header-user-menu-item:hover,
 .header-user-menu-item:focus-visible {
-  background: #f7f9fc;
+  background: #fff0d9;
   outline: 0;
 }
 
