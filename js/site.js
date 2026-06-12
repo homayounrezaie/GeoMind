@@ -1,5 +1,16 @@
 const menuButtons = Array.from(document.querySelectorAll(".menu-button"));
 const siteScriptUrl = document.currentScript?.src || window.location.href;
+const paperListReturnStorageKey = "geomind:paper-list-return-url";
+
+function getHeaderUserIconMarkup() {
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"></circle>
+      <circle cx="12" cy="10" r="3"></circle>
+      <path d="M7.2 18.6c.9-2.3 2.6-3.5 4.8-3.5s3.9 1.2 4.8 3.5"></path>
+    </svg>
+  `;
+}
 
 function getContributorHref() {
   const path = window.location.pathname;
@@ -22,18 +33,18 @@ function createHeaderUserButton() {
   button.href = getContributorHref();
   button.setAttribute("aria-label", "User");
   button.setAttribute("data-tooltip", "User");
-  button.innerHTML = `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="8" r="4"></circle>
-      <path d="M4 21a8 8 0 0 1 16 0"></path>
-    </svg>
-  `;
+  button.innerHTML = getHeaderUserIconMarkup();
   return button;
 }
 
 function initHeaderUserButtons() {
   document.querySelectorAll(".site-header").forEach((header) => {
-    if (header.querySelector(".header-user-button")) {
+    const existingUserButton = header.querySelector(".header-user-button");
+
+    if (existingUserButton) {
+      existingUserButton.innerHTML = getHeaderUserIconMarkup();
+      existingUserButton.setAttribute("data-tooltip", "Profile");
+      existingUserButton.setAttribute("aria-label", "Profile");
       return;
     }
 
@@ -146,7 +157,56 @@ tabs.forEach((tab) => {
 tabModeQuery.addEventListener("change", syncPanels);
 syncPanels();
 
+function getSubmitIconMarkup(kind) {
+  const icons = {
+    paper: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"></path>
+        <path d="M14 3v5h5"></path>
+        <path d="M12 12v5"></path>
+        <path d="M9.5 14.5h5"></path>
+      </svg>
+    `,
+    dataset: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <ellipse cx="11" cy="5" rx="7" ry="3"></ellipse>
+        <path d="M4 5v9c0 1.7 3.1 3 7 3 1.4 0 2.7-.2 3.8-.5"></path>
+        <path d="M4 10c0 1.7 3.1 3 7 3 1.1 0 2.2-.1 3.1-.4"></path>
+        <path d="M18 14v6"></path>
+        <path d="M15 17h6"></path>
+      </svg>
+    `,
+    model: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 8 12 4l8 4-8 4Z"></path>
+        <path d="M4 13 12 17l8-4"></path>
+        <path d="M4 18 12 22l3.5-1.8"></path>
+        <path d="M19 15v6"></path>
+        <path d="M16 18h6"></path>
+      </svg>
+    `,
+  };
+
+  return icons[kind] || icons.paper;
+}
+
+function initSubmitIconButtons() {
+  document.querySelectorAll(".submit-icon-button[data-submit-kind]").forEach((button) => {
+    const kind = button.dataset.submitKind || "paper";
+    const labels = {
+      paper: "Add paper",
+      dataset: "Add dataset",
+      model: "Add model",
+    };
+
+    button.classList.add(`submit-icon-button-${kind}`);
+    button.innerHTML = getSubmitIconMarkup(kind);
+    button.setAttribute("data-tooltip", labels[kind] || "Add resource");
+  });
+}
+
 initHeaderUserButtons();
+initSubmitIconButtons();
 
 const submitModalTriggers = Array.from(document.querySelectorAll("[data-submit-modal-trigger]"));
 const submitIssueUrl = "https://github.com/homayounrezaie/GeoMind/issues/new";
@@ -1832,7 +1892,7 @@ function initResourceList(controls) {
     window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   }
 
-  function addPaperListReturnToLink(link) {
+  function storePaperListReturnUrl(link) {
     if (!isPaperList || !link?.href) {
       return;
     }
@@ -1844,8 +1904,11 @@ function initResourceList(controls) {
     }
 
     updatePaperListUrlState();
-    url.searchParams.set("from", window.location.href);
-    link.href = url.toString();
+    try {
+      window.sessionStorage?.setItem(paperListReturnStorageKey, window.location.href);
+    } catch {
+      // If storage is blocked, the paper card still falls back to papers.html.
+    }
   }
 
   function getSelectedCompany() {
@@ -2326,7 +2389,7 @@ function initResourceList(controls) {
       const link = event.target.closest("a");
 
       if (link) {
-        addPaperListReturnToLink(link);
+        storePaperListReturnUrl(link);
       }
     });
   }
@@ -2827,23 +2890,44 @@ function appendPaperBibtex(parent, bibtex) {
 
 function getPaperCardReturnUrl() {
   const params = new URLSearchParams(window.location.search);
-  const from = params.get("from");
-
-  if (!from) {
-    return "papers.html";
-  }
+  let storedReturnUrl = "";
 
   try {
-    const url = new URL(from, window.location.href);
-
-    if (url.origin === window.location.origin && url.pathname.endsWith("/papers.html")) {
-      return `${url.pathname}${url.search}${url.hash}`;
-    }
+    storedReturnUrl = window.sessionStorage?.getItem(paperListReturnStorageKey) || "";
   } catch {
-    return "papers.html";
+    storedReturnUrl = "";
+  }
+
+  const candidates = [storedReturnUrl, params.get("from") || ""].filter(Boolean);
+
+  for (const candidate of candidates) {
+    try {
+      const url = new URL(candidate, window.location.href);
+
+      if (url.origin === window.location.origin && url.pathname.endsWith("/papers.html")) {
+        return `${url.pathname}${url.search}${url.hash}`;
+      }
+    } catch {
+      // Try the next candidate.
+    }
   }
 
   return "papers.html";
+}
+
+function cleanPaperCardUrl() {
+  if (!window.history?.replaceState) {
+    return;
+  }
+
+  const url = new URL(window.location.href);
+
+  if (!url.searchParams.has("from")) {
+    return;
+  }
+
+  url.searchParams.delete("from");
+  window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
 }
 
 function renderPaperCard(container, data, images = []) {
@@ -2880,6 +2964,7 @@ function renderPaperCard(container, data, images = []) {
   closeLink.href = getPaperCardReturnUrl();
   closeLink.setAttribute("aria-label", "Close paper card");
   closeLink.title = "Close";
+  cleanPaperCardUrl();
   title.textContent = data.title || "Paper";
   topbar.append(closeLink);
   titleRow.append(

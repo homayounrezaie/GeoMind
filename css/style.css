@@ -93,35 +93,37 @@ a:hover {
 .header-user-button {
   position: relative;
   display: inline-flex;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   margin-left: auto;
   align-items: center;
   justify-content: center;
-  background: #f2f7ff;
-  border: 1px solid #dbeafe;
-  border-radius: 50%;
-  color: #5f8fd8;
+  background: linear-gradient(180deg, #fbfdff 0%, #f1f7ff 100%);
+  border: 1px solid #cfe3ff;
+  border-radius: 12px;
+  color: #3d73b9;
   flex: 0 0 auto;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
-    transform 160ms ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease,
+    color 160ms ease, transform 160ms ease;
 }
 
 .header-user-button svg {
-  width: 19px;
-  height: 19px;
+  width: 22px;
+  height: 22px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2;
+  stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .header-user-button:hover,
 .header-user-button:focus-visible {
-  background: #e8f1ff;
-  border-color: #c7ddff;
-  color: #3f7fd8;
+  background: linear-gradient(180deg, #ffffff 0%, #eaf3ff 100%);
+  border-color: #aecaef;
+  color: #235f9f;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 8px 18px rgba(37, 99, 235, 0.1);
   text-decoration: none;
   transform: translateY(-1px);
 }
@@ -436,37 +438,69 @@ h2 {
 .submit-icon-button {
   position: relative;
   display: inline-flex;
-  width: 46px;
+  width: 50px;
   height: 46px;
   align-items: center;
   justify-content: center;
-  background: #f2f7ff;
-  border: 1px solid #dbeafe;
-  border-radius: 50%;
-  color: #5f8fd8;
+  background: #f8fbff;
+  border: 1px solid #cfe3ff;
+  border-radius: 12px;
+  color: #3d73b9;
   cursor: pointer;
   font: inherit;
   line-height: 1;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
-    transform 160ms ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82), 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease,
+    color 160ms ease, transform 160ms ease;
 }
 
 .submit-icon-button svg {
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2;
+  stroke-width: 1.85;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
+.submit-icon-button-paper {
+  color: #315f9d;
+}
+
+.submit-icon-button-dataset {
+  background: #f6fcff;
+  border-color: #c9e8f6;
+  color: #28728f;
+}
+
+.submit-icon-button-model {
+  background: #f8fbf7;
+  border-color: #cfe8d2;
+  color: #427a45;
+}
+
 .submit-icon-button:hover,
 .submit-icon-button:focus-visible {
-  background: #e8f1ff;
-  border-color: #c7ddff;
-  color: #3f7fd8;
+  background: #eef6ff;
+  border-color: #aecaef;
+  color: #235f9f;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 8px 18px rgba(37, 99, 235, 0.1);
   transform: translateY(-1px);
+}
+
+.submit-icon-button-dataset:hover,
+.submit-icon-button-dataset:focus-visible {
+  background: #edfaff;
+  border-color: #a9dceb;
+  color: #155e75;
+}
+
+.submit-icon-button-model:hover,
+.submit-icon-button-model:focus-visible {
+  background: #f1fbf2;
+  border-color: #aed8b4;
+  color: #2f6b35;
 }
 
 .submit-icon-button::after {
@@ -3286,7 +3320,7 @@ body.is-submit-modal-open {
   }
 
   .resource-controls .submit-icon-button {
-    width: 46px;
+    width: 50px;
   }
 
   .company-filter {
