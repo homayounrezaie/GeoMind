@@ -1060,7 +1060,7 @@ body.is-submit-modal-open {
 }
 
 .paper-card-hero {
-  max-width: 800px;
+  max-width: none;
   padding-bottom: 64px;
 }
 
