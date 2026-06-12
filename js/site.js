@@ -599,6 +599,119 @@ function decorateSourceLinks(table, cardLinkLabel) {
   });
 }
 
+function setResourceRowLink(row, url, options = {}) {
+  const href = String(url || "").trim();
+
+  if (!row || !href) {
+    return;
+  }
+
+  row.dataset.rowHref = href;
+  row.tabIndex = 0;
+  row.setAttribute("role", "link");
+
+  if (options.target) {
+    row.dataset.rowTarget = options.target;
+  } else {
+    delete row.dataset.rowTarget;
+  }
+
+  if (options.paperListReturn) {
+    row.dataset.paperListReturn = "true";
+  } else {
+    delete row.dataset.paperListReturn;
+  }
+
+  if (options.label) {
+    row.setAttribute("aria-label", options.label);
+  }
+}
+
+function activateResourceRow(row) {
+  const href = row?.dataset.rowHref || "";
+
+  if (!href) {
+    return;
+  }
+
+  if (row.dataset.paperListReturn === "true") {
+    try {
+      window.sessionStorage?.setItem(paperListReturnStorageKey, window.location.href);
+    } catch {
+      // If storage is blocked, the paper card still falls back to papers.html.
+    }
+  }
+
+  if (row.dataset.rowTarget === "_blank") {
+    const opened = window.open(href, "_blank", "noopener,noreferrer");
+
+    if (opened) {
+      opened.opener = null;
+    }
+    return;
+  }
+
+  window.location.href = href;
+}
+
+function bindResourceRowLinks(table) {
+  if (!table || table.dataset.rowLinksBound === "true") {
+    return;
+  }
+
+  table.dataset.rowLinksBound = "true";
+
+  table.addEventListener("click", (event) => {
+    const row = event.target.closest("tbody tr[data-row-href]");
+
+    if (!row || event.target.closest("a, button, input, label, select, textarea")) {
+      return;
+    }
+
+    activateResourceRow(row);
+  });
+
+  table.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    const row = event.target.closest("tbody tr[data-row-href]");
+
+    if (!row) {
+      return;
+    }
+
+    event.preventDefault();
+    activateResourceRow(row);
+  });
+}
+
+function promoteLastLinkColumnToRows(table) {
+  if (!table || table.dataset.rowLinkColumnPromoted === "true") {
+    return;
+  }
+
+  table.dataset.rowLinkColumnPromoted = "true";
+
+  table.querySelectorAll("tbody tr").forEach((row) => {
+    const lastCell = row.cells[row.cells.length - 1];
+    const link = lastCell?.querySelector("a[href]");
+
+    if (!link) {
+      return;
+    }
+
+    setResourceRowLink(row, link.getAttribute("href") || link.href, {
+      target: link.target || "",
+      label: `Open ${row.cells[0]?.textContent.trim() || "resource"}`,
+    });
+    lastCell.remove();
+  });
+
+  bindResourceRowLinks(table);
+}
+
 function hasResourceValue(value) {
   if (value === null || value === undefined) {
     return false;
@@ -1338,8 +1451,6 @@ function createFeaturedPaperRow(paper, cardBase) {
   const row = document.createElement("tr");
   const titleCell = document.createElement("td");
   const venueCell = document.createElement("td");
-  const linkCell = document.createElement("td");
-  const link = document.createElement("a");
   const venueText = [paper.venue, paper.year].filter(hasResourceValue).join(" ");
   const paperUrl = `${cardBase}?id=${encodeURIComponent(String(paper.id || ""))}`;
 
@@ -1349,10 +1460,10 @@ function createFeaturedPaperRow(paper, cardBase) {
 
   titleCell.textContent = String(paper.title || "");
   venueCell.textContent = venueText;
-  link.href = paperUrl;
-  decorateSourceLink(link, "View paper card", false);
-  linkCell.append(link);
-  row.append(titleCell, venueCell, linkCell);
+  setResourceRowLink(row, paperUrl, {
+    label: `Open ${paper.title || "paper"}`,
+  });
+  row.append(titleCell, venueCell);
   return row;
 }
 
@@ -1384,6 +1495,7 @@ async function initFeaturedPaperTable(table) {
       .slice(0, limit);
 
     tableBody.replaceChildren(...papers.map((paper) => createFeaturedPaperRow(paper, cardBase)));
+    bindResourceRowLinks(table);
   } catch {
     tableBody.replaceChildren();
   }
@@ -1437,7 +1549,6 @@ function createCombinedResourceRow(item) {
   const typeCell = document.createElement("td");
   const taskCell = document.createElement("td");
   const detailCell = document.createElement("td");
-  const linkCell = document.createElement("td");
   const typeTag = document.createElement("span");
 
   row.dataset.type = item.type;
@@ -1453,16 +1564,13 @@ function createCombinedResourceRow(item) {
   detailCell.textContent = item.detail;
 
   if (item.url) {
-    const link = document.createElement("a");
-
-    link.href = item.url;
-    link.target = "_blank";
-    link.rel = "noreferrer";
-    decorateSourceLink(link, `View ${item.type} card`, true);
-    linkCell.append(link);
+    setResourceRowLink(row, item.url, {
+      target: "_blank",
+      label: `Open ${item.title || item.typeLabel}`,
+    });
   }
 
-  row.append(titleCell, typeCell, taskCell, detailCell, linkCell);
+  row.append(titleCell, typeCell, taskCell, detailCell);
   return row;
 }
 
@@ -1635,6 +1743,7 @@ async function initCombinedResourceTable(table) {
       : sorted.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
     tableBody.replaceChildren(...visible.map(createCombinedResourceRow));
+    bindResourceRowLinks(table);
 
     if (count) {
       const label =
@@ -1701,6 +1810,8 @@ async function initCombinedResourceTable(table) {
 }
 
 document.querySelectorAll("[data-combined-resource-table]").forEach(initCombinedResourceTable);
+
+document.querySelectorAll(".resource-table-models").forEach(promoteLastLinkColumnToRows);
 
 function initResourceList(controls) {
   const section = controls.closest("section");
@@ -2085,6 +2196,17 @@ function initResourceList(controls) {
       row.append(cell);
     });
 
+    if (isPaperList) {
+      const paperUrl = getPaperCardUrl(data);
+
+      if (paperUrl) {
+        setResourceRowLink(row, paperUrl, {
+          paperListReturn: true,
+          label: `Open ${data.title || "paper"}`,
+        });
+      }
+    }
+
     return row;
   }
 
@@ -2280,6 +2402,7 @@ function initResourceList(controls) {
     });
 
     tableBody.replaceChildren(...visibleRows);
+    bindResourceRowLinks(table);
 
     count.textContent = `${matchingRows.length.toLocaleString()} ${countLabel}`;
     updateSortHeaders();
