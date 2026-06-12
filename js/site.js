@@ -1255,7 +1255,7 @@ function createResourceEditButton(resource) {
   );
   line.setAttribute("d", "m15 5 4 4");
   icon.append(path, line);
-  label.textContent = "Edit";
+  label.textContent = "Edit links";
   button.type = "button";
   button.className = "resource-edit-button";
   button.setAttribute("aria-label", `Edit links for ${title}`);

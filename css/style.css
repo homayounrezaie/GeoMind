@@ -676,7 +676,7 @@ body.is-submit-modal-open {
   padding: 15px 18px;
   background: #fffaf0;
   border: 1px solid #facc15;
-  border-radius: 8px;
+  border-radius: 3px;
   color: #86360c;
   font-size: 19px;
   line-height: 1.35;
@@ -729,7 +729,7 @@ body.is-submit-modal-open {
   padding: 0 22px;
   background: #fff;
   border: 3px solid #0f172a;
-  border-radius: 13px;
+  border-radius: 3px;
   color: #243044;
   font-size: 21px;
   line-height: 1;
@@ -754,7 +754,7 @@ body.is-submit-modal-open {
   padding: 0 22px;
   background: #8d939f;
   border: 0;
-  border-radius: 8px;
+  border-radius: 3px;
   color: #fff;
   cursor: pointer;
   font: inherit;
@@ -786,7 +786,7 @@ body.is-submit-modal-open {
   margin: 0;
   padding: 18px 20px;
   background: #fafafa;
-  border-radius: 10px;
+  border-radius: 3px;
   color: #62708a;
   font-size: 17px;
   line-height: 1.4;
@@ -800,7 +800,7 @@ body.is-submit-modal-open {
   min-height: 76px;
   padding: 16px 20px;
   background: #fbfcfe;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 
 .edit-modal-link-icon {
@@ -824,7 +824,7 @@ body.is-submit-modal-open {
   overflow: hidden;
   background: transparent;
   border: 0;
-  border-radius: 6px;
+  border-radius: 3px;
   color: #202124;
   font: inherit;
   font-size: 20px;
@@ -844,7 +844,7 @@ body.is-submit-modal-open {
   min-height: 34px;
   padding: 0 15px;
   background: #f1f5f9;
-  border-radius: 999px;
+  border-radius: 3px;
   color: #111827;
   font-size: 16px;
   font-weight: 500;
@@ -858,7 +858,7 @@ body.is-submit-modal-open {
   min-height: 46px;
   padding: 0 20px;
   background: #111827;
-  border-radius: 8px;
+  border-radius: 3px;
   color: #fff;
   font-size: 17px;
   font-weight: 500;
@@ -909,7 +909,7 @@ body.is-submit-modal-open {
   padding: 8px;
   background: #fff;
   border: 2px solid #d1d5db;
-  border-radius: 10px;
+  border-radius: 3px;
   color: #243044;
   cursor: pointer;
   font: inherit;
@@ -922,7 +922,7 @@ body.is-submit-modal-open {
   padding: 0 16px;
   background: #f1f5f9;
   border: 0;
-  border-radius: 7px;
+  border-radius: 3px;
   color: #111827;
   cursor: pointer;
   font: inherit;
@@ -1003,7 +1003,7 @@ body.is-submit-modal-open {
 .edit-modal .submit-modal-primary,
 .edit-modal .submit-modal-secondary {
   min-height: 56px;
-  border-radius: 8px;
+  border-radius: 3px;
   font-size: 21px;
   font-weight: 500;
 }
@@ -1394,7 +1394,7 @@ body.is-submit-modal-open {
   padding: 0 11px;
   background: #fff;
   border: 1px solid var(--soft-line);
-  border-radius: 999px;
+  border-radius: 3px;
   color: var(--text);
   cursor: pointer;
   font: inherit;
