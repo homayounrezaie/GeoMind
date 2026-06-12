@@ -759,48 +759,47 @@ body.is-submit-modal-open {
 
 .resource-save-button {
   display: inline-flex;
-  min-height: 40px;
+  width: 38px;
+  min-width: 38px;
+  min-height: 38px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 0 16px;
-  background: #fffdf9;
-  border: 1px solid #ded7cc;
-  border-radius: 8px;
-  color: #171717;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: #5fbf7a;
   cursor: pointer;
   font: inherit;
-  font-size: 15px;
-  font-weight: 500;
   letter-spacing: 0;
   line-height: 1;
-  white-space: nowrap;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
-    transform 160ms ease;
+  box-shadow: none;
+  transition: color 160ms ease, transform 160ms ease;
 }
 
 .resource-save-icon {
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   flex: 0 0 auto;
-  color: #5fbf7a;
 }
 
 .resource-save-button:hover,
 .resource-save-button:focus-visible {
-  background: #fff8ef;
-  border-color: #c8bdad;
-  color: #111;
+  background: transparent;
+  color: #46ad64;
   transform: translateY(-1px);
 }
 
+.resource-save-button:focus-visible {
+  outline: 2px solid rgba(95, 191, 122, 0.5);
+  outline-offset: 3px;
+}
+
 .resource-save-button.is-saved {
-  background: #f5f8ff;
-  border-color: #c9d8ff;
-  color: #1f5aa6;
+  background: transparent;
+  color: #46ad64;
 }
 
 .resource-save-button.is-saved .resource-save-icon path {
@@ -808,15 +807,14 @@ body.is-submit-modal-open {
 }
 
 .resource-title-cell .resource-save-button {
+  width: 32px;
+  min-width: 32px;
   min-height: 32px;
-  gap: 7px;
-  padding: 0 11px;
-  font-size: 12px;
 }
 
 .resource-title-cell .resource-save-icon {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
 }
 
 .org-tag {
@@ -2797,9 +2795,9 @@ body.is-submit-modal-open {
 
   .paper-card-title-row .resource-save-button,
   .model-card-title-row .resource-save-button {
+    width: 36px;
+    min-width: 36px;
     min-height: 36px;
-    padding: 0 13px;
-    font-size: 13px;
   }
 
   .paper-card-hero h1 {
@@ -3058,7 +3056,8 @@ body.is-submit-modal-open {
 
   .resource-title-cell .resource-save-button {
     min-height: 30px;
-    padding: 0 9px;
+    width: 30px;
+    min-width: 30px;
   }
 
   .browse-row {

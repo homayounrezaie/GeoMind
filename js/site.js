@@ -497,20 +497,19 @@ function createSaveIcon() {
 
 function createSaveButton({ type, id, title, url }) {
   const button = document.createElement("button");
-  const label = document.createElement("span");
   const key = getSavedResourceKey(type, id, title, url);
 
   function setState(isSaved) {
     button.classList.toggle("is-saved", isSaved);
     button.setAttribute("aria-pressed", String(isSaved));
     button.setAttribute("aria-label", `${isSaved ? "Unsave" : "Save"} ${title || "resource"}`);
-    label.textContent = isSaved ? "Saved" : "Save";
+    button.title = isSaved ? "Unsave" : "Save";
   }
 
   button.type = "button";
   button.className = "resource-save-button";
   button.dataset.saveKey = key;
-  button.append(createSaveIcon(), label);
+  button.append(createSaveIcon());
   setState(Boolean(getSavedResources()[key]));
 
   button.addEventListener("click", (event) => {
