@@ -716,6 +716,8 @@ function formatResourceLabel(value) {
     year: "Year",
     presentation: "Presentation",
     abstract: "Abstract",
+    citations: "Citations",
+    github_stars: "GitHub stars",
     links: "Links",
     pdf: "PDF",
     paper: "Paper",
@@ -1377,7 +1379,12 @@ function createFeaturedPaperRow(paper, cardBase) {
   }
 
   titleCell.textContent = String(paper.title || "");
-  venueCell.textContent = venueText;
+  venueCell.append(
+    createPaperMetadataStrip(paper, venueText, {
+      className: "paper-list-meta",
+      venueClassName: "paper-list-venue-tag",
+    })
+  );
   link.href = paperUrl;
   decorateSourceLink(link, "View paper card", false);
   linkCell.append(link);
@@ -2107,6 +2114,13 @@ function initResourceList(controls) {
         }
 
         cell.append(titleWrap);
+      } else if (isPaperList && field === "venueYear") {
+        cell.append(
+          createPaperMetadataStrip(data, getDynamicField(data, field), {
+            className: "paper-list-meta",
+            venueClassName: "paper-list-venue-tag",
+          })
+        );
       } else {
         cell.textContent = String(getDynamicField(data, field) || "");
       }
@@ -2552,6 +2566,82 @@ function formatPaperAuthors(authors) {
     .join(" · ");
 }
 
+function getNonNegativeCount(value) {
+  const count = Number(value);
+
+  if (!Number.isFinite(count) || count < 0) {
+    return 0;
+  }
+
+  return Math.round(count);
+}
+
+function formatPaperCount(value) {
+  return getNonNegativeCount(value).toLocaleString();
+}
+
+function getPaperCitationCount(data) {
+  return getNonNegativeCount(data?.citations);
+}
+
+function getPaperGithubStarCount(data) {
+  return getNonNegativeCount(data?.github_stars ?? data?.githubStars ?? data?.stars);
+}
+
+function createPaperGithubIcon() {
+  const icon = document.createElement("span");
+
+  icon.className = "source-icon source-icon-github paper-stat-github-icon";
+  icon.setAttribute("aria-hidden", "true");
+  return icon;
+}
+
+function createPaperStarIcon() {
+  const icon = document.createElement("span");
+
+  icon.className = "paper-stat-star-icon";
+  icon.setAttribute("aria-hidden", "true");
+  return icon;
+}
+
+function createPaperMetadataStrip(
+  data,
+  venueText = "",
+  { className = "paper-meta-strip", venueClassName = "paper-list-venue-tag" } = {}
+) {
+  const strip = document.createElement("div");
+  const citations = getPaperCitationCount(data);
+  const githubStars = getPaperGithubStarCount(data);
+  const citationItem = document.createElement("span");
+  const githubItem = document.createElement("span");
+
+  strip.className = className;
+
+  citationItem.className = "paper-stat paper-stat-citations";
+  citationItem.setAttribute("aria-label", `${formatPaperCount(citations)} citations`);
+  citationItem.textContent = `${formatPaperCount(citations)} citations`;
+  strip.append(citationItem);
+
+  githubItem.className = "paper-stat paper-stat-github";
+  githubItem.setAttribute("aria-label", `${formatPaperCount(githubStars)} GitHub stars`);
+  githubItem.append(
+    createPaperGithubIcon(),
+    document.createTextNode(formatPaperCount(githubStars)),
+    createPaperStarIcon()
+  );
+  strip.append(githubItem);
+
+  if (hasResourceValue(venueText)) {
+    const venue = document.createElement("span");
+
+    venue.className = venueClassName;
+    venue.textContent = String(venueText);
+    strip.append(venue);
+  }
+
+  return strip;
+}
+
 function getPaperLead(data, venueText = "") {
   if (hasResourceValue(data.presentation)) {
     return [data.presentation, venueText].filter(hasResourceValue).join(" ");
@@ -2889,7 +2979,6 @@ function renderPaperCard(container, data, images = []) {
   const article = document.createElement("article");
   const hero = document.createElement("header");
   const topbar = document.createElement("div");
-  const meta = document.createElement("p");
   const closeLink = document.createElement("a");
   const titleRow = document.createElement("div");
   const title = document.createElement("h1");
@@ -2898,6 +2987,12 @@ function renderPaperCard(container, data, images = []) {
   const hasPresentation = hasResourceValue(data.presentation);
   const leadText = getPaperLead(data, metaText);
   const shouldShowMetaTag = hasResourceValue(metaText) && !hasPresentation;
+  const metaStrip = shouldShowMetaTag
+    ? createPaperMetadataStrip(data, metaText, {
+        className: "paper-card-meta-strip",
+        venueClassName: "paper-card-meta paper-card-venue-tag",
+      })
+    : null;
   const editResource = {
     type: "paper",
     id: data.id,
@@ -2913,8 +3008,6 @@ function renderPaperCard(container, data, images = []) {
   hero.className = "paper-card-hero";
   topbar.className = "paper-card-topbar";
   titleRow.className = "paper-card-title-row";
-  meta.className = "paper-card-meta paper-card-venue-tag";
-  meta.textContent = metaText || "Paper";
   closeLink.className = "paper-card-close";
   closeLink.href = getPaperCardReturnUrl();
   closeLink.setAttribute("aria-label", "Close paper card");
@@ -2961,8 +3054,8 @@ function renderPaperCard(container, data, images = []) {
     headingRow.className = "paper-card-section-head";
     heading.textContent = "Abstract";
     headingRow.append(heading);
-    if (shouldShowMetaTag) {
-      headingRow.append(meta);
+    if (metaStrip) {
+      headingRow.append(metaStrip);
     }
     abstract.append(headingRow);
     setupExpandableAbstract(abstract, appendText(abstract, data.abstract));

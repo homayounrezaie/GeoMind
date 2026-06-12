@@ -1506,6 +1506,68 @@ body.is-submit-modal-open {
   line-height: 1.35;
 }
 
+.paper-list-meta,
+.paper-meta-strip,
+.paper-card-meta-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px 8px;
+  flex-wrap: wrap;
+}
+
+.paper-list-meta {
+  justify-content: flex-start;
+}
+
+.paper-card-meta-strip {
+  justify-content: flex-end;
+}
+
+.paper-stat {
+  display: inline-flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 4px;
+  color: #667085;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.paper-stat-github-icon {
+  width: 13px;
+  height: 13px;
+  background: currentColor;
+  color: #5f6368;
+}
+
+.paper-stat-star-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  color: #8b94a3;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m8 1.15 2.08 4.22 4.66.68-3.37 3.28.8 4.64L8 11.78 3.83 13.97l.8-4.64-3.37-3.28 4.66-.68L8 1.15Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m8 1.15 2.08 4.22 4.66.68-3.37 3.28.8 4.64L8 11.78 3.83 13.97l.8-4.64-3.37-3.28 4.66-.68L8 1.15Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.paper-list-venue-tag {
+  display: inline-flex;
+  min-height: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  background: #eaf2ff;
+  border: 1px solid #d4e3ff;
+  border-radius: 999px;
+  color: #1f5aa6;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .source-link {
   display: inline-flex;
   align-items: center;
@@ -1633,12 +1695,12 @@ body.is-submit-modal-open {
 
 .resource-table-papers th:first-child,
 .resource-table-papers td:first-child {
-  width: 58%;
+  width: 52%;
 }
 
 .resource-table-papers th:nth-child(2),
 .resource-table-papers td:nth-child(2) {
-  width: 18%;
+  width: 24%;
 }
 
 .resource-table-papers th:nth-child(3),
