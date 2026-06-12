@@ -1001,23 +1001,6 @@ function createResourceEditButton(resource) {
   return button;
 }
 
-function appendEditButtonToLinkCell(cell, resource) {
-  if (!cell || cell.querySelector(".resource-edit-button")) {
-    return null;
-  }
-
-  const actions = document.createElement("div");
-  const editButton = createResourceEditButton(resource);
-
-  actions.className = "resource-link-actions";
-  while (cell.firstChild) {
-    actions.append(cell.firstChild);
-  }
-  actions.append(editButton);
-  cell.append(actions);
-  return editButton;
-}
-
 function createPaperResourceIcon(key) {
   const meta = getPaperResourceMeta(key);
 
@@ -1116,14 +1099,6 @@ function createFeaturedPaperRow(paper, cardBase) {
   link.href = paperUrl;
   decorateSourceLink(link, "View paper card", false);
   linkCell.append(link);
-  appendEditButtonToLinkCell(linkCell, {
-    type: "paper",
-    id: paper.id,
-    title: paper.title,
-    url: paperUrl,
-    links: paper.links,
-    images: paper.images,
-  });
   row.append(titleCell, venueCell, linkCell);
   return row;
 }
@@ -1233,16 +1208,6 @@ function createCombinedResourceRow(item) {
     decorateSourceLink(link, `View ${item.type} card`, true);
     linkCell.append(link);
   }
-
-  appendEditButtonToLinkCell(linkCell, {
-    type: item.type,
-    id: item.id,
-    title: item.title,
-    url: item.url,
-    links: {
-      [item.type]: item.url,
-    },
-  });
 
   row.append(titleCell, typeCell, taskCell, detailCell, linkCell);
   return row;
@@ -1771,16 +1736,6 @@ function initResourceList(controls) {
         }
         decorateSourceLink(link, cardLinkLabel, showSourceIcons);
         cell.append(link);
-        if (isPaperList && field === "sourceUrl") {
-          appendEditButtonToLinkCell(cell, {
-            type: "paper",
-            id: data.id,
-            title: data.title,
-            url,
-            links: data.links,
-            images: data.images,
-          });
-        }
       } else if (isPaperList && field === "title") {
         const titleWrap = document.createElement("div");
         const title = document.createElement("span");
@@ -1992,10 +1947,6 @@ function initResourceList(controls) {
     const pageEnd = pageStart + pageSize;
     const visibleRows = matchingRows.slice(pageStart, pageEnd).map((item) => {
       if (item.row) {
-        if (table?.classList.contains("resource-table-models")) {
-          decorateStaticModelRow(item.row, item.index);
-        }
-
         return item.row;
       }
 
@@ -2045,29 +1996,6 @@ function initResourceList(controls) {
 }
 
 document.querySelectorAll("[data-resource-list]").forEach(initResourceList);
-
-function decorateStaticModelRow(row, index = 0) {
-  const titleCell = row?.cells?.[0];
-  const linkCell = row?.cells?.[row.cells.length - 1];
-  const link = linkCell?.querySelector("a");
-  const title = titleCell?.textContent.trim() || "";
-  const id = row?.dataset?.id || link?.href || title || index;
-  const url = link?.href || "";
-
-  appendEditButtonToLinkCell(linkCell, {
-    type: "model",
-    id,
-    title,
-    url,
-    links: {
-      model: url,
-    },
-  });
-}
-
-function initStaticModelTableActions(table) {
-  table.querySelectorAll("tbody tr").forEach((row, index) => decorateStaticModelRow(row, index));
-}
 
 function initModelCardSaveButtons() {
   document.querySelectorAll(".model-card-hero").forEach((hero) => {
@@ -2153,7 +2081,6 @@ function initModelCardResourceEditButtons() {
   });
 }
 
-document.querySelectorAll(".resource-table-models").forEach(initStaticModelTableActions);
 initModelCardSaveButtons();
 initModelCardResourceEditButtons();
 
