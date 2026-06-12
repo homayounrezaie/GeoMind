@@ -434,6 +434,7 @@ h2 {
   font-size: 16px;
   font-weight: 450;
   line-height: 1;
+  text-align: right;
   white-space: nowrap;
 }
 
@@ -2351,8 +2352,11 @@ h2 {
     grid-template-columns: minmax(150px, auto) minmax(0, 1fr);
   }
 
-  .combined-controls .resource-count {
+  .resource-controls .resource-count {
     grid-column: 1 / -1;
+    justify-content: flex-start;
+    min-height: auto;
+    text-align: left;
   }
 
   .paper-controls .filter-control {

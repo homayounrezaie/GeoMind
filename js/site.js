@@ -1319,7 +1319,7 @@ function initResourceList(controls) {
 
     tableBody.replaceChildren(...visibleRows);
 
-    count.textContent = `${totalCount.toLocaleString()} ${countLabel}`;
+    count.textContent = `${matchingRows.length.toLocaleString()} from ${totalCount.toLocaleString()} ${countLabel}`;
     updateSortHeaders();
     renderPager(matchingRows.length);
   }
