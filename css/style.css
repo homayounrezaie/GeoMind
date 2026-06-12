@@ -2684,22 +2684,50 @@ body.is-submit-modal-open {
 }
 
 .submit-choice-hero {
-  margin-bottom: 42px;
+  margin-bottom: 44px;
 }
 
 .submit-choice-hero h1 {
-  margin-bottom: 18px;
-  font-size: clamp(52px, 7vw, 88px);
-  font-weight: 450;
-  line-height: 1;
+  max-width: 820px;
+  margin: 0 0 10px;
+  color: #171717;
+  font-family: Inter, "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: clamp(32px, 3.1vw, 42px);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.12;
 }
 
 .submit-choice-hero p {
-  max-width: 640px;
-  margin-bottom: 0;
-  color: #4d5560;
-  font-size: 22px;
+  max-width: 840px;
+  margin: 0 0 30px;
+  color: #62708a;
+  font-family: Inter, "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: 400;
   line-height: 1.35;
+}
+
+.submit-choice-review-note {
+  display: grid;
+  gap: 6px;
+  max-width: 100%;
+  padding: 15px 18px;
+  background: #fffaf0;
+  border: 1px solid #facc15;
+  border-radius: 3px;
+  color: #86360c;
+  font-family: Inter, "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.submit-choice-review-note strong {
+  font-weight: 500;
+}
+
+.submit-choice-review-note span {
+  font-weight: 400;
 }
 
 .submit-choice-grid {
@@ -3934,11 +3962,16 @@ body.is-submit-modal-open {
   }
 
   .submit-choice-hero h1 {
-    font-size: clamp(42px, 14vw, 64px);
+    font-size: clamp(28px, 9vw, 38px);
   }
 
   .submit-choice-hero p {
-    font-size: 18px;
+    margin-bottom: 22px;
+    font-size: 17px;
+  }
+
+  .submit-choice-review-note {
+    font-size: 15px;
   }
 
   .submit-choice-grid {
