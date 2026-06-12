@@ -4,10 +4,16 @@ const paperListReturnStorageKey = "geomind:paper-list-return-url";
 
 function getHeaderUserIconMarkup() {
   return `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="9"></circle>
-      <circle cx="12" cy="10" r="3"></circle>
-      <path d="M7.2 18.6c.9-2.3 2.6-3.5 4.8-3.5s3.9 1.2 4.8 3.5"></path>
+    <svg class="geomind-user-icon" viewBox="0 0 32 32" aria-hidden="true">
+      <path class="geomind-user-link" d="M7 10 15 6 24 8 26 17 22 25 12 25 6 18Z"></path>
+      <circle class="geomind-user-node geomind-user-node-cyan" cx="7" cy="10" r="2.4"></circle>
+      <circle class="geomind-user-node geomind-user-node-cyan" cx="15" cy="6" r="2.4"></circle>
+      <circle class="geomind-user-node geomind-user-node-yellow" cx="24" cy="8" r="2.4"></circle>
+      <circle class="geomind-user-node geomind-user-node-yellow" cx="26" cy="17" r="2.4"></circle>
+      <circle class="geomind-user-node geomind-user-node-pink" cx="22" cy="25" r="2.4"></circle>
+      <circle class="geomind-user-node geomind-user-node-cyan" cx="6" cy="18" r="2.4"></circle>
+      <circle class="geomind-user-head" cx="16" cy="14.2" r="3.2"></circle>
+      <path class="geomind-user-body" d="M9.8 23.1c1.1-3 3.2-4.6 6.2-4.6s5.1 1.6 6.2 4.6"></path>
     </svg>
   `;
 }
