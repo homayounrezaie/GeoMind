@@ -1290,7 +1290,7 @@ body.is-submit-modal-open {
   background: transparent;
   border: 0;
   border-radius: 999px;
-  color: #5fbf7a;
+  color: #202124;
   cursor: pointer;
   font: inherit;
   letter-spacing: 0;
@@ -1309,18 +1309,18 @@ body.is-submit-modal-open {
 .resource-save-button:hover,
 .resource-save-button:focus-visible {
   background: transparent;
-  color: #46ad64;
+  color: #111827;
   transform: translateY(-1px);
 }
 
 .resource-save-button:focus-visible {
-  outline: 2px solid rgba(95, 191, 122, 0.5);
+  outline: 2px solid rgba(17, 24, 39, 0.28);
   outline-offset: 3px;
 }
 
 .resource-save-button.is-saved {
   background: transparent;
-  color: #46ad64;
+  color: #111827;
 }
 
 .resource-save-button.is-saved .resource-save-icon path {
