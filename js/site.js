@@ -737,13 +737,26 @@ function isValidResourceUrl(value) {
 }
 
 function getPaperResourceMeta(key) {
-  return (
-    paperResourceMeta[key] || {
-      label: formatResourceLabel(key),
-      order: 100,
-      icon: paperResourceMeta.project_page.icon,
-    }
-  );
+  const normalizedKey = String(key).replace(/_\d+$/, "");
+  const baseMeta = paperResourceMeta[key] || paperResourceMeta[normalizedKey];
+
+  if (baseMeta) {
+    const suffix = String(key).match(/_(\d+)$/)?.[1];
+
+    return suffix && !paperResourceMeta[key]
+      ? {
+          ...baseMeta,
+          label: `${baseMeta.label} ${suffix}`,
+          order: baseMeta.order + Number(suffix) / 100,
+        }
+      : baseMeta;
+  }
+
+  return {
+    label: formatResourceLabel(key),
+    order: 100,
+    icon: paperResourceMeta.project_page.icon,
+  };
 }
 
 const editableResourceLinkKeys = [
@@ -755,6 +768,7 @@ const editableResourceLinkKeys = [
   "paperswithcode",
   "checkpoints",
   "video",
+  "demo",
   "dataset",
   "benchmark",
   "model",
@@ -767,23 +781,53 @@ function getResourceEditTitle(resource) {
   return String(resource?.title || resource?.name || "resource").trim();
 }
 
+function getResourceFallbackLinkKey(resource) {
+  return resource.type === "dataset"
+    ? "dataset"
+    : resource.type === "benchmark"
+      ? "benchmark"
+      : resource.type === "model"
+        ? "model"
+        : "project_page";
+}
+
+function getResourceLinkSortOrder(key) {
+  const normalizedKey = String(key).replace(/_\d+$/, "");
+  const meta = paperResourceMeta[key] || paperResourceMeta[normalizedKey];
+
+  return meta?.order ?? 100;
+}
+
+function getEditableResourceLinkKeys(resource, links = resource?.links || {}) {
+  const keys = new Set(editableResourceLinkKeys);
+
+  Object.keys(links || {}).forEach((key) => {
+    if (key) {
+      keys.add(key);
+    }
+  });
+
+  if (hasResourceValue(resource?.url)) {
+    keys.add(getResourceFallbackLinkKey(resource));
+  }
+
+  return Array.from(keys).sort(
+    (firstKey, secondKey) =>
+      getResourceLinkSortOrder(firstKey) - getResourceLinkSortOrder(secondKey) ||
+      firstKey.localeCompare(secondKey)
+  );
+}
+
 function getResourceEditLinks(resource) {
   const links = {};
   const resourceLinks = resource?.links || {};
 
-  editableResourceLinkKeys.forEach((key) => {
+  getEditableResourceLinkKeys(resource, resourceLinks).forEach((key) => {
     links[key] = hasResourceValue(resourceLinks[key]) ? String(resourceLinks[key]).trim() : "";
   });
 
   if (hasResourceValue(resource?.url)) {
-    const urlKey =
-      resource.type === "dataset"
-        ? "dataset"
-        : resource.type === "benchmark"
-          ? "benchmark"
-          : resource.type === "model"
-            ? "model"
-            : "project_page";
+    const urlKey = getResourceFallbackLinkKey(resource);
 
     links[urlKey] = links[urlKey] || String(resource.url).trim();
   }
@@ -812,7 +856,7 @@ function getResourceEditIssueUrl(resource, links, images) {
   const issueUrl = new URL(submitIssueUrl);
   const resourceTitle = getResourceEditTitle(resource);
   const resourceType = String(resource?.type || "resource");
-  const linkRows = editableResourceLinkKeys.map((key) => {
+  const linkRows = getEditableResourceLinkKeys(resource, links).map((key) => {
     const label = getPaperResourceMeta(key).label;
     const value = links[key]?.trim() || "";
 
@@ -839,9 +883,119 @@ function getResourceEditIssueUrl(resource, links, images) {
   return issueUrl.toString();
 }
 
+function getResourceEditModalTitle(resource) {
+  const type = String(resource?.type || "resource").toLowerCase();
+  const label =
+    type === "paper"
+      ? "Paper"
+      : type === "dataset"
+        ? "Dataset"
+        : type === "benchmark"
+          ? "Benchmark"
+          : type === "model"
+            ? "Model"
+            : "Resource";
+
+  return `Edit ${label} Links`;
+}
+
+function getResourceEditModalDescription(resource) {
+  const type = String(resource?.type || "resource").toLowerCase();
+  const label =
+    type === "paper"
+      ? "this paper"
+      : type === "dataset"
+        ? "this dataset"
+        : type === "benchmark"
+          ? "this benchmark"
+          : type === "model"
+            ? "this model"
+            : "this resource";
+
+  return `Add, remove, or update URLs associated with ${label}. Include project pages, code, datasets, checkpoints, videos, and other official links.`;
+}
+
+function inferResourceEditLinkKey(value) {
+  let url = null;
+
+  try {
+    url = new URL(value);
+  } catch {
+    return "project_page";
+  }
+
+  const host = url.hostname.replace(/^www\./, "").toLowerCase();
+  const path = url.pathname.toLowerCase();
+
+  if (host === "arxiv.org") {
+    return "arxiv";
+  }
+
+  if (host.includes("youtube.com") || host.includes("youtu.be") || host.includes("vimeo.com")) {
+    return "video";
+  }
+
+  if (host === "paperswithcode.com" || host.endsWith(".paperswithcode.com")) {
+    return "paperswithcode";
+  }
+
+  if (host === "github.com" || host === "gitlab.com" || host === "bitbucket.org") {
+    return "code";
+  }
+
+  if (host === "huggingface.co") {
+    if (path.startsWith("/datasets/")) {
+      return "dataset";
+    }
+
+    return "model";
+  }
+
+  if (path.endsWith(".pdf")) {
+    return "pdf";
+  }
+
+  return "project_page";
+}
+
+function getUniqueResourceEditLinkKey(baseKey, links) {
+  if (!hasResourceValue(links[baseKey])) {
+    return baseKey;
+  }
+
+  for (let index = 2; index < 100; index += 1) {
+    const key = `${baseKey}_${index}`;
+
+    if (!hasResourceValue(links[key])) {
+      return key;
+    }
+  }
+
+  return `${baseKey}_${Date.now()}`;
+}
+
+function createEditModalRemoveIcon() {
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  const line = document.createElementNS("http://www.w3.org/2000/svg", "path");
+
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("fill", "none");
+  icon.setAttribute("stroke", "currentColor");
+  icon.setAttribute("stroke-width", "2");
+  icon.setAttribute("stroke-linecap", "round");
+  icon.setAttribute("stroke-linejoin", "round");
+  icon.setAttribute("aria-hidden", "true");
+  path.setAttribute("d", "M3 6h18M8 6V4h8v2m-9 0 1 16h8l1-16");
+  line.setAttribute("d", "M10 11v6M14 11v6");
+  icon.append(path, line);
+  return icon;
+}
+
 function createResourceEditModal() {
   const modal = document.createElement("div");
   let activeResource = null;
+  let activeLinks = {};
   let previousFocus = null;
 
   modal.className = "submit-modal edit-modal";
@@ -849,25 +1003,40 @@ function createResourceEditModal() {
   modal.innerHTML = `
     <div class="submit-modal-panel edit-modal-panel" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title" aria-describedby="edit-modal-description">
       <button class="submit-modal-close" type="button" aria-label="Close edit dialog" data-edit-modal-close></button>
-      <h2 id="edit-modal-title">Edit links</h2>
+      <h2 id="edit-modal-title"></h2>
       <p id="edit-modal-description" class="submit-modal-description"></p>
+      <div class="edit-modal-review-note">
+        <strong>Your changes will be reviewed by an admin.</strong>
+        <span>Submissions are queued for review and do not change the page until an admin approves them.</span>
+      </div>
       <form class="submit-modal-form edit-modal-form" novalidate>
+        <label class="edit-modal-add-label" for="edit-modal-add-url">Add Link URL</label>
+        <div class="edit-modal-add-row">
+          <input id="edit-modal-add-url" type="url" autocomplete="url" inputmode="url" placeholder="https://example.com/project" />
+          <button class="edit-modal-add-button" type="button" data-edit-modal-add>
+            <span aria-hidden="true">+</span>
+            Add
+          </button>
+        </div>
         <div class="edit-modal-fields"></div>
         <label class="edit-modal-images-label" for="edit-modal-images">Image URLs</label>
         <textarea id="edit-modal-images" rows="4" placeholder="https://example.com/image-1.png&#10;https://example.com/image-2.png"></textarea>
         <p class="submit-modal-hint">Use full http(s) URLs. Put one image URL per line.</p>
         <p class="submit-modal-error" role="alert" hidden></p>
         <div class="submit-modal-actions">
-          <button class="submit-modal-primary" type="submit">Submit edits</button>
+          <button class="submit-modal-primary" type="submit">Submit for review</button>
           <button class="submit-modal-secondary" type="button" data-edit-modal-cancel>Cancel</button>
         </div>
       </form>
     </div>
   `;
 
+  const title = modal.querySelector("#edit-modal-title");
   const description = modal.querySelector("#edit-modal-description");
   const form = modal.querySelector(".edit-modal-form");
   const fields = modal.querySelector(".edit-modal-fields");
+  const addInput = modal.querySelector("#edit-modal-add-url");
+  const addButton = modal.querySelector("[data-edit-modal-add]");
   const imagesInput = modal.querySelector("#edit-modal-images");
   const error = modal.querySelector(".submit-modal-error");
   const closeButtons = Array.from(
@@ -882,40 +1051,113 @@ function createResourceEditModal() {
     activeResource = null;
   }
 
-  function renderFields(resource) {
-    const links = getResourceEditLinks(resource);
+  function collectLinkInputs() {
+    const links = { ...activeLinks };
 
-    fields.replaceChildren(
-      ...editableResourceLinkKeys.map((key) => {
-        const field = document.createElement("label");
-        const label = document.createElement("span");
-        const input = document.createElement("input");
+    fields.querySelectorAll(".edit-modal-link-input").forEach((input) => {
+      const value = input.value.trim();
 
-        field.className = "edit-modal-field";
-        label.textContent = getPaperResourceMeta(key).label;
-        input.type = "url";
-        input.autocomplete = "url";
-        input.inputMode = "url";
-        input.name = key;
-        input.placeholder = "https://...";
-        input.value = links[key] || "";
-        field.append(label, input);
-        return field;
-      })
+      links[input.name] = value;
+    });
+
+    activeLinks = links;
+    return links;
+  }
+
+  function renderLinkRows() {
+    const rows = getEditableResourceLinkKeys(activeResource, activeLinks).filter((key) =>
+      hasResourceValue(activeLinks[key])
     );
+
+    fields.replaceChildren();
+
+    if (!rows.length) {
+      const empty = document.createElement("p");
+
+      empty.className = "edit-modal-empty";
+      empty.textContent = "No links yet. Add a URL above.";
+      fields.append(empty);
+      return;
+    }
+
+    rows.forEach((key) => {
+      const row = document.createElement("div");
+      const icon = document.createElement("span");
+      const input = document.createElement("input");
+      const type = document.createElement("span");
+      const official = document.createElement("span");
+      const remove = document.createElement("button");
+      const meta = getPaperResourceMeta(key);
+
+      row.className = "edit-modal-link-row";
+      row.dataset.linkKey = key;
+      icon.className = "edit-modal-link-icon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.append(createPaperResourceIcon(key));
+      input.className = "edit-modal-link-input";
+      input.type = "url";
+      input.autocomplete = "url";
+      input.inputMode = "url";
+      input.name = key;
+      input.value = activeLinks[key] || "";
+      input.setAttribute("aria-label", `${meta.label} URL`);
+      type.className = "edit-modal-link-type";
+      type.textContent = meta.label;
+      official.className = "edit-modal-official-pill";
+      official.textContent = "Official";
+      remove.className = "edit-modal-remove";
+      remove.type = "button";
+      remove.setAttribute("aria-label", `Remove ${meta.label} link`);
+      remove.append(createEditModalRemoveIcon());
+      remove.addEventListener("click", () => {
+        collectLinkInputs();
+        delete activeLinks[key];
+        renderLinkRows();
+      });
+
+      row.append(icon, input, type, official, remove);
+      fields.append(row);
+    });
+  }
+
+  function addLinkFromInput() {
+    const value = addInput.value.trim();
+
+    error.textContent = "";
+    error.hidden = true;
+
+    if (!value) {
+      addInput.focus();
+      return;
+    }
+
+    if (!isHttpUrl(value)) {
+      error.textContent = "Use a full http(s) URL before adding it.";
+      error.hidden = false;
+      addInput.focus();
+      return;
+    }
+
+    collectLinkInputs();
+    activeLinks[getUniqueResourceEditLinkKey(inferResourceEditLinkKey(value), activeLinks)] = value;
+    addInput.value = "";
+    renderLinkRows();
   }
 
   function openModal(resource, trigger) {
     activeResource = resource || {};
+    activeLinks = getResourceEditLinks(activeResource);
     previousFocus = trigger || document.activeElement;
-    description.textContent = `Update links or add image URLs for ${getResourceEditTitle(activeResource)}.`;
+    title.textContent = getResourceEditModalTitle(activeResource);
+    description.textContent = getResourceEditModalDescription(activeResource);
     error.textContent = "";
     error.hidden = true;
-    renderFields(activeResource);
+    addInput.value = "";
+    renderLinkRows();
     imagesInput.value = getResourceEditImages(activeResource).join("\n");
     modal.hidden = false;
     document.body.classList.add("is-submit-modal-open");
-    window.setTimeout(() => fields.querySelector("input")?.focus(), 0);
+    window.setTimeout(() => addInput.focus(), 0);
   }
 
   closeButtons.forEach((button) => {
@@ -928,8 +1170,16 @@ function createResourceEditModal() {
     }
   });
 
+  addButton.addEventListener("click", addLinkFromInput);
+  addInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      addLinkFromInput();
+    }
+  });
+
   form.addEventListener("submit", (event) => {
-    const links = {};
+    const links = collectLinkInputs();
     const invalidLabels = [];
     const imageUrls = imagesInput.value
       .split(/\n+/)
@@ -938,11 +1188,7 @@ function createResourceEditModal() {
 
     event.preventDefault();
 
-    fields.querySelectorAll("input").forEach((input) => {
-      const value = input.value.trim();
-      const key = input.name;
-
-      links[key] = value;
+    Object.entries(links).forEach(([key, value]) => {
       if (value && !isHttpUrl(value)) {
         invalidLabels.push(getPaperResourceMeta(key).label);
       }
