@@ -21,9 +21,9 @@
         <span>GeoMind</span>
       </a>
       <nav class="main-nav" aria-label="Main navigation">
+        <a href="pages/papers.html">Papers with Code</a>
         <a href="pages/models.html">Models</a>
         <a href="pages/datasets.html">Datasets &amp; Benchmarks</a>
-        <a href="pages/papers.html">Papers with Code</a>
       </nav>
     </header>
 
@@ -39,10 +39,21 @@
       <nav class="category-tabs" aria-label="GeoMind categories">
         <button
           class="category-tab is-active"
-          id="tab-models"
+          id="tab-papers"
           type="button"
           role="tab"
           aria-selected="true"
+          aria-controls="papers"
+          data-tab-target="papers"
+        >
+          Papers with Code
+        </button>
+        <button
+          class="category-tab"
+          id="tab-models"
+          type="button"
+          role="tab"
+          aria-selected="false"
           aria-controls="models"
           data-tab-target="models"
         >
@@ -59,21 +70,38 @@
         >
           Datasets &amp; Benchmarks
         </button>
-        <button
-          class="category-tab"
-          id="tab-papers"
-          type="button"
-          role="tab"
-          aria-selected="false"
-          aria-controls="papers"
-          data-tab-target="papers"
-        >
-          Papers with Code
-        </button>
       </nav>
 
       <section
         class="content-section resource-panel is-active"
+        id="papers"
+        data-panel="papers"
+        role="tabpanel"
+        aria-labelledby="tab-papers"
+      >
+        <div class="section-heading">
+          <h2 id="papers-title">Papers with Code <span class="section-count" data-count-source="data/papers.json?v=20260612-7" data-count-label="papers with code" aria-live="polite"></span></h2>
+        </div>
+
+        <div class="resource-table-wrap">
+          <table class="resource-table resource-table-papers" data-featured-paper-table data-resource-src="data/papers.json?v=20260612-7" data-paper-images="data/paper-images.json?v=20260611-7" data-featured-limit="5" data-paper-card-base="pages/paper.html">
+            <thead>
+              <tr>
+                <th scope="col">Paper with Code title</th>
+                <th scope="col">Venue / Year</th>
+                <th scope="col"><span class="visually-hidden">Link</span></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="browse-row">
+          <a class="gradient-text" href="pages/papers.html">Browse all papers with code</a>
+        </div>
+      </section>
+
+      <section
+        class="content-section resource-panel"
         id="models"
         data-panel="models"
         role="tabpanel"
@@ -204,33 +232,6 @@
         </div>
       </section>
 
-      <section
-        class="content-section resource-panel"
-        id="papers"
-        data-panel="papers"
-        role="tabpanel"
-        aria-labelledby="tab-papers"
-      >
-        <div class="section-heading">
-          <h2 id="papers-title">Papers with Code <span class="section-count" data-count-source="data/papers.json?v=20260612-7" data-count-label="papers with code" aria-live="polite"></span></h2>
-        </div>
-
-        <div class="resource-table-wrap">
-          <table class="resource-table resource-table-papers" data-featured-paper-table data-resource-src="data/papers.json?v=20260612-7" data-paper-images="data/paper-images.json?v=20260611-7" data-featured-limit="5" data-paper-card-base="pages/paper.html">
-            <thead>
-              <tr>
-                <th scope="col">Paper with Code title</th>
-                <th scope="col">Venue / Year</th>
-                <th scope="col"><span class="visually-hidden">Link</span></th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div class="browse-row">
-          <a class="gradient-text" href="pages/papers.html">Browse all papers with code</a>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer" aria-label="GeoMind footer">
