@@ -1051,8 +1051,17 @@ function initResourceList(controls) {
   let totalCount = 0;
 
   count.className = "resource-count";
+  if (isPaperList) {
+    count.classList.add("resource-count-under-search");
+  }
   count.setAttribute("aria-live", "polite");
-  searchInput?.closest(".search-control")?.after(count);
+
+  const searchControl = searchInput?.closest(".search-control");
+  if (isPaperList && searchControl) {
+    searchControl.append(count);
+  } else {
+    searchControl?.after(count);
+  }
 
   pager.className = "table-pager";
   pager.setAttribute("aria-label", "Table pagination");
@@ -1526,7 +1535,9 @@ function initResourceList(controls) {
 
     tableBody.replaceChildren(...visibleRows);
 
-    count.textContent = `${matchingRows.length.toLocaleString()} from ${totalCount.toLocaleString()} ${countLabel}`;
+    count.textContent = isPaperList
+      ? `${matchingRows.length.toLocaleString()} ${countLabel}`
+      : `${matchingRows.length.toLocaleString()} from ${totalCount.toLocaleString()} ${countLabel}`;
     updateSortHeaders();
     renderPager(matchingRows.length);
   }
