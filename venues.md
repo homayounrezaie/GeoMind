@@ -21,23 +21,11 @@ Papers: https://proceedings.mlr.press/
 NeurIPS (Annual)   2013-Present
 Papers: https://papers.nips.cc/
 
-AAAI (Annual)      2013-Present
-Papers: https://ojs.aaai.org/index.php/AAAI
+WACV:
+2019, 2018, 2017, 2016, 2015, 2014, 2013
 
-IJCAI (Annual)     2013-Present
-Papers: https://www.ijcai.org/proceedings/
+ECCV:
+2022, 2016, 2014
 
-KDD (Annual)       2013-Present
-Papers: https://dl.acm.org/conference/kdd
-
-AISTATS (Annual)   2013-Present
-Papers: https://proceedings.mlr.press/
-
-CoRL (Annual)      2017-Present
-Papers: https://proceedings.mlr.press/
-
-ACL (Annual)       2013-Present
-Papers: https://aclanthology.org/events/acl/
-
-EMNLP (Annual)     2013-Present
-Papers: https://aclanthology.org/events/emnlp/
+ACCV:
+2018, 2016, 2014
