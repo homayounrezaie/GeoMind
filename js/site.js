@@ -1531,6 +1531,74 @@ function initResourceList(controls) {
       isLink: header.dataset.linkField === "true" || header.dataset.field === "sourceUrl",
     })
   );
+  const paperListState = getPaperListUrlState();
+  let pendingVenue = isPaperList ? paperListState.venue : "";
+
+  if (isPaperList && searchInput) {
+    searchInput.value = paperListState.query;
+    currentPage = paperListState.page;
+  }
+
+  function getPaperListUrlState() {
+    if (!isPaperList) {
+      return { query: "", venue: "", page: 1 };
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const page = Math.max(1, Number.parseInt(params.get("page") || "1", 10) || 1);
+
+    return {
+      query: params.get("q") || "",
+      venue: params.get("venue") || "",
+      page,
+    };
+  }
+
+  function updatePaperListUrlState() {
+    if (!isPaperList || !window.history?.replaceState) {
+      return;
+    }
+
+    const url = new URL(window.location.href);
+    const query = (searchInput?.value || "").trim();
+    const venue = venueFilter?.value || "";
+
+    if (query) {
+      url.searchParams.set("q", query);
+    } else {
+      url.searchParams.delete("q");
+    }
+
+    if (venue) {
+      url.searchParams.set("venue", venue);
+    } else {
+      url.searchParams.delete("venue");
+    }
+
+    if (currentPage > 1) {
+      url.searchParams.set("page", String(currentPage));
+    } else {
+      url.searchParams.delete("page");
+    }
+
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }
+
+  function addPaperListReturnToLink(link) {
+    if (!isPaperList || !link?.href) {
+      return;
+    }
+
+    const url = new URL(link.href, window.location.href);
+
+    if (!url.pathname.endsWith("/paper.html") || !url.searchParams.has("id")) {
+      return;
+    }
+
+    updatePaperListUrlState();
+    url.searchParams.set("from", window.location.href);
+    link.href = url.toString();
+  }
 
   function getSelectedCompany() {
     return (
@@ -1661,7 +1729,7 @@ function initResourceList(controls) {
       return;
     }
 
-    const selectedVenue = venueFilter.value;
+    const selectedVenue = pendingVenue || venueFilter.value;
     const allOption = document.createElement("option");
     const venueOptions = new Map();
 
@@ -1690,6 +1758,7 @@ function initResourceList(controls) {
 
     venueFilter.replaceChildren(allOption, ...options);
     venueFilter.value = venueOptions.has(selectedVenue) ? selectedVenue : "";
+    pendingVenue = "";
   }
 
   function getDynamicField(data, field) {
@@ -1824,13 +1893,13 @@ function initResourceList(controls) {
 
       rows = items.map(normalizeDynamicItem);
       totalCount = rows.length;
-      currentPage = 1;
+      currentPage = isPaperList ? paperListState.page : 1;
       populateVenueFilter(rows);
       applyState();
     } catch {
       rows = fallbackRows;
       totalCount = rows.length;
-      currentPage = 1;
+      currentPage = isPaperList ? paperListState.page : 1;
       populateVenueFilter(rows);
       applyState();
     }
@@ -1978,6 +2047,7 @@ function initResourceList(controls) {
     count.textContent = `${matchingRows.length.toLocaleString()} ${countLabel}`;
     updateSortHeaders();
     renderPager(matchingRows.length);
+    updatePaperListUrlState();
   }
 
   searchInput?.addEventListener("input", () => {
@@ -2002,6 +2072,16 @@ function initResourceList(controls) {
       applyState();
     });
   });
+
+  if (isPaperList) {
+    tableBody.addEventListener("click", (event) => {
+      const link = event.target.closest("a");
+
+      if (link) {
+        addPaperListReturnToLink(link);
+      }
+    });
+  }
 
   initSortableHeaders();
 
@@ -2497,6 +2577,27 @@ function appendPaperBibtex(parent, bibtex) {
   parent.append(section);
 }
 
+function getPaperCardReturnUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const from = params.get("from");
+
+  if (!from) {
+    return "papers.html";
+  }
+
+  try {
+    const url = new URL(from, window.location.href);
+
+    if (url.origin === window.location.origin && url.pathname.endsWith("/papers.html")) {
+      return `${url.pathname}${url.search}${url.hash}`;
+    }
+  } catch {
+    return "papers.html";
+  }
+
+  return "papers.html";
+}
+
 function renderPaperCard(container, data, images = []) {
   const article = document.createElement("article");
   const hero = document.createElement("header");
@@ -2528,7 +2629,7 @@ function renderPaperCard(container, data, images = []) {
   meta.className = "paper-card-meta paper-card-venue-tag";
   meta.textContent = metaText || "Paper";
   closeLink.className = "paper-card-close";
-  closeLink.href = "papers.html";
+  closeLink.href = getPaperCardReturnUrl();
   closeLink.setAttribute("aria-label", "Close paper card");
   closeLink.title = "Close";
   title.textContent = data.title || "Paper";
