@@ -561,13 +561,16 @@ body.is-submit-modal-open {
   position: absolute;
   top: -42px;
   right: 0;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   padding: 0;
-  background: #fff;
-  border: 1px solid #e2ded6;
+  background: #fffafa;
+  border: 1px solid #ffe1e1;
   border-radius: 50%;
+  color: #c43e3a;
   cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
+    transform 160ms ease;
 }
 
 .submit-modal-close::before,
@@ -576,8 +579,8 @@ body.is-submit-modal-open {
   top: 50%;
   left: 50%;
   width: 14px;
-  height: 1.5px;
-  background: #171717;
+  height: 2px;
+  background: currentColor;
   border-radius: 999px;
   content: "";
 }
@@ -592,7 +595,10 @@ body.is-submit-modal-open {
 
 .submit-modal-close:hover,
 .submit-modal-close:focus-visible {
-  background: #f2f0eb;
+  background: #ffecec;
+  border-color: #ffc3c3;
+  color: #a50e0e;
+  transform: scale(1.04);
 }
 
 .resource-count {
