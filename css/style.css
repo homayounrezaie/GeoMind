@@ -879,8 +879,8 @@ body.is-submit-modal-open {
 
 .edit-modal-fields {
   display: grid;
-  gap: 10px;
-  margin: 28px 0 18px;
+  gap: 6px;
+  margin: 24px 0 16px;
 }
 
 .edit-modal-empty {
@@ -895,11 +895,11 @@ body.is-submit-modal-open {
 
 .edit-modal-link-row {
   display: grid;
-  grid-template-columns: auto 108px minmax(0, 1fr) auto auto;
-  gap: 10px;
+  grid-template-columns: auto 96px minmax(0, 1fr);
+  gap: 8px;
   align-items: center;
-  min-height: 54px;
-  padding: 10px 14px;
+  min-height: 44px;
+  padding: 7px 10px;
   background: #fbfcfe;
   border-radius: 3px;
 }
@@ -908,18 +908,18 @@ body.is-submit-modal-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
+  width: 21px;
   color: #64748b;
 }
 
 .edit-modal-link-icon .paper-card-resource-icon {
-  width: 19px;
-  height: 19px;
+  width: 17px;
+  height: 17px;
 }
 
 .edit-modal .edit-modal-link-input {
   width: 100%;
-  height: 30px;
+  height: 26px;
   min-width: 0;
   padding: 0;
   overflow: hidden;
@@ -928,7 +928,7 @@ body.is-submit-modal-open {
   border-radius: 3px;
   color: #202124;
   font: inherit;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.2;
   text-overflow: ellipsis;
@@ -943,28 +943,14 @@ body.is-submit-modal-open {
   display: inline-flex;
   align-items: center;
   min-width: 0;
-  min-height: 24px;
+  min-height: 22px;
   padding: 0;
   background: transparent;
   border-radius: 0;
   color: #202124;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   line-height: 1.15;
-  white-space: nowrap;
-}
-
-.edit-modal-official-pill {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 0 14px;
-  background: #111827;
-  border-radius: 3px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1;
   white-space: nowrap;
 }
 
@@ -974,31 +960,6 @@ body.is-submit-modal-open {
 
 .edit-modal-link-row.is-empty .edit-modal-link-input {
   color: #64748b;
-}
-
-.edit-modal-remove {
-  display: inline-flex;
-  width: 32px;
-  height: 32px;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  color: #ff4d4f;
-  cursor: pointer;
-  transition: color 160ms ease, transform 160ms ease;
-}
-
-.edit-modal-remove svg {
-  width: 19px;
-  height: 19px;
-}
-
-.edit-modal-remove:hover,
-.edit-modal-remove:focus-visible {
-  color: #d92d20;
-  transform: translateY(-1px);
 }
 
 .edit-modal-images-label {
@@ -3649,9 +3610,15 @@ body.is-submit-modal-open {
   }
 
   .edit-modal-link-row {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    gap: 10px;
-    padding: 14px;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 6px 8px;
+    min-height: 48px;
+    padding: 10px;
+  }
+
+  .edit-modal-link-icon {
+    grid-column: 1;
+    grid-row: 1 / span 2;
   }
 
   .edit-modal-link-type {
@@ -3659,24 +3626,15 @@ body.is-submit-modal-open {
     grid-row: 1;
     width: max-content;
     max-width: 100%;
-    min-height: 24px;
+    min-height: 20px;
     padding: 0;
-    font-size: 13px;
-  }
-
-  .edit-modal-official-pill {
-    display: none;
-  }
-
-  .edit-modal-remove {
-    grid-column: 3;
-    grid-row: 1 / span 2;
+    font-size: 12.5px;
   }
 
   .edit-modal .edit-modal-link-input {
     grid-column: 2;
     grid-row: 2;
-    font-size: 14px;
+    font-size: 13.5px;
   }
 
   .edit-modal .edit-modal-upload-card {

@@ -1010,24 +1010,6 @@ function getResourceEditModalDescription(resource) {
   return `Add or update URLs associated with ${label}. Include project pages, code, datasets, checkpoints, videos, and other official links.`;
 }
 
-function createEditModalRemoveIcon() {
-  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  const line = document.createElementNS("http://www.w3.org/2000/svg", "path");
-
-  icon.setAttribute("viewBox", "0 0 24 24");
-  icon.setAttribute("fill", "none");
-  icon.setAttribute("stroke", "currentColor");
-  icon.setAttribute("stroke-width", "2");
-  icon.setAttribute("stroke-linecap", "round");
-  icon.setAttribute("stroke-linejoin", "round");
-  icon.setAttribute("aria-hidden", "true");
-  path.setAttribute("d", "M3 6h18M8 6V4h8v2m-9 0 1 16h8l1-16");
-  line.setAttribute("d", "M10 11v6M14 11v6");
-  icon.append(path, line);
-  return icon;
-}
-
 function createResourceEditModal() {
   const modal = document.createElement("div");
   let activeResource = null;
@@ -1122,8 +1104,6 @@ function createResourceEditModal() {
       const icon = document.createElement("span");
       const input = document.createElement("input");
       const type = document.createElement("span");
-      const official = document.createElement("span");
-      const remove = document.createElement("button");
       const meta = getPaperResourceMeta(key);
 
       row.className = "edit-modal-link-row";
@@ -1144,19 +1124,8 @@ function createResourceEditModal() {
       input.setAttribute("aria-label", `${meta.label} URL`);
       type.className = "edit-modal-link-type";
       type.textContent = meta.label;
-      official.className = "edit-modal-official-pill";
-      official.textContent = "Official";
-      remove.className = "edit-modal-remove";
-      remove.type = "button";
-      remove.setAttribute("aria-label", `Remove ${meta.label} link`);
-      remove.append(createEditModalRemoveIcon());
-      remove.addEventListener("click", () => {
-        collectLinkInputs();
-        activeLinks[key] = "";
-        renderLinkRows();
-      });
 
-      row.append(icon, type, input, official, remove);
+      row.append(icon, type, input);
       fields.append(row);
     });
   }
