@@ -103,40 +103,42 @@ const submitIssueUrl = "https://github.com/homayounrezaie/GeoMind/issues/new";
 const submitModalConfig = {
   paper: {
     title: "Submit a paper",
-    description:
-      "Index an arXiv paper or add a non-arXiv paper, technical report, or model release page.",
-    label: "arXiv ID or paper URL",
-    placeholder: "2501.12345 · https://arxiv.org/abs/2501.12345 · https://blog.example.com/release",
-    hint: "Paste an arXiv ID like 2501.12345 or any paper/blog URL.",
+    description: "Add a GitHub repository link or a paper URL that belongs in GeoMind.",
+    label: "GitHub link or paper URL",
+    placeholder: "https://arxiv.org/abs/2501.12345 · https://github.com/org/repo",
+    hint: "Paste a full GitHub link or paper URL, such as arXiv or a publisher page.",
     action: "Submit paper",
     resourceType: "paper",
     issueTitle: "Submit paper",
-    bodyLabel: "Paper URL or arXiv ID",
-    emptyMessage: "Enter an arXiv ID or paper URL.",
+    bodyLabel: "GitHub link or paper URL",
+    emptyMessage: "Enter a GitHub link or paper URL.",
+    invalidMessage: "Enter a full link starting with http:// or https://.",
   },
   dataset: {
     title: "Submit a dataset",
-    description: "Add a dataset or benchmark page that belongs in GeoMind.",
-    label: "Dataset or benchmark URL",
-    placeholder: "https://huggingface.co/datasets/example/data · https://example.com/benchmark",
-    hint: "Paste a dataset, benchmark, paper, or project page URL.",
+    description: "Add a dataset or benchmark link that belongs in GeoMind.",
+    label: "Dataset or benchmark link",
+    placeholder: "https://huggingface.co/datasets/org/data · https://github.com/org/dataset",
+    hint: "Paste a full dataset or benchmark link, such as Hugging Face, GitHub, or a project page.",
     action: "Submit dataset",
     resourceType: "dataset or benchmark",
     issueTitle: "Submit dataset",
-    bodyLabel: "Dataset or benchmark URL",
-    emptyMessage: "Enter a dataset or benchmark URL.",
+    bodyLabel: "Dataset or benchmark link",
+    emptyMessage: "Enter a dataset or benchmark link.",
+    invalidMessage: "Enter a full link starting with http:// or https://.",
   },
   model: {
     title: "Submit a model",
-    description: "Add a model, checkpoint, demo, or model release page that belongs in GeoMind.",
-    label: "Model URL",
-    placeholder: "https://huggingface.co/org/model · https://github.com/org/model",
-    hint: "Paste a model, checkpoint, demo, paper, or project page URL.",
+    description: "Add a model, checkpoint, demo, or model release link that belongs in GeoMind.",
+    label: "Model link",
+    placeholder: "https://github.com/org/model · https://huggingface.co/org/model",
+    hint: "Paste a full model link, such as GitHub, Hugging Face, or another project page.",
     action: "Submit model",
     resourceType: "model",
     issueTitle: "Submit model",
-    bodyLabel: "Model URL",
-    emptyMessage: "Enter a model URL.",
+    bodyLabel: "Model link",
+    emptyMessage: "Enter a model link.",
+    invalidMessage: "Enter a full link starting with http:// or https://.",
   },
 };
 
@@ -152,7 +154,7 @@ function createSubmitModal() {
       <p id="submit-modal-description" class="submit-modal-description"></p>
       <form class="submit-modal-form" novalidate>
         <label for="submit-modal-input"></label>
-        <input id="submit-modal-input" type="text" autocomplete="url" />
+        <input id="submit-modal-input" type="url" autocomplete="url" />
         <p class="submit-modal-hint"></p>
         <p class="submit-modal-error" role="alert" hidden></p>
         <div class="submit-modal-actions">
@@ -235,6 +237,15 @@ function initSubmitModal() {
     return issueUrl.toString();
   }
 
+  function isValidSubmitLink(value) {
+    try {
+      const url = new URL(value);
+      return url.protocol === "http:" || url.protocol === "https:";
+    } catch {
+      return false;
+    }
+  }
+
   submitModalTriggers.forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
       event.preventDefault();
@@ -259,6 +270,13 @@ function initSubmitModal() {
 
     if (!value) {
       error.textContent = activeConfig.emptyMessage;
+      error.hidden = false;
+      input.focus();
+      return;
+    }
+
+    if (!isValidSubmitLink(value)) {
+      error.textContent = activeConfig.invalidMessage;
       error.hidden = false;
       input.focus();
       return;
