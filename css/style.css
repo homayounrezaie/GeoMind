@@ -1523,6 +1523,9 @@ body.is-submit-modal-open {
   min-height: 20px;
   align-items: center;
   gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
   color: #667085;
   font-size: 11px;
   font-weight: 400;
@@ -1530,11 +1533,23 @@ body.is-submit-modal-open {
   white-space: nowrap;
 }
 
+.paper-stat-citations {
+  background: #ecfdf3;
+  border-color: #d1fadf;
+  color: #027a48;
+}
+
+.paper-stat-github {
+  background: #fff8e6;
+  border-color: #ffe6a3;
+  color: #8a5a00;
+}
+
 .paper-stat-github-icon {
   width: 13px;
   height: 13px;
   background: currentColor;
-  color: #5f6368;
+  color: inherit;
 }
 
 .paper-stat-star-icon {
@@ -1542,7 +1557,7 @@ body.is-submit-modal-open {
   width: 12px;
   height: 12px;
   background: currentColor;
-  color: #8b94a3;
+  color: inherit;
   -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m8 1.15 2.08 4.22 4.66.68-3.37 3.28.8 4.64L8 11.78 3.83 13.97l.8-4.64-3.37-3.28 4.66-.68L8 1.15Z'/%3E%3C/svg%3E") center / contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m8 1.15 2.08 4.22 4.66.68-3.37 3.28.8 4.64L8 11.78 3.83 13.97l.8-4.64-3.37-3.28 4.66-.68L8 1.15Z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
