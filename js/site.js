@@ -1033,65 +1033,6 @@ function getResourceEditModalDescription(resource) {
   return `Add, remove, or update URLs associated with ${label}. Include project pages, code, datasets, checkpoints, videos, and other official links.`;
 }
 
-function inferResourceEditLinkKey(value) {
-  let url = null;
-
-  try {
-    url = new URL(value);
-  } catch {
-    return "project_page";
-  }
-
-  const host = url.hostname.replace(/^www\./, "").toLowerCase();
-  const path = url.pathname.toLowerCase();
-
-  if (host === "arxiv.org") {
-    return "arxiv";
-  }
-
-  if (host.includes("youtube.com") || host.includes("youtu.be") || host.includes("vimeo.com")) {
-    return "video";
-  }
-
-  if (host === "paperswithcode.com" || host.endsWith(".paperswithcode.com")) {
-    return "paperswithcode";
-  }
-
-  if (host === "github.com" || host === "gitlab.com" || host === "bitbucket.org") {
-    return "code";
-  }
-
-  if (host === "huggingface.co") {
-    if (path.startsWith("/datasets/")) {
-      return "dataset";
-    }
-
-    return "model";
-  }
-
-  if (path.endsWith(".pdf")) {
-    return "pdf";
-  }
-
-  return "project_page";
-}
-
-function getUniqueResourceEditLinkKey(baseKey, links) {
-  if (!hasResourceValue(links[baseKey])) {
-    return baseKey;
-  }
-
-  for (let index = 2; index < 100; index += 1) {
-    const key = `${baseKey}_${index}`;
-
-    if (!hasResourceValue(links[key])) {
-      return key;
-    }
-  }
-
-  return `${baseKey}_${Date.now()}`;
-}
-
 function createEditModalRemoveIcon() {
   const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -1129,14 +1070,6 @@ function createResourceEditModal() {
         <span>Submissions are queued for review and do not change the page until an admin approves them.</span>
       </div>
       <form class="submit-modal-form edit-modal-form" novalidate>
-        <label class="edit-modal-add-label" for="edit-modal-add-url">Add Link URL</label>
-        <div class="edit-modal-add-row">
-          <input id="edit-modal-add-url" type="url" autocomplete="url" inputmode="url" placeholder="https://example.com/project" />
-          <button class="edit-modal-add-button" type="button" data-edit-modal-add>
-            <span aria-hidden="true">+</span>
-            Add
-          </button>
-        </div>
         <div class="edit-modal-fields"></div>
         <label class="edit-modal-images-label" for="edit-modal-image-upload">Images</label>
         <label class="edit-modal-upload-card" for="edit-modal-image-upload">
@@ -1164,8 +1097,6 @@ function createResourceEditModal() {
   const description = modal.querySelector("#edit-modal-description");
   const form = modal.querySelector(".edit-modal-form");
   const fields = modal.querySelector(".edit-modal-fields");
-  const addInput = modal.querySelector("#edit-modal-add-url");
-  const addButton = modal.querySelector("[data-edit-modal-add]");
   const imageUpload = modal.querySelector("#edit-modal-image-upload");
   const uploadHint = modal.querySelector(".edit-modal-upload-hint");
   const error = modal.querySelector(".submit-modal-error");
@@ -1204,7 +1135,7 @@ function createResourceEditModal() {
       const empty = document.createElement("p");
 
       empty.className = "edit-modal-empty";
-      empty.textContent = "No links yet. Add a URL above.";
+      empty.textContent = "No editable links yet.";
       fields.append(empty);
       return;
     }
@@ -1253,30 +1184,6 @@ function createResourceEditModal() {
     });
   }
 
-  function addLinkFromInput() {
-    const value = addInput.value.trim();
-
-    error.textContent = "";
-    error.hidden = true;
-
-    if (!value) {
-      addInput.focus();
-      return;
-    }
-
-    if (!isHttpUrl(value)) {
-      error.textContent = "Use a full http(s) URL before adding it.";
-      error.hidden = false;
-      addInput.focus();
-      return;
-    }
-
-    collectLinkInputs();
-    activeLinks[getUniqueResourceEditLinkKey(inferResourceEditLinkKey(value), activeLinks)] = value;
-    addInput.value = "";
-    renderLinkRows();
-  }
-
   function updateUploadHint() {
     const selectedFiles = Array.from(imageUpload.files || []);
 
@@ -1299,13 +1206,12 @@ function createResourceEditModal() {
     description.textContent = getResourceEditModalDescription(activeResource);
     error.textContent = "";
     error.hidden = true;
-    addInput.value = "";
     renderLinkRows();
     imageUpload.value = "";
     updateUploadHint();
     modal.hidden = false;
     document.body.classList.add("is-submit-modal-open");
-    window.setTimeout(() => addInput.focus(), 0);
+    window.setTimeout(() => fields.querySelector(".edit-modal-link-input")?.focus(), 0);
   }
 
   closeButtons.forEach((button) => {
@@ -1318,14 +1224,7 @@ function createResourceEditModal() {
     }
   });
 
-  addButton.addEventListener("click", addLinkFromInput);
   imageUpload.addEventListener("change", updateUploadHint);
-  addInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      addLinkFromInput();
-    }
-  });
 
   form.addEventListener("submit", (event) => {
     const links = collectLinkInputs();

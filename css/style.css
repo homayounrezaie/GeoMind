@@ -861,7 +861,6 @@ body.is-submit-modal-open {
   transform: none;
 }
 
-.edit-modal .edit-modal-add-label,
 .edit-modal .edit-modal-images-label {
   display: block;
   margin-bottom: 8px;
@@ -869,65 +868,6 @@ body.is-submit-modal-open {
   font-size: 15px;
   font-weight: 500;
   line-height: 1.2;
-}
-
-.edit-modal-add-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 92px;
-  gap: 8px;
-  align-items: stretch;
-}
-
-.edit-modal-add-row input {
-  height: 46px;
-  padding: 0 14px;
-  background: #fff;
-  border: 2px solid #0f172a;
-  border-radius: 3px;
-  color: #243044;
-  font-size: 15px;
-  line-height: 1;
-  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.12);
-}
-
-.edit-modal-add-row input:focus {
-  border-color: #0f172a;
-  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.18);
-}
-
-.edit-modal-add-row input::placeholder {
-  color: #62708a;
-}
-
-.edit-modal-add-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 46px;
-  padding: 0 14px;
-  background: #8d939f;
-  border: 0;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  font: inherit;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1;
-  transition: background 160ms ease, transform 160ms ease;
-}
-
-.edit-modal-add-button span {
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1;
-}
-
-.edit-modal-add-button:hover,
-.edit-modal-add-button:focus-visible {
-  background: #6b7280;
-  transform: translateY(-1px);
 }
 
 .edit-modal-fields {
@@ -3643,17 +3583,6 @@ body.is-submit-modal-open {
 
   .edit-modal-review-note {
     font-size: 13px;
-  }
-
-  .edit-modal-add-row {
-    grid-template-columns: 1fr;
-  }
-
-  .edit-modal-add-row input,
-  .edit-modal-add-button {
-    min-height: 44px;
-    height: 44px;
-    font-size: 14px;
   }
 
   .edit-modal-link-row {
