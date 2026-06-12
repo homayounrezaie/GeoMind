@@ -1055,7 +1055,21 @@ function createResourceEditModal() {
         </div>
         <div class="edit-modal-fields"></div>
         <label class="edit-modal-images-label" for="edit-modal-image-upload">Upload image</label>
-        <input id="edit-modal-image-upload" class="edit-modal-image-upload" type="file" accept="image/*" multiple />
+        <label class="edit-modal-upload-card" for="edit-modal-image-upload">
+          <input id="edit-modal-image-upload" class="edit-modal-image-upload" type="file" accept="image/*" multiple />
+          <span class="edit-modal-upload-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 16V5"></path>
+              <path d="m7 10 5-5 5 5"></path>
+              <path d="M5 19h14"></path>
+            </svg>
+          </span>
+          <span class="edit-modal-upload-copy">
+            <span class="edit-modal-upload-title">Drop images or browse</span>
+            <span class="edit-modal-upload-text">PNG, JPG, or WebP files for the review request.</span>
+          </span>
+          <span class="edit-modal-upload-action">Choose files</span>
+        </label>
         <p class="submit-modal-hint edit-modal-upload-hint"></p>
         <p class="submit-modal-error" role="alert" hidden></p>
         <div class="submit-modal-actions">
@@ -1183,6 +1197,19 @@ function createResourceEditModal() {
     renderLinkRows();
   }
 
+  function updateUploadHint() {
+    const selectedFiles = Array.from(imageUpload.files || []);
+
+    if (selectedFiles.length) {
+      uploadHint.textContent = `${selectedFiles.length} image${selectedFiles.length === 1 ? "" : "s"} selected: ${selectedFiles.map((file) => file.name).join(", ")}`;
+      return;
+    }
+
+    uploadHint.textContent = activeImageRefs.length
+      ? `Existing images: ${activeImageRefs.length}. Choose image files to request new uploads.`
+      : "No images selected.";
+  }
+
   function openModal(resource, trigger) {
     activeResource = resource || {};
     activeLinks = getResourceEditLinks(activeResource);
@@ -1195,9 +1222,7 @@ function createResourceEditModal() {
     addInput.value = "";
     renderLinkRows();
     imageUpload.value = "";
-    uploadHint.textContent = activeImageRefs.length
-      ? `Existing images: ${activeImageRefs.length}. Choose image files to request new uploads.`
-      : "Choose one or more image files to include with the review request.";
+    updateUploadHint();
     modal.hidden = false;
     document.body.classList.add("is-submit-modal-open");
     window.setTimeout(() => addInput.focus(), 0);
@@ -1214,6 +1239,7 @@ function createResourceEditModal() {
   });
 
   addButton.addEventListener("click", addLinkFromInput);
+  imageUpload.addEventListener("change", updateUploadHint);
   addInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
