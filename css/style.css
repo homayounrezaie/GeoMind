@@ -2251,6 +2251,97 @@ body.is-submit-modal-open {
   line-height: 1.05;
 }
 
+.submit-resource-page {
+  width: min(960px, calc(100% - 48px));
+  padding: 88px 0 104px;
+}
+
+.submit-choice-hero {
+  margin-bottom: 42px;
+}
+
+.submit-choice-hero h1 {
+  margin-bottom: 18px;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 450;
+  line-height: 1;
+}
+
+.submit-choice-hero p {
+  max-width: 640px;
+  margin-bottom: 0;
+  color: #4d5560;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.submit-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.submit-choice-card {
+  display: grid;
+  min-height: 218px;
+  padding: 24px;
+  background: #f8fbff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.submit-choice-card:hover,
+.submit-choice-card:focus-visible {
+  background: #f1f7ff;
+  border-color: #bfd8ff;
+  box-shadow: 0 10px 24px rgba(76, 129, 202, 0.12);
+  transform: translateY(-2px);
+}
+
+.submit-choice-icon {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 34px;
+  align-items: center;
+  justify-content: center;
+  background: #eaf3ff;
+  border-radius: 50%;
+  color: #5f8fd8;
+}
+
+.submit-choice-icon svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.submit-choice-title {
+  display: block;
+  margin-bottom: 8px;
+  color: #18202b;
+  font-size: 21px;
+  font-weight: 550;
+  line-height: 1.2;
+}
+
+.submit-choice-copy {
+  display: block;
+  color: #5f6368;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
 .page-footer-divider {
   border-bottom: 1px solid var(--line);
 }
@@ -3337,6 +3428,34 @@ body.is-submit-modal-open {
   .empty-page {
     min-height: 180px;
     padding: 64px 0;
+  }
+
+  .submit-resource-page {
+    padding: 64px 0 80px;
+  }
+
+  .submit-choice-hero {
+    margin-bottom: 28px;
+  }
+
+  .submit-choice-hero h1 {
+    font-size: clamp(42px, 14vw, 64px);
+  }
+
+  .submit-choice-hero p {
+    font-size: 18px;
+  }
+
+  .submit-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-choice-card {
+    min-height: auto;
+  }
+
+  .submit-choice-icon {
+    margin-bottom: 24px;
   }
 }
 

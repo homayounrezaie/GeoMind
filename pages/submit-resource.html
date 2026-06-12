@@ -6,7 +6,7 @@
     <title>Submit resource - GeoMind</title>
     <meta name="description" content="Submit resource page for GeoMind." />
     <link rel="icon" type="image/png" href="../images/geomind-logo.png" />
-    <link rel="stylesheet" href="../css/style.css?v=20260612-19" />
+    <link rel="stylesheet" href="../css/style.css?v=20260612-20" />
   </head>
   <body>
     <header class="site-header">
@@ -24,8 +24,49 @@
       </nav>
     </header>
 
-    <main class="empty-page page-footer-divider" aria-labelledby="page-title">
-      <h1 id="page-title">Submit resource</h1>
+    <main class="submit-resource-page page-footer-divider" aria-labelledby="page-title">
+      <section class="submit-choice-hero">
+        <h1 id="page-title">Submit resource</h1>
+        <p>Choose the type of GeoMind resource you want to add.</p>
+      </section>
+
+      <section class="submit-choice-grid" aria-label="Choose resource category">
+        <button class="submit-choice-card" type="button" data-submit-modal-trigger data-submit-kind="paper">
+          <span class="submit-choice-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M7 3h7l4 4v14H7V3Z"></path>
+              <path d="M14 3v5h4"></path>
+              <path d="M9 13h6"></path>
+              <path d="M9 17h6"></path>
+            </svg>
+          </span>
+          <span class="submit-choice-title">Paper</span>
+          <span class="submit-choice-copy">Add an arXiv, publisher, project, or GitHub paper link.</span>
+        </button>
+        <button class="submit-choice-card" type="button" data-submit-modal-trigger data-submit-kind="dataset">
+          <span class="submit-choice-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 7c0-2.2 16-2.2 16 0v10c0 2.2-16 2.2-16 0V7Z"></path>
+              <path d="M4 7c0 2.2 16 2.2 16 0"></path>
+              <path d="M4 12c0 2.2 16 2.2 16 0"></path>
+            </svg>
+          </span>
+          <span class="submit-choice-title">Dataset / Benchmark</span>
+          <span class="submit-choice-copy">Add a dataset, benchmark, leaderboard, or evaluation page.</span>
+        </button>
+        <button class="submit-choice-card" type="button" data-submit-modal-trigger data-submit-kind="model">
+          <span class="submit-choice-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z"></path>
+              <path d="M12 12 4 7"></path>
+              <path d="M12 12v9"></path>
+              <path d="m12 12 8-5"></path>
+            </svg>
+          </span>
+          <span class="submit-choice-title">Model</span>
+          <span class="submit-choice-copy">Add a model, checkpoint, demo, or model release link.</span>
+        </button>
+      </section>
     </main>
 
     <footer class="site-footer" aria-label="GeoMind footer">
