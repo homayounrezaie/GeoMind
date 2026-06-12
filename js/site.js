@@ -450,6 +450,117 @@ function hasResourceValue(value) {
   return true;
 }
 
+const savedResourcesStorageKey = "geomind:saved-resources";
+
+function getSavedResources() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(savedResourcesStorageKey) || "{}");
+
+    return saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
+  } catch {
+    return {};
+  }
+}
+
+function setSavedResources(savedResources) {
+  try {
+    localStorage.setItem(savedResourcesStorageKey, JSON.stringify(savedResources));
+  } catch {
+    // Saving is a progressive enhancement; the button should still render if storage is blocked.
+  }
+}
+
+function getSavedResourceKey(type, id, title, url) {
+  const fallback = [id, title, url].find(hasResourceValue) || "resource";
+
+  return `${String(type || "resource").trim().toLowerCase()}:${String(fallback)
+    .trim()
+    .toLowerCase()}`;
+}
+
+function createSaveIcon() {
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+
+  icon.classList.add("resource-save-icon");
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("fill", "none");
+  icon.setAttribute("stroke", "currentColor");
+  icon.setAttribute("stroke-width", "2");
+  icon.setAttribute("stroke-linecap", "round");
+  icon.setAttribute("stroke-linejoin", "round");
+  icon.setAttribute("aria-hidden", "true");
+  path.setAttribute("d", "M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z");
+  icon.append(path);
+  return icon;
+}
+
+function createSaveButton({ type, id, title, url }) {
+  const button = document.createElement("button");
+  const label = document.createElement("span");
+  const key = getSavedResourceKey(type, id, title, url);
+
+  function setState(isSaved) {
+    button.classList.toggle("is-saved", isSaved);
+    button.setAttribute("aria-pressed", String(isSaved));
+    button.setAttribute("aria-label", `${isSaved ? "Unsave" : "Save"} ${title || "resource"}`);
+    label.textContent = isSaved ? "Saved" : "Save";
+  }
+
+  button.type = "button";
+  button.className = "resource-save-button";
+  button.dataset.saveKey = key;
+  button.append(createSaveIcon(), label);
+  setState(Boolean(getSavedResources()[key]));
+
+  button.addEventListener("click", (event) => {
+    const savedResources = getSavedResources();
+    const isSaved = !savedResources[key];
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (isSaved) {
+      savedResources[key] = {
+        type: type || "resource",
+        id: id || null,
+        title: title || null,
+        url: url || null,
+        savedAt: new Date().toISOString(),
+      };
+    } else {
+      delete savedResources[key];
+    }
+
+    setSavedResources(savedResources);
+    setState(isSaved);
+  });
+
+  return button;
+}
+
+function appendSaveButtonToTitleCell(cell, options) {
+  if (!cell || cell.querySelector(".resource-save-button")) {
+    return null;
+  }
+
+  const content = document.createElement("div");
+  const wrap = document.createElement("div");
+  const saveButton = createSaveButton(options);
+
+  content.className = "resource-title-content";
+  wrap.className = "resource-title-with-save";
+
+  while (cell.firstChild) {
+    content.append(cell.firstChild);
+  }
+
+  wrap.append(content, saveButton);
+  cell.classList.add("resource-title-cell");
+  cell.append(wrap);
+  return saveButton;
+}
+
 function formatResourceLabel(value) {
   const labels = {
     id: "ID",
@@ -695,14 +806,21 @@ function createFeaturedPaperRow(paper, cardBase) {
   const linkCell = document.createElement("td");
   const link = document.createElement("a");
   const venueText = [paper.venue, paper.year].filter(hasResourceValue).join(" ");
+  const paperUrl = `${cardBase}?id=${encodeURIComponent(String(paper.id || ""))}`;
 
   if (Number.isFinite(Number(paper.year))) {
     row.dataset.year = String(Number(paper.year));
   }
 
   titleCell.textContent = String(paper.title || "");
+  appendSaveButtonToTitleCell(titleCell, {
+    type: "paper",
+    id: paper.id,
+    title: paper.title,
+    url: paperUrl,
+  });
   venueCell.textContent = venueText;
-  link.href = `${cardBase}?id=${encodeURIComponent(String(paper.id || ""))}`;
+  link.href = paperUrl;
   decorateSourceLink(link, "View paper card", false);
   linkCell.append(link);
   row.append(titleCell, venueCell, linkCell);
@@ -772,6 +890,7 @@ function normalizeCombinedResource(item, type, index) {
 
   return {
     index,
+    id: String(item.id || item.rawDatasetId || item.dataset || item.benchmark || title || index),
     type,
     typeLabel,
     title,
@@ -798,6 +917,12 @@ function createCombinedResourceRow(item) {
   }
 
   titleCell.textContent = item.title;
+  appendSaveButtonToTitleCell(titleCell, {
+    type: item.type,
+    id: item.id,
+    title: item.title,
+    url: item.url,
+  });
   typeTag.className = `resource-type-tag resource-type-${item.type}`;
   typeTag.textContent = item.typeLabel;
   typeCell.append(typeTag);
@@ -1344,6 +1469,7 @@ function initResourceList(controls) {
       } else if (isPaperList && field === "title") {
         const titleWrap = document.createElement("div");
         const title = document.createElement("span");
+        const paperUrl = getPaperCardUrl(data);
 
         titleWrap.className = "paper-title-cell";
         title.className = "paper-title-text";
@@ -1358,6 +1484,12 @@ function initResourceList(controls) {
         }
 
         cell.append(titleWrap);
+        appendSaveButtonToTitleCell(cell, {
+          type: "paper",
+          id: data.id,
+          title: data.title,
+          url: paperUrl,
+        });
       } else {
         cell.textContent = String(getDynamicField(data, field) || "");
       }
@@ -1601,6 +1733,48 @@ function initResourceList(controls) {
 }
 
 document.querySelectorAll("[data-resource-list]").forEach(initResourceList);
+
+function initStaticModelTableSaveButtons(table) {
+  table.querySelectorAll("tbody tr").forEach((row, index) => {
+    const titleCell = row.cells[0];
+    const link = row.cells[row.cells.length - 1]?.querySelector("a");
+    const title = titleCell?.textContent.trim() || "";
+
+    appendSaveButtonToTitleCell(titleCell, {
+      type: "model",
+      id: row.dataset.id || link?.href || title || index,
+      title,
+      url: link?.href || "",
+    });
+  });
+}
+
+function initModelCardSaveButtons() {
+  document.querySelectorAll(".model-card-hero").forEach((hero) => {
+    const title = hero.querySelector("h1");
+
+    if (!title || hero.querySelector(".resource-save-button")) {
+      return;
+    }
+
+    const titleRow = document.createElement("div");
+
+    titleRow.className = "model-card-title-row";
+    title.before(titleRow);
+    titleRow.append(
+      title,
+      createSaveButton({
+        type: "model",
+        id: window.location.pathname,
+        title: title.textContent.trim(),
+        url: window.location.href,
+      })
+    );
+  });
+}
+
+document.querySelectorAll(".resource-table-models").forEach(initStaticModelTableSaveButtons);
+initModelCardSaveButtons();
 
 function appendText(parent, text) {
   if (!hasResourceValue(text)) {
@@ -2002,6 +2176,7 @@ function renderPaperCard(container, data, images = []) {
   const topbar = document.createElement("div");
   const meta = document.createElement("p");
   const closeLink = document.createElement("a");
+  const titleRow = document.createElement("div");
   const title = document.createElement("h1");
   const body = document.createElement("div");
   const metaText = [data.venue, data.year].filter(hasResourceValue).join(" ");
@@ -2014,6 +2189,7 @@ function renderPaperCard(container, data, images = []) {
   article.className = "paper-card-article";
   hero.className = "paper-card-hero";
   topbar.className = "paper-card-topbar";
+  titleRow.className = "paper-card-title-row";
   meta.className = "paper-card-meta paper-card-venue-tag";
   meta.textContent = metaText || "Paper";
   closeLink.className = "paper-card-close";
@@ -2022,7 +2198,16 @@ function renderPaperCard(container, data, images = []) {
   closeLink.title = "Close";
   title.textContent = data.title || "Paper";
   topbar.append(closeLink);
-  hero.append(topbar, title);
+  titleRow.append(
+    title,
+    createSaveButton({
+      type: "paper",
+      id: data.id,
+      title: data.title,
+      url: window.location.href,
+    })
+  );
+  hero.append(topbar, titleRow);
 
   if (hasResourceValue(data.authors)) {
     const authors = document.createElement("p");

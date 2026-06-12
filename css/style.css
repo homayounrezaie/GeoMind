@@ -705,6 +705,86 @@ body.is-submit-modal-open {
   overflow-wrap: normal;
 }
 
+.resource-title-cell {
+  vertical-align: top;
+}
+
+.resource-title-with-save {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.resource-title-content {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.resource-save-button {
+  display: inline-flex;
+  min-height: 40px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 16px;
+  background: #fffdf9;
+  border: 1px solid #ded7cc;
+  border-radius: 8px;
+  color: #171717;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
+    transform 160ms ease;
+}
+
+.resource-save-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  color: #5fbf7a;
+}
+
+.resource-save-button:hover,
+.resource-save-button:focus-visible {
+  background: #fff8ef;
+  border-color: #c8bdad;
+  color: #111;
+  transform: translateY(-1px);
+}
+
+.resource-save-button.is-saved {
+  background: #f5f8ff;
+  border-color: #c9d8ff;
+  color: #1f5aa6;
+}
+
+.resource-save-button.is-saved .resource-save-icon path {
+  fill: currentColor;
+}
+
+.resource-title-cell .resource-save-button {
+  min-height: 32px;
+  gap: 7px;
+  padding: 0 11px;
+  font-size: 12px;
+}
+
+.resource-title-cell .resource-save-icon {
+  width: 15px;
+  height: 15px;
+}
+
 .org-tag {
   display: inline-flex;
   align-items: center;
@@ -1079,6 +1159,14 @@ body.is-submit-modal-open {
   margin-bottom: 10px;
 }
 
+.paper-card-title-row {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+}
+
 .paper-card-meta {
   margin: 0;
   color: var(--paper-meta, #737373);
@@ -1172,6 +1260,7 @@ body.is-submit-modal-open {
 }
 
 .paper-card-hero h1 {
+  flex: 1 1 auto;
   max-width: 800px;
   margin: 0 0 18px;
   color: var(--paper-title, #171717);
@@ -1179,6 +1268,10 @@ body.is-submit-modal-open {
   font-weight: 600;
   letter-spacing: 0;
   line-height: 1.15;
+}
+
+.paper-card-title-row .resource-save-button {
+  margin-top: 2px;
 }
 
 .paper-card-authors {
@@ -1701,12 +1794,25 @@ body.is-submit-modal-open {
   font-size: 15px;
 }
 
+.model-card-title-row {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+}
+
 .model-card-hero h1 {
+  flex: 1 1 auto;
   max-width: 920px;
   margin-bottom: 26px;
   font-size: clamp(52px, 7vw, 88px);
   font-weight: 450;
   line-height: 1;
+}
+
+.model-card-title-row .resource-save-button {
+  margin-top: 8px;
 }
 
 .model-card-hero p:last-child {
@@ -2601,6 +2707,18 @@ body.is-submit-modal-open {
     align-items: flex-start;
   }
 
+  .paper-card-title-row,
+  .model-card-title-row {
+    gap: 18px;
+  }
+
+  .paper-card-title-row .resource-save-button,
+  .model-card-title-row .resource-save-button {
+    min-height: 36px;
+    padding: 0 13px;
+    font-size: 13px;
+  }
+
   .paper-card-hero h1 {
     font-size: clamp(24px, 1.8vw, 28px);
     line-height: 1.15;
@@ -2844,6 +2962,15 @@ body.is-submit-modal-open {
   .resource-table-papers td:first-child {
     overflow-wrap: break-word;
     word-break: normal;
+  }
+
+  .resource-title-with-save {
+    gap: 10px;
+  }
+
+  .resource-title-cell .resource-save-button {
+    min-height: 30px;
+    padding: 0 9px;
   }
 
   .browse-row {
