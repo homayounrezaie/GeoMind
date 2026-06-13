@@ -2803,6 +2803,14 @@ function createPaperMetadataStrip(
     strip.append(githubItem);
   }
 
+  if (hasResourceValue(data.presentation)) {
+    const presentation = document.createElement("span");
+
+    presentation.className = "paper-card-meta paper-card-presentation-tag";
+    presentation.textContent = String(data.presentation);
+    strip.append(presentation);
+  }
+
   if (hasResourceValue(venueText)) {
     const venue = document.createElement("span");
 
@@ -2814,11 +2822,7 @@ function createPaperMetadataStrip(
   return strip;
 }
 
-function getPaperLead(data, venueText = "") {
-  if (hasResourceValue(data.presentation)) {
-    return [data.presentation, venueText].filter(hasResourceValue).join(" ");
-  }
-
+function getPaperLead(data) {
   return [data.one_line_summary, data.summary_line].find(hasResourceValue) || "";
 }
 
@@ -3157,15 +3161,11 @@ function renderPaperCard(container, data, images = []) {
   const title = document.createElement("h1");
   const body = document.createElement("div");
   const metaText = [data.venue, data.year].filter(hasResourceValue).join(" ");
-  const hasPresentation = hasResourceValue(data.presentation);
-  const leadText = getPaperLead(data, metaText);
-  const shouldShowMetaTag = hasResourceValue(metaText) && !hasPresentation;
-  const metaStrip = shouldShowMetaTag
-    ? createPaperMetadataStrip(data, metaText, {
-        className: "paper-card-meta-strip",
-        venueClassName: "paper-card-meta paper-card-venue-tag",
-      })
-    : null;
+  const leadText = getPaperLead(data);
+  const metaStrip = createPaperMetadataStrip(data, metaText, {
+    className: "paper-card-meta-strip",
+    venueClassName: "paper-card-meta paper-card-venue-tag",
+  });
   const editResource = {
     type: "paper",
     id: data.id,
@@ -3209,9 +3209,6 @@ function renderPaperCard(container, data, images = []) {
   if (hasResourceValue(leadText)) {
     const lead = document.createElement("p");
     lead.className = "paper-card-lead";
-    if (hasPresentation) {
-      lead.classList.add("paper-card-presentation-tag");
-    }
     lead.textContent = String(leadText);
     hero.append(lead);
   }
@@ -3227,7 +3224,7 @@ function renderPaperCard(container, data, images = []) {
     headingRow.className = "paper-card-section-head";
     heading.textContent = "Abstract";
     headingRow.append(heading);
-    if (metaStrip) {
+    if (metaStrip.childElementCount > 0) {
       headingRow.append(metaStrip);
     }
     abstract.append(headingRow);
