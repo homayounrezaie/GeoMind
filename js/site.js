@@ -954,6 +954,8 @@ const paperResourceMeta = {
   },
 };
 
+const hiddenPaperCardLinkKeys = new Set(["paperswithcode"]);
+
 function isValidResourceUrl(value) {
   return hasResourceValue(value) && /^https?:\/\//i.test(String(value).trim());
 }
@@ -2686,7 +2688,7 @@ function setupExpandableAbstract(section, paragraph) {
 
 function getPaperLinkEntries(links) {
   return Object.entries(links || {})
-    .filter(([, value]) => isValidResourceUrl(value))
+    .filter(([key, value]) => !hiddenPaperCardLinkKeys.has(key) && isValidResourceUrl(value))
     .sort(([firstKey], [secondKey]) => {
       const firstMeta = getPaperResourceMeta(firstKey);
       const secondMeta = getPaperResourceMeta(secondKey);
