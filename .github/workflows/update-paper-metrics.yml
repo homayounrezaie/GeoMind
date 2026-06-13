@@ -31,7 +31,13 @@ jobs:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
-        run: python scripts/update_paper_metrics.py --papers data/papers.json
+        run: >
+          python scripts/update_paper_metrics.py
+          --papers data/papers.json
+          --delay 0.25
+          --retries 2
+          --rate-limit-wait 60
+          --max-retry-wait 180
 
       - name: Validate JSON
         run: python -m json.tool data/papers.json > /tmp/papers.json
