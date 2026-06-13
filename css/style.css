@@ -1687,51 +1687,51 @@ body.is-submit-modal-open {
 
 .resource-table-papers:not(.resource-table-papers-full) th:first-child,
 .resource-table-papers:not(.resource-table-papers-full) td:first-child {
-  width: 76%;
+  width: 55%;
 }
 
 .resource-table-papers:not(.resource-table-papers-full) th:nth-child(2),
 .resource-table-papers:not(.resource-table-papers-full) td:nth-child(2) {
-  width: 7%;
+  width: 15%;
   padding-right: 14px;
   white-space: nowrap;
 }
 
 .resource-table-papers:not(.resource-table-papers-full) th:nth-child(3),
 .resource-table-papers:not(.resource-table-papers-full) td:nth-child(3) {
-  width: 6%;
+  width: 15%;
   padding-right: 14px;
   white-space: nowrap;
 }
 
 .resource-table-papers:not(.resource-table-papers-full) th:nth-child(4),
 .resource-table-papers:not(.resource-table-papers-full) td:nth-child(4) {
-  width: 11%;
+  width: 15%;
   padding-right: 0;
   white-space: nowrap;
 }
 
 .resource-table-papers-full th:first-child,
 .resource-table-papers-full td:first-child {
-  width: 79%;
+  width: 55%;
 }
 
 .resource-table-papers-full th:nth-child(2),
 .resource-table-papers-full td:nth-child(2) {
-  width: 6%;
+  width: 15%;
   padding-right: 14px;
   white-space: nowrap;
 }
 
 .resource-table-papers-full th:nth-child(3),
 .resource-table-papers-full td:nth-child(3) {
-  width: 5%;
+  width: 15%;
   white-space: nowrap;
 }
 
 .resource-table-papers-full th:nth-child(4),
 .resource-table-papers-full td:nth-child(4) {
-  width: 10%;
+  width: 15%;
   padding-right: 0;
   white-space: nowrap;
 }
