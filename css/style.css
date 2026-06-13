@@ -1928,23 +1928,6 @@ body.is-submit-modal-open {
   white-space: nowrap;
 }
 
-.paper-image-viewer-header button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  padding: 0 15px;
-  background: #fff;
-  border: 1px solid var(--soft-line);
-  border-radius: 999px;
-  color: var(--text);
-  cursor: pointer;
-  font: inherit;
-  font-size: 14px;
-  line-height: 1;
-  white-space: nowrap;
-}
-
 .paper-card-close {
   position: relative;
   display: inline-flex;
@@ -1953,10 +1936,14 @@ body.is-submit-modal-open {
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
+  padding: 0;
   background: #fffafa;
   border: 1px solid #ffe1e1;
   border-radius: 4px;
   color: #c43e3a;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
     transform 160ms ease;
 }
@@ -1980,9 +1967,7 @@ body.is-submit-modal-open {
 }
 
 .paper-card-close:hover,
-.paper-card-close:focus-visible,
-.paper-image-viewer-header button:hover,
-.paper-image-viewer-header button:focus-visible {
+.paper-card-close:focus-visible {
   border-color: #c6ccd2;
   text-decoration: none;
 }

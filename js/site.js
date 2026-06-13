@@ -2912,7 +2912,8 @@ function openPaperImageViewer(images, startIndex, paperTitle) {
   viewer.setAttribute("aria-label", "Paper image viewer");
   header.className = "paper-image-viewer-header";
   closeButton.type = "button";
-  closeButton.textContent = "Close";
+  closeButton.className = "paper-card-close paper-image-viewer-close";
+  closeButton.setAttribute("aria-label", "Close image viewer");
   closeButton.addEventListener("click", closeViewer);
   imageWrap.className = "paper-image-viewer-image";
   footer.className = "paper-image-viewer-footer";
