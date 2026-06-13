@@ -1685,6 +1685,15 @@ body.is-submit-modal-open {
   white-space: nowrap;
 }
 
+.resource-table-papers .paper-table-title-column {
+  width: 55%;
+}
+
+.resource-table-papers .paper-table-metric-column,
+.resource-table-papers .paper-table-venue-column {
+  width: 15%;
+}
+
 .resource-table-papers:not(.resource-table-papers-full) th:first-child,
 .resource-table-papers:not(.resource-table-papers-full) td:first-child {
   width: 55%;
