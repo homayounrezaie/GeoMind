@@ -2772,24 +2772,30 @@ function createPaperMetadataStrip(
   const strip = document.createElement("div");
   const citations = getPaperCitationCount(data);
   const githubStars = getPaperGithubStarCount(data);
-  const citationItem = document.createElement("span");
-  const githubItem = document.createElement("span");
 
   strip.className = className;
 
-  citationItem.className = "paper-stat paper-stat-citations";
-  citationItem.setAttribute("aria-label", `${formatPaperCount(citations)} citations`);
-  citationItem.textContent = `${formatPaperCount(citations)} citations`;
-  strip.append(citationItem);
+  if (citations > 0) {
+    const citationItem = document.createElement("span");
 
-  githubItem.className = "paper-stat paper-stat-github";
-  githubItem.setAttribute("aria-label", `${formatPaperCount(githubStars)} GitHub stars`);
-  githubItem.append(
-    createPaperGithubIcon(),
-    document.createTextNode(formatPaperCount(githubStars)),
-    createPaperStarIcon()
-  );
-  strip.append(githubItem);
+    citationItem.className = "paper-stat paper-stat-citations";
+    citationItem.setAttribute("aria-label", `${formatPaperCount(citations)} citations`);
+    citationItem.textContent = `${formatPaperCount(citations)} citations`;
+    strip.append(citationItem);
+  }
+
+  if (githubStars > 0) {
+    const githubItem = document.createElement("span");
+
+    githubItem.className = "paper-stat paper-stat-github";
+    githubItem.setAttribute("aria-label", `${formatPaperCount(githubStars)} GitHub stars`);
+    githubItem.append(
+      createPaperGithubIcon(),
+      document.createTextNode(formatPaperCount(githubStars)),
+      createPaperStarIcon()
+    );
+    strip.append(githubItem);
+  }
 
   if (hasResourceValue(venueText)) {
     const venue = document.createElement("span");
