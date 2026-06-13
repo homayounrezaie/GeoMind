@@ -4082,7 +4082,12 @@ body.is-submit-modal-open {
   }
 
   .paper-card-links {
-    gap: 8px 0;
+    gap: 9px 16px;
+    align-items: flex-start;
+  }
+
+  .paper-card-links a + a::before {
+    display: none;
   }
 
   .model-card-media {
