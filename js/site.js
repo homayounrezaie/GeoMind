@@ -3263,10 +3263,10 @@ function renderPaperCard(container, data, images = []) {
     linksRow.className = "paper-card-links-row";
     linksHeading.textContent = "Links";
     linkList.className = "paper-card-links";
-    linksHeadingRow.append(linksHeading);
+    linksHeadingRow.append(linksHeading, createResourceEditButton(editResource));
     links.append(linksHeadingRow);
     appendPaperLinks(linkList, data.links);
-    linksRow.append(linkList, createResourceEditButton(editResource));
+    linksRow.append(linkList);
     links.append(linksRow);
     body.append(links);
   }

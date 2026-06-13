@@ -2077,15 +2077,8 @@ body.is-submit-modal-open {
 }
 
 .paper-card-links-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 16px;
-  align-items: start;
+  display: block;
   width: 100%;
-}
-
-.paper-card-links-row .resource-edit-button {
-  margin-top: -4px;
 }
 
 .paper-card-section > p {
