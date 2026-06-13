@@ -101,8 +101,8 @@ a:hover {
 .header-user-button {
   position: relative;
   display: inline-flex;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -118,8 +118,8 @@ a:hover {
 }
 
 .header-user-button svg {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.6;
@@ -3361,14 +3361,14 @@ body.is-submit-modal-open {
   }
 
   .header-user-button {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     margin-left: 0;
   }
 
   .header-user-button svg {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
   }
 
   .resource-site-header .header-submit-button {
@@ -3680,6 +3680,16 @@ body.is-submit-modal-open {
 }
 
 @media (max-width: 600px) {
+  .header-user-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-user-button svg {
+    width: 30px;
+    height: 30px;
+  }
+
   main.list-page {
     width: 100%;
   }
