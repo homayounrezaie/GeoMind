@@ -3361,7 +3361,14 @@ body.is-submit-modal-open {
   }
 
   .header-user-button {
+    width: 40px;
+    height: 40px;
     margin-left: 0;
+  }
+
+  .header-user-button svg {
+    width: 30px;
+    height: 30px;
   }
 
   .resource-site-header .header-submit-button {
