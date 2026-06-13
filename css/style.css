@@ -101,8 +101,8 @@ a:hover {
 .header-user-button {
   position: relative;
   display: inline-flex;
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -118,8 +118,8 @@ a:hover {
 }
 
 .header-user-button svg {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.6;
@@ -3361,14 +3361,14 @@ body.is-submit-modal-open {
   }
 
   .header-user-button {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     margin-left: 0;
   }
 
   .header-user-button svg {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
   }
 
   .resource-site-header .header-submit-button {
@@ -3898,6 +3898,35 @@ body.is-submit-modal-open {
 
   .resource-table td:first-child {
     padding-bottom: 0;
+  }
+
+  .list-page .resource-table-papers,
+  .list-page .resource-table-papers-full,
+  .list-page .resource-table-papers thead tr,
+  .list-page .resource-table-papers tbody tr,
+  .list-page .resource-table-papers th:first-child,
+  .list-page .resource-table-papers td:first-child,
+  .list-page .resource-table-papers .paper-title-cell,
+  .list-page .resource-table-papers .paper-title-text,
+  .list-page .resource-table-papers .paper-title-authors {
+    width: 100%;
+    max-width: none;
+  }
+
+  .list-page .resource-table-papers th:first-child,
+  .list-page .resource-table-papers td:first-child {
+    justify-self: stretch;
+  }
+
+  .list-page .resource-table-papers .paper-title-cell,
+  .list-page .resource-table-papers .paper-title-text,
+  .list-page .resource-table-papers .paper-title-authors {
+    display: block;
+  }
+
+  .list-page .resource-table-papers .paper-title-text,
+  .list-page .resource-table-papers .paper-title-authors {
+    overflow-wrap: anywhere;
   }
 
   .resource-panel .resource-table tbody tr {
