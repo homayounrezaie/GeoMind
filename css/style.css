@@ -3680,6 +3680,19 @@ body.is-submit-modal-open {
 }
 
 @media (max-width: 600px) {
+  main.list-page {
+    width: 100%;
+  }
+
+  .list-page .content-section {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .list-page .resource-table-wrap {
+    width: 100%;
+  }
+
   .edit-modal-fields {
     grid-template-columns: 1fr;
   }
@@ -3748,7 +3761,21 @@ body.is-submit-modal-open {
   }
 
   .combined-controls {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .combined-controls .search-control {
+    grid-column: 1;
+  }
+
+  .combined-controls .filter-control {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .combined-controls .submit-icon-button {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .resource-table thead,
