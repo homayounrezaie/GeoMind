@@ -1683,27 +1683,31 @@ body.is-submit-modal-open {
 
 .resource-table-papers-full th:first-child,
 .resource-table-papers-full td:first-child {
-  width: 55%;
+  width: 72%;
 }
 
 .resource-table-papers-full th:nth-child(2),
 .resource-table-papers-full td:nth-child(2) {
-  width: 14%;
-  padding-right: 20px;
+  width: 9%;
+  padding-right: 14px;
   white-space: nowrap;
 }
 
 .resource-table-papers-full th:nth-child(3),
 .resource-table-papers-full td:nth-child(3) {
-  width: 11%;
+  width: 7%;
   white-space: nowrap;
 }
 
 .resource-table-papers-full th:nth-child(4),
 .resource-table-papers-full td:nth-child(4) {
-  width: 20%;
+  width: 12%;
   padding-right: 0;
   white-space: nowrap;
+}
+
+.resource-table.resource-table-papers-full {
+  min-width: 1120px;
 }
 
 .resource-table-models th:first-child,
@@ -3703,6 +3707,10 @@ body.is-submit-modal-open {
 
   .resource-table {
     display: block;
+    min-width: 0;
+  }
+
+  .resource-table.resource-table-papers-full {
     min-width: 0;
   }
 
