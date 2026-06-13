@@ -304,7 +304,7 @@ def generated_bibtex(paper: dict[str, Any], arxiv_payload: dict[str, Any] | None
         fields["eprint"] = strip_arxiv_version(arxiv_id)
         fields["archivePrefix"] = "arXiv"
         fields["primaryClass"] = str((arxiv_payload or {}).get("primary_category") or "").strip()
-    url = first_link(paper, ("paper", "arxiv", "pdf", "project_page"))
+    url = first_link(paper, ("arxiv", "pdf", "project_page"))
     if url:
         fields["url"] = url
     lines = [f"@misc{{{key},"]
@@ -420,7 +420,7 @@ def extract_arxiv_id_from_value(value: str) -> str | None:
 
 def find_doi(paper: dict[str, Any]) -> str | None:
     links = paper.get("links") if isinstance(paper.get("links"), dict) else {}
-    for key in ("paper", "arxiv", "pdf", "project_page"):
+    for key in ("arxiv", "pdf", "project_page"):
         value = links.get(key)
         if isinstance(value, str):
             doi = extract_doi_from_value(value)
@@ -436,7 +436,7 @@ def find_doi(paper: dict[str, Any]) -> str | None:
 
 def find_arxiv_id(paper: dict[str, Any]) -> str | None:
     links = paper.get("links") if isinstance(paper.get("links"), dict) else {}
-    for key in ("arxiv", "pdf", "paper", "project_page"):
+    for key in ("arxiv", "pdf", "project_page"):
         value = links.get(key)
         if isinstance(value, str):
             arxiv_id = extract_arxiv_id_from_value(value)

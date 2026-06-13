@@ -833,7 +833,6 @@ function formatResourceLabel(value) {
     github_stars: "GitHub stars",
     links: "Links",
     pdf: "PDF",
-    paper: "Paper",
     supp: "Supplement",
     video: "Video",
     demo: "Demo",
@@ -859,20 +858,9 @@ function formatResourceLabel(value) {
 }
 
 const paperResourceMeta = {
-  paper: {
-    label: "Paper",
-    order: 0,
-    icon: [
-      '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>',
-      '<path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
-      '<path d="M10 9H8"/>',
-      '<path d="M16 13H8"/>',
-      '<path d="M16 17H8"/>',
-    ],
-  },
   pdf: {
     label: "PDF",
-    order: 1,
+    order: 0,
     icon: [
       '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>',
       '<path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
@@ -883,7 +871,7 @@ const paperResourceMeta = {
   },
   supp: {
     label: "Supplement",
-    order: 2,
+    order: 1,
     icon: [
       '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>',
       '<path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
@@ -903,7 +891,7 @@ const paperResourceMeta = {
   },
   arxiv: {
     label: "arXiv",
-    order: 3,
+    order: 2,
     iconImage: "../images/arxiv-logo.svg",
   },
   code: {
@@ -2576,8 +2564,12 @@ function getModelCardLinkKey(link, index) {
   const text = String(link.textContent || "").toLowerCase();
   const href = String(link.href || "").toLowerCase();
 
-  if (text.includes("paper") || href.includes("arxiv.org")) {
-    return "paper";
+  if (href.includes("arxiv.org")) {
+    return "arxiv";
+  }
+
+  if (text.includes("paper")) {
+    return "pdf";
   }
 
   if (text.includes("dataset")) {

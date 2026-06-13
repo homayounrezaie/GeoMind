@@ -41,7 +41,6 @@ GITHUB_LINK_KEYS = (
     "benchmark",
     "project_page",
     "paperswithcode",
-    "paper",
 )
 DOI_PATTERN = re.compile(r"\b10\.\d{4,9}/[^\s\"'<>]+", re.IGNORECASE)
 ARXIV_PATTERN = re.compile(
@@ -347,7 +346,7 @@ def extract_arxiv_id_from_value(value: str) -> str | None:
 def find_doi(paper: dict[str, Any]) -> str | None:
     links = get_link_values(paper)
 
-    for key in ("paper", "arxiv", "pdf", "project_page"):
+    for key in ("arxiv", "pdf", "project_page"):
         value = links.get(key)
         if value:
             doi = extract_doi_from_value(value)
@@ -365,7 +364,7 @@ def find_doi(paper: dict[str, Any]) -> str | None:
 def find_arxiv_id(paper: dict[str, Any]) -> str | None:
     links = get_link_values(paper)
 
-    for key in ("arxiv", "pdf", "paper", "project_page"):
+    for key in ("arxiv", "pdf", "project_page"):
         value = links.get(key)
         if value:
             arxiv_id = extract_arxiv_id_from_value(value)
