@@ -2729,7 +2729,7 @@ function formatPaperAuthors(authors) {
     .split(/\s*,\s*/)
     .map((author) => author.trim())
     .filter(Boolean)
-    .join(" · ");
+    .join(", ");
 }
 
 function getNonNegativeCount(value) {
@@ -3160,6 +3160,12 @@ function renderPaperCard(container, data, images = []) {
   const titleRow = document.createElement("div");
   const title = document.createElement("h1");
   const body = document.createElement("div");
+  const saveButton = createSaveButton({
+    type: "paper",
+    id: data.id,
+    title: data.title,
+    url: window.location.href,
+  });
   const metaText = [data.venue, data.year].filter(hasResourceValue).join(" ");
   const leadText = getPaperLead(data);
   const metaStrip = createPaperMetadataStrip(data, metaText, {
@@ -3188,15 +3194,7 @@ function renderPaperCard(container, data, images = []) {
   cleanPaperCardUrl();
   title.textContent = data.title || "Paper";
   topbar.append(closeLink);
-  titleRow.append(
-    title,
-    createSaveButton({
-      type: "paper",
-      id: data.id,
-      title: data.title,
-      url: window.location.href,
-    })
-  );
+  titleRow.append(title);
   hero.append(topbar, titleRow);
 
   if (hasResourceValue(data.authors)) {
@@ -3219,14 +3217,18 @@ function renderPaperCard(container, data, images = []) {
     const abstract = document.createElement("section");
     const headingRow = document.createElement("div");
     const heading = document.createElement("h2");
+    const headingActions = document.createElement("div");
 
     abstract.className = "paper-card-section paper-card-abstract";
     headingRow.className = "paper-card-section-head";
+    headingActions.className = "paper-card-section-actions";
     heading.textContent = "Abstract";
     headingRow.append(heading);
     if (metaStrip.childElementCount > 0) {
-      headingRow.append(metaStrip);
+      headingActions.append(metaStrip);
     }
+    headingActions.append(saveButton);
+    headingRow.append(headingActions);
     abstract.append(headingRow);
     setupExpandableAbstract(abstract, appendText(abstract, data.abstract));
     body.append(abstract);
