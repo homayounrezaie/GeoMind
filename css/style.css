@@ -15,10 +15,14 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
+  max-width: 100%;
+  overflow-x: hidden;
   margin: 0;
   background: var(--page);
   color: var(--text);
@@ -1202,12 +1206,12 @@ body.is-submit-modal-open {
 
 .resource-table-wrap {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .resource-table {
   width: 100%;
-  min-width: 840px;
+  min-width: 0;
   border-collapse: collapse;
   table-layout: fixed;
 }
@@ -1733,7 +1737,7 @@ body.is-submit-modal-open {
 }
 
 .resource-table.resource-table-papers-full {
-  min-width: 1120px;
+  min-width: 0;
 }
 
 .resource-table-models th:first-child,
@@ -1791,6 +1795,7 @@ body.is-submit-modal-open {
 .table-pager-pages {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 6px;
 }
@@ -2296,7 +2301,7 @@ body.is-submit-modal-open {
   position: relative;
   display: grid;
   min-height: 0;
-  overflow: auto;
+  overflow: hidden;
   place-items: center;
 }
 
@@ -2497,7 +2502,7 @@ body.is-submit-modal-open {
   max-width: 100%;
   margin: 0;
   padding: 16px 56px 16px 16px;
-  overflow-x: auto;
+  overflow-x: hidden;
   background: #fafafa;
   border: 1px solid var(--paper-rule);
   border-radius: 10px;
@@ -2505,7 +2510,8 @@ body.is-submit-modal-open {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 12.5px;
   line-height: 1.55;
-  white-space: pre;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
 }
 
 .model-card-page {
@@ -3789,29 +3795,20 @@ body.is-submit-modal-open {
 
   .category-tabs {
     display: flex;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    overflow-x: hidden;
     justify-content: flex-start;
     margin-bottom: 54px;
     padding: 4px;
-    scrollbar-width: none;
-  }
-
-  .category-tabs::-webkit-scrollbar {
-    display: none;
   }
 
   .company-filter {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    overflow-x: auto;
+    overflow-x: hidden;
     padding-bottom: 4px;
-    scrollbar-width: none;
-  }
-
-  .company-filter::-webkit-scrollbar {
-    display: none;
   }
 
   .company-filter button {
@@ -4002,7 +3999,6 @@ body.is-submit-modal-open {
 
   .table-pager-pages {
     justify-content: flex-start;
-    overflow-x: auto;
     padding-bottom: 2px;
   }
 
@@ -4098,9 +4094,9 @@ body.is-submit-modal-open {
   }
 
   .paper-image-viewer-image img {
-    width: 960px;
-    max-width: none;
-    max-height: none;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .paper-card-links {
