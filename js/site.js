@@ -1450,7 +1450,13 @@ function paperHasImages(paper, imageMap) {
 function createFeaturedPaperRow(paper, cardBase) {
   const row = document.createElement("tr");
   const titleCell = document.createElement("td");
+  const citationsCell = document.createElement("td");
+  const starsCell = document.createElement("td");
   const venueCell = document.createElement("td");
+  const citations = getPaperCitationCount(paper);
+  const githubStars = getPaperGithubStarCount(paper);
+  const citationStat = document.createElement("span");
+  const starStat = document.createElement("span");
   const venueText = [paper.venue, paper.year].filter(hasResourceValue).join(" ");
   const paperUrl = `${cardBase}?id=${encodeURIComponent(String(paper.id || ""))}`;
 
@@ -1459,11 +1465,27 @@ function createFeaturedPaperRow(paper, cardBase) {
   }
 
   titleCell.textContent = String(paper.title || "");
+  citationsCell.className = "paper-table-metric-cell featured-paper-metric-cell";
+  citationStat.className = "paper-stat paper-stat-citations paper-table-stat";
+  citationStat.setAttribute("aria-label", `${formatPaperCount(citations)} citations`);
+  citationStat.textContent = `${formatPaperCount(citations)} citations`;
+  citationsCell.append(citationStat);
+
+  starsCell.className = "paper-table-metric-cell featured-paper-metric-cell";
+  starStat.className = "paper-stat paper-stat-github paper-table-stat";
+  starStat.setAttribute("aria-label", `${formatPaperCount(githubStars)} GitHub stars`);
+  starStat.append(
+    createPaperGithubIcon(),
+    document.createTextNode(formatPaperCount(githubStars)),
+    createPaperStarIcon()
+  );
+  starsCell.append(starStat);
+
   venueCell.textContent = venueText;
   setResourceRowLink(row, paperUrl, {
     label: `Open ${paper.title || "paper"}`,
   });
-  row.append(titleCell, venueCell);
+  row.append(titleCell, citationsCell, starsCell, venueCell);
   return row;
 }
 
