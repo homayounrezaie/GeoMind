@@ -31,6 +31,37 @@
       ]
     },
     {
+      "id": "single-step-latent-diffusion-for-underwater-image-restoration-2025",
+      "title": "Single-Step Latent Diffusion for Underwater Image Restoration",
+      "authors": "Jiayi Wu, Tianfu Wang, Md Abu Bakr Siddique, Md Jahidul Islam, Cornelia Fermuller, Yiannis Aloimonos, Christopher A. Metzler",
+      "venue": "IEEE TPAMI",
+      "year": 2025,
+      "presentation": "ICCP 2025",
+      "abstract": "Underwater image restoration algorithms seek to restore the color, contrast, and appearance of a scene that is imaged underwater. They are a critical tool in applications ranging from marine ecology and aquaculture to underwater construction and archaeology. While existing pixel-domain diffusion-based image restoration approaches are effective at restoring simple scenes with limited depth variation, they are computationally intensive and often generate unrealistic artifacts when applied to scenes with complex geometry and significant depth variation. In this work we overcome these limitations by combining a novel network architecture (SLURPP) with an accurate synthetic data generation pipeline. SLURPP combines pretrained latent diffusion models -- which encode strong priors on the geometry and depth of scenes -- with an explicit scene decomposition -- which allows one to model and account for the effects of light attenuation and backscattering. To train SLURPP we design a physics-based underwater image synthesis pipeline that applies varied and realistic underwater degradation effects to existing terrestrial image datasets. This approach enables the generation of diverse training data with dense medium/degradation annotations. We evaluate our method extensively on both synthetic and real-world benchmarks and demonstrate state-of-the-art performance. Notably, SLURPP is over 200X faster than existing diffusion-based methods while offering ~ 3 dB improvement in PSNR on synthetic benchmarks. It also offers compelling qualitative improvements on real-world data.",
+      "citations": 0,
+      "github_stars": 25,
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2507.07878.pdf",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2507.07878",
+        "code": "https://github.com/kongdai123/SLURPP",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": "https://huggingface.co/Tianfwang/SLURPP",
+        "project_page": "https://tianfwang.github.io/slurpp/",
+        "paper": "https://ieeexplore.ieee.org/document/11127006"
+      },
+      "bibtex": "@article{Wu_2025_SLURPP,\n  title = {Single-Step Latent Diffusion for Underwater Image Restoration},\n  author = {Wu, Jiayi and Wang, Tianfu and Siddique, Md Abu Bakr and Islam, Md Jahidul and Fermuller, Cornelia and Aloimonos, Yiannis and Metzler, Christopher A.},\n  year = {2025},\n  url = {https://doi.org/10.1109/TPAMI.2025.3599775},\n  doi = {10.1109/TPAMI.2025.3599775},\n  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},\n  pages = {1-11},\n  publisher = {Institute of Electrical and Electronics Engineers (IEEE)}\n}",
+      "matched_themes": [
+        "computer vision",
+        "image restoration",
+        "diffusion / generative model"
+      ]
+    },
+    {
       "id": "lamamba-linear-attention-mamba-for-hyperspectral-image-denoising-2025",
       "title": "LaMamba: Linear Attention Mamba for Hyperspectral Image Denoising",
       "authors": "Puhong Duan, Yichen Luo, Xudong Kang, Shutao Li",
