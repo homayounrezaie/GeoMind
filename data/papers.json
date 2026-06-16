@@ -2117,6 +2117,39 @@
       ]
     },
     {
+      "id": "agflow-2026",
+      "title": "Asynchronous Remote Sensing Time-Series Fusion for Cloud Removal and Anytime Reconstruction",
+      "authors": "Forouzan Fallah, Chia-Yu Hsu, Wenwen Li, Anna Liljedahl, Yezhou Yang",
+      "venue": "CVPR",
+      "year": 2026,
+      "presentation": "Workshop",
+      "abstract": "Frequent cloud cover severely limits the usability of Sentinel-2 (S2) optical time series for Earth surface monitoring. Sentinel-1 (S1) SAR provides all-weather complementary observations, but practical S1/S2 fusion remains difficult because acquisitions are irregular and asynchronous. Many existing approaches assume temporally aligned inputs (or require external nearest-date matching) and typically restore only observed timestamps, limiting reconstruction under long gaps and preventing on-demand synthesis. We propose AGFlow (Time Aligned Generative Flow Matching), a spatiotemporal flow-matching model for S1/S2 cloud removal and time-series reconstruction with three capabilities: (1) timestamp-conditioned internal alignment that fuses asynchronous S1 and cloudy S2 observations without preprocessing-based pairing; (2) spatiotemporal, context-aware denoising that models spatial structure jointly with temporal dynamics (rather than independent per-pixel time series); and (3) anytime querying, enabling generation of cloud-free S2 frames at both observed and user-specified timestamps within the monitoring window. We evaluate on the RESTORE-DiT benchmark protocol with quantitative metrics, qualitative comparisons, and component ablations. AGFlow notably improves fully missing-frame reconstruction (MAE and RMSE reduce by 16-19% over RESTORE-DiT) and provides reliable reconstructions under persistent gaps, while also yielding competitive cloud removal performance and flexible temporal querying for downstream tasks such as dense vegetation monitoring.",
+      "citations": 0,
+      "github_stars": 5,
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2605.27726",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2605.27726",
+        "code": "https://github.com/AGFlow-model/AGFlow-model",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": "https://www.youtube.com/watch?v=OXnxE3O8sl4",
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://agflow-model.github.io/",
+        "paper": "https://openaccess.thecvf.com/content/CVPR2026W/MORSE/html/Fallah_Asynchronous_Remote_Sensing_Time-Series_Fusion_for_Cloud_Removal_and_Anytime_CVPRW_2026_paper.html"
+      },
+      "bibtex": "@inproceedings{fallah2026asynchronous,\n  title={Asynchronous Remote Sensing Time-Series Fusion for Cloud Removal and Anytime Reconstruction},\n  author={Fallah, Forouzan and Hsu, Chia-Yu and Li, Wenwen and Liljedahl, Anna and Yang, Yezhou},\n  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},\n  pages={7772--7780},\n  year={2026}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "Earth observation / land cover",
+        "multispectral / hyperspectral / SAR",
+        "spatiotemporal modeling",
+        "diffusion / generative model"
+      ]
+    },
+    {
       "id": "rlftsim-2026",
       "title": "RLFTSim: Realistic and Controllable Multi-Agent Traffic Simulation via Reinforcement Learning Fine-Tuning",
       "authors": "Ehsan Ahmadi, Hunter Schofield, Behzad Khamidehi, Fazel Arasteh, Jinjun Shan, Lili Mou, Dongfeng Bai, Kasra Rezaee",
