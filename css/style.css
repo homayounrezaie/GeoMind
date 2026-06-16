@@ -1866,7 +1866,7 @@ body.is-submit-modal-open {
   --paper-body: #404040;
   --paper-meta: #737373;
   --paper-rule: #e5e5e5;
-  width: min(960px, calc(100% - 64px));
+  width: min(1040px, calc(100% - 64px));
   color: var(--paper-body);
   font-family: Inter, "Google Sans Flex", Arial, Helvetica, sans-serif;
 }
@@ -1878,7 +1878,11 @@ body.is-submit-modal-open {
 }
 
 .paper-card-article {
-  padding: 76px 0 112px;
+  padding: 64px 48px 84px;
+  background: #ffffff;
+  border: 1px solid #e6e8ec;
+  border-radius: 8px;
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08), 0 2px 10px rgba(15, 23, 42, 0.04);
 }
 
 .paper-card-hero {
@@ -4021,8 +4025,7 @@ body.is-submit-modal-open {
   }
 
   .paper-card-article {
-    padding-top: 36px;
-    padding-bottom: 76px;
+    padding: 36px 18px 76px;
   }
 
   .paper-card-hero {
@@ -4035,6 +4038,21 @@ body.is-submit-modal-open {
 
   .paper-card-body {
     gap: 48px;
+  }
+
+  .paper-card-section-head {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .paper-card-section-actions {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .paper-card-meta-strip {
+    justify-content: flex-start;
   }
 
   .paper-card-section,
@@ -4231,6 +4249,29 @@ body.is-submit-modal-open {
 
   .paper-card-page {
     width: min(100% - 40px, 960px);
+  }
+
+  .paper-card-article {
+    padding: 36px 0 76px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .paper-card-section-head {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .paper-card-section-actions {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    width: auto;
+  }
+
+  .paper-card-meta-strip {
+    justify-content: flex-end;
   }
 
   .hero {
