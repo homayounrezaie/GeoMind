@@ -166095,7 +166095,7 @@
       "year": 2025,
       "presentation": null,
       "abstract": "This work presents SSL4EO-S12 v1.1, a multimodal, multitemporal Earth Observation dataset designed for pretraining large-scale foundation models. Building on the success of SSL4EO-S12, this extension updates the previous version to fix geospatial alignment inaccuracies and the inefficent data structure. The dataset allows low-barrier, analysis-ready data loading while maintaining the predecessor's spatial coverage of the world's 10,000 largest cities and surrounding geographies, resulting in 246k time series with nearly one million image patches. We package each time series in Zarr file format stored in WebDataset tar shards for efficient data loading and representation of meta-information such as cloud masks. We add new modalities for elevation, land-cover, and vegetation to support multimodal pre-training. Released under the CC-BY-4.0 license, SSL4EO-S12 v1.1 facilitates open research and provides a robust foundation for future advancements in self-supervised learning and geospatial analysis. The dataset is available online through https://huggingface.co/datasets/embed2scale/SSL4EO-S12-v1.1.",
-      "citations": 0,
+      "citations": 14,
       "github_stars": 24,
       "links": {
         "pdf": "https://arxiv.org/pdf/2503.00168",
