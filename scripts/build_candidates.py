@@ -1,16 +1,18 @@
-"""Consolidate dataset & benchmark leads from every source into candidate pools.
+"""Consolidate dataset & benchmark leads from every source into one candidate pool.
 
 One-time-ish consolidation aid (run while the raw sources still exist). It reads:
 
-  * data/raw/datasets.json    + data/raw/datasets.csv     -> datasets.candidate.json
-  * data/raw/benchmarks.json  + data/raw/benchmarks.csv    -> benchmarks.candidate.json
+  * data/raw/datasets.json    + data/raw/datasets.csv     (dataset leads)
+  * data/raw/benchmarks.json  + data/raw/benchmarks.csv    (benchmark leads)
   * data/_staging/datasets-*.json / benchmarks-*.json      (web-scraped leads)
 
 Rows are normalized to a common record shape, grouped by a normalized name
-(datasets) or dataset+task+metric (benchmarks), and merged into one enriched
-candidate per group. A human promotes good candidates into data/datasets.json.
+(datasets) or dataset+task+metric (benchmarks), merged into one enriched
+candidate per group, tagged with a "type" field (dataset|benchmark), and
+written to a SINGLE combined pool: data/datasets.candidate.json. A human
+promotes good candidates into data/datasets.json.
 
-After the raw files are deleted the candidate files become the source of truth
+After the raw files are deleted the candidate file becomes the source of truth
 and this script is retired (it has nothing left to read).
 """
 
@@ -23,8 +25,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 RAW = DATA / "raw"
 STAGING = DATA / "_staging"
-DATASETS_OUT = DATA / "datasets.candidate.json"
-BENCHMARKS_OUT = DATA / "benchmarks.candidate.json"
+CANDIDATES_OUT = DATA / "datasets.candidate.json"
 
 # Tokens that mark a version/variant rather than a distinct dataset.
 _VERSION_TOKEN = re.compile(
@@ -295,20 +296,22 @@ def main():
 
     datasets = build_datasets(ds_iters)
     benchmarks = build_benchmarks(bm_iters)
+    candidates = (
+        [{"type": "dataset", **d} for d in datasets]
+        + [{"type": "benchmark", **b} for b in benchmarks]
+    )
 
     # Safety: never clobber an existing candidate pool with an empty rebuild.
     # Once the raw sources are deleted this script has nothing to read, so a
-    # naive run would otherwise wipe the consolidated, hand-curated files.
-    if datasets:
-        DATASETS_OUT.write_text(json.dumps({"datasets": datasets}, indent=2), encoding="utf-8")
-        print(f"datasets.candidate.json   -> {len(datasets)} unique datasets")
+    # naive run would otherwise wipe the consolidated, hand-curated file.
+    if candidates:
+        CANDIDATES_OUT.write_text(json.dumps({"candidates": candidates}, indent=2), encoding="utf-8")
+        print(
+            f"datasets.candidate.json -> {len(candidates)} candidates "
+            f"({len(datasets)} datasets + {len(benchmarks)} benchmarks)"
+        )
     else:
-        print("no dataset sources found; left datasets.candidate.json untouched")
-    if benchmarks:
-        BENCHMARKS_OUT.write_text(json.dumps({"benchmarks": benchmarks}, indent=2), encoding="utf-8")
-        print(f"benchmarks.candidate.json -> {len(benchmarks)} unique benchmarks")
-    else:
-        print("no benchmark sources found; left benchmarks.candidate.json untouched")
+        print("no sources found; left datasets.candidate.json untouched")
 
 
 if __name__ == "__main__":

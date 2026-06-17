@@ -11,9 +11,12 @@ Status legend: `[ ]` todo · `[x]` done · `[~]` partial (see note)
 
 ## Decisions (flag if you disagree)
 
-- **Two candidate files.** Datasets → `data/datasets.candidate.json`; benchmarks →
-  new `data/benchmarks.candidate.json` (benchmarks have a different schema:
-  metric / score / paper).
+- **Single candidate file (updated).** Originally split into
+  `datasets.candidate.json` + `benchmarks.candidate.json`, then merged per user
+  request into one file `data/datasets.candidate.json` with a top-level
+  `candidates` array; every entry carries a `type` field (`dataset` |
+  `benchmark`) so the two schemas stay distinguishable. **5,946 candidates total
+  (4,427 datasets + 1,519 benchmarks).**
 - **Enriched schema.** Keep existing fields and add the useful columns from the
   raw files (task, modality, size, year, description, downloads, likes) so
   deleting the raw files does not lose their metadata.
@@ -128,5 +131,5 @@ Status legend: `[ ]` todo · `[x]` done · `[~]` partial (see note)
 - [x] Update `data/README.md` to reflect new source-of-truth
 
 ### Phase 6 — Finalize
-- [ ] Commit all changes
-- [ ] Confirm with user before pushing to `main`
+- [x] Commit all changes (`ab0f7bc`)
+- [x] Pushed to `main` (with user confirmation)
