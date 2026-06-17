@@ -2150,13 +2150,46 @@
       ]
     },
     {
+      "id": "rgb-d-pv-2026",
+      "title": "Multimodal deep learning with aerial imagery and nDSM for true-slope-aware rooftop photovoltaic potential estimation",
+      "authors": "Junsheng Yao, Sebastian Krapf, Qingyu Li",
+      "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "SolarFusion combines RGB aerial imagery and normalized digital surface model (nDSM) height data for rooftop parsing, true-slope extraction, PV module placement, and annual electricity generation estimation. The method uses FusionPIRNet for multimodal parsing of roof orientations and roof superstructures, then propagates the parsed geometry into a true-slope-aware rooftop photovoltaic potential estimation pipeline.",
+      "citations": 0,
+      "github_stars": 2,
+      "links": {
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/yaojunsheng/RGB-D_PV",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://1drv.ms/f/c/9108d2bd19b42862/IgCOpCc3sH8MQovOQ7udjt6IAZoEAJqQrhA5-Vx4dobtcD0?e=rRpRNk",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/yaojunsheng/RGB-D_PV",
+        "paper": "https://www.sciencedirect.com/science/article/pii/S0924271626002856"
+      },
+      "bibtex": "@article{Yao_2026,\n  title = {Multimodal deep learning with aerial imagery and nDSM for true-slope-aware rooftop photovoltaic potential estimation},\n  author = {Yao, Junsheng and Krapf, Sebastian and Li, Qingyu},\n  year = {2026},\n  url = {http://dx.doi.org/10.1016/j.isprsjprs.2026.05.038},\n  doi = {10.1016/j.isprsjprs.2026.05.038},\n  journal = {ISPRS Journal of Photogrammetry and Remote Sensing},\n  volume = {238},\n  pages = {693-711},\n  publisher = {Elsevier BV},\n  month = {Aug},\n  issn = {0924-2716}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "drone / UAV / aerial / overhead",
+        "geospatial / GIS / geographic",
+        "Earth observation / land cover",
+        "semantic segmentation"
+      ]
+    },
+    {
       "id": "paper_2605_29330",
       "title": "EarthShift: a benchmark for measuring robustness to real-world distribution shifts in Earth observation",
       "authors": "Kelsey Doerksen, Hannah Kerner",
       "venue": "arXiv",
       "year": 2026,
       "presentation": null,
-      "abstract": "Current Earth observation benchmarks focus on measuring performance on diverse tasks and applications, typically measuring generalization in-distribution. But when models are deployed, they must generalize to myriad out-of-distribution scenarios, such as new time periods, geographies, scales, and sensors. We introduce EarthShift: the first public testbed for benchmarking robustness across multiple realistic distribution shifts encountered in remote sensing. EarthShift enables users to measure distributional robustness by comparing performance in- and out-of-distribution using datasets from paired datasets from different sources, temporal windows, geographic locations, and sensors. Our experiments on 8 geospatial foundation models (GFMs) and 11 tasks covering 5 shift types show that GFMs consistently perform 15-20% worse out-of-distribution on average regardless of model architecture, size, pre-training or fine-tuning strategy. We show that GFM robustness is similar to that of generic vision foundation models, and even fully-supervised models. This highlights a need for future research to strive for improvements in distributional robustness, not just performance, which can be benchmarked using EarthShift. We release our code and datasets to provide a testbed to guide future work to create foundation models that are robust and reliable in real-world applications. Code and data for EarthShift are available at: https://earthshift.github.io",
+      "abstract": "Current Earth observation benchmarks focus on measuring performance on diverse tasks and applications, typically measuring generalization in-distribution. But when models are deployed, they must generalize to myriad out-of-distribution scenarios, such as new time periods, geographies, scales, and sensors. We introduce EarthShift: the first public testbed for benchmarking robustness across multiple realistic distribution shifts encountered in remote sensing. EarthShift enables users to measure distributional robustness by comparing performance in- and out-of-distribution using datasets from paired datasets from different sources, temporal windows, geographic locations, and sensors. Our experiments on 8 geospatial foundation models (GFMs) and 11 tasks covering 5 shift types show that GFMs consistently perform 15-20% worse out-of-distribution on average regardless of model architecture, size, pre-training or fine-tuning strategy. We show that GFM robustness is similar to that of generic vision foundation models, and even fully-supervised models. This highlights a need for future research to strive for improvements in distributional robustness, not just performance, which can be benchmarked using EarthShift. We release our code and datasets to provide a testbed to guide future work to create foundation models that are robust and reliable in real-world applications.",
       "citations": 0,
       "github_stars": 33,
       "links": {
