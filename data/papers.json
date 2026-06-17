@@ -1837,93 +1837,6 @@
       ]
     },
     {
-      "id": "denoising-and-dimensionality-reduction-using-multilinear-tools-for-2008",
-      "title": "Denoising and dimensionality reduction using multilinear tools for hyperspectral images",
-      "authors": "N. Renard, S. Bourennane, Jacques Blanc-Talon",
-      "venue": "IEEE GRSL",
-      "year": 2008,
-      "presentation": null,
-      "abstract": "In hyperspectral image (HSI) analysis, classification requires spectral dimensionality reduction (DR). While common DR methods use linear algebra, we propose a multilinear algebra method to jointly achieve denoising reduction and DR. Multilinear tools consider HSI data as a whole by processing jointly spatial and spectral ways. The lower rank-(K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">1</sub> , K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">2</sub> , K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">3</sub> ) tensor approximation [LRTA-(K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">1</sub> , K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">2</sub> , K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">3</sub> )] was successfully applied to denoise multiway data such as color images. First, we demonstrate that the LRTA-(K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">1</sub> , K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">2</sub> , K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">3</sub> ) performs well as a denoising preprocessing to improve classification results. Then, we propose a novel method, referred to as LRTA <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">dr</sub> -(K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">1</sub> , K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">2</sub> , D <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">3</sub> ), which performs both spatial lower rank approximation and spectral DR. The classification algorithm Spectral Angle Mapper is applied to the output of the following three DR and noise reduction methods to compare their efficiency: the proposed LRTA <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">dr</sub> -(K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">1</sub> , K <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">2</sub> , D <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">3</sub> ), PCA <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">dr</sub> , and PCA <sub xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">dr</sub> associated with Wiener filtering or soft shrinkage of wavelet transform coefficients.",
-      "citations": 314,
-      "github_stars": 0,
-      "links": {
-        "pdf": "https://doi.org/10.1109/lgrs.2008.915736",
-        "supp": null,
-        "arxiv": null,
-        "code": null,
-        "paperswithcode": null,
-        "checkpoints": null,
-        "video": null,
-        "dataset": null,
-        "benchmark": null,
-        "model": null,
-        "project_page": null
-      },
-      "bibtex": "@article{Renard_2008,\n  title = {Denoising and Dimensionality Reduction Using Multilinear Tools for Hyperspectral Images},\n  author = {Renard, N. and Bourennane, S. and Blanc-Talon, J.},\n  year = {2008},\n  url = {http://dx.doi.org/10.1109/lgrs.2008.915736},\n  doi = {10.1109/lgrs.2008.915736},\n  journal = {IEEE Geoscience and Remote Sensing Letters},\n  volume = {5},\n  number = {2},\n  pages = {138–142},\n  publisher = {Institute of Electrical and Electronics Engineers (IEEE)},\n  month = {Apr},\n  issn = {1558-0571}\n}",
-      "matched_themes": [
-        "remote sensing",
-        "multispectral / hyperspectral / SAR"
-      ]
-    },
-    {
-      "id": "noise-reduction-of-hyperspectral-imagery-using-hybrid-spatial-2006",
-      "title": "Noise reduction of hyperspectral imagery using hybrid spatial-spectral derivative-domain wavelet shrinkage",
-      "authors": "Hisham Othman, Shen‐En Qian",
-      "venue": "IEEE TGRS",
-      "year": 2006,
-      "presentation": null,
-      "abstract": "In this paper, a new noise reduction algorithm is introduced and applied to the problem of denoising hyperspectral imagery. This algorithm resorts to the spectral derivative domain, where the noise level is elevated, and benefits from the dissimilarity of the signal regularity in the spatial and the spectral dimensions of hyperspectral images. The performance of the new algorithm is tested on two different hyperspectral datacubes: an Airborne Visible/Infrared Imaging Spectrometer (AVIRIS) datacube that is acquired in a vegetation-dominated site and a simulated AVIRIS datacube that simulates a geological site. The new algorithm provides signal-to-noise-ratio improvement up to 84.44% and 98.35% in the first and the second datacubes, respectively.",
-      "citations": 297,
-      "github_stars": 0,
-      "links": {
-        "pdf": "https://doi.org/10.1109/tgrs.2005.860982",
-        "supp": null,
-        "arxiv": null,
-        "code": null,
-        "paperswithcode": null,
-        "checkpoints": null,
-        "video": null,
-        "dataset": null,
-        "benchmark": null,
-        "model": null,
-        "project_page": null
-      },
-      "bibtex": "@article{Othman_2006,\n  title = {Noise reduction of hyperspectral imagery using hybrid spatial-spectral derivative-domain wavelet shrinkage},\n  author = {Othman, H. and Shen-En Qian},\n  year = {2006},\n  url = {http://dx.doi.org/10.1109/tgrs.2005.860982},\n  doi = {10.1109/tgrs.2005.860982},\n  journal = {IEEE Transactions on Geoscience and Remote Sensing},\n  volume = {44},\n  number = {2},\n  pages = {397–408},\n  publisher = {Institute of Electrical and Electronics Engineers (IEEE)},\n  month = {Feb},\n  issn = {1558-0644}\n}",
-      "matched_themes": [
-        "remote sensing",
-        "multispectral / hyperspectral / SAR"
-      ]
-    },
-    {
-      "id": "wavelet-based-hyperspectral-image-estimation-2004",
-      "title": "Wavelet-based hyperspectral image estimation",
-      "authors": "Ian C. Atkinson, Farzad Kamalabadi, Douglas L. Jones",
-      "venue": "IGARSS",
-      "year": 2004,
-      "presentation": null,
-      "abstract": "In this paper, we present a novel DFT- and wavelet-based estimation scheme for hyperspectral imagery. Optimal hyperspectral image estimation relies on the ability to decorrelate the signal in both space and channel at the cost of requiring second-order signal statistics. This statistical requirement is removed by the proposed estimator, which approximately decorrelates the signal in space using a 2D discrete wavelet transform and in channel using a discrete Fourier transform. In addition to allowing extremely efficient estimation, the proposed estimator vastly improves visual quality and yields typical signal-to-noise ratio gains of over 14 dB.",
-      "citations": 72,
-      "github_stars": 0,
-      "links": {
-        "pdf": "https://doi.org/10.1109/igarss.2003.1293903",
-        "supp": null,
-        "arxiv": null,
-        "code": null,
-        "paperswithcode": null,
-        "checkpoints": null,
-        "video": null,
-        "dataset": null,
-        "benchmark": null,
-        "model": null,
-        "project_page": null
-      },
-      "bibtex": "@inproceedings{Atkinson,\n  title = {Wavelet-based hyperspectral image estimation},\n  author = {Atkinson, I. and Kamalabadi, F. and Jones, D.L.},\n  year = {2004},\n  url = {http://dx.doi.org/10.1109/igarss.2003.1293903},\n  doi = {10.1109/igarss.2003.1293903},\n  booktitle = {IGARSS 2003. 2003 IEEE International Geoscience and Remote Sensing Symposium. Proceedings (IEEE Cat. No.03CH37477)},\n  volume = {2},\n  pages = {743–745},\n  publisher = {IEEE},\n  series = {IGARSS-03},\n  collection = {IGARSS-03}\n}",
-      "matched_themes": [
-        "remote sensing",
-        "multispectral / hyperspectral / SAR"
-      ]
-    },
-    {
       "id": "terratrack-2026",
       "title": "A workflow to identify and monitor slow-moving landslides through spaceborne optical feature tracking",
       "authors": "Lorenzo Nava, Maximillian Van Wyk de Vries, Louie Elliot Bell",
@@ -185846,36 +185759,6 @@
         "remote sensing",
         "foundation model",
         "survey"
-      ]
-    },
-    {
-      "id": "image-denoising-by-sparse-3-d-transform-domain-collaborative-filtering-2007",
-      "title": "Image Denoising by Sparse 3-D Transform-Domain Collaborative Filtering",
-      "authors": "Kostadin Dabov, Alessandro Foi, Vladimir Katkovnik, Karen Egiazarian",
-      "venue": "TIP2007",
-      "year": 2007,
-      "presentation": null,
-      "abstract": "We propose a novel image denoising strategy based on an enhanced sparse representation in transform domain. The enhancement of the sparsity is achieved by grouping similar 2-D image fragments into 3-D data arrays called groups. Collaborative filtering is then performed through 3-D transformation of a group, shrinkage of the transform spectrum, and inverse 3-D transformation. The jointly filtered grouped image blocks reveal shared details while preserving unique features of each individual block, and aggregation of overlapping blocks produces the final denoised image estimate.",
-      "citations": 0,
-      "github_stars": 0,
-      "links": {
-        "pdf": "https://webpages.tuni.fi/foi/GCF-BM3D/BM3D_TIP_2007.pdf",
-        "supp": null,
-        "arxiv": null,
-        "code": "https://github.com/zhoupc/BM3D",
-        "paperswithcode": null,
-        "checkpoints": null,
-        "video": null,
-        "dataset": null,
-        "benchmark": null,
-        "model": null,
-        "project_page": "https://webpages.tuni.fi/foi/GCF-BM3D/",
-        "paper": "https://doi.org/10.1109/TIP.2007.901238"
-      },
-      "bibtex": null,
-      "matched_themes": [
-        "image restoration",
-        "computer vision"
       ]
     },
     {
