@@ -34,6 +34,200 @@
         "tfds": "https://www.tensorflow.org/datasets/catalog/bigearthnet",
         "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#bigearthnet"
       }
+    },
+    {
+      "id": "eurosat",
+      "name": "EuroSAT",
+      "summary": "Sentinel-2 land-use/land-cover classification benchmark with 10 classes.",
+      "description": "EuroSAT is a land-use and land-cover classification dataset based on Sentinel-2 satellite images covering 13 spectral bands. It consists of 27,000 labelled and geo-referenced 64×64 patches across 10 classes. It is distributed in two variants: an RGB-only version and a full 13-band multispectral version.",
+      "task": "Land-use / land-cover classification",
+      "modality": "Sentinel-2 multispectral",
+      "size": "≈2 GB (all bands)",
+      "numSamples": "27,000 images / 10 classes",
+      "license": "MIT",
+      "year": 2019,
+      "sources": ["TorchGeo", "TFDS"],
+      "versions": [
+        { "name": "RGB", "year": 2019, "size": "≈90 MB", "numSamples": "27,000 images", "url": "https://www.tensorflow.org/datasets/catalog/eurosat" },
+        { "name": "All bands (13-band)", "year": 2019, "size": "≈2 GB", "numSamples": "27,000 images", "url": "https://www.tensorflow.org/datasets/catalog/eurosat" }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/1709.00029",
+        "homepage": "https://github.com/phelber/EuroSAT",
+        "tfds": "https://www.tensorflow.org/datasets/catalog/eurosat",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#eurosat"
+      }
+    },
+    {
+      "id": "so2sat",
+      "name": "So2Sat LCZ42",
+      "summary": "Sentinel-1/2 benchmark for Local Climate Zone classification over 42 cities.",
+      "description": "So2Sat LCZ42 is a benchmark dataset of co-registered Sentinel-1 and Sentinel-2 image patches over 42 urban agglomerations, hand-labelled into 17 Local Climate Zone (LCZ) classes. It is provided with multiple train/validation/test splits.",
+      "task": "Local Climate Zone classification",
+      "modality": "Sentinel-1 SAR / Sentinel-2 multispectral",
+      "size": "≈55 GB",
+      "numSamples": "≈400,000 patches / 17 classes",
+      "license": "CC-BY-4.0",
+      "year": 2020,
+      "sources": ["TorchGeo", "TFDS"],
+      "versions": [
+        { "name": "Random split", "year": 2020, "url": "https://www.tensorflow.org/datasets/catalog/so2sat" },
+        { "name": "Block split (v2)", "year": 2020, "url": "https://www.tensorflow.org/datasets/catalog/so2sat" }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/1912.12171",
+        "tfds": "https://www.tensorflow.org/datasets/catalog/so2sat",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#so2sat"
+      }
+    },
+    {
+      "id": "resisc45",
+      "name": "RESISC45",
+      "summary": "NWPU aerial scene classification benchmark with 45 classes.",
+      "description": "RESISC45 (NWPU-RESISC45) is a publicly available benchmark for remote sensing image scene classification, containing 31,500 aerial images of 256×256 pixels across 45 scene classes with 700 images per class.",
+      "task": "Scene classification",
+      "modality": "Aerial RGB imagery",
+      "size": "≈400 MB",
+      "numSamples": "31,500 images / 45 classes",
+      "license": "Research use only",
+      "year": 2017,
+      "sources": ["TorchGeo", "TFDS"],
+      "links": {
+        "paper": "https://arxiv.org/abs/1703.00121",
+        "tfds": "https://www.tensorflow.org/datasets/catalog/resisc45",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#resisc45"
+      }
+    },
+    {
+      "id": "uc-merced",
+      "name": "UC Merced Land Use",
+      "summary": "Classic 21-class aerial land-use scene classification dataset.",
+      "description": "The UC Merced Land Use dataset is a 21-class land-use image classification dataset of 256×256-pixel aerial images extracted from USGS imagery, with 100 images per class for a total of 2,100 images. It is widely used as a small-scale scene-classification benchmark.",
+      "task": "Land-use scene classification",
+      "modality": "Aerial RGB imagery",
+      "size": "≈320 MB",
+      "numSamples": "2,100 images / 21 classes",
+      "license": "Public domain (USGS)",
+      "year": 2010,
+      "sources": ["TorchGeo", "TFDS"],
+      "links": {
+        "paper": "https://dl.acm.org/doi/10.1145/1869790.1869829",
+        "homepage": "http://weegee.vision.ucmerced.edu/datasets/landuse.html",
+        "tfds": "https://www.tensorflow.org/datasets/catalog/uc_merced",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#ucmerced"
+      }
+    },
+    {
+      "id": "patternnet",
+      "name": "PatternNet",
+      "summary": "High-resolution remote sensing image retrieval/classification benchmark, 38 classes.",
+      "description": "PatternNet is a large-scale high-resolution remote sensing dataset collected for image retrieval, containing 30,400 images of 256×256 pixels across 38 classes with 800 images per class.",
+      "task": "Scene classification / image retrieval",
+      "modality": "Aerial RGB imagery",
+      "size": "≈1.4 GB",
+      "numSamples": "30,400 images / 38 classes",
+      "license": "Research use only",
+      "year": 2018,
+      "sources": ["TorchGeo"],
+      "links": {
+        "paper": "https://arxiv.org/abs/1706.03424",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#patternnet"
+      }
+    },
+    {
+      "id": "levir-cd",
+      "name": "LEVIR-CD",
+      "summary": "Large-scale bi-temporal aerial imagery benchmark for building change detection.",
+      "description": "LEVIR-CD is a large-scale remote sensing building change detection dataset consisting of 637 pairs of bi-temporal Google Earth images at 0.5 m ground sample distance, each of size 1024×1024 pixels. The dataset contains 31,333 annotated individual change instances and is widely used as a standard benchmark for deep-learning-based change detection methods.",
+      "task": "Change detection",
+      "modality": "Aerial RGB imagery (bi-temporal)",
+      "year": 2020,
+      "sources": ["TorchGeo"],
+      "links": {
+        "paper": "https://www.mdpi.com/2072-4292/12/10/1662",
+        "homepage": "https://chenhao.in/LEVIR/",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#levir-cd"
+      }
+    },
+    {
+      "id": "spacenet",
+      "name": "SpaceNet",
+      "summary": "Series of satellite-imagery challenges for building footprint and road extraction.",
+      "description": "SpaceNet is a corpus of commercial satellite imagery and geospatial data released through a series of open challenges (SpaceNet 1–8) covering tasks such as building footprint extraction, road network detection, off-nadir building detection, and multi-temporal urban change. Imagery sources include WorldView-2, WorldView-3, and Dove satellites at sub-meter to meter resolution across multiple cities worldwide.",
+      "task": "Building / road extraction",
+      "modality": "Satellite imagery (multi-sensor)",
+      "year": 2016,
+      "sources": ["TorchGeo"],
+      "versions": [
+        { "name": "SpaceNet 1 (Building Footprints, Rio)", "url": "https://spacenet.ai/" },
+        { "name": "SpaceNet 2 (Building Footprints, multi-city)", "url": "https://spacenet.ai/" },
+        { "name": "SpaceNet 3 (Road Network Extraction)", "url": "https://spacenet.ai/" },
+        { "name": "SpaceNet 4 (Off-nadir Buildings)", "url": "https://spacenet.ai/" },
+        { "name": "SpaceNet 5 (Road Network with Speed)", "url": "https://spacenet.ai/" },
+        { "name": "SpaceNet 6 (SAR + Optical)", "url": "https://spacenet.ai/" },
+        { "name": "SpaceNet 7 (Multi-temporal Urban Change)", "url": "https://spacenet.ai/" },
+        { "name": "SpaceNet 8 (Flood Detection)", "url": "https://spacenet.ai/" }
+      ],
+      "links": {
+        "homepage": "https://spacenet.ai/",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#spacenet"
+      }
+    },
+    {
+      "id": "chesapeake-land-cover",
+      "name": "Chesapeake Land Cover",
+      "summary": "High-resolution aerial land-cover dataset for the Chesapeake Bay watershed.",
+      "description": "The Chesapeake Land Cover dataset provides high-resolution (1 m) aerial RGB and near-infrared imagery alongside detailed land-cover labels for the Chesapeake Bay watershed in the eastern United States. It is widely used as a benchmark for semantic segmentation and domain adaptation in remote sensing, covering several US states with consistent annotation across multiple years.",
+      "task": "Semantic segmentation",
+      "modality": "Aerial RGB+NIR imagery",
+      "year": 2019,
+      "sources": ["TorchGeo"],
+      "links": {
+        "homepage": "https://lila.science/datasets/chesapeakelandcover",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#chesapeake"
+      }
+    },
+    {
+      "id": "isprs-potsdam",
+      "name": "ISPRS Potsdam",
+      "summary": "ISPRS urban semantic segmentation benchmark over Potsdam with 6 land-cover classes.",
+      "description": "The ISPRS Potsdam dataset is a benchmark for 2D semantic labelling of very high resolution aerial imagery. It provides 38 patches of 6000×6000-pixel true orthophoto tiles with corresponding digital surface models (DSM) and normalized DSMs over the city of Potsdam, Germany, annotated with 6 urban land-cover classes.",
+      "task": "Semantic segmentation",
+      "modality": "Aerial RGB+IR imagery + DSM",
+      "year": 2013,
+      "sources": ["TorchGeo"],
+      "links": {
+        "homepage": "https://www.isprs.org/education/benchmarks/UrbanSemLab/2d-sem-label-potsdam.aspx",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#potsdam"
+      }
+    },
+    {
+      "id": "isprs-vaihingen",
+      "name": "ISPRS Vaihingen",
+      "summary": "ISPRS urban semantic segmentation benchmark over Vaihingen with 6 land-cover classes.",
+      "description": "The ISPRS Vaihingen dataset is a benchmark for 2D semantic labelling of very high resolution airborne imagery. It consists of 33 tiles extracted from a large orthophoto mosaic of the village of Vaihingen, Germany, provided as infrared-red-green (IR-R-G) composites together with a normalized digital surface model (nDSM), annotated with 6 urban land-cover classes.",
+      "task": "Semantic segmentation",
+      "modality": "Aerial IR-R-G imagery + DSM",
+      "year": 2013,
+      "sources": ["TorchGeo"],
+      "links": {
+        "homepage": "https://www.isprs.org/education/benchmarks/UrbanSemLab/2d-sem-label-vaihingen.aspx",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#vaihingen"
+      }
+    },
+    {
+      "id": "tropical-cyclone",
+      "name": "Tropical Cyclone",
+      "summary": "Geostationary satellite imagery dataset for tropical cyclone wind-speed estimation.",
+      "description": "The Tropical Cyclone Wind Estimation Competition dataset consists of satellite images of tropical storms from geostationary satellites, paired with corresponding maximum sustained wind-speed labels. It is designed as a regression benchmark for estimating cyclone intensity from single-image satellite observations and is distributed via Radiant MLHub.",
+      "task": "Wind-speed estimation (regression)",
+      "modality": "Geostationary satellite imagery",
+      "year": 2021,
+      "sources": ["TorchGeo"],
+      "links": {
+        "homepage": "https://mlhub.earth/",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#tropical-cyclone"
+      }
     }
   ]
 }
