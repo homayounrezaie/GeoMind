@@ -952,6 +952,58 @@ const paperResourceMeta = {
       '<path d="M2 12h20"/>',
     ],
   },
+  paper: {
+    label: "Paper",
+    order: 3,
+    icon: [
+      '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>',
+      '<path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
+      '<path d="M10 9H8"/>',
+      '<path d="M16 13H8"/>',
+      '<path d="M16 17H8"/>',
+    ],
+  },
+  homepage: {
+    label: "Homepage",
+    order: 8,
+    icon: [
+      '<circle cx="12" cy="12" r="10"/>',
+      '<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>',
+      '<path d="M2 12h20"/>',
+    ],
+  },
+  download: {
+    label: "Download",
+    order: 8.5,
+    icon: [
+      '<path d="M12 3v12"/>',
+      '<path d="m7 10 5 5 5-5"/>',
+      '<path d="M5 21h14"/>',
+    ],
+  },
+  tfds: {
+    label: "TensorFlow Datasets",
+    order: 13,
+    icon: [
+      '<ellipse cx="12" cy="5" rx="9" ry="3"/>',
+      '<path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>',
+      '<path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>',
+    ],
+  },
+  torchgeo: {
+    label: "TorchGeo",
+    order: 14,
+    icon: [
+      '<ellipse cx="12" cy="5" rx="9" ry="3"/>',
+      '<path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>',
+      '<path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>',
+    ],
+  },
+  huggingface: {
+    label: "Hugging Face",
+    order: 15,
+    iconImage: "../images/huggingface-logo.svg",
+  },
 };
 
 const hiddenPaperCardLinkKeys = new Set(["paperswithcode"]);
