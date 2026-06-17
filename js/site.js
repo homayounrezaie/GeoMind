@@ -1444,6 +1444,18 @@ function getPaperItems(payload) {
   return Array.isArray(payload) ? payload : payload.items || payload.papers || [];
 }
 
+function getDatasetItems(payload) {
+  if (Array.isArray(payload)) {
+    return payload;
+  }
+
+  return payload?.datasets || payload?.items || [];
+}
+
+function getDatasetLead(data) {
+  return [data?.summary, data?.one_line_summary].find(hasResourceValue) || "";
+}
+
 function normalizeCountLabel(label) {
   const value = String(label || "items").trim().toLowerCase();
 
