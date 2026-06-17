@@ -11194,6 +11194,2292 @@
       "links": {
         "homepage": "https://planetarycomputer.microsoft.com/dataset/3dep-lidar-intensity"
       }
+    },
+    {
+      "id": "usgs-3dep-lidar-point-cloud",
+      "name": "USGS 3DEP Lidar Point Cloud",
+      "summary": "USGS 3D Elevation Program (3DEP) lidar point clouds reformatted into the cloud-optimized COPC (Cloud-Optimized Point Cloud) format.",
+      "description": "This collection contains source data from the USGS 3DEP program reformatted into the COPC format. A COPC file is a LAZ 1.4 file that stores point data organized in a clustered octree, providing a one-to-one mapping of LAZ to UTM-reprojected COPC files. The data are geospatial lidar point clouds covering the United States and are hosted via the Microsoft Planetary Computer STAC catalog.",
+      "task": "elevation-estimation",
+      "modality": "Lidar point cloud",
+      "year": 2012,
+      "sources": [
+        "Hugging Face",
+        "Planetary Computer"
+      ],
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/3dep-lidar-copc",
+        "program": "https://www.usgs.gov/3d-elevation-program"
+      }
+    },
+    {
+      "id": "usgs-3dep-lidar-point-source",
+      "name": "USGS 3DEP Lidar Point Source",
+      "summary": "Cloud Optimized GeoTIFFs representing the lidar point-source ID derived from the USGS 3DEP COPC collection.",
+      "description": "This collection is derived from the USGS 3DEP COPC collection and consists of Cloud Optimized GeoTIFFs representing the file source ID from which each point originated, where zero indicates the point originated in the current file. The values are based on the PointSourceId PDAL dimension and use pdal.filters.outlier and pdal.filters.range to remove outliers. The data are hosted via the Microsoft Planetary Computer STAC catalog.",
+      "task": "elevation-estimation",
+      "modality": "Raster (COG)",
+      "year": 2012,
+      "sources": [
+        "Hugging Face",
+        "Planetary Computer"
+      ],
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/3dep-lidar-pointsourceid",
+        "source-collection": "https://planetarycomputer.microsoft.com/dataset/3dep-lidar-copc"
+      }
+    },
+    {
+      "id": "usgs-3dep-lidar-returns",
+      "name": "USGS 3DEP Lidar Returns",
+      "summary": "Cloud Optimized GeoTIFFs representing the number of lidar returns per pulse, derived from the USGS 3DEP COPC collection.",
+      "description": "This collection is derived from the USGS 3DEP COPC collection and consists of Cloud Optimized GeoTIFFs representing the number of returns for a given lidar pulse. The values are processed using pdal.filters.outlier and pdal.filters.range to remove outliers before rasterization. The data are hosted via the Microsoft Planetary Computer STAC catalog.",
+      "task": "elevation-estimation",
+      "modality": "Raster (COG)",
+      "year": 2012,
+      "sources": [
+        "Hugging Face",
+        "Planetary Computer"
+      ],
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/3dep-lidar-returns",
+        "source-collection": "https://planetarycomputer.microsoft.com/dataset/3dep-lidar-copc"
+      }
+    },
+    {
+      "id": "usgs-3dep-seamless-dems",
+      "name": "USGS 3DEP Seamless DEMs",
+      "summary": "U.S.-wide seamless digital elevation models from the USGS 3D Elevation Program at horizontal resolutions from one to sixty meters.",
+      "description": "The USGS 3D Elevation Program (3DEP) Seamless DEMs are the primary elevation data product produced and distributed by the USGS via The National Map. The program provides raster elevation data for the conterminous United States, Alaska, Hawaii, and the island territories at a variety of resolutions ranging from one to sixty meters. The data are hosted via the Microsoft Planetary Computer STAC catalog.",
+      "task": "elevation-estimation",
+      "modality": "Raster (DEM)",
+      "size": "1-60 m resolution",
+      "sources": [
+        "Hugging Face",
+        "Planetary Computer"
+      ],
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/3dep-seamless",
+        "program": "https://www.usgs.gov/core-science-systems/ngp/3dep"
+      }
+    },
+    {
+      "id": "usgs-gap-land-cover",
+      "name": "USGS Gap Land Cover",
+      "summary": "Detailed national land cover and vegetation map of the United States from the USGS GAP/LANDFIRE National Terrestrial Ecosystems data.",
+      "description": "The USGS GAP/LANDFIRE National Terrestrial Ecosystems data, based on the NatureServe Terrestrial Ecological Systems, form the foundation of the most detailed, consistent map of vegetation available for the United States. These data facilitate planning and management for biological diversity on a regional and national scale. The land cover dataset is hosted via the Microsoft Planetary Computer STAC catalog.",
+      "task": "land-cover",
+      "modality": "Raster (land cover)",
+      "year": 1999,
+      "sources": [
+        "Hugging Face",
+        "Planetary Computer"
+      ],
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/gap",
+        "source": "https://www.sciencebase.gov/catalog/item/573cc51be4b0dae0d5e4b0c5"
+      }
+    },
+    {
+      "id": "usgs-lcmap-conus-collection-1-3",
+      "name": "USGS LCMAP CONUS Collection 1.3",
+      "summary": "Land cover mapping and change monitoring products for the conterminous United States from the USGS LCMAP initiative.",
+      "description": "The Land Change Monitoring, Assessment, and Projection (LCMAP) product provides land cover mapping and change monitoring from the USGS Earth Resources Observation and Science (EROS) Center. LCMAP Science Products are developed by applying time-series modeling on a per-pixel basis to Landsat Analysis Ready Data (ARD). This collection covers the conterminous United States. The data are hosted via the Microsoft Planetary Computer STAC catalog.",
+      "task": "land-cover",
+      "modality": "Raster (land cover)",
+      "year": 1985,
+      "sources": [
+        "Hugging Face",
+        "Planetary Computer"
+      ],
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/usgs-lcmap-conus-v13",
+        "program": "https://www.usgs.gov/special-topics/lcmap"
+      }
+    },
+    {
+      "id": "usgs-lcmap-hawaii-collection-1-0",
+      "name": "USGS LCMAP Hawaii Collection 1.0",
+      "summary": "Land cover mapping and change monitoring products for Hawaii from the USGS LCMAP initiative.",
+      "description": "The Land Change Monitoring, Assessment, and Projection (LCMAP) product provides land cover mapping and change monitoring from the USGS Earth Resources Observation and Science (EROS) Center. LCMAP Science Products are developed by applying time-series modeling on a per-pixel basis to Landsat Analysis Ready Data (ARD). This collection covers the state of Hawaii. The data are hosted via the Microsoft Planetary Computer STAC catalog.",
+      "task": "land-cover",
+      "modality": "Raster (land cover)",
+      "year": 2000,
+      "sources": [
+        "Hugging Face",
+        "Planetary Computer"
+      ],
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/usgs-lcmap-hawaii-v10",
+        "program": "https://www.usgs.gov/special-topics/lcmap"
+      }
+    },
+    {
+      "id": "uv6k",
+      "name": "UV6K",
+      "summary": "An urban vehicle segmentation benchmark of high-resolution aerial imagery with hundreds of thousands of annotated vehicle instances.",
+      "description": "UV6K is an urban vehicle segmentation dataset containing 6,313 aerial images with 245,141 vehicle instances at 0.1 m resolution in 1024x1024 pixel tiles. It was released alongside the FarSeg++ foreground-aware relation network for geospatial object segmentation in high-resolution remote sensing imagery. The dataset is split into training, validation, and test partitions and is intended for academic research use.",
+      "task": "segmentation",
+      "modality": "Aerial RGB",
+      "numSamples": "6,313 images; 245,141 vehicle instances",
+      "size": "11.0 GB",
+      "license": "CC-BY-4.0",
+      "year": 2023,
+      "sources": [
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/8404754"
+      }
+    },
+    {
+      "id": "vaihingen",
+      "name": "Vaihingen",
+      "summary": "ISPRS 2D semantic labeling benchmark of high-resolution true orthophotos and DSMs over Vaihingen, Germany.",
+      "description": "The ISPRS Vaihingen dataset is a widely used benchmark for 2D semantic labeling, consisting of 33 high-resolution true orthophoto tiles (near-infrared, red, green) with corresponding digital surface models over the town of Vaihingen, Germany. Pixel-wise reference labels cover urban land cover classes such as impervious surfaces, buildings, low vegetation, trees, and cars. It is commonly used for semantic segmentation, land cover mapping, building detection, and change detection research.",
+      "task": "segmentation; classification; land-cover-mapping; detection; change-detection; super-resolution",
+      "modality": "Aerial RGB/IR + DSM",
+      "numSamples": "33 tiles",
+      "sources": [
+        "Hugging Face",
+        "TorchGeo"
+      ],
+      "links": {
+        "homepage": "https://www.isprs.org/education/benchmarks/UrbanSemLab/2d-sem-label-vaihingen.aspx",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#vaihingen"
+      }
+    },
+    {
+      "id": "vds2raw",
+      "name": "VDS2RAW",
+      "summary": "A Sentinel-2 dataset for ship detection, edited and redistributed in raw form as VDS2RAW.",
+      "description": "VDS2RAW is a Sentinel-2 optical imagery dataset for ship detection, derived and redistributed from the Vessel Detection Sentinel-2 (VDS2) data. It provides raw multispectral imagery suitable for training and evaluating maritime vessel detection models. The dataset is hosted on Zenodo.",
+      "task": "object-detection",
+      "modality": "Sentinel-2 (multispectral)",
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/7982468"
+      }
+    },
+    {
+      "id": "vedai",
+      "name": "VEDAI",
+      "summary": "Vehicle Detection in Aerial Imagery (VEDAI), a small-target detection benchmark of aerial RGB and infrared imagery.",
+      "description": "VEDAI (Vehicle Detection in Aerial Imagery) is a benchmark for detecting small targets such as vehicles in aerial imagery. It provides co-registered RGB and near-infrared aerial images with annotations for multiple vehicle categories at various orientations, backgrounds, and lighting conditions. The dataset was introduced in 2015 and is widely used to evaluate small-object detection methods in remote sensing.",
+      "task": "object-detection",
+      "modality": "Aerial RGB/IR",
+      "year": 2015,
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "homepage": "https://downloads.greyc.fr/vedai/"
+      }
+    },
+    {
+      "id": "vehicle-detection-from-satellite-images",
+      "name": "Vehicle detection from satellite images",
+      "summary": "A Kaggle dataset of optical satellite imagery for training vehicle detection models.",
+      "description": "This dataset provides optical satellite imagery annotated for vehicle detection, published on Kaggle. It is intended for training and evaluating machine learning models that detect vehicles in overhead satellite scenes.",
+      "task": "object-detection",
+      "modality": "Optical satellite",
+      "sources": [
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "download": "https://www.kaggle.com/datasets/alpereniek/vehicle-detection-from-satellite-images-data-set"
+      }
+    },
+    {
+      "id": "vehicle-perception-from-satellite",
+      "name": "Vehicle Perception from Satellite",
+      "summary": "A large-scale benchmark for traffic monitoring from satellite video, supporting tiny vehicle detection, counting, and density estimation.",
+      "description": "Vehicle Perception from Satellite is a large-scale benchmark for traffic monitoring from satellite imagery. It is constructed from 12 real satellite videos and 14 synthetic videos rendered in GTA-V, split into 408 video clips comprising 7,336 real and 1,960 synthetic images with 128,801 annotated vehicles. The benchmark targets the unique challenges of satellite-based vehicle perception, supporting tiny object detection, vehicle counting, and density estimation.",
+      "task": "object detection; detection; classification",
+      "modality": "Satellite video",
+      "numSamples": "9,296 images; 128,801 annotated vehicles",
+      "year": 2024,
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2402.00703",
+        "github": "https://github.com/Chenxi1510/Vehicle-Perception-from-Satellite-Videos"
+      }
+    },
+    {
+      "id": "venus-cloud-mask-training-dataset",
+      "name": "VENuS cloud mask training dataset",
+      "summary": "Pixel-wise cloud mask training data for VEN\u03bcS satellite imagery over Israel.",
+      "description": "This dataset provides pixel-wise labelled VEN\u03bcS satellite scenes over the land of Israel, with a special focus on the southern arid area. Each pixel is classified into one of three categories: cloud-free, thick cloud, or thin cloud. It is designed to train machine learning models for cloud detection in VEN\u03bcS imagery and is hosted on Zenodo.",
+      "task": "cloud-detection",
+      "modality": "VEN\u03bcS (multispectral)",
+      "license": "CC-BY-4.0",
+      "year": 2022,
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/7040177"
+      }
+    },
+    {
+      "id": "venus-l2a-cloud-optimized-geotiffs",
+      "name": "VENUS L2A Cloud-Optimized GeoTIFFs",
+      "summary": "AWS-hosted VEN\u03bcS Level-2A surface reflectance imagery in Cloud-Optimized GeoTIFF format.",
+      "description": "This collection provides VEN\u03bcS (Vegetation and Environment monitoring on a New Micro-Satellite) Level-2A surface reflectance products as Cloud-Optimized GeoTIFFs, hosted on the AWS Registry of Open Data. The high-revisit, high-resolution multispectral imagery supports vegetation and environmental monitoring applications.",
+      "task": "land-cover",
+      "modality": "VEN\u03bcS (multispectral)",
+      "sources": [
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "homepage": "https://registry.opendata.aws/venus-l2a-cogs/"
+      }
+    },
+    {
+      "id": "vhr-10-coco",
+      "name": "VHR-10 COCO",
+      "summary": "A COCO-format version of the NWPU VHR-10 very-high-resolution remote sensing dataset for object detection and instance segmentation.",
+      "description": "VHR-10 COCO repackages the well-known NWPU VHR-10 very-high-resolution geospatial dataset into the MS-COCO annotation format so it can be used directly with standard detection and instance-segmentation frameworks. It covers 10 object categories such as airplanes, ships, storage tanks, baseball diamonds, tennis courts, basketball courts, ground track fields, harbors, bridges, and vehicles. Annotations include both bounding boxes and instance masks, making it suitable for training and evaluating modern detectors and segmentation models on overhead imagery.",
+      "task": "Object Detection, Instance Segmentation",
+      "modality": "RGB & SAR",
+      "links": {
+        "github": "https://github.com/chaozhong2010/VHR-10_dataset_coco"
+      },
+      "sources": [
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "vhrv",
+      "name": "VHRV",
+      "summary": "A very-high-resolution benchmark dataset of satellite imagery annotated for vessel (ship) detection.",
+      "description": "VHRV (Very High-Resolution Vessels) is a benchmark dataset for ship detection in very-high-resolution remote sensing imagery. It contains 1,502 images (4800x2886 pixels) with 10,158 annotated vessel instances at spatial resolutions of 0.1 to 0.25 meters, with annotations provided in YOLO format using horizontal bounding boxes. The repository also includes trained model weights and benchmark results for multiple detectors, and the data is released for academic use only.",
+      "task": "Object Detection",
+      "modality": "Very high-resolution optical satellite imagery",
+      "size": "1,502 images, 10,158 vessel instances",
+      "numSamples": 1502,
+      "license": "Academic use only",
+      "links": {
+        "github": "https://github.com/buyukkanber/vhrv"
+      },
+      "sources": [
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "vme-dataset",
+      "name": "VME Dataset",
+      "summary": "A large-scale satellite imagery dataset of vehicles across the Middle East for vehicle detection.",
+      "description": "VME (Vehicles in the Middle East) is a satellite imagery dataset for vehicle detection comprising over 4,000 image tiles and more than 100,000 vehicles drawn from 54 cities across 12 Middle Eastern countries. It provides oriented bounding box annotations in YOLO format and horizontal bounding box annotations in MS-COCO JSON format. The repository also includes scripts to build the Car Detection in Satellite Imagery (CDSI) benchmark, which combines VME with datasets such as xView, DOTA-v2.0, VEDAI, DIOR, and FAIR1M-2.0.",
+      "task": "Object Detection",
+      "modality": "RGB satellite imagery",
+      "size": "4,000+ image tiles, 100,000+ vehicles",
+      "license": "Images CC BY-NC-ND 4.0; annotations and scripts CC BY 4.0",
+      "links": {
+        "github": "https://github.com/nalemadi/VME_CDSI_dataset_benchmark"
+      },
+      "sources": [
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "vrsbench",
+      "name": "VRSBench",
+      "summary": "A versatile vision-language benchmark for remote sensing image understanding across detailed captioning, visual question answering, and visual grounding.",
+      "description": "VRSBench is a vision-language benchmark for remote sensing imagery designed to support multiple multimodal tasks within a single dataset. It is built upon the DOTA-v2 and DIOR datasets and provides detailed image captions, visual question answering pairs, and visual grounding annotations. The benchmark enables training and evaluation of vision-language models on overhead imagery across varied ground sample distances.",
+      "task": "Mixed Multi-task (image captioning, visual question answering, visual grounding)",
+      "modality": "Vision-Language (remote sensing imagery + text)",
+      "links": {
+        "homepage": "https://vrsbench.github.io/",
+        "github": "https://github.com/lx709/VRSBench"
+      },
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "western-usa-live-fuel-moisture",
+      "name": "WesternUSALiveFuelMoisture",
+      "summary": "A tabular dataset of live fuel moisture measurements paired with remotely sensed variables across the western United States.",
+      "description": "WesternUSALiveFuelMoisture contains live fuel moisture (the mass of water in vegetation) together with remotely sensed variables for the western United States, intended for regression-based prediction of fuel moisture. It comprises 2,615 datapoints, each stored as a GeoJSON file, with 138 remote sensing derived variables (some with a time dependency) drawn from sources including Landsat 8 and Sentinel-1. The dataset is available as a TorchGeo dataset class (WesternUSALiveFuelMoisture) for convenient use in machine learning pipelines.",
+      "task": "Regression (live fuel moisture estimation)",
+      "modality": "Tabular (Landsat 8, Sentinel-1 derived variables)",
+      "size": "2,615 datapoints, 138 variables",
+      "numSamples": 2615,
+      "links": {
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.WesternUSALiveFuelMoisture",
+        "homepage": "https://source.coop/stanford/sar-moisture-conent"
+      },
+      "sources": [
+        "Hugging Face",
+        "TorchGeo"
+      ]
+    },
+    {
+      "id": "met-office-global-10km-whole-atmosphere",
+      "name": "Whole Atmosphere collection Met Office Global 10km deterministic weather forecast",
+      "summary": "A global numerical weather prediction forecast collection offering 14 whole-atmosphere parameters at approximately 10km resolution from the Met Office.",
+      "description": "This collection offers 14 whole-atmosphere parameters from the Met Office global deterministic 10km forecast, a numerical weather prediction forecast covering the entire globe at approximately 0.09 degree (10km) resolution on a 2,560 x 1,920 grid. The data is provided as NetCDF files with hourly timesteps from 0 to 54 hours for most parameters. It is offered on a free, unsupported basis and is distributed via the Microsoft Planetary Computer.",
+      "task": "Weather forecasting",
+      "modality": "Numerical weather prediction (global gridded NetCDF)",
+      "year": 2023,
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/met-office-global-deterministic-whole-atmosphere"
+      },
+      "sources": [
+        "Hugging Face",
+        "Planetary Computer"
+      ]
+    },
+    {
+      "id": "met-office-ukv-2km-whole-atmosphere",
+      "name": "Whole Atmosphere collection Met Office UKV 2km deterministic forecast",
+      "summary": "A high-resolution UK weather forecast collection offering 11 whole-atmosphere parameters at 2km resolution from the Met Office.",
+      "description": "This collection offers 11 whole-atmosphere parameters from the Met Office UKV 2km deterministic forecast, a high-resolution gridded numerical weather prediction for the UK at 0.018 degree resolution projected onto a 2km horizontal grid. The forecast covers the UK and Ireland and the data is provided as NetCDF files. It is distributed via the Microsoft Planetary Computer.",
+      "task": "Weather forecasting",
+      "modality": "Numerical weather prediction (regional gridded NetCDF)",
+      "year": 2023,
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/met-office-uk-deterministic-whole-atmosphere"
+      },
+      "sources": [
+        "Hugging Face",
+        "Planetary Computer"
+      ]
+    },
+    {
+      "id": "whu-rs19",
+      "name": "WHU-RS19",
+      "summary": "A high-resolution satellite image dataset of 19 scene classes exported from Google Earth for remote sensing scene classification.",
+      "description": "WHU-RS19 is a set of high-resolution satellite images exported from Google Earth and organized into 19 meaningful scene classes such as airport, beach, bridge, commercial area, desert, farmland, forest, port, railway station, residential area, and river. Each class contains at least 50 samples of 600x600 pixels, with spatial resolution up to 0.5 m, for a total of around 1,005 images. It is a widely used benchmark for evaluating aerial and satellite scene classification methods.",
+      "task": "Scene classification, land-cover mapping",
+      "modality": "Satellite imagery (Google Earth), RGB, up to 0.5 m resolution, 600x600 px",
+      "size": "~1,005 images, 19 scene classes, ~50 images per class",
+      "numSamples": 1005,
+      "year": 2012,
+      "links": {
+        "homepage": "https://captain-whu.github.io/BED4RS/",
+        "download": "https://github.com/CAPTAIN-WHU/BED4RS/raw/main/datasets/WHU-RS19.zip"
+      },
+      "sources": [
+        "Hugging Face",
+        "ieee:7891544"
+      ]
+    },
+    {
+      "id": "whus2-cd-plus",
+      "name": "WHUS2-CD+",
+      "summary": "A cloud detection validation dataset of manually labeled cloud masks and corresponding Sentinel-2 images over mainland China.",
+      "description": "WHUS2-CD+ is a cloud detection validation dataset consisting of 36 manually labeled cloud masks at 10 m resolution with their corresponding Sentinel-2A images, evenly distributed over mainland China. The data is split into a training set of 24 images and a testing set of 12 images, with several particularly challenging scenes highlighted. It was used to train the CD-FM3SF cloud detection model and serves as a benchmark for validating cloud detection and cloud removal algorithms.",
+      "task": "Cloud detection / cloud removal",
+      "modality": "Sentinel-2A (10m)",
+      "size": "36 images (24 train / 12 test)",
+      "numSamples": 36,
+      "license": "CC BY 4.0",
+      "links": {
+        "download": "https://zenodo.org/record/5511793"
+      },
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "whu-sen-city",
+      "name": "WHU-SEN-City",
+      "summary": "A paired SAR-to-optical image translation dataset covering 34 major cities of China.",
+      "description": "WHU-SEN-City is a paired SAR-to-optical image translation dataset that covers 34 big cities of China, providing co-registered synthetic aperture radar and optical satellite image pairs. The repository includes Python processing code to split the images into smaller paired patches for analysis and training. It is intended for research on SAR-to-optical image translation and related SAR analysis tasks, with the data distributed via Google Drive and Baidu Netdisk.",
+      "task": "SAR-to-optical image translation, SAR analysis",
+      "modality": "SAR/Optical (paired)",
+      "links": {
+        "github": "https://github.com/whu-csl/WHU-SEN-City"
+      },
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "whu-stereo",
+      "name": "WHU-Stereo",
+      "summary": "A large-scale dataset for stereo matching and disparity estimation of high-resolution satellite imagery.",
+      "description": "WHU-Stereo is a large-scale dataset for stereo matching of high-resolution satellite imagery, supporting disparity estimation and terrain mapping tasks. The accompanying repository provides several deep learning methods for stereo matching, including StereoNet, Pyramid Stereo Matching Network (PSMNet), and HMSM-Net. It enables research on satellite stereo matching, digital elevation model generation, and related 3D reconstruction tasks.",
+      "task": "Stereo matching, disparity estimation, terrain mapping",
+      "modality": "Stereo satellite imagery",
+      "links": {
+        "github": "https://github.com/Sheng029/WHU-Stereo"
+      },
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "wids-datathon-2019-palm-oil-plantations",
+      "name": "WiDS Datathon 2019 (Palm Oil Plantations)",
+      "summary": "A Kaggle dataset of Planet satellite image chips labeled for the presence of oil palm plantations, created for the 2019 Women in Data Science Datathon.",
+      "description": "Provided by Planet and Figure Eight for the 2nd annual Women in Data Science (WiDS) Datathon, this dataset contains roughly 20,000 256x256-pixel satellite image chips at 3-meter resolution. Each image is labeled with whether an oil palm plantation is present (binary), along with annotator confidence scores. The task is to predict the probability that a given satellite image contains an oil palm plantation, in support of deforestation monitoring.",
+      "task": "Classification",
+      "modality": "Optical",
+      "size": "~20,000 image chips (256x256 px, 3 m resolution)",
+      "year": 2019,
+      "links": {
+        "homepage": "https://www.kaggle.com/competitions/widsdatathon2019",
+        "download": "https://www.kaggle.com/competitions/widsdatathon2019/data"
+      },
+      "sources": [
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "wildfire-spread-dataset",
+      "name": "Wildfire-Spread-Dataset (ABNextFire)",
+      "summary": "A multi-source deep learning dataset for wildfire spread prediction over Alberta, Canada, combining Landsat imagery with topographic and daily environmental variables.",
+      "description": "ABNextFire is a multi-source dataset for wildfire spread prediction covering Alberta, Canada, over the period 2001-2019. It integrates Landsat 7/8 remote sensing imagery at 30-meter resolution (NDBI, NDVI, NDWI), a digital elevation model and slope, and 13 daily environmental variables such as surface pressure, precipitation, wind, and soil temperature. The dataset is paired with ResNet and DeepLabV3 baseline models for predicting next-day fire spread.",
+      "task": "Wildfire spread prediction",
+      "modality": "Multi-modal (Landsat 30 m + topographic + meteorological)",
+      "license": null,
+      "links": {
+        "github": "https://github.com/BEEILAB/Wildfire-Spread-Dataset",
+        "paper": "https://doi.org/10.1109/JSTARS.2026.3677699"
+      },
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "worldstrat",
+      "name": "WorldStrat",
+      "summary": "A globally stratified dataset pairing high-resolution 1.5 m Airbus imagery with temporally matched 10 m Sentinel-2 revisits for multi-frame super-resolution.",
+      "description": "WorldStrat covers nearly 10,000 km2 of stratified, globally distributed locations, emphasizing underrepresented areas such as humanitarian sites, illegal mining locations, and vulnerable settlements. Each high-resolution scene at 1.5 m/pixel from Airbus is paired with 16 temporally matched low-resolution Sentinel-2 revisits at 10 m/pixel. It was published at NeurIPS 2022 and is designed for training and benchmarking satellite image super-resolution models using freely available Sentinel-2 data.",
+      "task": "Super-resolution",
+      "modality": "Multi-modal (1.5 m Airbus + Sentinel-2 10 m)",
+      "size": "~10,000 km2",
+      "year": 2022,
+      "links": {
+        "homepage": "https://worldstrat.github.io",
+        "github": "https://github.com/worldstrat/worldstrat",
+        "paper": "https://arxiv.org/abs/2207.06418",
+        "download": "https://zenodo.org/record/6810792"
+      },
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "worldview-2-european-cities",
+      "name": "WorldView-2 European Cities",
+      "summary": "An ESA very-high-resolution optical imagery dataset covering 66 of the most densely populated urban areas in Europe at 40 cm resolution.",
+      "description": "Distributed through the ESA Earth Online catalog, this dataset comprises WorldView-2 satellite imagery over 66 urban zones spanning the most densely populated areas of Europe. Imagery is provided at 40 cm very-high resolution with visible and near-infrared bands, acquired between July 2010 and July 2015 at processing level 2a. Data is available to residents of ESA Member and Associate States plus Canada through registration.",
+      "task": "Super-resolution",
+      "modality": "Optical (WorldView-2, 40 cm)",
+      "size": "66 European urban zones",
+      "links": {
+        "homepage": "https://earth.esa.int/eogateway/catalog/worldview-2-european-cities"
+      },
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "wsf-world-settlement-footprint",
+      "name": "WSF (World Settlement Footprint)",
+      "summary": "A suite of free, global geo-datasets from DLR mapping the extent of human settlements and built-up areas at high resolution from Sentinel and Landsat imagery.",
+      "description": "The World Settlement Footprint (WSF) is a collection of global settlement masks produced by DLR's Earth Observation Center. WSF 2015 is a 10 m binary settlement mask derived from Landsat-8 and Sentinel-1, WSF 2019 uses Sentinel-1 and Sentinel-2 at 10 m, WSF Evolution provides a 30 m multi-temporal settlement extent from Landsat, and WSF 3D adds settlement height/volume at 90 m. The datasets are widely used as benchmarks for built-up area and human settlement segmentation.",
+      "task": "Built-up / human settlement segmentation",
+      "modality": "Satellite multispectral and SAR imagery",
+      "license": null,
+      "links": {
+        "homepage": "https://geoservice.dlr.de/web/datasets/wsf",
+        "download": "https://download.geoservice.dlr.de/WSF2019/",
+        "torchgeo": "https://github.com/torchgeo/terratorch"
+      },
+      "versions": [
+        {
+          "name": "WSF 2015",
+          "year": 2015,
+          "size": "10 m",
+          "numSamples": null,
+          "url": "https://download.geoservice.dlr.de/WSF2015/"
+        },
+        {
+          "name": "WSF 2019",
+          "year": 2019,
+          "size": "10 m",
+          "numSamples": null,
+          "url": "https://download.geoservice.dlr.de/WSF2019/"
+        },
+        {
+          "name": "WSF Evolution",
+          "year": 2023,
+          "size": "30 m",
+          "numSamples": null,
+          "url": "https://download.geoservice.dlr.de/WSF_EVO/"
+        }
+      ],
+      "sources": [
+        "TerraTorch"
+      ]
+    },
+    {
+      "id": "xbd",
+      "name": "xBD",
+      "summary": "A large-scale, bi-temporal satellite imagery dataset for building damage assessment across 19 natural disasters, used in the xView2 challenge.",
+      "description": "xBD is a high-resolution, bi-temporal (pre- and post-disaster) dataset for assessing building damage from satellite imagery. It contains 22,068 RGB images covering 45,361.79 km2 from Maxar/DigitalGlobe across 19 natural disasters including floods, wildfires, earthquakes, and hurricanes, annotated with 850,736 building polygons. Damage is labeled per building on a harmonized four-level scale, and the dataset underpinned the xView2 building damage assessment challenge.",
+      "task": "Change detection / building damage assessment",
+      "modality": "RGB (Maxar, 0.3 m)",
+      "numSamples": "22,068 images; 850,736 building polygons",
+      "year": 2019,
+      "links": {
+        "homepage": "https://xview2.org/",
+        "download": "https://xview2.org/dataset",
+        "paper": "https://arxiv.org/abs/1911.09296",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.xBD"
+      },
+      "sources": [
+        "Hugging Face",
+        "TorchGeo"
+      ]
+    },
+    {
+      "id": "xview1",
+      "name": "xView1",
+      "summary": "One of the largest public datasets of high-resolution overhead imagery, with over 1 million annotated objects across 60 fine-grained classes for object detection.",
+      "description": "xView (xView1) is a large-scale overhead satellite imagery dataset developed by the Defense Innovation Unit (DIUx) and the National Geospatial-Intelligence Agency. It contains more than 1 million annotated object instances across 60 fine-grained classes at 0.3 m resolution, with bounding-box annotations oriented toward disaster-response themes. It was released for the 2018 xView Detection Challenge and emphasizes small, rare, and fine-grained objects.",
+      "task": "Object Detection",
+      "modality": "RGB (0.3 m)",
+      "numSamples": "60 classes; 1M+ object instances",
+      "year": 2018,
+      "links": {
+        "homepage": "http://xviewdataset.org/",
+        "paper": "https://arxiv.org/abs/1802.07856"
+      },
+      "sources": [
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "xview2",
+      "name": "xView2",
+      "summary": "The building damage assessment challenge and dataset (xBD) using pre- and post-disaster high-resolution Maxar imagery to classify damage severity.",
+      "description": "xView2 is the building damage assessment challenge built on the xBD dataset, hosted at xview2.org. It uses bi-temporal high-resolution Maxar satellite imagery at 0.3 m resolution to localize buildings and classify per-building damage severity across multiple disaster types. The task combines building segmentation with multi-class damage classification to support rapid disaster response.",
+      "task": "Segmentation / damage classification",
+      "modality": "RGB (Maxar, 0.3 m)",
+      "year": 2019,
+      "links": {
+        "homepage": "https://xview2.org/",
+        "download": "https://xview2.org/dataset",
+        "paper": "https://arxiv.org/abs/1911.09296"
+      },
+      "sources": [
+        "satellite-image-deep-learning"
+      ]
+    },
+    {
+      "id": "xview3",
+      "name": "xView3-SAR",
+      "summary": "A large-scale synthetic aperture radar dataset for detecting and classifying maritime vessels engaged in illegal, unreported, and unregulated (IUU) fishing.",
+      "description": "xView3-SAR provides Sentinel-1 synthetic aperture radar imagery covering roughly 43.2 million square kilometers of ocean for the task of dark-vessel detection. Labels combine Global Fishing Watch detection models, AIS analytics, and expert human annotations, and the SAR scenes are paired with contextual ancillary data. Released as part of the xView3 prize challenge, it is described as one of the largest publicly available datasets for maritime object detection.",
+      "task": "Object Detection",
+      "modality": "SAR",
+      "size": "43.2M km2",
+      "license": "Open (registration required)",
+      "year": 2022,
+      "sources": [
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "homepage": "https://iuu.xview.us/",
+        "paper": "https://arxiv.org/abs/2206.00897",
+        "github": "https://github.com/DIUx-xView",
+        "paperswithcode": "https://paperswithcode.com/dataset/xview3-sar"
+      }
+    },
+    {
+      "id": "yieldsat",
+      "name": "YieldSAT",
+      "summary": "A multimodal benchmark dataset for high-resolution, subfield-level crop yield prediction from Sentinel-2 imagery and environmental data.",
+      "description": "YieldSAT pairs Sentinel-2 satellite time series with weather, soil, and topography data to predict crop yield at the field and pixel (10m) level. It comprises 2,173 expert-curated fields spanning 138,288 hectares with 12.2 million yield samples and 113,555 labeled satellite images across four countries (Argentina, Brazil, Uruguay, Germany) and four crop types (corn, rapeseed, soybean, wheat) over 2016-2024. The benchmark evaluates deep learning architectures under cross-validation, leave-one-region-out, and leave-one-year-out protocols to test robustness to distribution shift.",
+      "task": "Regression",
+      "modality": "Sentinel-2",
+      "numSamples": "12.2M yield samples; 113,555 labeled images; 2,173 fields",
+      "year": 2026,
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "homepage": "https://yieldsat.github.io/",
+        "paper": "https://arxiv.org/abs/2604.00940",
+        "github": "https://github.com/yieldsat/yieldsat.github.io",
+        "download": "https://forms.office.com/e/VzgL85A3x8"
+      }
+    },
+    {
+      "id": "yosemite-tree-dataset",
+      "name": "Yosemite Tree Dataset",
+      "summary": "A benchmark dataset for tree counting from high-resolution aerial imagery of a forested region in Yosemite.",
+      "description": "The Yosemite Tree Dataset provides high-resolution aerial imagery (sourced from Google Maps) of a 2,262.5m x 4,525.1m study area (19,200 x 38,400 pixels) with 98,949 individually labeled trees. It is split into training regions (B and D) and test regions (A and C), with a recommended evaluation block size of 960 x 960 pixels. The benchmark evaluates tree-counting models using Mean Absolute Error and Root Mean Square Error.",
+      "task": "Object Counting",
+      "modality": "Aerial",
+      "numSamples": "98,949 labeled trees",
+      "year": 2021,
+      "sources": [
+        "Hugging Face",
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "github": "https://github.com/nightonion/yosemite-tree-dataset",
+        "download": "https://drive.google.com/drive/folders/1NWAqslICPoTS8OvT8zosI0R7cmsl6x9j?usp=sharing"
+      }
+    },
+    {
+      "id": "zhijie-floodplanet-2023",
+      "name": "FloodPlanet",
+      "summary": "A manually labeled, multi-sensor high-resolution flood inundation dataset for training and validating deep learning flood-mapping models.",
+      "description": "FloodPlanet is a high-quality, manually annotated flood inundation dataset labeled using 3m PlanetScope imagery and aligned with public Sentinel-1 and Sentinel-2 sensors. It covers 19 globally sampled flood events (2017-2020) as 366 manually labeled 1024x1024 PlanetScope tiles (~3,500 km2) spanning eight ecoregions across five continents, plus 362 Sentinel-1 and 298 Sentinel-2 coincident images within a 72-hour window. Training inundation segmentation models on these high-resolution labels improves flood detection accuracy by up to 15.6% over prior public datasets.",
+      "task": "Change Detection",
+      "modality": "Planet",
+      "numSamples": "366 PlanetScope tiles; 362 Sentinel-1; 298 Sentinel-2 images; 19 flood events",
+      "size": "~3,500 km2",
+      "year": 2023,
+      "sources": [
+        "satellite-image-deep-learning"
+      ],
+      "links": {
+        "download": "https://datacommons.cyverse.org/browse/iplant/home/shared/commons_repo/curated/Zhijie_FloodPlanet_2023",
+        "paper": "https://spj.science.org/doi/10.34133/remotesensing.0575",
+        "homepage": "https://ntrs.nasa.gov/citations/20220018303"
+      }
+    },
+    {
+      "id": "zuericrop",
+      "name": "ZueriCrop",
+      "summary": "A Sentinel-2 satellite image time-series dataset for crop-type instance and semantic segmentation over Switzerland.",
+      "description": "ZueriCrop provides multispectral Sentinel-2 imagery with instance and semantic masks covering 48 crop categories. It contains roughly 116k images (24x24 px at 10 m/pixel) organized into ~28k time series of 142 acquisitions each, packaged as a single HDF5 file. The dataset is designed for time-series crop mapping and is available as a built-in TorchGeo dataset class.",
+      "task": "semantic-segmentation",
+      "modality": "MSI, Sentinel-2",
+      "size": "116K images / ~28K time series",
+      "links": {
+        "homepage": "https://huggingface.co/datasets/isaaccorley/zuericrop",
+        "github": "https://github.com/0zgur0/multi-stage-convSTAR-network",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.ZueriCrop"
+      },
+      "sources": [
+        "Hugging Face",
+        "TorchGeo"
+      ]
+    },
+    {
+      "id": "sat-image-boundingbox-sft-full",
+      "name": "sat-image-boundingbox-sft-full",
+      "summary": "Sentinel-2 satellite imagery paired with land-cover bounding-box outputs as image-text rows for vision-language fine-tuning.",
+      "description": "This dataset packages Sentinel-2 multispectral optical chips (derived from a public STAC catalog and percentile-stretched to uint8) together with aligned land-cover labels formatted as image-text SFT rows. JSONL prompts describe the modality so the data can be used to fine-tune multimodal models on satellite imagery understanding and bounding-box grounding. It contains on the order of 100K-1M rows.",
+      "task": "Image-text training",
+      "modality": "Sentinel-2",
+      "size": "100K-1M rows",
+      "year": 2026,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/NuTonic/sat-image-boundingbox-sft-full",
+        "huggingface": "https://huggingface.co/datasets/NuTonic/sat-image-boundingbox-sft"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "dasp",
+      "name": "DASP",
+      "summary": "A near-global cloud-free Sentinel-2 mosaic dataset of Earth's surface across all spectral bands.",
+      "description": "DASP (Distributed Analysis of Sentinel-2 Pixels) consists of cloud-free satellite imagery built from over 30 million Sentinel-2 captures, selecting the most recent non-partial, cloudless acquisition per location in every band. It provides a near-complete cloudless view of Earth's surface for general geospatial applications. Images were converted from JPEG2000 to JPEG-XL for storage efficiency.",
+      "task": "Image classification",
+      "modality": "Sentinel-2",
+      "year": 2025,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/RichardErkhov/DASP"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "sat-vl-sft-training-ready-v1",
+      "name": "sat-vl-sft-training-ready-v1",
+      "summary": "A procedural vision-language SFT dataset built from Sentinel-2 chips and per-tile land-cover metadata for multimodal model training.",
+      "description": "This metadata-first VLM supervised fine-tuning dataset is built from a sat-bbox style tree of Sentinel-2 chips with per-tile JSON metadata sidecars and optional paired Mapbox stills. It supplies captioning, bounding-box grounding in normalized coordinates, and class-focused captions with absence checks for land-cover regions. The data is shaped as production-ready supervision for multimodal chat models and contains 100K-1M rows.",
+      "task": "Image-text training",
+      "modality": "Sentinel-2",
+      "size": "100K-1M rows",
+      "year": 2026,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/NuTonic/sat-vl-sft-training-ready-v1"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "s2-naip",
+      "name": "s2-naip",
+      "summary": "A continental-US remote sensing dataset of spatially aligned NAIP, Sentinel-2, Sentinel-1, and Landsat imagery.",
+      "description": "AI2-S2-NAIP aligns high-resolution NAIP aerial imagery with Sentinel-2, Sentinel-1, and Landsat imagery across the entire continental United States, divided into 512x512 tiles at 1.25 m/pixel across 10 UTM projections. Each tile pairs a NAIP image from 2019-2021 with 16-32 Sentinel-2 L1C acquisitions plus Sentinel-1 and Landsat data captured nearby in time. It is designed for multi-sensor remote sensing tasks such as super-resolution and fusion.",
+      "task": "Geospatial dataset",
+      "modality": "NAIP, Sentinel-2, Sentinel-1, Landsat",
+      "size": "1.25 m/pixel, 512x512 tiles",
+      "year": 2024,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/allenai/s2-naip"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "wrf-250m-severe-weather-overlays",
+      "name": "wrf-250m-severe-weather-overlays",
+      "summary": "High-resolution 250 m WRF model simulations of severe US weather events ready for plotting.",
+      "description": "This dataset contains 18 high-resolution severe-weather simulations from the WRF numerical weather model at 250 m resolution, covering tornadoes, wildfires, hurricanes, blizzards, heat waves, and flooding events across the US. Each event provides surface weather fields at 1-minute temporal resolution on an 800x800 grid, with coordinate arrays (latitude/longitude) supplied per event. The NumPy-ready format is intended for rapid map generation and weather visualization.",
+      "task": "Image classification",
+      "modality": "Weather",
+      "size": "10K-100K rows",
+      "year": 2026,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/deepguess/wrf-250m-severe-weather-overlays"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "groc",
+      "name": "GROC",
+      "summary": "A geospatial remote-sensing benchmark of paired raster tiles with land-cover and object annotations sourced from PDOK.",
+      "description": "GROC is a remote-sensing benchmark providing paired raster tiles together with labels, split files, tile extents, and source vector map data acquired from the Dutch PDOK service. It includes RGB, color-infrared, basemap, and digital surface model image tiles plus land-cover tiles and public annotation files. The dataset supports object detection and related geospatial tasks.",
+      "task": "object-detection",
+      "size": "10K-100K",
+      "links": {
+        "homepage": "https://huggingface.co/datasets/jwang-rs/GROC"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "ai4g-flood-dataset",
+      "name": "ai4g-flood-dataset",
+      "summary": "Global flood detections derived from a decade of Sentinel-1 SAR imagery using deep-learning change detection.",
+      "description": "This dataset accompanies the paper 'Mapping global floods with 10 years of satellite radar data' and contains global flood detections derived from Sentinel-1 Synthetic Aperture Radar imagery via a deep-learning change-detection model. It spans October 2014 to September 2024, offering a longitudinal view of flood-prone areas worldwide. The cloud-penetrating SAR basis enables consistent flood mapping regardless of weather or daylight.",
+      "task": "Geospatial dataset",
+      "modality": "Sentinel-1 SAR",
+      "size": "<1K rows",
+      "year": 2024,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/ai-for-good-lab/ai4g-flood-dataset"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "disasterm3",
+      "name": "DisasterM3",
+      "summary": "A remote-sensing vision-language dataset of bi-temporal satellite imagery for disaster damage assessment and response.",
+      "description": "DisasterM3 is a remote-sensing vision-language dataset for disaster damage assessment and response, comprising 26,988 bi-temporal satellite images and 123k instruction pairs across five disaster-related task types. It supports visual question answering and instruction-following over pre- and post-event imagery. The dataset accompanies a published paper with associated code.",
+      "task": "Visual question answering",
+      "modality": "Satellite imagery",
+      "size": "26,988 images / 123k instruction pairs",
+      "year": 2026,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/Kingdrone-Junjue/DisasterM3",
+        "paper": "https://arxiv.org/abs/2505.21089",
+        "github": "https://github.com/Junjue-Wang/DisasterM3"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "whu-building-dataset",
+      "name": "WHU-Building-Dataset",
+      "summary": "A benchmark for building extraction from 0.3 m high-resolution aerial imagery with pixel-level masks.",
+      "description": "The WHU Building Dataset is a widely-used benchmark for building extraction from high-resolution aerial imagery. It provides RGB aerial images at 0.3 m ground sampling distance tiled to 512x512 pixels, with binary pixel-level building masks (background and building classes). The data is organized into standard train/validation/test splits for semantic segmentation.",
+      "task": "Semantic segmentation",
+      "modality": "Aerial imagery",
+      "size": "1K-10K tiles",
+      "year": 2026,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/giswqs/WHU-Building-Dataset"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "sat-vl-sft-postprocessed-merged-v1",
+      "name": "sat-vl-sft-postprocessed-merged-v1",
+      "summary": "A post-processed, merged vision-language SFT dataset built from Sentinel-2 chips and per-tile land-cover metadata.",
+      "description": "This is a metadata-first, procedural VLM supervised fine-tuning dataset built from a sat-bbox style tree of Sentinel-2 chips with per-tile JSON metadata sidecars and optional paired Mapbox stills. It provides captioning, normalized-coordinate bounding-box grounding, and class-focused captions with absence checks for land-cover regions. This version is a post-processed and merged release containing 100K-1M rows.",
+      "task": "Image-text training",
+      "modality": "Sentinel-2",
+      "size": "100K-1M rows",
+      "year": 2026,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/NuTonic/sat-vl-sft-postprocessed-merged-v1"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "noah-mini",
+      "name": "NOAH-mini",
+      "summary": "A small sample of the NOAH multi-band Landsat-8 satellite imagery dataset for image-to-image tasks.",
+      "description": "NOAH-mini is a compact sample of the larger NOAH dataset, which contains 234,089 multi-band satellite images (~650MB each) across 11 bands that is impractical to host in full. The mini version provides a representative subset across different Landsat-8 spectral bands and modalities for experimentation. It is intended for image-to-image and weather/Earth-observation modeling tasks.",
+      "task": "Image-to-image",
+      "modality": "Landsat-8",
+      "size": "<1K rows",
+      "year": 2025,
+      "links": {
+        "homepage": "https://huggingface.co/datasets/mutakabbirCarleton/NOAH-mini"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "hhdc",
+      "name": "HHDC",
+      "summary": "A dataset of 3-D Hyperheight Data Cubes (photon-count canopy volumes) built from NEON discrete-return LiDAR for denoising and super-resolution tasks.",
+      "description": "HHDC (Hyperheight Data Cube) is a dataset of 3-D photon-count waveform cubes generated from NEON discrete-return LiDAR using the HHDC-Creator pipeline. Each cube stores a high-resolution canopy volume (by default 0.5 m vertical bins over a 64 m height range, with footprints every 2 m) across a 96 m x 96 m tile. The dataset is designed for canopy-structure denoising and super-resolution research. It is accompanied by an open-source generation pipeline.",
+      "task": "Image-to-image (denoising / super-resolution)",
+      "modality": "LiDAR",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/anfera236/HHDC",
+        "github": "https://github.com/Anfera/HHDC-Creator"
+      }
+    },
+    {
+      "id": "globaltrace",
+      "name": "GlobalTrace",
+      "summary": "A benchmark of GPS trajectories from 73 cities/regions worldwide with masked-segment annotations for evaluating trajectory reconstruction methods.",
+      "description": "GlobalTrace is a benchmark of GPS trajectories drawn from 73 cities and regions across the world, designed to evaluate trajectory reconstruction and recovery methods. Each trajectory is provided with three masking strategies (destination, large_gap, and simple_interpolation with a 200 m gap target) to simulate missing data. The dataset is split into train (44 cities, 8,815 trajectories), validation (10 cities, 1,787 trajectories), and test (19 cities, 1,707 trajectories) sets, with the validation and test splits held out for evaluation.",
+      "task": "Trajectory reconstruction",
+      "modality": "GPS trajectories",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/anonuser1234/globaltrace"
+      }
+    },
+    {
+      "id": "sat-bbox-metadata-sft-v1",
+      "name": "sat-bbox-metadata-sft-v1",
+      "summary": "A metadata-first VLM supervised fine-tuning dataset built from Sentinel-2 satellite chips with captioning, grounding, and land-cover annotations.",
+      "description": "sat-bbox-metadata-sft-v1 is a procedural vision-language-model SFT dataset built from a \"sat-bbox\" style dataset tree of Sentinel-2 chips with per-tile JSON metadata sidecars and optionally paired Mapbox stills. It is designed to produce high-signal supervision for multimodal chat models on satellite imagery, including captioning of chips, grounding (bounding boxes in normalized coordinates) for land-cover regions, class-focused captions, and absence checks. The dataset targets production-shaped training for geospatial multimodal models.",
+      "task": "Image-text training (VLM SFT)",
+      "modality": "Sentinel-2",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/NuTonic/sat-bbox-metadata-sft-v1"
+      }
+    },
+    {
+      "id": "brief-composer-sft-v1",
+      "name": "brief-composer-sft-v1",
+      "summary": "A multi-image VLM supervised fine-tuning dataset of executive-style analytical briefs composed from Sentinel-2 imagery and metadata.",
+      "description": "BriefComposer SFT is a multi-image analytical-brief dataset composed from completed FireWatch, OceanScout, LandShift, and FloodPulse Earth-observation dataset folders (metadata plus images). Each of the 8,000 samples stitches 1-4 Sentinel-2 images and metadata-derived headlines into a single executive-style assistant reply, formatted as JSONL chat-style training examples. It is intended for fine-tuning vision-language models on geospatial analysis and reporting tasks. Splits comprise 6,307 train, 851 validation, and 842 test records.",
+      "task": "Image-text training (VLM SFT)",
+      "modality": "Sentinel-2",
+      "license": "Apache-2.0",
+      "numSamples": 8000,
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/NuTonic/brief-composer-sft-v1"
+      }
+    },
+    {
+      "id": "amfitrite-open-waters-hab-sentinel2",
+      "name": "Amfitrite-Open-Waters-HAB-Sentinel2",
+      "summary": "Multispectral Sentinel-2 imagery tiles of open-water and coastal marine areas labeled by the potential presence of Harmful Algal Blooms.",
+      "description": "Amfitrite-Open-Waters-HAB-Sentinel2 contains multispectral Sentinel-2 satellite imagery tiles focused on open-water and coastal marine environments, classified by the potential presence of Harmful Algal Blooms (HABs). It is designed to train machine-learning and deep-learning models (such as CNNs) for large-scale environmental monitoring and ocean anomaly detection. The dataset supports image-classification approaches to identifying marine algal-bloom events from optical satellite data.",
+      "task": "Image classification",
+      "modality": "Sentinel-2",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/kostaspic/amfitrite-open-waters-hab-sentinel2"
+      }
+    },
+    {
+      "id": "worldfloodsv2",
+      "name": "WorldFloodsv2",
+      "summary": "509 paired Sentinel-2 images and flood segmentation masks for global flood-extent mapping from optical satellite imagery.",
+      "description": "WorldFloodsv2 is a dataset for global flood-extent segmentation in optical satellite images, released with the publication by Portales-Julia et al. in Scientific Reports (2023). It contains 509 pairs of Sentinel-2 images and corresponding flood segmentation masks, split into train, validation, and test sets, requiring approximately 76 GB of storage. The dataset enables training and benchmarking of semantic-segmentation models for mapping flood extent worldwide.",
+      "task": "Semantic segmentation (flood mapping)",
+      "modality": "Sentinel-2",
+      "numSamples": 509,
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/isp-uv-es/WorldFloodsv2",
+        "paper": "https://doi.org/10.1038/s41598-023-47595-7",
+        "github": "https://github.com/spaceml-org/ml4floods"
+      }
+    },
+    {
+      "id": "core-dem",
+      "name": "Major TOM Core-DEM",
+      "summary": "A global collection of Copernicus Digital Elevation Model tiles (356 x 356 px) within the Major TOM Earth-observation ecosystem.",
+      "description": "Major TOM Core-DEM provides global coverage of the Copernicus Digital Elevation Model (DEM), gridded into tiles of 356 x 356 pixels following the Major TOM grid. It was created to support the development of the MESA terrain-generation model and is part of the Major TOM (Terrestrial Observation Metaset), an expandable framework of interoperable Earth-observation datasets developed by ESA Phi-lab. The dataset is also featured in research on cross-modal retrieval of global satellite images.",
+      "task": "Digital elevation modeling",
+      "modality": "Copernicus DEM",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Major-TOM/Core-DEM",
+        "github": "https://github.com/ESA-PhiLab/Major-TOM"
+      }
+    },
+    {
+      "id": "geo-dataset",
+      "name": "Geo_dataset",
+      "summary": "A cross-domain semantic-segmentation benchmark for remote-sensing imagery combining ISPRS Potsdam, ISPRS Vaihingen, LoveDA Urban, and LoveDA Rural.",
+      "description": "Geo_dataset is a cross-domain segmentation dataset for remote-sensing images, comprising four subsets: ISPRS Potsdam, ISPRS Vaihingen, LoveDA Urban, and LoveDA Rural. It is suitable for conducting domain-adaptation and domain-generalization experiments on aerial and satellite imagery. The dataset accompanies research on cross-domain remote-sensing segmentation.",
+      "task": "Semantic segmentation",
+      "modality": "Aerial / satellite imagery",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/wsdwJohn1231/Geo_dataset",
+        "paper": "https://arxiv.org/abs/2504.06220"
+      }
+    },
+    {
+      "id": "global-streetscapes",
+      "name": "Global Streetscapes",
+      "summary": "A comprehensive dataset of 10 million crowdsourced street-level images across 688 cities, enriched with 300+ attributes for urban science and analytics.",
+      "description": "Global Streetscapes is a dataset by the Urban Analytics Lab (UAL) at the National University of Singapore, comprising 10 million street-level images sampled from Mapillary and KartaView across 688 cities worldwide. Images are enriched with more than 300 attributes covering geographical, environmental, and temporal diversity, and the release also includes manually labeled subsets. The Hugging Face repository hosts the tabular portion (CSV and Parquet files plus manual labels), supporting urban classification, segmentation, and feature-extraction research.",
+      "task": "Image classification / segmentation / feature extraction",
+      "modality": "Street-level imagery",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/NUS-UAL/global-streetscapes",
+        "github": "https://github.com/ualsg/global-streetscapes",
+        "homepage": "https://ual.sg/project/global-streetscapes/",
+        "paper": "https://doi.org/10.1016/j.isprsjprs.2024.06.023"
+      }
+    },
+    {
+      "id": "vector-100k",
+      "name": "Vector-100k",
+      "summary": "A multimodal instruction dataset of 100k chat examples derived from Sentinel-2 imagery for vision-language models on geospatial epidemiology tasks.",
+      "description": "VectorOS Vector-100k is a multimodal instruction dataset for fine-tuning vision-language models on geospatial epidemiology tasks, built for the VectorOS project with a focus on vector-borne disease surveillance. It contains 100,000 chat-style examples derived from 10,000 geospatial chips across 30 areas of interest, where each accepted chip pairs a Sentinel-2 true-color view and a Sentinel-2 NIR-red-green false-color view with structured outputs such as risk assessments, habitat summaries, and exposure analyses. Splits comprise 72,000 train, 14,000 validation, and 14,000 test rows.",
+      "task": "Visual question answering",
+      "modality": "Sentinel-2",
+      "numSamples": 100000,
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Alfaxad/vector-100k"
+      }
+    },
+    {
+      "id": "cornbelt-dataset-n-deep-learning-framework",
+      "name": "US Corn Belt Maize Yield Dataset and Deep Learning Framework",
+      "summary": "A dataset and deep-learning framework pairing MODIS satellite imagery with maize yield data for spatiotemporal yield prediction in the US Corn Belt (2012-2020).",
+      "description": "This dataset accompanies a study on integrating deep learning and satellite imagery for spatiotemporal maize yield prediction in the US Corn Belt. It pairs optimization-based data assimilation of MODIS satellite imagery with maize yield records over the period 2012-2020, and includes the associated deep-learning scripts. The dataset supports tabular regression and spatiotemporal crop-yield modeling.",
+      "task": "Tabular regression (crop-yield prediction)",
+      "modality": "MODIS",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/jonghanko/Cornbelt_dataset_n_Deep_Learning_Framework"
+      }
+    },
+    {
+      "id": "cerra-t2m",
+      "name": "CERRA-t2m",
+      "summary": "A subset of the CERRA regional reanalysis (2 m temperature) paired at low and high resolution for climate downscaling experiments.",
+      "description": "CERRA-t2m is a subset of the CERRA (Copernicus European Regional ReAnalysis) dataset used for climate-downscaling experiments. It provides paired low-resolution and high-resolution data for the 2 m temperature (t2m) variable, organized into train, validation, and test splits, along with normalization statistics. The dataset is intended for developing and evaluating super-resolution / downscaling models for climate-reanalysis fields.",
+      "task": "Climate downscaling (super-resolution)",
+      "modality": "Climate reanalysis (CERRA)",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/chaseltsui/cerra-t2m"
+      }
+    },
+    {
+      "id": "china-building-footprints-cmab-mirror",
+      "name": "China Building Footprints (CMAB Mirror)",
+      "summary": "A Hugging Face mirror of CMAB, the first national-scale multi-attribute building dataset of China covering ~31 million buildings derived from remote sensing and GeoAI.",
+      "description": "This is a Hugging Face mirror of the CMAB (China Multi-Attribute Building) dataset, the first national-scale multi-attribute building dataset of China, derived from open-source data and GeoAI. CMAB covers 3,667 cities and roughly 31 million buildings with attributes including rooftop area, height, orientation, function, quality, and age, generated from billions of remote-sensing images and tens of millions of street-view images. The dataset supports building extraction, urban analysis, and building-stock estimation.",
+      "task": "Building footprint extraction",
+      "modality": "Building footprints (remote sensing / GeoAI)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/DannHiroaki/China-Building-Footprints-CMAB-Mirror",
+        "paper": "https://arxiv.org/abs/2408.05891",
+        "journal": "https://www.nature.com/articles/s41597-025-04730-5",
+        "figshare": "https://doi.org/10.6084/m9.figshare.27992417"
+      }
+    },
+    {
+      "id": "methaneset",
+      "name": "MethaneSET",
+      "summary": "Unified multi-sensor, analysis-ready datasets for satellite-based methane plume detection spanning Sentinel-2, Landsat-8/9, and EMIT.",
+      "description": "MethaneSET provides unified, analysis-ready datasets for satellite-based methane plume detection across three sensors: Sentinel-2, Landsat-8/9, and EMIT. It includes expert-verified segmentation masks from two independent monitoring systems (IMEO MARS and Carbon Mapper) plus synthetic plume augmentation generated from over one million WRF-LES simulations, totaling more than one million samples. The dataset targets detection of methane super-emitters, the second-largest driver of anthropogenic warming.",
+      "task": "Image segmentation (methane plume detection)",
+      "modality": "Sentinel-2 / Landsat-8/9 / EMIT (multispectral & hyperspectral)",
+      "license": "CC-BY-NC-SA-4.0",
+      "numSamples": 1098328,
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/tacofoundation/methaneset",
+        "github": "https://github.com/tacofoundation"
+      }
+    },
+    {
+      "id": "blackline-atlas-training-corpus-v1",
+      "name": "Blackline Atlas Training Corpus v1",
+      "summary": "A license-aware, normalized vision-language training corpus for building structured satellite-imagery triage systems over civilian disruption scenarios.",
+      "description": "Blackline Atlas Training Corpus v1 is a training-ready dataset that combines text-only planning examples, paired image vision-language examples, hard negatives, and audit/provenance notes for supervised fine-tuning and evaluation of satellite-imagery triage systems. Rows are normalized for reproducible SFT and eval rather than serving as a raw mirror of third-party data. The corpus targets structured reasoning over satellite observations of civilian disruption scenarios.",
+      "task": "Visual question answering",
+      "modality": "Satellite imagery (Sentinel-2)",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ChrisRPL/blackline-atlas-training-corpus-v1"
+      }
+    },
+    {
+      "id": "osm-data",
+      "name": "OSM Data (OpenStreetMap Changesets)",
+      "summary": "A parsed and enriched dataset of all OpenStreetMap changesets, changeset comments, notes, and note comments.",
+      "description": "This dataset provides a parsed and enriched version of OpenStreetMap editing activity, organized into four sub-datasets: changeset_data (all changesets with enriched metadata, partitioned by year and month), changeset_comments_data, notes_data (map notes with locations and status), and notes_comments_data. It captures the full geospatial editing history and discussion of the OpenStreetMap project. The data is useful for analyzing mapping activity, contributor behavior, and the evolution of OSM coverage.",
+      "task": "Geospatial vector data",
+      "modality": "OpenStreetMap vector data",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/piebro/osm-data"
+      }
+    },
+    {
+      "id": "cmab-spatial-join-0-08b",
+      "name": "CMAB-Spatial-Join-0.08B",
+      "summary": "A lightweight axis-aligned bounding box (AABB) benchmark derived from the CMAB building rooftop dataset for evaluating spatial join pipelines.",
+      "description": "CMAB-Spatial-Join-0.08B is a spatial-join benchmark derived from the CMAB building rooftop dataset, designed for evaluating indexing, vectorized filtering, and output materialization in spatial join pipelines. It stores base axis-aligned bounding boxes (AABBs) and expanded influence AABBs for each building under four workload levels. The data is organized as Parquet shards partitioned by level and province.",
+      "task": "Spatial join benchmark",
+      "modality": "Building footprint vector data",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/DannHiroaki/CMAB-Spatial-Join-0.08B"
+      }
+    },
+    {
+      "id": "cop-gen-benchmark",
+      "name": "COP-GEN-Benchmark",
+      "summary": "An evaluation dataset for stochastic benchmarking of generative Earth-observation models against real multi-temporal Sentinel-2 observations.",
+      "description": "COP-GEN-Benchmark is the evaluation dataset accompanying the COP-GEN paper, enabling stochastic-benchmark evaluation of generative EO models by comparing generated sample sets against real multi-temporal Sentinel-2 observations at 495 geographically diverse locations. It provides three parallel subsets sharing an identical schema and georeferencing on the Major TOM v2 1056x1056 grid, including real cloud-free Sentinel-2 L2A samples and COP-GEN-generated samples. It supports rigorous comparison of generative Earth-observation outputs to ground-truth imagery.",
+      "task": "Image-to-image / generative EO evaluation",
+      "modality": "Sentinel-2 optical multispectral",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Major-TOM/COP-GEN-Benchmark"
+      }
+    },
+    {
+      "id": "sp-swimming-pools",
+      "name": "SP Swimming Pools (S\u00e3o Paulo Swimming Pool Detection)",
+      "summary": "An aerial imagery object-detection dataset of swimming pools across S\u00e3o Paulo municipal districts.",
+      "description": "S\u00e3o Paulo Swimming Pool Detection contains 8,682 image chips with 26,336 bounding boxes across 97 areas of interest spanning 96 GeoSampa municipal districts (about 99% of S\u00e3o Paulo's land area). It provides Roboflow-supervised train/val splits plus weak and high-resolution positives-only splits at varying ground sample distances (0.40 m/px and 0.10 m/px native GeoSampa resolution). The dataset supports training and evaluating object detectors for swimming pools in high-resolution aerial imagery.",
+      "task": "Object detection",
+      "modality": "Aerial imagery",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/cloudwalk-research/sp-swimming-pools"
+      }
+    },
+    {
+      "id": "hot-building-segmentation",
+      "name": "HOT Building Segmentation",
+      "summary": "A semantic segmentation dataset for building footprint extraction from aerial imagery, built from validated Humanitarian OpenStreetMap Team projects.",
+      "description": "HOT Building Segmentation is a semantic segmentation dataset for building footprint extraction from aerial imagery, derived from validated Humanitarian OpenStreetMap Team (HOT) Tasking Manager projects that use OpenAerialMap imagery. It pairs 256x256 aerial image tiles at zoom level 19 from OpenAerialMap with building footprint labels from OpenStreetMap. All source projects have been fully validated, making it suitable for training building-extraction models in humanitarian mapping contexts.",
+      "task": "Semantic segmentation",
+      "modality": "Aerial imagery / OpenStreetMap labels",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/kshitijrajsharma/hot-building-segmentation"
+      }
+    },
+    {
+      "id": "core-s2l2a",
+      "name": "Core-S2L2A",
+      "summary": "A global Major TOM collection of over 2.2 million Sentinel-2 Level-2A multispectral patches.",
+      "description": "Core-S2L2A provides global coverage of Sentinel-2 Level-2A optical multispectral patches, each 1,068 x 1,068 pixels, totaling over 2.24 million patches and more than 2.5 trillion pixels. It includes the full set of Sentinel-2 bands at their native 10 m, 20 m, and 60 m resolutions. As part of the Major TOM project, it serves as an analysis-ready foundation for Earth-observation representation learning and large-scale model training.",
+      "task": "Earth-observation foundation data",
+      "modality": "Sentinel-2 Level-2A optical multispectral",
+      "numSamples": 2245886,
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Major-TOM/Core-S2L2A"
+      }
+    },
+    {
+      "id": "topair",
+      "name": "TopAir",
+      "summary": "An aerial imagery dataset with depth annotations for semantic segmentation, generated with AirSim.",
+      "description": "TopAir is an aerial imagery dataset that provides image, video, and depth modalities for semantic segmentation tasks, generated using the AirSim simulation environment. It is tagged for aerial and depth-aware perception research. The dataset supports training and evaluating segmentation and scene-understanding models on aerial scenes.",
+      "task": "Semantic segmentation",
+      "modality": "Aerial imagery (with depth)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/yaraalaa0/TopAir",
+        "paper": "https://arxiv.org/abs/2503.17982"
+      }
+    },
+    {
+      "id": "groundset",
+      "name": "GroundSet",
+      "summary": "A large-scale, cadastral-grounded Earth-observation dataset for fine-grained spatial understanding with multimodal models.",
+      "description": "GroundSet is a large-scale Earth-observation dataset grounded in verifiable cadastral vector data, designed to advance fine-grained spatial understanding for multimodal models. It is built on high-resolution (20 cm) optical aerial orthophotos paired with legally verified vector data from the French national mapping agency (IGN). The dataset features high semantic richness and supports spatial reasoning and visual question answering over aerial imagery.",
+      "task": "Visual question answering",
+      "modality": "Aerial imagery (20 cm orthophotos) + cadastral vector data",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/RogerFerrod/GroundSet"
+      }
+    },
+    {
+      "id": "aorc-texas-downscaling",
+      "name": "AORC Texas Downscaling Benchmark",
+      "summary": "A climate downscaling (super-resolution) benchmark based on NOAA AORC 1 km reanalysis data over Texas.",
+      "description": "AORC Texas Climate Downscaling Benchmark is built from NOAA Analysis of Record for Calibration (AORC) 1 km reanalysis data over Texas for 2021-2024. It supports training and evaluating statistical climate downscaling (super-resolution) models that reconstruct high-resolution 1 km meteorological fields from coarsened low-resolution inputs at five scaling factors (2x, 4x, 8x, 16x, 32x). The data is provided in Zarr format for weather and climate research.",
+      "task": "Climate downscaling / super-resolution",
+      "modality": "Climate/weather reanalysis (Zarr)",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/oovanger/aorc-texas-downscaling"
+      }
+    },
+    {
+      "id": "gewdiff-training-dataset",
+      "name": "GEWDiff Training Dataset",
+      "summary": "A hyperspectral remote-sensing dataset for training super-resolution models.",
+      "description": "The GEWDiff training dataset is a hyperspectral remote-sensing dataset used to train super-resolution models, released under a CC-BY-4.0 license. It accompanies the GEWDiff research work on hyperspectral image super-resolution. The dataset supports developing and evaluating generative diffusion-based super-resolution methods for hyperspectral Earth-observation imagery.",
+      "task": "Super-resolution",
+      "modality": "Hyperspectral",
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/zhu-xlab/GEWDiff_training_dataset",
+        "paper": "https://arxiv.org/abs/2511.07103"
+      }
+    },
+    {
+      "id": "planetscope",
+      "name": "PlanetScope",
+      "summary": "A large collection of PlanetScope satellite imagery (Planet Labs Earth-imaging constellation).",
+      "description": "PlanetScope is a dataset of high-resolution multispectral satellite imagery from Planet Labs' PlanetScope constellation, totaling roughly 476 GB of image data. The imagery captures Earth's surface at high spatial resolution for remote-sensing applications. The dataset is hosted on Hugging Face for use in Earth-observation and computer-vision research.",
+      "task": "Remote sensing imagery",
+      "modality": "PlanetScope satellite optical imagery",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/rmbielski/PlanetScope"
+      }
+    },
+    {
+      "id": "terramesh",
+      "name": "TerraMesh",
+      "summary": "A planetary-scale, multimodal analysis-ready dataset for Earth-observation foundation models.",
+      "description": "TerraMesh is a planetary-scale, multimodal, analysis-ready dataset that merges Sentinel-1 SAR, Sentinel-2 optical, Copernicus DEM, NDVI, and land-cover sources into more than 9 million co-registered patches. It is designed for large-scale representation learning and training Earth-observation foundation models. Detailed sampling and preprocessing information is described in the accompanying TerraMesh paper.",
+      "task": "Earth-observation foundation data / feature extraction",
+      "modality": "Multimodal (Sentinel-1 SAR, Sentinel-2 optical, DEM, NDVI, land cover)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ibm-esa-geospatial/TerraMesh"
+      }
+    },
+    {
+      "id": "swiftt-bark-beetle-detection-semantic-segmentation",
+      "name": "SWIFTT Bark Beetle Detection Semantic Segmentation",
+      "summary": "Labeled Sentinel-1 and Sentinel-2 satellite imagery for semantic segmentation of bark beetle forest damage, produced by the EU SWIFTT project.",
+      "description": "A collection of datasets developed for the SWIFTT project (Satellites for Wilderness Inspection and Forest Threat Tracking), funded by the European Union under Grant Agreement 101082732. It contains labeled satellite imagery acquired with Sentinel-2 (optical) and Sentinel-1 (SAR) for developing and evaluating predictive models that detect and map bark beetle infestations in forests. The data supports semantic segmentation of forest threats from multi-sensor Earth observation imagery.",
+      "task": "Semantic segmentation",
+      "modality": "Sentinel-2 / Sentinel-1",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/AnnalisaAppice/SWIFTT-bark_beetle_detection_semantic_segmentation"
+      }
+    },
+    {
+      "id": "satellite-images-color-clustered",
+      "name": "Satellite Images Color Clustered",
+      "summary": "A curated collection of 256x256 satellite image tiles from ArcGIS World Imagery, organized into perceptually-uniform LAB color-space clusters.",
+      "description": "The Mosaic Library is a curated collection of satellite image tiles harvested from ArcGIS World Imagery and organized into perceptually-uniform LAB color-space clusters. Each tile is a 256x256 PNG snapshot of Earth's surface at zoom level 15 (~4.8 m/pixel), deduplicated and routed into one of 5,000 color buckets using K-Means centroids in CIE LAB space. The dataset currently covers 786 of the 5,000 color clusters.",
+      "task": "Earth observation imagery",
+      "modality": "Satellite imagery / Earth observation",
+      "size": "10K-100K tiles",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Daksh17440/satellite_images_color_clustered"
+      }
+    },
+    {
+      "id": "xhrbench",
+      "name": "XHRBench (RSHR)",
+      "summary": "A benchmark for evaluating multimodal large language models on ultra-high-resolution remote sensing imagery.",
+      "description": "RSHR (released as XHRBench) is a large-scale ultra-high-resolution benchmark designed to evaluate multimodal large language models (MLLMs) on remote sensing data, with images ranging from 4K to 300 megapixels. The evaluation framework spans multiple-choice VQA, open-ended VQA, and image captioning across perception and reasoning tasks. The broader benchmark covers 5,329 full-scene images, with 1,932 rows exposed in the dataset viewer.",
+      "task": "Image-text-to-text (MLLM benchmark)",
+      "modality": "Ultra-high-resolution remote sensing imagery",
+      "numSamples": 1932,
+      "license": "Apache-2.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/RL-MIND/XHRBench",
+        "paper": "https://arxiv.org/abs/2512.17319",
+        "github": "https://github.com/Yunkaidang/RSHR"
+      }
+    },
+    {
+      "id": "viirs",
+      "name": "VIIRS",
+      "summary": "A large multidimensional array dataset of VIIRS (Visible Infrared Imaging Radiometer Suite) satellite Earth observation data stored in Zarr format.",
+      "description": "An Earth observation dataset containing data from the VIIRS (Visible Infrared Imaging Radiometer Suite) satellite sensor. The data is organized as a multidimensional array in chunked Zarr format with dimensions of [4328, 142, 116] and blosc/zstd compression. The full dataset totals approximately 97.8 GB.",
+      "task": "Geospatial dataset",
+      "modality": "VIIRS satellite imagery",
+      "size": "97.8 GB",
+      "license": "Apache-2.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/NagrajMG/VIIRS"
+      }
+    },
+    {
+      "id": "msi-drone-crop-surveys",
+      "name": "MSI Drone Crop Surveys",
+      "summary": "Multispectral drone aerial surveys capturing a sunflower crop's lifecycle from April to September 2023.",
+      "description": "A remote sensing dataset of aerial surveys documenting a sunflower crop's lifecycle from April to September 2023, produced by Sofia University's Faculty of Mathematics and Informatics and SAP LABS Bulgaria. The dataset captures multispectral imagery (MSI) collected by drone over the growing season to support precision agriculture and remote sensing research. It targets efficient food production applications within the remote sensing ecosystem.",
+      "task": "Aerial crop monitoring",
+      "modality": "Multispectral drone / aerial imagery",
+      "size": "100K-1M rows",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/su-fmi/msi-drone-crop-surveys"
+      }
+    },
+    {
+      "id": "treesatai-chm",
+      "name": "TreeSatAI-CHM",
+      "summary": "An extension of the TreeSatAI benchmark adding canopy height model labels derived from German LiDAR surveys for joint tree species and canopy height prediction from Sentinel-1 SAR.",
+      "description": "TreeSatAI-CHM extends the TreeSatAI benchmark with canopy height model (CHM) labels derived from German LiDAR airborne surveys (LGLN). It supports joint prediction of tree species (15 genera) and canopy height from Sentinel-1 SAR imagery. The study area is Lower Saxony, Germany, and the data is provided as ready-to-use NumPy arrays at 60m resolution (40,292 training samples).",
+      "task": "Image segmentation / regression",
+      "modality": "Sentinel-1 SAR / LiDAR CHM",
+      "size": "60m resolution",
+      "numSamples": 40292,
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/siyux1927/treesatai-chm"
+      }
+    },
+    {
+      "id": "firescope-bench",
+      "name": "FireScope-Bench",
+      "summary": "A wildfire risk raster prediction benchmark combining Sentinel-2 imagery, climate variables, and burnt-area event data across the USA and Europe.",
+      "description": "FireScope-Bench accompanies the CVPR 2026 paper 'FireScope: Wildfire Risk Raster Prediction with a Chain-of-Thought Oracle'. It combines Sentinel-2 satellite imagery, wildfire risk rasters, MTBS event data, EFFIS burnt-area information, and NASA POWER climate variables across USA and European regions. The dataset supports image-to-image and image-text-to-image tasks for wildfire risk prediction and totals approximately 127 GB.",
+      "task": "Image-to-image / wildfire risk prediction",
+      "modality": "Sentinel-2 imagery / climate rasters",
+      "size": "127 GB",
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/INSAIT-Institute/FireScope-Bench",
+        "paper": "https://arxiv.org/abs/2511.17171",
+        "github": "https://github.com/insait-institute/FireScope"
+      }
+    },
+    {
+      "id": "core-s1rtc",
+      "name": "Core-S1RTC (Major TOM)",
+      "summary": "A global collection of nearly 1.5 million Sentinel-1 Radiometrically Terrain Corrected (RTC) SAR patches at 10m resolution, part of the Major TOM Earth observation dataset family.",
+      "description": "Core-S1RTC provides global coverage of Sentinel-1 Radiometrically Terrain Corrected (RTC) synthetic aperture radar patches, each 1,068 x 1,068 pixels at 10m resolution. It contains 1,469,955 patches totaling over 1.676 trillion pixels, with VV and VH polarization power channels plus false-color thumbnails. It is part of the Major TOM family of expandable Earth observation datasets developed by ESA Phi-lab.",
+      "task": "Geospatial dataset",
+      "modality": "Sentinel-1 RTC SAR",
+      "size": "10m resolution",
+      "numSamples": 1469955,
+      "license": "CC-BY-SA-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Major-TOM/Core-S1RTC",
+        "paper": "https://arxiv.org/abs/2402.12095",
+        "github": "https://github.com/ESA-PhiLab/Major-TOM"
+      }
+    },
+    {
+      "id": "geosound",
+      "name": "GeoSound",
+      "summary": "A geo-referenced soundscape dataset pairing satellite/aerial imagery with environmental audio recordings across a wide geographic footprint.",
+      "description": "GeoSound is a geo-referenced soundscape dataset that pairs satellite and aerial imagery with environmental audio recordings. It aggregates recordings from four crowdsourcing platforms (Freesound, Aporee, iNaturalist, and Flickr via YFCC100M) and covers a wide geographic footprint. The dataset, associated with the ACM Multimedia 2024 paper on probabilistic multi-scale zero-shot soundscape mapping, contains 293,718 training, 4,999 validation, and 9,931 test samples for research use only.",
+      "task": "Image-text (multimodal) training",
+      "modality": "Satellite / aerial imagery + audio",
+      "numSamples": 308648,
+      "license": "Research-only (non-commercial)",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/MVRL/GeoSound",
+        "paper": "https://dl.acm.org/doi/10.1145/3664647.3681363"
+      }
+    },
+    {
+      "id": "hyperspectral-orchard",
+      "name": "Hyperspectral Orchard",
+      "summary": "A hyperspectral imaging dataset of orchard fruit for classification and detection in agritech applications.",
+      "description": "A hyperspectral imaging dataset of orchard fruit published by Living Optics for agritech remote sensing applications. It supports image classification and fruit detection tasks using hyperspectral imagery. The dataset is tagged for agritech, detection, fruit, and hyperspectral modalities.",
+      "task": "Image classification",
+      "modality": "Hyperspectral imagery",
+      "size": "1K-10K rows",
+      "license": "other",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/LivingOptics/hyperspectral-orchard"
+      }
+    },
+    {
+      "id": "fire-progression-dataset",
+      "name": "Fire Progression Dataset",
+      "summary": "An Earth observation / remote sensing dataset for segmenting wildfire progression over time.",
+      "description": "A remote sensing dataset focused on wildfire progression, supporting image segmentation tasks over Earth observation imagery. It is intended for modeling how fires spread spatially across satellite or aerial scenes.",
+      "task": "Image segmentation",
+      "modality": "Earth observation / Remote sensing",
+      "size": "1K-10K rows",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ali97/fire-progression-dataset"
+      }
+    },
+    {
+      "id": "bali-flood-prevention",
+      "name": "bali-flood-prevention",
+      "summary": "Multi-spectral satellite imagery of Bali, Indonesia paired with structured flood-risk annotations for flood prediction and water-body detection.",
+      "description": "Bali Flood Prevention is a geospatial Earth-observation dataset for flood risk assessment in Bali, Indonesia. It contains RGB and SWIR (short-wave infrared) satellite bands captured monthly from January 2024 through July 2025 across monitoring points in nine regions, paired with JSON-formatted flood-risk assessments covering water extent, standing-water presence, and infrastructure exposure. The dataset is split into 1,710 training and 450 test rows and supports machine-learning models for flood prediction and water detection.",
+      "task": "Flood risk prediction / water detection",
+      "modality": "Multispectral satellite imagery (RGB + SWIR) + text",
+      "size": "~1.16 GB",
+      "numSamples": "2,160 rows (1,710 train / 450 test)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/okadharmawan3/bali-flood-prevention"
+      }
+    },
+    {
+      "id": "heatcast",
+      "name": "HeatCast",
+      "summary": "Landsat-derived land-surface-temperature time-series cubes for 124 U.S. cities, packaged as cloud-readable Zarr v3 stores.",
+      "description": "HeatCast is a geospatial dataset of Landsat-derived land-surface-temperature (LST) time series for 124 U.S. cities, stored as sharded Zarr v3 raster cubes for efficient cloud access. Each city includes multiple bands (LST, albedo, vegetation indices, reflectance) spanning observations from 2013 through mid-2025. It is a repacked version of the upstream JesseGuerreroML/US-UrbanLST release, reducing the file count from ~14.5M GeoTIFFs to 7,436 Zarr files while preserving byte-exact fidelity, and is intended for urban heat-island and climate trend analysis.",
+      "task": "Land surface temperature / urban heat analysis",
+      "modality": "Landsat-derived land surface temperature raster time series",
+      "size": "~171 GB",
+      "numSamples": "124 U.S. cities",
+      "license": "MIT",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/JesseGuerreroML/HeatCast"
+      }
+    },
+    {
+      "id": "landshift-sft-v1",
+      "name": "landshift-sft-v1",
+      "summary": "Temporal Sentinel-2 image pairs with change captions and grounding for supervised fine-tuning of land-cover change-detection vision-language models.",
+      "description": "LandShift SFT is a remote-sensing supervised fine-tuning dataset built from temporal Sentinel-2 image pairs over sampled global locations such as Bokeo (Laos), the Western Desert Oasis (Egypt), and MATOPIBA/Formosa (Brazil). NDVI delta highlights land-cover-style change, and each tile emits a change caption plus optional grounding (bounding boxes) for connected change regions. The dataset contains 6,388 JSONL rows split into train (5,114), validation (633), and test (641), and targets training of change-detection VLMs.",
+      "task": "Change detection / image captioning",
+      "modality": "Sentinel-2 multispectral imagery + text",
+      "numSamples": "6,388 rows (5,114 train / 633 val / 641 test)",
+      "license": "Apache-2.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/NuTonic/landshift-sft-v1"
+      }
+    },
+    {
+      "id": "oceanscout-sft-v1",
+      "name": "oceanscout-sft-v1",
+      "summary": "Maritime supervised fine-tuning samples from Sentinel-2 imagery with vessel-candidate captions and grounding for vision-language models.",
+      "description": "OceanScout SFT is a maritime remote-sensing supervised fine-tuning dataset derived from Sentinel-2 imagery. Each training row uses a single post-scene RGB chip per tile, with NDWI defining water and bright targets on water flagged as vessel candidates; tiles carry a maritime caption row plus a grounding row when detections exist. It covers global coastal locations (Charleston, Tokyo, New Orleans, Darwin, Rotterdam, and others) with 1,696 rows split into train (1,336), validation (166), and test (194). Labels are heuristic rather than operational truth and are intended for VLM training.",
+      "task": "Object detection / image captioning",
+      "modality": "Sentinel-2 RGB imagery + text",
+      "numSamples": "1,696 rows (1,336 train / 166 val / 194 test)",
+      "license": "Apache-2.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/NuTonic/oceanscout-sft-v1"
+      }
+    },
+    {
+      "id": "soundingearth",
+      "name": "SoundingEarth",
+      "summary": "A geo-referenced soundscape dataset pairing aerial/satellite imagery with geotagged environmental audio for self-supervised audiovisual remote-sensing learning.",
+      "description": "SoundingEarth is a geo-referenced soundscape dataset that pairs Google Earth aerial/satellite imagery with co-located, geotagged environmental audio recordings sampled at 32 kHz. Originally collected by Heidler et al. for self-supervised audiovisual representation learning on remote sensing data, it contains 49,284 image-audio samples split into train (40,241), validation (3,242), and test (5,801). Splits use a cell-based geographic partitioning strategy to prevent geographic leakage, and the dataset supports audiovisual representation learning, audio classification, and cross-modal retrieval.",
+      "task": "Audiovisual representation learning / image-text training",
+      "modality": "Aerial/satellite imagery + geotagged audio",
+      "size": "~499 GB",
+      "numSamples": "49,284 samples (40,241 train / 3,242 val / 5,801 test)",
+      "license": "CC-BY-4.0",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/MVRL/SoundingEarth",
+        "github": "https://github.com/khdlr/SoundingEarth",
+        "paper": "https://arxiv.org/abs/2108.00688",
+        "download": "https://zenodo.org/record/5600379"
+      }
+    },
+    {
+      "id": "climate-trace",
+      "name": "climate-trace",
+      "summary": "A large-scale geo-referenced global greenhouse-gas emissions inventory with per-sector, per-location records.",
+      "description": "Climate-TRACE is a large-scale tabular geospatial dataset tracking global greenhouse-gas emissions with geographic and temporal dimensions. Each of its roughly 396 million records includes geographic references (latitude, longitude, administrative boundaries), emissions quantities (including negative values for removals/offsets), years 2022-2024, and sectoral/subsectoral classification such as buildings, transportation, fossil-fuel operations, and forestry-and-land-use. It supports emissions inventory analysis at regional scales.",
+      "task": "Emissions inventory / tabular analysis",
+      "modality": "Geo-referenced tabular emissions records",
+      "size": "~9.74 GB",
+      "numSamples": "~396 million rows",
+      "license": "OpenRAIL",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/tjhunter/climate-trace",
+        "homepage": "https://climatetrace.org/"
+      }
+    },
+    {
+      "id": "lucas-mega",
+      "name": "LUCAS-MEGA",
+      "summary": "A large-scale multimodal soil-environment dataset built on the European LUCAS soil survey fused with dozens of ESDAC environmental sources.",
+      "description": "LUCAS-MEGA is a large-scale multimodal dataset for representation learning in soil-environment systems, built by fusing heterogeneous European soil and environmental datasets with the LUCAS soil survey as the backbone. The released dataset contains 72,000+ soil samples, 1,000+ fused soil and environmental features, and 68 integrated ESDAC source datasets, combining scalar, vector-valued, categorical, textual, and visual features (e.g., hydraulic conductivity curves, water-retention curves, particle-size distributions, and site imagery). It is designed to enable models to learn relationships across soil, climate, terrain, land-use, and hydrological variables.",
+      "task": "Representation learning / soil-environment modeling",
+      "modality": "Multimodal (tabular, vector, categorical, text, imagery)",
+      "size": "~93.9 GB",
+      "numSamples": "72,000+ soil samples",
+      "license": "MIT",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/earthroverprogram/lucas-mega"
+      }
+    },
+    {
+      "id": "transcity-vlm-dataset",
+      "name": "TransCity-VLM-dataset",
+      "summary": "A multimodal smart-city dataset pairing map screenshots with QA, dialogue, and chain-of-thought records for map-grounded urban reasoning vision-language models.",
+      "description": "TransCity-VLM is a multimodal smart-city dataset combining JSONL text records with map screenshot imagery to support map-grounded vision-language reasoning over urban domains. It spans traffic flow, electricity systems, bus operations, grid management, and map-grounded question answering for cities including Beijing, Glasgow, and Singapore. The dataset comprises roughly 308,642 test records, 101,736 large-scale QA entries, 138,558 multi-turn dialogue examples, and 37,713 chain-of-thought QA records (about 8.18 GB) alongside 28,055 map screenshot files, targeting forecasting, single- and multi-turn QA, decision support, and chain-of-thought reasoning.",
+      "task": "Visual question answering / urban reasoning",
+      "modality": "Map screenshot imagery + text",
+      "size": "~8.18 GB",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/TransCity-VLM/TransCity-VLM-dataset"
+      }
+    },
+    {
+      "id": "anomaly-detection-phisat2",
+      "name": "anomaly-detection (PhiSat-2 Marine)",
+      "summary": "A Sentinel-2 / PhiSat-2 simulated marine anomaly-detection segmentation dataset for onboard environmental monitoring.",
+      "description": "This dataset supports on-board anomaly detection for marine environmental monitoring as part of the PhiSat-2 OrbitalAI challenge, developed by the IRMA team at IRT Saint Exupery. It contains images generated from Sentinel-2 satellite data using the ESA simulator to replicate the characteristics of the onboard PhiSat-2 sensor, with 8 spectral bands at 4,096x4,096 resolution and segmentation masks. The 50 images (26 normal, 24 anomalies) are labeled with 9 classes including clear/turbid water, land, clouds, and four anomaly types (plastic, oil, algae, sediments), split into 36 train/val and 14 test samples.",
+      "task": "Image segmentation (marine anomaly detection)",
+      "modality": "Sentinel-2 / PhiSat-2 simulated multispectral imagery",
+      "size": "~19.9 GB",
+      "numSamples": "50 images (36 train/val / 14 test)",
+      "license": "CC-BY-3.0-IGO",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/sirbastiano94/anomaly-detection"
+      }
+    },
+    {
+      "id": "eldor-sample",
+      "name": "ELDOR-sample",
+      "summary": "A compact sample of the ELDOR UAV-orthomosaic segmentation dataset and benchmark for detecting illegal gold mining in the Amazon rainforest.",
+      "description": "ELDOR-sample is a compact companion to the full ELDOR dataset, a benchmark for detecting illegal gold mining in the Amazon rainforest from UAV-derived orthomosaic imagery. The sample contains one representative site (AcumulacionAaron2B) with 9,849 512x512 image patches and pixel-aligned semantic label maps, plus the full orthomosaic, for quick inspection of imagery, labels, and patch extraction without downloading the full release. The semantic segmentation task covers 12 foreground classes including mining rafts, heavy machinery, buildings, and natural vegetation types.",
+      "task": "Image segmentation (illegal mining detection)",
+      "modality": "UAV-derived orthomosaic imagery + semantic labels",
+      "size": "~3.04 GB",
+      "numSamples": "9,849 patches (1 site sample)",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/IRSC/ELDOR-sample",
+        "download": "https://huggingface.co/datasets/IRSC/ELDOR"
+      }
+    },
+    {
+      "id": "project-noah-hazard-maps",
+      "name": "project-noah-hazard-maps",
+      "summary": "A nationwide geospatial collection of flood, landslide, and storm-surge hazard maps covering all 81 provinces of the Philippines.",
+      "description": "The Project NOAH (Nationwide Operational Assessment of Hazards) Hazard Maps dataset is a comprehensive collection of geospatial natural-hazard assessments across the Philippines, provided as ESRI Shapefiles and cloud-optimized PMTiles vector tiles. It covers three major hazard types: flood inundation maps for 5-, 25-, and 100-year rainfall return periods, landslide susceptibility and debris-flow maps, and storm-surge advisory maps at four severity levels. Coverage spans all 81 Philippine provinces at province-level granularity, supporting disaster risk reduction and hazard assessment.",
+      "task": "Hazard mapping / disaster risk assessment",
+      "modality": "Geospatial vector data (Shapefile + PMTiles)",
+      "size": "~34.1 GB",
+      "license": "ODC-ODbL",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/bettergovph/project-noah-hazard-maps"
+      }
+    },
+    {
+      "id": "jl1-cup-2024-second-format",
+      "name": "JL1-CUP-2024-Second-Format",
+      "summary": "Bi-temporal Jilin-1 (JL1) RGB image patches with per-pixel semantic maps and binary change maps for semantic cropland change detection.",
+      "description": "JL1-CUP-2024-Second-Format provides the second-track format of the JL1 (Jilin-1) CUP 2024 cropland change-detection benchmark. It consists of bi-temporal 256x256 RGB patches with per-pixel semantic land-cover maps at times T1 and T2 plus a binary change map. The data follow the JL1-Second style layout and split described in the associated benchmark literature, built on imagery from the Jilin-1 satellite ecosystem.",
+      "task": "image-segmentation",
+      "modality": "Satellite imagery (RGB)",
+      "size": "256x256 RGB patches",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/BiliSakura/JL1-CUP-2024-Second-Format",
+        "download": "https://huggingface.co/datasets/aodebiao-a/JL1-CUP-2024-Second-Format"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "core-five",
+      "name": "core-five",
+      "summary": "A multi-modal geospatial dataset unifying Earth observation data from five sensors into spatiotemporally aligned datacubes for foundation models.",
+      "description": "core-five is a multi-modal Earth observation dataset that harmonizes data from five complementary sensors into perfectly aligned spatiotemporal datacubes. It includes optical Sentinel-2 (10 m) alongside additional sensing modalities, designed to train next-generation multi-modal vision and geospatial foundation models. The unified time-and-space alignment supports a wide range of downstream tasks such as segmentation, classification, detection, and image-to-image translation.",
+      "task": "feature-extraction",
+      "modality": "Multi-modal Earth observation (Sentinel-2 and other sensors)",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/gajeshladhar/core-five"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "landslide-sentinel2-vlm",
+      "name": "landslide-sentinel2-vlm",
+      "summary": "Sentinel-2 imagery of Italian landslide events paired with vision-language analysis for landslide hazard detection and risk characterization.",
+      "description": "landslide-sentinel2-vlm couples Sentinel-2 satellite imagery with vision-language model outputs for landslide risk assessment and monitoring across Italian regions. Each event provides seven derivative visualizations per scene (RGB, SWIR, NIR false-color composites and NDMI/NDVI/BSI/TCT-wetness heatmaps) with multiple pre-event temporal captures. Rich metadata includes geolocation coordinates, cloud cover, capture months, and JSON descriptions of spectral anomalies, terrain features, and exposure risk, supporting movement-type classification and multi-dimensional risk scoring.",
+      "task": "visual-question-answering",
+      "modality": "Sentinel-2 imagery and text",
+      "numSamples": 539,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Sciamlab/landslide-sentinel2-vlm"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "terramesh-masks",
+      "name": "TerraMesh-Masks",
+      "summary": "Binary segmentation masks with captions for open-vocabulary segmentation of satellite imagery, extending the TerraMesh dataset.",
+      "description": "TerraMesh-Masks is a dataset for open-vocabulary segmentation of satellite imagery. It provides binary segmentation masks paired with captions that extend the samples from the TerraMesh dataset. A human-verified evaluation benchmark, TerraMesh-Masks-Eval, is also provided, and the data can be streamed or downloaded with the accompanying data-loading code from GitHub.",
+      "task": "image-segmentation",
+      "modality": "Satellite imagery",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ibm-esa-geospatial/TerraMesh-Masks"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "vlrsbench",
+      "name": "VLRS-Bench",
+      "summary": "A vision-language reasoning benchmark for remote sensing imagery with 3,180 images and 2,000 question-answer examples.",
+      "description": "VLRS-Bench is a vision-language reasoning benchmark for remote sensing imagery. It contains 3,180 benchmark images and 2,000 benchmark examples, each with image paths, question prompts, answers, and task metadata. The dataset ships with machine-readable Croissant metadata including provenance and Responsible AI fields, supporting visual question answering and image-text-to-text evaluation of remote sensing models.",
+      "task": "visual-question-answering",
+      "modality": "Remote sensing imagery and text",
+      "numSamples": 2000,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/thislzm/VLRS-Bench",
+        "download": "https://huggingface.co/datasets/anonymousfornips/vlrsbench"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "rtm-emulation",
+      "name": "RTM Emulation",
+      "summary": "Atmospheric radiative transfer model emulation challenge dataset for hyperspectral Earth observation.",
+      "description": "RTM Emulation is the dataset for the Atmospheric Radiative Transfer Emulation Challenge, released by the ISP image processing lab at the University of Valencia. It provides hyperspectral data for training and evaluating machine-learning emulators of computationally expensive atmospheric radiative transfer models used in remote sensing and Earth observation.",
+      "task": "regression",
+      "modality": "Hyperspectral",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/isp-uv-es/rtm_emulation"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "b-flair",
+      "name": "b-FLAIR",
+      "summary": "A bi-temporal extension of the FLAIR aerial dataset providing orthoimage pairs for semantic change detection over France.",
+      "description": "b-FLAIR is a temporal extension of the FLAIR dataset focused on land-cover classification and change detection in France. It provides bi-temporal aerial orthoimage pairs at 0.2 m/px resolution in 512x512 patches with single-temporal semantic annotations. The dataset targets semantic change detection via weak temporal supervision.",
+      "task": "image-segmentation",
+      "modality": "Aerial orthoimagery",
+      "size": "512x512 patches at 0.2 m/px",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/elliotvincent/b-FLAIR",
+        "homepage": "https://xavibou.github.io/CDviaWTS/",
+        "download": "https://huggingface.co/datasets/elliotvincent/b-FLAIR-test"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "weather-france-radar-satellite-gs",
+      "name": "weather_france_radar_satellite_gs",
+      "summary": "A ready-to-use fusion of ground-station, radar, satellite, and land-cover data for weather modeling over France.",
+      "description": "weather_france_radar_satellite_gs fuses multiple geospatial and meteorological datasets for the France region. It combines hourly ground-station data from data.gouv.fr (seven weather KPIs: RR1, FF, DD, T, U, PMER, VV), Meteo-France radar rainfall accumulation imagery, EarthEnv and OpenTopography land-cover and ground-height data, and EUMETSAT satellite imagery. The fusion provides aligned multi-source inputs for weather and climate modeling tasks.",
+      "task": "time-series-forecasting",
+      "modality": "Weather / climate (ground station, radar, satellite, land cover)",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/meteolibre-dev/weather_france_radar_satellite_gs"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "sapnhap-bando-vn",
+      "name": "sapnhap-bando-vn",
+      "summary": "A structured geospatial atlas of Vietnam's 2025 administrative-merger units in parquet, GeoJSON, and embedding formats.",
+      "description": "sapnhap-bando-vn is a complete structured copy of Vietnam's official administrative-merger atlas (sapnhap.bando.com.vn), published following Resolution 202/2025/QH15 and subsequent National Assembly Standing Committee resolutions. Each administrative level is exposed as parquet, GeoJSON, interactive charts, and 384-dimensional UMAP embeddings. The dataset documents Vietnam's post-merger administrative boundaries.",
+      "task": "feature-extraction",
+      "modality": "Geospatial vector (GeoJSON)",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/myleo198/sapnhap-bando-vn",
+        "homepage": "https://sapnhap.bando.com.vn/"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "ccrfcd-mrms-hrrr-env-2021-2025",
+      "name": "ccrfcd-mrms-hrrr-env-2021-2025",
+      "summary": "Hourly rain-gauge accumulation paired with MRMS radar and HRRR environmental variables for synthetic precipitation estimation in the U.S. Desert Southwest.",
+      "description": "ccrfcd-mrms-hrrr-env-2021-2025 is a Zarr-based dataset for training and evaluating synthetic quantitative precipitation estimation (QPE) models in the Desert Southwest. It pairs 1-hour gauge accumulations from 220+ tipping-bucket rain gauges with 50+ MRMS radar and HRRR environmental variables, totaling roughly 400k samples. Given input context such as radar fields and environmental parameters, the task is to predict rainfall at a gauge site over a given period.",
+      "task": "regression",
+      "modality": "Weather / radar (Zarr)",
+      "numSamples": 400000,
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/leharris3/ccrfcd-mrms-hrrr-env-2021-2025"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "core-s2rgb-siglip",
+      "name": "Core-S2RGB-SigLIP",
+      "summary": "Over 20 million SigLIP vision-language embeddings of global Sentinel-2 Level-2A true-color (RGB) imagery from the Major TOM grid.",
+      "description": "Core-S2RGB-SigLIP is a collection of more than 20 million SigLIP-SO400M-384 embeddings derived from global Sentinel-2 Level-2A true-color (RGB) imagery. Built on the Major TOM Core-S2L2A source dataset, each record contains a unique geometry/time-based id, the raw embedding array, and Major TOM grid cell coordinates. The 41.3 GB dataset enables vision-language and similarity search over global Sentinel-2 imagery.",
+      "task": "feature-extraction",
+      "modality": "Sentinel-2 Level-2A (RGB) embeddings",
+      "size": "41.3 GB",
+      "numSamples": 20212974,
+      "year": 2024,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Major-TOM/Core-S2RGB-SigLIP"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "b-flair-spot",
+      "name": "b-FLAIR-spot",
+      "summary": "A bi-temporal extension of the FLAIR dataset in SPOT-6/7 satellite modality for semantic change detection over France.",
+      "description": "b-FLAIR-spot is a temporal extension of the FLAIR dataset in SPOT-6/7 satellite modality, focused on land-cover classification in France. It mirrors b-FLAIR by providing bi-temporal satellite image pairs with single-temporal semantic annotations. The dataset targets semantic change detection via weak temporal supervision.",
+      "task": "image-segmentation",
+      "modality": "SPOT-6/7 satellite imagery",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/elliotvincent/b-FLAIR-spot",
+        "homepage": "https://xavibou.github.io/CDviaWTS/"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "panscale",
+      "name": "PanScale",
+      "summary": "A remote-sensing pansharpening dataset of paired multispectral and panchromatic images for cross-scale fusion evaluation.",
+      "description": "PanScale is a pansharpening benchmark containing 7,559 paired multispectral (MS) and panchromatic (PAN) image patches stored as 8-bit TIFFs across roughly 6.9 GB. It spans multiple sensor subsets (Jilin, Landsat, SkySat) with varying PAN/MS scale ratios to support cross-scale evaluation. The dataset is intended for image fusion research where lower-resolution multispectral imagery is sharpened using higher-resolution panchromatic bands.",
+      "task": "Image-to-image",
+      "modality": "Landsat / Multispectral",
+      "size": "~6.9 GB",
+      "numSamples": 7559,
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/kecao/PanScale"
+      }
+    },
+    {
+      "id": "person-detection-and-reidentification-from-low-altitude-uav-based-platform",
+      "name": "Person Detection and Re-Identification from Low Altitude UAV-based platform",
+      "summary": "A low-altitude UAV (drone) aerial imagery dataset for detecting and re-identifying people across scenes.",
+      "description": "This dataset consists of labeled low-altitude aerial images captured with a DJI Mini drone for two tasks: person detection (localizing people in frames) and person re-identification (matching individuals across frames). It contains roughly 1,624 annotated images organized into detection and re-identification batches. It is aimed at UAV-based surveillance and aerial computer-vision research.",
+      "task": "Object detection",
+      "modality": "Aerial imagery / UAV imagery",
+      "numSamples": 1624,
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Mikiee/Person_Detection_and_Re-Identification_from_Low_Altitude_UAV-based_platform"
+      }
+    },
+    {
+      "id": "wildfire-prevention",
+      "name": "wildfire-prevention",
+      "summary": "A geospatial satellite-imagery dataset for wildfire risk assessment across California regions.",
+      "description": "The wildfire-prevention dataset contains 1,034 records (862 train / 172 test) of satellite imagery paired with risk annotations for several California regions including Angeles National Forest, Santa Barbara, and Napa Valley. Each record includes RGB and short-wave infrared (SWIR) imagery, timestamps spanning January 2024 to July 2025, and labels for risk level and environmental factors such as dry vegetation, urban interface, steep terrain, and water bodies. It supports wildfire risk classification and prediction modeling.",
+      "task": "Image classification",
+      "modality": "Satellite imagery / Multispectral",
+      "size": "~561 MB",
+      "numSamples": 1034,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Paulescu/wildfire-prevention"
+      }
+    },
+    {
+      "id": "xbd-damage-qa",
+      "name": "xbd-damage-qa",
+      "summary": "A visual question-answering dataset for building damage assessment from post-disaster satellite imagery, built on xBD/xView2.",
+      "description": "xbd-damage-qa is a question-answering dataset for building damage assessment built on the xBD / xView2 post-disaster satellite imagery dataset. It provides around 1,660 QA samples drawn from roughly 219 scenes across multiple disaster types (wind, flooding, fire, tsunami, volcano, earthquake), using several question templates that require counting, area computation, and percentage reasoning. Each sample pairs pre- and post-disaster imagery with damage polygons and structured answer outputs.",
+      "task": "Visual question answering",
+      "modality": "Satellite imagery",
+      "numSamples": 1660,
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/DakshJ27/xbd-damage-qa"
+      }
+    },
+    {
+      "id": "climate-learn",
+      "name": "climate-learn",
+      "summary": "Benchmark weather and climate data used for ClimateLearn's forecasting, downscaling, and projection experiments.",
+      "description": "climate-learn hosts the data used for the ClimateLearn library's benchmark experiments, totaling roughly 783 GB. It supports tasks including weather forecasting, statistical downscaling, and climate projection. The dataset and accompanying library are maintained by the Machine Intelligence Group at UCLA.",
+      "task": "Image-to-image",
+      "modality": "Weather / Climate",
+      "size": "~783 GB",
+      "license": "CC-BY-4.0",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/jasonjewik/climate-learn",
+        "github": "https://github.com/aditya-grover/climate-learn",
+        "paper": "https://arxiv.org/abs/2307.01909"
+      }
+    },
+    {
+      "id": "core-s2l2a-249k",
+      "name": "Core-S2L2A-249k",
+      "summary": "A globally sampled subset of 248,719 Sentinel-2 L2A image patches from the Major-TOM Core dataset.",
+      "description": "Core-S2L2A-249k is a curated subset of the Major-TOM Core-S2L2A dataset containing 248,719 Sentinel-2 MSI Level-2A image patches of 384x384 pixels, uniformly sampled across the globe (about 352 GB total). Patches include the 12 Sentinel-2 spectral bands at 10/20/60 m resolution. It serves as the source imagery for pre-computed embedding datasets used by cross-modal retrieval applications.",
+      "task": "Image-to-image",
+      "modality": "Sentinel-2",
+      "size": "~352 GB",
+      "numSamples": 248719,
+      "license": "CC-BY-SA-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Major-TOM/Core-S2L2A-249k",
+        "paper": "https://arxiv.org/abs/2402.12095"
+      }
+    },
+    {
+      "id": "geolife-spatial-join-015b",
+      "name": "Geolife-Spatial-Join-0.15B",
+      "summary": "A high-dimensional rectangle-rectangle spatial intersection join benchmark derived from the GeoLife GPS trajectories.",
+      "description": "Geolife-Spatial-Join-0.15B is a spatial intersection-join benchmark derived from the GeoLife GPS Trajectories (v1.3) dataset, converting trajectory points into axis-aligned bounding boxes so that 'encounter within spatial and temporal thresholds' can be evaluated as an AABB intersection join. It contains roughly 149 million rectangle records (about 3.66 GB) organized into 3D (x, y, t) and 4D (x, y, z, t) variants at multiple encounter-threshold levels. Coordinates use centimeters in Web Mercator (EPSG:3857) with Unix-epoch-millisecond timestamps.",
+      "task": "Tabular regression",
+      "modality": "GPS trajectories / Geospatial",
+      "size": "~3.66 GB",
+      "numSamples": 149000000,
+      "license": "Microsoft Research License Agreement",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/DannHiroaki/Geolife-Spatial-Join-0.15B"
+      }
+    },
+    {
+      "id": "weather-forecast-japan",
+      "name": "weather_forecast_japan",
+      "summary": "A daily-accumulated archive of Japan Meteorological Agency seven-day weather forecasts for all observatories in Japan.",
+      "description": "weather_forecast_japan contains daily-collected weather forecasts of up to seven days ahead for all meteorological observatories in Japan, published by the Japan Meteorological Agency (JMA). The forecasts are scraped, structured, and accumulated over time (about 725,142 rows), since the JMA page is overwritten on each update, and the dataset is refreshed automatically each day via GitHub Actions. It supports weather forecasting and meteorological time-series analysis.",
+      "task": "Tabular regression",
+      "modality": "Weather / Climate",
+      "numSamples": 725142,
+      "license": "CC-BY-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/jniimi/weather_forecast_japan",
+        "homepage": "https://www.jma.go.jp/bosai/forecast/"
+      }
+    },
+    {
+      "id": "bci-temporal",
+      "name": "bci-temporal",
+      "summary": "A multi-temporal, multi-modal dataset of tropical tree crowns from Barro Colorado Island, Panama.",
+      "description": "The BCI Temporal Crown Dataset is a multi-temporal, multi-modal collection of tropical tree crowns from Barro Colorado Island (BCI), Panama. It contains 1,897 labeled crown polygons across 84 species, with each tree observed across 16 monthly acquisition dates from June 2024 to September 2025 and paired with ground-level close-up photographs. It supports tree-species classification and phenology analysis from remote-sensing time series.",
+      "task": "Image classification",
+      "modality": "Aerial imagery / Remote sensing",
+      "numSamples": 1897,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/sulagnasaharasha/bci-temporal"
+      }
+    },
+    {
+      "id": "calvdb",
+      "name": "calvdb",
+      "summary": "A benchmark dataset for data-driven annual calving-front forecasting across 123 Svalbard glaciers.",
+      "description": "calvingdb (calvdb) is the first benchmark dataset for data-driven annual calving front forecasting, covering 123 marine-terminating glaciers in Svalbard (RGI 6.0 region 07) from 2013 to 2023. It contains 17,358 calving-front observations (about 6.02 GB), and each sample asks the model to predict the calving-front position 365 days into the future given five past observations spanning roughly four years. Imagery is provided at 30 m resolution in an Arctic Polar Stereographic projection (EPSG:3995).",
+      "task": "Image segmentation",
+      "modality": "Remote sensing / Satellite imagery",
+      "size": "~6.02 GB",
+      "numSamples": 17358,
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/enscg/calvdb"
+      }
+    },
+    {
+      "id": "crop-yield-prediction-modis",
+      "name": "Crop-Yield-Prediction-MODIS",
+      "summary": "Processed MODIS remote-sensing data for crop-yield regression, prepared for the DFYP project.",
+      "description": "Crop-Yield-Prediction-MODIS hosts processed MODIS data (about 101 GB) used for crop-yield regression in the DFYP project. It includes preprocessed yearly samples indexed by year, county, and sample id (as numpy arrays) along with histogram data, derived from MODIS surface reflectance, temperature, and land-cover products spanning roughly 2003-2015. It is designed to support deep-learning crop-yield prediction from satellite time series.",
+      "task": "Tabular regression",
+      "modality": "MODIS",
+      "size": "~101 GB",
+      "license": "MIT",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/onef1shy/Crop-Yield-Prediction-MODIS",
+        "github": "https://github.com/onef1shy/DFYP",
+        "paper": "https://doi.org/10.1109/TGRS.2026.3684831"
+      }
+    },
+    {
+      "id": "cropmark-disambiguator-s2",
+      "name": "cropmark-disambiguator-s2",
+      "summary": "A Sentinel-2 classification dataset labeling agricultural tiles for the presence of buried-archaeology cropmark stress.",
+      "description": "Cropmark Disambiguator (Sentinel-2 half) is a 922-tile classification dataset (767 train + 155 eval) of Sentinel-2 spectral imagery over agricultural land in the UK (Historic England), Italy (Tavoliere), and Norway (Askeladden). Tiles are labeled Yes/No for the presence of buried-archaeological-feature cropmark stress. It was created to fine-tune a vision-language model for an archaeological cropmark-detection task, with only the Sentinel-2 imagery redistributed (the Mapbox half is excluded).",
+      "task": "Image classification",
+      "modality": "Sentinel-2",
+      "numSamples": 922,
+      "license": "CDLA-Permissive-2.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Jaervis/cropmark-disambiguator-s2",
+        "paper": "https://doi.org/10.1038/s41598-026-45441-0"
+      }
+    },
+    {
+      "id": "dam-segmentation",
+      "name": "dam-segmentation",
+      "summary": "A multispectral UAV remote-sensing dataset for embankment-dam and dike segmentation.",
+      "description": "The Dam Segmentation Dataset contains multispectral UAV image slices captured over the embankment dams and dikes of the Belo Monte Hydroelectric Complex in Para, Brazil. Imagery was acquired with a MicaSense RedEdge-P sensor on a DJI M210 V2 drone (six spectral channels including RGB, red edge, and near-infrared), and each image is paired with NDRE vegetation-index values plus binary and multiclass segmentation masks (about 615 images, 735 MB). It supports semantic segmentation of dam infrastructure.",
+      "task": "Image segmentation",
+      "modality": "Multispectral / UAV imagery",
+      "size": "~735 MB",
+      "numSamples": 615,
+      "license": "CC-BY-NC-SA-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/andrematte/dam-segmentation"
+      }
+    },
+    {
+      "id": "omnicloudmask-combined-training-dataset",
+      "name": "OmniCloudMask-Combined-Training-Dataset",
+      "summary": "A combined multi-source Sentinel-2 dataset for training cloud and cloud-shadow segmentation models.",
+      "description": "The OmniCloudMask Combined Training Dataset merges multiple sources into 103,548 image-label pairs (100,528 train / 1,070 validation / 1,950 test, about 150 GB) for training cloud and cloud-shadow segmentation models on Sentinel-2 imagery. It draws from CloudSEN12 (in several processing variants), Kappaset, and OCM hard-negative and scribble subsets, using 3-band (Red, Green, NIR) imagery with four semantic classes. It is designed to build sensor-agnostic cloud-masking models.",
+      "task": "Semantic segmentation",
+      "modality": "Sentinel-2",
+      "size": "~150 GB",
+      "numSamples": 103548,
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/NickWright/OmniCloudMask-Combined-Training-Dataset",
+        "github": "https://github.com/DPIRD-DMA/OmniCloudMask",
+        "paper": "https://doi.org/10.1016/j.rse.2025.114694"
+      }
+    },
+    {
+      "id": "nighthawk-mega",
+      "name": "Nighthawk Mega",
+      "summary": "A large-scale multi-condition UAV/drone aerial imagery dataset paired with vision-language model captions.",
+      "description": "Nighthawk Mega is a collection of roughly 1.72M aerial/UAV images spanning multiple environmental conditions, organized into subsets such as day2dusk, day2fog, day2night, day2rain, and rgb2thermal. Each image is accompanied by detailed VLM-generated text descriptions, supporting image captioning and multi-condition perception research. The data is provided in WebDataset format and targets drone, surveillance, and thermal-imaging applications.",
+      "task": "Image captioning",
+      "modality": "Aerial / UAV imagery",
+      "numSamples": "~1.72M images",
+      "license": "apache-2.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/robotflowlabs/nighthawk-mega"
+      }
+    },
+    {
+      "id": "thalia",
+      "name": "Thalia",
+      "summary": "A global, multi-modal InSAR dataset for machine-learning-based volcanic activity monitoring.",
+      "description": "Thalia is a global, multi-modal dataset for volcanic activity monitoring through satellite-based Interferometric Synthetic Aperture Radar (InSAR) imagery. Building upon the Hephaestus dataset, it provides higher-resolution, multi-source, and multi-temporal data in a machine-learning-ready format, combining InSAR imagery with topographic and atmospheric variables and text descriptions. It supports image classification and semantic segmentation of volcanic deformation signals.",
+      "task": "Image classification",
+      "modality": "SAR / InSAR",
+      "size": "861 GB",
+      "numSamples": "~74,427 rows",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/orion-ai-lab/Thalia",
+        "paper": "https://huggingface.co/papers/2505.17782",
+        "github": "https://github.com/Orion-AI-Lab/Thalia"
+      }
+    },
+    {
+      "id": "uhr-bat-sft-10k",
+      "name": "UHR-BAT-SFT-10K",
+      "summary": "A supervised fine-tuning dataset of visual question answering samples for ultra-high-resolution remote-sensing imagery understanding.",
+      "description": "UHR-BAT-SFT-10K is the supervised fine-tuning dataset used to train UHR-BAT, a budget-aware token compression vision-language model for ultra-high-resolution remote-sensing imagery. The dataset contains visual question answering style instruction-following samples designed to teach efficient and accurate understanding of large remote-sensing images. It supports allocating visual token budgets per instruction while preserving query-relevant regional evidence.",
+      "task": "Visual question answering",
+      "modality": "Remote sensing / Geospatial",
+      "numSamples": "~10K samples",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/RL-MIND/UHR-BAT-SFT-10K"
+      }
+    },
+    {
+      "id": "core-s2l1c",
+      "name": "Core-S2L1C",
+      "summary": "A near-global collection of Sentinel-2 Level-1C optical multispectral patches from the Major TOM Earth observation dataset family.",
+      "description": "Core-S2L1C is part of the Major TOM expandable Earth observation dataset family and provides global coverage of Sentinel-2 (Level-1C) optical multispectral patches, each 1,068 x 1,068 pixels. The dataset contains 2,245,886 patches totaling roughly 2.56 trillion pixels across all 13 Sentinel-2 spectral bands at native 10/20/60 m resolutions. It is designed as a standardized, expandable foundation for large-scale Earth observation modeling.",
+      "task": "Geospatial dataset",
+      "modality": "Sentinel-2 optical multispectral",
+      "size": "23.6 TB",
+      "numSamples": "2,245,886 patches",
+      "license": "CC-BY-SA-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Major-TOM/Core-S2L1C",
+        "paper": "https://arxiv.org/abs/2402.12095",
+        "github": "https://github.com/ESA-PhiLab/Major-TOM"
+      }
+    },
+    {
+      "id": "omniearth",
+      "name": "OmniEarth",
+      "summary": "A benchmark for comprehensively evaluating vision-language models on Earth observation and geospatial tasks.",
+      "description": "OmniEarth is a benchmark for evaluating remote sensing vision-language models (RSVLMs) on geospatial tasks. It organizes 28 fine-grained tasks across three dimensions (perception, reasoning, and robustness) and supports multiple task formulations including multiple-choice and open-ended VQA. The benchmark comprises 9,275 quality-controlled images and 44,210 manually verified instructions, including proprietary Jilin-1 (JL-1) satellite imagery.",
+      "task": "Visual question answering",
+      "modality": "Remote sensing / Geospatial",
+      "size": "9.43 GB",
+      "numSamples": "9,275 images / 44,210 instructions",
+      "license": "apache-2.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/sjeeudd/OmniEarth"
+      }
+    },
+    {
+      "id": "foursquare-open-source-places-x-overture-inner-join",
+      "name": "Foursquare Open Source Places x Overture Inner Join",
+      "summary": "A Placekey-based inner join linking Foursquare Open Source Places with Overture points-of-interest geospatial data.",
+      "description": "This dataset is a Placekey inner join of Overture (2024-11-13.0) and Foursquare Open Source Places (2024-11-19), matching 7,868,660 placekeys across the two global points-of-interest catalogs. It enriches matched records with geometry and confidence fields contributed by Foursquare Open Source Places. The resource is intended for geospatial place/POI analytics that combine the two open location datasets.",
+      "task": "Geospatial dataset",
+      "modality": "Points of interest / Geospatial vector",
+      "numSamples": "7,868,660 matched placekeys",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Placekey/FOURSQUARE_OPEN_SOURCE_PLACES_x_OVERTURE_INNER_JOIN"
+      }
+    },
+    {
+      "id": "xco2learn-dataset",
+      "name": "XCO2Learn Dataset",
+      "summary": "A unified, reproducible benchmark for satellite-based column-averaged carbon dioxide (XCO2) reconstruction and forecasting.",
+      "description": "XCO2Learn is a unified, reproducible benchmark for satellite-based column-averaged carbon dioxide (XCO2) reconstruction and forecasting. It standardizes data preprocessing, spatial-temporal splits, evaluation metrics, and model baselines to address the lack of consistent benchmarks in sparse satellite XCO2 research. The data is provided in NetCDF format with global coverage on a 0.25 degree grid.",
+      "task": "Tabular regression",
+      "modality": "Satellite / Climate",
+      "license": "CC-BY-4.0",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/xco2learn-submission/xco2learn-dataset"
+      }
+    },
+    {
+      "id": "flickr-geo",
+      "name": "Flickr-Geo",
+      "summary": "A large collection of geotagged Flickr images filtered to those with valid latitude/longitude coordinates.",
+      "description": "Flickr-Geo contains 217,646,487 images with associated latitude/longitude coordinates from Flickr. It is a filtered version of the bigdata-pw/Flickr dataset, retaining only rows with a valid lat/lon pair. The geolocated imagery supports geospatial tasks such as image classification, image-to-text, and text-to-image, and can be efficiently queried with tools like DuckDB.",
+      "task": "image-classification | image-to-text | text-to-image",
+      "modality": "Geotagged ground-level imagery",
+      "numSamples": "217,646,487 images",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/do-me/Flickr-Geo"
+      }
+    },
+    {
+      "id": "imageomics-2025",
+      "name": "Imageomics 2025 Aerial Orthomosaic",
+      "summary": "Aerial orthomosaic tiles captured at three times of day with canopy height and vision-model embeddings.",
+      "description": "This dataset contains aerial orthomosaic tiles captured at three different times of day (10:00, 12:00, and 15:00). It is organized into three configurations: default (raw images plus canopy height), dinov2_base (DINOv2 embeddings), and dinov3_sat (DINOv3 embeddings), all sharing consistent train/test splits with matching tile identifiers for cross-referencing. The dataset is designed for training and evaluating vision encoders on aerial imagery.",
+      "task": "Feature extraction",
+      "modality": "Aerial orthomosaic imagery",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/anondatasets/imageomics-2025"
+      }
+    },
+    {
+      "id": "pcfootprint",
+      "name": "PCFootprint",
+      "summary": "A large-scale benchmark for vectorized building footprint extraction from airborne LiDAR (ALS) point clouds.",
+      "description": "PCFootprint is an extensive open-source benchmark engineered for vectorized extraction of building footprints from Airborne Laser Scanning (ALS) point clouds. Sourced from the Estonian Land and Spatial Development Board, it spans 540.67 km2 and comprises 33,000 standardized tiles with 227,264 annotated building instances. It is the first benchmark of its kind for this point-cloud-based footprint extraction task.",
+      "task": "Object detection",
+      "modality": "Airborne LiDAR point cloud",
+      "size": "540.67 km2",
+      "numSamples": "33,000 tiles / 227,264 buildings",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Haoyuan-Shen/PCFootprint"
+      }
+    },
+    {
+      "id": "africa-sdn-rainfall-subnational",
+      "name": "Africa Sudan Rainfall Subnational",
+      "summary": "Dekadal satellite-derived rainfall indicators for Sudan aggregated at the subnational administrative level.",
+      "description": "This dataset contains dekadal (10-day) rainfall indicators for Sudan, computed from CHIRPS version 2 satellite imagery combined with in-situ station data and CHIRPS-GEFS short-term rainfall forecasts. Indicators are aggregated by subnational administrative units and published by the World Food Programme (WFP) via HDX. It supports climate and food-security monitoring through tabular rainfall regression.",
+      "task": "Tabular regression",
+      "modality": "Weather / Climate (satellite rainfall)",
+      "license": "CC-BY",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-sdn-rainfall-subnational"
+      }
     }
   ]
 }
