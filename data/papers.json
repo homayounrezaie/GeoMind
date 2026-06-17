@@ -2153,7 +2153,7 @@
       "id": "rgb-d-pv-2026",
       "title": "Multimodal deep learning with aerial imagery and nDSM for true-slope-aware rooftop photovoltaic potential estimation",
       "authors": "Junsheng Yao, Sebastian Krapf, Qingyu Li",
-      "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+      "venue": "ISPRS",
       "year": 2026,
       "presentation": null,
       "abstract": "SolarFusion combines RGB aerial imagery and normalized digital surface model (nDSM) height data for rooftop parsing, true-slope extraction, PV module placement, and annual electricity generation estimation. The method uses FusionPIRNet for multimodal parsing of roof orientations and roof superstructures, then propagates the parsed geometry into a true-slope-aware rooftop photovoltaic potential estimation pipeline.",
