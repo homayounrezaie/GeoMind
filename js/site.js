@@ -1595,17 +1595,24 @@ function getDataItems(payload, key) {
 
 function normalizeCombinedResource(item, type, index) {
   const isDataset = type === "dataset";
-  const title = String(isDataset ? item.dataset || item.name || "" : item.benchmark || item.name || "");
+  const id = String(
+    item.id || item.rawDatasetId || item.dataset || item.benchmark || item.name || index
+  );
+  const title = String(
+    isDataset ? item.name || item.dataset || "" : item.benchmark || item.name || ""
+  );
   const detail = String(
     isDataset
-      ? item.sensorModality || item.sizeResolution || item.source || ""
+      ? item.modality || item.sensorModality || item.size || item.sizeResolution || item.source || ""
       : item.metric || item.dataset_or_challenge || item.evidence || ""
   );
-  const url = String(
+  const externalUrl = String(
     isDataset
       ? item.sourceUrl || item.source_url || ""
       : /^https?:\/\//i.test(String(item.source_url || "")) ? item.source_url : ""
   );
+  const url = isDataset ? `dataset.html?id=${encodeURIComponent(id)}` : externalUrl;
+  const external = !isDataset;
   const year = Number(item.year) || 0;
   const task = String(item.task || "");
   const typeLabel = isDataset ? "Dataset" : "Benchmark";
@@ -1613,13 +1620,14 @@ function normalizeCombinedResource(item, type, index) {
 
   return {
     index,
-    id: String(item.id || item.rawDatasetId || item.dataset || item.benchmark || title || index),
+    id,
     type,
     typeLabel,
     title,
     task,
     detail,
     url,
+    external,
     year,
     searchText,
   };
@@ -1647,7 +1655,7 @@ function createCombinedResourceRow(item) {
 
   if (item.url) {
     setResourceRowLink(row, item.url, {
-      target: "_blank",
+      target: item.external ? "_blank" : "",
       label: `Open ${item.title || item.typeLabel}`,
     });
   }
