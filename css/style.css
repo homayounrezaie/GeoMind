@@ -2313,14 +2313,16 @@ body.is-submit-modal-open {
   position: relative;
   display: grid;
   min-height: 0;
-  overflow: hidden;
-  place-items: center;
+  overflow: auto;
+  place-items: start center;
+  overscroll-behavior: contain;
 }
 
 .paper-image-viewer-image img {
   display: block;
   max-width: 100%;
-  max-height: 100%;
+  max-height: none;
+  height: auto;
   object-fit: contain;
 }
 
@@ -4132,7 +4134,7 @@ body.is-submit-modal-open {
   .paper-image-viewer-image img {
     width: auto;
     max-width: 100%;
-    max-height: 100%;
+    max-height: none;
   }
 
   .paper-card-links {
