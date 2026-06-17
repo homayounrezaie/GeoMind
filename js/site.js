@@ -1633,13 +1633,11 @@ function normalizeCombinedResource(item, type, index) {
   };
 }
 
-function createCombinedResourceRow(item) {
+function createCombinedResourceRow(item, showType = true) {
   const row = document.createElement("tr");
   const titleCell = document.createElement("td");
-  const typeCell = document.createElement("td");
   const taskCell = document.createElement("td");
   const detailCell = document.createElement("td");
-  const typeTag = document.createElement("span");
 
   row.dataset.type = item.type;
   if (item.year) {
@@ -1647,9 +1645,6 @@ function createCombinedResourceRow(item) {
   }
 
   titleCell.textContent = item.title;
-  typeTag.className = `resource-type-tag resource-type-${item.type}`;
-  typeTag.textContent = item.typeLabel;
-  typeCell.append(typeTag);
   taskCell.textContent = item.task;
   detailCell.textContent = item.detail;
 
@@ -1660,7 +1655,18 @@ function createCombinedResourceRow(item) {
     });
   }
 
-  row.append(titleCell, typeCell, taskCell, detailCell);
+  if (showType) {
+    const typeCell = document.createElement("td");
+    const typeTag = document.createElement("span");
+
+    typeTag.className = `resource-type-tag resource-type-${item.type}`;
+    typeTag.textContent = item.typeLabel;
+    typeCell.append(typeTag);
+    row.append(titleCell, typeCell, taskCell, detailCell);
+  } else {
+    row.append(titleCell, taskCell, detailCell);
+  }
+
   return row;
 }
 
@@ -1799,6 +1805,9 @@ async function initCombinedResourceTable(table) {
   const limit = Number(table.dataset.combinedLimit || 0);
   const isBalanced = table.dataset.combinedBalanced === "true";
   const pageSize = Number(table.dataset.pageSize || 20);
+  const showType = Array.from(table.querySelectorAll("thead th")).some(
+    (th) => th.textContent.trim().toLowerCase() === "type"
+  );
   let currentPage = 1;
   let items = [];
 
@@ -1832,12 +1841,14 @@ async function initCombinedResourceTable(table) {
       ? getLimitedCombinedItems(sorted, limit, isBalanced)
       : sorted.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
-    tableBody.replaceChildren(...visible.map(createCombinedResourceRow));
+    tableBody.replaceChildren(...visible.map((item) => createCombinedResourceRow(item, showType)));
     bindResourceRowLinks(table);
 
     if (count) {
-      const label =
-        selectedType === "dataset"
+      const hasBenchmarks = items.some((item) => item.type === "benchmark");
+      const label = !hasBenchmarks
+        ? "datasets"
+        : selectedType === "dataset"
           ? "datasets"
           : selectedType === "benchmark"
             ? "benchmarks"
@@ -1857,25 +1868,35 @@ async function initCombinedResourceTable(table) {
   }
 
   try {
-    const [datasetsResponse, benchmarksResponse] = await Promise.all([
-      fetch(table.dataset.datasetsSrc || ""),
-      fetch(table.dataset.benchmarksSrc || ""),
-    ]);
+    const datasetsResponse = await fetch(table.dataset.datasetsSrc || "");
 
-    if (!datasetsResponse.ok || !benchmarksResponse.ok) {
-      throw new Error("Unable to load datasets and benchmarks");
+    if (!datasetsResponse.ok) {
+      throw new Error("Unable to load datasets");
     }
 
-    const [datasetsPayload, benchmarksPayload] = await Promise.all([
-      datasetsResponse.json(),
-      benchmarksResponse.json(),
-    ]);
+    const datasetsPayload = await datasetsResponse.json();
     const datasets = getDataItems(datasetsPayload, "datasets").map((item, index) =>
       normalizeCombinedResource(item, "dataset", index)
     );
-    const benchmarks = getDataItems(benchmarksPayload, "benchmarks").map((item, index) =>
-      normalizeCombinedResource(item, "benchmark", datasets.length + index)
-    );
+
+    // Benchmarks are optional: only load them when a source is declared, and
+    // never let a missing/failed benchmarks file blank out the datasets table.
+    let benchmarks = [];
+    if (table.dataset.benchmarksSrc) {
+      try {
+        const benchmarksResponse = await fetch(table.dataset.benchmarksSrc);
+
+        if (benchmarksResponse.ok) {
+          const benchmarksPayload = await benchmarksResponse.json();
+
+          benchmarks = getDataItems(benchmarksPayload, "benchmarks").map((item, index) =>
+            normalizeCombinedResource(item, "benchmark", datasets.length + index)
+          );
+        }
+      } catch {
+        benchmarks = [];
+      }
+    }
 
     items = datasets.concat(benchmarks);
     applyState();

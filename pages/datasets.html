@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Datasets &amp; Benchmarks - GeoMind</title>
+    <title>Datasets - GeoMind</title>
     <link rel="icon" type="image/png" href="../images/geomind-logo.png" />
     <link rel="stylesheet" href="../css/style.css?v=20260617-1" />
   </head>
@@ -19,7 +19,7 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a href="papers.html">Papers with Code</a>
         <a href="models.html">Models</a>
-        <a class="is-active" href="datasets.html" aria-current="page">Datasets &amp; Benchmarks</a>
+        <a class="is-active" href="datasets.html" aria-current="page">Datasets</a>
       </nav>
       <button class="header-user-button" type="button" aria-label="User" data-tooltip="User">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -30,23 +30,15 @@
     </header>
 
     <main class="list-page">
-      <h1 class="visually-hidden" id="datasets-title">Datasets &amp; Benchmarks</h1>
+      <h1 class="visually-hidden" id="datasets-title">Datasets</h1>
 
-      <section class="content-section" aria-label="GeoAI dataset and benchmark cards">
+      <section class="content-section" aria-label="GeoAI dataset cards">
         <div class="resource-controls combined-controls" data-combined-resource-controls>
           <label class="search-control">
-            <span class="visually-hidden">Search datasets and benchmarks</span>
-            <input type="search" placeholder="Search datasets and benchmarks" data-resource-search />
+            <span class="visually-hidden">Search datasets</span>
+            <input type="search" placeholder="Search datasets" data-resource-search />
           </label>
-          <label class="filter-control">
-            <span class="visually-hidden">Filter by resource type</span>
-            <select data-resource-type-filter>
-              <option value="all">Datasets &amp; Benchmarks</option>
-              <option value="dataset">Datasets</option>
-              <option value="benchmark">Benchmarks</option>
-            </select>
-          </label>
-          <button class="submit-icon-button" type="button" aria-label="Submit a dataset or benchmark" data-tooltip="Submit dataset" data-submit-modal-trigger data-submit-kind="dataset">
+          <button class="submit-icon-button" type="button" aria-label="Submit a dataset" data-tooltip="Submit dataset" data-submit-modal-trigger data-submit-kind="dataset">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 5v14"></path>
               <path d="M5 12h14"></path>
@@ -54,11 +46,10 @@
           </button>
         </div>
         <div class="resource-table-wrap">
-          <table class="resource-table resource-table-combined" data-combined-resource-table data-datasets-src="../data/datasets.json?v=20260617-1" data-benchmarks-src="../data/raw/benchmarks.json">
+          <table class="resource-table resource-table-combined" data-combined-resource-table data-datasets-src="../data/datasets.json?v=20260617-2">
             <thead>
               <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Type</th>
                 <th scope="col">Task</th>
                 <th scope="col">Detail</th>
               </tr>
@@ -68,6 +59,6 @@
         </div>
       </section>
     </main>
-    <script src="../js/site.js?v=20260617-1"></script>
+    <script src="../js/site.js?v=20260617-4"></script>
   </body>
 </html>
