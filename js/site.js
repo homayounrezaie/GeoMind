@@ -3379,3 +3379,220 @@ async function initPaperCardPage(container) {
 }
 
 document.querySelectorAll("[data-paper-card]").forEach(initPaperCardPage);
+
+const DATASET_DETAIL_FIELDS = [
+  ["task", "Task"],
+  ["modality", "Modality"],
+  ["size", "Size"],
+  ["numSamples", "Samples"],
+  ["license", "License"],
+  ["year", "Year"],
+];
+
+function appendDatasetVersions(parent, versions) {
+  if (!Array.isArray(versions) || versions.length === 0) {
+    return 0;
+  }
+
+  const wrap = document.createElement("div");
+  const heading = document.createElement("h3");
+
+  wrap.className = "dataset-versions";
+  heading.className = "dataset-versions-heading";
+  heading.textContent = "Versions";
+  wrap.append(heading);
+
+  versions.forEach((version) => {
+    const hasUrl = isValidResourceUrl(version.url);
+    const item = document.createElement(hasUrl ? "a" : "div");
+    const name = document.createElement("span");
+    const metaText = [version.size, version.numSamples].filter(hasResourceValue).join(" · ");
+
+    item.className = "dataset-version";
+    if (hasUrl) {
+      item.href = String(version.url).trim();
+      item.target = "_blank";
+      item.rel = "noreferrer";
+    }
+    name.className = "dataset-version-name";
+    name.textContent = [version.name, version.year].filter(hasResourceValue).join(" · ");
+    item.append(name);
+    if (metaText) {
+      const meta = document.createElement("span");
+      meta.className = "dataset-version-meta";
+      meta.textContent = metaText;
+      item.append(meta);
+    }
+    wrap.append(item);
+  });
+
+  parent.append(wrap);
+  return versions.length;
+}
+
+function appendDatasetDetails(parent, data) {
+  const rows = DATASET_DETAIL_FIELDS.filter(([key]) => hasResourceValue(data[key])).map(
+    ([key, label]) => [label, String(data[key])]
+  );
+  const hasVersions = Array.isArray(data.versions) && data.versions.length > 0;
+
+  if (!rows.length && !hasVersions) {
+    return 0;
+  }
+
+  if (rows.length) {
+    const list = document.createElement("dl");
+
+    list.className = "dataset-detail-list";
+    rows.forEach(([label, value]) => {
+      const term = document.createElement("dt");
+      const desc = document.createElement("dd");
+
+      term.className = "dataset-detail-term";
+      desc.className = "dataset-detail-value";
+      term.textContent = label;
+      desc.textContent = value;
+      list.append(term, desc);
+    });
+    parent.append(list);
+  }
+
+  appendDatasetVersions(parent, data.versions);
+  return rows.length + (hasVersions ? 1 : 0);
+}
+
+function renderDatasetCard(container, data) {
+  const article = document.createElement("article");
+  const hero = document.createElement("header");
+  const topbar = document.createElement("div");
+  const closeLink = document.createElement("a");
+  const titleRow = document.createElement("div");
+  const title = document.createElement("h1");
+  const body = document.createElement("div");
+  const saveButton = createSaveButton({
+    type: "dataset",
+    id: data.id,
+    title: data.name,
+    url: window.location.href,
+  });
+  const leadText = getDatasetLead(data);
+
+  document.title = `${data.name || "Dataset"} - GeoMind`;
+
+  article.className = "paper-card-article";
+  hero.className = "paper-card-hero";
+  topbar.className = "paper-card-topbar";
+  titleRow.className = "paper-card-title-row";
+  closeLink.className = "paper-card-close";
+  closeLink.href = "datasets.html";
+  closeLink.setAttribute("aria-label", "Close dataset card");
+  closeLink.title = "Close";
+  title.textContent = data.name || "Dataset";
+  topbar.append(closeLink);
+  titleRow.append(title);
+  hero.append(topbar, titleRow);
+
+  if (hasResourceValue(leadText)) {
+    const lead = document.createElement("p");
+
+    lead.className = "paper-card-lead";
+    lead.textContent = String(leadText);
+    hero.append(lead);
+  }
+
+  body.className = "paper-card-body";
+
+  if (hasResourceValue(data.description)) {
+    const overview = document.createElement("section");
+    const heading = document.createElement("h2");
+
+    overview.className = "paper-card-section paper-card-abstract";
+    heading.textContent = "Overview";
+    overview.append(heading);
+    setupExpandableAbstract(overview, appendText(overview, data.description));
+    body.append(overview);
+  }
+
+  {
+    const details = document.createElement("section");
+    const headingRow = document.createElement("div");
+    const heading = document.createElement("h2");
+    const headingActions = document.createElement("div");
+
+    details.className = "paper-card-section dataset-card-details";
+    headingRow.className = "paper-card-section-head";
+    headingActions.className = "paper-card-section-actions";
+    heading.textContent = "Details";
+    headingRow.append(heading);
+    headingActions.append(saveButton);
+    headingRow.append(headingActions);
+    details.append(headingRow);
+    appendDatasetDetails(details, data);
+    body.append(details);
+  }
+
+  {
+    const links = document.createElement("section");
+    const linksHeadingRow = document.createElement("div");
+    const linksHeading = document.createElement("h2");
+    const linksRow = document.createElement("div");
+    const linkList = document.createElement("div");
+
+    links.className = "paper-card-section paper-card-resources";
+    linksHeadingRow.className = "paper-card-section-head";
+    linksRow.className = "paper-card-links-row";
+    linksHeading.textContent = "Links";
+    linkList.className = "paper-card-links";
+    linksHeadingRow.append(
+      linksHeading,
+      createResourceEditButton({
+        type: "dataset",
+        id: data.id,
+        title: data.name,
+        url: window.location.href,
+        links: data.links,
+      })
+    );
+    links.append(linksHeadingRow);
+    appendPaperLinks(linkList, data.links);
+    linksRow.append(linkList);
+    links.append(linksRow);
+    body.append(links);
+  }
+
+  article.append(hero, body);
+  container.replaceChildren(article);
+}
+
+async function initDatasetCardPage(container) {
+  const source = container.dataset.datasetSource || "../data/datasets.json";
+  const params = new URLSearchParams(window.location.search);
+  const datasetId = params.get("id") || "";
+
+  if (!datasetId) {
+    container.textContent = "Dataset not found.";
+    return;
+  }
+
+  try {
+    const response = await fetch(source);
+
+    if (!response.ok) {
+      throw new Error(`Unable to load ${source}`);
+    }
+
+    const payload = await response.json();
+    const dataset = getDatasetItems(payload).find((item) => String(item.id) === datasetId);
+
+    if (!dataset) {
+      container.textContent = "Dataset not found.";
+      return;
+    }
+
+    renderDatasetCard(container, dataset);
+  } catch {
+    container.textContent = "Dataset not found.";
+  }
+}
+
+document.querySelectorAll("[data-dataset-card]").forEach(initDatasetCardPage);
