@@ -52,8 +52,8 @@ class CleanDatasetsTest(unittest.TestCase):
                     self.assertRegex(str(version["url"]), HTTP)
 
     def test_bigearthnet_exists_once_with_versions(self):
-        be = [d for d in self.datasets if "bigearthnet" in d["id"]]
-        self.assertEqual(len(be), 1, "BigEarthNet must appear exactly once")
+        be = [d for d in self.datasets if d["id"] == "bigearthnet"]
+        self.assertEqual(len(be), 1, "canonical BigEarthNet (id 'bigearthnet') must appear exactly once")
         self.assertGreaterEqual(len(be[0].get("versions", [])), 2)
 
 

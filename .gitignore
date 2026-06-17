@@ -9,3 +9,4 @@ __pycache__/
 *.pyc
 test-results/
 data/_staging/
+data/_promote/
