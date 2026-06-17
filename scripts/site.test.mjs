@@ -41,3 +41,22 @@ test("getDatasetLead prefers summary", () => {
   assert.equal(context.getDatasetLead({ summary: "S", description: "D" }), "S");
   assert.equal(context.getDatasetLead({ description: "D" }), "");
 });
+
+test("normalizeCombinedResource uses dataset detail links", () => {
+  const item = context.normalizeCombinedResource({ id: "bigearthnet", name: "BigEarthNet" }, "dataset", 0);
+
+  assert.equal(item.url, "dataset.html?id=bigearthnet");
+  assert.equal(item.external, false);
+});
+
+test("normalizeCombinedResource accepts a dataset card base", () => {
+  const item = context.normalizeCombinedResource(
+    { id: "uc-merced", name: "UC Merced" },
+    "dataset",
+    0,
+    { datasetCardBase: "pages/dataset.html" }
+  );
+
+  assert.equal(item.url, "pages/dataset.html?id=uc-merced");
+  assert.equal(item.external, false);
+});

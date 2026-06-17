@@ -1593,8 +1593,15 @@ function getDataItems(payload, key) {
   return payload?.[key] || payload?.items || [];
 }
 
-function normalizeCombinedResource(item, type, index) {
+function buildDatasetCardUrl(id, base = "dataset.html") {
+  const separator = String(base).includes("?") ? "&" : "?";
+
+  return `${base}${separator}id=${encodeURIComponent(id)}`;
+}
+
+function normalizeCombinedResource(item, type, index, options = {}) {
   const isDataset = type === "dataset";
+  const datasetCardBase = options.datasetCardBase || "dataset.html";
   const id = String(
     item.id || item.rawDatasetId || item.dataset || item.benchmark || item.name || index
   );
@@ -1611,7 +1618,7 @@ function normalizeCombinedResource(item, type, index) {
       ? item.sourceUrl || item.source_url || ""
       : /^https?:\/\//i.test(String(item.source_url || "")) ? item.source_url : ""
   );
-  const url = isDataset ? `dataset.html?id=${encodeURIComponent(id)}` : externalUrl;
+  const url = isDataset ? buildDatasetCardUrl(id, datasetCardBase) : externalUrl;
   const external = !isDataset;
   const year = Number(item.year) || 0;
   const task = String(item.task || "");
@@ -1805,6 +1812,7 @@ async function initCombinedResourceTable(table) {
   const limit = Number(table.dataset.combinedLimit || 0);
   const isBalanced = table.dataset.combinedBalanced === "true";
   const pageSize = Number(table.dataset.pageSize || 20);
+  const datasetCardBase = table.dataset.datasetCardBase || "dataset.html";
   const showType = Array.from(table.querySelectorAll("thead th")).some(
     (th) => th.textContent.trim().toLowerCase() === "type"
   );
@@ -1876,7 +1884,7 @@ async function initCombinedResourceTable(table) {
 
     const datasetsPayload = await datasetsResponse.json();
     const datasets = getDataItems(datasetsPayload, "datasets").map((item, index) =>
-      normalizeCombinedResource(item, "dataset", index)
+      normalizeCombinedResource(item, "dataset", index, { datasetCardBase })
     );
 
     // Benchmarks are optional: only load them when a source is declared, and
