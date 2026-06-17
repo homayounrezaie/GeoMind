@@ -8,3 +8,4 @@ data/raw/*.csv
 __pycache__/
 *.pyc
 test-results/
+data/datasets.candidate.json
