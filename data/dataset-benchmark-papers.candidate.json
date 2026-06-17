@@ -1,0 +1,78 @@
+{
+  "candidates": [
+    {
+      "type": "dataset_benchmark_paper",
+      "id": "unisharp-universal-sharp-monocular-view-synthesis-2026",
+      "title": "UniSHARP: Universal Sharp Monocular View Synthesis",
+      "authors": "Meixi Song, Dizhe Zhang, Hao Ren, Ruiyang Zhang, Bo Du, Ming-Hsuan Yang, Lu Qi",
+      "venue": "arXiv",
+      "year": 2026,
+      "classification": "method_paper_with_dataset_benchmark_resource",
+      "reason": "Introduces a universal monocular rendering benchmark and OmniRooms resources while also presenting the UniSHARP method.",
+      "resources": [
+        {
+          "type": "dataset",
+          "name": "OmniRooms",
+          "url": "https://huggingface.co/datasets/Insta360-Research/OmniRooms"
+        },
+        {
+          "type": "benchmark",
+          "name": "UniSHARP FoV-stratified universal monocular rendering benchmark",
+          "url": "https://insta360-research-team.github.io/Unisharp-website/"
+        }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2606.07514",
+        "code": "https://github.com/Insta360-Research-Team/UniSHARP",
+        "project_page": "https://insta360-research-team.github.io/Unisharp-website/"
+      },
+      "source": "raw-papers curation batch 2026-06-17"
+    },
+    {
+      "type": "dataset_benchmark_paper",
+      "id": "ghost-fwl-a-large-scale-full-waveform-lidar-dataset-for-ghos-2026",
+      "title": "Ghost-FWL: A Large-Scale Full-Waveform LiDAR Dataset for Ghost Detection and Removal",
+      "authors": "Kazuma Ikeda, Ryosei Hara, Rokuto Nagata, Ozora Sako, Zihao Ding, Takahiro Kado, Ibuki Fujioka, Taro Beppu, Mariko Isogawa, Kentaro Yoshioka",
+      "venue": "CVPR",
+      "year": 2026,
+      "classification": "dataset_or_benchmark_intro",
+      "reason": "Introduces the Ghost-FWL full-waveform LiDAR dataset and baseline code for ghost detection/removal.",
+      "resources": [
+        {
+          "type": "dataset",
+          "name": "Ghost-FWL",
+          "url": "https://keio-csg.github.io/Ghost-FWL"
+        }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2603.28224",
+        "code": "https://github.com/Keio-CSG/Ghost-FWL",
+        "project_page": "https://keio-csg.github.io/Ghost-FWL"
+      },
+      "source": "published-paper dedupe during raw-papers curation 2026-06-17"
+    },
+    {
+      "type": "dataset_benchmark_paper",
+      "id": "a-pipeline-and-nir-enhanced-2025",
+      "title": "A Pipeline and NIR-Enhanced Dataset for Parking Lot Segmentation",
+      "authors": "Shirin Qiam, Saipraneeth Devunuri, Lewis J. Lehe",
+      "venue": "WACV",
+      "year": 2025,
+      "classification": "dataset_or_benchmark_intro",
+      "reason": "Introduces RGB and RGB+NIR parking-lot segmentation datasets for satellite imagery and a related mapping pipeline.",
+      "resources": [
+        {
+          "type": "dataset",
+          "name": "ParkSeg12k",
+          "url": "https://github.com/UTEL-UIUC/ParkSeg12k"
+        }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.13179",
+        "code": "https://github.com/UTEL-UIUC/parking-lot-mapping-tool",
+        "project_page": "https://github.com/UTEL-UIUC/ParkSeg12k"
+      },
+      "source": "published-paper code-link correction 2026-06-17"
+    }
+  ]
+}

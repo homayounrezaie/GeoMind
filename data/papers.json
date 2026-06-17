@@ -1,6 +1,154 @@
 {
   "papers": [
     {
+      "id": "unisharp-universal-sharp-monocular-view-synthesis-2026",
+      "title": "UniSHARP: Universal Sharp Monocular View Synthesis",
+      "authors": "Meixi Song, Dizhe Zhang, Hao Ren, Ruiyang Zhang, Bo Du, Ming-Hsuan Yang, Lu Qi",
+      "venue": "arXiv",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "In this work, we focus on extending SHARP, the popular photorealistic view synthesis method, for universal monocular rendering across a continuum of camera systems, from conventional perspective cameras to wide-field-of-view, fisheye and omnidirectional panoramic settings. To overcome the pinhole-specific assumptions of SHARP, our key idea is to align various images in a unified omnidirectional latent space. Thus, we propose UniSHARP, which performs implicit alignment in both feature and Gaussian spaces. Specifically, Gaussian primitives are arranged along rays and radial distances in a ray-based universal representation, while 2D semantic and 3D spatial features extracted from UniK3D-inspired encoders are jointly decoded to generate the complete Gaussian cloud. To comprehensively evaluate our method, we construct a benchmark covering diverse imaging systems across various scenes. The benchmark is further stratified by field of view (FoV) to enable fine-grained assessment of the universal monocular rendering task. Extensive experiments on the proposed benchmark demonstrate the effectiveness of UniSHARP, outperforming alternative methods by a large margin.",
+      "citations": 0,
+      "github_stars": 247,
+      "links": {
+        "paper": "https://huggingface.co/papers/2606.07514",
+        "pdf": "https://arxiv.org/pdf/2606.07514",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2606.07514",
+        "code": "https://github.com/Insta360-Research-Team/UniSHARP",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://huggingface.co/datasets/Insta360-Research/OmniRooms",
+        "benchmark": "https://insta360-research-team.github.io/Unisharp-website/",
+        "model": null,
+        "project_page": "https://insta360-research-team.github.io/Unisharp-website/"
+      },
+      "bibtex": "@article{Song_2026_UniSHARP,\n  title = {UniSHARP: Universal Sharp Monocular View Synthesis},\n  author = {Meixi Song and Dizhe Zhang and Hao Ren and Ruiyang Zhang and Bo Du and Ming-Hsuan Yang and Lu Qi},\n  year = {2026},\n  eprint = {2606.07514},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2606.07514}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "3D scene understanding / scene completion"
+      ],
+      "hf_arxiv_id": "2606.07514",
+      "hf_trending": true,
+      "source": "huggingface-trending",
+      "arxiv_id": "2606.07514",
+      "source_files": [
+        "huggingface"
+      ]
+    },
+    {
+      "id": "spatialclaw-rethinking-action-interface-for-agentic-spatial-reas-2026",
+      "title": "SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning",
+      "authors": "Seokju Cho, Ryo Hachiuma, Abhishek Badki, Hang Su, Byung-Kwan Lee, Chan Hee Song, Sifei Liu, Subhashree Radhakrishnan, Seungryong Kim, Yu-Chiang Frank Wang, Min-Hung Chen",
+      "venue": "arXiv",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Spatial reasoning, the ability to determine where objects are, how they relate, and how they move in 3D, remains a fundamental challenge for vision-language models (VLMs). Tool-augmented agents attempt to address this by augmenting VLMs with specialist perception modules, yet their effectiveness is bounded by the action interface through which those tools are invoked. In this work, we study how the design of this interface shapes the agent's capacity for open-ended spatial reasoning. Existing spatial agents either employ single-pass code execution, which commits to a full analysis strategy before any intermediate result is observed, or rely on a structured tool-call interface that often offers less flexibility for freely composing operations or tailoring the analysis to each task. Both designs offer limited flexibility for open-ended, complex 3D/4D spatial reasoning. We therefore propose SpatialClaw, a training-free framework for spatial reasoning that adopts code as the action interface. SpatialClaw maintains a stateful Python kernel pre-loaded with input frames and a suite of perception and geometry primitives, letting a VLM-backed agent write one executable cell per step conditioned on all prior outputs, enabling the agent to flexibly compose and manipulate perception results and adapt its analysis to both intermediate text and visual observations and the demands of each problem. Evaluated across 20 spatial reasoning benchmarks spanning a broad range of static and dynamic 3D/4D spatial reasoning tasks, SpatialClaw achieves 59.9% average accuracy, outperforming the recent spatial agent by +11.2 points, with consistent gains across six VLM backbones from two model families without any benchmark- or model-specific adaptation.",
+      "citations": 0,
+      "github_stars": 160,
+      "links": {
+        "paper": "https://huggingface.co/papers/2606.13673",
+        "pdf": "https://arxiv.org/pdf/2606.13673",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2606.13673",
+        "code": "https://github.com/NVlabs/SpatialClaw",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://spatialclaw.github.io/"
+      },
+      "bibtex": "@article{Cho_2026_SpatialClaw,\n  title = {SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning},\n  author = {Seokju Cho and Ryo Hachiuma and Abhishek Badki and Hang Su and Byung-Kwan Lee and Chan Hee Song and Sifei Liu and Subhashree Radhakrishnan and Seungryong Kim and Yu-Chiang Frank Wang and Min-Hung Chen},\n  year = {2026},\n  eprint = {2606.13673},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2606.13673}\n}",
+      "matched_themes": [
+        "3D scene understanding / scene completion",
+        "vision transformers"
+      ],
+      "hf_arxiv_id": "2606.13673",
+      "hf_trending": true,
+      "source": "huggingface-trending",
+      "arxiv_id": "2606.13673",
+      "source_files": [
+        "huggingface"
+      ]
+    },
+    {
+      "id": "repwam-world-action-modeling-with-representation-visual-action-t-2026",
+      "title": "RepWAM: World Action Modeling with Representation Visual-Action Tokenizers",
+      "authors": "Junke Wang, Qihang Zhang, Shuai Yang, Yiming Luo, Yujun Shen, Zuxuan Wu, Yu-Gang Jiang, Yinghao Xu",
+      "venue": "arXiv",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "This work presents RepWAM, a representation-centric world action model (WAM) built on representation visual-action tokenizers. Existing WAMs typically inherit reconstruction-oriented video tokenizers from pretrained video generation models. Although these tokenizers preserve visual fidelity, pixel reconstruction alone provides limited guidance for learning instruction-following dynamics that connect future prediction with robot control. To address this, we explore a semantic visual-action latent space for representation-centric world action modeling. Specifically, we train a representation visual-action tokenizer that maps visual inputs into aligned visual and latent action tokens. We then pretrain our WAM to jointly model future visual states and the latent actions that connect them under language instructions, followed by adaptation to real robot trajectories for closed-loop manipulation. Experiments on real-world manipulation tasks and simulation benchmarks show that RepWAM delivers strong performance across diverse manipulation settings, while ablations highlight the value of semantic visual-action tokenization over reconstruction-oriented alternatives. These results establish representation visual-action tokenization as a promising foundation for world action models and a step toward generalist robot policies.",
+      "citations": 0,
+      "github_stars": 38,
+      "links": {
+        "paper": "https://huggingface.co/papers/2606.13674",
+        "pdf": "https://arxiv.org/pdf/2606.13674",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2606.13674",
+        "code": "https://github.com/wdrink/RepWAM",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://wdrink.github.io/RepWAM/"
+      },
+      "bibtex": "@article{Wang_2026_RepWAM,\n  title = {RepWAM: World Action Modeling with Representation Visual-Action Tokenizers},\n  author = {Junke Wang and Qihang Zhang and Shuai Yang and Yiming Luo and Yujun Shen and Zuxuan Wu and Yu-Gang Jiang and Yinghao Xu},\n  year = {2026},\n  eprint = {2606.13674},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2606.13674}\n}",
+      "matched_themes": [
+        "3D scene understanding / scene completion",
+        "self-supervised / foundation model"
+      ],
+      "hf_arxiv_id": "2606.13674",
+      "hf_trending": true,
+      "source": "huggingface-trending",
+      "arxiv_id": "2606.13674",
+      "source_files": [
+        "huggingface"
+      ]
+    },
+    {
+      "id": "cosmos-3-omnimodal-world-models-for-physical-ai-2026",
+      "title": "Cosmos 3: Omnimodal World Models for Physical AI",
+      "authors": "Aditi, Niket Agarwal, Arslan Ali, Jon Allen, Martin Antolini, Adeline Aubame, Alisson Azzolini, Junjie Bai, Maciej Bala, Yogesh Balaji, Josh Bapst, Aarti Basant, Mukesh Beladiya, Mohammad Qazim Bhat, Zaid Pervaiz Bhat, Dan Blick, Vanni Brighella, Han Cai, Tiffany Cai, Eric Cameracci, Jiaxin Cao, Yulong Cao, Mark Carlson, Carlos Casanova, Ting-Yun Chang, Yan Chang, Yu-Wei Chao, Prithvijit Chattopadhyay, Roshan Chaudhari, Chieh-Yun Chen, Junyu Chen, Ke Chen, Qizhi Chen, Wenkai Chen, Xiaotong Chen, Yu Chen, An-Chieh Cheng, Click Cheng, Xiu Chia, Jeana Choi, Chaeyeon Chung, Wenyan Cong, Yin Cui, Magdalena Dadela, Nalin Dadhich, Wenliang Dai, Joyjit Daw, Alperen Degirmenci, Rodrigo Vieira Del Monte, Robert Denomme, Sameer Dharur, Marco Di Lucca, Ke Ding, Wenhao Ding, Yifan Ding, Yuzhu Dong, Nicole Drumheller, Yilun Du, Aigul Dzhumamuratova, Aleksandr Efitorov, Hamid Eghbalzadeh, Naomi Eigbe, Imad El Hanafi, Hassan Eslami, Benedikt Falk, Jiaojiao Fan, Jim Fan, Amol Fasale, Sergiy Fefilatyev, Liang Feng, Francesco Ferroni, Sanja Fidler, Xiao Fu, Vikram Fugro, Prashant Gaikwad, TJ Galda, Katelyn Gao, Yihuai Gao, Wenhang Ge, Sreyan Ghosh, Arushi Goel, Vivek Goel, Akash Gokul, Rama Govindaraju, Jinwei Gu, Miguel Guerrero, Elfie Guo, Aryaman Gupta, Siddharth Gururani, Hugo Hadfield, Song Han, Ankur Handa, Zekun Hao, Mohammad Harrim, Ali Hassani, Nathan Hayes-Roth, Yufan He, Chris Helvig, Cyrus Hogg, Madison Huang, Michael Huang, Sophia Huang, Yufan Huang, Jacob Huffman, DeLesley Hutchins, Suneel Indupuru, Boris Ivanovic, Arihant Jain, Joel Jang, Ryan Ji, Yanan Jian, Dongfu Jiang, Jingyi Jin, Atharva Joshi, Nikhilesh Joshi, Pranjali Joshi, Jaehun Jung, Weiwei Kang, Scott Kassekert, Jan Kautz, Ashna Khetan, Julia Kiczka, Slawek Kierat, Gwanghyun Kim, Kuno Kim, Sunny Kim, Kezhi Kong, Xin Kong, Zhifeng Kong, Tomasz Kornuta, Egor Krivov, Hui Kuang, Saurav Kumar, Chia-Wen Kuo, George Kurian, Wojciech Kutak, JF Lafleche, Himangshu Lahkar, Omar Laymoun, Jayjun Lee, Sanggil Lee, Gabriele Leone, Boyi Li, Freya Li, Jiajun Li, Jinfeng Li, Ling Li, Pengcheng Li, Shangru Li, Tingle Li, Xiaolong Li, Xuan Li, Zhaoshuo Li, Zhiqi Li, Hao Liang, Maosheng Liao, Chen-Hsuan Lin, Tsung-Yi Lin, Ming-Yu Liu, Sifei Liu, Zihan Liu, Hai Loc Lu, Xiangyu Lu, Alice Luo, Ruipu Luo, Wenjie Luo, Jiangran Lyu, Martin Ding Ma, Nic Ma, Qianli Ma, Dawid Majchrowski, Louis Marcoux, Miguel Martin, Qing Miao, Ashkan Mirzaei, Shreyas Misra, Kaichun Mo, Durra Mohsin, Hyejin Moon, Pawel Morkisz, Saeid Motiian, Kirill Motkov, Seungjun Nah, Yashraj Narang, Deepak Narayanan, Thabang Ngazimbi, Julian Ouyang, David Page, Yatian Pang, Sehwi Park, Mahesh Patekar, Mostofa Patwary, Marco Pavone, Trung Pham, Wei Ping, Soha Pouya, Shrimai Prabhumoye, Varun Praveen, Delin Qu, Hesam Rabeti, Morteza Ramezanali, Marilyn Reeb, Xuanchi Ren, Kristen Rumley, Wojciech Rymer, Jun Saito, Yeongho Seol, John Shao, Piyush Shekdar, Tianwei Shen, Humphrey Shi, Min Shi, Stella Shi, Kevin Shih, Mohammad Shoeybi, Mateusz Sieniawski, Shuran Song, Alexander Sotelo, Amir Sotoodeh, Sunil Srinivasa, Vignesh Srinivasakumar, Bartosz Stefaniak, Rahul Heinrich Steiger, Shangkun Sun, Jiaxiang Tang, Shitao Tang, Yangyang Tang, Yue Tang, Tolou Tavakkoli, Kayley Ting, Krzysztof Tomala, Wei-Cheng Tseng, Jibin Varghese, Sergei Vasilev, Thomas Volk, Raju Wagwani, Roger Waleffe, Andrew Z. Wang, Boxiang Wang, Haoxiang Wang, Qiao Wang, Shihao Wang, Shijie Wang, Ting-Chun Wang, Yan Wang, Yu Wang, David Wehr, Fangyin Wei, Xinshuo Weng, Jay Zhangjie Wu, Kedi Wu, Hongchi Xia, Summer Xiao, Tianjun Xiao, Kevin Xie, Daguang Xu, Jiashu Xu, Mengyao Xu, Ruqing Xu, Xingqian Xu, Yao Xu, Dinghao Yang, Dong Yang, Hans Yang, Xiaodong Yang, Xuning Yang, Yichu Yang, Yurong You, Zhiding Yu, Hao Yuan, Simon Yuen, Xiaohui Zeng, Pengcuo Zeren, Cindy Zha, Haotian Zhang, Jenny Zhang, Jing Zhang, Liangkai Zhang, Paris Zhang, Shun Zhang, Xuanmeng Zhang, Zhizheng Zhang, Ann Zhao, Yilin Zhao, Yuliya Zhautouskaya, Charles Zhou, Fengzhe Zhou, Shilin Zhu, Yuke Zhu, Dima Zhylko, Artur Zolkowski",
+      "venue": "arXiv",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "We introduce Cosmos 3, a family of omnimodal world models designed to jointly process and generate language, image, video, audio, and action sequences within a unified mixture-of-transformers architecture. By supporting highly flexible input-output configurations, Cosmos 3 seamlessly unifies critical modalities for Physical AI -- effectively subsuming vision-language models, video generators, world simulators, and world-action models into a single framework. Our evaluation demonstrates that Cosmos 3 establishes a new state-of-the-art across a diverse suite of understanding and generation tasks, demonstrating omnimodal world models as scalable, general-purpose backbones for embodied agents. Our post-trained Cosmos 3 models were ranked as the best open-source Text-to-Image and Image-to-Video models by Artificial Analysis, and the best policy model by RoboArena at the time the technical report was written. To accelerate open research and deployment in Physical AI, the authors release code, model checkpoints, curated synthetic datasets, and an evaluation benchmark under the Linux Foundation's OpenMDW-1.1 License.",
+      "citations": 0,
+      "github_stars": 10300,
+      "links": {
+        "paper": "https://huggingface.co/papers/2606.02800",
+        "pdf": "https://arxiv.org/pdf/2606.02800",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2606.02800",
+        "code": "https://github.com/NVIDIA/cosmos",
+        "paperswithcode": null,
+        "checkpoints": "https://huggingface.co/collections/nvidia/cosmos3",
+        "video": null,
+        "dataset": null,
+        "benchmark": "https://robo-arena.github.io/",
+        "model": "https://huggingface.co/collections/nvidia/cosmos3",
+        "project_page": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/"
+      },
+      "bibtex": "@article{Aditi_2026_Cosmos,\n  title = {Cosmos 3: Omnimodal World Models for Physical AI},\n  author = {Aditi and Niket Agarwal and Arslan Ali and Jon Allen and Martin Antolini and Adeline Aubame and Alisson Azzolini and Junjie Bai and Maciej Bala and Yogesh Balaji and Josh Bapst and Aarti Basant and Mukesh Beladiya and Mohammad Qazim Bhat and Zaid Pervaiz Bhat and Dan Blick and Vanni Brighella and Han Cai and Tiffany Cai and Eric Cameracci and Jiaxin Cao and Yulong Cao and Mark Carlson and Carlos Casanova and Ting-Yun Chang and Yan Chang and Yu-Wei Chao and Prithvijit Chattopadhyay and Roshan Chaudhari and Chieh-Yun Chen and Junyu Chen and Ke Chen and Qizhi Chen and Wenkai Chen and Xiaotong Chen and Yu Chen and An-Chieh Cheng and Click Cheng and Xiu Chia and Jeana Choi and Chaeyeon Chung and Wenyan Cong and Yin Cui and Magdalena Dadela and Nalin Dadhich and Wenliang Dai and Joyjit Daw and Alperen Degirmenci and Rodrigo Vieira Del Monte and Robert Denomme and Sameer Dharur and Marco Di Lucca and Ke Ding and Wenhao Ding and Yifan Ding and Yuzhu Dong and Nicole Drumheller and Yilun Du and Aigul Dzhumamuratova and Aleksandr Efitorov and Hamid Eghbalzadeh and Naomi Eigbe and Imad El Hanafi and Hassan Eslami and Benedikt Falk and Jiaojiao Fan and Jim Fan and Amol Fasale and Sergiy Fefilatyev and Liang Feng and Francesco Ferroni and Sanja Fidler and Xiao Fu and Vikram Fugro and Prashant Gaikwad and TJ Galda and Katelyn Gao and Yihuai Gao and Wenhang Ge and Sreyan Ghosh and Arushi Goel and Vivek Goel and Akash Gokul and Rama Govindaraju and Jinwei Gu and Miguel Guerrero and Elfie Guo and Aryaman Gupta and Siddharth Gururani and Hugo Hadfield and Song Han and Ankur Handa and Zekun Hao and Mohammad Harrim and Ali Hassani and Nathan Hayes-Roth and Yufan He and Chris Helvig and Cyrus Hogg and Madison Huang and Michael Huang and Sophia Huang and Yufan Huang and Jacob Huffman and DeLesley Hutchins and Suneel Indupuru and Boris Ivanovic and Arihant Jain and Joel Jang and Ryan Ji and Yanan Jian and Dongfu Jiang and Jingyi Jin and Atharva Joshi and Nikhilesh Joshi and Pranjali Joshi and Jaehun Jung and Weiwei Kang and Scott Kassekert and Jan Kautz and Ashna Khetan and Julia Kiczka and Slawek Kierat and Gwanghyun Kim and Kuno Kim and Sunny Kim and Kezhi Kong and Xin Kong and Zhifeng Kong and Tomasz Kornuta and Egor Krivov and Hui Kuang and Saurav Kumar and Chia-Wen Kuo and George Kurian and Wojciech Kutak and JF Lafleche and Himangshu Lahkar and Omar Laymoun and Jayjun Lee and Sanggil Lee and Gabriele Leone and Boyi Li and Freya Li and Jiajun Li and Jinfeng Li and Ling Li and Pengcheng Li and Shangru Li and Tingle Li and Xiaolong Li and Xuan Li and Zhaoshuo Li and Zhiqi Li and Hao Liang and Maosheng Liao and Chen-Hsuan Lin and Tsung-Yi Lin and Ming-Yu Liu and Sifei Liu and Zihan Liu and Hai Loc Lu and Xiangyu Lu and Alice Luo and Ruipu Luo and Wenjie Luo and Jiangran Lyu and Martin Ding Ma and Nic Ma and Qianli Ma and Dawid Majchrowski and Louis Marcoux and Miguel Martin and Qing Miao and Ashkan Mirzaei and Shreyas Misra and Kaichun Mo and Durra Mohsin and Hyejin Moon and Pawel Morkisz and Saeid Motiian and Kirill Motkov and Seungjun Nah and Yashraj Narang and Deepak Narayanan and Thabang Ngazimbi and Julian Ouyang and David Page and Yatian Pang and Sehwi Park and Mahesh Patekar and Mostofa Patwary and Marco Pavone and Trung Pham and Wei Ping and Soha Pouya and Shrimai Prabhumoye and Varun Praveen and Delin Qu and Hesam Rabeti and Morteza Ramezanali and Marilyn Reeb and Xuanchi Ren and Kristen Rumley and Wojciech Rymer and Jun Saito and Yeongho Seol and John Shao and Piyush Shekdar and Tianwei Shen and Humphrey Shi and Min Shi and Stella Shi and Kevin Shih and Mohammad Shoeybi and Mateusz Sieniawski and Shuran Song and Alexander Sotelo and Amir Sotoodeh and Sunil Srinivasa and Vignesh Srinivasakumar and Bartosz Stefaniak and Rahul Heinrich Steiger and Shangkun Sun and Jiaxiang Tang and Shitao Tang and Yangyang Tang and Yue Tang and Tolou Tavakkoli and Kayley Ting and Krzysztof Tomala and Wei-Cheng Tseng and Jibin Varghese and Sergei Vasilev and Thomas Volk and Raju Wagwani and Roger Waleffe and Andrew Z. Wang and Boxiang Wang and Haoxiang Wang and Qiao Wang and Shihao Wang and Shijie Wang and Ting-Chun Wang and Yan Wang and Yu Wang and David Wehr and Fangyin Wei and Xinshuo Weng and Jay Zhangjie Wu and Kedi Wu and Hongchi Xia and Summer Xiao and Tianjun Xiao and Kevin Xie and Daguang Xu and Jiashu Xu and Mengyao Xu and Ruqing Xu and Xingqian Xu and Yao Xu and Dinghao Yang and Dong Yang and Hans Yang and Xiaodong Yang and Xuning Yang and Yichu Yang and Yurong You and Zhiding Yu and Hao Yuan and Simon Yuen and Xiaohui Zeng and Pengcuo Zeren and Cindy Zha and Haotian Zhang and Jenny Zhang and Jing Zhang and Liangkai Zhang and Paris Zhang and Shun Zhang and Xuanmeng Zhang and Zhizheng Zhang and Ann Zhao and Yilin Zhao and Yuliya Zhautouskaya and Charles Zhou and Fengzhe Zhou and Shilin Zhu and Yuke Zhu and Dima Zhylko and Artur Zolkowski},\n  year = {2026},\n  eprint = {2606.02800},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2606.02800}\n}",
+      "matched_themes": [
+        "self-supervised / foundation model",
+        "3D scene understanding / scene completion"
+      ],
+      "hf_arxiv_id": "2606.02800",
+      "hf_trending": true,
+      "source": "huggingface-trending",
+      "arxiv_id": "2606.02800",
+      "source_files": [
+        "huggingface"
+      ]
+    },
+    {
       "id": "real-noise-decoupling-for-hyperspectral-image-denoising-2026",
       "title": "Real Noise Decoupling for Hyperspectral Image Denoising",
       "authors": "Yingkai Zhang, Tao Zhang, Jing Nie, Ying Fu",
@@ -20909,19 +21057,19 @@
       "presentation": null,
       "abstract": "Discussions of minimum parking requirement policies often include maps of parking lots which are time-consuming to construct manually. Open-source datasets for such parking lots are scarce particularly for US cities. This paper introduces the idea of using Near-Infrared (NIR) channels as input and several post-processing techniques to improve the prediction of off-street surface parking lots using satellite imagery. We constructed two datasets with 12617 image-mask pairs each: one with 3-channel (RGB) and another with 4-channel (RGB + NIR). The datasets were used to train five deep learning models (OneFormer Mask2Former SegFormer DeepLabV3 and FCN) for semantic segmentation classifying images to differentiate between parking and non-parking pixels. Our results demonstrate that the NIR channel improved accuracy because parking lots are often surrounded by grass--even though the NIR channel needed to be upsampled from a lower resolution. Post-processing including eliminating erroneous \"holes\" simplifying edges and removing road and building footprints further improved the accuracy. Best model OneFormer trained on 4-channel input and paired with post-processing techniques achieves a mean Intersection over Union (mIoU) of 84.9% and a pixel-wise accuracy of 96.3%.",
       "citations": 0,
-      "github_stars": 64,
+      "github_stars": 0,
       "links": {
         "pdf": "https://openaccess.thecvf.com/content/WACV2025/papers/Qiam_A_Pipeline_and_NIR-Enhanced_Dataset_for_Parking_Lot_Segmentation_WACV_2025_paper.pdf",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2412.13179",
-        "code": "https://github.com/tqwei05/PlantSeg",
+        "code": "https://github.com/UTEL-UIUC/parking-lot-mapping-tool",
         "paperswithcode": "https://paperswithcode.co/paper/2412.13179",
         "checkpoints": null,
         "video": null,
-        "dataset": "https://huggingface.co/datasets/Voxel51/parkseg12k_train",
+        "dataset": "https://github.com/UTEL-UIUC/ParkSeg12k",
         "benchmark": null,
         "model": null,
-        "project_page": "https://huggingface.co/spaces/Voxel51/2025-ai-timeline",
+        "project_page": "https://github.com/UTEL-UIUC/ParkSeg12k",
         "paper": "https://arxiv.org/abs/2412.13179"
       },
       "bibtex": "@InProceedings{Qiam_2025_WACV,\n  title = {A Pipeline and NIR-Enhanced Dataset for Parking Lot Segmentation},\n  author = {Qiam, Shirin and Devunuri, Saipraneeth and Lehe, Lewis J.},\n  year = {2025},\n  url = {https://arxiv.org/abs/2412.13179},\n  booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},\n  pages = {1227-1236},\n  month = {February}\n}",
@@ -174146,26 +174294,28 @@
     {
       "id": "ghost-fwl-a-large-scale-full-waveform-lidar-dataset-for-ghos-2026",
       "title": "Ghost-FWL: A Large-Scale Full-Waveform LiDAR Dataset for Ghost Detection and Removal",
-      "authors": "Kazuma Ikeda, Ryosei Hara, Rokuto Nagata, Ozora Sako. Zihao Ding, Takahiro Kado, Ibuki Fujioka, Taro Beppu, Mariko Isogawa, Kentaro Yoshioka",
-      "venue": "arXiv",
+      "authors": "Kazuma Ikeda, Ryosei Hara, Rokuto Nagata, Ozora Sako, Zihao Ding, Takahiro Kado, Ibuki Fujioka, Taro Beppu, Mariko Isogawa, Kentaro Yoshioka",
+      "venue": "CVPR",
       "year": 2026,
       "presentation": null,
       "abstract": "LiDAR has become an essential sensing modality in autonomous driving, robotics, and smart-city applications. However, ghost points (or ghosts), which are false reflections caused by multi-path laser returns from glass and reflective surfaces, severely degrade 3D mapping and localization accuracy. Prior ghost removal relies on geometric consistency in dense point clouds, failing on mobile LiDAR's sparse, dynamic data. We address this by exploiting full-waveform LiDAR (FWL), which captures complete temporal intensity profiles rather than just peak distances, providing crucial cues for distinguishing ghosts from genuine reflections in mobile scenarios. As this is a new task, we present Ghost-FWL, the first and largest annotated mobile FWL dataset for ghost detection and removal. Ghost-FWL comprises 24K frames across 10 diverse scenes with 7.5 billion peak-level annotations, which is 100x larger than existing annotated FWL datasets. Benefiting from this large-scale dataset, we establish a FWL-based baseline model for ghost detection and propose FWL-MAE, a masked autoencoder for efficient self-supervised representation learning on FWL data. Experiments show that our baseline outperforms existing methods in ghost removal accuracy, and our ghost removal further enhances downstream tasks such as LiDAR-based SLAM (66% trajectory error reduction) and 3D object detection (50x false positive reduction). The dataset and code is publicly available and can be accessed via the project page: https://keio-csg.github.io/Ghost-FWL",
       "citations": 0,
       "github_stars": 10,
       "links": {
-        "pdf": "https://arxiv.org/pdf/2603.28224",
-        "supp": null,
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ikeda_Ghost-FWL_A_Large-Scale_Full-Waveform_LiDAR_Dataset_for_Ghost_Detection_and_CVPR_2026_paper.pdf",
+        "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Ikeda_Ghost-FWL_A_Large-Scale_CVPR_2026_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2603.28224",
         "code": "https://github.com/Keio-CSG/Ghost-FWL",
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://keio-csg.github.io/Ghost-FWL",
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://keio-csg.github.io/Ghost-FWL",
+        "paperswithcode": null,
+        "paper": "https://arxiv.org/abs/2603.28224"
       },
-      "bibtex": "@misc{paper_2026_ghost_fwl_a_large,\n  title = {Ghost-FWL: A Large-Scale Full-Waveform LiDAR Dataset for Ghost Detection and Removal},\n  author = {Kazuma Ikeda and Ryosei Hara and Rokuto Nagata and Ozora Sako. Zihao Ding and Takahiro Kado and Ibuki Fujioka and Taro Beppu and Mariko Isogawa and Kentaro Yoshioka},\n  year = {2026},\n  url = {https://arxiv.org/abs/2603.28224},\n  eprint = {2603.28224},\n  archivePrefix = {arXiv}\n}",
+      "bibtex": "@InProceedings{Ikeda_2026_CVPR,\nauthor = {Ikeda, Kazuma and Hara, Ryosei and Nagata, Rokuto and Sako, Ozora and Ding, Zihao and Kado, Takahiro and Fujioka, Ibuki and Beppu, Taro and Isogawa, Mariko and Yoshioka, Kentaro},\ntitle = {Ghost-FWL: A Large-Scale Full-Waveform LiDAR Dataset for Ghost Detection and Removal},\nbooktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2026},\npages = {17164-17173}\n}",
       "matched_themes": [
         "self-supervised / foundation model",
         "LiDAR / point cloud"
@@ -187964,32 +188114,6 @@
         "LiDAR / point cloud"
       ],
       "borderline_reason": "Demoted after board-requested abstract audit (GEO-19): Generative LiDAR world model for autonomous driving; no aerial / satellite / RS / geo signal"
-    },
-    {
-      "id": "ghost-2026",
-      "title": "Ghost-FWL: A Large-Scale Full-Waveform LiDAR Dataset for Ghost Detection and Removal",
-      "authors": "Kazuma Ikeda, Ryosei Hara, Rokuto Nagata, Ozora Sako, Zihao Ding, Takahiro Kado, Ibuki Fujioka, Taro Beppu, Mariko Isogawa, Kentaro Yoshioka",
-      "venue": "CVPR",
-      "year": 2026,
-      "presentation": null,
-      "abstract": "LiDAR has become an essential sensing modality in autonomous driving, robotics, and smart-city applications. However, ghost points (or ghost), which are false reflections caused by multi-path laser returns from glass and reflective surfaces, severely degrade 3D mapping and localization accuracy. Prior ghost removal rely on geometric consistency in dense point clouds, failing on mobile LiDAR's sparse, dynamic data. We address this by exploiting full-waveform LiDAR (FWL), which captures complete temporal intensity profiles rather than just peak distances, providing crucial cues for distinguishing ghosts from genuine reflections in mobile scenarios. As this is a new task, we present Ghost-FWL, the first and largest annotated mobile FWL dataset for ghost detection and removal. Ghost-FWL comprises 24K frames across 10 diverse scenes with 7.5 billion peak-level annotations, which is 100x larger than existing annotated FWL datasets. Experiments show that our baseline outperforms existing methods in ghost removal accuracy, and our ghost removal further enhance downstream tasks such as LiDAR-based SLAM (66% trajectory error reduction) and 3D object detection (50x false positive reduction).",
-      "links": {
-        "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Ikeda_Ghost-FWL_A_Large-Scale_Full-Waveform_LiDAR_Dataset_for_Ghost_Detection_and_CVPR_2026_paper.pdf",
-        "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Ikeda_Ghost-FWL_A_Large-Scale_CVPR_2026_supplemental.pdf",
-        "arxiv": "https://arxiv.org/abs/2603.28224",
-        "code": null,
-        "checkpoints": null,
-        "video": null,
-        "dataset": null,
-        "benchmark": null,
-        "model": null,
-        "project_page": null
-      },
-      "bibtex": "@InProceedings{Ikeda_2026_CVPR,\nauthor = {Ikeda, Kazuma and Hara, Ryosei and Nagata, Rokuto and Sako, Ozora and Ding, Zihao and Kado, Takahiro and Fujioka, Ibuki and Beppu, Taro and Isogawa, Mariko and Yoshioka, Kentaro},\ntitle = {Ghost-FWL: A Large-Scale Full-Waveform LiDAR Dataset for Ghost Detection and Removal},\nbooktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\nmonth = {June},\nyear = {2026},\npages = {17164-17173}\n}",
-      "matched_themes": [
-        "LiDAR / point cloud"
-      ],
-      "borderline_reason": "Demoted after board-requested abstract audit (GEO-19): Full-waveform LiDAR ghost-removal dataset for AV / robotics; smart-city mention is incidental, no specific geospatial task"
     }
   ]
 }
