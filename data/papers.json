@@ -2150,6 +2150,40 @@
       ]
     },
     {
+      "id": "paper_2605_29330",
+      "title": "EarthShift: a benchmark for measuring robustness to real-world distribution shifts in Earth observation",
+      "authors": "Kelsey Doerksen, Hannah Kerner",
+      "venue": "arXiv",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Current Earth observation benchmarks focus on measuring performance on diverse tasks and applications, typically measuring generalization in-distribution. But when models are deployed, they must generalize to myriad out-of-distribution scenarios, such as new time periods, geographies, scales, and sensors. We introduce EarthShift: the first public testbed for benchmarking robustness across multiple realistic distribution shifts encountered in remote sensing. EarthShift enables users to measure distributional robustness by comparing performance in- and out-of-distribution using datasets from paired datasets from different sources, temporal windows, geographic locations, and sensors. Our experiments on 8 geospatial foundation models (GFMs) and 11 tasks covering 5 shift types show that GFMs consistently perform 15-20% worse out-of-distribution on average regardless of model architecture, size, pre-training or fine-tuning strategy. We show that GFM robustness is similar to that of generic vision foundation models, and even fully-supervised models. This highlights a need for future research to strive for improvements in distributional robustness, not just performance, which can be benchmarked using EarthShift. We release our code and datasets to provide a testbed to guide future work to create foundation models that are robust and reliable in real-world applications. Code and data for EarthShift are available at: https://earthshift.github.io",
+      "citations": 0,
+      "github_stars": 33,
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2605.29330",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2605.29330",
+        "code": "https://github.com/kerner-lab/earthshift",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://earthshift.github.io/",
+        "benchmark": "https://earthshift.github.io/",
+        "model": null,
+        "project_page": "https://earthshift.github.io/",
+        "paper": "https://arxiv.org/abs/2605.29330"
+      },
+      "bibtex": "@article{doerksen2026earthshiftbenchmarkmeasuringrobustness,\n  title = {EarthShift: a benchmark for measuring robustness to real-world distribution shifts in Earth observation},\n  author = {Kelsey Doerksen and Hannah Kerner},\n  eprint = {2605.29330},\n  year = {2026},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CV},\n  url = {https://arxiv.org/abs/2605.29330}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "Earth observation / land cover",
+        "geospatial / GIS / geographic",
+        "self-supervised / foundation model",
+        "multispectral / hyperspectral / SAR",
+        "benchmark / evaluation"
+      ]
+    },
+    {
       "id": "rlftsim-2026",
       "title": "RLFTSim: Realistic and Controllable Multi-Agent Traffic Simulation via Reinforcement Learning Fine-Tuning",
       "authors": "Ehsan Ahmadi, Hunter Schofield, Behzad Khamidehi, Fazel Arasteh, Jinjun Shan, Lili Mou, Dongfeng Bai, Kasra Rezaee",
