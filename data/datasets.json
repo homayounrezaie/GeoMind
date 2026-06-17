@@ -17682,6 +17682,2020 @@
       "links": {
         "huggingface": "https://huggingface.co/datasets/syeddhasnainn/landslide-uav-all"
       }
+    },
+    {
+      "id": "francecrops",
+      "name": "FranceCrops",
+      "summary": "A Sentinel-2 satellite image time-series dataset for crop type classification of agricultural fields across France.",
+      "description": "FranceCrops provides Sentinel-2 time series sampled within agricultural fields in France for crop classification. Each sample is a 3D array of shape (100, 60, 12): 100 pixel time series per field, 60 temporal steps (every 5 days from Feb to Nov 2022), and 12 spectral bands, paired with integer crop class labels. It is designed for training and benchmarking temporal crop-type classification models.",
+      "task": "Image classification",
+      "modality": "Sentinel-2",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/saget-antoine/francecrops"
+      }
+    },
+    {
+      "id": "low-altitude-drone-remote-sensing-dataset",
+      "name": "Low-Altitude Drone Remote Sensing Dataset",
+      "summary": "A high-resolution UAV image dataset captured at a consistent low altitude over coastal residential neighborhoods in Galveston, Texas.",
+      "description": "The Low-Altitude Drone Remote Sensing Dataset is a collection of high-resolution drone images acquired at a consistent low altitude over residential neighborhoods in coastal Galveston, Texas. Unlike many UAV datasets captured under highly diverse viewpoints, it maintains a uniform acquisition geometry. The dataset targets remote sensing image compression, image restoration, and downstream visual understanding tasks such as object detection.",
+      "task": "Object detection",
+      "modality": "UAV imagery",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/yuminghan12123/Low-Altitude-Drone-Remote-Sensing-Dataset"
+      }
+    },
+    {
+      "id": "major-tom-taco",
+      "name": "Major-TOM-TACO",
+      "summary": "A TACO-formatted multimodal Earth observation dataset built on Major TOM, aligning co-registered Sentinel-2, Sentinel-1, and Copernicus DEM patches.",
+      "description": "Major-TOM-TACO is a TACO-formatted multimodal dataset derived from the Major TOM core datasets. Each sample aligns Sentinel-2 L2A optical, Sentinel-1 RTC radar, Copernicus DEM 30m elevation, and optional Major TOM embeddings under a single grid so patches are spatially matched. The data is co-registered and packaged for ready use in training and evaluation of multimodal remote sensing models.",
+      "task": "Geospatial foundation / multimodal",
+      "modality": "Sentinel-2 / Sentinel-1 / DEM",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/JulioContrerasH/Major-TOM-TACO"
+      }
+    },
+    {
+      "id": "weatheraus",
+      "name": "weatherAUS",
+      "summary": "A tabular dataset of daily weather observations from numerous weather stations across Australia.",
+      "description": "weatherAUS contains daily weather observations recorded at weather stations across Australia, with meteorological variables such as temperature, rainfall, humidity, wind, and pressure. It is commonly used for weather and climate analysis and for predictive tasks like next-day rain prediction. The data is provided in tabular form on the Hugging Face Hub.",
+      "task": "Tabular classification / regression",
+      "modality": "Weather / Climate",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/lowkeydev-ln/weatherAUS"
+      }
+    },
+    {
+      "id": "pabna-urban-tree-phase7",
+      "name": "Pabna Urban Tree (Phase 7)",
+      "summary": "Tree-crown segmentation outputs over three UAV orthomosaic fields in Pabna, Bangladesh, including crown polygons and canopy statistics.",
+      "description": "Pabna Urban Tree Phase 7 provides tree-crown segmentation results for three UAV orthomosaic fields in the urban forest of Pabna, Bangladesh. The dataset includes binary masks and probability heatmaps in GeoTIFF format, detected crown polygons in GeoJSON, and per-crown and per-field canopy statistics (counts, canopy area, mean crown size, cover percentage). Results were produced with an S4 SegFormer (MIT-B2) RGB+ExG model achieving IoU 0.87 and F1 0.93.",
+      "task": "Image segmentation",
+      "modality": "UAV imagery",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Sabbir12345/Pabna-Urban-Tree-Phase7"
+      }
+    },
+    {
+      "id": "wildfire",
+      "name": "Wildfire (Smoke and Fire Detection)",
+      "summary": "A collection of remotely captured images of smoke plumes and fire for training forest-fire detection systems.",
+      "description": "This wildfire dataset contains images of smoke plumes and fire captured remotely, intended to train computer vision systems to detect forest fires. It is structured for object detection, with roughly 1,785 images in imagefolder format at widths ranging from 640 to 1,024 pixels. The dataset is openly available under the Apache 2.0 license.",
+      "task": "Object detection",
+      "modality": "Aerial / remote imagery",
+      "numSamples": 1785,
+      "license": "Apache-2.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/odiug77/wildfire"
+      }
+    },
+    {
+      "id": "africa-tun-rainfall-subnational",
+      "name": "Tunisia Rainfall Indicators (Subnational)",
+      "summary": "Dekadal CHIRPS satellite-derived rainfall indicators for Tunisia, aggregated by subnational administrative units.",
+      "description": "This dataset provides dekadal (10-day) rainfall indicators for Tunisia at the subnational administrative level, published by the World Food Programme via HDX. Indicators are computed from CHIRPS v2 satellite-plus-station precipitation imagery and CHIRPS-GEFS short-term forecasts, aggregated per administrative unit. It supports drought monitoring and rainfall analysis and is released under a CC-BY license.",
+      "task": "Tabular regression",
+      "modality": "Weather / Climate",
+      "license": "CC-BY",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-tun-rainfall-subnational"
+      }
+    },
+    {
+      "id": "satellite-imagery-segmentation",
+      "name": "Satellite Imagery Segmentation",
+      "summary": "A satellite imagery dataset for semantic segmentation tasks.",
+      "description": "Satellite Imagery Segmentation is a dataset of satellite images paired with segmentation annotations for land-cover and scene segmentation tasks. It is hosted on the Hugging Face Hub for use in training and evaluating remote sensing segmentation models.",
+      "task": "Image segmentation",
+      "modality": "Satellite imagery",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/saidines12/satellite-imagery-segmentation"
+      }
+    },
+    {
+      "id": "synrs3d",
+      "name": "SynRS3D",
+      "summary": "A large synthetic remote sensing dataset for global 3D semantic understanding from monocular high-resolution imagery.",
+      "description": "SynRS3D is a synthetic remote sensing dataset of 69,667 high-resolution (512x512) images spanning 17 terrain types and ground sampling distances. Each sample provides RGB optical imagery, a normalized digital surface model (nDSM) for height, semantic land-cover masks (8 classes), and building change-detection masks. It supports height estimation, land-cover mapping, and building change detection, and was presented as a NeurIPS 2024 Spotlight.",
+      "task": "Image segmentation / height estimation",
+      "modality": "Synthetic remote sensing imagery",
+      "numSamples": 69667,
+      "size": "69,667 images at 512x512",
+      "license": "CC-BY-NC-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/JTRNEO/SynRS3D",
+        "github": "https://github.com/JTRNEO/SynRS3D",
+        "paper": "https://arxiv.org/abs/2406.18151"
+      }
+    },
+    {
+      "id": "tb-science-stereo-dem-icesat2",
+      "name": "Stereo DEM ICESat-2 (Terminal-Bench-Science)",
+      "summary": "Input and validation data for generating a digital elevation model from ASTER stereo imagery and validating it against ICESat-2 laser altimetry.",
+      "description": "This dataset provides the input and held-out validation data for the stereo-dem-icesat2 task in Terminal-Bench-Science. It includes an ASTER L1A VNIR stereo pair (Band 3N nadir and 3B backward, single-band Float32, ~15 m GSD) used to generate a digital elevation model, plus ICESat-2 ATL08 laser altimetry for validating the resulting DEM. The data supports photogrammetric DEM generation and elevation-accuracy assessment over Earth-observation scenes.",
+      "task": "Digital elevation modeling",
+      "modality": "ASTER stereo imagery / ICESat-2 altimetry",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/rl123321/tb-science-stereo-dem-icesat2"
+      }
+    },
+    {
+      "id": "disaster-recognition-remotesense-en-cn-ja",
+      "name": "Disaster Recognition RemoteSense (EN/CN/JA)",
+      "summary": "A multilingual vision-language dataset derived from xBD/xView2 satellite imagery for building-damage and disaster recognition.",
+      "description": "This dataset is derived from the xBD (xView2) Building Damage Assessment Dataset and reformatted for vision-language model training. It pairs satellite imagery with multi-language conversational annotations supporting disaster recognition in English, Chinese, and Japanese. It is intended for visual question answering and instruction tuning of remote sensing VLMs.",
+      "task": "Visual question answering",
+      "modality": "Satellite imagery / Remote sensing",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/WayBob/Disaster_Recognition_RemoteSense_EN_CN_JA"
+      }
+    },
+    {
+      "id": "fr-radar-rainfall",
+      "name": "France Radar Rainfall (5-minute)",
+      "summary": "High-resolution 5-minute radar-based rainfall accumulation data over mainland France from Meteo-France.",
+      "description": "fr-radar-rainfall provides high-resolution radar-based rainfall accumulation over mainland France produced by Meteo-France. Each file contains the rainfall accumulation (in hundredths of millimeters) over the past 5 minutes at a 1 km spatial resolution, derived from the national radar precipitation mosaic. It is released under the Etalab Open License 2.0 for precipitation analysis and nowcasting.",
+      "task": "Precipitation estimation / nowcasting",
+      "modality": "Weather / Climate (radar)",
+      "license": "Etalab 2.0 (Open License 2.0)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/meteofrance/fr-radar-rainfall"
+      }
+    },
+    {
+      "id": "phileobench-land-cover-classification",
+      "name": "PhilEOBench Land Cover Classification",
+      "summary": "A simulated PhiSat-2 land cover classification dataset derived from Sentinel-2 imagery at 10 m resolution.",
+      "description": "This dataset is part of the PhilEO Bench suite and provides a simulated PhiSat-2 dataset derived from Sentinel-2 data for land cover classification at 10 meters per pixel. Each pixel is labeled with its dominant land cover class following the ESA WorldCover PUM V1.1 classification scheme (11 classes including tree cover, shrubland, grassland, cropland, built-up, and water). It is intended for applications such as land cover mapping, urban planning, environmental monitoring, and resource management.",
+      "task": "Land cover classification",
+      "modality": "Sentinel-2 / Remote sensing",
+      "size": "3.69 GB",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ESA-PhiLab-Edge/PhilEOBench-land_cover_classification",
+        "homepage": "https://worldcover2020.esa.int/data/docs/WorldCover_PUM_V1.1.pdf"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "bigearthnetv2-lmdb",
+      "name": "BigEarthNetV2-LMDB",
+      "summary": "An LMDB-format pre-converted version of the reBEN (BigEarthNet v2.0) Sentinel-1/Sentinel-2 multi-label land cover benchmark.",
+      "description": "BigEarthNetV2-LMDB is a community-converted, LMDB-format distribution of the refined BigEarthNet (reBEN / BigEarthNet v2.0) remote sensing benchmark, prepared for convenient training pipelines. It contains roughly 480,000 paired Sentinel-1 (SAR, VV/VH) and Sentinel-2 (12 multispectral bands) patches covering diverse European regions. The dataset supports multi-label image classification for land cover and land use recognition. This is an unofficial pre-converted version; the official files take precedence as the authoritative reference.",
+      "task": "Multi-label image classification",
+      "modality": "Sentinel-1 SAR + Sentinel-2 multispectral",
+      "size": "155 GB",
+      "numSamples": 480038,
+      "license": "CDLA-Permissive-1.0",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/hackelle/BigEarthNetV2-LMDB",
+        "homepage": "https://bigearth.net/",
+        "paper": "https://arxiv.org/abs/2407.03653",
+        "download": "https://zenodo.org/records/10891137"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "weather-data-nc",
+      "name": "NC Weather Analysis Dataset",
+      "summary": "A weather dataset for North Carolina compiled from OpenWeatherMap for climate research and forecasting.",
+      "description": "This dataset compiles weather observations for North Carolina sourced from OpenWeatherMap.org, including measurements such as temperature, humidity, and related variables. It is intended for climate research, weather forecasting, and predictive model development. The data is organized for tabular analysis and modeling tasks.",
+      "task": "Weather forecasting / climate analysis",
+      "modality": "Weather / Climate",
+      "year": 2024,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Katherinetian/weather_data_NC"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "poi-benchmark",
+      "name": "Multi-City POI Multimodal Benchmark",
+      "summary": "A large-scale multimodal benchmark pairing points of interest with street-view, aerial, and satellite imagery across 10 global cities.",
+      "description": "The POI Benchmark is a large-scale multimodal dataset that pairs Points of Interest (POIs) with visual imagery across major cities on three continents (e.g. Beijing, Shanghai, Hong Kong, London, Melbourne, Sydney, New York). It combines street-view panorama grids, aerial/storefront photos, and multi-tile satellite imagery with enriched POI metadata, totaling roughly 2.6 million images (3.4 TB) and about 685,000 POI records. It supports vision-language grounding, POI recognition and retrieval from visual context, urban scene understanding, and cross-city generalization benchmarks.",
+      "task": "POI recognition / retrieval and urban scene understanding",
+      "modality": "Satellite + aerial + street-view imagery / Geospatial",
+      "size": "3.4 TB",
+      "numSamples": 2600000,
+      "license": "CC-BY-4.0",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/sukiewang/poi-benchmark"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "geolayers",
+      "name": "Geolayers",
+      "summary": "A collection of three benchmark satellite-imagery datasets augmented with auxiliary geographic inputs for data-efficient and OOD-robust ML.",
+      "description": "Geolayers releases modified versions of benchmark remote sensing datasets spanning land-cover segmentation, tree-cover regression, and multi-label land-cover classification, augmented with auxiliary geographic inputs such as OpenStreetMap rasters, digital elevation models, and location embeddings. Source datasets include SustainBench (Sentinel-2), EnviroAtlas (NAIP aerial), BigEarthNet v2.0 (Sentinel-2), and USAVars (NAIP). It accompanies the paper 'Using Multiple Input Modalities can Improve Data-Efficiency and O.O.D. Generalization for ML with Satellite Imagery' (TerraBytes workshop, ICML 2025). The total release is approximately 248 GB.",
+      "task": "Land-cover segmentation / classification / tree-cover regression",
+      "modality": "Satellite + aerial imagery with geographic auxiliary layers",
+      "size": "~248 GB",
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/arjunrao2000/geolayers",
+        "github": "https://github.com/UCBoulder/GeoViTTokenFusion"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "s2agri-17",
+      "name": "S2Agri-17",
+      "summary": "A Sentinel-2 satellite image time-series dataset for 17-class agricultural land cover classification over France.",
+      "description": "S2Agri-17 is a satellite image time-series classification dataset built from a single Sentinel-2 tile (T31TFM) covering a 12,100 km2 area in France. It provides ten spectral bands at 10 m resolution across 24 observations (sampled every 10 days, January-October 2017), organized from 191,703 land parcels and roughly 59.3 million pixels. The task is pixel-level land cover classification into 17 categories, with labels derived from the French Land Parcel Identification System. It is distributed as part of the MONSTER (Monash Scalable Time Series Evaluation Repository) benchmark.",
+      "task": "Image classification (satellite time series)",
+      "modality": "Sentinel-2 / Remote sensing time series",
+      "numSamples": 191703,
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/monster-monash/S2Agri-17",
+        "paper": "https://arxiv.org/abs/2502.15122",
+        "download": "https://zenodo.org/records/5815488"
+      },
+      "sources": [
+        "Hugging Face"
+      ],
+      "versions": [
+        {
+          "name": "S2Agri-17",
+          "year": 2025,
+          "numSamples": 191703,
+          "url": "https://huggingface.co/datasets/monster-monash/S2Agri-17"
+        },
+        {
+          "name": "S2Agri-34",
+          "year": 2025,
+          "url": "https://huggingface.co/datasets/monster-monash/S2Agri-34"
+        }
+      ]
+    },
+    {
+      "id": "africa-dji-rainfall-subnational",
+      "name": "Djibouti Rainfall Indicators at Subnational Level",
+      "summary": "Dekadal CHIRPS-derived rainfall indicators for Djibouti aggregated by subnational administrative units.",
+      "description": "This dataset contains dekadal (10-day) rainfall indicators for Djibouti, computed from CHIRPS v2 satellite-and-station precipitation imagery and CHIRPS-GEFS short-term rainfall forecasts, aggregated by subnational administrative units. It is published by the WFP (World Food Programme) via HDX. The indicators support climate monitoring, drought analysis, and food-security applications.",
+      "task": "Tabular regression / climate monitoring",
+      "modality": "Weather / Climate (CHIRPS satellite precipitation)",
+      "license": "CC-BY",
+      "year": 2026,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-dji-rainfall-subnational"
+      },
+      "sources": [
+        "Hugging Face",
+        "HDX"
+      ]
+    },
+    {
+      "id": "copgen-edinburgh-subset",
+      "name": "COP-GEN Edinburgh Subset",
+      "summary": "A small pre-compiled multimodal Copernicus (Major-TOM) subset over the Edinburgh region for COP-GEN development.",
+      "description": "COP-GEN Edinburgh Subset is a small, ready-to-use subset of Major-TOM Copernicus data covering the Edinburgh region, intended as a development and demonstration dataset for the COP-GEN model with no download scripting or preprocessing required. All modalities are spatially aligned and patchified, including Sentinel-1 RTC (VV, VH), Sentinel-2 L1C (all bands plus cloud mask), Sentinel-2 L2A (all bands), DEM, and LULC. It is suited to multimodal Earth-observation image generation and analysis.",
+      "task": "Image-to-image / multimodal Earth observation",
+      "modality": "Sentinel-1 + Sentinel-2 + DEM + LULC (Copernicus / Major-TOM)",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/mespinosami/copgen-edinburgh-subset"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "s2-ai4lcc-precomputed-clay",
+      "name": "S2 AI4LCC Precomputed Clay",
+      "summary": "A precomputed Sentinel-2 land cover dataset reformatted for direct use with the Clay Earth-observation foundation model.",
+      "description": "This dataset is a derived version of the Sentinel-2 Land Cover Dataset (Zarr format), precomputed and reformatted specifically for use with the Clay foundation model for Earth observation. Operations that normally occur during data loading (such as tiling and label preparation) are precomputed so the data can be used directly in Clay training or inference pipelines without additional preprocessing. It targets land cover segmentation tasks over Sentinel-2 imagery.",
+      "task": "Image segmentation (land cover)",
+      "modality": "Sentinel-2 / Remote sensing",
+      "year": 2026,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/wtr001/S2_AI4LCC_Precomputed_Clay"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "global-trash-and-debris-index",
+      "name": "Global Trash and Debris Index",
+      "summary": "A global geospatial dataset of trash, litter, and environmental debris locations with latitude and longitude.",
+      "description": "The Outerview Global Trash & Debris Index is a large-scale geospatial dataset mapping trash, litter, and environmental debris worldwide, each record tagged with latitude and longitude. The public subset contains roughly 30,000 entries (the full platform spans millions of locations), with imagery sourced from Mapillary and labels generated by Outerview's AI models. It supports detection of waste accumulation hotspots, environmental monitoring, image classification, and object detection, and is distributed in Parquet, CSV, and GeoJSON formats.",
+      "task": "Image classification / object detection (waste detection)",
+      "modality": "Street-level imagery / Geospatial",
+      "numSamples": 30000,
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Outerview/global-trash-and-debris-index",
+        "homepage": "https://outerview.com"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "land-use-app-data",
+      "name": "Land Use App Data",
+      "summary": "A global gridded land-use and land-use-change emissions (ELUC) dataset from 2012 onward used in the Land Use demo app.",
+      "description": "This dataset, published by Project Resilience, is a global subset of gridded land-use and emissions data from 2012 onward prepared for the Land Use demo application. Each row is indexed by latitude/longitude and time and includes land-use category fractions (C3/C4 annual and perennial crops, pasture, primary and secondary forest, rangeland, urban) along with Emissions from Land-Use Change (ELUC) values and differences. Covering 176 countries with about 2.4 million rows, it supports land-use modeling and climate/emissions analysis. The field structure resembles harmonized land-use products such as LUH2.",
+      "task": "Tabular regression / land-use and emissions modeling",
+      "modality": "Land use / Climate (gridded tabular)",
+      "size": "1M-10M rows",
+      "numSamples": 2420000,
+      "license": "Apache-2.0",
+      "year": 2024,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/projectresilience/land-use-app-data"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "africa-ethiopia-palmer-drought-severity-index-pdsi-2020-2024",
+      "name": "Ethiopia Palmer Drought Severity Index (PDSI) 2020-2024",
+      "summary": "Palmer Drought Severity Index values for Ethiopia from 2020 to 2024 for monitoring drought conditions.",
+      "description": "This dataset provides Palmer Drought Severity Index (PDSI) values for Ethiopia covering 2020 to 2024, offering insight into drought conditions across the country. The PDSI is a widely used drought index measuring deviations in soil-moisture conditions from the long-term average, helping identify both drought and wet conditions. Published by 3iS and sourced from HDX, it supports climate monitoring, drought analysis, and food-security applications.",
+      "task": "Tabular classification / regression (drought monitoring)",
+      "modality": "Weather / Climate (drought index)",
+      "license": "CC-BY",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-ethiopia-palmer-drought-severity-index-pdsi-2020-2024"
+      },
+      "sources": [
+        "Hugging Face",
+        "HDX"
+      ]
+    },
+    {
+      "id": "bangladesh-flood-pdna-2022",
+      "name": "Bangladesh Flood PDNA 2022",
+      "summary": "District- and upazila-level post-disaster needs assessment data for the 2022 Bangladesh floods, including hydrological and damage indicators.",
+      "description": "This dataset compiles research data from the 2022 Bangladesh floods as a post-disaster needs assessment (PDNA), organized at district and upazila administrative levels. It combines hydrological and environmental attributes (flood depth, duration, inundation percentage, distance to rivers) with damage and loss figures, vulnerability indicators, and infrastructure-impact metrics across affected regions such as Sylhet, Sunamganj, and Moulvibazar. Curated by Farjana Yesmin, it accompanies the paper 'Toward Equitable Recovery: A Fairness-Aware AI Framework for Prioritizing Post-Flood Aid in Bangladesh' (CCAI 2026, IEEE) and supports flood-impact modeling and tabular regression/classification.",
+      "task": "Tabular regression / classification (flood impact)",
+      "modality": "Flood / disaster (tabular geospatial)",
+      "size": "n<1K",
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/fairhealth/bangladesh-flood-pdna-2022",
+        "paper": "https://arxiv.org/abs/2512.22210"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "canadian-cropland",
+      "name": "Canadian Cropland",
+      "summary": "A remote-sensing dataset of RGB satellite image patches for 10-class agricultural land classification in Canada.",
+      "description": "The Canadian Cropland Dataset provides labeled RGB image patches for agricultural land-use classification across Canada. This Hugging Face distribution contains the 2017 RGB split with 14,111 examples across 10 crop classes (barley, canola, corn, mixedwood, oat, orchard, pasture, potato, soybean, and spring wheat). It accompanies the paper 'Towards the Creation of a Canadian Land-Use Dataset for Agricultural Land Classification' and supports image classification for crop mapping.",
+      "task": "Image classification (crop/land-use)",
+      "modality": "RGB satellite imagery / Remote sensing",
+      "numSamples": 14111,
+      "license": "Montreal Data License",
+      "year": 2021,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/jonathan-roberts1/Canadian_Cropland",
+        "github": "https://github.com/bioinfoUQAM/Canadian-cropland-dataset",
+        "paper": "https://openreview.net/pdf/3b9f82b0ce8f1e195c4c20df9637afd8ed9ea339.pdf"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "south-africa-crop-type-clouds",
+      "name": "South Africa Crop Type Clouds",
+      "summary": "Cloud masks for Sentinel-2 imagery of the South Africa Crop Type dataset, supporting cloud-aware crop field segmentation.",
+      "description": "This dataset contains cloud masks generated for Sentinel-2 imagery of the South Africa Crop Type dataset, produced with the s2cloudless library. The masks provide a quality assessment for multispectral imagery so that samples with large cloud-covered areas of interest can be excluded, since multispectral imagery is ineffective through clouds. Curated by Daniele Rege Cambrin, it accompanies the paper 'KAN You See It? KANs and Sentinel for Effective and Explainable Crop Field Segmentation' and supports image segmentation tasks.",
+      "task": "Image segmentation (cloud masking / crop fields)",
+      "modality": "Sentinel-2 / Remote sensing",
+      "size": "~31.6 GB",
+      "license": "OpenRAIL",
+      "year": 2024,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/DarthReca/south-africa-crop-type-clouds",
+        "paper": "https://arxiv.org/abs/2408.07040"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "africa-lso-rainfall-subnational",
+      "name": "Lesotho Rainfall Indicators at Subnational Level",
+      "summary": "Dekadal CHIRPS-derived rainfall indicators for Lesotho aggregated by subnational administrative units.",
+      "description": "This dataset contains dekadal (10-day) rainfall indicators for Lesotho, computed from CHIRPS v2 satellite-and-station precipitation imagery and CHIRPS-GEFS short-term rainfall forecasts, aggregated by subnational administrative units. It is published by the WFP (World Food Programme) via HDX. The indicators support climate monitoring, drought analysis, and food-security applications.",
+      "task": "Tabular regression / climate monitoring",
+      "modality": "Weather / Climate (CHIRPS satellite precipitation)",
+      "license": "CC-BY",
+      "year": 2026,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-lso-rainfall-subnational"
+      },
+      "sources": [
+        "Hugging Face",
+        "HDX"
+      ]
+    },
+    {
+      "id": "rock-glacier-dataset",
+      "name": "Rock Glacier Dataset",
+      "summary": "A Sentinel-2 satellite image classification dataset for detecting rock glaciers in the Chilean Andes.",
+      "description": "The Rock Glacier Dataset contains Sentinel-2 satellite imagery of rock glaciers in the Chilean Andes, provided as 128x128 pixel RGBA PNG images for binary image classification between 'cordillera' (mountain range) and 'glaciar' (glacier). It includes 7,875 training, 1,125 validation, and 2,700 test examples and was created by the CMM Glaciares group at the University of Chile. The dataset supports rock glacier detection and segmentation tasks.",
+      "task": "Image classification (rock glacier detection)",
+      "modality": "Sentinel-2 / Remote sensing",
+      "size": "~423 MB",
+      "numSamples": 11700,
+      "license": "MIT",
+      "year": 2022,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/alkzar90/rock-glacier-dataset",
+        "github": "https://github.com/alcazar90/rock-glacier-detection"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "glacier-dataset",
+      "name": "Glacier-Dataset",
+      "summary": "A bitemporal remote sensing dataset of polar glaciers for glacier change detection via image segmentation.",
+      "description": "Glacier-Dataset contains paired bitemporal Landsat-8 RGB composite imagery from two representative polar regions (the southeastern coast of Greenland and the Svalbard Archipelago), along with binary change masks. It comprises 683 bitemporal image pairs of 256x256 pixel patches focused on glaciers, icefields, crevasse systems, and exposed bedrock. The dataset accompanies the VPGCD-Net paper and supports glacier change detection, image segmentation, and classification.",
+      "task": "image-segmentation|image-classification",
+      "modality": "Satellite imagery (Landsat-8 RGB)",
+      "size": "123 MB",
+      "numSamples": 683,
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/cuibinge/Glacier-Dataset",
+        "github": "https://github.com/cuibinge/Glacier-Dataset",
+        "paper": "https://ieeexplore.ieee.org/document/10848100"
+      }
+    },
+    {
+      "id": "ndvi-hungary-sentinel2",
+      "name": "NDVI (Sentinel-2, Hungary)",
+      "summary": "Sentinel-2 derived NDVI vegetation-index sample data over Hungary in Parquet, GeoTIFF, and CSV formats.",
+      "description": "This dataset provides Normalized Difference Vegetation Index (NDVI) sample data computed from Sentinel-2 imagery over Hungary, covering January 2024. The data was resampled from a native 10m x 10m resolution to 107m x 107m, totaling roughly 10.7M rows, and is distributed as Parquet, GeoTIFF, and CSV files. It is intended for vegetation monitoring and remote sensing experimentation rather than fine-grained small-scale crop or soil health analysis.",
+      "task": "Geospatial / remote sensing",
+      "modality": "Satellite imagery (Sentinel-2)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/jaelin215/NDVI",
+        "homepage": "https://huggingface.co/datasets/enganchai/NDVI"
+      }
+    },
+    {
+      "id": "africa-cod-rainfall-subnational",
+      "name": "DRC Rainfall Indicators at Subnational Level",
+      "summary": "Dekadal CHIRPS satellite-derived rainfall indicators for the Democratic Republic of the Congo aggregated by subnational administrative units.",
+      "description": "This dataset contains dekadal rainfall indicators for the Democratic Republic of the Congo, computed from the Climate Hazards Group InfraRed Precipitation with Station data (CHIRPS) version 2 and CHIRPS-GEFS short-term rainfall forecasts. Indicators are aggregated by subnational administrative units to support drought and food-security monitoring. Published by the World Food Programme and sourced via HDX, it was curated into an ML-ready format on Hugging Face.",
+      "task": "tabular-regression",
+      "modality": "Weather / Climate (CHIRPS satellite precipitation)",
+      "license": "CC-BY",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-cod-rainfall-subnational"
+      }
+    },
+    {
+      "id": "carbonfluxbench",
+      "name": "CarbonFluxBench",
+      "summary": "A global benchmark of 1.3M+ daily eddy-covariance carbon flux observations with remote sensing and meteorological features for zero-shot upscaling.",
+      "description": "CarbonFluxBench comprises over 1.4 million daily observations from 573 eddy covariance flux tower sites globally spanning 2000-2024. It pairs three carbon flux targets (GPP, RECO, NEE) with MODIS satellite reflectance, ERA5-Land meteorological features, and site metadata on vegetation and climate. The benchmark provides stratified evaluation protocols that test generalization across unseen vegetation types and climate regimes, with reproducible baselines for zero-shot upscaling of carbon fluxes.",
+      "task": "tabular-regression|time-series-forecasting",
+      "modality": "Climate / Earth observation (MODIS, ERA5-Land, flux towers)",
+      "size": "5.52 GB",
+      "numSamples": 1405813,
+      "license": "MIT",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/alexroz/CarbonFluxBench",
+        "github": "https://github.com/alexxxroz/CarbonFluxBench"
+      }
+    },
+    {
+      "id": "africa-cyclone-enawo-madagascar-windspeed-track-and-rainfall",
+      "name": "Cyclone Enawo - Madagascar - Windspeed, Track and Rainfall",
+      "summary": "Geospatial windspeed, storm track, and rainfall data for Cyclone Enawo over Madagascar.",
+      "description": "This dataset provides windspeed, storm track, and rainfall data for Tropical Cyclone Enawo as it affected Madagascar. The windspeed and track data cover only the portion of the event where Enawo was classified as a tropical cyclone. Provided by the Netherlands Red Cross (510) and sourced via HDX, it was curated into an ML-ready format on Hugging Face.",
+      "task": "tabular-regression",
+      "modality": "Weather / Climate (cyclone windspeed, track, rainfall)",
+      "license": "CC-BY",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-cyclone-enawo-madagascar-windspeed-track-and-rainfall"
+      }
+    },
+    {
+      "id": "dist-uncertainty",
+      "name": "Dist_Uncertainty",
+      "summary": "Hyperspectral remote sensing case studies with land cover labels for evaluating uncertainty in deep-learning plant trait retrieval.",
+      "description": "Dist_Uncertainty contains hyperspectral remote sensing imagery and associated land cover labels used as out-of-domain test cases for evaluating uncertainty estimation methods in deep-learning-based plant trait retrievals. The data covers an EnMAP scene over Leipzig, Germany and a NEON scene in Wisconsin, USA, including roughly 1,522 training spectra plus hyperspectral test images. It accompanies Cherif et al. (2025, Biogeosciences) and supports evaluation of a distance-based uncertainty method against ensemble and dropout approaches.",
+      "task": "Geospatial / hyperspectral analysis",
+      "modality": "Hyperspectral imagery (EnMAP, NEON)",
+      "size": "~400 MB",
+      "license": "CC-BY-NC-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Avatarr05/Dist_Uncertainty",
+        "paper": "https://doi.org/10.5194/egusphere-2025-1284"
+      }
+    },
+    {
+      "id": "low-alt-satellite-image-dataset-500",
+      "name": "Low Altitude Satellite Image Dataset (500 samples)",
+      "summary": "A small set of 499 low-altitude satellite/aerial images of urban areas with rich geographic and street-level metadata.",
+      "description": "This dataset contains 499 low-altitude satellite/aerial images of urban areas worldwide, each accompanied by comprehensive metadata. Metadata fields include geographic information (latitude, longitude, urban classification), street-level features (road, building, and vegetation coverage; green-view and sky-view indices; vehicle presence), and infrastructure details such as highway type, number of lanes, and road width. It supports image classification, object detection, and segmentation for urban-planning and geospatial analysis.",
+      "task": "image-classification",
+      "modality": "Aerial / satellite imagery",
+      "numSamples": 499,
+      "license": "MIT",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Sadhana-24/low_alt_satellite_image_dataset_500"
+      }
+    },
+    {
+      "id": "govgis-nov2023-slim-spatial",
+      "name": "govgis_nov2023-slim-spatial",
+      "summary": "A georeferenced, spatially-enriched subset of government GIS server data with vector embeddings in GeoParquet format.",
+      "description": "govgis_nov2023-slim-spatial is a curated, georeferenced subset of the larger govgis_nov2023 collection scraped from government GIS servers. It includes diverse geospatial data types such as ecological data, census information, administrative boundaries, transportation networks, and land use maps, enriched with vector embeddings (BAAI/bge-large-en-v1.5) for semantic search. The data is distributed as two GeoParquet files, one with core spatial data and one with detailed embeddings.",
+      "task": "Geospatial / spatial data analysis",
+      "modality": "Vector GIS (GeoParquet)",
+      "size": "10.2 GB",
+      "license": "MIT",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/joshuasundance/govgis_nov2023-slim-spatial"
+      }
+    },
+    {
+      "id": "habitalp2-0",
+      "name": "HabitAlp2.0",
+      "summary": "An ecological habitat mapping dataset of aerial imagery and annotated polygons for an Austrian alpine national park.",
+      "description": "HabitAlp2.0 is an ecological habitat mapping dataset for the Gesause National Park and Natura 2000 area in Austria, covering approximately 154 km2. It includes 30,241 polygons annotated via aerial photo stereo-interpretation for the years 1954, 2003, and 2013, alongside remote sensing layers such as orthophotos and LiDAR elevation data. The dataset supports AI-driven habitat classification and change-detection tasks across decades.",
+      "task": "image-segmentation",
+      "modality": "Aerial imagery / GeoTIFF / LiDAR",
+      "numSamples": 30241,
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/JR-DIGITAL/habitalp2.0",
+        "paper": "https://arxiv.org/abs/2511.00073"
+      }
+    },
+    {
+      "id": "uavid-3d-scenes",
+      "name": "UAVid-3D-Scenes",
+      "summary": "A depth-estimation extension of the UAVid aerial dataset with undistorted RGB frames paired with metric depth maps.",
+      "description": "UAVid-3D-Scenes is a depth-estimation-focused extension of the UAVid semantic dataset, reorganizing the original UAV sequences by the larger scenes in which they were captured. It provides undistorted RGB frames (512x1024) paired with metric depth maps obtained through COLMAP reconstructions and scaling, plus camera intrinsics, poses, and calibration across 12 scenes. The dataset accompanies the paper TanDepth: Leveraging Global DEMs for Metric Monocular Depth Estimation in UAVs.",
+      "task": "depth-estimation",
+      "modality": "Aerial / UAV imagery",
+      "size": "9.07 GB",
+      "license": "CC-BY-NC-SA-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/hrflr/uavid-3d-scenes",
+        "paper": "https://arxiv.org/abs/2409.05848"
+      }
+    },
+    {
+      "id": "africa-impact-of-cyclones",
+      "name": "Mozambique: Impact of Cyclones",
+      "summary": "Tabular records of cyclone impacts (people affected and injured) across Mozambique from 2017 to 2025.",
+      "description": "This dataset captures the impact of cyclones, including the number of people affected and injured, across Mozambique from 2017 to 2025. Each row represents a tabular record of cyclone impact within the geographic scope of Mozambique. Published by OCHA Mozambique and sourced via HDX, it was curated into an ML-ready Parquet format on Hugging Face.",
+      "task": "tabular-regression",
+      "modality": "Weather / Climate (cyclone impact records)",
+      "license": "other-pd-nr",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-impact-of-cyclones"
+      }
+    },
+    {
+      "id": "africa-senegal-and-mauritania-crops-vegetation-and-standardized-precipitation-index",
+      "name": "Sahel Crops, Vegetation and Standardized Precipitation Index",
+      "summary": "Geospatial precipitation, vegetation, and crop indices for the Sahel region of Senegal and Mauritania.",
+      "description": "This dataset contains precipitation indices (including the Standardized Precipitation Index) useful for analyzing and comparing variations in precipitation over time and across geographic regions, alongside vegetation and crop indices used to monitor activity and detect crop presence in the Sahel. It focuses on Senegal and Mauritania. Provided by Accion contra el hambre - GIS4tech and sourced via HDX, it was curated into an ML-ready format on Hugging Face.",
+      "task": "tabular-regression",
+      "modality": "Climate / vegetation indices (SPI, vegetation/crop indices)",
+      "license": "CC-BY",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-senegal-and-mauritania-crops-vegetation-and-standardized-precipitation-index"
+      }
+    },
+    {
+      "id": "landmine-detection",
+      "name": "Landmine Detection in Antioquia, Colombia",
+      "summary": "A geospatial grid dataset combining remote sensing, environmental, and socio-economic features for landmine risk estimation in Colombia.",
+      "description": "This dataset supports landmine risk estimation across 15 municipalities in the Antioquia department of Colombia, dividing the region into 26,761 grid cells of 500 x 500 meters each. Each cell carries 63 predictive features derived from open geospatial, remote sensing, environmental, socio-economic, and conflict-related sources, including latitude/longitude, elevation, nighttime lights, rainfall, temperature, land use, and infrastructure distances. Each grid cell is labeled with a binary outcome indicating whether landmines were found.",
+      "task": "tabular-classification",
+      "modality": "Geospatial grid (remote sensing + socio-economic features)",
+      "numSamples": 26761,
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/mdulcer10/landmine-detection"
+      }
+    },
+    {
+      "id": "lidar-l3cam-omniverse",
+      "name": "LiDAR L3CAM Omniverse",
+      "summary": "Synthetic LiDAR point clouds and paired RGB images of a port scene generated with NVIDIA Omniverse.",
+      "description": "A simulated sensing dataset created in NVIDIA Omniverse using a custom extension that models Beamagine's L3CAM device. It contains LiDAR point clouds paired with RGB images of a port scene featuring shipping containers and a container ship. The simulated L3CAM has two LiDAR modules (each with a 30x20 degree field of view, 60x20 degrees total) plus a narrow-FOV RGB camera. It is intended for testing point-cloud and sensor-fusion pipelines on a synthetic 3D scene.",
+      "task": "Point cloud / sensor fusion",
+      "modality": "LiDAR point cloud / RGB",
+      "size": "<1K rows",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ebernal-upc/lidar_l3cam_omniverse"
+      }
+    },
+    {
+      "id": "nyc-sensitive-sites",
+      "name": "NYC Sensitive Sites",
+      "summary": "GeoJSON boundaries of sensitive sites such as parks and recreational areas across New York City.",
+      "description": "A geospatial vector dataset describing sensitive sites across New York City, primarily parks and recreational areas managed by the Department of Parks and Recreation. Each record is a GeoJSON feature with MultiPolygon geometry plus properties such as address, jurisdiction, acreage, zip code, and council district. It contains roughly 2,000 site polygons and is suitable for mapping and spatial analysis of NYC site boundaries.",
+      "task": "Geospatial analysis / Mapping",
+      "modality": "Geospatial vector",
+      "numSamples": "~2,039 sites",
+      "size": "~28 MB",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/latent-wrench/NYC_sensitive_sites"
+      }
+    },
+    {
+      "id": "sentinel2-arc-of-deforestation-resolution-10m",
+      "name": "Sentinel-2 Arc of Deforestation (10m)",
+      "summary": "Monthly Sentinel-2 GeoTIFF composites over the Amazon arc of deforestation for forest-loss analysis.",
+      "description": "A Sentinel-2 satellite imagery dataset focused on the arc of deforestation in the Amazon forest, intended for deforestation detection and land cover analysis. Each file is a monthly composite in GeoTIFF (.tif) format at 10 m resolution, spanning roughly 2015-2016, with per-file sizes ranging from a few kilobytes up to about 2 GB. It is designed for training machine learning and deep learning models on forest-change tasks.",
+      "task": "Change detection / Land cover analysis",
+      "modality": "Sentinel-2",
+      "size": "10 m resolution GeoTIFF",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/itskaouther/sentinel2_arc_of-deforestation_resolution_10m"
+      }
+    },
+    {
+      "id": "ai4arctic-sea-ice-challenge",
+      "name": "AI4Arctic Sea Ice Challenge",
+      "summary": "Ready-to-train Arctic sea-ice dataset pairing Sentinel-1 SAR with passive-microwave data and ice-chart labels.",
+      "description": "A rehosted, ready-to-train version of the AI4Arctic Sea Ice Challenge dataset, repackaged into a single tarball for faster downloads with an added metadata.csv generated from a helper script. The underlying data combines Sentinel-1 SAR imagery and AMSR2 passive-microwave observations with sea-ice charts for sea-ice concentration, stage of development, and floe-size mapping in the Arctic. It was produced by the Technical University of Denmark and is widely used for benchmarking sea-ice retrieval models.",
+      "task": "Semantic segmentation / Sea-ice mapping",
+      "modality": "SAR (Sentinel-1) / Passive microwave",
+      "license": "CC-BY-4.0",
+      "year": 2022,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/torchgeo/ai4artic-sea-ice-challenge",
+        "homepage": "https://doi.org/10.11583/DTU.c.6244065.v2"
+      }
+    },
+    {
+      "id": "rsteller-metadata",
+      "name": "RSTeller Metadata",
+      "summary": "Per-patch geographic and source metadata accompanying the RSTeller remote-sensing image-caption dataset.",
+      "description": "The metadata table for the RSTeller remote-sensing vision-language dataset. Each row corresponds to an image patch (keyed by patch_id) and provides details such as the WGS84 latitude and longitude of the patch center along with other source and acquisition information. It is meant to be used together with the main RSTeller image-caption dataset to support geographic filtering and analysis of the patches.",
+      "task": "Vision-language / Image captioning",
+      "modality": "Remote sensing imagery (metadata)",
+      "size": "1M-10M rows",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/SlytherinGe/RSTeller_metadata"
+      }
+    },
+    {
+      "id": "o3earth",
+      "name": "O3 EartH",
+      "summary": "Geospatial site-suitability dataset with OlmoEarth foundation-model embeddings for renewable energy infrastructure.",
+      "description": "O3 EartH is a geospatial site-suitability dataset for renewable energy infrastructure assessment, built with OlmoEarth foundation-model embeddings derived from Sentinel-2 imagery. It includes about 24,866 labeled samples (latitude, longitude, energy type, label, country) plus a table of roughly 321,614 global energy plant locations compiled from EIA and OpenStreetMap. The associated benchmark reports an AUC of 0.867 under leave-one-country-out spatial cross-validation.",
+      "task": "Site suitability / Classification",
+      "modality": "Sentinel-2 embeddings / Geospatial point data",
+      "numSamples": "~24,866 labeled samples",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/2imi9/O3earth"
+      }
+    },
+    {
+      "id": "africa-sle-rainfall-subnational",
+      "name": "Sierra Leone Rainfall Indicators (Subnational)",
+      "summary": "Dekadal CHIRPS-derived rainfall indicators for Sierra Leone aggregated by subnational administrative unit.",
+      "description": "A climate dataset of dekadal (10-day) rainfall indicators for Sierra Leone, aggregated by subnational administrative units. Indicators are computed from CHIRPS v2 satellite-plus-station precipitation estimates and CHIRPS-GEFS short-term rainfall forecasts. Published by the World Food Programme via HDX, it supports drought monitoring, food-security analysis, and rainfall regression tasks.",
+      "task": "Tabular regression / Climate monitoring",
+      "modality": "Weather / Climate",
+      "size": "10K-100K rows",
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-sle-rainfall-subnational"
+      }
+    },
+    {
+      "id": "chabud-msi",
+      "name": "ChaBuD MSI",
+      "summary": "Sentinel-2 multispectral image pairs with burned-area masks for the ChaBuD ECML-PKDD 2023 change-detection challenge.",
+      "description": "ChaBuD (Change detection for Burned area Delineation) is a Sentinel-2 dataset for delineating burned areas via change detection, used in the ChaBuD ECML-PKDD 2023 Discovery Challenge. This MSI version contains 356 images with all 13 Sentinel-2 bands at 512x512 pixels and 10 m resolution. Each pair is labeled with two classes (no change, burned area) for binary change detection.",
+      "task": "Change detection",
+      "modality": "Sentinel-2",
+      "numSamples": "356 images",
+      "size": "512x512 px, 13 bands, 10 m resolution",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/blanchon/ChaBuD_MSI",
+        "homepage": "https://huggingface.co/spaces/competitions/ChaBuD-ECML-PKDD2023",
+        "paper": "https://doi.org/10.1016/j.rse.2021.112603"
+      }
+    },
+    {
+      "id": "drone-building-extraction",
+      "name": "Drone Building Extraction (Calgary)",
+      "summary": "High-resolution drone imagery with building polygon masks for binary building segmentation over Calgary, Canada.",
+      "description": "A high-resolution drone (UAV) imagery dataset for binary building segmentation, captured over a residential area in Calgary, Alberta, Canada. It pairs aerial imagery with building polygon annotations split into train and test areas. The dataset is designed to work directly with GeoSeg Studio, an open-source QGIS plugin for deep-learning semantic segmentation.",
+      "task": "Semantic segmentation",
+      "modality": "Drone / Aerial imagery",
+      "size": "<1K rows",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/dronnix-io/drone-building-extraction"
+      }
+    },
+    {
+      "id": "eea-industrial-emissions",
+      "name": "EEA Industrial Emissions",
+      "summary": "Spatial and tabular industrial-emissions reporting data assembled for the EU Space for Water project.",
+      "description": "A geospatial dataset assembled for the EU Space for Water project, combining spatial and tabular industrial-emissions data. The spatial component provides GeoPackage layers (such as facility clusters and an industrial site map) with accompanying metadata, while the tabular component holds CSV tables. It is based on EEA Industrial Reporting under the Industrial Emissions Directive (2010/75/EU) and supports spatial analysis of industrial pollution sources.",
+      "task": "Geospatial analysis / Mapping",
+      "modality": "Geospatial vector / Tabular",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/cassini-team-todo/eea-industrial-emissions"
+      }
+    },
+    {
+      "id": "poland-3d-data",
+      "name": "Poland 3D Data",
+      "summary": "A large 3D geospatial data archive covering Poland.",
+      "description": "A geospatial 3D dataset covering Poland, distributed on Hugging Face as a single large (~8 GB) archive in imagefolder format. It is tagged as geospatial image/3D data of Poland. The dataset has limited published documentation, so detailed provenance, resolution, and collection methodology are not fully specified.",
+      "task": "Geospatial analysis",
+      "modality": "Geospatial 3D / Image",
+      "size": "~8.1 GB",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Lurre/poland-3d-data"
+      }
+    },
+    {
+      "id": "kao-diffsat-vhr-benchmark",
+      "name": "KAO-DIFFSAT-VHR-BENCHMARK",
+      "summary": "A very-high-resolution satellite imagery benchmark for evaluating diffusion-based inpainting in remote sensing.",
+      "description": "KAO-DIFFSAT-VHR-BENCHMARK is a curated collection of very-high-resolution (VHR) satellite imagery samples for evaluating diffusion-based image inpainting methods in remote sensing. It is released with the KAO (Kernel-Adaptive Optimization) research project, which combines diffusion generative modeling with kernel-adaptive optimization and token-pyramid transformers for structure-preserving geospatial reconstruction. It supports image-to-image, segmentation, and mask-generation tasks across urban and natural landscapes.",
+      "task": "Image inpainting / Image-to-image",
+      "modality": "Very-high-resolution satellite imagery",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/kaopanboonyuen/KAO-DIFFSAT-VHR-BENCHMARK",
+        "homepage": "https://kaopanboonyuen.github.io/KAO/",
+        "paper": "https://arxiv.org/abs/2511.02462"
+      }
+    },
+    {
+      "id": "mexico-city-weather",
+      "name": "Mexico City Weather (SIH CONAGUA)",
+      "summary": "Historical daily weather records from meteorological stations across Mexico City, collected by Mexico's National Water Commission.",
+      "description": "This dataset contains historical weather records for Mexico City sourced from the Sistema de Informacion Hidrologica (SIH) of the Comision Nacional del Agua (CONAGUA). It aggregates daily measurements from multiple meteorological stations, including maximum and minimum temperature and rainfall, indexed by locality and date. The data is provided as an aggregated CSV plus per-station raw files, suitable for time-series forecasting and environmental analysis.",
+      "task": "Time-series forecasting",
+      "modality": "Weather / Climate",
+      "size": "122 MB",
+      "license": "cc-by-nc-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/brandonhxrr/mexico_city_weather",
+        "source": "https://sih.conagua.gob.mx/"
+      }
+    },
+    {
+      "id": "na-sar",
+      "name": "NA-SAR",
+      "summary": "A large North America synthetic aperture radar pretraining corpus built from the NASA OPERA archive for self-supervised SAR foundation models.",
+      "description": "NA-SAR is a North America synthetic aperture radar (SAR) pretraining dataset built from the NASA OPERA archive and aligned with digital elevation model terrain data. It is intended for self-supervised and masked-image pretraining of SAR foundation models and is released as an unsplit pretraining corpus without train/validation/test partitions. Each 128x128 sample includes multiple SAR views with co/cross polarization channels, incidence angle, interferometric phase, coherence estimates, and elevation/slope derivatives.",
+      "task": "image-feature-extraction",
+      "modality": "Satellite imagery / SAR",
+      "size": "91 WebDataset tar shards, 128x128 px patches",
+      "numSamples": 1099604,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/GFM-Bench/NA-SAR"
+      }
+    },
+    {
+      "id": "s2agri-10pc-17",
+      "name": "S2Agri-10pc-17",
+      "summary": "A pixel-based Sentinel-2 satellite image time-series dataset for land cover classification over an agricultural region in France.",
+      "description": "S2Agri-10pc-17 is a land cover classification dataset derived from Sentinel-2 multispectral satellite image time series covering a 12,100 km2 area in France (tile T31TFM). It provides ten spectral bands at 10 m resolution across 24 observations sampled roughly every 10 days from January to October 2017. This version is a 10% random subset of land parcels reorganized for pixel-based analysis with 17 land cover classes, and is distributed as part of the MONSTER time-series benchmark.",
+      "task": "Image classification",
+      "modality": "Satellite imagery / Remote sensing",
+      "size": "16.4 GB",
+      "numSamples": 5850881,
+      "license": "cc-by-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/monster-monash/S2Agri-10pc-17",
+        "paper": "https://arxiv.org/abs/2502.15122"
+      },
+      "versions": [
+        {
+          "name": "S2Agri-10pc-17",
+          "size": "16.4 GB",
+          "numSamples": 5850881,
+          "url": "https://huggingface.co/datasets/monster-monash/S2Agri-10pc-17"
+        },
+        {
+          "name": "S2Agri-10pc-34",
+          "url": "https://huggingface.co/datasets/monster-monash/S2Agri-10pc-34"
+        }
+      ]
+    },
+    {
+      "id": "cvg-text",
+      "name": "CVG-Text",
+      "summary": "A multimodal cross-view geo-localization dataset pairing street-view, satellite, and OSM map views with natural-language scene descriptions across three cities.",
+      "description": "CVG-Text is a cross-view geo-localization dataset designed to localize places from textual descriptions by retrieving corresponding visual or map-based views. It combines street-view imagery (panoramic and single-view), satellite images, OpenStreetMap maps, and scene text descriptions for over 30,000 unique locations across Brisbane, New York, and Wuhan. The full release totals about 128 GB and accompanies the ICCV 2025 paper on cross-view geo-localization with natural language descriptions.",
+      "task": "Cross-view geo-localization",
+      "modality": "Street-view / Satellite imagery / OSM / Text",
+      "size": "128 GB",
+      "numSamples": 30000,
+      "license": "cc-by-nc-sa-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/LHL3341/CVG-Text_full",
+        "paper": "https://arxiv.org/abs/2412.17007"
+      }
+    },
+    {
+      "id": "hail-and-wind-damage-chips",
+      "name": "Hail and Wind Damage Chips (HWDS-Multimodal)",
+      "summary": "Multimodal HLS optical and Sentinel-1 SAR image chips with damage masks for segmenting hail and wind damage swaths over a 21-year climatology.",
+      "description": "The hail and wind damage chips (HWDS-Multimodal) dataset provides 256x256 pixel, 30 m resolution image chips for segmenting storm damage. Each chip pairs HLS (Harmonized Landsat Sentinel-2) six-band surface reflectance with OPERA RTC Sentinel-1 SAR (VV/VH) backscatter and a binary damage mask. Chips are generated from buffered regions around damage polygons drawn from the hwds_db hail and wind damage swath climatology spanning 2000 to 2020.",
+      "task": "Image segmentation",
+      "modality": "SAR / Multispectral",
+      "size": "256x256 px chips, 30 m resolution",
+      "numSamples": 7665,
+      "license": "cc-by-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/wbhorn/hail_and_wind_damage_chips",
+        "source": "https://github.com/jrbell1/hwds_db"
+      }
+    },
+    {
+      "id": "local-weather-data",
+      "name": "Local Weather Data (Babala)",
+      "summary": "Daily meteorological time-series with NASA POWER-style climate variables for a single location, spanning from 1981 onward.",
+      "description": "This dataset contains daily meteorological measurements for the Babala region (approximately 29.32N, 81.23E) spanning from January 1981 onward. It includes 25 climate variables following NASA POWER/MERRA-2 naming conventions, such as 2 m temperature (T2M, with min/max/range), humidity (RH2M, QV2M), corrected precipitation (PRECTOTCORR), surface pressure (PS), and 10 m/50 m wind speeds. The data is provided in Parquet format suitable for weather and climate time-series analysis.",
+      "task": "Time-series forecasting",
+      "modality": "Weather / Climate",
+      "size": "~21.5M rows",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Prazzwal07/local_weather_data"
+      }
+    },
+    {
+      "id": "ukraine-forest-change-detection",
+      "name": "Ukraine Forest Change Detection",
+      "summary": "Paired multispectral satellite image tiles with binary change masks for forest change detection over Ukraine.",
+      "description": "This dataset contains paired multispectral satellite image tiles (time points A and B) and binary change masks for detecting forest change. Each sample is a triplet of a before image, an after image, and a change-mask label for the same tile and period. The data is organized into train, validation, and test splits with a consistent directory structure.",
+      "task": "Change detection",
+      "modality": "Multispectral / GeoTIFF",
+      "size": "10K-100K tiles",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/Moriae/ukraine-forest-change-detection",
+        "huggingface": "https://huggingface.co/datasets/Moriae/ukraine-forest-change-detection"
+      }
+    },
+    {
+      "id": "sdsu-midwest-flood-2019",
+      "name": "SDSU MidWest Flood 2019",
+      "summary": "A benchmark of true-color satellite images from the 2019 US Midwest flooding event paired with binary flood masks.",
+      "description": "SDSU Midwest Flood 2019 provides a benchmark for flood detection in satellite imagery. It contains true-color satellite images captured during the 2019 Midwest USA flooding event, with each image paired with a binary mask indicating flooded areas. The dataset is designed to be robust to seasonal changes in satellite imagery and accompanies the paper 'A Novel Dataset for Flood Detection Robust to Seasonal Changes in Satellite Imagery'.",
+      "task": "Image segmentation",
+      "modality": "Satellite imagery",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/youngsun05/SDSU_MidWest_Flood_2019",
+        "huggingface": "https://huggingface.co/datasets/youngsun05/SDSU_MidWest_Flood_2019"
+      }
+    },
+    {
+      "id": "treeuq",
+      "name": "TreeUQ",
+      "summary": "A large-scale Earth observation benchmark for tree species mapping and tree structure estimation with uncertainty-relevant targets over Bavaria, Germany.",
+      "description": "TreeUQ is a multi-modal Earth observation benchmark for tree species mapping and tree structure estimation (height, density, variance) built over Bavaria, Germany on a 10 m reference grid (EPSG:25832) using 128x128 pixel patches. Each sample bundles four-season Sentinel-2 (10 bands), four-season Sentinel-1 GRD (VV, VH), a tree species raster, per-pixel height/count/density targets from the Bavarian Einzelbaeume individual-tree inventory, and DOP20 RGB orthophotos. The benchmark is designed with uncertainty quantification in mind and spans roughly 45,419 patches across train, validation, and test splits.",
+      "task": "Tree species mapping / structure regression",
+      "modality": "Multi-modal remote sensing (Sentinel-2, Sentinel-1, aerial orthophoto)",
+      "size": "5.66 TB",
+      "numSamples": 45419,
+      "license": "CC-BY-4.0",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/mammmarahmed/TreeUQ",
+        "huggingface": "https://huggingface.co/datasets/mammmarahmed/TreeUQ"
+      }
+    },
+    {
+      "id": "africa-climada-tropical-cyclone-dataset",
+      "name": "Africa CLIMADA Tropical Cyclone Dataset",
+      "summary": "Tropical cyclone wind footprint hazard data at ~4 km resolution for selected countries, for disaster risk assessment.",
+      "description": "This dataset provides tropical cyclone wind footprints (m/s) at 150 arcsec (approximately 4 km at the equator) resolution for disaster risk assessment. It is published by ETH Zurich (Weather and Climate Risks) via the Humanitarian Data Exchange (HDX) and is available as global files and per-country subsets. Footprints cover both historically observed records and synthetically generated probabilistic events from various modelling sources for present and future climate conditions.",
+      "task": "Climate hazard / disaster risk assessment",
+      "modality": "Weather / Climate",
+      "license": "CC-BY",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "HDX"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/electricsheepafrica/africa-climada-tropical-cyclone-dataset",
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-climada-tropical-cyclone-dataset"
+      }
+    },
+    {
+      "id": "pretrain-where-pretraining-datasets",
+      "name": "Pretrain-Where Pretraining Datasets (SatMAE)",
+      "summary": "A collection of satellite imagery pretraining datasets split by spatial context, used to study the impact of geographic context on SatMAE pretraining.",
+      "description": "This collection consists of seven satellite imagery pretraining datasets used to pretrain SatMAE, each containing data from a specific spatial context: Africa only, Asia only, North America only, South America only, and others. The datasets were assembled to study how the spatial context of a pretraining corpus affects downstream Earth observation performance. They are intended for self-supervised pretraining and feature extraction on overhead imagery.",
+      "task": "Feature extraction / self-supervised pretraining",
+      "modality": "Satellite imagery / Earth observation",
+      "size": "100K-1M images",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/Amandeep10/pretrain-where-pretraining-datasets",
+        "huggingface": "https://huggingface.co/datasets/Amandeep10/pretrain-where-pretraining-datasets"
+      }
+    },
+    {
+      "id": "synthetic-rcd",
+      "name": "Synthetic RCD",
+      "summary": "A synthetic change detection dataset for training Referring Change Detection (RCD) models, built on top of the SECOND dataset.",
+      "description": "Synthetic RCD is a synthetic change detection dataset designed for training Referring Change Detection (RCD) models such as RCDNet. It provides post-change imagery and change labels, while the pre-change images are sourced from the original SECOND semantic change detection dataset (which must be downloaded separately and symlinked). The dataset is released in multiple parts (Synthetic RCD 1 and 2).",
+      "task": "Semantic / referring change detection",
+      "modality": "Remote sensing imagery",
+      "size": "10K-100K samples",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/yilmazkorkmaz/Synthetic_RCD_1",
+        "huggingface": "https://huggingface.co/datasets/yilmazkorkmaz/Synthetic_RCD_1",
+        "second": "https://captain-whu.github.io/SCD/"
+      },
+      "versions": [
+        {
+          "name": "Synthetic RCD 1",
+          "url": "https://huggingface.co/datasets/yilmazkorkmaz/Synthetic_RCD_1"
+        },
+        {
+          "name": "Synthetic RCD 2",
+          "url": "https://huggingface.co/datasets/yilmazkorkmaz/Synthetic_RCD_2"
+        }
+      ]
+    },
+    {
+      "id": "africa-nam-rainfall-subnational",
+      "name": "Namibia Rainfall Indicators at Subnational Level",
+      "summary": "Dekadal rainfall indicators for Namibia derived from CHIRPS satellite precipitation, aggregated by subnational administrative units.",
+      "description": "This dataset contains dekadal (10-day) rainfall indicators for Namibia, computed from the Climate Hazards Group InfraRed Precipitation with Station data (CHIRPS) version 2 satellite imagery and the CHIRPS-GEFS short-term rainfall forecasts. The indicators are aggregated by subnational administrative units and published by the World Food Programme via the Humanitarian Data Exchange (HDX). It supports climate monitoring and food-security analysis at the subnational scale.",
+      "task": "Tabular regression / rainfall monitoring",
+      "modality": "Weather / Climate",
+      "license": "CC-BY",
+      "year": 2026,
+      "sources": [
+        "Hugging Face",
+        "HDX"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/electricsheepafrica/africa-nam-rainfall-subnational",
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-nam-rainfall-subnational"
+      }
+    },
+    {
+      "id": "gravity-wave-parameterization",
+      "name": "Gravity Wave Parameterization Dataset",
+      "summary": "Input-output training pairs from ECMWF ERA5 for learning a nonlocal atmospheric gravity wave parameterization.",
+      "description": "This dataset contains input and output training pairs computed from ECMWF's ERA5 reanalysis for developing a nonlocal gravity wave parameterization, released by the IBM-NASA Geospatial team. The data was computed for the years 2010, 2012, 2014, and 2015, with one validation month provided for testing. Each sample is a gridded atmospheric field over 64 latitudes and 128 longitudes, with input channels for the background atmospheric state and surface variables, and output channels for potential temperature and momentum fluxes. It was used to train the Prithvi-WxC gravity-wave parameterization model.",
+      "task": "Atmospheric parameterization / regression",
+      "modality": "Climate / atmospheric gridded fields (ERA5)",
+      "size": "20.9 GB",
+      "license": "Apache-2.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/ibm-nasa-geospatial/gravity-wave-parameterization",
+        "huggingface": "https://huggingface.co/datasets/ibm-nasa-geospatial/gravity-wave-parameterization"
+      }
+    },
+    {
+      "id": "jktsv-primary",
+      "name": "JKTSV-primary",
+      "summary": "A geospatial WebDataset pairing image and text tiles with GeoPackage vector geometries for train and test splits.",
+      "description": "JKTSV-primary is a geospatial dataset distributed in WebDataset format, with image, text, and geospatial modalities. It ships sharded TAR archives (train/ and test/) alongside GeoPackage (.gpkg) files holding the corresponding vector geometries for each split. The dataset is hosted on Hugging Face and falls in the 100K-1M sample range.",
+      "task": "Geospatial dataset",
+      "modality": "Image + text + geospatial vector",
+      "size": "100K-1M rows",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/nadh0708/JKTSV-primary"
+      }
+    },
+    {
+      "id": "remote-sensing-vqa",
+      "name": "remote-sensing-VQA",
+      "summary": "A remote-sensing visual question answering dataset pairing satellite/aerial images with question and answer text.",
+      "description": "remote-sensing-VQA is a visual question answering dataset for remote-sensing imagery. Each record contains one or more images, a problem (question) string, and an answer string, supporting training and evaluation of multimodal models on Earth-observation imagery. It provides roughly 16,099 training examples and 1,000 test examples.",
+      "task": "Visual question answering",
+      "modality": "Remote sensing imagery + text",
+      "size": "10K-100K rows",
+      "numSamples": 17099,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/WaltonFuture/remote-sensing-VQA"
+      }
+    },
+    {
+      "id": "landcover-urban-climate",
+      "name": "landcover-urban-climate",
+      "summary": "A satellite imagery dataset with segmentation masks for building detection and land-cover segmentation in urban areas.",
+      "description": "The landcover-urban-climate (Urban Climate) dataset contains satellite images of urban areas paired with corresponding segmentation masks for building detection and segmentation tasks. It is provided in Parquet format split into train, validation, and test partitions, with each record holding an image and its mask. The dataset is part of the broader Urban Climate project and is hosted on Hugging Face.",
+      "task": "Image segmentation",
+      "modality": "Satellite imagery + segmentation masks",
+      "size": "10K-100K rows",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/nave1616/landcover-urban-climate",
+        "huggingface_mirror": "https://huggingface.co/datasets/erikpinhasov/landcover_urban_climate"
+      },
+      "versions": [
+        {
+          "name": "nave1616/landcover-urban-climate",
+          "year": 2024,
+          "url": "https://huggingface.co/datasets/nave1616/landcover-urban-climate"
+        },
+        {
+          "name": "erikpinhasov/landcover_urban_climate",
+          "year": 2024,
+          "url": "https://huggingface.co/datasets/erikpinhasov/landcover_urban_climate"
+        }
+      ]
+    },
+    {
+      "id": "kompsat-image-text-dataset",
+      "name": "KOMPSAT-3/3A Image-Text Dataset",
+      "summary": "A high-resolution KOMPSAT-3/3A satellite image-text dataset built by KARI for training multimodal models on satellite imagery.",
+      "description": "The KOMPSAT-3/3A Image-Text Dataset is a high-resolution remote-sensing image-text dataset constructed by the Korea Aerospace Research Institute (KARI). It is designed to improve the accuracy and interpretability of large multimodal models specialized in satellite image analysis by bridging the gap between general-domain imagery and the physical characteristics of satellite data. Images come from the KOMPSAT-3/3A satellites and are paired with English text for visual question answering and image-to-text tasks.",
+      "task": "Visual question answering",
+      "modality": "Satellite imagery (KOMPSAT-3/3A) + text",
+      "size": "1K-10K rows",
+      "license": "cc-by-sa-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ohhan777/kompsat_image_text_dataset"
+      }
+    },
+    {
+      "id": "mosaic-sen2-cc-change-detection",
+      "name": "MOSAIC-SEN2-CC Change Detection",
+      "summary": "A Sentinel-2 multi-image change-detection dataset reformatted as before/after image pairs with prompts and answers for vision-language fine-tuning.",
+      "description": "mosaic_sen2_cc_change_detection is a multi-image change-detection reformat of the MOSAIC-SEN2-CC dataset (Tuzlupinar et al., IEEE JSTARS 2025), prepared for vision-language fine-tuning. Each row is a (before image, after image, prompt, answer, schema id) tuple built from Sentinel-2 Earth-observation imagery. It provides about 29,281 training rows and 700 balanced validation rows for change-detection question answering.",
+      "task": "Change detection",
+      "modality": "Sentinel-2 imagery + text",
+      "size": "10K-100K rows",
+      "numSamples": 29981,
+      "license": "other (research-use, cite source)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/danvinci/mosaic_sen2_cc_change_detection",
+        "github": "https://github.com/ChangeCapsInRS/MOSAIC-SEN2-CC"
+      }
+    },
+    {
+      "id": "oil-spill-tokenized-dataset",
+      "name": "Oil Spill Tokenized Dataset",
+      "summary": "A satellite imagery dataset with segmentation masks for oil spill detection and semantic segmentation.",
+      "description": "The Oil Spill Tokenized Dataset contains preprocessed satellite images and corresponding oil spill masks, prepared for an oil spill detection project. It is intended for computer vision tasks such as semantic segmentation, oil spill detection, and geospatial AI experiments. The data is organized into train, validation, and test splits, with samples that may include image, mask, filename, and tokenized fields.",
+      "task": "Image segmentation",
+      "modality": "Satellite imagery + segmentation masks",
+      "size": "1K-10K rows",
+      "license": "mit",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ra-hk1/oil-spill-tokenized-dataset"
+      }
+    },
+    {
+      "id": "osm-clip-dataset",
+      "name": "OpenStreetCLIP Dataset",
+      "summary": "Satellite imagery aligned with OpenStreetMap vector metadata for training vision-language models with patch-level semantic supervision.",
+      "description": "The osm-clip-dataset (OpenStreetCLIP) contains high-resolution satellite imagery aligned with OpenStreetMap (OSM) vector metadata, designed for training and evaluating vision-language models with patch-level semantic supervision. It is organized into sharded TAR archives holding 600x600 pixel images, precomputed 7x7-grid masks, and metadata for efficient streaming. The dataset is in the 100K-1M sample range and machine-generated annotations are derived from OSM.",
+      "task": "Image captioning",
+      "modality": "Satellite imagery + OpenStreetMap metadata",
+      "size": "100K-1M rows",
+      "license": "odbl",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/alessiopierdominici/osm-clip-dataset"
+      }
+    },
+    {
+      "id": "geovision-fountains-laval",
+      "name": "GeoVision Fountains - Laval, France",
+      "summary": "A small satellite-imagery object-detection and segmentation dataset of fountain objects in Laval, France, generated via the GeoVision pipeline.",
+      "description": "test-geovision-fountains-laval is a geospatial dataset of fountain objects in Laval, France, generated using the GeoVision v2.1 pipeline (SAM2 plus quality filtering). It combines OpenStreetMap geometries with IGN Geoportail satellite imagery, providing samples with object class, OSM ID, satellite image, and labels for object detection and image segmentation. It is a small demonstration subset.",
+      "task": "Object detection / image segmentation",
+      "modality": "Satellite imagery + OpenStreetMap geometries",
+      "size": "n<1K",
+      "license": "cc-by-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/nicO1asFr/test-geovision-fountains-laval"
+      }
+    },
+    {
+      "id": "wildfire-korea-episodes-300m",
+      "name": "South Korean Wildfire Episodes Dataset (300 m Grid)",
+      "summary": "A geospatial wildfire-progression dataset combining NASA FIRMS fire detections with environmental layers on a 300 m grid over South Korea.",
+      "description": "wildfire-korea-episodes-300m is a geospatial dataset of South Korean wildfire progression combining NASA FIRMS (VIIRS/MODIS) fire detections with static environmental layers such as DEM, land cover, slope, NDVI, and forest structure. Tiles are preprocessed onto a 300 m spatial grid and segmented into temporal wildfire episodes, each containing a temporal sequence of 16-channel environmental feature tensors and corresponding fire-spread masks. It spans the Korean Peninsula from 2015 to 2025 and is intended for reinforcement-learning-based wildfire spread prediction.",
+      "task": "Wildfire spread prediction",
+      "modality": "Multi-channel geospatial raster (FIRMS + DEM + land cover)",
+      "size": "1K-10K rows",
+      "license": "mit",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/chaseungjoon/wildfire-korea-episodes-300m"
+      }
+    },
+    {
+      "id": "bavaria-tree-benchmark",
+      "name": "Bavaria Tree Benchmark",
+      "summary": "An Earth-observation benchmark subset pairing DOP20 aerial orthophotos with Sentinel-1/2 stacks and tree-structure labels over Bavaria.",
+      "description": "Bavaria_Tree_Benchmark is a development subset of the Bavaria EO Benchmark, containing 12 patches (9 train, 2 validation, 1 test) sampled from the full grid. Each patch includes DOP20 true-colour aerial orthophotos at 20 cm ground sampling distance alongside 10 m Sentinel-1 and Sentinel-2 stacks and tree-structure labels. It is distributed as WebDataset-style tensors and is intended for tree-inventory segmentation, not as a large-scale training corpus.",
+      "task": "Image segmentation",
+      "modality": "Sentinel-1/2 + aerial orthophotos (DOP20)",
+      "size": "n<1K",
+      "license": "cc-by-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/mammmarahmed/Bavaria_Tree_Benchmark"
+      }
+    },
+    {
+      "id": "syntheticgenv5",
+      "name": "SyntheticGenV5",
+      "summary": "A synthetic remote-sensing semantic-segmentation dataset built for urban-rural domain-aware learning.",
+      "description": "SyntheticGenV5 is a synthetic remote-sensing semantic segmentation dataset built for urban-rural domain-aware learning. It keeps the original folder layout and uses a metadata CSV to connect each image with its semantic mask and RGB mask, covering two domains (Urban and Rural). It is useful for synthetic augmentation and domain generalization in remote-sensing segmentation.",
+      "task": "Semantic segmentation",
+      "modality": "Synthetic remote-sensing imagery + masks",
+      "size": "1K-10K rows",
+      "license": "mit",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/buddhi19/SyntheticGenV5",
+        "paper": "https://huggingface.co/papers/2602.04749"
+      }
+    },
+    {
+      "id": "africa-climada-wildfire-dataset",
+      "name": "CLIMADA Wildfire Hazard Dataset (HRP Countries)",
+      "summary": "A MODIS-derived global wildfire hazard dataset at 4 km resolution aggregated to administrative units for disaster risk assessment.",
+      "description": "africa-climada-wildfire-dataset is the Wildfire Hazard Data for Disaster Risk Assessment over Humanitarian Response Plan (HRP) countries, published by ETH Zurich (Weather and Climate Risks) via HDX. It is based on MODIS satellite wildfire observations from 2000 to 2021 at 4 km resolution, with each row representing first-level administrative unit observations. The dataset supports CLIMADA disaster-risk modelling and was last updated on HDX on 2025-09-05.",
+      "task": "Climate / hazard risk assessment",
+      "modality": "MODIS satellite-derived wildfire hazard (tabular by admin unit)",
+      "size": "<1K rows",
+      "license": "cc-by-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face",
+        "HDX"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-climada-wildfire-dataset",
+        "hdx": "https://data.humdata.org/dataset/climada-wildfire-dataset"
+      }
+    },
+    {
+      "id": "africa-electrical-grid-nigeria",
+      "name": "Africa Electrical Grid - Nigeria",
+      "summary": "Geospatial point dataset mapping the presence of the electrical grid across Nigeria by latitude/longitude.",
+      "description": "This dataset provides the distribution of the electrical grid in Nigeria based on geographic coordinates, with each record giving a latitude, longitude, and a binary indicator of grid presence (1) or absence (0). It contains roughly 56,637 ML-ready records stored in Parquet format. It is intended for infrastructure mapping and energy-access analysis across Nigeria.",
+      "task": "tabular-classification",
+      "modality": "Geospatial / tabular",
+      "size": "~957 KB",
+      "numSamples": 56637,
+      "license": "ODbL",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-electrical-grid-nigeria"
+      }
+    },
+    {
+      "id": "seafloorai",
+      "name": "SeafloorAI",
+      "summary": "A large-scale AI-ready dataset of sonar imagery with geological segmentation masks for seafloor mapping.",
+      "description": "SeafloorAI is a large-scale vision-language dataset for seafloor geological survey, comprising hundreds of thousands of sonar images paired with annotated segmentation masks across five geological layers (sediment, physiographic zones, habitat, faults, and folds). It aggregates 62 surveys covering roughly 17,300 square kilometers across multiple regions. The dataset was published in the NeurIPS 2024 Datasets and Benchmarks track and supports seafloor image segmentation and vision-language tasks.",
+      "task": "image-segmentation",
+      "modality": "Sonar imagery",
+      "size": "178 GB",
+      "numSamples": 696000,
+      "license": "CC-BY-NC-SA-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/deeprealaiml/SeafloorAI",
+        "homepage": "https://sites.google.com/udel.edu/seafloorai/home",
+        "github": "https://github.com/deep-real/SeafloorAI"
+      }
+    },
+    {
+      "id": "noaa-significant-storms",
+      "name": "NOAA Significant US Storms (1950-2025)",
+      "summary": "A curated subset of the NOAA Storm Events database focused on major and fatal US weather events from 1950 to 2025.",
+      "description": "This dataset is a curated subset of the NOAA Storm Events database, reduced from about 1.23 million records to roughly 14,770 significant events to focus on major storms. It includes F3/EF3+ tornadoes, Category 3+ hurricanes, fatal events, and storms causing $1M or more in damage, with geospatial fields such as latitude, longitude, dates, and casualties. It is intended for feature extraction and geospatial analysis of severe US weather.",
+      "task": "feature-extraction",
+      "modality": "Weather / Climate (tabular)",
+      "numSamples": 14770,
+      "license": "CC0-1.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/lukeslp/noaa-significant-storms"
+      }
+    },
+    {
+      "id": "climateiqa",
+      "name": "ClimateIQA",
+      "summary": "A large vision-language VQA dataset pairing global wind-gust heatmaps with natural-language questions about extreme weather.",
+      "description": "ClimateIQA is a visual question answering dataset of about 254,040 samples that pairs ERA5-derived wind-gust heatmaps with natural-language queries and answers about extreme weather events such as strong gales, storms, and hurricanes. Questions cover detecting severe wind conditions (gusts exceeding 20.7 m/s), verifying weather at specific locations, and extracting geographic coordinates from heatmap visualizations across global land and ocean regions. It accompanies the paper on vision-language models for extreme weather detection with heatmaps.",
+      "task": "visual-question-answering",
+      "modality": "Climate heatmap imagery + text",
+      "size": "838 MB",
+      "numSamples": 254040,
+      "license": "CC-BY-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/GPS-Lab/ClimateIQA",
+        "paper": "https://arxiv.org/abs/2406.09838"
+      }
+    },
+    {
+      "id": "fire-hydrants-dataset",
+      "name": "Global Fire Hydrants Dataset",
+      "summary": "A globally geotagged dataset of fire hydrant images and location metadata for infrastructure mapping and object detection.",
+      "description": "The Global Fire Hydrants Dataset is a geotagged collection of roughly 14,200 fire hydrants from around the world, released by the Outerview research lab. Each record includes geospatial metadata such as ID, latitude, longitude, source, name, region, and image filename. It is designed for fire-hydrant classification, object detection and localization, infrastructure mapping, geospatial indexing, and world-model training.",
+      "task": "object-detection",
+      "modality": "Geotagged street-level imagery",
+      "numSamples": 14200,
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Outerview/fire-hydrants-dataset"
+      }
+    },
+    {
+      "id": "imaestro-sar-forest",
+      "name": "I-MAESTRO SAR Forest Patches",
+      "summary": "Sentinel-1 SAR image patches paired with forest structural attributes for multi-task forest mapping across three European sites.",
+      "description": "This dataset contains processed Sentinel-1 SAR imagery and forest structural attributes derived from the I-MAESTRO synthetic forest inventory, covering three European sites (Bauges in France, Milicz in Poland, and Sneznik in Slovenia). It provides 978 patches (724 train, 145 validation, 109 test) of 64x64 pixels with dual-polarization (VH/VV) backscatter at 25 m resolution, plus targets for biomass, canopy height, and genus. It was prepared for multi-task learning of joint forest genus segmentation, canopy height regression, and aboveground biomass regression.",
+      "task": "image-segmentation",
+      "modality": "Sentinel-1 SAR",
+      "numSamples": 978,
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/siyux1927/imaestro-sar-forest"
+      }
+    },
+    {
+      "id": "treecrown-mm",
+      "name": "TreeCrown-MM",
+      "summary": "A multimodal remote-sensing dataset of RGB, height, mask, and caption tiles for joint tree-crown segmentation and captioning.",
+      "description": "TreeCrown-MM is a multimodal remote sensing dataset for joint tree crown segmentation and captioning, containing 32,787 tiles of 1024x1024 pixels with roughly 330,000 annotated crowns spanning 285 species. It covers five ecosystem types (Boreal, Tropical, Subtropical, Temperate, and Urban-Mixed) across multiple worldwide regions. Each tile provides four aligned modalities: an RGB image, a height map (LiDAR canopy height model or pseudo-depth), a segmentation mask, and a natural-language caption, split into train, validation, test, and benchmark sets.",
+      "task": "image-segmentation",
+      "modality": "Multimodal RGB / LiDAR height / mask / text",
+      "size": "132 GB",
+      "numSamples": 32787,
+      "license": "CC-BY-NC-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/huafei-77/TreeCrown-MM"
+      }
+    },
+    {
+      "id": "weather-report-india-1990-2017",
+      "name": "Weather Report India (1990-2017)",
+      "summary": "A tabular weather dataset of daily temperature and precipitation records for India spanning 1990 to 2017.",
+      "description": "This dataset contains tabular weather records for India covering the period 1990 to 2017, including date and temperature metrics (average, minimum, and maximum) along with precipitation data. It comprises about 83,725 rows split into train (58,600) and test (25,100) partitions, stored in Parquet format. It is suited for time-series and climate analysis of Indian weather.",
+      "task": "tabular-regression",
+      "modality": "Weather / Climate (tabular)",
+      "size": "~956 KB",
+      "numSamples": 83725,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/yamini0506/weather_report_india_1990_2017"
+      }
+    },
+    {
+      "id": "wildfirespread",
+      "name": "WildfireSpread",
+      "summary": "A geospatial dataset for modeling wildfire spread.",
+      "description": "WildfireSpread is a geospatial dataset hosted on Hugging Face for studying and modeling the spread of wildfires. The repository totals roughly 11 GB of data covering wildfire-related variables. It is intended for geospatial wildfire analysis and prediction tasks.",
+      "task": "Geospatial",
+      "modality": "Geospatial",
+      "size": "~11 GB",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/nikos230/WildfireSpread"
+      }
+    },
+    {
+      "id": "africa-daily-precipitation-indicators-drc",
+      "name": "Daily Summaries of Precipitation Indicators for the Democratic Republic of the Congo",
+      "summary": "Tabular daily precipitation-indicator records from weather stations across the Democratic Republic of the Congo.",
+      "description": "This dataset contains daily summaries of precipitation indicators recorded at base weather stations across the Democratic Republic of the Congo. The four indicators included are total precipitation (TPCP), maximum snow depth (MXSD), total snowfall (TSNW), and extreme maximum daily precipitation (EMXP). It comprises about 216 rows (172 train, 44 test), sourced via the Humanitarian Data Exchange (HDX) from NOAA's National Centers for Environmental Information.",
+      "task": "tabular-regression",
+      "modality": "Weather / Climate (tabular)",
+      "numSamples": 216,
+      "license": "other-pd-nr",
+      "sources": [
+        "Hugging Face",
+        "HDX"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-daily-summaries-of-precipitation-indicators-for-congo-the-democratic-republic-of-the"
+      }
+    },
+    {
+      "id": "landscan-global-population",
+      "name": "LandScan Global Population Data",
+      "summary": "A chunked HDF5 tensor packaging LandScan Global annual ambient population estimates from 2000 to 2023 at roughly 1 km resolution for geospatial and deep learning workflows.",
+      "description": "This dataset repackages Oak Ridge National Laboratory's LandScan Global ambient population product into a single production-ready, chunked HDF5 file (pop_2000-23.h5) covering 24 annual time steps from 2000 to 2023. It bundles what would otherwise be 24 separate GeoTIFFs into one tensor optimized for efficient access in deep learning, geospatial analysis, and HPC pipelines. The underlying LandScan estimates model the worldwide distribution of population at approximately 1 km spatial resolution.",
+      "task": "Feature extraction",
+      "modality": "GeoTIFF",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Daksh17440/global_population_data"
+      }
+    },
+    {
+      "id": "land-use-cover-remote-sensing-dataset",
+      "name": "Land-Use-Cover-Remote-Sensing-Dataset",
+      "summary": "A remote sensing dataset focused on land use and land cover mapping with an emphasis on agricultural land coverage.",
+      "description": "This remote sensing dataset targets land use and land cover monitoring, with particular attention to agricultural land that is underrepresented in many existing benchmarks centered on urban areas. It is intended to support agricultural planning and environmental assessment in the context of global climate change and rapid depletion of land resources. The data supports object-detection style land use cover analysis tasks.",
+      "task": "object-detection",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Mobiusi/Land-Use-Cover-Remote-Sensing-Dataset"
+      }
+    },
+    {
+      "id": "africa-caf-rainfall-subnational",
+      "name": "Central African Republic Rainfall Indicators (Subnational)",
+      "summary": "Dekadal rainfall indicators for the Central African Republic at subnational level, derived from CHIRPS satellite precipitation imagery and station data.",
+      "description": "Published by the World Food Programme via HDX, this dataset contains dekadal (10-day) rainfall indicators for the Central African Republic aggregated by subnational administrative units. The indicators are computed from CHIRPS version 2 (Climate Hazards Group InfraRed Precipitation with Stations) satellite imagery combined with in-situ station data, plus CHIRPS-GEFS short-term rainfall forecasts. It is intended for climate and food-security monitoring at the regional level.",
+      "task": "Tabular regression",
+      "modality": "Weather / Climate",
+      "year": 2026,
+      "license": "cc-by",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-caf-rainfall-subnational"
+      }
+    },
+    {
+      "id": "africa-mdg-rainfall-subnational",
+      "name": "Madagascar Rainfall Indicators (Subnational)",
+      "summary": "Dekadal rainfall indicators for Madagascar at subnational level, derived from CHIRPS satellite precipitation imagery and station data.",
+      "description": "Published by the World Food Programme via HDX, this dataset contains dekadal (10-day) rainfall indicators for Madagascar aggregated by subnational administrative units. The indicators are computed from CHIRPS version 2 (Climate Hazards Group InfraRed Precipitation with Stations) satellite imagery combined with in-situ station data, plus CHIRPS-GEFS short-term rainfall forecasts. It supports regional climate and food-security analysis.",
+      "task": "Tabular regression",
+      "modality": "Weather / Climate",
+      "year": 2026,
+      "license": "cc-by",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-mdg-rainfall-subnational"
+      }
+    },
+    {
+      "id": "cenote-atlas",
+      "name": "Cenote Atlas",
+      "summary": "An enriched geospatial dataset of 1,369 cenotes in the Yucatan Peninsula aggregating ten open data sources with terrain, vegetation, and fracture-proximity attributes.",
+      "description": "Cenote Atlas is a geospatial dataset cataloging 1,369 cenotes (natural sinkholes) across the Yucatan Peninsula, part of the FindMy Cenote project. Each cenote is enriched with 52 columns spanning ten categories, including base attributes (name, municipality, latitude/longitude, depth, length), terrain analysis, vegetation indices, and fracture proximity. The data is aggregated from sources such as ArcGIS Feature Services and OpenStreetMap.",
+      "task": "Tabular classification",
+      "modality": "OpenStreetMap",
+      "numSamples": 1369,
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/merybenavente/cenote-atlas"
+      }
+    },
+    {
+      "id": "landcover-ai-urban-climate",
+      "name": "Urban Climate Land Cover Dataset",
+      "summary": "Satellite images of urban areas paired with segmentation masks for building detection and segmentation, part of the Urban Climate project.",
+      "description": "This dataset, part of the Urban Climate project, contains satellite imagery of urban areas together with corresponding segmentation masks for building detection and segmentation tasks. It is provided as Parquet files split into training, validation, and test sets, with each record holding an image and its mask. It supports semantic segmentation of buildings in urban remote sensing imagery.",
+      "task": "Geospatial dataset",
+      "modality": "Satellite imagery / Remote sensing",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/nave1616/landcover-ai-urban-climate"
+      }
+    },
+    {
+      "id": "wisconsin-dairy-cafo",
+      "name": "Wisconsin Large Dairy Farms (CAFOs)",
+      "summary": "A geo-referenced dataset of large dairy concentrated animal feeding operations in Wisconsin compiled from satellite imagery, computer vision, and human validation.",
+      "description": "This dataset provides geo-referenced locations of large dairy farms (concentrated animal feeding operations, or CAFOs) across Wisconsin. It was compiled by combining satellite imagery, computer vision, human validation, and merges to administrative and open geospatial data sources. The dataset underpins the analysis in a manuscript assessing environmental permitting coverage gaps and environmental risk among large Wisconsin dairy farms.",
+      "task": "Geospatial dataset",
+      "modality": "Satellite imagery / Remote sensing",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/reglab/wisconsin-dairy-cafo"
+      }
+    },
+    {
+      "id": "africa-deforestation-all",
+      "name": "africa-deforestation-all",
+      "summary": "Geolocated point observations of Nigerian forest-related data curated into an ML-ready format.",
+      "description": "A collection of Nigerian forestry datasets published by Code for Africa via OpenAfrica, where each row represents a geolocated point observation with temporal coverage given by date columns. The geographic scope spans Africa (multiple countries) with a focus on Nigeria. The data was curated into ML-ready Parquet format by Electric Sheep Africa.",
+      "task": "tabular-classification|tabular-regression",
+      "license": "cc-by",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-deforestation-all"
+      }
+    },
+    {
+      "id": "semantic-segmentation-aerial-imagery-dataset",
+      "name": "Semantic-Segmentation-Aerial-Imagery-Dataset",
+      "summary": "Aerial imagery of Dubai from MBRSC satellites annotated with pixel-level semantic segmentation across 6 classes.",
+      "description": "This dataset comprises aerial imagery of Dubai acquired by MBRSC satellites and annotated with pixel-level semantic segmentation across 6 distinct classes. It contains a total of 72 images organised into 6 larger tiles. The data was released by Humans in the Loop as part of a collaborative project with the Mohammed Bin Rashid Space Centre (MBRSC) in Dubai, United Arab Emirates.",
+      "task": "semantic-segmentation",
+      "modality": "Aerial imagery",
+      "numSamples": 72,
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/gymprathap/Semantic-Segmentation-Aerial-Imagery-Dataset"
+      }
+    },
+    {
+      "id": "africa-icpac-geonode-2015-tropical-cyclone-chapala-path",
+      "name": "africa-icpac-geonode-2015-tropical-cyclone-chapala-path",
+      "summary": "A geospatial layer showing the movement path of the 2015 Tropical Cyclone Chapala.",
+      "description": "This dataset shows the movement path of 2015 Tropical Cyclone Chapala, published by the IGAD Climate Prediction and Applications Center (ICPAC) and sourced from HDX. On 2 November 2015, Tropical Cyclone Chapala made landfall in Yemen, with effects also felt across the Gulf of Aden in Somalia, including extensive rainfall in the Northern Bari region in Bosaso district. The data was curated into ML-ready Parquet format by Electric Sheep Africa.",
+      "task": "tabular-regression",
+      "modality": "Climate",
+      "license": "cc-by",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-icpac-geonode-2015-tropical-cyclone-chapala-path"
+      }
+    },
+    {
+      "id": "africa-south-sudan-flood-data",
+      "name": "africa-south-sudan-flood-data",
+      "summary": "Reported number of flood-affected people by county and state in South Sudan.",
+      "description": "This dataset reports the number of flood-affected people by county and state in South Sudan, published by OCHA South Sudan and sourced from HDX. Each row represents a subnational administrative unit observation. The data was curated into ML-ready Parquet format by Electric Sheep Africa.",
+      "task": "tabular-classification",
+      "modality": "Weather / Climate",
+      "license": "other-pd-nr",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-south-sudan-flood-data"
+      }
+    },
+    {
+      "id": "cluj-napoca-weather-openweather-data",
+      "name": "Cluj-Napoca-Weather-OpenWeather-data",
+      "summary": "Hourly weather time-series for Cluj-Napoca scraped from the OpenWeather History API.",
+      "description": "A weather dataset for Cluj-Napoca, Romania, scraped from the OpenWeatherMap History API. The data was collected at an hourly rate from January 1st 2008 until May 2023. It is intended for long time-series prediction tasks and is compatible with the Time-Series-Library workflow.",
+      "task": "time-series-forecasting",
+      "modality": "Weather / Climate",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/LaurentiuStancioiu/Cluj-Napoca-Weather-OpenWeather-data"
+      }
+    },
+    {
+      "id": "forest-plot-analysis",
+      "name": "forest-plot-analysis",
+      "summary": "LiDAR and hyperspectral data with tree-species ground truth for seven forest plots in the French Alps.",
+      "description": "This dataset contains information related to seven forest field plots located in the Belledonne massif, Northern Alps, France. It is separated into LiDAR (a collection of 24 features computed from a 3D point cloud), hyperspectral imagery collected with the Hysper VNIR 1600 sensor, and ground truth consisting of annotations for 13 tree species. It supports remote-sensing analysis of forest composition.",
+      "task": "image-classification",
+      "modality": "LiDAR / Hyperspectral",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/remote-sensing-ense3-grenoble-inp/forest-plot-analysis"
+      }
+    },
+    {
+      "id": "mb-clusterreg",
+      "name": "mb_clusterreg",
+      "summary": "Glacier-level data for cluster-wise regression of present-day glacier mass-balance changes.",
+      "description": "This dataset contains glacier-level data used for cluster-wise glacier mass-balance regression, supporting analysis of the drivers of present-day glacier changes. The main CSV provides one row per glacier indexed by RGI ID, including selected morphological predictors, climate anomalies, location and region metadata, projected coordinates, observed mass balance, and mass-balance uncertainty.",
+      "task": "tabular-regression",
+      "modality": "Climate",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/dcodrut/mb_clusterreg"
+      }
+    },
+    {
+      "id": "africa-mauritius-cyclone-1001052",
+      "name": "africa-mauritius-cyclone-1001052",
+      "summary": "Tabular disaster records for the February 2024 tropical storm cyclone affecting Mauritius.",
+      "description": "This dataset documents the Mauritius tropical storm cyclone of February 2024 (ADAM ID 1001052_19), published by the WFP Advanced Disaster Analysis & Mapping team and sourced from HDX. It covers the cyclone during the period 19-23 February 2024 in the Miscellaneous (French) Indian Ocean Islands and Mauritius. The data was curated into ML-ready Parquet format by Electric Sheep Africa.",
+      "task": "tabular-classification|tabular-regression",
+      "modality": "Climate",
+      "license": "cc-by-sa",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-mauritius-cyclone-1001052"
+      }
+    },
+    {
+      "id": "nesteo-prototype",
+      "name": "nesteo-prototype",
+      "summary": "A hierarchical, UTM-based nested grid framework for multi-scale multimodal Earth Observation workflows.",
+      "description": "NestEO is a hierarchical, resolution-aligned, UTM-based nested grid dataset framework supporting general-purpose, multi-scale multimodal Earth Observation workflows. Built from diverse EO sources and enriched with metadata for landcover, climate zones, and population, it enables scalable, representative and progressive sampling for AI4EO. Grid levels range from 120000m down to 150m, with grid metadata drawn from sources such as ESA WorldCover.",
+      "task": "image-segmentation|image-classification",
+      "modality": "Multimodal Earth Observation",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/nesteo-datasets/nesteo-prototype"
+      }
+    },
+    {
+      "id": "nexrad-storm-catalog",
+      "name": "nexrad-storm-catalog",
+      "summary": "A metadata index pairing NOAA storm events with nearby NEXRAD WSR-88D weather-radar stations.",
+      "description": "The NEXRAD Storm Catalog is a metadata index pairing storm events from the NOAA Storm Events Database with nearby NEXRAD WSR-88D weather-radar stations. Each row is one (event, station) pair where the station was within 150 km of the event location, scoped to 2015-2024. The catalog is metadata only, pointing at radar windows so a downstream pipeline can fetch the matching Level-2 volumes from the Unidata NEXRAD archive.",
+      "task": "tabular-classification|time-series-forecasting",
+      "modality": "Weather radar metadata",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Silurian/nexrad-storm-catalog"
+      }
+    },
+    {
+      "id": "africa-mli-rainfall-subnational",
+      "name": "africa-mli-rainfall-subnational",
+      "summary": "Dekadal CHIRPS-derived rainfall indicators for Mali aggregated by subnational administrative units.",
+      "description": "This dataset contains dekadal (10-day) rainfall indicators for Mali, computed from the Climate Hazards Group InfraRed Precipitation with Station data (CHIRPS) version 2 satellite imagery and the CHIRPS-GEFS short-term rainfall forecasts. Indicators are aggregated by subnational administrative units. Published by the WFP (World Food Programme) via HDX and curated into ML-ready Parquet format by Electric Sheep Africa.",
+      "task": "Tabular regression",
+      "modality": "Weather / Climate",
+      "size": "10K-100K rows",
+      "license": "cc-by-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-mli-rainfall-subnational"
+      }
+    },
+    {
+      "id": "road-images-and-embeddings",
+      "name": "road-images-and-embeddings",
+      "summary": "34,908 geotagged Norwegian road images with geospatial metadata and Gemini image embeddings.",
+      "description": "A dataset of 34,908 road images from the Trondheim region of Norway (~40km radius), captured by Statens vegvesen (Norwegian Public Roads Administration) in 2025. Each image is paired with rich geospatial metadata, nearest address information, and a 3072-dimensional image embedding from Google's gemini-embedding model. It is intended for image feature extraction, image classification, and zero-shot image classification tasks.",
+      "task": "image-feature-extraction|image-classification|zero-shot-image-classification",
+      "modality": "Street-level road imagery with geospatial metadata",
+      "size": "10K-100K rows",
+      "license": "other",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/thomasht86/road-images-and-embeddings"
+      }
+    },
+    {
+      "id": "africa-comoros-cyclone-1001060",
+      "name": "africa-comoros-cyclone-1001060",
+      "summary": "Tabular records of the May 2024 tropical cyclone impacting Comoros, from WFP ADAM disaster analysis.",
+      "description": "This dataset (ADAM ID 1001060_14) captures a tropical storm during May 1-4, 2024 affecting Tanzania, Seychelles, and Comoros, with geographic scope COM. Each row represents tabular disaster records produced by WFP Advanced Disaster Analysis & Mapping (ADAM) and sourced from HDX. The data was curated into ML-ready Parquet format by Electric Sheep Africa for tabular classification and regression tasks.",
+      "task": "tabular-classification|tabular-regression",
+      "modality": "Weather / Climate disaster records",
+      "size": "n<1K",
+      "license": "cc-by-sa-4.0",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-comoros-cyclone-1001060"
+      }
+    },
+    {
+      "id": "africa-ken-rainfall-subnational",
+      "name": "africa-ken-rainfall-subnational",
+      "summary": "Dekadal CHIRPS-derived rainfall indicators for Kenya aggregated by subnational administrative units.",
+      "description": "This dataset contains dekadal (10-day) rainfall indicators for Kenya, computed from the Climate Hazards Group InfraRed Precipitation with Station data (CHIRPS) version 2 satellite imagery and the CHIRPS-GEFS short-term rainfall forecasts. Indicators are aggregated by subnational administrative units. Published by the WFP (World Food Programme) via HDX and curated into ML-ready Parquet format by Electric Sheep Africa.",
+      "task": "Tabular regression",
+      "modality": "Weather / Climate",
+      "size": "100K-1M rows",
+      "license": "cc-by-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/electricsheepafrica/africa-ken-rainfall-subnational"
+      }
+    },
+    {
+      "id": "olmoearth-projects-awf",
+      "name": "olmoearth projects awf",
+      "summary": "Expert-annotated land use / land cover mapping data for southern Kenya, for fine-tuning OlmoEarth-v1.",
+      "description": "A geospatial dataset for fine-tuning the OlmoEarth-v1-Base model to map land use and land cover in southern Kenya. The data is annotated by experts at the African Wildlife Foundation (AWF). It combines satellite imagery and label modalities, with documentation available in the allenai/olmoearth_projects GitHub repository.",
+      "task": "Land use / land cover mapping",
+      "modality": "Geospatial (satellite imagery + labels)",
+      "size": "10K-100K rows",
+      "license": "apache-2.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/allenai/olmoearth_projects_awf",
+        "github": "https://github.com/allenai/olmoearth_projects/blob/main/docs/awf.md"
+      }
+    },
+    {
+      "id": "skysealand",
+      "name": "SkySeaLand",
+      "summary": "High-resolution satellite imagery dataset in COCO format for object detection across land and sea.",
+      "description": "The SkySeaLand Dataset is a high-resolution satellite imagery collection designed for object detection, classification, and aerial surveillance analysis. It is provided in the COCO (Common Objects in Context) JSON format, making it natively compatible with frameworks such as Detectron2, MMDetection, YOLO, and the TensorFlow Object Detection API. The dataset bridges terrestrial and maritime scenes.",
+      "task": "Object detection",
+      "modality": "Satellite / aerial imagery",
+      "size": "1K-10K rows",
+      "license": "mit",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/zahid510643/SkySeaLand"
+      }
+    },
+    {
+      "id": "soil-moisture-dataset",
+      "name": "soil moisture dataset",
+      "summary": "Field soil-moisture measurements for Trentino, Italy, correlated with weather and satellite vegetation indices.",
+      "description": "A dataset of soil moisture measurements collected from on-field tensiometers and volumetric sensors, correlated with irrigation records, weather observations, satellite-derived vegetation indices, and static soil and crop characterisation. It covers an anonymised agricultural area in Trentino, Italy, across three regional consortiums. Produced by Fondazione Bruno Kessler (FBK) OpenIoT research unit for tabular regression tasks.",
+      "task": "Tabular regression",
+      "modality": "Weather / Climate (with satellite vegetation indices)",
+      "size": "100K-1M rows",
+      "license": "cc-by-nc-nd-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/it4lia/soil_moisture_dataset"
+      }
+    },
+    {
+      "id": "orthophoto",
+      "name": "Orthophoto",
+      "summary": "A small collection of very high-resolution aerial orthophoto imagery in imagefolder format.",
+      "description": "A geospatial dataset containing very high-resolution aerial orthophoto imagery. It is a small collection of large GeoTIFF-style images (tens of thousands of pixels in width) provided in Hugging Face imagefolder format. The dataset is released under the MIT license.",
+      "task": "Geospatial / aerial imagery",
+      "modality": "Aerial orthophoto imagery",
+      "size": "<1K rows",
+      "license": "mit",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/AlthariqFairuz/Orthophoto"
+      }
+    },
+    {
+      "id": "sentinel2-lejepa-global-diverse-256",
+      "name": "sentinel2-lejepa-global-diverse-256",
+      "summary": "A small preset-biased Sentinel-2 L2A chip dataset for self-supervised LeJEPA pretraining.",
+      "description": "A small, preset-biased Sentinel-2 L2A chip dataset curated for self-supervised pretraining of a LeJEPA ResNet-18 encoder. It was built as a reproducibility artifact for the Sentinel Change Explorer proof-of-concept foundation-model change-detection feature. It is intentionally tiny (~thousands of chips) and biased toward five demo areas of interest used in the Sentinel Change Explorer app, rather than being a general-purpose Earth-observation pretraining corpus.",
+      "task": "Feature extraction",
+      "modality": "Sentinel-2 L2A satellite imagery chips",
+      "size": "1K-10K rows",
+      "license": "cc-by-sa-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/falafel-hockey/sentinel2-lejepa-global-diverse-256"
+      }
+    },
+    {
+      "id": "weather-time-series-forecasting",
+      "name": "Weather-Time-Series-Forecasting",
+      "summary": "Hourly meteorological observations since 1980 with 17 weather variables for time-series forecasting.",
+      "description": "A weather time-series dataset containing hourly meteorological observations spanning from January 1980 onwards, designed for forecasting tasks. It provides 17 variables including temperature, relative humidity, dew point, precipitation, rainfall, snowfall, pressure (MSL and surface), cloud cover by altitude, vapor pressure deficit, wind speed and direction, and a day/night indicator. The data is provided in CSV format with hourly timestamps.",
+      "task": "Time series forecasting",
+      "modality": "Weather / Climate",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/sayanroy058/Weather-Time-Series-Forecasting"
+      }
+    },
+    {
+      "id": "corine-land-cover",
+      "name": "corine-land-cover",
+      "summary": "CORINE land cover imagery for the Rhone-Alpes region of France with terrain class labels.",
+      "description": "A dataset derived from the CORINE Land Cover database for the Rhone-Alpes region of France. It provides imagery with an associated set of land cover classes describing the terrain. The dataset is intended for remote-sensing land cover classification tasks.",
+      "task": "Land cover classification",
+      "modality": "Remote sensing imagery",
+      "size": "<1K rows",
+      "license": "cc-by-nc-nd-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/remote-sensing-ense3-grenoble-inp/corine-land-cover"
+      }
     }
   ]
 }
