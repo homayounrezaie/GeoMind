@@ -109,25 +109,25 @@ def merge(globs):
         for f in sorted(globmod.glob(g)):
             staged += load(f)
 
-    kept = []
+    kept, rejected = [], []
     for e in staged:
         e = {k: v for k, v in e.items() if k in ALLOWED}
         key = norm(e.get("id") or e.get("name"))
         if not key or key in seen:
+            continue  # dedup vs existing + within batch
+        errs = validate([e], existing_ids=ex_ids)
+        if errs:
+            rejected.append((e.get("id") or e.get("name") or "?", errs[0]))
             continue
         seen.add(key)
+        ex_ids.add(e["id"])
         kept.append(e)
-
-    errs = validate(kept, existing_ids=ex_ids)
-    if errs:
-        print(f"VALIDATION FAILED ({len(errs)} errors):")
-        for e in errs[:60]:
-            print("  -", e)
-        sys.exit(1)
 
     merged = existing + kept
     CLEAN.write_text(json.dumps({"datasets": merged}, indent=2), encoding="utf-8")
-    print(f"merged {len(kept)} new datasets -> datasets.json now {len(merged)} (was {len(existing)})")
+    print(f"merged {len(kept)} new -> datasets.json now {len(merged)} (was {len(existing)}); rejected {len(rejected)}")
+    for name, why in rejected[:25]:
+        print(f"  reject {name}: {why}")
 
 
 if __name__ == "__main__":
