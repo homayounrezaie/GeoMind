@@ -28354,6 +28354,1178 @@
       "sources": [
         "Hugging Face"
       ]
+    },
+    {
+      "id": "adaptvfms-rscd",
+      "name": "AdaptVFMs-RSCD",
+      "summary": "A remote sensing fine-tuning dataset of ~42,000 annotated RGB images spanning 70 land-cover categories, built to adapt visual foundation models (SAM, CLIP) for change detection and other remote-sensing tasks.",
+      "description": "AdaptVFMs-RSCD (RS-VFMs Fine-tuning Dataset) is a remote sensing image dataset designed for fine-tuning visual foundation models such as SAM and CLIP on Earth-observation tasks, including change detection. It contains about 42,000 images at multiple sizes (256x256, 200x200, 400x400) with spatial resolutions of roughly 0.3-2 m, covering 70 land-cover categories such as farmland, forest, residential areas and water bodies. Each image is paired with a text annotation describing its content, supporting vision-language fine-tuning. The dataset is distributed via Baidu Cloud and Google Drive links in the project repository.",
+      "task": "change-detection",
+      "modality": "RGB optical remote sensing imagery with text annotations",
+      "size": "~42,000 images",
+      "numSamples": 42000,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/Jiang-CHD-YunNan/RS-VFMs-Fine-tuning-Dataset"
+      }
+    },
+    {
+      "id": "sar-oceanic-atmospheric-phenomena-segmentation",
+      "name": "Sentinel-1 SAR Oceanic and Atmospheric Phenomena Semantic Segmentation Dataset",
+      "summary": "A Sentinel-1 SAR image semantic segmentation dataset annotating 12 typical oceanic and atmospheric phenomena.",
+      "description": "This dataset is a SAR (Synthetic Aperture Radar) image semantic segmentation benchmark for typical oceanic and atmospheric phenomena, built from Sentinel-1 IW and WV mode imagery. It annotates 12 phenomena: Atmospheric Front, Oceanic Front, Rainfall, Iceberg, Sea Ice, Pure Ocean Wave, Wind Streak, Low Wind Area, Biological Slick, Micro Convective Cells, Internal Wave, and Eddy. For WV mode it draws on TenGeoP-SARwv and SAR_WV_SemanticSegmentation, selecting 2,383 images for annotation, and for IW mode it incorporates internal-wave detection imagery. It supports semantic segmentation and object detection of ocean-atmosphere features in SAR data.",
+      "task": "semantic-segmentation",
+      "modality": "Sentinel-1 SAR imagery (IW and WV modes)",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/14279466",
+        "homepage": "https://zenodo.org/records/14279466"
+      }
+    },
+    {
+      "id": "ground-based-vertical-profile-aerosol-no2-hcho-china",
+      "name": "Ground-Based Vertical Profile Observations of Aerosol, NO2 and HCHO from the Hyperspectral Vertical Remote Sensing Network in China (2019-2023)",
+      "summary": "A high-time-resolution dataset of ground-based vertical profile observations of aerosols, NO2 and HCHO across 32 sites in China from 2019 to 2023.",
+      "description": "This dataset provides high-time-resolution (approximately 15-minute) vertical profile observations of atmospheric composition (aerosols, NO2 and HCHO) collected using passive hyperspectral remote sensing technology. The observations span 32 sites across seven major regions of China over the period 2019-2023. It documents the vertical distribution and seasonal variation of these atmospheric constituents, addressing the scarcity of vertical-profile data for studying the generation, evolution and transport of regional air pollution.",
+      "task": "weather-forecasting",
+      "modality": "Ground-based passive hyperspectral remote sensing vertical profiles",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/19396716",
+        "homepage": "https://zenodo.org/records/19396716"
+      }
+    },
+    {
+      "id": "aeos-bench",
+      "name": "AEOS-Bench",
+      "summary": "A realistic benchmark for agile Earth-observation satellite constellation scheduling, featuring high-fidelity orbital simulation and large-scale observation task sets.",
+      "description": "AEOS-Bench is a benchmark and methodology for Earth-observation (EO) constellation scheduling, accepted to NeurIPS 2025. It provides high-fidelity orbital dynamics simulation, diverse satellite configurations, and large-scale observation task sets, organized into train/val_seen/val_unseen/test splits. The benchmark offers a unified framework that bridges classical optimization and learning-based scheduling approaches, together with reference baseline implementations and evaluation scripts. Code and data are released under the Apache-2.0 license.",
+      "task": "Earth-observation satellite constellation scheduling",
+      "license": "Apache-2.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/buaa-colalab/AEOSBench"
+      }
+    },
+    {
+      "id": "aerialanimal",
+      "name": "AerialAnimal",
+      "summary": "An aerial imagery dataset for object-detection-based detection and counting of wild animals to improve aerial wildlife population estimates.",
+      "description": "AerialAnimal is an aerial image object-detection dataset introduced for improving the precision and accuracy of animal population estimates from aerial surveys. It provides aerial imagery with annotated animals, enabling detection and counting of wildlife from above. The dataset accompanies the 2019 Methods in Ecology and Evolution study on aerial image object detection for wildlife population estimation.",
+      "task": "object-detection",
+      "modality": "Aerial imagery",
+      "year": 2019,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13277"
+      }
+    },
+    {
+      "id": "aerialelephant",
+      "name": "Aerial Elephant Dataset",
+      "summary": "A public aerial object-detection benchmark of 2,074 images containing 15,581 African bush elephants in their natural habitat.",
+      "description": "The Aerial Elephant Dataset (AED) is a public benchmark for aerial object detection of wildlife, comprising 2,074 aerial images containing 15,581 individually annotated African bush elephants. The images were collected over a range of background types, resolutions and times of day using a consistent methodology. Released under a CC0 public-domain dedication, it is hosted on Zenodo (16.3 GB) and supports detection and counting of animals from aerial imagery.",
+      "task": "object-detection",
+      "modality": "Aerial imagery",
+      "size": "16.3 GB; 2,074 images, 15,581 elephants",
+      "numSamples": 2074,
+      "license": "CC0-1.0",
+      "year": 2019,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/record/3234780",
+        "homepage": "https://zenodo.org/record/3234780"
+      }
+    },
+    {
+      "id": "aerial-lane-ael",
+      "name": "AErial Lane (AEL) Dataset",
+      "summary": "A large-scale aerial image dataset of 7,763 images with over 150,000 polyline-annotated lanes for lane detection across roughly 80 km of road.",
+      "description": "The AErial Lane (AEL) Dataset is a large-scale aerial image dataset built for lane detection, featuring high-quality polyline lane annotations on high-resolution imagery. It contains 7,763 images and over 150,000 lanes covering approximately 80 kilometers of road across 11 diverse regions, ranging from coastal desert in Dubai to the urban area of Valencia and forest regions in Perak State. The data is split into training, validation and test sets at a 7:2:1 ratio and is distributed via the AerialLaneNet repository.",
+      "task": "detection",
+      "modality": "High-resolution aerial imagery",
+      "size": "7,763 images, 150,000+ lanes, ~80 km of road",
+      "numSamples": 7763,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/AidasDir/AerialLaneNet"
+      }
+    },
+    {
+      "id": "aerial-maritime-drone-dataset",
+      "name": "Aerial Maritime Drone Dataset",
+      "summary": "A multi-class aerial drone object-detection dataset of maritime scenes with bounding boxes for docks, boats, lifts, jetskis and cars.",
+      "description": "The Aerial Maritime Drone Dataset is a multi-class object-detection dataset of maritime/waterside scenes captured from a Mavic Air 2 drone at 400 feet altitude. It contains 74 aerial images with 1,151 bounding boxes across five movable object classes: docks, boats, lifts, jetskis and cars, with a tiled processed version of 508 images also available. Hosted on Roboflow under the MIT license, it is intended for training and evaluating aerial object-detection models.",
+      "task": "object-detection",
+      "modality": "Aerial drone RGB imagery",
+      "size": "74 images, 1,151 bounding boxes (508-image tiled version)",
+      "numSamples": 74,
+      "license": "MIT",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://public.roboflow.com/object-detection/aerial-maritime",
+        "homepage": "https://public.roboflow.com/object-detection/aerial-maritime"
+      }
+    },
+    {
+      "id": "aerialvg",
+      "name": "AerialVG",
+      "summary": "An aerial visual grounding benchmark that requires reasoning over positional relations to localize objects described in natural language from drone-view imagery.",
+      "description": "AerialVG is a benchmark for visual grounding from aerial (drone) viewpoints, where appearance alone is insufficient to disambiguate visually similar objects and spatial relations must be reasoned about. The dataset comprises about 5K real-world aerial images with roughly 50K manually annotated referring descriptions covering 103K objects, each annotated with relative spatial relations. It is designed to evaluate models on comprehensive spatial reasoning for object localization in overhead imagery.",
+      "task": "visual-grounding",
+      "modality": "aerial-imagery",
+      "numSamples": 5000,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2504.07836",
+        "github": "https://github.com/Ideal-ljl/UAVVG"
+      }
+    },
+    {
+      "id": "african-crops-01",
+      "name": "African Crops 01",
+      "summary": "An open Earth-observation training dataset of crop type labels and field boundaries for fields in Kenya, hosted by Radiant Earth.",
+      "description": "African Crops 01 (PlantVillage Crop Type Kenya) is a Radiant Earth dataset providing field boundaries and crop type information for agricultural fields in Kenya. Labels were collected via the PlantVillage app, with collectors gathering multiple points around each field while referencing basemap imagery, and are distributed as GeoJSON geospatial data. It supports machine-learning analysis of crop types and agricultural patterns in East Africa.",
+      "task": "classification",
+      "modality": "satellite-imagery",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://source.coop/radiantearth/african-crops-kenya-01",
+        "download": "https://radiant-mlhub.s3.us-west-2.amazonaws.com/?list-type=2&prefix=african-crops-01%2F"
+      }
+    },
+    {
+      "id": "agbd",
+      "name": "AGBD",
+      "summary": "A global-scale, machine-learning-ready dataset for above-ground biomass estimation built from multi-source remote sensing data paired with GEDI biomass measurements.",
+      "description": "AGBD (A Global-scale Biomass Dataset) curates remote-sensing inputs including Sentinel-2 optical imagery, ALOS-2 PALSAR-2 radar, elevation models, land cover, and canopy height, paired with GEDI Above-Ground Biomass reference measurements. The data is provided in a streamable, ML-ready format on HuggingFace with train/validation/test splits, plus separately downloadable dense predictions. It is intended for training and benchmarking models that estimate above-ground biomass at global scale.",
+      "task": "regression",
+      "modality": "satellite-imagery",
+      "license": "CC-BY-NC-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.04928",
+        "github": "https://github.com/ghjuliasialelli/agbd",
+        "huggingface": "https://huggingface.co/datasets/prs-eth/AGBD"
+      }
+    },
+    {
+      "id": "agribench",
+      "name": "AgriBench",
+      "summary": "A hierarchical agriculture benchmark for evaluating multimodal large language models, built on the MM-LUCAS land-use/land-cover dataset.",
+      "description": "AgriBench is a hierarchical benchmark for assessing the visual comprehension and reasoning of multimodal large language models in the agricultural domain. It introduces MM-LUCAS, a multimodal dataset of 1,784 landscape images with segmentation masks, depth maps, and detailed annotations (geographic location, country, date, land cover and land use taxonomy, quality and aesthetic scores) derived from the EU Land Use/Cover Area Frame Survey (LUCAS). The benchmark spans tasks from basic visual recognition to complex problem solving for agriculture applications.",
+      "task": "classification",
+      "modality": "aerial-imagery",
+      "numSamples": 1784,
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.00465",
+        "homepage": "https://link.springer.com/chapter/10.1007/978-3-031-91835-3_14"
+      }
+    },
+    {
+      "id": "agriculture-vision-2021-dataset",
+      "name": "Agriculture-Vision 2021 Dataset",
+      "summary": "A large-scale aerial farmland imagery dataset for recognizing agricultural field anomalies, expanded for the 2021 Agriculture-Vision challenge.",
+      "description": "The Agriculture-Vision 2021 dataset provides high-resolution aerial farmland imagery with pixel-level annotations of agricultural anomalies. It includes a supervised set of pre-processed field images and a raw image set of 2-7 flights from 54 fields collected 2017-2020, totaling 261 full-field 10cm-resolution images, with some fields also including 10m Sentinel imagery. Annotated classes include double plant, drydown, endrow, nutrient deficiency, planter skip, water, waterway, and weed cluster.",
+      "task": "segmentation",
+      "modality": "aerial-imagery",
+      "year": 2021,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.agriculture-vision.com/agriculture-vision-2021/dataset-2021"
+      }
+    },
+    {
+      "id": "agriculture-vision-database-cvpr-2020-challenge",
+      "name": "Agriculture-Vision Database & CVPR 2020 challenge",
+      "summary": "A large-scale aerial farmland image dataset of 21,061 RGB-NIR images with field anomaly annotations, used for the CVPR 2020 Agriculture-Vision challenge.",
+      "description": "The Agriculture-Vision database comprises 21,061 aerial farmland images captured across the US in 2019, each with four channels (RGB plus Near Infrared) at 512x512 resolution along with boundary maps and valid-region masks. Six field-anomaly annotation types are provided as separate binary masks: cloud shadow, double plant, planter skip, standing water, waterway, and weed cluster. The challenge subset is roughly 4.4 GB, split into train, validation, and test sets with labels released for train and validation.",
+      "task": "segmentation",
+      "modality": "aerial-imagery",
+      "numSamples": 21061,
+      "size": "4.4 GB",
+      "year": 2020,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.agriculture-vision.com/agriculture-vision-2020/dataset"
+      }
+    },
+    {
+      "id": "agri-vision-challenge-dataset",
+      "name": "Agri-Vision Challenge Dataset",
+      "summary": "The Agriculture-Vision challenge dataset of aerial agricultural field imagery used for anomaly detection and pattern recognition in farmland.",
+      "description": "The Agri-Vision Challenge Dataset refers to the Agriculture-Vision aerial farmland imagery used in agricultural anomaly detection research, including label-free anomaly detection with masked image modeling. It consists of high-resolution multi-channel aerial images of farm fields annotated with multiple agronomic anomaly patterns such as nutrient deficiency, weed clusters, and waterways. The data supports segmentation and anomaly-detection tasks over large-scale agricultural imagery.",
+      "task": "segmentation",
+      "modality": "aerial-imagery",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2404.08931",
+        "homepage": "https://www.agriculture-vision.com/"
+      }
+    },
+    {
+      "id": "aicd",
+      "name": "AICD",
+      "summary": "A synthetic aerial image change detection benchmark containing 1,000 reference/test image pairs with building-focused changes rendered by a 3D engine.",
+      "description": "The Aerial Image Change Detection (AICD) dataset comprises 1,000 pairs of 800x600 aerial images generated from 100 simulated 3D scenes rendered with a graphics engine. Each pair consists of a reference image and a test image with artificially introduced changes (primarily buildings and trees), accompanied by ground-truth change masks. It is designed to benchmark change detection algorithms under controlled but realistic appearance variations such as illumination and viewpoint shifts.",
+      "task": "change-detection",
+      "modality": "aerial RGB",
+      "size": "1,000 image pairs (800x600), 0.5 m resolution",
+      "year": 2011,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/13290067"
+      }
+    },
+    {
+      "id": "aifloodsense",
+      "name": "AIFloodSense",
+      "summary": "A global aerial imagery dataset for semantic segmentation, classification, and VQA of flooded environments across 64 countries.",
+      "description": "AIFloodSense is a publicly available aerial imagery dataset of 470 high-resolution images drawn from 230 distinct flood events spanning 64 countries and six continents (2022-2024). It supports three tasks: image classification (environment type, camera angle, continent), semantic segmentation with pixel-level masks for flood, sky, buildings, and background, and visual question answering for disaster assessment. The dataset is positioned as a domain-generalized benchmark for climate-resilience AI, with baseline results provided for all tasks.",
+      "task": "segmentation; classification; VQA",
+      "modality": "aerial RGB",
+      "size": "470 images from 230 flood events",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2512.17432",
+        "homepage": "https://www.mdpi.com/2072-4292/18/6/938"
+      }
+    },
+    {
+      "id": "ai-for-agriculture-challenge",
+      "name": "AI for Agriculture Challenge",
+      "summary": "A hyperspectral imaging challenge dataset for automated wheat Fusarium Head Blight disease diagnosis.",
+      "description": "The Beyond Visible Spectrum: AI for Agriculture Challenge (ICPR 2024) provides hyperspectral imagery for automated crop disease diagnosis, focused on detecting Fusarium Head Blight in wheat. Each sample is a 50x50 hyperspectral image with 125 bands covering the visible to near-infrared range (450-950 nm) at 4 nm spectral resolution. The dataset is used to develop and benchmark machine learning methods that exploit spectral signatures for disease severity classification.",
+      "task": "image-classification",
+      "modality": "hyperspectral",
+      "size": "50x50 images, 125 bands",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.kaggle.com/competitions/beyond-visible-spectrum-ai-for-agriculture-2024/overview",
+        "paper": "https://arxiv.org/abs/2409.00395"
+      }
+    },
+    {
+      "id": "airbus-aircraft-detection",
+      "name": "Airbus Aircraft Detection",
+      "summary": "An Airbus-released sample dataset of satellite images annotated with bounding boxes for aircraft detection.",
+      "description": "The Airbus Aircraft Detection dataset is a sample dataset published by Airbus on Kaggle for detecting aircraft in satellite imagery. It provides high-resolution satellite image tiles with bounding-box annotations marking individual aircraft, supporting object detection tasks over airports and airfields.",
+      "task": "object-detection",
+      "modality": "satellite RGB",
+      "year": 2021,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://www.kaggle.com/airbusgeo/airbus-aircrafts-sample-dataset"
+      }
+    },
+    {
+      "id": "airbus-oil-storage-detection",
+      "name": "Airbus Oil Storage Detection",
+      "summary": "An Airbus-released satellite imagery dataset with bounding-box annotations for oil storage tank detection.",
+      "description": "The Airbus Oil Storage Detection dataset is published by Airbus on Kaggle for detecting oil storage tanks in satellite imagery. It supplies satellite image tiles with bounding-box annotations of oil tanks, enabling object detection models for monitoring industrial and energy infrastructure.",
+      "task": "object-detection",
+      "modality": "satellite RGB",
+      "year": 2021,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://www.kaggle.com/airbusgeo/airbus-oil-storage-detection-dataset"
+      }
+    },
+    {
+      "id": "rsod",
+      "name": "RSOD",
+      "summary": "An open remote sensing object detection dataset with aircraft, oil tanks, playgrounds, and overpasses in PASCAL VOC format.",
+      "description": "RSOD (Remote Sensing Object Detection) is an open dataset released by Wuhan University for object detection in optical remote sensing images, sourced from Google Earth and Tianditu. It contains four object categories: 446 images with 4,993 aircraft, 165 images with 1,586 oil tanks, 189 images with 191 playgrounds, and 176 images with 180 overpasses, annotated in PASCAL VOC format. The candidate referenced the 'aircraft' subset, which is one of these four classes; image resolution ranges from about 0.3 m to 3 m.",
+      "task": "object-detection",
+      "modality": "satellite/aerial RGB",
+      "size": "976 images, 6,950 object instances, 4 classes",
+      "year": 2015,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/RSIA-LIESMARS-WHU/RSOD-Dataset-"
+      }
+    },
+    {
+      "id": "airound",
+      "name": "AiRound",
+      "summary": "A multi-view scene classification dataset of aerial, ground-level, and Sentinel-2 image triplets across 11 categories.",
+      "description": "AiRound is a multi-view scene classification dataset containing triplets of images from the same geographic coordinate captured from different perspectives: a high-resolution RGB aerial image (500x500), a ground-level photo, and a Sentinel-2 sample (224x224). It spans 11 categories such as airports, bridges, churches, forests, lakes, rivers, skyscrapers, stadia, statues, towers, and urban parks, totaling 11,753 images from places around the world. It was introduced to study multi-view fusion for improving remote sensing scene classification.",
+      "task": "scene-classification",
+      "modality": "aerial RGB + ground + Sentinel-2",
+      "size": "11,753 images, 11 categories",
+      "numSamples": 11753,
+      "year": 2020,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://ieeexplore.ieee.org/document/9238485",
+        "arxiv": "https://arxiv.org/abs/2008.01133"
+      }
+    },
+    {
+      "id": "air-quality-uci",
+      "name": "AirQuality (UCI)",
+      "summary": "A multivariate hourly time series of air quality sensor measurements collected over one year in an Italian city.",
+      "description": "The UCI Air Quality dataset contains hourly averaged responses from an array of metal-oxide chemical sensors deployed in a polluted Italian city, alongside reference analyzer ground-truth concentrations for pollutants such as CO, NOx, NO2 and benzene. The data span roughly one year (March 2004 to February 2005) and include missing values that are commonly gap-filled by interpolation. It is exposed in TorchGeo as the AirQuality dataset class and is widely used for environmental time series and air-quality forecasting research.",
+      "task": "weather-forecasting",
+      "modality": "tabular time series",
+      "year": 2008,
+      "license": "CC BY 4.0",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://archive.ics.uci.edu/dataset/360/air+quality",
+        "download": "https://archive.ics.uci.edu/static/public/360/data.csv",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.AirQuality"
+      }
+    },
+    {
+      "id": "air-sarship-2",
+      "name": "AIR-SARShip-2.0",
+      "summary": "A high-resolution SAR ship detection dataset of 300 Gaofen-3 scenes covering harbors, islands and open sea.",
+      "description": "AIR-SARShip-2.0 is a synthetic aperture radar (SAR) ship detection benchmark built from Gaofen-3 satellite imagery. It comprises 300 large-scene SAR images at 1 m to 5 m resolution, acquired in spotlight and stripmap single-polarization modes, with annotated ships across harbors, islands, reefs and the sea surface under varied conditions. A standard split uses 210 images for training and validation and 90 for testing, making it a common benchmark for SAR object detection.",
+      "task": "object-detection",
+      "modality": "SAR",
+      "size": "300 images",
+      "year": 2019,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://radars.ac.cn/en/article/doi/10.12000/JR19097?viewType=HTML",
+        "homepage": "https://eod-grss-ieee.com/dataset-detail/aW8xMWU3NHk3QXJuYm8zZnBTWDBSdz09"
+      }
+    },
+    {
+      "id": "airspatial",
+      "name": "AirSpatial",
+      "summary": "A large-scale aerial spatial-reasoning dataset of 206K instructions with 3D bounding boxes for drone-based vehicle understanding.",
+      "description": "AirSpatial is a remote sensing vision-language dataset designed to improve spatial understanding in aerial imagery captured by drones. It contains over 206K instructions and introduces two tasks, Spatial Grounding and Spatial Question Answering, and is the first remote sensing grounding dataset to provide 3D bounding boxes (3DBB). The dataset underpins AirSpatialBot, an aerial agent for fine-grained vehicle attribute recognition and retrieval, supporting embodied intelligence and vision-language navigation research.",
+      "task": "visual-question-answering",
+      "modality": "aerial RGB + language",
+      "numSamples": "206K instructions",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/VisionXLab/AirSpatialBot",
+        "paper": "https://arxiv.org/abs/2601.01416"
+      }
+    },
+    {
+      "id": "aiwr",
+      "name": "AIWR (Aerial Image Water Resource Dataset)",
+      "summary": "An aerial imagery dataset of 800 labeled water-body images for segmentation in northeastern Thailand.",
+      "description": "AIWR (Aerial Image Water Resource) is a segmentation dataset of 800 aerial images focused on natural and artificial water bodies in agricultural northeastern Thailand. Images are 650x650 pixels captured at roughly 1:50 m scale from Bing Maps following Fundamental Geographic Data Set standards, with expert-validated ground-truth masks distinguishing natural (W1) from artificial (W2) water. The dataset targets advanced AI-driven water-body segmentation, posing challenges from variation in size, color, shape and similarity to other land-use classes.",
+      "task": "semantic-segmentation",
+      "modality": "aerial RGB",
+      "numSamples": "800 images",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2411.01797",
+        "download": "https://data.mendeley.com/datasets/d73mpc529b/3"
+      }
+    },
+    {
+      "id": "h2crop",
+      "name": "H2Crop",
+      "summary": "A large-scale hierarchical crop-type classification dataset fusing EnMAP hyperspectral and Sentinel-2 multispectral time series over France.",
+      "description": "H2Crop (Hierarchical Hyperspectral Crop dataset) integrates 30 m EnMAP hyperspectral imagery with 10 m Sentinel-2 multispectral time series across agricultural regions of France for the 2022-2023 growing seasons. It contains 1,023,489 annotated parcels and 16,344 images, with crop types organized into a four-tier hierarchical taxonomy (6 to 36 to 82 to 101 categories) and accompanying field-boundary shapefiles. It supports fine-grained hierarchical crop type classification, accompanying a dual-stream transformer benchmark method.",
+      "task": "classification",
+      "modality": "hyperspectral + multispectral",
+      "numSamples": "1,023,489 parcels",
+      "size": "16,344 images",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/flyakon/H2Crop"
+      }
+    },
+    {
+      "id": "rsoc-counting",
+      "name": "RSOC (Remote Sensing Object Counting Dataset)",
+      "summary": "A large-scale remote sensing dataset for object counting across buildings, vehicles, ships and airplanes.",
+      "description": "RSOC (Remote Sensing Object Counting) is a large-scale dataset introduced with the paper \"Counting from Sky: A Large-scale Dataset for Remote Sensing Object Counting and A Benchmark Method.\" It provides counting annotations across multiple object categories including buildings, small vehicles, large vehicles, ships and airplanes, with subsets derived from DOTA imagery plus a dedicated building subset. The dataset accompanies a benchmark counting method and is published in IEEE Transactions on Geoscience and Remote Sensing.",
+      "task": "object-counting",
+      "modality": "aerial/satellite RGB",
+      "year": 2020,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/gaoguangshuai/Counting-from-Sky-A-Large-scale-Dataset-for-Remote-Sensing-Object-Counting-and-A-Benchmark-Method"
+      }
+    },
+    {
+      "id": "alcd-cloud-masks",
+      "name": "ALCD Reference Cloud Masks",
+      "summary": "Reference cloud masks for 38 Sentinel-2 scenes generated by an active-learning procedure for cloud-detection validation.",
+      "description": "The ALCD (Active Learning for Cloud Detection) Reference Cloud Masks dataset provides high-accuracy reference cloud masks for 38 Sentinel-2 scenes, created interactively at CESBIO/CNES using an iterative active-learning classifier combining spectral and multi-temporal features. It includes 31 reference scenes from 2017-2018 plus 7 Hollstein validation scenes, with masks of 8 classes at 10 m resolution over 1,830x1,830 imagery. The masks were produced to validate operational cloud masks such as those from the MAJA processor.",
+      "task": "semantic-segmentation",
+      "modality": "multispectral",
+      "numSamples": "38 scenes",
+      "year": 2018,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/record/1460961",
+        "github": "https://github.com/CNES/ALCD"
+      }
+    },
+    {
+      "id": "alos-world-3d-aw3d30-bahia",
+      "name": "ALOS World 3D 30m (AW3D30) - Bahia, Brazil (adapted)",
+      "summary": "A terrain-modeling-adapted ALOS World 3D 30 m DEM covering Bahia, Brazil in GeoTIFF.",
+      "description": "This dataset derives from JAXA's ALOS World 3D 30 m (AW3D30) digital elevation model, generated by the PRISM sensor aboard the ALOS satellite, processed for relief modeling, 3D (STL) generation and contour extraction over Bahia state, Brazil. It comprises 441 GeoTIFF tiles of 0.5 degrees x 0.5 degrees (about 4.9 GB) in WGS84 (EPSG:4326), plus a virtual raster (.vrt) for unified access, with Gaussian smoothing applied to reduce elevation noise. It is compatible with QGIS, GDAL, BlenderGIS and Python geospatial tooling.",
+      "task": "digital-elevation-model",
+      "modality": "DEM",
+      "size": "4.9 GB (441 GeoTIFF tiles)",
+      "year": 2025,
+      "license": "CC BY 4.0",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/17507681",
+        "homepage": "https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm"
+      }
+    },
+    {
+      "id": "aw3d30-aw3d30-rio-grande-do-sul",
+      "name": "ALOS World 3D \u2013 30 m (AW3D30) adapted for terrain modeling \u2013 Rio Grande do Sul (WGS84)",
+      "summary": "A smoothed AW3D30 digital elevation model subset covering Rio Grande do Sul (Brazil), adapted for relief modeling, 3D printing, and contour extraction.",
+      "description": "This dataset is derived from JAXA's ALOS World 3D \u2013 30 m (AW3D30) global DEM, generated from the PRISM sensor aboard the ALOS satellite. It covers Rio Grande do Sul and parts of Santa Catarina (latitude \u221227\u00b0 to \u221234\u00b0, longitude \u221258\u00b0 to \u221249\u00b0), processed with a 1-pixel Gaussian filter to reduce altimetric noise. It is distributed as 62 GeoTIFF tiles of 0.5\u00b0 \u00d7 0.5\u00b0 plus a virtual raster (.vrt), totaling about 4.6 GB, compatible with QGIS, GDAL, BlenderGIS, and Python geospatial libraries. Intended for terrain modeling, 3D surface (STL) generation, contour extraction, and geodiversity studies.",
+      "task": "digital-elevation-model",
+      "modality": "DEM / optical-derived elevation",
+      "size": "4.6 GB (62 GeoTIFF tiles)",
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/17450870",
+        "homepage": "https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm"
+      }
+    },
+    {
+      "id": "alsat-2b",
+      "name": "Alsat-2B",
+      "summary": "A public remote sensing super-resolution dataset of real paired low- and high-resolution images from the Alsat-2B Earth observation satellite.",
+      "description": "Alsat-2B is a public single-image super-resolution dataset built from 13 images captured by the Algerian Alsat-2B Earth observation satellite over 13 different cities. It provides real paired low-resolution (10 m) and high-resolution (2.5 m, pan-sharpened) images rather than artificially down-sampled pairs, addressing the cost of acquiring true high-resolution imagery. The dataset enables benchmarking of super-resolution methods on real satellite imagery and highlights the challenge of learning the relationship between real low- and high-resolution patches.",
+      "task": "super-resolution",
+      "modality": "optical satellite imagery",
+      "year": 2021,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2103.12547",
+        "ieee": "https://ieeexplore.ieee.org/document/9554452/",
+        "paperswithcode": "https://paperswithcode.com/dataset/alsat-2b"
+      }
+    },
+    {
+      "id": "evd4uav-altitude-sensitive-benchmark",
+      "name": "EVD4UAV (Altitude-Sensitive Benchmark)",
+      "summary": "An altitude-sensitive UAV aerial-imagery benchmark for vehicle detection and evaluating adversarial patch attacks that evade detection across altitudes.",
+      "description": "EVD4UAV is an altitude-sensitive benchmark for vehicle detection in UAV (drone) aerial imagery. It is designed to study and evaluate attacks that evade vehicle detection at different flight altitudes, providing imagery and annotations across varying altitudes, viewpoints, and scenes. The benchmark supports object detection and semantic segmentation tasks on aerial remote sensing data.",
+      "task": "object-detection; semantic-segmentation",
+      "modality": "UAV aerial imagery",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2403.05422"
+      }
+    },
+    {
+      "id": "amazon-atlantic-forest-semantic-segmentation",
+      "name": "Amazon and Atlantic Forest image datasets for semantic segmentation",
+      "summary": "Sentinel-2 image/mask pairs from the Brazilian Amazon and Atlantic Forest biomes for semantic segmentation of forested versus non-forested areas.",
+      "description": "This dataset provides Sentinel-2 Level 2A imagery (bands 4, 3, 2, 8 scaled to 0\u2013255) from the Brazilian Amazon and Atlantic Forest biomes, used to train fully convolutional networks for semantic segmentation of forested areas. It is organized into training (499 Amazon, 485 Atlantic Forest), validation (100 per biome), and test (20 per biome) subsets, each containing 512\u00d7512 GeoTIFF images with associated PNG masks marking forested and non-forested pixels. The full collection is approximately 2.3 GB.",
+      "task": "semantic-segmentation",
+      "modality": "Sentinel-2 optical imagery",
+      "size": "~2.3 GB (512\u00d7512 GeoTIFF + PNG masks)",
+      "license": "CC-BY-4.0",
+      "year": 2021,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/record/4498086"
+      }
+    },
+    {
+      "id": "amazon-rainforest-semantic-segmentation",
+      "name": "Amazon Rainforest dataset for semantic segmentation",
+      "summary": "GeoTIFF image/mask pairs of the Amazon rainforest for U-Net semantic segmentation of forest versus non-forest areas.",
+      "description": "This dataset contains satellite imagery of the Amazon rainforest used for semantic segmentation of forest and non-forest areas with a U-Net fully convolutional network. It comprises 30 training, 15 validation, and 15 test GeoTIFF images at 512\u00d7512 pixels, with PNG masks for training and validation. It was created by researchers at the Universidade Federal da Fronteira Sul and is released under a CC-BY-4.0 license.",
+      "task": "semantic-segmentation",
+      "modality": "optical satellite imagery (Sentinel-2)",
+      "size": "60 images, 512\u00d7512 GeoTIFF",
+      "license": "CC-BY-4.0",
+      "year": 2019,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/record/3233081"
+      }
+    },
+    {
+      "id": "yieldsat-multimodal-crop-yield-benchmark",
+      "name": "YieldSAT: A Multimodal Benchmark for High-Resolution Crop Yield Prediction",
+      "summary": "A multimodal benchmark dataset combining harvester yield data, Sentinel-2 imagery, weather, soil, and topography for field- and subfield-level crop yield prediction.",
+      "description": "YieldSAT is described as the first multimodal dataset for crop yield prediction at both field and subfield (pixel) levels, pairing harvester-measured yields with satellite and environmental data. It integrates Sentinel-2 multispectral imagery (all 13 bands), ERA5-Land weather, SoilGrids 2.0 soil properties, SRTM topography, and management metadata. It contains roughly 12.2 million yield samples at 10 m resolution across 2,173 expert-curated fields and 113,555 labeled images, spanning four crops (corn, rapeseed, soybeans, wheat) in Argentina, Brazil, Uruguay, and Germany over 2016\u20132024.",
+      "task": "crop-yield-prediction",
+      "modality": "multimodal (Sentinel-2 optical, weather, soil, topography)",
+      "size": "12.2M yield samples; 113,555 labeled images",
+      "numSamples": 12200000,
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://yieldsat.github.io/",
+        "paper": "https://arxiv.org/abs/2604.00940",
+        "github": "https://github.com/yieldsat/yieldsat.github.io"
+      }
+    },
+    {
+      "id": "arco-era5",
+      "name": "Analysis-Ready, Cloud Optimized ERA5 (ARCO-ERA5)",
+      "summary": "A cloud-optimized, analysis-ready copy of ECMWF's ERA5 global atmospheric reanalysis hosted on Google Cloud.",
+      "description": "ARCO-ERA5 republishes ECMWF's fifth-generation ERA5 reanalysis (atmospheric, land, and ocean variables) as hourly, globally-gridded data converted from GRIB to the cloud-optimized Zarr format. It is offered in three tiers: analysis-ready data regridded to a uniform 0.25-degree lat-lon grid for ML workflows, cloud-optimized native-resolution data, and raw GRIB/NetCDF files. The data spans 1979 to present and is made freely accessible through Google Cloud Public Datasets.",
+      "task": "climate-weather-reanalysis",
+      "modality": "climate-weather reanalysis",
+      "size": "~5 PB",
+      "license": "Apache-2.0 (code); ERA5 data under Copernicus license",
+      "links": {
+        "github": "https://github.com/google-research/arco-era5"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "solar-farms-mapping-india",
+      "name": "An Artificial Intelligence Dataset for Solar Energy Locations in India",
+      "summary": "A geospatial dataset of validated utility-scale solar PV farm locations across India mapped from Sentinel-2 imagery using machine learning.",
+      "description": "This dataset maps 1,363 validated utility-scale solar photovoltaic farms across India, detected from freely available Sentinel-2 satellite imagery with a spatially explicit machine learning model. Each record includes a unique farm identifier, site area in square meters, the latitude/longitude of the installation center, and the Indian state. The data is distributed in three GeoJSON formats: raw individual polygons, clusters merged by proximity into farms, and simplified geometries.",
+      "task": "segmentation",
+      "modality": "satellite imagery (Sentinel-2)",
+      "numSamples": 1363,
+      "license": "CDLA-Permissive-2.0 (data); MIT (code)",
+      "links": {
+        "github": "https://github.com/microsoft/solar-farms-mapping"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "india-sandy-beach-dataset",
+      "name": "A National-scale Sandy Beach Dataset for India",
+      "summary": "Georeferenced delineations of sandy beach extents along the entire Indian coastline derived from high-resolution satellite imagery and deep learning.",
+      "description": "This dataset provides georeferenced polygons delineating sandy beach extents along the Indian coastline, extracted from IRS ResourceSat-2/2A LISS-IV multispectral imagery (5.8 m resolution, 2021-2024) using a U-Net deep learning segmentation model. It captures fine-scale sandy shoreline features as shapefiles projected in WGS 84 (EPSG:4326), serving as a foundational resource for coastal geomorphology, shoreline monitoring, and coastal zone management. The data is distributed as a single downloadable archive on Zenodo.",
+      "task": "semantic-segmentation",
+      "modality": "satellite imagery (IRS ResourceSat-2/2A LISS-IV)",
+      "size": "1.2 GB (111.9 MB compressed)",
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "links": {
+        "homepage": "https://zenodo.org/records/19440429",
+        "download": "https://zenodo.org/records/19440429"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "hrcus-cd",
+      "name": "HRCUS-CD",
+      "summary": "A high-resolution remote sensing dataset for building change detection, released with the AERNet edge-refinement network.",
+      "description": "HRCUS-CD is a remote sensing building change detection dataset introduced alongside AERNet, an attention-guided edge refinement network. It provides high-resolution bi-temporal image pairs annotated for building changes, intended for training and evaluating change detection models. The dataset and code accompany the IEEE Transactions on Geoscience and Remote Sensing publication and are distributed via the project's GitHub repository.",
+      "task": "change-detection",
+      "modality": "high-resolution remote sensing imagery",
+      "license": "Apache-2.0 (code)",
+      "links": {
+        "github": "https://github.com/zjd1836/AERNet"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "anomalycd",
+      "name": "AnomalyCD",
+      "summary": "A benchmark dataset for Earth anomaly change detection using high-resolution and time-series remote sensing observations.",
+      "description": "AnomalyCD (with its AnomalyCDD dataset) is a benchmark for detecting anomalous changes on the Earth's surface from time-series remote sensing imagery. The dataset comprises 80 anomaly events covering 1,927.93 km2 at high spatial resolution (0.15-2.39 m/pixel), spanning six anomaly categories with typically 4-5 time steps per event. It is designed to support unsupervised localization of various Earth anomalies in a unified manner from large-scale time-series images.",
+      "task": "change-detection",
+      "modality": "high-resolution time-series remote sensing imagery",
+      "numSamples": 80,
+      "year": 2024,
+      "links": {
+        "paper": "https://arxiv.org/abs/2409.05679"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "ape-urban-pedestrian-path-networks",
+      "name": "APE: Annotations for Pedestrian Environment",
+      "summary": "An open annotated dataset of aerial imagery and street maps for learning urban pedestrian path networks such as sidewalks and crossings.",
+      "description": "APE is an open and shared annotated dataset for learning urban pedestrian path networks, pairing aerial/satellite imagery and street map imagery with human annotations of sidewalks, crossings, and corner bulbs. It spans roughly 2,700 km2 across regions of multiple US cities including Los Angeles, CA; Bellevue, WA; and Seattle, WA. The dataset supports segmenting and understanding pedestrian environments for applications such as multi-modal navigation, trip planning, and mobility simulation.",
+      "task": "semantic-segmentation",
+      "modality": "aerial/satellite imagery and street maps",
+      "size": "~2,700 km2",
+      "year": 2023,
+      "links": {
+        "paper": "https://arxiv.org/abs/2303.02323",
+        "homepage": "https://tdei.cs.washington.edu/annotations-for-pedestrian-environment-ape/"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "aquasat",
+      "name": "AquaSat",
+      "summary": "A matchup dataset pairing satellite imagery with in-situ measurements to enable remote sensing of water quality for inland waters.",
+      "description": "AquaSat links over a decade of field-collected water quality observations from the Water Quality Portal and LAGOS database with coincident satellite reflectance data, producing a harmonized matchup dataset for total suspended solids, chlorophyll-a, dissolved organic carbon, and Secchi disk depth. It is designed to support training and validation of remote sensing algorithms for inland and coastal water quality. The repository provides processing workflows using Google Earth Engine and R, with the final data products hosted on Figshare. It serves as a foundational benchmark for aquatic remote sensing research.",
+      "task": "Water quality remote sensing",
+      "modality": "Satellite imagery + in-situ measurements",
+      "license": "MIT",
+      "links": {
+        "github": "https://github.com/GlobalHydrologyLab/AquaSat"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "argo-ship-classification-dataset",
+      "name": "ARGO ship classification dataset",
+      "summary": "A dataset of 1,750 labeled PlanetScope 4-band satellite image chips for ship versus non-ship classification.",
+      "description": "The ARGO ship classification dataset contains 1,750 labeled images extracted from PlanetScope 4-band (BGRN) satellite imagery, organized into ship and non-ship classes. Images are provided as numpy binary files, accompanied by CSV files with manually corrected labels and AIS vessel information sourced from marinecadastre.gov. The dataset was created through an automated process with subsequent manual validation. It supports maritime ship detection and classification research.",
+      "task": "Classification / ship detection",
+      "modality": "Satellite imagery (PlanetScope 4-band)",
+      "numSamples": 1750,
+      "license": "Non-Commercial",
+      "year": 2022,
+      "links": {
+        "download": "https://zenodo.org/records/6058710"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "satellite-derived-heating-cooling-degrees-antwerp",
+      "name": "Satellite-derived Heating- and Cooling-Degrees Geospatial Dataset (Antwerp)",
+      "summary": "An hourly 1 km geospatial dataset of heating and cooling degrees over Antwerp derived from satellite thermal data and weather models, accounting for the urban heat island effect.",
+      "description": "Produced within the H2020 PLANHEAT project, this dataset provides hourly Heating and Cooling Degrees at 1 km spatial resolution for the Antwerp region, derived from SEVIRI satellite thermal observations combined with weather model information. It captures the Urban Heat Island effect on energy demand to support municipal low-carbon heating and cooling planning. The accompanying record on Zenodo documents the production methodology and is released under a CC-BY 4.0 license.",
+      "task": "weather-forecasting",
+      "modality": "thermal",
+      "size": "Hourly, 1 km spatial resolution",
+      "license": "CC-BY-4.0",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://zenodo.org/records/3370971"
+      }
+    },
+    {
+      "id": "astergdem",
+      "name": "ASTER Global Digital Elevation Model (ASTER GDEM)",
+      "summary": "A global Digital Elevation Model at 30 m per pixel spatial resolution collected by the ASTER instrument aboard the Terra satellite.",
+      "description": "The ASTER Global Digital Elevation Model is a worldwide DEM derived from stereo imagery acquired by the ASTER instrument on NASA's Terra satellite. It provides elevation data at 30 m per pixel spatial resolution in 3601x3601 px tiles and is distributed globally via NASA Earthdata. It is accessible in TorchGeo through the AsterGDEM dataset class.",
+      "task": "elevation-estimation",
+      "modality": "dem",
+      "size": "30 m per pixel, 3601x3601 px tiles",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-astgtm-003",
+        "download": "https://search.earthdata.nasa.gov/search/",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.AsterGDEM"
+      }
+    },
+    {
+      "id": "atrnet-star",
+      "name": "ATRNet-STAR",
+      "summary": "A large-scale, fine-grained SAR vehicle recognition dataset and benchmark with over 190,000 annotated samples spanning 40 target types.",
+      "description": "ATRNet-STAR is a large-scale Synthetic Aperture Radar (SAR) Automatic Target Recognition dataset built to succeed the decades-old MSTAR benchmark. It contains over 190,000 well-annotated samples organized into 4 classes, 21 subclasses, and 40 fine-grained civilian vehicle target types collected in varied real-world conditions. The release includes classification and detection benchmarks, a code library, and evaluations of representative methods across multiple experimental settings.",
+      "task": "classification",
+      "modality": "sar",
+      "numSamples": 190000,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2501.13354",
+        "github": "https://github.com/waterdisappear/ATRNet-STAR"
+      }
+    },
+    {
+      "id": "fy-4a-cloud-recognition-benchmark",
+      "name": "FY-4A Large-scale Cloud Recognition Benchmark (FYH)",
+      "summary": "A large-scale cloud recognition benchmark of aligned FY-4A and Himawari-8 satellite image-label pairs covering nine cloud categories for semantic segmentation.",
+      "description": "Introduced alongside the Distribution-aware Interactive Attention Network (DIAnet), this benchmark provides large-scale aligned image-label pairs from the FY-4A geostationary satellite for pixel-level cloud recognition across nine distinct cloud categories. The FY-4A-Himawari-8 (FYH) variant comprises tens of thousands of aligned pairs to support domain adaptation, addressing class imbalance across cloud types. It targets semantic segmentation of cloud structures from geostationary satellite imagery.",
+      "task": "semantic-segmentation",
+      "modality": "optical",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2401.03182",
+        "github": "https://github.com/icey-zhang/DIAnet"
+      }
+    },
+    {
+      "id": "cross-scene-hyperspectral-dataset",
+      "name": "New Cross-Scene Hyperspectral Classification Dataset",
+      "summary": "A new cross-scene hyperspectral dataset introduced for hyperspectral image classification with a constrained spectral-spatial attention residual network.",
+      "description": "This dataset is introduced in the paper 'Constrained Spectral-Spatial Attention Residual Network and New Cross-Scene Dataset for Hyperspectral Classification' (Electronics, 2024). It provides hyperspectral imagery designed to evaluate cross-scene generalization, where models trained on one scene are tested on a different scene. It supports research on hyperspectral semantic segmentation and image classification under domain shift.",
+      "task": "semantic-segmentation|image-classification",
+      "modality": "hyperspectral",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://www.mdpi.com/2079-9292/13/13/2540"
+      }
+    },
+    {
+      "id": "whu-rs19-abzsl",
+      "name": "WHU-RS19 ABZSL",
+      "summary": "An attribute-based extension of the WHU-RS19 remote sensing scene dataset providing 38 expert-annotated attributes for zero-shot learning and explainable classification.",
+      "description": "WHU-RS19 ABZSL augments the widely used WHU-RS19 scene classification dataset with attribute-level annotations created by trained remote sensing experts. It provides 38 attributes spanning objects, geometric patterns, and dominant colours, forming the first attribute-based benchmark designed for zero-shot learning in remote sensing. The dataset supports multi-label classification, explainable AI, and attribute-based zero-shot learning research.",
+      "task": "image-classification",
+      "modality": "optical",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://www.mdpi.com/2072-4292/17/14/2384",
+        "github": "https://github.com/marinapaolanti/WHU-RS19-ABZSL-An-Attribute-Based-Dataset-for-Remote-Sensing-Image-Understanding"
+      }
+    },
+    {
+      "id": "attribute-cooperated-classification-datasets",
+      "name": "Attribute-Cooperated Classification Datasets",
+      "summary": "Remote sensing scene classification datasets that augment each image with both a scene-category label and a multi-attribute label vector.",
+      "description": "The Attribute-Cooperated Classification (ACC) Datasets comprise three remote sensing image collections built on top of existing benchmarks: AC-AID (10,000 images, 30 classes, 83 attributes), AC-UCM (2,100 images, 21 classes, 56 attributes), and AC-Sydney (613 images, 7 classes, 30 attributes). Each image carries a scene classification label together with a label vector of attribute items, enabling research that jointly leverages scene-level and attribute-level annotations. The datasets were introduced with the paper 'Attribute-Cooperated Convolutional Neural Network for Remote Sensing Image Classification' (IEEE TGRS, 2020).",
+      "task": "classification; land-cover mapping; land-use mapping",
+      "links": {
+        "github": "https://github.com/CrazyStoneonRoad/Attribute-Cooperated-Classification-Datasets"
+      },
+      "modality": "optical aerial/satellite imagery",
+      "year": 2020,
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "aussmoke-multinatsmoke",
+      "name": "AusSmoke meets MultiNatSmoke",
+      "summary": "A fully-labelled, geographically diverse smoke segmentation dataset for camera-based wildfire detection.",
+      "description": "AusSmoke is a wildfire smoke segmentation dataset of over 15,000 real images collected across Australia, emphasizing small-scale fires and planned burns. MultiNatSmoke extends it into a multinational, geographically diverse benchmark consolidating international public sources with newly curated smoke annotations, yielding more than 70,000 real images across varied global environments. The dataset addresses the scale, geographic, and synthetic-imagery limitations of prior wildfire smoke segmentation data to improve model training and generalization.",
+      "task": "semantic segmentation; smoke/wildfire detection",
+      "links": {
+        "paper": "https://arxiv.org/abs/2604.23542"
+      },
+      "modality": "ground/camera RGB imagery",
+      "numSamples": "70,000+ images (MultiNatSmoke)",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "microsoft-australia-building-footprints",
+      "name": "Microsoft Australia Building Footprints",
+      "summary": "A computer-generated, country-wide dataset of building footprint polygons for Australia extracted from satellite imagery via deep learning.",
+      "description": "Released by Microsoft/Bing Maps, this dataset contains 11,334,866 building footprint polygon geometries covering Australia, distributed in GeoJSON format (EPSG:4326). Footprints were produced with a two-stage pipeline of deep neural network semantic segmentation to detect building pixels in satellite imagery followed by polygonization. Source imagery, largely from Maxar and partners, dates roughly 2013-2018 (mostly 2018), with reported precision of 98.59% on an evaluation set.",
+      "task": "building footprint extraction; semantic segmentation",
+      "links": {
+        "github": "https://github.com/microsoft/AustraliaBuildingFootprints"
+      },
+      "modality": "satellite-imagery-derived vector building footprints (GeoJSON)",
+      "numSamples": "11,334,866 building footprints",
+      "license": "ODbL (Open Data Commons Open Database License)",
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "bandon",
+      "name": "BANDON",
+      "summary": "An off-nadir aerial imagery benchmark for building change detection over large urban areas.",
+      "description": "BANDON (Building chANge detection with Off-Nadir aerial images) is a remote-sensing change-detection dataset designed to detect building changes from off-nadir aerial imagery. It contains 2,283 image pairs covering dense urban scenes in Beijing and Shanghai, with rich annotations including binary change masks plus auxiliary semantic, side-offset, and flow labels. The benchmark targets the challenging case where buildings appear displaced across off-nadir viewpoints.",
+      "task": "change-detection",
+      "modality": "off-nadir aerial RGB image pairs",
+      "numSamples": "2,283 image pairs",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/fitzpchao/BANDON",
+        "paper": "https://arxiv.org/abs/2301.10922",
+        "download": "https://drive.google.com/drive/folders/1MTwbRLw76f_hThmELkLwKpfRQbkPH28P"
+      }
+    },
+    {
+      "id": "banet-change-dataset",
+      "name": "BANet Change Dataset",
+      "summary": "A remote-sensing change-detection dataset for extracting changed buildings between satellite imagery and cadastral maps.",
+      "description": "The BANet change dataset supports detecting changed buildings by comparing remote-sensing imagery against existing cadastral maps. It accompanies the BANet (Bilateral Attention Network) method and is distributed via the project repository. The task is building-level change detection to keep cadastral records up to date.",
+      "task": "change-detection",
+      "modality": "remote-sensing imagery + cadastral maps",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/lqycrystal/BANet",
+        "paper": "https://www.sciencedirect.com/science/article/pii/S1569843225001335"
+      }
+    },
+    {
+      "id": "bcwildfire",
+      "name": "BCWildfire",
+      "summary": "A long-term, multi-factor Earth-observation dataset and deep-learning benchmark for boreal wildfire risk prediction.",
+      "description": "BCWildfire is a large-scale spatiotemporal dataset for boreal wildfire risk prediction covering roughly 240 million hectares in and around British Columbia over 25 years at daily resolution. It integrates 38 covariates spanning active-fire detections, weather, fuel, terrain, and anthropogenic factors. The accompanying deep-learning benchmark evaluates time-series forecasting models for wildfire risk.",
+      "task": "wildfire-risk-prediction",
+      "modality": "multimodal spatiotemporal (active fire, weather, fuel, terrain, anthropogenic)",
+      "year": 2025,
+      "license": "Proprietary Research License (WRPRL v1.0), non-commercial academic use",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2511.17597",
+        "github": "https://github.com/SynUW/mmFire"
+      }
+    },
+    {
+      "id": "bd-sat",
+      "name": "BD-SAT",
+      "summary": "A high-resolution land use / land cover dataset and benchmark for the Dhaka division of Bangladesh.",
+      "description": "BD-SAT is a high-resolution satellite land-use/land-cover (LULC) dataset and benchmark for the developing Dhaka division of Bangladesh. It pairs Bing satellite imagery (~2.22 m/px) with Sentinel-2A imagery and provides 1,089 labeled 1500x1500 sub-images across six classes (forest, farmland, built-up, water, meadow, unrecognized). It is openly hosted on Harvard Dataverse with semantic-segmentation benchmark results.",
+      "task": "semantic-segmentation",
+      "modality": "Bing satellite imagery (~2.22 m) + Sentinel-2A",
+      "numSamples": "1,089 sub-images (1500x1500 px)",
+      "year": 2024,
+      "license": "CC BY 4.0",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.05912",
+        "download": "https://doi.org/10.7910/DVN/LLR3RR"
+      }
+    },
+    {
+      "id": "bedi",
+      "name": "BEDI",
+      "summary": "A comprehensive benchmark for evaluating embodied agents on UAVs using real and virtual aerial scenarios.",
+      "description": "BEDI is a benchmark for evaluating embodied agents operating on unmanned aerial vehicles (UAVs). It combines static real-world aerial imagery with dynamic virtual UAV scenarios generated in Unreal Engine, providing questions and tasks across semantic perception, spatial perception, motion control, tool utilization, task planning, and action generation. The released dataset is hosted on Hugging Face with accompanying code.",
+      "task": "embodied-agent-evaluation",
+      "modality": "UAV / aerial imagery (real + virtual)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2505.18229",
+        "github": "https://github.com/lostwolves/BEDI",
+        "huggingface": "https://huggingface.co/datasets/GuoMN/BEDI"
+      }
+    },
+    {
+      "id": "globe230k",
+      "name": "Globe230k",
+      "summary": "A benchmark dense-pixel annotation dataset for global land-cover mapping.",
+      "description": "Globe230k is a large-scale benchmark dataset for global land-cover semantic segmentation, with 232,819 densely annotated 512x512 images at 1 m spatial resolution covering over 60,000 km worldwide. It is multimodal, providing RGB, NDVI, DEM, and VV/VH SAR polarization bands annotated over 10 land-cover classes. The dataset is openly available on Zenodo with a standard train/val/test split.",
+      "task": "semantic-segmentation",
+      "modality": "multimodal (RGB + NDVI + DEM + SAR VV/VH), 1 m resolution",
+      "numSamples": "232,819 images (512x512 px)",
+      "size": "12.3 GB",
+      "year": 2023,
+      "license": "CC BY 4.0",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/8429200",
+        "paper": "https://spj.science.org/doi/10.34133/remotesensing.0078"
+      }
+    },
+    {
+      "id": "benin-smallholder-cashews",
+      "name": "BeninSmallHolderCashews",
+      "summary": "Pixel-level labels of smallholder cashew plantations over a 120 km\u00b2 area in central Benin derived from ground GPS surveys and Airbus Pl\u00e9iades imagery.",
+      "description": "The Smallholder Cashew Plantations in Benin dataset provides per-pixel land-cover labels for cashew plantations across a 120 km\u00b2 region in the center of Benin. Each pixel is classified into categories such as well-managed plantation, poorly-managed plantation, no plantation, and other land-cover classes. Labels were produced by combining handheld-GPS ground data collection with manual corrections using high-resolution Airbus Pl\u00e9iades imagery, and the dataset is distributed through TorchGeo and Source Cooperative.",
+      "task": "crop-mapping",
+      "modality": "multispectral",
+      "links": {
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.BeninSmallHolderCashews",
+        "homepage": "https://source.coop/technoserve/cashews-benin"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "ben-mm",
+      "name": "BEN-MM (BigEarthNet-MM)",
+      "summary": "A large-scale multi-modal, multi-label benchmark archive pairing Sentinel-1 SAR and Sentinel-2 multispectral image patches for remote sensing image classification and retrieval.",
+      "description": "BEN-MM (BigEarthNet-MM) extends the BigEarthNet archive into a multi-modal benchmark by pairing Sentinel-1 SAR and Sentinel-2 multispectral image patches over the same geographic footprints. Each patch is annotated with multiple CORINE Land Cover labels, supporting multi-label scene classification and content-based image retrieval. It is a widely used large-scale benchmark for evaluating remote sensing deep-learning models on multi-modal Earth observation data.",
+      "task": "scene-classification",
+      "modality": "SAR + multispectral",
+      "year": 2021,
+      "links": {
+        "paper": "https://ieeexplore.ieee.org/abstract/document/9552024",
+        "homepage": "https://bigearth.net/"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "bigearthnet-v2",
+      "name": "BigEarthNetV2",
+      "summary": "An improved version of the BigEarthNet Sentinel multi-label classification archive with refined labels, better geospatial splits, and added CORINE pixel-level segmentation labels.",
+      "description": "BigEarthNet V2 is the updated release of the BigEarthNet remote sensing benchmark, providing improved multi-label annotations, improved geospatial train/validation/test splits, and additional pixel-level labels derived from the 2018 CORINE Land Cover map. Problematic patches present in V1 have been removed to increase dataset quality. It supports both multi-label scene classification and semantic segmentation of Sentinel imagery and is available through TorchGeo and Hugging Face.",
+      "task": "semantic-segmentation",
+      "modality": "SAR + multispectral",
+      "year": 2024,
+      "links": {
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.BigEarthNetV2",
+        "paper": "https://arxiv.org/abs/2407.03653",
+        "homepage": "https://bigearth.net/",
+        "huggingface": "https://hf.co/datasets/torchgeo/bigearthnet"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "bihot",
+      "name": "BihoT",
+      "summary": "A large-scale hyperspectral video dataset and benchmark for hyperspectral camouflaged object tracking.",
+      "description": "BihoT is the largest hyperspectral camouflaged object tracking (HCOT) dataset, comprising 49 hyperspectral video sequences with 41,912 hyperspectral images of 25 bands. It targets challenging scenes containing artificial camouflage where objects share similar appearances, exhibit diverse spectra, and undergo frequent occlusion. The dataset is accompanied by a baseline spectral prompt-based distractor-aware network (SPDAN) and serves as a benchmark for hyperspectral imaging-based tracking research.",
+      "task": "object-tracking",
+      "modality": "hyperspectral",
+      "year": 2024,
+      "links": {
+        "paper": "https://arxiv.org/abs/2408.12232"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "biocube",
+      "name": "BioCube",
+      "summary": "A multimodal, geospatially aligned global dataset for biodiversity research combining species observations, environmental DNA, vegetation indices, land indicators, and high-resolution climate variables.",
+      "description": "BioCube is a fine-grained, multimodal global dataset for ecology and biodiversity research that integrates species observations (images, audio, and descriptions), environmental DNA, vegetation indices, agricultural and forest land indicators, and high-resolution climate variables. All observations are geospatially aligned under the WGS84 geodetic system on a 0.25\u00b0 global grid and span the years 2000 to 2020. It is part of the EU Horizon Europe BioDT (Biodiversity Digital Twin) initiative and is intended to support large-scale environmental and biodiversity monitoring.",
+      "task": "biodiversity-monitoring",
+      "modality": "multimodal",
+      "year": 2025,
+      "links": {
+        "github": "https://github.com/BioDT/bfm-data",
+        "huggingface": "https://huggingface.co/datasets/BioDT/BioCube",
+        "paper": "https://arxiv.org/abs/2505.11568"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "bird-area-water-bodies-dataset",
+      "name": "Bird-Area Water-Bodies Dataset (BAWD)",
+      "summary": "A multi-spectral satellite imagery dataset of bird-habitat water bodies built to support an AI model for predicting avian botulism outbreaks.",
+      "description": "BAWD is a remote-sensing dataset compiling multi-temporal, multi-spectral satellite imagery over water bodies in bird habitats. It pairs ground and satellite observations to enable spatio-temporal analysis of conditions associated with avian botulism. The dataset accompanies the AVI-BoT predictive model presented in the originating paper.",
+      "task": "segmentation",
+      "modality": "Multispectral satellite imagery",
+      "links": {
+        "paper": "https://arxiv.org/abs/2105.00924"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "blackline-atlas-sam3-real-eval-v2",
+      "name": "blackline-atlas-sam3-real-eval-v2",
+      "summary": "A small evaluation pack of paired Sentinel satellite images for testing zero-shot segmentation models (SAM3/SAM3.1) on real civilian infrastructure sites.",
+      "description": "This Hugging Face dataset packages 22 cases (44 PNG files) of Sentinel satellite imagery arranged as current/baseline image pairs for civilian infrastructure sites. It is intended as an evaluation and integration dataset rather than a training benchmark, providing JSONL metadata with text prompts, expected visual-evidence tags, and normalized bounding boxes to test zero-shot segmentation capabilities of SAM3/SAM3.1. It is not pixel-mask supervision and not intended as a training set.",
+      "task": "segmentation",
+      "modality": "Satellite imagery",
+      "size": "<1K rows",
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ChrisRPL/blackline-atlas-sam3-real-eval-v2"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "blessemflood21",
+      "name": "BlessemFlood21",
+      "summary": "A high-resolution georeferenced RGB-NIR aerial dataset of the 2021 Erftstadt-Blessem flood, with water masks for flood segmentation.",
+      "description": "BlessemFlood21 is an aerial remote-sensing dataset acquired during the July 2021 flooding event in Erftstadt-Blessem, Germany, providing high-resolution (15 cm) georeferenced RGB-NIR imagery. It supplies detailed water masks produced via a semi-supervised human-in-the-loop technique that leverages NIR information to classify water versus non-water pixels. The data is organized into 4,623 tiles of 512x512 pixels split into training, validation, and test sets to support flood detection and humanitarian aid applications.",
+      "task": "segmentation",
+      "modality": "Aerial RGB-NIR imagery",
+      "numSamples": "4,623 tiles (512x512)",
+      "year": 2024,
+      "links": {
+        "paper": "https://arxiv.org/abs/2407.05007",
+        "ieee": "https://ieeexplore.ieee.org/document/10642128/"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "landcovernet",
+      "name": "LandCoverNet",
+      "summary": "A global human-labeled land cover classification training dataset based on Sentinel-2 imagery at 10 m resolution.",
+      "description": "LandCoverNet is a global benchmark training dataset for land cover classification produced by Radiant Earth Foundation from Sentinel-2 observations. It comprises 8,941 image chips of 256x256 pixels drawn from 300 geographically diverse tiles spanning Africa, Asia, Australia/Oceania, Europe, North and South America, labeled from annual 2018 time series. It defines seven land cover classes (water, natural bare ground, artificial bare ground, woody vegetation, cultivated vegetation, (semi-)natural vegetation, and permanent snow/ice), with consensus scores from three human annotators.",
+      "task": "semantic-segmentation",
+      "modality": "Multispectral satellite imagery (Sentinel-2)",
+      "numSamples": "8,941 image chips (256x256)",
+      "year": 2020,
+      "links": {
+        "paper": "https://arxiv.org/abs/2012.03111",
+        "blog": "https://medium.com/radiant-earth-insights/radiant-earth-foundation-releases-the-benchmark-training-data-landcovernet-for-africa-7e8906e846a3",
+        "download": "https://source.coop/radiantearth/landcovernet"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "borneo-forest-disturbance-dataset",
+      "name": "Borneo Forest Disturbance Dataset",
+      "summary": "A machine-learning-ready dataset of Sentinel-1 SAR and Sentinel-2 optical imagery with RADD deforestation alerts for forest disturbance detection in Borneo.",
+      "description": "The Borneo Forest Disturbance Dataset integrates Sentinel-1 SAR coherence and backscatter with Sentinel-2 (HLS) optical imagery and RADD (Radar Alerts for Detecting Deforestation) alerts to support multi-temporal forest disturbance detection and classification over Borneo. The processing pipeline performs SAR coherence calculation, cloud masking, and NDVI computation to produce machine-learning-ready tiles at 10 m (SAR) and 20 m (optical) resolution. It was developed as part of doctoral research at University College Dublin.",
+      "task": "segmentation",
+      "modality": "SAR (Sentinel-1) and optical (Sentinel-2) imagery",
+      "links": {
+        "github": "https://github.com/ColmKeyes/Borneo_Forest_Disturbance_Dataset"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "botswana",
+      "name": "Botswana (Hyperspectral Scene)",
+      "summary": "A hyperspectral Hyperion/EO-1 scene over the Okavango Delta, Botswana, with 242 bands and 14 land cover classes for classification.",
+      "description": "The Botswana scene is a hyperspectral remote-sensing benchmark acquired by the Hyperion sensor on NASA's EO-1 satellite over the Okavango Delta in Botswana. It provides 242 spectral bands covering 400-2500 nm at 30 m resolution, with 14 identified land cover classes for pixel-wise classification and segmentation. It is widely distributed as part of the Hyperspectral Remote Sensing Scenes collection.",
+      "task": "semantic-segmentation",
+      "modality": "Hyperspectral imagery (Hyperion/EO-1)",
+      "size": "242 bands, 14 classes",
+      "links": {
+        "homepage": "http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes#Botswana"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "brazilian-coffee-scenes",
+      "name": "Brazilian Coffee Scenes",
+      "summary": "A remote-sensing scene-classification dataset of SPOT image tiles labeled coffee vs. non-coffee over coffee-growing counties in Minas Gerais, Brazil.",
+      "description": "Brazilian Coffee Scenes is a scene-classification benchmark composed of 64x64-pixel tiles cropped from SPOT satellite imagery (green, red, and near-infrared bands) acquired in 2005 over four counties in Minas Gerais, Brazil (Arceburgo, Guaranesia, Guaxupe, and Monte Santo). It contains two balanced classes, coffee and non-coffee, with 1,438 images per class, manually annotated by agricultural researchers based on coffee-pixel coverage thresholds. It is organized into folds for crop-scene classification experiments.",
+      "task": "image-classification",
+      "modality": "Multispectral satellite imagery (SPOT)",
+      "size": "1K<n<10K",
+      "numSamples": "2,876 (1,438 per class)",
+      "year": 2005,
+      "links": {
+        "homepage": "http://www.patreo.dcc.ufmg.br/2017/11/12/brazilian-coffee-scenes-dataset/",
+        "download": "http://www.patreo.dcc.ufmg.br/downloads/brazilian-coffee-dataset/"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
     }
   ]
 }
