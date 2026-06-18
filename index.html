@@ -108,85 +108,202 @@
         role="tabpanel"
         aria-labelledby="tab-models"
       >
-        <div class="section-heading">
-          <h2 id="models-title">Explore foundation models</h2>
-        </div>
+        <div class="foundation-model-showcase">
+          <div class="foundation-model-showcase-copy">
+            <h2 id="models-title">Explore geospatial foundation models.</h2>
+            <p>
+              Browse major Earth observation, weather, and geospatial AI models from research labs,
+              public agencies, and open-source teams.
+            </p>
+            <a class="foundation-model-more-link" href="pages/models.html">Discover more foundation models <span aria-hidden="true">↗</span></a>
+          </div>
 
-        <div class="foundation-model-grid" aria-label="Featured geospatial foundation models">
-          <a class="foundation-model-card" href="cards/models/alphaearth.html">
-            <div class="foundation-model-card-head">
-              <span class="foundation-model-mark foundation-model-mark-google">AE</span>
-              <div>
-                <h3>AlphaEarth</h3>
-                <span class="foundation-model-pill">Google · 2025</span>
-              </div>
+          <div class="foundation-model-reel" aria-label="Featured geospatial foundation models">
+            <div class="foundation-model-reel-track">
+              <a class="foundation-model-chip" href="cards/models/alphaearth.html">
+                <span class="foundation-model-mark foundation-model-mark-alphaearth">AE</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>AlphaEarth</strong>
+                  <span>Google · Planetary embeddings</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/facebookresearch/segment-anything" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-sam">M</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>SAM</strong>
+                  <span>Meta · Segment anything</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/facebookresearch/dinov3" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-dinov3">M</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>DINOv3</strong>
+                  <span>Meta · Vision backbone</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/microsoft/satclip" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-satclip">MS</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>SatCLIP</strong>
+                  <span>Microsoft · Location embeddings</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://huggingface.co/ibm-nasa-geospatial" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-prithvi-eo">P</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Prithvi-EO</strong>
+                  <span>IBM-NASA · Open EO backbone</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-large" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-terramind">TM</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>TerraMind</strong>
+                  <span>IBM-ESA · Multimodal EO model</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://clay-foundation.github.io/model/" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-clay">C</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Clay</strong>
+                  <span>Clay Foundation · Geospatial embeddings</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/allenai/olmoearth_pretrain" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-olmoearth">AI2</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>OlmoEarth</strong>
+                  <span>Ai2 · Earth observation model</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/allenai/satlas" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-satlas">S</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Satlas</strong>
+                  <span>Ai2 · Global imagery backbone</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://www.nvidia.com/en-us/high-performance-computing/earth-2/" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-earth-2">NV</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Earth-2</strong>
+                  <span>NVIDIA · Climate simulation</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/ucam-eo/tessera" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-tessera">UC</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>TESSERA</strong>
+                  <span>University of Cambridge · EO embeddings</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/microsoft/aurora" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-aurora">A</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Aurora</strong>
+                  <span>Microsoft · Atmospheric forecasting</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://huggingface.co/ibm-granite/granite-geospatial-wxc-downscaling" target="_blank" rel="noreferrer">
+                <span class="foundation-model-mark foundation-model-mark-granite-geospatial">IBM</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Granite Geospatial</strong>
+                  <span>IBM · Weather-climate model</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="cards/models/alphaearth.html" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-alphaearth">AE</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>AlphaEarth</strong>
+                  <span>Google · Planetary embeddings</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/facebookresearch/segment-anything" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-sam">M</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>SAM</strong>
+                  <span>Meta · Segment anything</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/facebookresearch/dinov3" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-dinov3">M</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>DINOv3</strong>
+                  <span>Meta · Vision backbone</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/microsoft/satclip" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-satclip">MS</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>SatCLIP</strong>
+                  <span>Microsoft · Location embeddings</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://huggingface.co/ibm-nasa-geospatial" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-prithvi-eo">P</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Prithvi-EO</strong>
+                  <span>IBM-NASA · Open EO backbone</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-large" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-terramind">TM</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>TerraMind</strong>
+                  <span>IBM-ESA · Multimodal EO model</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://clay-foundation.github.io/model/" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-clay">C</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Clay</strong>
+                  <span>Clay Foundation · Geospatial embeddings</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/allenai/olmoearth_pretrain" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-olmoearth">AI2</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>OlmoEarth</strong>
+                  <span>Ai2 · Earth observation model</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/allenai/satlas" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-satlas">S</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Satlas</strong>
+                  <span>Ai2 · Global imagery backbone</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://www.nvidia.com/en-us/high-performance-computing/earth-2/" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-earth-2">NV</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Earth-2</strong>
+                  <span>NVIDIA · Climate simulation</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/ucam-eo/tessera" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-tessera">UC</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>TESSERA</strong>
+                  <span>University of Cambridge · EO embeddings</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://github.com/microsoft/aurora" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-aurora">A</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Aurora</strong>
+                  <span>Microsoft · Atmospheric forecasting</span>
+                </span>
+              </a>
+              <a class="foundation-model-chip" href="https://huggingface.co/ibm-granite/granite-geospatial-wxc-downscaling" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+                <span class="foundation-model-mark foundation-model-mark-granite-geospatial">IBM</span>
+                <span class="foundation-model-chip-copy">
+                  <strong>Granite Geospatial</strong>
+                  <span>IBM · Weather-climate model</span>
+                </span>
+              </a>
             </div>
-            <p>Planet-scale embeddings for land and coastal monitoring in Earth Engine.</p>
-            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
-          </a>
-
-          <a class="foundation-model-card" href="https://huggingface.co/ibm-nasa-geospatial" target="_blank" rel="noreferrer">
-            <div class="foundation-model-card-head">
-              <span class="foundation-model-mark foundation-model-mark-ibm">P</span>
-              <div>
-                <h3>Prithvi-EO</h3>
-                <span class="foundation-model-pill">IBM-NASA · 2024</span>
-              </div>
-            </div>
-            <p>Open Earth observation foundation models for flood, crop, and land-cover tasks.</p>
-            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
-          </a>
-
-          <a class="foundation-model-card" href="https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-large" target="_blank" rel="noreferrer">
-            <div class="foundation-model-card-head">
-              <span class="foundation-model-mark foundation-model-mark-esa">TM</span>
-              <div>
-                <h3>TerraMind</h3>
-                <span class="foundation-model-pill">IBM-ESA · 2025</span>
-              </div>
-            </div>
-            <p>Multimodal encoder-decoder model for optical, SAR, elevation, and climate data.</p>
-            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
-          </a>
-
-          <a class="foundation-model-card" href="https://clay-foundation.github.io/model/" target="_blank" rel="noreferrer">
-            <div class="foundation-model-card-head">
-              <span class="foundation-model-mark foundation-model-mark-clay">C</span>
-              <div>
-                <h3>Clay</h3>
-                <span class="foundation-model-pill">Clay · 2024</span>
-              </div>
-            </div>
-            <p>General-purpose geospatial embeddings trained for many sensors and resolutions.</p>
-            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
-          </a>
-
-          <a class="foundation-model-card" href="https://github.com/sustainlab-group/SatMAE" target="_blank" rel="noreferrer">
-            <div class="foundation-model-card-head">
-              <span class="foundation-model-mark foundation-model-mark-satmae">SM</span>
-              <div>
-                <h3>SatMAE</h3>
-                <span class="foundation-model-pill">SustainLab · 2022</span>
-              </div>
-            </div>
-            <p>Masked autoencoder pretraining for temporal and multispectral satellite imagery.</p>
-            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
-          </a>
-
-          <a class="foundation-model-card" href="https://github.com/Jack-bo1220/SkySense" target="_blank" rel="noreferrer">
-            <div class="foundation-model-card-head">
-              <span class="foundation-model-mark foundation-model-mark-skysense">SS</span>
-              <div>
-                <h3>SkySense</h3>
-                <span class="foundation-model-pill">Wuhan · 2024</span>
-              </div>
-            </div>
-            <p>Multimodal remote-sensing foundation model for universal image interpretation.</p>
-            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
-          </a>
-        </div>
-        <div class="browse-row">
-          <a class="foundation-model-more-link" href="pages/models.html">Discover more foundation models <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </section>
 
