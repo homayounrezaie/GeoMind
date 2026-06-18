@@ -29526,6 +29526,1347 @@
       "sources": [
         "Hugging Face"
       ]
+    },
+    {
+      "id": "breizhsr",
+      "name": "BreizhSR",
+      "summary": "A dataset for 4x super-resolution of irregularly sampled Sentinel-2 time series using very high-resolution SPOT-6/7 imagery over Brittany, France.",
+      "description": "BreizhSR pairs cloud-free Sentinel-2 time series (visible bands at 10 m resolution) with co-located SPOT-6/7 pansharpened color images resampled to 2.5 m over the Brittany region of northwestern France (about 35,000 km\u00b2, mostly agricultural). It is designed for cross-sensor multi-image super-resolution, with low- and high-resolution acquisitions close in time to mitigate seasonal effects. The dataset supports research on temporal positional encoding and multi-image super-resolution of satellite time series.",
+      "task": "super-resolution",
+      "modality": "multispectral",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2404.16409",
+        "github": "https://github.com/aimiokab/MISR-S2"
+      }
+    },
+    {
+      "id": "brightdfc2025",
+      "name": "BRIGHTDFC2025",
+      "summary": "A bi-temporal high-resolution multimodal (optical pre-disaster, SAR post-disaster) dataset for building damage assessment, used in the 2025 IEEE GRSS Data Fusion Contest.",
+      "description": "BRIGHT consists of bi-temporal high-resolution multimodal images for building damage assessment, where the pre-disaster images are optical and the post-disaster images are SAR, with manually annotated targets. The dataset is part of the 2025 IEEE GRSS Data Fusion Contest and is split into train, validation, and test splits (the test split is unlabeled in this version). It is available as a TorchGeo dataset class for change detection and damage mapping tasks.",
+      "task": "change-detection",
+      "modality": "optical + SAR",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.BRIGHTDFC2025",
+        "github": "https://github.com/ChenHongruixuan/BRIGHT",
+        "huggingface": "https://hf.co/datasets/isaaccorley/bright"
+      }
+    },
+    {
+      "id": "building3d",
+      "name": "Building3D",
+      "summary": "An urban-scale dataset of over 160,000 buildings with point clouds, mesh and wireframe models from airborne LiDAR for learning roof structures.",
+      "description": "Building3D is an urban-scale dataset comprising more than 160,000 buildings with corresponding point clouds, mesh, and wireframe models, covering 16 cities in Estonia spanning about 998 km\u00b2. It includes over 100 distinct roof types and provides supervised and self-supervised baselines for 3D building reconstruction and roof structure learning. The dataset presents challenges of high intra-class variance, data imbalance, and large-scale noise, and was introduced at ICCV 2023.",
+      "task": "segmentation",
+      "modality": "LiDAR point cloud",
+      "numSamples": 160000,
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2307.11914",
+        "homepage": "https://ieeexplore.ieee.org/document/10376547/"
+      }
+    },
+    {
+      "id": "buildingworld",
+      "name": "BuildingWorld",
+      "summary": "A global structured 3D building dataset of about five million LOD2 building models with real and simulated airborne LiDAR point clouds for urban foundation models.",
+      "description": "BuildingWorld provides about five million LOD2 building models collected from geographically and architecturally diverse regions across North America, Europe, Asia, Africa, and Oceania, accompanied by real and simulated airborne LiDAR point clouds. It includes higher-detail LOD3 models for selected cities such as Hong Kong and Greater Geelong, and introduces Cyber City, a virtual city model for generating unlimited customized training data. The dataset supports 3D building reconstruction, detection, and segmentation, with standardized evaluation metrics for training large-scale vision and foundation models.",
+      "task": "3D building reconstruction",
+      "modality": "LiDAR point cloud",
+      "numSamples": 5000000,
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2511.06337",
+        "homepage": "https://ojs.aaai.org/index.php/AAAI/article/view/37422"
+      }
+    },
+    {
+      "id": "burn-severity-atlantic-mediterranean-transition",
+      "name": "Burn severity data: heterogeneity of burn severity and bird density in an abandoned mountain landscape",
+      "summary": "Satellite-derived burn severity (dNBR) data from Sentinel-2 and Landsat over a mountain landscape in the Atlantic-Mediterranean transition of NW Iberia.",
+      "description": "This dataset contains burn severity indices computed from Sentinel-2 and Landsat satellite imagery (2010-2020) for an abandoned mountain landscape in northwestern Iberia. Burn severity is estimated via the difference in Normalized Burn Ratio (dNBR) from pre- and post-fire imagery, alongside related fire metrics such as burnt-area percentage and time since fire. It was produced to study how spatiotemporal variation in burn severity affects bird abundance in a fire-prone, rural-abandoned mountain region.",
+      "task": "burn severity mapping",
+      "modality": "multispectral",
+      "license": "CC-BY-4.0",
+      "year": 2022,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/7262062"
+      }
+    },
+    {
+      "id": "busy-parking-lot-uav-vehicle-detection",
+      "name": "Busy Parking Lot Dataset - vehicle detection in UAV video",
+      "summary": "A UAV aerial image and video dataset for vehicle detection and instance segmentation in a busy parking lot.",
+      "description": "This dataset provides aerial imagery and video captured from unmanned aerial vehicles for vehicle detection and instance segmentation in a busy parking lot scene. It supports multi-task learning approaches such as residual fully convolutional networks for vehicle instance segmentation from aerial imagery. The dataset is associated with work published in IEEE Transactions on Geoscience and Remote Sensing.",
+      "task": "detection",
+      "modality": "aerial RGB",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/zhu-xlab/Busy-parking-lot-dataset---vehicle-detection-in-UAV-video"
+      }
+    },
+    {
+      "id": "c2smsfloods",
+      "name": "C2SMSFLOODS",
+      "summary": "The Cloud to Street - Microsoft Flood Dataset of near-coincident Sentinel-1 and Sentinel-2 chips paired with water labels from 18 global flood events.",
+      "description": "C2S-MS Floods contains 900 sets (1,800 total) of near-coincident Sentinel-1 SAR and Sentinel-2 multispectral chips (512x512 pixels) from 18 global flood events occurring between 2016 and 2020. Each chip includes a water label for both sensors plus a cloud and cloud-shadow mask for Sentinel-2, with Sentinel-1 providing VV/VH polarizations and Sentinel-2 providing 13 spectral bands. The dataset was built by Cloud to Street in collaboration with the Microsoft Planetary Computer team and is hosted on the AWS Registry of Open Data.",
+      "task": "flood segmentation",
+      "modality": "SAR + multispectral",
+      "numSamples": 1800,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://registry.opendata.aws/c2smsfloods/",
+        "download": "https://radiant-mlhub.s3.us-west-2.amazonaws.com/?list-type=2&prefix=c2smsfloods%2F"
+      }
+    },
+    {
+      "id": "cadastral-grounded-dataset",
+      "name": "GroundSet (Cadastral-Grounded Dataset)",
+      "summary": "A cadastral-grounded dataset of 3.8 million annotated objects across 510k high-resolution aerial images for fine-grained spatial understanding in remote sensing.",
+      "description": "GroundSet is a cadastral-grounded dataset for spatial understanding with vector data in Earth observation, comprising 3.8 million annotated objects across 510,000 high-resolution images with 135 granular semantic categories. It addresses fine-grained spatial grounding deficiencies in multimodal large language models for remote sensing by providing high-fidelity supervision derived from cadastral vector data. The dataset is validated through an instruction-tuning benchmark spanning seven spatial reasoning tasks for applications like urban planning, environmental monitoring, and disaster management.",
+      "task": "spatial understanding",
+      "modality": "aerial RGB",
+      "numSamples": 510000,
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2603.14609"
+      }
+    },
+    {
+      "id": "california-flood-dataset",
+      "name": "California Flood Dataset",
+      "summary": "A heterogeneous multimodal change-detection benchmark pairing a Landsat-8 multispectral image and a Sentinel-1 SAR image of a 2017 flood in California.",
+      "description": "The California Flood Dataset is a widely used heterogeneous (multimodal) change-detection benchmark consisting of a single co-registered image pair covering flooded areas of Sacramento, Yuba, and Sutter Counties, California. The pre-event Landsat-8 multispectral image and post-event Sentinel-1 SAR image capture the flood that occurred in early 2017. Because the two sensors differ in modality and resolution (RGB/multispectral at ~30 m and SAR at higher resolution), it is a standard testbed for unsupervised and multimodal change-detection methods.",
+      "task": "change-detection",
+      "modality": "multispectral + SAR",
+      "year": 2019,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://ieeexplore.ieee.org/document/8798991"
+      }
+    },
+    {
+      "id": "california-wildfire-geoimaging-dataset-cwgid",
+      "name": "California Wildfire GeoImaging Dataset (CWGID)",
+      "summary": "A Sentinel-2 satellite imagery dataset built for deep-learning-driven forest wildfire detection in California.",
+      "description": "The California Wildfire GeoImaging Dataset (CWGID) is a Sentinel-2 (optical) remote-sensing dataset developed to support deep-learning models for forest and wildfire detection. It pairs pre- and post-fire satellite imagery of California wildfire events to enable burned-area mapping and fire detection. The dataset was introduced to address the scarcity of labeled, deep-learning-ready Sentinel-2 wildfire benchmarks.",
+      "task": "wildfire-detection",
+      "modality": "optical (Sentinel-2)",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2409.16380"
+      }
+    },
+    {
+      "id": "carbonbench",
+      "name": "CarbonBench",
+      "summary": "A global benchmark of over 1.3 million daily flux-tower observations combining MODIS satellite reflectance, ERA5-Land meteorology, and in-situ eddy-covariance measurements for carbon flux upscaling.",
+      "description": "CarbonBench is a multimodal Earth-observation and climate benchmark for data-driven carbon flux modelling, comprising over 1.3 million daily observations from 573 eddy-covariance flux-tower sites worldwide spanning 2000-2024. Each record fuses 12 MODIS surface-reflectance and geometry bands, configurable ERA5-Land meteorological variables, and site metadata, with targets for Gross Primary Production, Ecosystem Respiration, and Net Ecosystem Exchange. It is designed to evaluate zero-shot generalization of carbon-flux upscaling models across unseen vegetation types and Koppen climate zones.",
+      "task": "tabular-regression|time-series-forecasting",
+      "modality": "multimodal (satellite + meteorology + in-situ)",
+      "size": "5.52 GB",
+      "numSamples": "~1.4 million daily observations",
+      "license": "MIT",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/alexroz/CarbonBench"
+      }
+    },
+    {
+      "id": "carbonsense",
+      "name": "CarbonSense",
+      "summary": "The first machine-learning-ready multimodal dataset for data-driven carbon flux modelling, integrating flux measurements, meteorology, and satellite imagery from 385 global sites.",
+      "description": "CarbonSense is a multimodal dataset and baseline for data-driven carbon flux modelling (DDCFM), integrating measured carbon fluxes, meteorological predictors, and satellite imagery from 385 locations across the globe. It is positioned as the first ML-ready benchmark for this task and ships with example PyTorch dataloaders and a transformer-based baseline model. The work was presented at ICLR 2025.",
+      "task": "carbon-flux-modelling",
+      "modality": "multimodal (flux + meteorology + satellite imagery)",
+      "license": "CC BY 4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.04940",
+        "github": "https://github.com/Mila-Quebec-AI/CarbonSense"
+      }
+    },
+    {
+      "id": "carpk",
+      "name": "CARPK",
+      "summary": "A drone-captured aerial dataset of nearly 90,000 cars across four parking lots, annotated with bounding boxes for object detection and counting.",
+      "description": "The Car Parking Lot Dataset (CARPK) contains approximately 90,000 cars imaged from four different parking lots by a drone flying at roughly 40 m altitude. Every car is annotated with a bounding box, making it a benchmark for aerial object detection, localization, and counting; training scenes come from three parking lots and the test set from a fourth. It was introduced with the Layout Proposal Network (LPN) for drone-based object counting at ICCV 2017.",
+      "task": "object-detection",
+      "modality": "aerial (drone optical)",
+      "numSamples": 1448,
+      "year": 2017,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://lafi.github.io/LPN/",
+        "paper": "https://arxiv.org/abs/1707.05972"
+      }
+    },
+    {
+      "id": "cartomapqa",
+      "name": "CartoMapQA",
+      "summary": "A benchmark of over 2,000 question-answer samples evaluating vision-language models on cartographic map understanding.",
+      "description": "CartoMapQA is a benchmark dataset designed to evaluate large vision-language models on their understanding of cartographic maps through question-answering. Each of its 2,000+ samples pairs a cartographic map with an open-ended or multiple-choice question and a ground-truth answer, spanning skills such as symbol recognition, embedded-information extraction, scale interpretation, and route-based geospatial reasoning. Evaluations reveal that current LVLMs struggle with map-specific semantics, geospatial reasoning, and OCR-related errors. The work was accepted at ACM SIGSPATIAL 2025.",
+      "task": "visual-question-answering",
+      "modality": "cartographic maps + text",
+      "numSamples": "2000+",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2512.03558",
+        "homepage": "https://dl.acm.org/doi/10.1145/3748636.3762755"
+      }
+    },
+    {
+      "id": "cas-landslide-dataset",
+      "name": "CAS Landslide Dataset",
+      "summary": "A large-scale, multisensor landslide-detection dataset of 20,865 images integrating satellite and UAV data from nine global regions.",
+      "description": "The CAS Landslide Dataset is a large-scale and multisensor benchmark for deep-learning-based landslide detection, built by the Institute of Mountain Hazards and Environment, Chinese Academy of Sciences. It comprises 20,865 images integrating satellite and unmanned-aerial-vehicle (UAV) imagery from nine regions, enabling the training and evaluation of landslide identification and segmentation models. It is published in Nature Scientific Data and hosted on Zenodo.",
+      "task": "change-detection",
+      "modality": "satellite + UAV optical",
+      "numSamples": 20865,
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://www.nature.com/articles/s41597-023-02847-z",
+        "download": "https://zenodo.org/records/10294997"
+      }
+    },
+    {
+      "id": "castel-fusano-burned-area-sentinel2a-landsat8",
+      "name": "Castel Fusano Preliminary Burned Area Delineation (Sentinel-2A and Landsat 8)",
+      "summary": "Burned-area perimeters of the 2017 Castel Fusano urban-park wildfires mapped from Sentinel-2A and Landsat 8 imagery using NBR/dNBR indices.",
+      "description": "This dataset provides preliminary burned-area delineations for the July 2017 wildfires that struck the Castel Fusano Mediterranean pine forest urban park near Rome. Burned areas were mapped at 20 m (Sentinel-2A MSI) and 30 m (Landsat 8 OLI) resolution by testing NBR and dNBR spectral indices on pre- and post-fire image pairs. The released perimeters allow comparison of the two satellites for mapping the effects of the consecutive fires. The data is archived on Zenodo.",
+      "task": "burned-area-mapping",
+      "modality": "optical (Sentinel-2A + Landsat 8)",
+      "year": 2017,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/837818"
+      }
+    },
+    {
+      "id": "cau-flood",
+      "name": "CAU-Flood",
+      "summary": "A global Sentinel-1/Sentinel-2 binary change-detection dataset for flood mapping with 18,302 image patches at 10 m resolution.",
+      "description": "CAU-Flood is a multimodal SAR-optical binary change-detection dataset for flood mapping, combining Sentinel-1 and Sentinel-2 imagery into 18,302 patches of 256x256 pixels at 10 m resolution with global coverage. It supports binary change-detection (flood/no-flood) tasks across two classes. The dataset accompanies the CMCDNet change-detection method (JAG 2023).",
+      "task": "change-detection",
+      "modality": "SAR + optical (Sentinel-1 + Sentinel-2)",
+      "size": "256x256 patches, 10 m",
+      "numSamples": 18302,
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/CAU-HE/CMCDNet"
+      }
+    },
+    {
+      "id": "ccexpert",
+      "name": "CCExpert (CC-Foundation Dataset)",
+      "summary": "A large-scale remote-sensing change-captioning dataset of 200,000 bi-temporal image pairs with 1.2 million captions.",
+      "description": "CCExpert introduces the CC-Foundation Dataset, a high-quality and diversified resource for remote-sensing change captioning containing 200,000 bi-temporal image pairs and 1.2 million captions. It is designed to support continued pretraining of multimodal large language models for describing changes between paired satellite images. The accompanying CCExpert model uses a difference-aware integration module and achieves strong results on the LEVIR-CC benchmark.",
+      "task": "change-captioning",
+      "modality": "bi-temporal optical + text",
+      "numSamples": "200000 image pairs, 1.2M captions",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2411.11360",
+        "github": "https://github.com/Meize0729/CCExpert"
+      }
+    },
+    {
+      "id": "cdd",
+      "name": "CDD (Change Detection Dataset)",
+      "summary": "A season-varying remote-sensing change-detection benchmark of 16,000 image sets at 256x256 pixels sourced from Google Earth.",
+      "description": "The CDD (Change Detection Dataset) is a widely used season-varying benchmark for remote-sensing change detection, comprising real Google Earth imagery alongside synthetic variants. The season-varying subset contains 16,000 image sets of 256x256 pixels (10,000 training and the remainder for validation/test) with spatial resolutions ranging from roughly 3 to 100 cm/px. It is a standard benchmark for evaluating robustness of change-detection methods to seasonal appearance variation.",
+      "task": "change-detection",
+      "modality": "optical (Google Earth)",
+      "size": "256x256 patches",
+      "numSamples": 16000,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/13290067",
+        "homepage": "https://paperswithcode.com/dataset/cdd-dataset-season-varying"
+      }
+    },
+    {
+      "id": "cdl",
+      "name": "Cropland Data Layer (CDL)",
+      "summary": "A raster, geo-referenced, crop-specific land cover map of the continental United States produced annually by the USDA.",
+      "description": "The Cropland Data Layer (CDL), hosted on CropScape, provides a 30 m resolution crop-specific land cover classification covering the continental United States. It is derived primarily from satellite imagery and ground reference data, and includes crop mask layers, planting frequency layers, and ancillary boundary, water, and road layers. The dataset is widely used for crop mapping, land-cover and water-mapping tasks, and is available as a TorchGeo dataset class.",
+      "task": "semantic-segmentation|crop-mapping|water-mapping",
+      "modality": "Multispectral / Land-cover raster",
+      "license": "Public Domain (USDA)",
+      "links": {
+        "homepage": "https://www.nass.usda.gov/Research_and_Science/Cropland/SARS1a.php",
+        "cropscape": "https://nassgeodata.gmu.edu/CropScape/",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.CDL"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "cdvqa",
+      "name": "CDVQA",
+      "summary": "A change-detection visual question answering dataset pairing bitemporal remote sensing images with questions about object-level changes.",
+      "description": "CDVQA (Change Detection Visual Question Answering) couples bitemporal satellite/aerial imagery with natural-language question-answer pairs about changes between the two acquisitions. It supports vision-language reasoning over land-cover change in remote sensing scenes and is organized into train, validation, and test splits. The dataset was introduced in 'Change detection meets visual question answering' (IEEE TGRS, 2022).",
+      "task": "VQA",
+      "modality": "Vision-Language",
+      "year": 2022,
+      "links": {
+        "github": "https://github.com/YZHJessica/CDVQA"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "cerradata-4mm",
+      "name": "CerraData-4MM",
+      "summary": "A multimodal Sentinel-1/Sentinel-2 benchmark dataset for land use and land cover classification over the Cerrado biome.",
+      "description": "CerraData-4MM is a multimodal benchmark focused on the Bico do Papagaio ecoregion within Brazil's Cerrado biome. It combines Sentinel-1 SAR (2 channels) and Sentinel-2 multispectral imagery (12 channels) at 10 m spatial resolution, with about 30,322 patches per set. The dataset provides two hierarchical label schemes (7 and 14 classes) covering regeneration levels, deforestation increments, and agriculture types, and is benchmarked with U-Net and Vision Transformer segmentation models.",
+      "task": "segmentation; classification; land-cover-mapping",
+      "modality": "Multispectral + SAR",
+      "size": "10 m GSD",
+      "numSamples": 30322,
+      "year": 2025,
+      "links": {
+        "paper": "https://arxiv.org/abs/2502.00083",
+        "github": "https://github.com/ai4luc/CerraData-4MM"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "changenet",
+      "name": "ChangeNet",
+      "summary": "A multi-temporal asymmetric change detection dataset of 31,000 image pairs from 100 Chinese cities for binary and semantic change detection.",
+      "description": "ChangeNet is a large-scale land-cover change detection dataset containing roughly 31,000 multi-temporal image pairs collected from 100 cities in China at about 0.3 m resolution, with six pixel-level annotated categories. It introduces real-world perspective distortions between temporal phases over the same areas, supporting both binary change detection (BCD) and semantic change detection (SCD) tasks. The dataset was presented at ICASSP 2024.",
+      "task": "Change detection",
+      "modality": "Optical (very high resolution)",
+      "size": "0.3 m GSD, ~1,900x1,200 px tiles",
+      "numSamples": 31000,
+      "year": 2024,
+      "links": {
+        "paper": "https://arxiv.org/abs/2312.17428",
+        "github": "https://github.com/jankyee/ChangeNet"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "chaosbench",
+      "name": "ChaosBench",
+      "summary": "A multi-channel, physics-based benchmark for subseasonal-to-seasonal (S2S) climate prediction.",
+      "description": "ChaosBench is a benchmark dataset for evaluating data-driven and physics-based models on subseasonal-to-seasonal (S2S) climate prediction. It provides multi-channel atmospheric and surface variables and standardized evaluation protocols for forecasting at the challenging S2S time horizon. The benchmark is designed to assess the predictability limits imposed by chaotic dynamics in climate forecasting.",
+      "task": "Climate prediction / forecasting",
+      "modality": "Climate-Weather reanalysis",
+      "year": 2024,
+      "links": {
+        "paper": "https://arxiv.org/abs/2402.00712",
+        "github": "https://github.com/leap-stc/ChaosBench"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "chesapeake-cvpr",
+      "name": "ChesapeakeCVPR",
+      "summary": "High-resolution Chesapeake Bay land cover mapping dataset combining NAIP aerial imagery, Landsat 8, and multiple label layers.",
+      "description": "The CVPR 2019 Chesapeake Land Cover dataset contains two layers of NAIP aerial imagery, Landsat 8 leaf-on and leaf-off imagery, Chesapeake Bay land cover labels, NLCD land cover labels, and Microsoft building footprint labels. It was assembled to accompany the 2019 CVPR paper \"Large Scale High-Resolution Land Cover Mapping with Multi-Resolution Data\". It is widely used for semantic segmentation of land cover across the U.S. mid-Atlantic region and is available as a TorchGeo dataset class.",
+      "task": "semantic-segmentation",
+      "modality": "aerial",
+      "year": 2019,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://lila.science/datasets/chesapeakelandcover",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.ChesapeakeCVPR"
+      }
+    },
+    {
+      "id": "chesapeake-dc",
+      "name": "ChesapeakeDC",
+      "summary": "Washington, D.C. subset of the Chesapeake Bay high-resolution land cover dataset.",
+      "description": "This subset of the Chesapeake Bay land cover dataset contains high-resolution land cover label data only for Washington, D.C. It is derived from the Chesapeake Conservancy land cover product and is provided as a TorchGeo dataset class for use in land cover mapping tasks.",
+      "task": "semantic-segmentation",
+      "modality": "aerial",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://lila.science/datasets/chesapeakelandcover",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.ChesapeakeDC"
+      }
+    },
+    {
+      "id": "chesapeake-de",
+      "name": "ChesapeakeDE",
+      "summary": "Delaware subset of the Chesapeake Bay high-resolution land cover dataset.",
+      "description": "This subset of the Chesapeake Bay land cover dataset contains high-resolution land cover label data only for Delaware. It is derived from the Chesapeake Conservancy land cover product and is provided as a TorchGeo dataset class for use in land cover mapping tasks.",
+      "task": "semantic-segmentation",
+      "modality": "aerial",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://lila.science/datasets/chesapeakelandcover",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.ChesapeakeDE"
+      }
+    },
+    {
+      "id": "chesapeake-md",
+      "name": "ChesapeakeMD",
+      "summary": "Maryland subset of the Chesapeake Bay high-resolution land cover dataset.",
+      "description": "This subset of the Chesapeake Bay land cover dataset contains high-resolution land cover label data only for Maryland. It is derived from the Chesapeake Conservancy land cover product and is provided as a TorchGeo dataset class for use in land cover mapping tasks.",
+      "task": "semantic-segmentation",
+      "modality": "aerial",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://lila.science/datasets/chesapeakelandcover",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.ChesapeakeMD"
+      }
+    },
+    {
+      "id": "chesapeake-ny",
+      "name": "ChesapeakeNY",
+      "summary": "New York subset of the Chesapeake Bay high-resolution land cover dataset.",
+      "description": "This subset of the Chesapeake Bay land cover dataset contains high-resolution land cover label data only for New York. It is derived from the Chesapeake Conservancy land cover product and is provided as a TorchGeo dataset class for use in land cover mapping tasks.",
+      "task": "semantic-segmentation",
+      "modality": "aerial",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://lila.science/datasets/chesapeakelandcover",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.ChesapeakeNY"
+      }
+    },
+    {
+      "id": "chesapeake-pa",
+      "name": "ChesapeakePA",
+      "summary": "Pennsylvania subset of the Chesapeake Bay high-resolution land cover dataset.",
+      "description": "This subset of the Chesapeake Bay land cover dataset contains high-resolution land cover label data only for Pennsylvania. It is derived from the Chesapeake Conservancy land cover product and is provided as a TorchGeo dataset class for use in land cover mapping tasks.",
+      "task": "semantic-segmentation",
+      "modality": "aerial",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://lila.science/datasets/chesapeakelandcover",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.ChesapeakePA"
+      }
+    },
+    {
+      "id": "chesapeake-va",
+      "name": "ChesapeakeVA",
+      "summary": "Virginia subset of the Chesapeake Bay high-resolution land cover dataset.",
+      "description": "This subset of the Chesapeake Bay land cover dataset contains high-resolution land cover label data only for Virginia. It is derived from the Chesapeake Conservancy land cover product and is provided as a TorchGeo dataset class for use in land cover mapping tasks.",
+      "task": "semantic-segmentation",
+      "modality": "aerial",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://lila.science/datasets/chesapeakelandcover",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.ChesapeakeVA"
+      }
+    },
+    {
+      "id": "chesapeake-wv",
+      "name": "ChesapeakeWV",
+      "summary": "West Virginia subset of the Chesapeake Bay high-resolution land cover dataset.",
+      "description": "This subset of the Chesapeake Bay land cover dataset contains high-resolution land cover label data only for West Virginia. It is derived from the Chesapeake Conservancy land cover product and is provided as a TorchGeo dataset class for use in land cover mapping tasks.",
+      "task": "semantic-segmentation",
+      "modality": "aerial",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://lila.science/datasets/chesapeakelandcover",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.ChesapeakeWV"
+      }
+    },
+    {
+      "id": "chikusei-dataset",
+      "name": "Chikusei dataset",
+      "summary": "Airborne hyperspectral image of an agricultural and urban area in Chikusei, Japan, with 128 spectral bands and 19 land cover classes.",
+      "description": "The Chikusei dataset is an airborne hyperspectral scene acquired with a Headwall Hyperspec-VNIR-C sensor over agricultural and urban areas in Chikusei, Ibaraki, Japan, on July 29, 2014. The image consists of 2517x2335 pixels with a 2.5 m ground sampling distance and 128 spectral bands spanning 363-1018 nm. Ground truth is provided for 19 land cover classes collected via field survey and visual inspection, making the dataset a common benchmark for hyperspectral classification and super-resolution.",
+      "task": "hyperspectral-classification",
+      "modality": "hyperspectral",
+      "size": "2517x2335 pixels, 128 bands, 2.5 m GSD",
+      "license": "Custom (academic use)",
+      "year": 2014,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.sal.t.u-tokyo.ac.jp/hyperdata/"
+      }
+    },
+    {
+      "id": "china-owt-dataset",
+      "name": "China OWT Dataset",
+      "summary": "Sentinel-2 imagery dataset of offshore wind turbines in Chinese coastal waters for seasonally robust turbine detection.",
+      "description": "The China OWT (Offshore Wind Turbine) dataset comprises Sentinel-2 multispectral imagery over offshore regions of China annotated for offshore wind turbine detection. It accompanies the paper \"Seasonally Robust Offshore Wind Turbine Detection in Sentinel-2 Imagery Using Imaging Geometry-Aware Deep Learning\", which leverages solar and view angular metadata and seasonal image pairs to handle turbine shadow variability. The data supports object detection models that remain robust across seasons and imaging geometries.",
+      "task": "object-detection",
+      "modality": "satellite",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.3390/rs17142482"
+      }
+    },
+    {
+      "id": "china-sampled-eo-fire-panel-2015-2024",
+      "name": "China_sampled_EO_fire_panel_2015_2024",
+      "summary": "Analysis-ready sampled monthly Earth-observation fire panel for lead-1 wildfire warning in China from 2015 to 2024.",
+      "description": "This dataset provides an analysis-ready sampled monthly Earth-observation fire panel for lead-1 wildfire warning in China spanning 2015 to 2024, accompanying the manuscript \"Transfer-aware lead-1 wildfire warning in a sampled China EO-fire panel using multi-source Earth observations\". It contains leakage-controlled lead-1 feature sets (F0, F1, F2), fixed temporal and spatiotemporal validation splits, public predictor lists, predictor-group metadata, exclusion-policy documentation, result tables, and minimal reproducibility code. The panel is built from derived cell-month summaries of multi-source Earth observation data and is released as parquet files totaling roughly 192 MB.",
+      "task": "change-detection",
+      "modality": "satellite",
+      "size": "191.6 MB",
+      "license": "CC-BY-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/19916926"
+      }
+    },
+    {
+      "id": "chirps",
+      "name": "CHIRPS",
+      "summary": "A 40+ year quasi-global, high-resolution gridded rainfall dataset combining satellite infrared estimates with in-situ station observations.",
+      "description": "CHIRPS (Climate Hazards Group InfraRed Precipitation with Station data) is a quasi-global rainfall dataset spanning 60N-60S and all longitudes from 1981 to near-present at 0.05 degree resolution. It blends satellite-based thermal infrared rainfall estimates with rain-gauge station observations to produce reliable gridded precipitation time series over land. CHIRPS is widely used for trend analysis, seasonal drought monitoring, and climate early-warning applications.",
+      "task": "Climate / precipitation estimation",
+      "modality": "climate-weather",
+      "size": "0.05 degree gridded, 1981-present",
+      "license": "Public domain (USGS/UCSB)",
+      "links": {
+        "homepage": "https://www.chc.ucsb.edu/data/chirps",
+        "earthengine": "https://developers.google.com/earth-engine/datasets/catalog/UCSB-CHG_CHIRPS_DAILY",
+        "github": "https://github.com/ropensci/chirps"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "chronoearth-492k",
+      "name": "ChronoEarth-492K",
+      "summary": "A large-scale, long-horizon spatiotemporal hyperspectral Earth observation dataset built on NASA's EO-1 Hyperion archive for self-supervised learning and benchmarking.",
+      "description": "ChronoEarth-492K comprises 492,354 radiometrically harmonized hyperspectral patches across 185,398 global locations spanning 17 years (2001-2017), derived from NASA's EO-1 Hyperion mission. Of these, 28,786 sites contain multi-temporal sequences enabling both short- and long-horizon temporal analysis. The accompanying ChronoEarth-Benchmark is a unified evaluation suite covering static, short-horizon, and long-horizon tasks built from six geospatial products (land cover, crop type, forest dynamics, soil properties), targeting spatiotemporal hyperspectral foundation modeling.",
+      "task": "land-cover-mapping",
+      "modality": "hyperspectral",
+      "numSamples": 492354,
+      "year": 2026,
+      "links": {
+        "paper": "https://arxiv.org/abs/2605.15666"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "cil-global-downscaled-projections-for-climate-impacts-research",
+      "name": "CIL Global Downscaled Projections for Climate Impacts Research",
+      "summary": "A globally downscaled CMIP6 climate projection dataset (CIL-GDPCIR) provided as Zarr/STAC collections for climate impacts research.",
+      "description": "The Climate Impact Lab Global Downscaled Projections for Climate Impacts Research (CIL-GDPCIR) is a set of statistically bias-corrected and downscaled CMIP6 global climate model projections covering daily temperature and precipitation variables. The data are distributed as cloud-optimized Zarr stores and indexed via STAC on the Microsoft Planetary Computer. It supports analysis of climate change impacts at high spatial resolution across multiple emissions scenarios.",
+      "task": "Climate projection",
+      "modality": "climate-weather",
+      "links": {
+        "homepage": "https://planetarycomputer.microsoft.com/dataset/group/cil-gdpcir"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "circle-finder-challenge",
+      "name": "Circle Finder Challenge",
+      "summary": "A satellite imagery dataset and challenge from the NGA for detecting circular-shaped features such as tanks, irrigation, and traffic circles.",
+      "description": "The Circle Finder Challenge, launched by the National Geospatial-Intelligence Agency (NGA), tasks participants with detecting circular-shaped features in satellite imagery. Targets range from 3m to 300m in size and span compositions from vegetation to steel, including circular irrigation fields, fuel storage tanks, buildings, traffic circles, and fountains. Panchromatic and multispectral imagery are provided as inputs for instance segmentation and detection.",
+      "task": "Instance segmentation",
+      "modality": "satellite",
+      "links": {
+        "github": "https://github.com/zinsmatt/Circle_Finder",
+        "homepage": "https://www.nga.mil/news/1601308392346_New__NGA_challenge_offers_$50K_for_AI_solutions_to.html"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "city-osm",
+      "name": "CITY-OSM",
+      "summary": "An aerial imagery semantic segmentation benchmark with pixel-level building and road annotations across several large cities.",
+      "description": "CITY-OSM is a semantic segmentation dataset of high-resolution aerial imagery (0.1 m, 6 bands) covering multiple cities including Berlin, Chicago, and Zurich. It contains 1,671 large images (2500x2500 to 3300x3300 pixels) with pixel-level annotations for three classes: background, road, and building. The annotations are derived from OpenStreetMap, making the dataset suitable for urban building and road extraction tasks.",
+      "task": "semantic-segmentation",
+      "modality": "aerial",
+      "size": "0.1 m resolution, 6 bands",
+      "numSamples": 1671,
+      "year": 2017,
+      "links": {
+        "download": "https://zenodo.org/record/1154821"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "city-scale-vehicle-dataset",
+      "name": "City-Scale Vehicle Dataset",
+      "summary": "A city-scale aerial vehicle dataset generated via semi-supervised, bounding-box-free instance segmentation for vehicle detection and segmentation.",
+      "description": "The City-Scale Vehicle Dataset was produced using bounding-box-free instance segmentation with semi-supervised learning to annotate vehicles in aerial/remote-sensing imagery at city scale. It supports vehicle detection, semantic segmentation, and classification tasks over urban areas. The dataset and method are described in the associated paper.",
+      "task": "object-detection",
+      "modality": "aerial",
+      "year": 2021,
+      "links": {
+        "paper": "https://arxiv.org/abs/2111.12122"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "clcd",
+      "name": "CLCD",
+      "summary": "A cropland change detection dataset of 600 bitemporal GF-2 satellite image pairs over Guangdong, China.",
+      "description": "CLCD (Cropland Change Detection) consists of 600 pairs of farmland change images derived from GF-2 satellite imagery captured over Guangdong Province, China, in 2017 and 2019. Each image is 512x512 pixels with a spatial resolution of 0.5-2 m, and primary change types include buildings, roads, lakes, and bare land. The dataset is split into 360/120/120 pairs for training, validation, and testing and serves as a standard benchmark for cropland change detection.",
+      "task": "change-detection",
+      "modality": "satellite",
+      "size": "512x512, 0.5-2 m, GF-2",
+      "numSamples": 600,
+      "year": 2022,
+      "links": {
+        "github": "https://github.com/liumency/CropLand-CD"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "climart",
+      "name": "ClimART",
+      "summary": "A large-scale benchmark dataset for machine-learning emulation of atmospheric radiative transfer in weather and climate models.",
+      "description": "ClimART provides more than 10 million samples of atmospheric profiles and the corresponding radiative transfer outputs (shortwave and longwave heating rates and fluxes) computed for present, pre-industrial, and future climate conditions using the Canadian Earth System Model. It is designed to standardize the evaluation of neural-network emulators that replace the expensive radiative-transfer step in climate simulators. The benchmark poses methodological challenges including multiple out-of-distribution test sets and an accuracy-versus-inference-speed trade-off.",
+      "task": "Atmospheric radiative transfer emulation",
+      "modality": "Tabular / atmospheric profiles",
+      "numSamples": "10M+",
+      "year": 2021,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/RolnickLab/climart",
+        "paper": "https://arxiv.org/abs/2111.14671",
+        "openreview": "https://openreview.net/forum?id=FZBtIpEAb5J"
+      }
+    },
+    {
+      "id": "climdetect",
+      "name": "ClimDetect",
+      "summary": "A benchmark dataset of daily climate snapshots for detecting and attributing climate-change signals.",
+      "description": "ClimDetect comprises over 816k (up to 1.17M) daily climate snapshots paired with target climate-change indicator variables, curated from CMIP6 climate-model simulations and observation-assimilated reanalysis products (ERA5, JRA-3Q, and MERRA-2). It is designed to standardize climate-change detection and attribution research by integrating input and target variables used across prior studies for consistency and comparability. The accompanying work explores applying vision transformers to distinguish human-induced climate signals from natural variability.",
+      "task": "Climate change detection and attribution",
+      "modality": "Gridded climate reanalysis / model output",
+      "numSamples": "816k-1.17M daily snapshots",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ClimDetect/ClimDetect",
+        "paper": "https://arxiv.org/abs/2408.15993"
+      }
+    },
+    {
+      "id": "climkern",
+      "name": "ClimKern",
+      "summary": "A repository of radiative kernel datasets for computing climate feedbacks from model and reanalysis output.",
+      "description": "ClimKern is a kernel database containing 11 sets of radiative kernels with a common nomenclature and data structure, where each kernel captures the radiative sensitivity of top-of-atmosphere or surface radiation to changes in temperature, specific humidity, and surface albedo. The kernel datasets, computed via offline radiative transfer, are hosted on Zenodo and accompanied by a Python package for downloading and computing radiative feedbacks. The standardized collection addresses the difficulty of locating and consistently comparing radiative kernels across studies.",
+      "task": "Climate feedback / radiative kernel analysis",
+      "modality": "Gridded radiative kernels",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/tyfolino/climkern",
+        "paper": "https://gmd.copernicus.org/articles/18/3065/2025/"
+      }
+    },
+    {
+      "id": "climsim",
+      "name": "ClimSim",
+      "summary": "An open, large-scale multi-scale dataset for training high-resolution physics emulators in hybrid ML-physics climate simulators.",
+      "description": "ClimSim consists of 5.7 billion pairs of multivariate input and output vectors that isolate the influence of locally-nested, high-resolution, high-fidelity physics on a host climate simulator's macro-scale physical state. The data is global in coverage, spans multiple years at high sampling frequency, and is structured so that resulting emulators can be coupled back into operational climate simulators. It is the largest and most physically comprehensive dataset for training ML emulators of atmospheric storms, clouds, turbulence, rainfall, and radiation.",
+      "task": "Climate physics emulation",
+      "modality": "Tabular / gridded climate simulation output",
+      "numSamples": "5.7B input-output pairs",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/leap-stc/ClimSim",
+        "homepage": "https://leap-stc.github.io/ClimSim",
+        "huggingface": "https://huggingface.co/datasets/LEAP/ClimSim_high-res",
+        "paper": "https://arxiv.org/abs/2306.08754"
+      }
+    },
+    {
+      "id": "on-cloud-n-cloud-cover-detection-challenge",
+      "name": "On Cloud N: Cloud Cover Detection Challenge",
+      "summary": "A Sentinel-2 cloud cover detection dataset of human-labeled cloud masks spanning imagery and cloud conditions across three continents, released for the DrivenData On Cloud N challenge.",
+      "description": "This dataset underpins the DrivenData \"On Cloud N: Cloud Cover Detection Challenge\", where the task is to segment cloudy pixels in multispectral satellite imagery. Feature data comes from the Sentinel-2 mission via Microsoft's Planetary Computer, with each tile providing multiple spectral bands across the visible, near-infrared and infrared range. The cloud cover ground-truth labels were produced as a human-verified dataset by the Radiant Earth Foundation, covering diverse imagery and cloud conditions across three continents. It supports development and benchmarking of cloud segmentation models for masking clouds prior to downstream Earth-surface analysis.",
+      "task": "cloud detection / segmentation",
+      "modality": "Optical / multispectral satellite imagery (Sentinel-2)",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.drivendata.org/competitions/83/cloud-cover/",
+        "github": "https://github.com/drivendataorg/cloud-cover-winners",
+        "blog": "https://drivendata.co/blog/cloud-cover-benchmark"
+      }
+    },
+    {
+      "id": "cloud-gap-filling-grassland-monitoring",
+      "name": "Cloud Gap-Filling for Grassland Monitoring",
+      "summary": "A Sentinel-1/Sentinel-2 dataset for deep-learning cloud gap-filling and mowing-event detection over grasslands in Lithuania.",
+      "description": "This dataset supports cloud gap-filling with deep learning for improved grassland monitoring, integrating Sentinel-2 optical imagery and Sentinel-1 synthetic aperture radar data to reconstruct vegetation signals where clouds obstruct continuous monitoring. It includes NDVI time series, SAR backscatter (VV/VH) and coherence measurements, feature matrices with training/validation splits, grassland parcel geometries as GeoJSON polygons, and expert-validated mowing event labels for parcels in Lithuania. The data is intended for training models that fill optical gaps and detect grassland management events such as mowing.",
+      "task": "cloud gap-filling / grassland monitoring",
+      "modality": "Sentinel-2 optical and Sentinel-1 SAR time series",
+      "size": "1.1 GB zip (157.6 GB total)",
+      "license": "CC-BY-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/11651601",
+        "doi": "https://doi.org/10.5281/zenodo.11651601"
+      }
+    },
+    {
+      "id": "clrs",
+      "name": "CLRS",
+      "summary": "A continual-learning benchmark for remote sensing image scene classification with 15,000 images across 25 scene classes collected worldwide.",
+      "description": "CLRS (Continual Learning Benchmark for Remote Sensing Image Scene Classification) contains 15,000 remote sensing images evenly distributed across 25 scene classes such as airport, beach, bridge, farmland, forest, port, railway-station and stadium. Each class has 600 images of size 256x256 pixels, with spatial resolutions ranging from 0.26 m to 8.85 m, collected from more than 100 countries and regions. Unlike conventional scene-classification datasets, CLRS provides a training-batch partitioning standard so that continual/lifelong learning algorithms can be evaluated and compared on remote sensing scene classification.",
+      "task": "scene classification",
+      "modality": "Optical remote sensing imagery",
+      "size": "15,000 images, 25 classes, 256x256",
+      "numSamples": 15000,
+      "year": 2020,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/lehaifeng/CLRS",
+        "paper": "https://www.mdpi.com/1424-8220/20/4/1226"
+      }
+    },
+    {
+      "id": "cmab",
+      "name": "CMAB",
+      "summary": "The first national-scale multi-attribute building dataset for China, providing rooftop, height, function, age and quality attributes for about 29 million buildings.",
+      "description": "CMAB (China Multi-Attribute Building dataset) is the first national-scale multi-attribute building dataset for China, derived from open-source data using a geospatial AI (GeoAI) framework. It covers 3,667 cities with around 29 million buildings and 21.3 billion square meters of rooftops, combining billions of high-resolution Google Earth images and roughly 60 million street view images. For each building it provides multiple attributes including rooftop footprint, height, function, age and quality, generated with deep learning models (e.g. OCRNet rooftop extraction at ~89.9% F1) and bootstrap-aggregated XGBoost attribute models. It supports urban analysis, building stock estimation and large-scale building modeling.",
+      "task": "building extraction / multi-attribute modeling",
+      "modality": "High-resolution optical satellite and street-view imagery",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2408.05891"
+      }
+    },
+    {
+      "id": "cmip6-datasets",
+      "name": "CMIP6 Datasets",
+      "summary": "The output archive of phase 6 of the Coupled Model Intercomparison Project, providing global climate model simulations underpinning climate projections.",
+      "description": "CMIP6 Datasets provide access to the outputs of the current phase 6 of the Coupled Model Intercomparison Project (CMIP), a coordinated international effort in which dozens of global climate models run standardized experiments. CMIP6 global climate model simulations form a base for much of what is known about the future climate, including projections used in IPCC assessments. The data spans many variables, scenarios and Earth-system models, and is widely used for climate-weather analysis, downscaling and impact studies.",
+      "task": "climate modeling / projection",
+      "modality": "Global climate model output (gridded climate data)",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://pcmdi.github.io/CMIP6/"
+      }
+    },
+    {
+      "id": "cms-global-mangrove-canopy",
+      "name": "CMS Global Mangrove Canopy",
+      "summary": "A global 30 m resolution map of mangrove canopy properties including aboveground biomass and canopy height, available as a TorchGeo dataset.",
+      "description": "The CMS Global Mangrove Canopy dataset consists of single-band maps at 30 m resolution providing mangrove canopy properties: aboveground biomass (agb), basal-area-weighted height (hba95), or maximum canopy height (hmax95). It is distributed by NASA's ORNL DAAC as part of the Carbon Monitoring System (CMS) and must be downloaded manually after creating an account. The dataset is exposed in TorchGeo via the CMSGlobalMangroveCanopy class for forest and mangrove monitoring applications.",
+      "task": "forest / mangrove monitoring",
+      "modality": "Raster geospatial map (30 m resolution)",
+      "size": "30 m resolution global single-band maps",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.CMSGlobalMangroveCanopy",
+        "download": "https://www.earthdata.nasa.gov/data/catalog/ornl-cloud-cms-global-map-mangrove-canopy-1665-1.3"
+      }
+    },
+    {
+      "id": "cnam-cd",
+      "name": "CNAM-CD",
+      "summary": "A pixel-level multi-category semantic change detection dataset over China's state-level new areas built from high-resolution Google Earth imagery.",
+      "description": "CNAM-CD is a semantic change detection (SCD) dataset covering 12 state-level New Areas in China, derived from high-resolution Google Earth optical imagery. It consists of 2,503 bitemporal image pairs of size 512x512 at 0.5 m resolution, with pixel-level annotations across six land-cover classes including impervious surface, bare ground, vegetation and water bodies. The dataset is intended for training and evaluating multi-class land-cover change detection models, and samples are organized by new area to support generalization testing.",
+      "task": "change detection",
+      "modality": "Optical / multispectral satellite imagery",
+      "size": "2,503 image pairs, 512x512 at 0.5m",
+      "numSamples": 2503,
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/Silvestezhou/CNAM-CD",
+        "download": "https://drive.google.com/file/d/1w6tDfE-F4o3Q4KGh1jzzIRpIlIUIXXrx/view?usp=sharing"
+      }
+    },
+    {
+      "id": "caco",
+      "name": "CACo",
+      "summary": "A large-scale satellite image dataset for change-aware sampling and contrastive self-supervised pre-training, introduced at CVPR 2023.",
+      "description": "CACo (Change-Aware Sampling and Contrastive Learning for Satellite Images) is a remote-sensing dataset and self-supervised learning method from Cornell University, published at CVPR 2023. It provides multi-temporal satellite imagery used to pre-train vision encoders with a change-aware contrastive objective, enabling representations sensitive to temporal change. The released training data and pretrained checkpoints support downstream tasks such as change detection and land-cover classification, with evaluation on benchmarks like BigEarthNet, DynamicEarthNet and OSCD.",
+      "task": "self-supervised pre-training",
+      "modality": "Satellite imagery / Earth observation",
+      "license": "MIT",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/utkarshmall13/CACo",
+        "homepage": "https://research.cs.cornell.edu/caco/",
+        "download": "https://research.cs.cornell.edu/caco/data/caco/"
+      }
+    },
+    {
+      "id": "nwpu-refer",
+      "name": "NWPU-Refer",
+      "summary": "A large-scale referring remote sensing image segmentation dataset that pairs high-resolution aerial/satellite imagery with natural-language referring expressions.",
+      "description": "NWPU-Refer is a large-scale benchmark for Referring Remote Sensing Image Segmentation (RRSIS), where the goal is to segment objects described by natural-language expressions. It contains 15,003 high-resolution images (1024-2048 px) spanning more than 30 countries, with 49,745 annotated targets covering single-object, multi-object and non-object scenarios. The dataset is released alongside the Multi-scale Referring Segmentation Network (MRSNet) as a benchmark for language-guided remote sensing segmentation.",
+      "task": "referring image segmentation",
+      "modality": "Optical remote sensing imagery",
+      "size": "15,003 images, 49,745 annotated targets",
+      "numSamples": 15003,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/CVer-Yang/NWPU-Refer",
+        "paper": "https://arxiv.org/abs/2506.03583"
+      }
+    },
+    {
+      "id": "cot-ad",
+      "name": "COT-AD: Cotton Analysis Dataset",
+      "summary": "A multi-modal cotton crop dataset of aerial and DSLR imagery for field-scale and disease-level cotton analysis tasks.",
+      "description": "COT-AD comprises over 25,000 images captured throughout the cotton growth cycle, including aerial imagery for field-scale detection and segmentation and high-resolution DSLR images documenting key diseases, with 5,000 annotated images. Annotations cover pest and disease recognition, vegetation, and weed analysis, addressing a gap in cotton-specific agricultural datasets. The dataset supports classification, segmentation, image restoration and enhancement, and deep generative cotton crop synthesis for early disease management and data-driven crop management.",
+      "task": "segmentation; classification; detection",
+      "modality": "aerial imagery; DSLR imagery",
+      "numSamples": 25000,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://aamaanakbar.github.io/COT-AD/",
+        "paper": "https://arxiv.org/abs/2507.18532",
+        "dataport": "https://ieee-dataport.org/documents/cot-adcotton-analysis-dataset"
+      }
+    },
+    {
+      "id": "flair-country-scale-land-cover-semantic-segmentation-dataset",
+      "name": "FLAIR: a Country-Scale Land Cover Semantic Segmentation Dataset",
+      "summary": "A country-scale French land cover semantic segmentation dataset combining high-resolution aerial imagery with satellite time series.",
+      "description": "FLAIR (French Land cover from Aerospace ImageRy), from the French National Institute of Geographical and Forest Information (IGN), provides high-resolution aerial imagery at 20 cm ground sample distance with over 20 billion individually labeled pixels for land-cover classification. It integrates temporal and spectral data from optical satellite time series, combining sources with varying spatial, spectral, and temporal resolutions. Acquisitions span over 800 km2 representing the full landscape diversity of France, supporting multi-source semantic segmentation research.",
+      "task": "semantic-segmentation",
+      "modality": "aerial imagery; optical satellite time series",
+      "license": "Open license (Etalab)",
+      "year": 2023,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://ignf.github.io/FLAIR/",
+        "paper": "https://arxiv.org/abs/2310.13336",
+        "neurips": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/353ca88f722cdd0c481b999428ae113a-Abstract-Datasets_and_Benchmarks.html"
+      }
+    },
+    {
+      "id": "cranberry-aerial-imagery-dataset",
+      "name": "CRanberry Aerial Imagery Dataset (CRAID)",
+      "summary": "An aerial (drone) imagery dataset of cranberry bogs for segmentation and counting of cranberries under point supervision.",
+      "description": "CRAID (CRanberry Aerial Imagery Dataset) contains 21,436 cranberry images of size 456x608 collected with a Phantom 4 drone at fixed camera settings, with an average of 39.22 cranberries per image. Annotations include center points and berry-wise annotations using low-cost center point supervision. The dataset was introduced in 'Finding Berries: Segmentation and Counting of Cranberries using Point Supervision and Shape Priors' (CVPRW 2020) for fruit segmentation and counting from aerial imagery.",
+      "task": "semantic-segmentation",
+      "modality": "aerial imagery (drone)",
+      "numSamples": 21436,
+      "year": 2020,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://periakiva.github.io/research/finding_berries/index",
+        "paper": "https://arxiv.org/abs/2004.08501",
+        "github": "https://github.com/periakiva/finding_berries"
+      }
+    },
+    {
+      "id": "crasar-u-droids",
+      "name": "CRASAR-U-DROIDs",
+      "summary": "A large-scale benchmark of georectified sUAS (drone) orthomosaics for building alignment and damage assessment after disasters.",
+      "description": "CRASAR-U-DROIDs consists of 52 orthomosaics from ten federally declared disasters (including Hurricanes Ian, Ida, Harvey, Idalia, Laura, and Michael, the Mayfield Tornado, Kilauea Eruption, and Champlain Towers Collapse) spanning roughly 68 square kilometers. It contains 21,716 building polygons with damage labels following the Joint Damage Scale plus 7,880 adjustment annotations, with polygons spatially aligned to the imagery. It is the largest published dataset of labeled orthomosaics collected from small uncrewed aerial systems in terms of pixels and building count.",
+      "task": "building damage assessment; building alignment",
+      "modality": "georectified sUAS (drone) orthomosaics",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/CRASAR/CRASAR-U-DROIDs",
+        "paper": "https://arxiv.org/abs/2407.17673"
+      }
+    },
+    {
+      "id": "crcd-wrcd",
+      "name": "CRCD, WRCD",
+      "summary": "Aerial and Google Earth road change-detection datasets covering Christchurch (New Zealand) and Wuhan (China).",
+      "description": "CRCD and WRCD are binary road change-detection datasets introduced in a TITS 2022 work. They comprise aerial images and Google Earth imagery, with 3,237 and 1,960 image pairs respectively at 512x512 pixels and resolutions of 0.2 m and 1.14 m. The datasets cover Christchurch, New Zealand and the Jiangxia district of Wuhan, China.",
+      "task": "binary change detection",
+      "modality": "aerial imagery; Google Earth optical imagery",
+      "year": 2022,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "http://www.lmars.whu.edu.cn/suihaigang/index"
+      }
+    },
+    {
+      "id": "cropscd",
+      "name": "CropSCD",
+      "summary": "A semantic change-detection dataset for cropland in Guangdong, China.",
+      "description": "CropSCD is a semantic change-detection dataset focused on cropland, introduced in a TGRS 2024 work. It contains 4,141 image pairs at 512x512 pixels with resolutions of 0.5-2 m, covering Guangdong Province, China across 9 change categories. It supports cropland semantic change detection from high-resolution optical imagery.",
+      "task": "semantic change detection",
+      "modality": "optical imagery",
+      "numSamples": 4141,
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/lsmlyn/CropSCD"
+      }
+    },
+    {
+      "id": "global-crop-specific-fertilization-dataset",
+      "name": "Global Crop-Specific Fertilization Dataset (1961-2019)",
+      "summary": "Global gridded maps of nitrogen, phosphorus, and potassium fertilizer application rates for 13 major crop groups from 1961 to 2019.",
+      "description": "This dataset provides 5-arcmin resolution gridded maps of nitrogen (N), phosphorus pentoxide (P2O5), and potassium oxide (K2O) fertilizer application rates for 13 major crop groups spanning 1961 to 2019. Country-level application rates were predicted using machine learning models (eXtreme Gradient Boosting and HistGradientBoosting) and downscaled to gridded crop-specific maps. The dataset fills gaps in high-quality global fertilization data to support analyses on food security and climate change, and was published in Nature Scientific Data.",
+      "task": "agricultural / fertilization mapping",
+      "modality": "gridded geospatial maps (5-arcmin)",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.10001",
+        "journal": "https://www.nature.com/articles/s41597-024-04215-x"
+      }
+    },
+    {
+      "id": "cross-modal-super-resolution-dataset",
+      "name": "Cross-Modal Super-Resolution Dataset (CMSRD)",
+      "summary": "A cross-modal remote sensing super-resolution benchmark introduced for large-scale-factor image super-resolution guided by semantic and reference information.",
+      "description": "CMSRD was introduced with the paper 'Semantic Guided Large Scale Factor Remote Sensing Image Super-resolution with Generative Diffusion Prior' to validate and evaluate large-scale-factor super-resolution of remote sensing imagery. It pairs low-resolution imagery with high-resolution targets across modalities and is used together with a semantic-guided diffusion model (SGDM). The dataset and code are released through the SGDM project.",
+      "task": "super-resolution",
+      "modality": "optical",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2405.07044",
+        "github": "https://github.com/wwangcece/SGDM"
+      }
+    },
+    {
+      "id": "cross-sensor-bastrop",
+      "name": "Cross-sensor Bastrop",
+      "summary": "A multi-sensor change detection benchmark of Bastrop, Texas wildfire imagery acquired by different satellite sensors.",
+      "description": "Cross-sensor Bastrop is a change detection dataset covering the 2011 Bastrop County (Texas) wildfire, with image pairs acquired by different sensors and resolutions. It contains 4 image pairs across 2 change categories, with resolutions of 30 m and 120 m, 7 and 9 spectral bands, and image sizes up to 1534x808 pixels. It is widely used to evaluate heterogeneous (multi-sensor) change detection methods.",
+      "task": "change-detection",
+      "modality": "multispectral",
+      "year": 2015,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://sites.google.com/site/michelevolpiresearch/codes/cross-sensor"
+      }
+    },
+    {
+      "id": "crossviewret",
+      "name": "CrossViewRet",
+      "summary": "A 6-class ground-to-aerial cross-view image dataset for cross-view image retrieval.",
+      "description": "CrossViewRet is a cross-view image dataset introduced with 'Cross-View Image Retrieval -- Ground to Aerial Image Retrieval through Deep Learning' to support the cross-view image retrieval (CVIR) task. It comprises six classes (freeway, mountain, palace, river, ship, and stadium) with paired dual-view (ground and aerial) images, around 700 dual-view images per class. It serves as a baseline benchmark for matching street-view images against satellite/aerial-view images and vice versa.",
+      "task": "cross-view-image-retrieval",
+      "modality": "optical",
+      "year": 2020,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2005.00725",
+        "huggingface": "https://huggingface.co/papers/2005.00725"
+      }
+    },
+    {
+      "id": "crowdai-mapping-challenge",
+      "name": "CrowdAI Mapping Challenge",
+      "summary": "A large-scale building footprint segmentation dataset of 300x300 RGB satellite tiles with polygonal annotations in MS-COCO format.",
+      "description": "The CrowdAI Mapping Challenge dataset was released for an automated building footprint extraction competition using a simplified, RGB-only version of SpaceNet imagery. It provides roughly 280,741 training and 60,317 test tiles of 300x300 pixel RGB satellite imagery with polygonal building annotations (about 2.9 million instances) in MS-COCO format. It is one of the most widely used benchmarks for building footprint segmentation and vectorization in remote sensing.",
+      "task": "instance-segmentation",
+      "modality": "optical",
+      "numSamples": 341058,
+      "year": 2018,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.crowdai.org/challenges/mapping-challenge"
+      }
+    },
+    {
+      "id": "crsvqa",
+      "name": "CRSVQA",
+      "summary": "A remote sensing visual question answering dataset with manually curated image-question-answer triples.",
+      "description": "CRSVQA is a visual question answering dataset for remote sensing imagery, introduced in an IEEE TGRS paper on attention-based remote sensing VQA. It pairs aerial/satellite images with natural-language questions and answers, containing on the order of 600 images and several thousand question-answer pairs. It is used to benchmark vision-language models on remote sensing interpretation and reasoning.",
+      "task": "visual-question-answering",
+      "modality": "optical",
+      "year": 2022,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://ieeexplore.ieee.org/abstract/document/10242124"
+      }
+    },
+    {
+      "id": "cshapes",
+      "name": "CShapes",
+      "summary": "A GIS dataset of historical country boundaries and capitals from 1946 to the present.",
+      "description": "CShapes is a GIS dataset providing historical maps of state boundaries and capitals in the international system since 1946. It encodes changes in country borders over time and supports computation of distance matrices between states. It is distributed as an R package and is widely used in political science and geospatial analyses of states over time.",
+      "task": "vector-boundaries",
+      "modality": "vector",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://cran.r-project.org/web/packages/cshapes/index.html"
+      }
+    },
+    {
+      "id": "maize-seedling-detection-dataset",
+      "name": "Maize Seedling Detection Dataset (MSDD)",
+      "summary": "A curated high-resolution RGB UAV imagery dataset for maize seedling detection and stand counting.",
+      "description": "MSDD is a curated high-resolution RGB aerial image dataset for early-season maize seedling detection, counting, and benchmarking. It contains three classes (single, double, and triple plants) and captures diverse growth stages, planting setups, soil types, lighting conditions, camera angles, and densities. It is benchmarked with object detectors including YOLOv9, YOLO11, YOLOv12, and Faster-RCNN for crop monitoring and yield-related applications.",
+      "task": "object-detection",
+      "modality": "optical",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2509.15181",
+        "huggingface": "https://huggingface.co/papers/2509.15181"
+      }
+    },
+    {
+      "id": "cv4a-kenya-crop-type",
+      "name": "CV4A Kenya Crop Type",
+      "summary": "A Sentinel-2 time-series dataset of Kenyan farm fields labeled by crop type for field-level crop classification.",
+      "description": "The CV4A Kenya Crop Type Competition dataset was produced for the Crop Type Detection competition at the Computer Vision for Agriculture (CV4A) workshop at ICLR 2020. It consists of Sentinel-2 multispectral imagery collected over the growing season with field boundaries and crop-type labels, supporting machine learning models that classify fields by crop type. It is available through Radiant Earth / Source Cooperative and is wrapped by the TorchGeo CV4AKenyaCropType dataset class.",
+      "task": "crop-type-classification",
+      "modality": "multispectral",
+      "year": 2020,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://source.coop/radiantearth/african-crops-kenya-02",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.CV4AKenyaCropType"
+      }
+    },
+    {
+      "id": "cvact",
+      "name": "CVACT",
+      "summary": "A large-scale cross-view geo-localization dataset of paired ground-level panoramas and aerial images covering Canberra, Australia.",
+      "description": "CVACT is a cross-view geo-localization benchmark introduced with 'Lending Orientation to Neural Networks for Cross-view Geo-localization'. It provides pairs of ground-level panoramic street images and corresponding overhead aerial/satellite images covering the Canberra (ACT) region of Australia, with orientation information. It is a standard dataset for evaluating ground-to-aerial image matching, geo-localization, and cross-view synthesis methods.",
+      "task": "cross-view-geo-localization",
+      "modality": "optical",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/Liumouliu/OriCNN"
+      }
+    },
+    {
+      "id": "sky-sa",
+      "name": "Sky-SA",
+      "summary": "A fine-grained open-world remote sensing interpretation dataset with dense pixel-level image-text annotations.",
+      "description": "Sky-SA is a fine-grained vision-language remote sensing dataset introduced with SkySense-O at CVPR 2025 for open-world remote sensing interpretation. It contains 183,375 high-quality local image-text pairs with full-pixel manual annotations across 1,763 category labels, offering richer semantics and higher annotation density than prior datasets. It supports training and evaluation of vision-centric visual-language models for recognition, reasoning, and segmentation.",
+      "task": "vision-language",
+      "modality": "optical",
+      "numSamples": 183375,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhu_SkySense-O_Towards_Open-World_Remote_Sensing_Interpretation_with_Vision-Centric_Visual-Language_Modeling_CVPR_2025_paper.html",
+        "github": "https://github.com/zqcrafts/SkySense-O"
+      }
+    },
+    {
+      "id": "spacenet-8",
+      "name": "SpaceNet 8 (Flood Detection)",
+      "summary": "A high-resolution satellite dataset for detecting flooded roads and buildings during flood events.",
+      "description": "SpaceNet 8 is a flood-mapping benchmark providing high-resolution Maxar satellite imagery (0.3-0.8 m) of areas affected by flooding in Germany and Louisiana, USA. It includes pre- and post-event imagery in 1300x1300 tiles with annotations for buildings, roads, and their flood status, supporting detection of flooded roads and buildings. It was introduced at the EarthVision workshop at CVPR 2022.",
+      "task": "flood-detection",
+      "modality": "optical",
+      "year": 2022,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2022W/EarthVision/papers/Hansch_SpaceNet_8_-_The_Detection_of_Flooded_Roads_and_Buildings_CVPRW_2022_paper.pdf"
+      }
+    },
+    {
+      "id": "urbansarfloods",
+      "name": "UrbanSARFloods",
+      "summary": "A Sentinel-1 SLC-based benchmark dataset for urban and open-area flood mapping using SAR intensity and interferometric coherence.",
+      "description": "UrbanSARFloods is the first Sentinel-1 SLC benchmark dataset for large-scale flood mapping covering both open-area and urban floods. It provides 8,879 512x512 chips with 8 bands of pre-, post-, and co-event Sentinel-1 intensity (VV/VH) and interferometric coherence, spanning 18 flood events across 5 continents. All chips are semi-automatically labeled, with three subsets manually annotated using high-resolution PlanetScope and UAV optical reference data.",
+      "task": "semantic-segmentation",
+      "modality": "SAR",
+      "size": "8,879 chips of 512x512 at 20m",
+      "numSamples": 8879,
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.04111",
+        "github": "https://github.com/jie666-6/UrbanSARFloods",
+        "homepage": "https://openaccess.thecvf.com/content/CVPR2024W/EarthVision/html/Zhao_UrbanSARFloods_Sentinel-1_SLC-Based_Benchmark_Dataset_for_Urban_and_Open-Area_Flood_CVPRW_2024_paper.html"
+      }
+    },
+    {
+      "id": "deepglobe-road-extraction",
+      "name": "DeepGlobe 2018 Road Extraction Challenge",
+      "summary": "A high-resolution satellite imagery benchmark for automatically extracting road networks via semantic segmentation.",
+      "description": "The DeepGlobe 2018 Road Extraction Challenge dataset provides high-resolution satellite imagery for pixel-wise road extraction. The training set contains 6,226 RGB satellite images of size 1024x1024 with corresponding road masks, sampled from DigitalGlobe Vivid imagery captured over Thailand, Indonesia, and India. It is a standard benchmark for road segmentation, widely used with models such as D-LinkNet.",
+      "task": "semantic-segmentation",
+      "modality": "RGB satellite imagery",
+      "size": "6,226 training images of 1024x1024",
+      "numSamples": 6226,
+      "year": 2018,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.kaggle.com/datasets/balraj98/deepglobe-road-extraction-dataset",
+        "github": "https://github.com/zlckanata/DeepGlobe-Road-Extraction-Challenge",
+        "paper": "https://doi.org/10.1109/cvprw.2018.00034"
+      }
+    },
+    {
+      "id": "cvusa",
+      "name": "CVUSA",
+      "summary": "A large-scale cross-view (ground/street-view to aerial/satellite) geo-localization benchmark covering the United States.",
+      "description": "The Cross-View USA (CVUSA) dataset pairs ground-level panoramic street-view images with corresponding overhead satellite imagery for cross-view geo-localization. The original set contains over 1 million ground and aerial images; the commonly used subset includes 35,532 street-aerial pairs for training and 8,884 pairs for testing. It is a standard benchmark for matching street-level views to satellite views and for cross-view synthesis.",
+      "task": "cross-view-geo-localization",
+      "modality": "street-view and satellite imagery",
+      "numSamples": 44416,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://mvrl.cse.wustl.edu/datasets/cvusa/"
+      }
+    },
+    {
+      "id": "cwscd",
+      "name": "CWSCD",
+      "summary": "A very-high-resolution optical building change detection dataset over Hebei, China.",
+      "description": "CWSCD is a building change detection dataset built from BJ-2 and GF-2 very-high-resolution optical satellite imagery over Hebei, China. It contains 200 image pairs of 2048x2048 at 1m resolution covering 2 time points, intended for binary building change detection.",
+      "task": "change-detection",
+      "modality": "optical satellite imagery",
+      "size": "200 pairs of 2048x2048 at 1m",
+      "numSamples": 200,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/yuruqingsi/CWSCD-dataset"
+      }
+    },
+    {
+      "id": "dambench",
+      "name": "DAMBench",
+      "summary": "A multi-modal benchmark for deep learning-based atmospheric data assimilation combining forecast backgrounds with real-world weather observations.",
+      "description": "DAMBench is a multi-modal benchmark designed for deep learning-based atmospheric data assimilation. It integrates high-quality background states from state-of-the-art forecasting systems with real-world multi-modal observations, including weather stations and satellite imagery, all resampled to a common grid and temporally aligned. The benchmark provides unified evaluation protocols and baselines for representative assimilation approaches such as latent generative models and neural process frameworks.",
+      "task": "data-assimilation",
+      "modality": "multi-modal weather observations and satellite imagery",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2511.01468",
+        "github": "https://github.com/figerhaowang/DAMBench"
+      }
+    },
+    {
+      "id": "benin-village-agricultural-systems-mapping",
+      "name": "Mapping Village-level Agricultural Systems in Benin",
+      "summary": "Earth observation and geospatial dataset with scripts for village-scale mapping of agricultural systems in North and Centre Benin.",
+      "description": "This dataset accompanies a study on mapping village-level agricultural systems in North and Centre Benin using freely available satellite and geospatial data with machine learning. It contains the datasets, scripts, and supplementary materials (a ~4.9 GB archive) used to produce an exhaustive village-scale mapping of agricultural systems. The work leverages Earth observation imagery and geospatial layers to characterize agricultural land use.",
+      "task": "land-cover-mapping",
+      "modality": "satellite and geospatial data",
+      "size": "~4.9 GB archive",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "download": "https://zenodo.org/records/20210860"
+      }
+    },
+    {
+      "id": "coastal-vulnerability-relative-sea-level-rise-bangladesh",
+      "name": "Coastal Vulnerability to Relative Sea Level Rise in Bangladesh",
+      "summary": "A multi-source geospatial dataset integrating InSAR subsidence, multi-mission satellite altimetry, and tide-gauge observations to assess coastal vulnerability across 19 districts of Bangladesh.",
+      "description": "This dataset compiles the primary data used to study coastal vulnerability to relative sea level rise along the Bangladesh coast using a machine-learning framework. It combines multi-mission satellite altimetry (1999-2024), InSAR-derived vertical land motion from ALOS and Sentinel-1 (2010-2025), tide-gauge records (1977-2025), and ancillary geospatial layers. Spatial products are distributed as 30 m GeoTIFFs covering 19 coastal districts. The dataset is organized into tide-gauge records, satellite altimetry, processed InSAR vertical land motion maps, and supporting documentation.",
+      "task": "regression",
+      "modality": "InSAR / satellite altimetry / tide-gauge",
+      "size": "48.2 GB",
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://zenodo.org/records/19385298",
+        "download": "https://zenodo.org/records/19385298"
+      }
+    },
+    {
+      "id": "urban-tree-detection",
+      "name": "Urban Tree Detection",
+      "summary": "A dataset of high-resolution multispectral aerial image crops with individual tree annotations across eight California cities for urban tree detection.",
+      "description": "This dataset supports individual tree detection in large-scale urban environments using high-resolution multispectral imagery. It contains 1,651 image crops of 256x256 pixels derived from 60 cm NAIP aerial imagery (2016, 2018, 2020) with four bands (Red, Green, Blue, Near-Infrared), annotating 95,972 individual trees. Images span eight municipalities across six California climate zones: Bishop, Chico, Claremont, Eureka, Long Beach, Palm Springs, Riverside, and Santa Monica. It accompanies Ventura et al. (2024) in the International Journal of Applied Earth Observation and Geoinformation.",
+      "task": "object-detection",
+      "modality": "multispectral aerial imagery",
+      "numSamples": 1651,
+      "license": "CC-BY-4.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/jonathanventura/urban-tree-detection",
+        "download": "https://github.com/jonathanventura/urban-tree-detection-data",
+        "paper": "https://doi.org/10.1016/j.jag.2024.103848"
+      }
+    },
+    {
+      "id": "northern-pine-island-ice-shelf-structural-weakening",
+      "name": "Progressive Structural Weakening of the Northern Pine Island Ice Shelf",
+      "summary": "A geospatial dataset combining Landsat, Sentinel, and ICESat-2 observations to characterize progressive structural weakening of the northern Pine Island Ice Shelf in West Antarctica.",
+      "description": "This dataset accompanies the manuscript on progressive structural weakening of the northern Pine Island Ice Shelf in West Antarctica. It includes area anomaly results, Landsat and Sentinel satellite imagery, and ICESat-2 elevation data over the northern Pine Island Ice Shelf, together with the code used to generate the study figures. The data support analysis of ice-shelf structural changes over time.",
+      "task": "change-detection",
+      "modality": "satellite imagery / altimetry",
+      "size": "5.0 MB",
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://zenodo.org/records/18266529",
+        "download": "https://zenodo.org/records/18266529"
+      }
     }
   ]
 }
