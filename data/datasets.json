@@ -26824,6 +26824,1536 @@
         "huggingface": "https://huggingface.co/datasets/french-open-data/monuments-aux-morts-presents-en-france-dans-les-donnees-openstreetmap",
         "homepage": "https://www.data.gouv.fr/datasets/5be5645e8b4c41645a007f47"
       }
+    },
+    {
+      "id": "nfip-flood-policies",
+      "name": "NFIP Flood Policies",
+      "summary": "Anonymized U.S. National Flood Insurance Program policy records with flood-zone, location, and coverage attributes for flood-risk analysis.",
+      "description": "This dataset contains anonymized flood insurance policy information from the U.S. National Flood Insurance Program (NFIP), derived from OpenFEMA. Each record includes policy attributes such as flood zone rating, building elevation, geographic identifiers (zip code, county, state), building/business type, deductibles, coverage amounts, and premiums. It supports flood-risk distribution modeling, premium prediction, and regional risk analysis.",
+      "task": "Flood risk analysis / premium modeling",
+      "modality": "Tabular",
+      "license": "Public (OpenFEMA)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/kevykibbz/nfip-flood-policies",
+        "download": "https://www.fema.gov/about/openfema/data-sets"
+      }
+    },
+    {
+      "id": "bd-ortho-2012-calvados",
+      "name": "BD ORTHO 2012 (reformatted) - Calvados",
+      "summary": "Color orthophotography mosaics of the Calvados department in France from 2012 at 20 cm resolution.",
+      "description": "BD ORTHO 2012 is a collection of digital color orthophotography mosaics covering the Calvados department in France, rectified in the legal Lambert 93 projection. The imagery has a ground resolution of 20 cm per pixel and is organized into 5 km x 5 km tiles, available in GeoPackage and ECW formats. It is intended for territory management, land-use change tracking, and environmental and coastal monitoring.",
+      "task": "Aerial orthophotography",
+      "modality": "Aerial imagery",
+      "size": "~19.6 GB (GeoPackage)",
+      "license": "Licence Ouverte 2.0",
+      "year": 2012,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/5fa279f1f429a9716ea487c2",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/orthophotographie-bd-ortho-2012-reformatee-calvados"
+      }
+    },
+    {
+      "id": "ortho-hr-2016-calvados",
+      "name": "ORTHO HR 2016 (reformatted) - Calvados",
+      "summary": "High-resolution color orthophotography mosaics of the Calvados department in France from 2016.",
+      "description": "ORTHO HR 2016 is a collection of high-resolution digital color orthophotography mosaics covering the Calvados department in France, projected in the Lambert 93 coordinate system. The imagery originates from IGN in lossless JPEG2000 format (1 km x 1 km tiles) and has been reformatted into a pyramidal GeoPackage structure for easier use. It supports land planning, environmental monitoring, and territorial visualization.",
+      "task": "Aerial orthophotography",
+      "modality": "Aerial imagery",
+      "size": "~25.1 GB (GeoPackage)",
+      "license": "Licence Ouverte 2.0",
+      "year": 2016,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/5f9000f169239f04bd370d76",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/orthophotographie-haute-resolution-ortho-hr-2016-reformatee-calvados"
+      }
+    },
+    {
+      "id": "pnrcmo-vegetation-diversity-by-commune",
+      "name": "PNRCMO - Vegetation Diversity (Modern Period, by Commune)",
+      "summary": "Per-commune counts of vegetation microcenoses observed in the Caps et Marais d'Opale regional natural park, served as a thematic web map.",
+      "description": "This dataset records the number of vegetation microcenoses (all statuses) observed after 31/12/1999 per commune across the territory of the Parc naturel regional des Caps et Marais d'Opale in northern France. Data are organized by INSEE commune codes with associated vegetation lists from the regional syntaxonomic reference system. It is distributed as an OGC WMS thematic map layer.",
+      "task": "Vegetation diversity mapping",
+      "modality": "Geospatial vector / thematic map",
+      "year": 2026,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb18d0f27781f76884b67",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/pnrcmo-diversite-vegetations-tous-statuts-periode-moderne-par-commune"
+      }
+    },
+    {
+      "id": "pnrcmo-inventory-pressure-by-commune",
+      "name": "PNRCMO - Vegetation Inventory Pressure (Modern Period, by Commune)",
+      "summary": "Per-commune counts of vegetation observations indicating inventory effort across the Caps et Marais d'Opale regional natural park.",
+      "description": "This dataset records the number of vegetation observations (all statuses) per commune since 2000 across the territory of the Parc naturel regional des Caps et Marais d'Opale, reflecting the inventory/survey pressure for each municipality. Data are organized by INSEE commune codes with botanical taxonomy lists and distributed as an OGC WMS thematic map layer. Published by the Conservatoire botanique national des Hauts-de-France.",
+      "task": "Vegetation survey effort mapping",
+      "modality": "Geospatial vector / thematic map",
+      "year": 2026,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb18a0f27781f76884b63",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/pnrcmo-pression-d-inventaire-vegetations-tous-statuts-periode-moderne-par-commune"
+      }
+    },
+    {
+      "id": "prvi-wetlands",
+      "name": "PRVI Wetlands",
+      "summary": "Tabular wetlands dataset covering Puerto Rico and the U.S. Virgin Islands.",
+      "description": "PRVI_Wetlands is a wetlands dataset for the Puerto Rico and U.S. Virgin Islands region, provided as Parquet files with tabular and text modalities. It contains on the order of tens of thousands of records describing wetland features, suitable for environmental and geospatial wetland analysis.",
+      "task": "Wetland characterization",
+      "modality": "Tabular",
+      "numSamples": "10K-100K",
+      "license": "MIT",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Jphardee/PRVI_Wetlands"
+      }
+    },
+    {
+      "id": "samudra-ai",
+      "name": "Samudra AI (Sea Level Anomaly Indonesia)",
+      "summary": "Large gridded time-series of sea level anomaly (SLA) values across Indonesian administrative regions spanning 1993-2100.",
+      "description": "Samudra-AI is a geospatial time-series dataset containing roughly 24.2 million rows of sea level anomaly (SLA) values indexed by Indonesian administrative divisions (province, district, sub-district, village) and timestamp, spanning 1993 through projected 2100. SLA values range from about -0.34 to 0.83. Provided in Parquet format, it is suited to climate, oceanographic, and coastal monitoring analyses over the Indonesian archipelago.",
+      "task": "Sea level anomaly modeling",
+      "modality": "Tabular / geospatial time-series",
+      "size": "~1.09 GB",
+      "numSamples": "~24.2M rows",
+      "license": "MIT",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/adityoAJA/samudra-ai"
+      }
+    },
+    {
+      "id": "satellite-water-detection",
+      "name": "Satellite Water Detection",
+      "summary": "Satellite imagery tiles for water body detection and segmentation, organized into train/validation/test splits.",
+      "description": "This dataset provides satellite imagery for water detection and segmentation tasks, organized as 64x64 pixel tiles with train, validation, and test splits (on the order of millions of training tiles). It includes JSON metadata indexing the imagery tiles for use in binary water/no-water segmentation models.",
+      "task": "Water body segmentation",
+      "modality": "Satellite imagery",
+      "size": "~11.3 GB",
+      "license": "MIT",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/mishhkaa/satellite-water-detection"
+      }
+    },
+    {
+      "id": "sentinel-imagery-captions",
+      "name": "Sentinel Imagery Captions",
+      "summary": "Sentinel satellite image tiles paired with natural-language captions describing land-cover composition.",
+      "description": "This multimodal dataset pairs 256x256 pixel Sentinel satellite image tiles with descriptive captions detailing land-cover composition (developed areas, crops, trees, grass, water, bare land, etc.) and the spatial distribution of each class within the image. It contains 500 image-caption pairs split into 392 training and 108 test examples. It is intended for satellite image captioning and land-cover classification.",
+      "task": "Image captioning / land cover classification",
+      "modality": "Satellite imagery + text",
+      "numSamples": 500,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/henry-07/sentinel-imagery-captions"
+      }
+    },
+    {
+      "id": "solarraster",
+      "name": "SolarRaster",
+      "summary": "A geospatial raster imagery dataset for solar-related Earth observation analysis.",
+      "description": "SolarRaster is a small remote-sensing dataset hosted on Hugging Face containing raster imagery in ImageFolder format. It is intended for geospatial/Earth-observation tasks related to solar resource or solar-installation mapping. The dataset comprises 7 large raster files totaling roughly 731 MB.",
+      "task": "Geospatial raster analysis",
+      "modality": "Satellite/raster imagery",
+      "size": "731 MB",
+      "numSamples": 7,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/MHassaanButt2002/SolarRaster"
+      }
+    },
+    {
+      "id": "vexcel-google-images",
+      "name": "Vexcel Google Images",
+      "summary": "An aerial/satellite imagery dataset pairing Vexcel-style imagery with Google imagery for Earth-observation work.",
+      "description": "vexcel_google_images is a geospatial image dataset on Hugging Face in ImageFolder format, tagged with geospatial and image modalities. The naming indicates high-resolution aerial imagery (Vexcel) alongside Google imagery, intended for remote-sensing and Earth-observation tasks. The dataset is released under GPL-3.0 and totals about 1.33 GB.",
+      "task": "Aerial/satellite imagery",
+      "modality": "Aerial/satellite imagery",
+      "size": "1.33 GB",
+      "license": "GPL-3.0",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/mikadishen/vexcel_google_images"
+      }
+    },
+    {
+      "id": "wetland-ttl08",
+      "name": "Wetland",
+      "summary": "An image dataset of wetland scenes for remote-sensing wetland mapping or classification.",
+      "description": "This Hugging Face dataset contains wetland imagery in ImageFolder format intended for geospatial/Earth-observation tasks such as wetland mapping or classification. It is a small dataset comprising 4 image records totaling roughly 347 MB. No formal dataset card is provided.",
+      "task": "Wetland mapping/classification",
+      "modality": "Image",
+      "size": "347 MB",
+      "numSamples": 4,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/TTL08/wetland"
+      }
+    },
+    {
+      "id": "wildfire-images-from-satellite-for-azerbaijan",
+      "name": "Wildfire Images From Satellite For Azerbaijan",
+      "summary": "A satellite imagery dataset of wildfire scenes over Azerbaijan for wildfire detection and monitoring.",
+      "description": "This dataset contains 582 satellite images (512x512 pixels, PNG/JPG) focused on wildfire detection and monitoring over Azerbaijan. It is provided in ImageFolder format and released under the MIT license, totaling about 195 MB. The data supports remote-sensing wildfire classification and detection tasks.",
+      "task": "Wildfire detection",
+      "modality": "Satellite imagery",
+      "size": "195 MB",
+      "numSamples": 582,
+      "license": "MIT",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/sdproject2025/Wildfire_Images_From_Satilite_For_Azerbaijan"
+      }
+    },
+    {
+      "id": "wildfires-nakshaa",
+      "name": "Wildfires",
+      "summary": "A small image dataset of wildfire scenes for wildfire detection or classification.",
+      "description": "This Hugging Face dataset contains wildfire imagery in ImageFolder format intended for Earth-observation wildfire detection or classification tasks. It is a small dataset with 6 image records totaling roughly 151 MB. No formal dataset card is provided.",
+      "task": "Wildfire detection/classification",
+      "modality": "Image",
+      "size": "151 MB",
+      "numSamples": 6,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Nakshaa/Wildfires"
+      }
+    },
+    {
+      "id": "ai-hub-land-cover-aerial",
+      "name": "AI-Hub-Land-Cover-Aerial",
+      "summary": "Aerial imagery dataset for land cover classification sourced from Korea's AI-Hub.",
+      "description": "AI-Hub-Land-Cover-Aerial is a remote-sensing dataset of aerial imagery annotated for land cover classification. It is derived from the Korean AI-Hub open data platform and packaged for use on Hugging Face. Access requires agreeing to share contact information on the dataset page.",
+      "task": "Land cover classification",
+      "modality": "Aerial imagery",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/JDONE-Research/AI-Hub-Land-Cover-Aerial"
+      },
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "calles-medellin",
+      "name": "calles-medellin",
+      "summary": "A collection of 9,984 street-level images from Medellin, Colombia with per-image metadata.",
+      "description": "The Medellin Street-Level Image Dataset contains 9,984 street-level photographs captured across Medellin, Colombia. Images are provided as individual files alongside a single metadata.json file describing each image, including identifiers, filenames, dimensions, and download URLs. The dataset is released under the MIT License and totals roughly 1 GB, useful for urban geospatial and computer-vision analysis in Latin America.",
+      "task": "Street-level imagery analysis",
+      "modality": "Street-level imagery",
+      "numSamples": 9984,
+      "size": "~1 GB",
+      "license": "MIT",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Rypsor/calles-medellin"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "cartographies-departementales-de-la-radiance-nocturne-du-satellite-luojia-2018",
+      "name": "Cartographies d\u00e9partementales de la radiance nocturne du satellite LuoJia - 2018",
+      "summary": "Department-level nighttime radiance maps of metropolitan France assembled from LuoJia-1 satellite imagery for 2018.",
+      "description": "This dataset provides department-level mappings of nighttime light radiance over the 80 departments of metropolitan France, assembled from cloud-free acquisitions of the LuoJia 1-01 satellite during 2018. It includes raster cartographic files (.tif), vector files (.shp) with acquisition dates and times, QGIS style files (.qml), and XML metadata. Produced by Cerema, it supports research into light pollution and the design of dark wildlife corridors (\"trames noires\"). The data is distributed under the Open Licence v2.0.",
+      "task": "Nighttime light / radiance mapping",
+      "modality": "Satellite imagery",
+      "license": "Open Licence v2.0",
+      "year": 2018,
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/65cdc7e17b2a1324b13e4f76",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/cartographies-departementales-de-la-radiance-nocturne-du-satellite-luojia-2018"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "carto-vegetation",
+      "name": "CARTO VEGETATION",
+      "summary": "Vegetation cover mapping of France's overseas departments and regions (DROM).",
+      "description": "CARTO VEGETATION maps the vegetation formations that characterize France's overseas departments and regions (DROM), including forest stands and shrub formations, according to a nomenclature specific to each covered territory. It is a geospatial land cover product referenced via data.gouv.fr. The Hugging Face entry serves only as a pointer to the underlying open dataset.",
+      "task": "Vegetation / land cover mapping",
+      "modality": "Geospatial vector",
+      "year": 2025,
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/67cf7d21f404f8137f24f7ac",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/carto-vegetation"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "classification-des-espaces-vegetalises-et-artificialises-corine-land-cover-lyon",
+      "name": "Classification des espaces v\u00e9g\u00e9talis\u00e9s et artificialis\u00e9s - production Corine Land Cover pour la M\u00e9tropole de Lyon (Ortho 2015)",
+      "summary": "Corine Land Cover-style classification of vegetated and artificialized areas for the Lyon metropolitan area using 2015 orthophotos.",
+      "description": "This dataset provides a classification of vegetated and artificialized land cover for the M\u00e9tropole de Lyon, produced following the Corine Land Cover methodology from 2015 orthophotography. It is a geospatial land cover product referenced via data.gouv.fr. The Hugging Face entry serves only as a pointer to the underlying open dataset.",
+      "task": "Land cover classification",
+      "modality": "Geospatial",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/611621e13660b43352da0656",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/classification-des-espaces-vegetalises-et-artificialises-production-corine-land-cover-pour-la-me"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "controlnet-satellite-maps",
+      "name": "controlnet-satellite-maps",
+      "summary": "Paired satellite imagery and conditioning images of major U.S. cities for training ControlNet models.",
+      "description": "controlnet-satellite-maps is a paired image dataset of high-resolution satellite/aerial views of major U.S. cities (e.g., Fort Worth, Chicago, New York, Houston, Los Angeles) intended for training conditional image-generation (ControlNet) models. Each entry provides a 512x512 satellite image, a 512x512 conditioning image, and a descriptive text caption. It contains 47,000 rows split into 45,000 training and 2,000 validation samples, provided in Parquet format.",
+      "task": "Conditional image generation",
+      "modality": "Satellite imagery",
+      "numSamples": 47000,
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/sohith18/controlnet-satellite-maps"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "corine-land-cover-edition-2018-france-metropolitaine",
+      "name": "Corine Land Cover Edition 2018 France M\u00e9tropolitaine",
+      "summary": "Corine Land Cover 2018 land use/land cover mapping for mainland France with QGIS styling files.",
+      "description": "Corine Land Cover Edition 2018 France M\u00e9tropolitaine provides land use and land cover classification data for mainland France for the 2018 edition (CLC ED18), along with .sld and .qml style sheets for QGIS. Produced by the PMIRG (SNUM du MTES), it is distributed under the Open Data Commons PDDL and available in ZIP, SQL, and 7z formats. The Hugging Face entry serves only as a pointer to the underlying data.gouv.fr open dataset.",
+      "task": "Land cover classification",
+      "modality": "Geospatial",
+      "license": "ODC PDDL",
+      "year": 2018,
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/5d1f6a838b4c4120e1923d4e",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/corine-land-cover-edition-2018-france-metropolitaine"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "cropland-fragmentation-images",
+      "name": "Cropland fragmentation images",
+      "summary": "A collection of ~1,198 images visualizing agricultural cropland fragmentation patterns.",
+      "description": "Cropland fragmentation images is an image dataset depicting agricultural land fragmentation patterns. It contains 1,198 images in JPG and PNG formats, organized in a single training split totaling roughly 46 MB, with image widths ranging from about 510 to 760 pixels. The dataset is released under the MIT License.",
+      "task": "Cropland fragmentation analysis",
+      "modality": "Geospatial imagery",
+      "numSamples": 1198,
+      "size": "~46 MB",
+      "license": "MIT",
+      "year": 2025,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ShengwenXu/Cropland_fragmentation_images"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "dalles-d-orthophotographie-2009-de-la-metropole-de-lyon-format-ecw",
+      "name": "Dalles d'orthophotographie 2009 de la M\u00e9tropole de Lyon (format ECW)",
+      "summary": "2009 aerial orthophotography tiles covering 1,200 km\u00b2 of the Lyon metropolitan area in ECW format.",
+      "description": "This dataset provides 2009 aerial orthophotography covering 1,200 km\u00b2 of the M\u00e9tropole de Lyon and its surroundings, delivered as tiles (dalles) in ECW format. It is an Earth-observation / aerial imagery product referenced via data.gouv.fr. The Hugging Face entry serves only as a pointer to the underlying open dataset.",
+      "task": "Aerial orthophotography",
+      "modality": "Aerial imagery",
+      "year": 2009,
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/6690579943f6570a0ed8ba4e",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/dalles-d-orthophotographie-2009-de-la-metropole-de-lyon-format-ecw"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "drone-images",
+      "name": "drone images",
+      "summary": "A small set of drone-captured aerial images for geospatial/computer-vision use.",
+      "description": "drone images is a compact dataset of drone-captured aerial photographs tagged as geospatial imagery. It contains 14 images organized as an image folder in a single training split, totaling roughly 285 MB. The dataset has minimal documentation and no published license.",
+      "task": "Aerial / drone imagery",
+      "modality": "Drone imagery",
+      "numSamples": 14,
+      "size": "~285 MB",
+      "year": 2026,
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/mikadishen/drone_images"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "eu-wildfires",
+      "name": "EU-Wildfires",
+      "summary": "A collection of Sentinel-2 L1C and L2A scenes across Europe for benchmarking AI-based burned-area delineation.",
+      "description": "EU-Wildfires comprises Sentinel-2 L1C and L2A satellite scenes covering wildfire-affected regions across Europe, sourced from the Copernicus Data Space Ecosystem. It is intended for testing and evaluating AI models that delineate burned areas from optical satellite imagery. The dataset totals roughly 2.5 GB of imagery.",
+      "task": "Burned area delineation / segmentation",
+      "modality": "Multispectral satellite imagery (Sentinel-2 L1C / L2A)",
+      "size": "~2.53 GB",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/risc-conrad/eu-wildfires",
+        "download": "https://huggingface.co/datasets/risc-conrad/eu-wildfires"
+      }
+    },
+    {
+      "id": "flood-gpkg-datasets",
+      "name": "Flood GPKG Datasets",
+      "summary": "A geospatial flood dataset distributed as GeoPackage (GPKG) layers for flood mapping and analysis.",
+      "description": "Flood GPKG Datasets contains flood-related geospatial vector data in the GeoPackage (GPKG) format. The repository provides roughly 89 MB of flood layers suitable for flood extent mapping and hydrological analysis. The data is organized as a single train split.",
+      "task": "Flood mapping",
+      "modality": "Geospatial vector (GeoPackage)",
+      "size": "~89.3 MB",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/trategos/flood-gpkg-datasets",
+        "download": "https://huggingface.co/datasets/trategos/flood-gpkg-datasets"
+      }
+    },
+    {
+      "id": "hauts-de-france-carhab-physionomies-de-vegetation-nombre-par-maille-1-km2",
+      "name": "Hauts-de-France - CarHab - Physionomies de vegetation (Nombre par maille 1 km2)",
+      "summary": "Counts of CarHab vegetation physiognomies per 1 km2 grid cell across the Hauts-de-France region of France.",
+      "description": "This dataset maps the diversity of vegetation physiognomies (physionomies de vegetation) from the French national habitat-mapping programme CarHab, aggregated as counts per 1 km2 grid cell over the Hauts-de-France region. It is produced and distributed by the Conservatoire botanique national des Hauts-de-France as part of the CarHab 2020-2025 effort. The data is provided as a geospatial layer (OGC WMS) on the French open-data platform data.gouv.fr.",
+      "task": "Vegetation / habitat mapping",
+      "modality": "Geospatial vector (1 km2 grid; OGC WMS)",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1ac0f27781f76884b9e",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-diversite-carhab-physionomies-de-vegetation-nombre-par-maille-1-km2"
+      }
+    },
+    {
+      "id": "hauts-de-france-vegetations-tous-statuts-periode-ancienne-par-commune",
+      "name": "Hauts-de-France - Vegetations tous statuts (Periode ancienne - Par commune)",
+      "summary": "Per-commune counts of all-status vegetation types for the historical (ancienne) period across the Hauts-de-France region of France.",
+      "description": "This dataset records the diversity of vegetation types of all conservation statuses (vegetations tous statuts) for the historical reference period, aggregated per commune across the Hauts-de-France region. It is part of the French national CarHab habitat-mapping programme and distributed by the regional botanical conservatory. The data is published as an open geospatial layer on data.gouv.fr.",
+      "task": "Vegetation / habitat mapping",
+      "modality": "Geospatial vector (per-commune; OGC WMS)",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb17c0f27781f76884b4b",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-diversite-vegetations-tous-statuts-periode-ancienne-par-commune"
+      }
+    },
+    {
+      "id": "hauts-de-france-vegetations-tous-statuts-periode-moderne-par-maille-1-km2",
+      "name": "Hauts-de-France - Vegetations tous statuts (Periode moderne - Par maille 1 km2)",
+      "summary": "Counts of all-status vegetation types per 1 km2 grid cell for the modern (moderne) period across the Hauts-de-France region of France.",
+      "description": "This dataset records the diversity of vegetation types of all conservation statuses (vegetations tous statuts) for the modern reference period, aggregated as counts per 1 km2 grid cell across the Hauts-de-France region. It originates from the French national CarHab habitat-mapping programme and is distributed by the regional botanical conservatory. The data is published as an open geospatial layer on data.gouv.fr.",
+      "task": "Vegetation / habitat mapping",
+      "modality": "Geospatial vector (1 km2 grid; OGC WMS)",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1860f27781f76884b5c",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-diversite-vegetations-tous-statuts-periode-moderne-par-maille-1-km2"
+      }
+    },
+    {
+      "id": "hauts-de-france-vegetations-d-interet-communautaire-periode-moderne-par-maille-25-km2",
+      "name": "Hauts-de-France - Vegetations d'interet communautaire (Periode moderne - Par maille 25 km2)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count of community-interest vegetation types (syntaxa) per 25 km grid cell observed since 2000.",
+      "description": "Hauts-de-France - Vegetations d'interet communautaire (Periode moderne - Par maille 25 km2) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count of community-interest vegetation types (syntaxa) per 25 km grid cell observed since 2000 across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1c50f27781f76884bc4",
+        "download": "https://www.data.gouv.fr/datasets/688cb1c50f27781f76884bc4",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-d-interet-communautaire-periode-moderne-par-maille-25-km2"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-d-interet-patrimonial-regional-periode-ancienne-par-commune",
+      "name": "Hauts-de-France - Vegetations d'interet patrimonial regional (Periode ancienne - Par commune)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per commune of regionally significant heritage vegetation types for the historical period.",
+      "description": "Hauts-de-France - Vegetations d'interet patrimonial regional (Periode ancienne - Par commune) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per commune of regionally significant heritage vegetation types for the historical period across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1ea0f27781f76884bf6",
+        "download": "https://www.data.gouv.fr/datasets/688cb1ea0f27781f76884bf6",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-d-interet-patrimonial-regional-periode-ancienne-par-commune"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-d-interet-patrimonial-regional-periode-ancienne-par-maille-1-km2",
+      "name": "Hauts-de-France - Vegetations d'interet patrimonial regional (Periode ancienne - Par maille 1 km2)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per 1 km grid cell of regionally significant heritage vegetation types for the historical period.",
+      "description": "Hauts-de-France - Vegetations d'interet patrimonial regional (Periode ancienne - Par maille 1 km2) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per 1 km grid cell of regionally significant heritage vegetation types for the historical period across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb19a0f27781f76884b80",
+        "download": "https://www.data.gouv.fr/datasets/688cb19a0f27781f76884b80",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-d-interet-patrimonial-regional-periode-ancienne-par-maille-1-km2"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-d-interet-patrimonial-regional-periode-moderne-par-commune",
+      "name": "Hauts-de-France - Vegetations d'interet patrimonial regional (Periode moderne - Par commune)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per commune of regionally significant heritage vegetation types for the modern period.",
+      "description": "Hauts-de-France - Vegetations d'interet patrimonial regional (Periode moderne - Par commune) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per commune of regionally significant heritage vegetation types for the modern period across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1a80f27781f76884b97",
+        "download": "https://www.data.gouv.fr/datasets/688cb1a80f27781f76884b97",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-d-interet-patrimonial-regional-periode-moderne-par-commune"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-d-interet-patrimonial-regional-periode-moderne-par-maille-1-km2",
+      "name": "Hauts-de-France - Vegetations d'interet patrimonial regional (Periode moderne - Par maille 1 km2)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per 1 km grid cell of regionally significant heritage vegetation types for the modern period.",
+      "description": "Hauts-de-France - Vegetations d'interet patrimonial regional (Periode moderne - Par maille 1 km2) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per 1 km grid cell of regionally significant heritage vegetation types for the modern period across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1960f27781f76884b78",
+        "download": "https://www.data.gouv.fr/datasets/688cb1960f27781f76884b78",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-d-interet-patrimonial-regional-periode-moderne-par-maille-1-km2"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-d-interet-patrimonial-regional-toutes-periodes-par-maille-1-km2",
+      "name": "Hauts-de-France - Vegetations d'interet patrimonial regional (Toutes periodes - Par maille 1 km2)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per 1 km grid cell of regionally significant heritage vegetation types across all periods.",
+      "description": "Hauts-de-France - Vegetations d'interet patrimonial regional (Toutes periodes - Par maille 1 km2) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per 1 km grid cell of regionally significant heritage vegetation types across all periods across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1c00f27781f76884bbe",
+        "download": "https://www.data.gouv.fr/datasets/688cb1c00f27781f76884bbe",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-d-interet-patrimonial-regional-toutes-periodes-par-maille-1-km2"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-menacees-regionales-periode-ancienne-par-commune",
+      "name": "Hauts-de-France - Vegetations menacees regionales (Periode ancienne - Par commune)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per commune of regionally threatened vegetation types for the historical period.",
+      "description": "Hauts-de-France - Vegetations menacees regionales (Periode ancienne - Par commune) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per commune of regionally threatened vegetation types for the historical period across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb17c0f27781f76884b4a",
+        "download": "https://www.data.gouv.fr/datasets/688cb17c0f27781f76884b4a",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-menacees-regionales-periode-ancienne-par-commune"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-menacees-regionales-periode-ancienne-par-maille-1-km2",
+      "name": "Hauts-de-France - Vegetations menacees regionales (Periode ancienne - Par maille 1 km2)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per 1 km grid cell of regionally threatened vegetation types for the historical period.",
+      "description": "Hauts-de-France - Vegetations menacees regionales (Periode ancienne - Par maille 1 km2) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per 1 km grid cell of regionally threatened vegetation types for the historical period across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1930f27781f76884b72",
+        "download": "https://www.data.gouv.fr/datasets/688cb1930f27781f76884b72",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-menacees-regionales-periode-ancienne-par-maille-1-km2"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-menacees-regionales-periode-moderne-par-maille-1-km2",
+      "name": "Hauts-de-France - Vegetations menacees regionales (Periode moderne - Par maille 1 km2)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per 1 km grid cell of regionally threatened vegetation types for the modern period.",
+      "description": "Hauts-de-France - Vegetations menacees regionales (Periode moderne - Par maille 1 km2) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per 1 km grid cell of regionally threatened vegetation types for the modern period across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1b60f27781f76884baf",
+        "download": "https://www.data.gouv.fr/datasets/688cb1b60f27781f76884baf",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-menacees-regionales-periode-moderne-par-maille-1-km2"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-menacees-regionales-toutes-periodes-par-commune",
+      "name": "Hauts-de-France - Vegetations menacees regionales (Toutes periodes - Par commune)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per commune of regionally threatened vegetation types across all periods.",
+      "description": "Hauts-de-France - Vegetations menacees regionales (Toutes periodes - Par commune) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per commune of regionally threatened vegetation types across all periods across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1a90f27781f76884b99",
+        "download": "https://www.data.gouv.fr/datasets/688cb1a90f27781f76884b99",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-menacees-regionales-toutes-periodes-par-commune"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hauts-de-france-vegetations-menacees-regionales-toutes-periodes-par-maille-1-km2",
+      "name": "Hauts-de-France - Vegetations menacees regionales (Toutes periodes - Par maille 1 km2)",
+      "summary": "A regional botanical map of the Hauts-de-France region (France) recording the count per 1 km grid cell of regionally threatened vegetation types across all periods.",
+      "description": "Hauts-de-France - Vegetations menacees regionales (Toutes periodes - Par maille 1 km2) is a geospatial vegetation dataset published by the Conservatoire botanique national des Hauts-de-France. It maps the count per 1 km grid cell of regionally threatened vegetation types across all periods across the five departments of the Hauts-de-France region. The data is served as an OGC WMS web map layer through the French open-data portal data.gouv.fr and supports botanical conservation and biodiversity monitoring.",
+      "task": "Vegetation / biodiversity mapping",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1e70f27781f76884bf2",
+        "download": "https://www.data.gouv.fr/datasets/688cb1e70f27781f76884bf2",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-vegetations-menacees-regionales-toutes-periodes-par-maille-1-km2"
+      },
+      "modality": "Geospatial vector / WMS map layer",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "hurricane-prithvi-data",
+      "name": "Hurricane Prithvi Data",
+      "summary": "A 32 GB WebDataset of hurricane-related Earth-observation imagery prepared for use with NASA/IBM Prithvi geospatial foundation models.",
+      "description": "Hurricane Prithvi Data is a remote-sensing dataset packaged in WebDataset (TAR) format and intended for training or fine-tuning NASA/IBM Prithvi geospatial foundation models on hurricane events. It totals roughly 32 GB of Earth-observation imagery samples. The dataset is hosted on the Hugging Face Hub.",
+      "task": "Hurricane / disaster Earth-observation modeling",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Danielml21/hurricane-prithvi-data"
+      },
+      "modality": "Satellite imagery (WebDataset)",
+      "size": "~32 GB",
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "hurricanes",
+      "name": "Hurricanes (Storm Tracks)",
+      "summary": "A tabular dataset of historical hurricane and tornado storm tracks with geographic coordinates, magnitude, and damage records from 1950 onward.",
+      "description": "Hurricanes is a geospatial tabular dataset of historical severe-weather events (hurricanes and tornadoes) covering the period from 1950 onward. Each record includes start and end latitude/longitude of the storm track, state, date and time, magnitude, path length and width, and impact figures such as injuries, fatalities, and property loss. It supports statistical analysis and predictive modeling of severe-storm impacts.",
+      "task": "Severe-weather event analysis",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/glavvrach79/hurricanes"
+      },
+      "modality": "Tabular (geospatial, lat/lon storm tracks)",
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "indices-saisonniers-d-anomalie-de-precipitations-et-d-anomalies-de-nombre-de-jours-de-precipitat",
+      "name": "Indices saisonniers d'anomalie de precipitations (modele Aladin-Climat)",
+      "summary": "Seasonal precipitation-anomaly and precipitation-day-count anomaly indices over metropolitan France derived from the Aladin-Climat regional climate model.",
+      "description": "This climate-projection dataset, produced by Meteo-France and corrected by CNRM, provides seasonal indices of precipitation anomalies and anomalies in the number of precipitation days over 8,602 land points across metropolitan France. It is derived from the Aladin-Climat regional climate model and spans three future horizons (2021-2050, 2041-2070, 2071-2100) under different climate scenarios. The data is distributed as text files via the French open-data portal data.gouv.fr.",
+      "task": "Climate projection / precipitation anomaly analysis",
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/560c226788ee38520083905f",
+        "download": "https://www.data.gouv.fr/datasets/560c226788ee38520083905f",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/indices-saisonniers-d-anomalie-de-precipitations-et-d-anomalies-de-nombre-de-jours-de-precipitat"
+      },
+      "modality": "Climate model output (gridded point time series, text)",
+      "license": "Open Licence 2.0",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ]
+    },
+    {
+      "id": "land-cover",
+      "name": "High-Resolution Land Cover Classification Data",
+      "summary": "A small land-cover classification dataset built from 50 cm high-resolution aerial/satellite imagery with corresponding classification results.",
+      "description": "This dataset, published by GanzAfrica, contains high-resolution (50 cm) aerial/satellite imagery together with land-cover classification results, distributed as GeoTIFF (.tif) files. It is intended for comparing original imagery against classification outputs, for example in ArcGIS Pro. The dataset is small (a couple of samples, ~50 MB) and is hosted on the Hugging Face Hub.",
+      "task": "Land cover classification",
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/ganzafrica/land-cover"
+      },
+      "modality": "Aerial / satellite imagery (GeoTIFF, 50 cm)",
+      "size": "~50 MB",
+      "license": "MIT",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "landsat8-l2-hungary",
+      "name": "Landsat8-L2 (Hungary Jan 2025)",
+      "summary": "Cloud-optimized GeoTIFFs of Landsat 8 Level-2 scenes (multiband and derived indices) covering Hungary in January 2025.",
+      "description": "This dataset contains COGs (cloud-optimized GeoTIFFs) of multiband imagery and derived spectral indices for Landsat 8 Level-2 scenes over Hungary in January 2025. Scene-level metadata includes cloud cover, NDVI/EVI vegetation indices, projection (EPSG:32634), and spatial bounds in STAC format. It comprises 5 Landsat 8 scenes.",
+      "task": "Earth observation / multispectral imagery",
+      "modality": "Landsat 8 (multispectral satellite imagery)",
+      "numSamples": 5,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/saurabhkohad/Landsat8-L2"
+      }
+    },
+    {
+      "id": "lsroute",
+      "name": "lsRoute",
+      "summary": "Geospatial flood-hazard mapping metadata (ArcGIS XML) covering provinces across the Philippines.",
+      "description": "lsRoute is a geospatial dataset containing ArcGIS-format XML metadata describing 5-year flood-hazard (FH) maps across Philippine provinces and regions (e.g. Apayao, Aurora, Cagayan). The data is provided as XML records auto-converted to Parquet, totaling roughly 2.3 GB across 56 entries. It supports disaster and hazard mapping analysis over the Philippines.",
+      "task": "Flood hazard mapping",
+      "modality": "Geospatial (ArcGIS vector / hazard maps)",
+      "size": "~2.3 GB",
+      "numSamples": 56,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/twxofficial/lsRoute"
+      }
+    },
+    {
+      "id": "mnh-lidar-hd",
+      "name": "MNH LiDAR HD",
+      "summary": "France's national LiDAR HD canopy/object height model (Mod\u00e8le Num\u00e9rique de Hauteur) derived from high-density LiDAR point clouds.",
+      "description": "MNH LiDAR HD is the digital height model produced as the difference in altitude between the LiDAR HD digital terrain model (MNT) and the LiDAR HD digital surface model (MNS). It is derived from the high-density LiDAR point clouds acquired under France's national LiDAR HD programme (at least 5-10 pulses per square meter). The dataset is distributed openly via data.gouv.fr.",
+      "task": "Elevation / height modeling",
+      "modality": "LiDAR-derived height model",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/mnh-lidar-hd",
+        "download": "https://www.data.gouv.fr/datasets/675871bd6e60265b46ab356f"
+      }
+    },
+    {
+      "id": "mnt-lidar-hd",
+      "name": "MNT LiDAR HD",
+      "summary": "France's national LiDAR HD digital terrain model (Mod\u00e8le Num\u00e9rique de Terrain) derived from high-density LiDAR point clouds.",
+      "description": "MNT LiDAR HD is the digital terrain model (bare-earth elevation) derived from the high-density LiDAR point clouds acquired under France's national LiDAR HD programme, with a density of at least 5-10 pulses per square meter. The product represents ground elevation across France. It is distributed openly via data.gouv.fr.",
+      "task": "Elevation / terrain modeling",
+      "modality": "LiDAR-derived terrain model (DTM)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/mnt-lidar-hd",
+        "download": "https://www.data.gouv.fr/datasets/675871bd6e60265b46ab356e"
+      }
+    },
+    {
+      "id": "ndvi-by-lon-lat-hungary",
+      "name": "Hungary NDVI by lon/lat",
+      "summary": "Time-series of NDVI and other vegetation indices and Sentinel-2 bands by date and lat/lon across Hungarian regions.",
+      "description": "This dataset provides NDVI by date and latitude/longitude for regions of Hungary (currently Budapest and Vas, with more planned). Each row includes date, longitude, latitude, vegetation indices (NDVI, EVI, TCG), validity flags, and Sentinel-2 spectral bands (B2-B12, B8A). It contains 162,189 rows (~40 MB) in CSV format.",
+      "task": "Vegetation index time-series",
+      "modality": "Sentinel-2 derived tabular vegetation indices",
+      "size": "~40 MB",
+      "numSamples": 162189,
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/jaelin215/NDVI_by_lon_lat"
+      }
+    },
+    {
+      "id": "nuage-points-lidar-2018-metropole-lyon-ept",
+      "name": "Nuage de points LiDAR 2018 de la M\u00e9tropole de Lyon (format EPT)",
+      "summary": "Full classified LiDAR point cloud of the Lyon Metropolis acquired in 2018, in Entwine Point Tile (EPT) format.",
+      "description": "This is the complete LiDAR point cloud of the Lyon Metropolis (France), acquired in 2018 and processed with automatic classification distinguishing vegetation, water, ground and other classes. It is delivered in the Entwine Point Tile (EPT) format for streaming and visualization. The dataset is distributed openly via data.gouv.fr.",
+      "task": "3D point cloud / classification",
+      "modality": "Aerial LiDAR point cloud",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/nuage-de-points-lidar-2018-de-la-metropole-de-lyon-format-ept",
+        "download": "https://www.data.gouv.fr/datasets/611621e3034cbb07b6044203"
+      }
+    },
+    {
+      "id": "nuages-points-lidar-hd",
+      "name": "Nuages de points LiDAR HD",
+      "summary": "France's national high-density LiDAR HD point cloud database.",
+      "description": "The Nuages de points LiDAR HD database consists of the raw high-density point clouds acquired exclusively under France's national LiDAR HD programme, with a density of at least 5-10 pulses per square meter. It provides classified 3D point clouds covering France. The dataset is distributed openly via data.gouv.fr.",
+      "task": "3D point cloud",
+      "modality": "Aerial LiDAR point cloud",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/nuages-de-points-lidar-hd",
+        "download": "https://www.data.gouv.fr/datasets/655b12122591e7a83414199e"
+      }
+    },
+    {
+      "id": "orthophoto-2016-parc-olympique-lyonnais-decines-charpieu",
+      "name": "Orthophotographie 2016 Parc Olympique Lyonnais - D\u00e9cines-Charpieu",
+      "summary": "2016 aerial orthophotography of 1.2 km\u00b2 covering the Parc Olympique Lyonnais site in D\u00e9cines-Charpieu, France.",
+      "description": "This dataset is a 2016 aerial orthophotograph covering 1.2 km\u00b2 over the Parc Olympique Lyonnais site in the commune of D\u00e9cines-Charpieu (Lyon Metropolis, France). It provides high-resolution georeferenced aerial imagery of the area. The dataset is distributed openly via data.gouv.fr.",
+      "task": "Aerial orthoimagery",
+      "modality": "Aerial orthophotography",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/orthophotographie-2016-parc-olympique-lyonnais-commune-de-decines-charpieu",
+        "download": "https://www.data.gouv.fr/datasets/597703a188ee38255c87fa48"
+      }
+    },
+    {
+      "id": "orthophoto-2016-theatre-odeon-fourviere-lyon",
+      "name": "Orthophotographie 2016 Th\u00e9\u00e2tre et Od\u00e9on Fourvi\u00e8re - Lyon 5e",
+      "summary": "2016 aerial orthophotography of 8.77 hectares covering the antique Theatre and Odeon of Fourvi\u00e8re in Lyon's 5th arrondissement.",
+      "description": "This dataset is a 2016 aerial orthophotograph covering 8.77 hectares over the site of the antique Theatre and Odeon of Fourvi\u00e8re in the 5th arrondissement of Lyon, France. It provides high-resolution georeferenced aerial imagery of the heritage site. The dataset is distributed openly via data.gouv.fr.",
+      "task": "Aerial orthoimagery",
+      "modality": "Aerial orthophotography",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/orthophotographie-2016-theatre-et-odeon-fourviere-lyon-5e-arrondissement",
+        "download": "https://www.data.gouv.fr/datasets/597703a388ee38255c87fa49"
+      }
+    },
+    {
+      "id": "orthophoto-2018-station-epuration-metropole-lyon-saint-fons",
+      "name": "Orthophotographie 2018 station d'\u00e9puration M\u00e9tropole de Lyon (Saint-Fons)",
+      "summary": "2018 aerial orthophotography of the Lyon Metropolis wastewater treatment plant site in Saint-Fons, France.",
+      "description": "This dataset is a 2018 aerial orthophotograph covering the wastewater treatment plant (station d'\u00e9puration) of the Lyon Metropolis, located in the commune of Saint-Fons, France. It provides high-resolution georeferenced aerial imagery of the site. The dataset is distributed openly via data.gouv.fr.",
+      "task": "Aerial orthoimagery",
+      "modality": "Aerial orthophotography",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/orthophotographie-2018-de-la-station-d-epuration-de-la-metropole-de-lyon-situee-sur-la-commune-d",
+        "download": "https://www.data.gouv.fr/datasets/6116205d662371e8a9285a87"
+      }
+    },
+    {
+      "id": "orthophoto-hr-2020-calvados",
+      "name": "Orthophotographie Haute R\u00e9solution - ORTHO HR 2020 - Calvados",
+      "summary": "High-resolution 2020 ORTHO HR aerial orthophotography (reformatted) for the Calvados department, France.",
+      "description": "This dataset is the high-resolution ORTHO HR (Orthophotographie Haute R\u00e9solution) of 2020, reformatted, for the Calvados department in France. The ORTHO HR is a collection of high-resolution digital orthophotomosaics produced from aerial photography. The dataset is distributed openly via data.gouv.fr.",
+      "task": "Aerial orthoimagery",
+      "modality": "Aerial orthophotography",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/orthophotographie-haute-resolution-ortho-hr-2020-reformatee-calvados",
+        "download": "https://www.data.gouv.fr/datasets/5fc34c25e5440bff3828df80"
+      }
+    },
+    {
+      "id": "orthophoto-mel-2020",
+      "name": "Orthophotographie - MEL - 2020",
+      "summary": "2020 aerial orthophotography covering the M\u00e9tropole Europ\u00e9enne de Lille (MEL), France.",
+      "description": "This dataset is the 2020 orthophotography (without relief displacement) covering the territory of the M\u00e9tropole Europ\u00e9enne de Lille (MEL), France, produced from aerial photographs taken in spring 2020. It provides high-resolution georeferenced aerial imagery of the metropolitan area. The dataset is distributed openly via data.gouv.fr.",
+      "task": "Aerial orthoimagery",
+      "modality": "Aerial orthophotography",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/orthophotographie-mel-2020",
+        "download": "https://www.data.gouv.fr/datasets/665fe74b4247f7f1529fc905"
+      }
+    },
+    {
+      "id": "orthophoto-sans-devers-mel-2016",
+      "name": "Orthophotographie sans d\u00e9vers - MEL - 2016",
+      "summary": "2016 true-orthophotography (without relief displacement) covering the M\u00e9tropole Europ\u00e9enne de Lille (MEL), France.",
+      "description": "This dataset is the 2016 orthophotography without relief displacement (sans d\u00e9vers) covering the territory of the M\u00e9tropole Europ\u00e9enne de Lille (MEL), France, produced from aerial photographs taken in 2016. It provides high-resolution georeferenced true-ortho aerial imagery of the metropolitan area. The dataset is distributed openly via data.gouv.fr.",
+      "task": "Aerial orthoimagery",
+      "modality": "Aerial orthophotography",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/orthophotographie-sans-devers-mel-2016",
+        "download": "https://www.data.gouv.fr/datasets/665fe74c6b10a87cf49fc905"
+      }
+    },
+    {
+      "id": "orthophoto-stereoscopique-mel-2020",
+      "name": "Orthophotographie st\u00e9r\u00e9oscopique - MEL - 2020",
+      "summary": "2020 stereoscopic aerial orthophotography covering the M\u00e9tropole Europ\u00e9enne de Lille (MEL), France.",
+      "description": "This dataset is the 2020 stereoscopic orthophotography covering the territory of the M\u00e9tropole Europ\u00e9enne de Lille (MEL), France, produced from aerial photographs taken in spring 2020. It enables stereoscopic 3D viewing of the metropolitan area. The dataset is distributed openly via data.gouv.fr.",
+      "task": "Aerial orthoimagery (stereoscopic)",
+      "modality": "Aerial orthophotography (stereo)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://huggingface.co/datasets/french-open-data/orthophotographie-stereoscopique-mel-2020",
+        "download": "https://www.data.gouv.fr/datasets/665fe74b4247f7f1529fc906"
+      }
+    },
+    {
+      "id": "orthophoto-nocturne-2023-debut-de-nuit-metropole-de-lyon",
+      "name": "Orthophoto nocturne 2023 - d\u00e9but de nuit - M\u00e9tropole de Lyon",
+      "summary": "Nighttime 25 cm aerial orthophotography of the Lyon Metropolitan area captured in early-night conditions on 14 February 2023.",
+      "description": "A nighttime orthophoto (aerial imagery) dataset covering the M\u00e9tropole de Lyon at 25 cm resolution, acquired on 14 February 2023 between 19:15 and 21:49 with a Leica DMCII/250 photogrammetric camera. Imagery is orthorectified using a Lyon digital elevation model, with the Mont Verdun military zone excluded. Published by the M\u00e9tropole de Lyon under the French Open Licence (Etalab) v2.0.",
+      "task": "Aerial orthophotography",
+      "modality": "Aerial imagery",
+      "size": "25 cm resolution",
+      "license": "Licence Ouverte / Open Licence v2.0",
+      "year": 2023,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/65f382288938a3020968c4a4",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/orthophoto-nocturne-2023-debut-de-nuit-de-la-metropole-de-lyon"
+      }
+    },
+    {
+      "id": "orthophoto-nocturne-2023-milieu-de-nuit-metropole-de-lyon",
+      "name": "Orthophoto nocturne 2023 - milieu de nuit - M\u00e9tropole de Lyon",
+      "summary": "Nighttime 25 cm aerial orthophotography of the Lyon Metropolitan area captured in middle-of-night conditions on 15 February 2023.",
+      "description": "A nighttime orthophoto (aerial imagery) dataset covering the M\u00e9tropole de Lyon at 25 cm resolution, acquired on 15 February 2023 between 01:13 and 03:42, complementing the early-night Lyon nocturnal orthophoto series. Imagery is orthorectified, with the Mont Verdun military zone excluded from acquisition. Published by the M\u00e9tropole de Lyon under the French Open Licence (Etalab) v2.0.",
+      "task": "Aerial orthophotography",
+      "modality": "Aerial imagery",
+      "size": "25 cm resolution",
+      "license": "Licence Ouverte / Open Licence v2.0",
+      "year": 2023,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/65f3822809c2175fc488736a",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/orthophoto-nocturne-2023-milieu-de-nuit-de-la-metropole-de-lyon"
+      }
+    },
+    {
+      "id": "photographie-aerienne-orthophotographie-2001-calvados",
+      "name": "Photographie a\u00e9rienne - orthophotographie 2001 - Calvados",
+      "summary": "Aerial orthophotography of the French Calvados department produced in 2001 for territorial planning and land-use applications.",
+      "description": "An aerial orthophotography dataset of the Calvados department (Normandy, France) produced in 2001 by the D\u00e9partement du Calvados. It supports territorial planning, land management, and other geospatial reference uses across the department. Distributed via the French national open-data portal.",
+      "task": "Aerial orthophotography",
+      "modality": "Aerial imagery",
+      "year": 2001,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/5f95e65ba0ee73d0966c6d9e",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/photographie-aerienne-orthophotographie-2001-calvados"
+      }
+    },
+    {
+      "id": "pnrcmo-diversite-vegetations-tous-statuts-periode-moderne-maille-1km2",
+      "name": "PNRCMO - Diversit\u00e9 - V\u00e9g\u00e9tations tous statuts (p\u00e9riode moderne, maille 1 km\u00b2)",
+      "summary": "Gridded (1 km\u00b2) counts of plant-community diversity for the Caps et Marais d'Opale Regional Natural Park, France.",
+      "description": "A geospatial biodiversity mapping dataset giving the number of vegetation communities (all statuses) observed per 1 km\u00b2 grid cell across the Parc Naturel R\u00e9gional des Caps et Marais d'Opale for the modern period (observations from 2000 onward). Published by the Conservatoire botanique national des Hauts-de-France and served as OGC WMS layers via the geo2france spatial infrastructure. Useful for conservation planning and ecological mapping.",
+      "task": "Vegetation diversity mapping",
+      "modality": "Geospatial (vector / WMS)",
+      "size": "1 km\u00b2 grid",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb17a0f27781f76884b46",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/pnrcmo-diversite-vegetations-tous-statuts-periode-moderne-par-maille-1-km2"
+      }
+    },
+    {
+      "id": "pnrcmo-pression-inventaire-vegetations-tous-statuts-periode-moderne-maille-1km2",
+      "name": "PNRCMO - Pression d'inventaire - V\u00e9g\u00e9tations tous statuts (p\u00e9riode moderne, maille 1 km\u00b2)",
+      "summary": "Gridded (1 km\u00b2) inventory-effort counts of vegetation observations for the Caps et Marais d'Opale Regional Natural Park, France.",
+      "description": "A geospatial dataset giving the number of vegetation observations (all statuses, modern period) recorded per 1 km\u00b2 grid cell across the Parc Naturel R\u00e9gional des Caps et Marais d'Opale, representing botanical inventory effort/sampling pressure. Published by the Conservatoire botanique national des Hauts-de-France and distributed as spatial layers via geo2france. Complements the park's vegetation diversity mapping products.",
+      "task": "Vegetation inventory mapping",
+      "modality": "Geospatial (vector / WMS)",
+      "size": "1 km\u00b2 grid",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1c80f27781f76884bc9",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/pnrcmo-pression-d-inventaire-vegetations-tous-statuts-periode-moderne-par-maille-1-km2"
+      }
+    },
+    {
+      "id": "pnrcmo-vegetations-interet-communautaire-periode-moderne-par-commune",
+      "name": "PNRCMO - V\u00e9g\u00e9tations d'int\u00e9r\u00eat communautaire (p\u00e9riode moderne, par commune)",
+      "summary": "Per-commune counts of community-interest (Habitats Directive) vegetations in the Caps et Marais d'Opale Regional Natural Park, France.",
+      "description": "A geospatial biodiversity dataset giving the number of vegetations of community interest (EU Habitats Directive) per commune across the Parc Naturel R\u00e9gional des Caps et Marais d'Opale for the modern period. Published by the Conservatoire botanique national des Hauts-de-France and served as spatial layers via geo2france. Supports habitat conservation assessment and territorial reporting.",
+      "task": "Habitat / vegetation mapping",
+      "modality": "Geospatial (vector / WMS)",
+      "size": "Per commune",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1870f27781f76884b5e",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/pnrcmo-vegetations-d-interet-communautaire-periode-moderne-par-commune"
+      }
+    },
+    {
+      "id": "pnrcmo-vegetations-interet-communautaire-periode-moderne-maille-1km2",
+      "name": "PNRCMO - V\u00e9g\u00e9tations d'int\u00e9r\u00eat communautaire (p\u00e9riode moderne, maille 1 km\u00b2)",
+      "summary": "Gridded (1 km\u00b2) counts of community-interest (Habitats Directive) vegetations in the Caps et Marais d'Opale Regional Natural Park, France.",
+      "description": "A geospatial biodiversity dataset giving the number of vegetations of community interest (EU Habitats Directive) per 1 km\u00b2 grid cell across the Parc Naturel R\u00e9gional des Caps et Marais d'Opale for the modern period. Published by the Conservatoire botanique national des Hauts-de-France and served as spatial layers via geo2france. Supports fine-grained habitat conservation mapping.",
+      "task": "Habitat / vegetation mapping",
+      "modality": "Geospatial (vector / WMS)",
+      "size": "1 km\u00b2 grid",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1760f27781f76884b3d",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/pnrcmo-vegetations-d-interet-communautaire-periode-moderne-par-maille-1-km2"
+      }
+    },
+    {
+      "id": "pnrcmo-vegetations-interet-patrimonial-regional-periode-moderne-maille-1km2",
+      "name": "PNRCMO - V\u00e9g\u00e9tations d'int\u00e9r\u00eat patrimonial r\u00e9gional (p\u00e9riode moderne, maille 1 km\u00b2)",
+      "summary": "Gridded (1 km\u00b2) counts of regionally heritage-value vegetations in the Caps et Marais d'Opale Regional Natural Park, France.",
+      "description": "A geospatial biodiversity dataset giving the number of vegetations of regional heritage (patrimonial) interest per 1 km\u00b2 grid cell across the Parc Naturel R\u00e9gional des Caps et Marais d'Opale for the modern period. Published by the Conservatoire botanique national des Hauts-de-France and served as spatial layers via geo2france. Supports regional conservation prioritization and ecological mapping.",
+      "task": "Vegetation heritage mapping",
+      "modality": "Geospatial (vector / WMS)",
+      "size": "1 km\u00b2 grid",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1a50f27781f76884b92",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/pnrcmo-vegetations-d-interet-patrimonial-regional-periode-moderne-par-maille-1-km2"
+      }
+    },
+    {
+      "id": "pnrcmo-vegetations-menacees-regionales-periode-moderne-par-commune",
+      "name": "PNRCMO - V\u00e9g\u00e9tations menac\u00e9es r\u00e9gionales (p\u00e9riode moderne, par commune)",
+      "summary": "Per-commune counts of regionally threatened vegetations in the Caps et Marais d'Opale Regional Natural Park, France.",
+      "description": "A geospatial biodiversity dataset giving the number of regionally threatened vegetations per commune across the Parc Naturel R\u00e9gional des Caps et Marais d'Opale for the modern period. Published by the Conservatoire botanique national des Hauts-de-France and served as spatial layers via geo2france. Supports threatened-habitat conservation assessment and territorial reporting.",
+      "task": "Threatened vegetation mapping",
+      "modality": "Geospatial (vector / WMS)",
+      "size": "Per commune",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1b00f27781f76884ba5",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/pnrcmo-vegetations-menacees-regionales-periode-moderne-par-commune"
+      }
+    },
+    {
+      "id": "sp-lidar",
+      "name": "sp-Lidar",
+      "summary": "A large-scale LiDAR point cloud dataset (~878 GB) for Earth observation and 3D mapping tasks, hosted on Hugging Face.",
+      "description": "sp-Lidar is a gated LiDAR dataset totalling approximately 878 GB of point cloud data intended for remote-sensing and 3D geospatial applications. Access requires agreeing to the dataset's terms on Hugging Face. The collection supports tasks such as terrain modelling, surface classification, and 3D scene reconstruction.",
+      "task": "LiDAR point cloud / 3D mapping",
+      "modality": "LiDAR",
+      "size": "~878 GB",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/vicktor3/sp-Lidar"
+      }
+    },
+    {
+      "id": "tropical-cyclone-128px",
+      "name": "Tropical Cyclone 128px",
+      "summary": "A compressed, precompiled dataset of 128x128 pixel tropical cyclone satellite imagery for cyclone characterization and wind-speed estimation.",
+      "description": "Tropical Cyclone 128px provides over 114,000 satellite-imagery observations of tropical cyclones and typhoons across multiple ocean basins, packaged in compressed .npz format. Each record captures storm imagery at 128x128 pixel resolution along with associated metadata. The dataset is designed for machine-learning tasks such as tropical-cyclone intensity (wind-speed) estimation and storm characterization.",
+      "task": "Tropical cyclone intensity estimation",
+      "modality": "Satellite imagery",
+      "size": "5.48 GB",
+      "numSamples": 114634,
+      "license": "MIT",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/fazaghifari/tropical_cyclone_128px"
+      }
+    },
+    {
+      "id": "wildfire-focus",
+      "name": "wildfire-focus",
+      "summary": "A Brazilian wildfire detection dataset combining multi-satellite fire observations with meteorological and vegetation data across major biomes.",
+      "description": "wildfire-focus aggregates roughly 10 million fire-related observations from multiple satellite sources including GOES-16, NOAA-20, and NOAA-21 across Brazil. Each record includes temporal metadata, geographic location (municipality and state), precipitation, fire risk scores, fire radiative power (FRP), and biome classification spanning the Pantanal, Cerrado, Amazonia, Mata Atlantica, and Caatinga. The data, drawn from 2024 observations, supports fire detection, risk assessment, and environmental monitoring.",
+      "task": "Wildfire detection and risk assessment",
+      "modality": "Tabular (multi-satellite fire observations)",
+      "size": "145 MB (parquet)",
+      "numSamples": 10000000,
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/Rob-A-B/wildfire-focus"
+      }
+    },
+    {
+      "id": "sentinel-2-data-for-ch4",
+      "name": "Sentinel-2 data for CH4",
+      "summary": "A collection of Sentinel-2 multispectral satellite imagery curated for methane (CH4) detection and monitoring.",
+      "description": "Sentinel-2 data for CH4 provides multispectral remote-sensing imagery from the Copernicus Sentinel-2 mission assembled to support methane (CH4) plume detection and atmospheric monitoring research. The dataset totals about 2.59 GB of Sentinel-2 data. It targets the task of identifying and quantifying methane emissions from satellite observations.",
+      "task": "Methane (CH4) detection",
+      "modality": "Sentinel-2 multispectral imagery",
+      "size": "2.59 GB",
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "huggingface": "https://huggingface.co/datasets/xiaolaobaaaa/Sentinel-2_data_for_CH4"
+      }
+    },
+    {
+      "id": "zone-de-vegetation-de-troyes-champagne-metropole",
+      "name": "Zone de vegetation de Troyes Champagne Metropole",
+      "summary": "A geospatial vector dataset mapping natural and cultivated vegetation zones across the Troyes Champagne Metropole region of France.",
+      "description": "This dataset maps approximately 18,564 vegetation zones in the Troyes Champagne Metropole region, classified by tree-canopy coverage and vegetation type (e.g. forests over 5,000 m2 with at least 10% tree cover, heathland, and other vegetated spaces). It is distributed as GPKG, CSV, and XLSX files with accompanying PDF documentation. The data supports land-use mapping and urban planning analysis.",
+      "task": "Land cover / vegetation mapping",
+      "modality": "Vector geospatial",
+      "size": "GPKG 21.2 MB, CSV 1.4 MB, XLSX 410 KB",
+      "numSamples": 18564,
+      "license": "Licence Ouverte 2.0",
+      "year": 2024,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/66b4bd049d2b1d4f72b5f169",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/zone-de-vegetation-de-troyes-champagne-metropole"
+      }
+    },
+    {
+      "id": "hauts-de-france-diversite-vegetations-tous-statuts-periode-ancienne-par-maille-1-km2",
+      "name": "Hauts-de-France - Diversite - Vegetations tous statuts (Periode ancienne - Par maille 1 km2)",
+      "summary": "A gridded geospatial dataset counting vegetation types observed before 2000 per 1 km2 cell across France's Hauts-de-France region.",
+      "description": "This dataset records the number of vegetation communities (microcenoses, all statuses) observed before 1 January 2000 across 1 km2 grid cells spanning five departments (02, 59, 60, 62, 80) of the Hauts-de-France region. Each grid cell carries an identifier and a vegetation count. It is served as an OGC WMS layer via the DIGITALE platform and supports historical biodiversity and vegetation-diversity assessment.",
+      "task": "Vegetation diversity mapping",
+      "modality": "Gridded geospatial (WMS)",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1cf0f27781f76884bd2",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-diversite-vegetations-tous-statuts-periode-ancienne-par-maille-1-km2"
+      }
+    },
+    {
+      "id": "hauts-de-france-diversite-vegetations-tous-statuts-periode-moderne-par-commune",
+      "name": "Hauts-de-France - Diversite - Vegetations tous statuts (Periode moderne - Par commune)",
+      "summary": "A commune-level geospatial dataset counting vegetation types observed since 2000 across France's Hauts-de-France region.",
+      "description": "This dataset records the number of vegetation communities (microcenoses, all statuses) observed after 31 December 1999, aggregated by commune across five departments (02, 59, 60, 62, 80) of the Hauts-de-France region. Each record includes commune names with INSEE codes, vegetation counts, and taxonomic lists. It is served as an OGC WMS layer via the DIGITALE platform for ecological and biodiversity monitoring.",
+      "task": "Vegetation diversity mapping",
+      "modality": "Vector geospatial (WMS)",
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/688cb1a60f27781f76884b94",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/hauts-de-france-diversite-vegetations-tous-statuts-periode-moderne-par-commune"
+      }
+    },
+    {
+      "id": "orthophotographie-ccpc-2020",
+      "name": "Orthophotographie - CCPC - 2020",
+      "summary": "Aerial orthophotography of the Communaute de Communes Pevele-Carembault (France) acquired in spring 2020.",
+      "description": "This dataset provides distortion-free aerial orthophotography covering the territory of the Communaute de Communes Pevele-Carembault (CCPC), produced from aerial photographs taken between 30 March and 9 April 2020 to minimise vegetation masking. It is distributed via WMS and downloadable files and is part of a campaign that also produced LiDAR point clouds and a 3D model. The imagery supports mapping, land planning, and geographic analysis.",
+      "task": "Aerial orthophotography",
+      "modality": "Aerial imagery",
+      "license": "Licence Ouverte 2.0",
+      "year": 2020,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/665fe74a1da7949369f23bcb",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/orthophotographie-ccpc-2020"
+      }
+    },
+    {
+      "id": "orthophotographie-du-departement-des-alpes-maritimes-2009",
+      "name": "Orthophotographie du Departement des Alpes-Maritimes 2009",
+      "summary": "Aerial orthophotography of the Alpes-Maritimes department (France) at 20 cm resolution, acquired June-July 2009.",
+      "description": "This dataset provides RGB aerial orthophotography of the Alpes-Maritimes department captured in June-July 2009, with a 20 cm pixel size and 40 cm planimetric accuracy in the Lambert 93 projection. It is distributed in ECW (wavelet-compressed) format totalling about 14 GB. The imagery supports georeferenced mapping and geographic analysis of the region.",
+      "task": "Aerial orthophotography",
+      "modality": "Aerial imagery",
+      "size": "14 GB (ECW)",
+      "license": "Licence Ouverte 2.0",
+      "year": 2009,
+      "sources": [
+        "Hugging Face",
+        "data.gouv.fr"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/68108afeb49b7c6c559e6b6b",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/orthophotographie-du-departement-des-alpes-maritimes-2009"
+      }
+    },
+    {
+      "id": "vegetation-stratifiee-2018-de-la-metropole-de-lyon",
+      "name": "Vegetation stratifiee 2018 de la Metropole de Lyon",
+      "summary": "A 1 m resolution stratified vegetation map of the Lyon Metropolitan area derived from 2018 orthophotography and LiDAR.",
+      "description": "This dataset identifies vegetated spaces across the Lyon Metropole at very high resolution (1 m per pixel) using 2018 orthophotos and LiDAR data. Vegetation is classified into five height-based strata: herbaceous plants, shrubs (<1.5 m), bushes (1.5-5 m), small trees (5-15 m) and large trees (>15 m). It was produced by researchers from the Labex Intelligence des Mondes Urbains and the Ecole Urbaine de Lyon and is intended for urban land-cover and ecology analysis.",
+      "task": "land-cover mapping / vegetation classification",
+      "modality": "Aerial orthophoto + LiDAR (raster)",
+      "size": "1 m resolution raster",
+      "license": "ODbL (Open Database License)",
+      "year": 2018,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.data.gouv.fr/datasets/6361a62c42600ae665bd8ad8",
+        "huggingface": "https://huggingface.co/datasets/french-open-data/vegetation-stratifiee-2018-de-la-metropole-de-lyon"
+      }
+    },
+    {
+      "id": "fasdd-flame-and-smoke-detection-dataset",
+      "name": "FASDD: Flame and Smoke Detection Dataset",
+      "summary": "A 100,000-level open-access flame and smoke detection dataset spanning surveillance cameras, drones and satellites for deep-learning fire detection.",
+      "description": "FASDD is a large-scale, multi-source heterogeneous flame and smoke image dataset built to train and benchmark fire detection models. It contains rich variation in image size, resolution, illumination (day/night), scene (indoor/outdoor), range, viewing angle and acquisition platform, including surveillance cameras, drones and satellites. Currently among the largest and most comprehensive open fire detection datasets, it provides a challenging benchmark for object detection and classification of flames and smoke.",
+      "task": "object-detection / fire (flame and smoke) detection",
+      "modality": "RGB imagery (surveillance, UAV, satellite)",
+      "numSamples": "100,000+ images",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "github": "https://github.com/openrsgis/FASDD",
+        "paper": "https://essd.copernicus.org/preprints/essd-2023-73/",
+        "download": "https://doi.org/10.57760/sciencedb.j00104.00103"
+      }
+    },
+    {
+      "id": "northeast-china-maize-yield-10m",
+      "name": "NortheastChinaMaizeYield10m: 10-m Resolution Maize Yield Dataset",
+      "summary": "A 10-m resolution maize yield dataset covering Northeast China from 2019 to 2024 generated by combining WOFOST crop-growth simulation with satellite remote sensing.",
+      "description": "NortheastChinaMaizeYield10m is a maize yield estimation product for Northeast China at 10-meter spatial resolution spanning 2019-2024 and covering roughly 1.24 million square kilometers. It was produced with a mechanistically interpretable, label-free framework that uses the WOFOST crop-growth model to generate training data and a GRU neural network applied to satellite vegetation indices. Validation against 458 independent ground points (2022-2024) yielded R2 = 0.69 and RMSE = 1.21 t/ha.",
+      "task": "crop yield estimation / crop monitoring",
+      "modality": "Satellite remote sensing (vegetation indices, raster)",
+      "size": "10 m resolution",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://essd.copernicus.org/preprints/essd-2026-284/",
+        "download": "https://zenodo.org/records/19547014"
+      }
+    },
+    {
+      "id": "yellow-river-basin-grain-crop-water-consumption-1km",
+      "name": "1-km Water Consumption and Irrigation Dataset for Major Grain Crops in the Yellow River Basin",
+      "summary": "A 1-km resolution dataset of water consumption and irrigation for wheat, maize and soybean in the Yellow River Basin (2000-2020) based on Crop Water Production Functions.",
+      "description": "This dataset provides water consumption and irrigation estimates for three major grain crops (wheat, maize, soybean) in the Yellow River Basin at 1-km spatial resolution, covering 2000-2020 at five-year intervals. It was produced by extending reverse-logic Crop Water Production Functions from field to basin scale using expanded field-experiment data and multi-source high-resolution yield data. Variables include water consumption and irrigation per unit area (mm) and totals (m3), each with upper and lower bounds of a 90% confidence interval.",
+      "task": "crop water consumption / irrigation estimation",
+      "modality": "Gridded geospatial raster (remote sensing derived)",
+      "size": "1 km resolution",
+      "year": 2026,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://www.nature.com/articles/s41597-026-07194-3"
+      }
+    },
+    {
+      "id": "2021-gaofen-challenge",
+      "name": "2021 Gaofen Challenge",
+      "summary": "Fine-grained object recognition challenge on high-resolution optical Earth observation imagery from Gaofen satellites, built on the FAIR1M dataset.",
+      "description": "The 2021 Gaofen Challenge on Automated High-Resolution Earth Observation Image Interpretation was organized by GRSS/IEEE around the FAIR1M benchmark, which contains over 1 million annotated instances across more than 40,000 high-resolution remote sensing images. Imagery is sourced from Gaofen-2 satellites and Google Earth at 0.3-0.8 m resolution, covering airports, ports and urban areas worldwide. Objects are labeled with oriented bounding boxes across 5 categories and 37 sub-categories for fine-grained detection and recognition tasks.",
+      "task": "object-detection",
+      "modality": "optical satellite/aerial imagery",
+      "year": 2021,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://www.grss-ieee.org/publications/call-for-papers/2021-gaofen-challenge-on-automated-high-resolution-earth-observation-image-interpretatio/",
+        "download": "http://gaofen-challenge.com/",
+        "huggingface": "https://huggingface.co/datasets/blanchon/FAIR1M",
+        "torchgeo": "https://torchgeo.readthedocs.io/en/stable/api/datasets.html#fair1m",
+        "paper": "https://arxiv.org/abs/2209.13369"
+      }
+    },
+    {
+      "id": "2022-multi-modal-aerial-view-object-classification-challenge",
+      "name": "2022 Multi-modal Aerial View Object Classification Challenge",
+      "summary": "PBVS 2022 challenge for classifying aerial-view objects using aligned Synthetic Aperture Radar (SAR) and electro-optical (EO) imagery from the UNICORN dataset.",
+      "description": "Part of the PBVS workshop series at CVPR, the 2022 Multi-modal Aerial View Object Classification Challenge encourages recognition models that leverage both SAR and EO aerial imagery. It is built on the UNICORN dataset of geo-registered, aligned SAR and EO chips depicting vehicles from multiple viewing angles. EO chips are 31x31 px while SAR chips cover the same field of view at finer resolution, with targets spanning 10 vehicle classes under a long-tailed training distribution.",
+      "task": "image-classification",
+      "modality": "SAR + electro-optical aerial imagery",
+      "year": 2022,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2022W/PBVS/papers/Low_Multi-Modal_Aerial_View_Object_Classification_Challenge_Results_-_PBVS_2022_CVPRW_2022_paper.pdf",
+        "homepage": "https://openaccess.thecvf.com/CVPR2022_workshops/PBVS"
+      }
+    },
+    {
+      "id": "2024-ey-open-science-data-challenge",
+      "name": "2024 EY Open Science Data Challenge",
+      "summary": "Coastal-resilience challenge using pre- and post-cyclone satellite imagery to detect damaged and undamaged coastal buildings after Hurricane Maria.",
+      "description": "The 2024 EY Open Science Data Challenge focused on coastal resilience and climate risk in data-poor environments. Participants used pre- and post-cyclone satellite images of a site impacted by Hurricane Maria (2017) to build models detecting four object classes: undamaged residential, damaged residential, undamaged commercial, and damaged commercial buildings. The challenge combined land classification from satellite data with topographic, population and socioeconomic data to model coastal vulnerability and assess storm damage.",
+      "task": "object-detection",
+      "modality": "satellite imagery",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://challenge.ey.com/2024",
+        "github": "https://github.com/Double-Y-EY-Challenge-2024/EY-challenge-2024",
+        "paper": "https://www.techrxiv.org/doi/pdf/10.36227/techrxiv.172963135.56918790"
+      }
+    },
+    {
+      "id": "2024-multi-modal-aerial-view-object-classification-challenge",
+      "name": "2024 Multi-modal Aerial View Object Classification Challenge",
+      "summary": "PBVS 2024 (4th MAVIC-C) challenge for SAR object classification using an enhanced UNICORN dataset of aligned SAR and electro-optical aerial imagery.",
+      "description": "The fourth Multi-modal Aerial View Image Challenge - Classification (MAVIC-C) at PBVS/CVPR 2024 advances recognition models that leverage SAR and EO imagery. It uses an enhanced UNIfied COincident Optical and Radar for recognitioN (UNICORN) dataset focused on the SAR classification task, with a revised competition format. The 2024 edition evaluates model robustness through out-of-distribution measures alongside traditional accuracy metrics under an extreme long-tail class distribution.",
+      "task": "image-classification",
+      "modality": "SAR + electro-optical aerial imagery",
+      "year": 2024,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2024W/PBVS/papers/Low_Multi-modal_Aerial_View_Image_Challenge_SAR_Classification_CVPRW_2024_paper.pdf",
+        "homepage": "https://openaccess.thecvf.com/CVPR2024_workshops/PBVS"
+      }
+    },
+    {
+      "id": "2025-cvpr-earthvision-e2s-data-challenge",
+      "name": "2025 CVPR EARTHVISION E2S Data Challenge",
+      "summary": "Embed2Scale (E2S) Earth observation challenge on lossy neural compression of SSL4EO-S12 satellite data cubes into compact embeddings for geospatial analytics.",
+      "description": "The 2025 CVPR EarthVision Data Challenge, organized by the Embed2Scale consortium, centers on Lossy Neural Compression for Geospatial Analytics. Participants develop lossy neural encoders that reduce SSL4EO-S12 (v1.1) Earth observation data cubes to 1024-dimensional embeddings while preserving downstream analytical utility. It is co-sponsored by the IEEE Geoscience and Remote Sensing Society and the Horizon Europe Embed2Scale project, with evaluation conducted on Eval.AI.",
+      "task": "representation-learning",
+      "modality": "multispectral/SAR satellite imagery (Sentinel)",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "homepage": "https://embed2scale.eu/2025/03/07/the-2025-cvpr-earthvision-data-challenge-pushing-the-boundaries-of-ai-based-compression-in-earth-observation/",
+        "download": "https://eval.ai/web/challenges/challenge-page/2465/overview",
+        "paper": "https://www.dlr.de/en/eoc/latest/news/2025/cvpr-earthvision-data-challenge"
+      }
+    },
+    {
+      "id": "2025-multi-modal-aerial-view-image-challenge",
+      "name": "2025 Multi-modal Aerial View Image Challenge",
+      "summary": "PBVS 2025 (4th MAVIC) challenge for SAR aerial-view image classification using aligned SAR and electro-optical imagery from the UNICORN dataset.",
+      "description": "The 4th Multi-modal Aerial View Image Challenge: SAR Classification at PBVS/CVPR 2025 advances recognition models that exploit SAR and EO aerial imagery. It builds on the UNICORN dataset of geo-registered, aligned SAR and EO aerial chips of vehicles, focusing on SAR-based object classification. The challenge evaluates accuracy and robustness across classes under a non-uniform training distribution.",
+      "task": "image-classification",
+      "modality": "SAR + electro-optical aerial imagery",
+      "year": 2025,
+      "sources": [
+        "Hugging Face"
+      ],
+      "links": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2025W/PBVS/papers/Inkawhich_4th_Multi-modal_Aerial_View_Image_Challenge_SAR_Classification_-_PBVS_CVPRW_2025_paper.pdf",
+        "homepage": "https://openaccess.thecvf.com/content/CVPR2025W/PBVS/html/Inkawhich_4th_Multi-modal_Aerial_View_Image_Challenge_SAR_Classification_-_PBVS_CVPRW_2025_paper.html"
+      }
+    },
+    {
+      "id": "gid-5-gaofen-image-dataset",
+      "name": "5-class Gaofen Image Dataset (GID-5)",
+      "summary": "A large-scale land-cover semantic segmentation dataset of high-resolution Gaofen-2 satellite imagery annotated with five land-cover classes.",
+      "description": "GID-5 is the original 5-class version of the Gaofen Image Dataset, built from images acquired by China's Gaofen-2 (GF-2) optical satellite. It contains 150 large pixel-level annotated images (each 7168x6720) covering wide geographic areas, with four spectral bands (blue, green, red, near-infrared). The five land-cover categories are built-up, farmland, forest, meadow, and water, with unclassifiable pixels left unlabeled. It was later refined and expanded into the 15-category GID-15 dataset.",
+      "task": "semantic-segmentation",
+      "modality": "multispectral",
+      "links": {
+        "homepage": "https://captain-whu.github.io/GID/",
+        "alternateHomepage": "https://x-ytong.github.io/project/GID.html",
+        "paper": "https://arxiv.org/abs/1807.05713"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "abcd",
+      "name": "ABCD (AIST Building Change Detection)",
+      "summary": "A labeled aerial change-detection benchmark of pre- and post-tsunami image pairs for detecting washed-away buildings.",
+      "description": "ABCD is a building change-detection dataset designed for evaluating systems that identify whether buildings were washed away by a tsunami. Each sample is a pair of pre- and post-tsunami aerial image patches centered on a target building, labeled with whether the central building was washed away. Class labels were derived from MLIT field survey results following the 2011 Great East Japan earthquake. It provides fixed-scale and resized variants of roughly 8,500 and 8,400 image pairs respectively (about half washed-away).",
+      "task": "change-detection",
+      "modality": "RGB aerial imagery",
+      "size": "0.4 m resolution; 128x128 / 160x160 image pairs",
+      "numSamples": "~16,950 image pairs",
+      "year": 2018,
+      "links": {
+        "github": "https://github.com/gistairc/ABCDdataset",
+        "paper": "https://arxiv.org/abs/2111.02586"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "aboveground-live-woody-biomass-density",
+      "name": "Aboveground Live Woody Biomass Density",
+      "summary": "A global, wall-to-wall map of aboveground live woody biomass density at ~30m resolution for the year 2000.",
+      "description": "The Aboveground Live Woody Biomass Density dataset is a global-scale, wall-to-wall map of aboveground biomass at roughly 30m resolution for the year 2000, distributed through the Global Forest Watch Open Data Portal. Pixel values give live woody biomass density in megagrams of biomass per hectare. The map was produced by training random-forest models on over 700,000 GLAS lidar-derived biomass estimates, using predictors such as Landsat 7 ETM+ reflectance and tree-canopy-cover data. It is also available as a TorchGeo dataset class (AbovegroundLiveWoodyBiomassDensity).",
+      "task": "forest-monitoring",
+      "modality": "raster / GeoTIFF",
+      "size": "~30 m resolution, global coverage",
+      "year": 2000,
+      "links": {
+        "homepage": "https://data.globalforestwatch.org/datasets/gfw::aboveground-live-woody-biomass-density/about",
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#torchgeo.datasets.AbovegroundLiveWoodyBiomassDensity"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "city-scale-traffic-flows-travel-times-urban-context",
+      "name": "A City-Scale Dataset of Traffic Flows, Travel Times, and Urban Context",
+      "summary": "A city-scale geospatial dataset of traffic flows, travel times, and urban context features for Padua, Italy.",
+      "description": "This dataset provides city-scale measurements of traffic flows, travel times, and accompanying urban context for the city of Padua, Italy, intended to support traffic-flow and travel-time modeling. It was produced in collaboration with the Municipality of Padua and the University of Padova and released openly on Zenodo. The data combines mobility metrics with spatial urban-context information for the urban road network.",
+      "task": "Traffic flow and travel time modeling",
+      "size": "31 MB",
+      "license": "CC-BY-4.0",
+      "year": 2026,
+      "links": {
+        "homepage": "https://zenodo.org/records/20039768",
+        "download": "https://zenodo.org/api/records/20039768/files/data.zip/content"
+      },
+      "sources": [
+        "Hugging Face"
+      ]
     }
   ]
 }
