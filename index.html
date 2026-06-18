@@ -109,96 +109,84 @@
         aria-labelledby="tab-models"
       >
         <div class="section-heading">
-          <h2 id="models-title">Foundation Models <span class="section-count">812 foundation models</span></h2>
+          <h2 id="models-title">Explore foundation models</h2>
         </div>
 
-        <div class="resource-table-wrap">
-          <table class="resource-table resource-table-models">
-            <thead>
-              <tr>
-                <th scope="col">Foundation model name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Venue / Year</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr data-year="2025">
-                <td><span class="model-name-with-tag"><span class="model-name-text">AlphaEarth</span><span class="org-tag org-tag-google">Google</span></span></td>
-                <td>Foundation Model</td>
-                <td>2025</td>
-                <td><a href="cards/models/alphaearth.html">View model card</a></td>
-              </tr>
-              <tr data-year="2024">
-                <td><span class="model-name-with-tag"><span class="model-name-text">SAM</span><span class="org-tag org-tag-meta">Meta</span></span></td>
-                <td>Segmentation</td>
-                <td>arXiv 2024</td>
-                <td><a href="https://github.com/htcr/sam_road" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2025">
-                <td><span class="model-name-with-tag"><span class="model-name-text">SatCLIP</span><span class="org-tag org-tag-microsoft">Microsoft</span></span></td>
-                <td>Foundation Model</td>
-                <td>AAAI 2025</td>
-                <td><a href="https://github.com/microsoft/satclip" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2026">
-                <td><span class="model-name-with-tag"><span class="model-name-text">DVLT</span><span class="org-tag org-tag-nvidia">NVIDIA</span></span></td>
-                <td>Foundation Model</td>
-                <td>arXiv 2026</td>
-                <td><a href="https://huggingface.co/nvidia/dvlt" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2025">
-                <td><span class="model-name-with-tag"><span class="model-name-text">TerraTorch</span><span class="org-tag org-tag-ibm">IBM</span></span></td>
-                <td>Foundation Model</td>
-                <td>arXiv 2025</td>
-                <td><a href="https://github.com/IBM/terratorch" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2025">
-                <td><span class="model-name-with-tag"><span class="model-name-text">Clay on AWS</span><span class="org-tag org-tag-amazon">Amazon</span></span></td>
-                <td>Foundation Model</td>
-                <td>AWS 2025</td>
-                <td><a href="https://aws.amazon.com/blogs/machine-learning/revolutionizing-earth-observation-with-geospatial-foundation-models-on-aws/" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2026">
-                <td><span class="model-name-with-tag"><span class="model-name-text">OlmoEarth</span><span class="org-tag org-tag-allen-ai">Allen AI</span></span></td>
-                <td>Foundation Model</td>
-                <td>CVPR 2026</td>
-                <td><a href="https://github.com/allenai/olmoearth_pretrain" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2023">
-                <td><span class="model-name-with-tag"><span class="model-name-text">Prithvi</span><span class="org-tag org-tag-ibm-nasa">IBM-NASA</span></span></td>
-                <td>Foundation Model</td>
-                <td>arXiv 2023</td>
-                <td><a href="https://huggingface.co/ibm-nasa-geospatial" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2024">
-                <td><span class="model-name-with-tag"><span class="model-name-text">PhilEO Bench</span><span class="org-tag org-tag-esa">ESA</span></span></td>
-                <td>Foundation Model</td>
-                <td>arXiv 2024</td>
-                <td><a href="https://github.com/ESA-PhiLab/PhilEO-Bench" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2024">
-                <td><span class="model-name-with-tag"><span class="model-name-text">Clay</span><span class="org-tag org-tag-clay">Clay</span></span></td>
-                <td>Foundation Model</td>
-                <td>Clay Foundation 2024</td>
-                <td><a href="https://clay-foundation.github.io/model/" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2022">
-                <td><span class="model-name-with-tag"><span class="model-name-text">RingMo</span><span class="org-tag org-tag-chinese-academy">Chinese Academy of Sciences</span></span></td>
-                <td>Foundation Model</td>
-                <td>IEEE TGRS 2022</td>
-                <td><a href="https://ieeexplore.ieee.org/document/9844015" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-              <tr data-year="2025">
-                <td><span class="model-name-with-tag"><span class="model-name-text">AnySat</span><span class="org-tag org-tag-inria">Inria</span></span></td>
-                <td>Foundation Model</td>
-                <td>CVPR 2025</td>
-                <td><a href="https://github.com/gastruc/AnySat" target="_blank" rel="noreferrer">View model card</a></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="foundation-model-grid" aria-label="Featured geospatial foundation models">
+          <a class="foundation-model-card" href="cards/models/alphaearth.html">
+            <div class="foundation-model-card-head">
+              <span class="foundation-model-mark foundation-model-mark-google">AE</span>
+              <div>
+                <h3>AlphaEarth</h3>
+                <span class="foundation-model-pill">Google · 2025</span>
+              </div>
+            </div>
+            <p>Planet-scale embeddings for land and coastal monitoring in Earth Engine.</p>
+            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="foundation-model-card" href="https://huggingface.co/ibm-nasa-geospatial" target="_blank" rel="noreferrer">
+            <div class="foundation-model-card-head">
+              <span class="foundation-model-mark foundation-model-mark-ibm">P</span>
+              <div>
+                <h3>Prithvi-EO</h3>
+                <span class="foundation-model-pill">IBM-NASA · 2024</span>
+              </div>
+            </div>
+            <p>Open Earth observation foundation models for flood, crop, and land-cover tasks.</p>
+            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="foundation-model-card" href="https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-large" target="_blank" rel="noreferrer">
+            <div class="foundation-model-card-head">
+              <span class="foundation-model-mark foundation-model-mark-esa">TM</span>
+              <div>
+                <h3>TerraMind</h3>
+                <span class="foundation-model-pill">IBM-ESA · 2025</span>
+              </div>
+            </div>
+            <p>Multimodal encoder-decoder model for optical, SAR, elevation, and climate data.</p>
+            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="foundation-model-card" href="https://clay-foundation.github.io/model/" target="_blank" rel="noreferrer">
+            <div class="foundation-model-card-head">
+              <span class="foundation-model-mark foundation-model-mark-clay">C</span>
+              <div>
+                <h3>Clay</h3>
+                <span class="foundation-model-pill">Clay · 2024</span>
+              </div>
+            </div>
+            <p>General-purpose geospatial embeddings trained for many sensors and resolutions.</p>
+            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="foundation-model-card" href="https://github.com/sustainlab-group/SatMAE" target="_blank" rel="noreferrer">
+            <div class="foundation-model-card-head">
+              <span class="foundation-model-mark foundation-model-mark-satmae">SM</span>
+              <div>
+                <h3>SatMAE</h3>
+                <span class="foundation-model-pill">SustainLab · 2022</span>
+              </div>
+            </div>
+            <p>Masked autoencoder pretraining for temporal and multispectral satellite imagery.</p>
+            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="foundation-model-card" href="https://github.com/Jack-bo1220/SkySense" target="_blank" rel="noreferrer">
+            <div class="foundation-model-card-head">
+              <span class="foundation-model-mark foundation-model-mark-skysense">SS</span>
+              <div>
+                <h3>SkySense</h3>
+                <span class="foundation-model-pill">Wuhan · 2024</span>
+              </div>
+            </div>
+            <p>Multimodal remote-sensing foundation model for universal image interpretation.</p>
+            <span class="foundation-model-action">View model <span aria-hidden="true">↗</span></span>
+          </a>
         </div>
         <div class="browse-row">
-          <a class="gradient-text" href="pages/models.html">Browse all foundation models</a>
+          <a class="foundation-model-more-link" href="pages/models.html">Discover more foundation models <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 

@@ -1777,6 +1777,155 @@ body.is-submit-modal-open {
   line-height: 1.2;
 }
 
+.foundation-model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.foundation-model-card {
+  display: flex;
+  min-height: 194px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  border: 1px solid rgba(17, 19, 24, 0.06);
+  border-radius: 16px;
+  background: rgba(17, 19, 24, 0.02);
+  color: inherit;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.foundation-model-card:hover {
+  border-color: rgba(17, 19, 24, 0.12);
+  background: rgba(17, 19, 24, 0.04);
+  text-decoration: none;
+}
+
+.foundation-model-card-head {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.foundation-model-card h3 {
+  overflow: hidden;
+  margin: 0;
+  color: #111318;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.foundation-model-card p {
+  margin: 16px 0;
+  color: rgba(32, 33, 36, 0.62);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.foundation-model-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: max-content;
+  color: rgba(32, 33, 36, 0.42);
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.4;
+  transition: color 160ms ease;
+}
+
+.foundation-model-card:hover .foundation-model-action,
+.foundation-model-more-link:hover {
+  color: rgba(32, 33, 36, 0.72);
+}
+
+.foundation-model-mark {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  object-fit: cover;
+}
+
+.foundation-model-mark-google {
+  background: conic-gradient(#4285f4 0 25%, #34a853 0 50%, #fbbc04 0 75%, #ea4335 0);
+}
+
+.foundation-model-mark-ibm {
+  background: #0f62fe;
+}
+
+.foundation-model-mark-esa {
+  background: #003247;
+}
+
+.foundation-model-mark-clay {
+  background: #6f7d5f;
+}
+
+.foundation-model-mark-satmae {
+  background: #6b5cff;
+}
+
+.foundation-model-mark-skysense {
+  background: #18c6b6;
+}
+
+.foundation-model-pill {
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  max-width: 100%;
+  margin-top: 4px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: rgba(17, 19, 24, 0.05);
+  color: rgba(32, 33, 36, 0.62);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.foundation-model-more-link {
+  color: #62676f;
+  font-size: 17px;
+  font-weight: 550;
+  line-height: 1.4;
+  text-underline-offset: 5px;
+}
+
+#models .browse-row {
+  justify-content: center;
+  padding-top: 24px;
+}
+
+#models .section-heading {
+  margin-bottom: 32px;
+}
+
+#models .section-heading h2 {
+  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
 .browse-row {
   display: flex;
   justify-content: flex-end;
@@ -3542,6 +3691,10 @@ body.is-submit-modal-open {
     min-width: 100%;
   }
 
+  .foundation-model-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .resource-controls {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 12px;
@@ -3699,6 +3852,12 @@ body.is-submit-modal-open {
   }
 }
 
+@media (max-width: 639px) {
+  .foundation-model-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 600px) {
   .header-user-button {
     width: 40px;
@@ -3784,6 +3943,30 @@ body.is-submit-modal-open {
   .resource-table {
     display: block;
     min-width: 0;
+  }
+
+  .foundation-model-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .foundation-model-card {
+    min-height: 154px;
+    padding: 24px;
+  }
+
+  .foundation-model-card h3 {
+    font-size: 19px;
+  }
+
+  .foundation-model-card p {
+    margin: 22px 0 20px;
+    font-size: 16px;
+  }
+
+  #models .browse-row {
+    justify-content: flex-start;
+    padding-top: 22px;
   }
 
   .resource-table.resource-table-papers-full {
