@@ -1932,6 +1932,230 @@ document.querySelectorAll("[data-combined-resource-table]").forEach(initCombined
 
 document.querySelectorAll(".resource-table-models").forEach(promoteLastLinkColumnToRows);
 
+// Edit this block to change homepage dataset rail items or timing.
+const homepageDatasetRailConfig = {
+  intervalMs: 5000,
+  items: [
+    {
+      name: "EuroSAT",
+      heading: "Land-use and land-cover classification",
+      description:
+        "A Sentinel-2 benchmark with 27,000 labeled image patches across 10 land-use and land-cover classes.",
+      image: "images/datasets/EuroSAT.png",
+      imageAlt: "EuroSAT sample grid of Sentinel-2 land-use and land-cover image patches.",
+    },
+    {
+      name: "DOTA",
+      heading: "Oriented object detection in aerial imagery",
+      description:
+        "A large-scale aerial image benchmark with rotated bounding boxes for detecting objects such as ships, bridges, courts, and aircraft.",
+      image: "images/datasets/DOTA.jpg",
+      imageAlt: "DOTA aerial object detection examples with oriented bounding box annotations.",
+    },
+    {
+      name: "BigEarthNet",
+      heading: "Multi-label Earth observation archive",
+      description:
+        "A large Sentinel-1 and Sentinel-2 benchmark archive for multi-label land-cover classification and retrieval.",
+      image: "images/datasets/BigEarthNet.webp",
+      imageAlt: "BigEarthNet sample mosaic of satellite image patches.",
+    },
+    {
+      name: "GEO-Bench",
+      heading: "Foundation model evaluation suite",
+      description:
+        "A benchmark suite for testing geospatial representation learning across classification and segmentation tasks.",
+      image: "images/datasets/GEO-Bench.png",
+      imageAlt: "GEO-Bench examples across multiple Earth observation datasets and tasks.",
+    },
+    {
+      name: "UC Merced Land Use",
+      heading: "Aerial scene classification benchmark",
+      description:
+        "A classic 21-class land-use benchmark of high-resolution aerial images covering scenes such as harbors, freeways, and residential areas.",
+      image: "images/datasets/UC-Merced.png",
+      imageAlt: "UC Merced Land Use sample grid of aerial scene classes.",
+    },
+  ],
+};
+
+function initDatasetRail(container, config = homepageDatasetRailConfig) {
+  const items = Array.isArray(config.items) ? config.items : [];
+  const intervalMs = Number(config.intervalMs) || 5000;
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  if (!items.length) {
+    return;
+  }
+
+  let activeIndex = 0;
+  let intervalId = 0;
+  let isHoverPaused = false;
+  let isFocusPaused = false;
+
+  const nav = document.createElement("div");
+  const line = document.createElement("span");
+  const marker = document.createElement("span");
+  const list = document.createElement("div");
+  const panel = document.createElement("div");
+  const panelFigure = document.createElement("figure");
+  const panelImage = document.createElement("img");
+  const kicker = document.createElement("span");
+  const panelHeading = document.createElement("h3");
+  const panelDescription = document.createElement("p");
+  const panelId = `dataset-rail-panel-${Math.random().toString(36).slice(2)}`;
+  const buttons = [];
+
+  container.style.setProperty("--dataset-rail-item-count", String(items.length));
+  container.style.setProperty("--dataset-rail-active-index", "0");
+
+  nav.className = "dataset-rail-nav";
+  line.className = "dataset-rail-line";
+  marker.className = "dataset-rail-marker";
+  line.setAttribute("aria-hidden", "true");
+  marker.setAttribute("aria-hidden", "true");
+  list.className = "dataset-rail-list";
+  list.setAttribute("role", "tablist");
+  list.setAttribute("aria-orientation", "vertical");
+
+  panel.className = "dataset-rail-panel";
+  panel.id = panelId;
+  panel.setAttribute("role", "tabpanel");
+  panel.setAttribute("aria-live", "polite");
+  panelFigure.className = "dataset-rail-panel-image";
+  panelImage.loading = "lazy";
+  panelFigure.append(panelImage);
+  kicker.className = "dataset-rail-panel-kicker";
+  kicker.textContent = "Dataset & benchmark";
+  panel.append(panelFigure, kicker, panelHeading, panelDescription);
+
+  function stopAutoAdvance() {
+    if (intervalId) {
+      window.clearInterval(intervalId);
+      intervalId = 0;
+    }
+  }
+
+  function shouldAutoAdvance() {
+    return items.length > 1 && !isHoverPaused && !isFocusPaused && !reducedMotionQuery.matches;
+  }
+
+  function startAutoAdvance() {
+    stopAutoAdvance();
+
+    if (!shouldAutoAdvance()) {
+      return;
+    }
+
+    intervalId = window.setInterval(() => {
+      setActiveDatasetRailItem(activeIndex + 1);
+    }, intervalMs);
+  }
+
+  function restartAutoAdvance() {
+    stopAutoAdvance();
+    startAutoAdvance();
+  }
+
+  function setActiveDatasetRailItem(nextIndex, options = {}) {
+    activeIndex = ((nextIndex % items.length) + items.length) % items.length;
+    container.style.setProperty("--dataset-rail-active-index", String(activeIndex));
+
+    buttons.forEach((button, index) => {
+      const isActive = index === activeIndex;
+
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-selected", String(isActive));
+      button.tabIndex = isActive ? 0 : -1;
+    });
+
+    const item = items[activeIndex];
+
+    if (item.image) {
+      panelImage.hidden = false;
+      panelImage.src = item.image;
+      panelImage.alt = item.imageAlt || `${item.name} sample image`;
+    } else {
+      panelImage.hidden = true;
+      panelImage.removeAttribute("src");
+      panelImage.alt = "";
+    }
+    panelHeading.textContent = item.heading || item.name;
+    panelDescription.textContent = item.description || "";
+
+    if (options.focus) {
+      buttons[activeIndex]?.focus();
+    }
+  }
+
+  items.forEach((item, index) => {
+    const button = document.createElement("button");
+
+    button.className = "dataset-rail-item";
+    button.type = "button";
+    button.textContent = item.name;
+    button.setAttribute("role", "tab");
+    button.setAttribute("aria-controls", panelId);
+    button.setAttribute("aria-selected", "false");
+    button.addEventListener("click", () => {
+      setActiveDatasetRailItem(index);
+      restartAutoAdvance();
+    });
+
+    buttons.push(button);
+    list.append(button);
+  });
+
+  list.addEventListener("keydown", (event) => {
+    const keyActions = {
+      ArrowDown: activeIndex + 1,
+      ArrowRight: activeIndex + 1,
+      ArrowUp: activeIndex - 1,
+      ArrowLeft: activeIndex - 1,
+      Home: 0,
+      End: items.length - 1,
+    };
+
+    if (!(event.key in keyActions)) {
+      return;
+    }
+
+    event.preventDefault();
+    setActiveDatasetRailItem(keyActions[event.key], { focus: true });
+    restartAutoAdvance();
+  });
+
+  container.addEventListener("mouseenter", () => {
+    isHoverPaused = true;
+    stopAutoAdvance();
+  });
+  container.addEventListener("mouseleave", () => {
+    isHoverPaused = false;
+    startAutoAdvance();
+  });
+  container.addEventListener("focusin", () => {
+    isFocusPaused = true;
+    stopAutoAdvance();
+  });
+  container.addEventListener("focusout", (event) => {
+    if (container.contains(event.relatedTarget)) {
+      return;
+    }
+
+    isFocusPaused = false;
+    startAutoAdvance();
+  });
+
+  reducedMotionQuery.addEventListener("change", restartAutoAdvance);
+
+  nav.append(line, marker, list);
+  container.append(nav, panel);
+  setActiveDatasetRailItem(0);
+  startAutoAdvance();
+}
+
+document.querySelectorAll("[data-dataset-rail]").forEach(initDatasetRail);
+
 function initResourceList(controls) {
   const section = controls.closest("section");
   const searchInput = controls.querySelector("[data-resource-search]");
