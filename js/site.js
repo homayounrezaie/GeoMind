@@ -2165,7 +2165,20 @@ function initDatasetRail(container, config = homepageDatasetRailConfig) {
   startAutoAdvance();
 }
 
-document.querySelectorAll("[data-dataset-rail]").forEach(initDatasetRail);
+function initDatasetRails() {
+  Array.from(document.querySelectorAll("[data-dataset-rail]")).forEach((container) => {
+    if (container.dataset.datasetRailReady === "true") {
+      return;
+    }
+
+    container.dataset.datasetRailReady = "true";
+    initDatasetRail(container);
+  });
+}
+
+initDatasetRails();
+document.addEventListener("DOMContentLoaded", initDatasetRails, { once: true });
+window.addEventListener("load", initDatasetRails, { once: true });
 
 function initResourceList(controls) {
   const section = controls.closest("section");
