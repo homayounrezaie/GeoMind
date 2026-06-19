@@ -165,6 +165,17 @@ const tabs = Array.from(document.querySelectorAll("[data-tab-target]"));
 const panels = Array.from(document.querySelectorAll(".resource-panel"));
 const tabModeQuery = window.matchMedia("(max-width: 1024px)");
 
+function addMediaQueryChangeListener(mediaQuery, callback) {
+  if (typeof mediaQuery.addEventListener === "function") {
+    mediaQuery.addEventListener("change", callback);
+    return;
+  }
+
+  if (typeof mediaQuery.addListener === "function") {
+    mediaQuery.addListener(callback);
+  }
+}
+
 function setActiveTab(targetId) {
   tabs.forEach((item) => {
     const isActive = item.dataset.tabTarget === targetId;
@@ -213,7 +224,7 @@ tabs.forEach((tab) => {
   });
 });
 
-tabModeQuery.addEventListener("change", syncPanels);
+addMediaQueryChangeListener(tabModeQuery, syncPanels);
 syncPanels();
 
 function getSubmitIconMarkup(kind) {
@@ -2146,7 +2157,7 @@ function initDatasetRail(container, config = homepageDatasetRailConfig) {
     startAutoAdvance();
   });
 
-  reducedMotionQuery.addEventListener("change", restartAutoAdvance);
+  addMediaQueryChangeListener(reducedMotionQuery, restartAutoAdvance);
 
   nav.append(line, marker, list);
   container.append(nav, panel);
