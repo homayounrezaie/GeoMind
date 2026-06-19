@@ -2031,12 +2031,13 @@ body.is-submit-modal-open {
   display: inline-block;
   margin-left: 4px;
   font-family: Inter, Arial, Helvetica, sans-serif;
-  font-size: 1.12em;
-  font-weight: 800;
+  font-size: 1em;
+  font-weight: 900;
   line-height: 1;
   text-decoration: none;
-  transform: translateY(-0.04em);
-  -webkit-text-stroke: 0.25px currentColor;
+  transform: translateY(-0.03em) scale(0.86);
+  transform-origin: center;
+  -webkit-text-stroke: 0.45px currentColor;
 }
 
 .table-pager {
