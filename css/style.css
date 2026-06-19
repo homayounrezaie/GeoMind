@@ -1824,10 +1824,10 @@ body.is-submit-modal-open {
 .foundation-model-chip {
   display: grid;
   grid-template-columns: minmax(28px, max-content) minmax(0, 1fr);
-  min-height: 76px;
+  min-height: 64px;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
+  padding: 9px 12px;
   border: 1px solid rgba(17, 19, 24, 0.05);
   border-radius: 8px;
   background: rgba(17, 19, 24, 0.025);
@@ -1846,10 +1846,20 @@ body.is-submit-modal-open {
 .foundation-model-chip-copy {
   display: grid;
   min-width: 0;
-  gap: 5px;
+  gap: 4px;
+}
+
+.foundation-model-title-row {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .foundation-model-chip-copy strong {
+  flex: 1 1 auto;
+  min-width: 0;
   overflow: hidden;
   color: #111318;
   font-size: 15px;
@@ -1870,9 +1880,10 @@ body.is-submit-modal-open {
 }
 
 .spec-tag {
-  display: inline-block;
-  justify-self: start;
-  max-width: 100%;
+  display: inline-flex;
+  flex: 0 0 auto;
+  max-width: min(46%, 170px);
+  align-items: center;
   overflow: hidden;
   padding: 3px 9px;
   border-radius: 8px;
@@ -3996,8 +4007,8 @@ body.is-submit-modal-open {
   }
 
   .foundation-model-chip {
-    min-height: 76px;
-    padding: 10px 12px;
+    min-height: 64px;
+    padding: 9px 12px;
   }
 
   .resource-table.resource-table-papers-full {
