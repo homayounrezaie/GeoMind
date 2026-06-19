@@ -1803,17 +1803,18 @@ body.is-submit-modal-open {
 
 .foundation-model-reel {
   position: relative;
-  height: 360px;
+  height: 420px;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
 }
 
 .foundation-model-reel-track {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  animation: foundation-model-reel 38s linear infinite;
+  gap: 8px;
+  animation: foundation-model-reel 96s linear infinite;
+  will-change: transform;
 }
 
 .foundation-model-reel:hover .foundation-model-reel-track {
@@ -1822,14 +1823,14 @@ body.is-submit-modal-open {
 
 .foundation-model-chip {
   display: grid;
-  grid-template-columns: 40px minmax(0, 1fr);
-  min-height: 62px;
+  grid-template-columns: 34px minmax(0, 1fr);
+  min-height: 52px;
   align-items: center;
-  gap: 14px;
-  padding: 12px 16px;
-  border: 1px solid rgba(17, 19, 24, 0.04);
-  border-radius: 10px;
-  background: rgba(17, 19, 24, 0.04);
+  gap: 12px;
+  padding: 9px 12px;
+  border: 1px solid rgba(17, 19, 24, 0.05);
+  border-radius: 8px;
+  background: rgba(17, 19, 24, 0.025);
   color: #111318;
   transition:
     background-color 160ms ease,
@@ -1837,8 +1838,8 @@ body.is-submit-modal-open {
 }
 
 .foundation-model-chip:hover {
-  border-color: rgba(17, 19, 24, 0.1);
-  background: rgba(17, 19, 24, 0.07);
+  border-color: rgba(17, 19, 24, 0.11);
+  background: rgba(17, 19, 24, 0.055);
   text-decoration: none;
 }
 
@@ -1851,7 +1852,7 @@ body.is-submit-modal-open {
 .foundation-model-chip-copy strong {
   overflow: hidden;
   color: #111318;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 650;
   line-height: 1.24;
   text-overflow: ellipsis;
@@ -1861,7 +1862,7 @@ body.is-submit-modal-open {
 .foundation-model-chip-copy span {
   overflow: hidden;
   color: rgba(32, 33, 36, 0.56);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.28;
   text-overflow: ellipsis;
@@ -1870,15 +1871,21 @@ body.is-submit-modal-open {
 
 .foundation-model-mark {
   display: inline-flex;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 7px;
   color: #fff;
   font-size: 10px;
   font-weight: 800;
   line-height: 1;
+}
+
+.foundation-model-mark img {
+  display: block;
+  width: 18px;
+  height: 18px;
 }
 
 .foundation-model-mark-alphaearth {
@@ -1907,8 +1914,7 @@ body.is-submit-modal-open {
   background: #0f62fe;
 }
 
-.foundation-model-mark-olmoearth,
-.foundation-model-mark-satlas {
+.foundation-model-mark-ai2 {
   background: #111318;
 }
 
@@ -3983,12 +3989,12 @@ body.is-submit-modal-open {
   }
 
   .foundation-model-reel {
-    height: 318px;
+    height: 340px;
   }
 
   .foundation-model-chip {
-    min-height: 58px;
-    padding: 10px 12px;
+    min-height: 52px;
+    padding: 9px 12px;
   }
 
   .resource-table.resource-table-papers-full {

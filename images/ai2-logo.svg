@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Ai2">
+  <path fill="#ec4fa3" d="M202 0h100v102c0 55-45 100-100 100H101V102h101V0Z"/>
+  <path fill="#ec4fa3" d="M310 102h101v102c0 55 45 100 101 100V202h-1V102H310Z"/>
+  <path fill="#ec4fa3" d="M0 210h101c55 0 100 45 100 100v102H101V310H0V210Z"/>
+  <path fill="#ec4fa3" d="M210 512h100V411c0-55 45-100 101-100h101v100H411c-1 0-1 0-1 1v100H210Z"/>
+</svg>
