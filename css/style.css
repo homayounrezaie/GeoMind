@@ -3946,6 +3946,7 @@ body.is-submit-modal-open {
 
   .foundation-model-showcase-copy p {
     max-width: 680px;
+    font-weight: 400;
   }
 
   .resource-controls {
@@ -4202,6 +4203,7 @@ body.is-submit-modal-open {
 
   .foundation-model-showcase-copy p {
     font-size: 18px;
+    font-weight: 400;
   }
 
   .foundation-model-reel {
