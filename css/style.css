@@ -1976,7 +1976,7 @@ body.is-submit-modal-open {
 }
 
 .foundation-model-more-link {
-  color: #111318;
+  color: var(--link);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
@@ -2015,7 +2015,7 @@ body.is-submit-modal-open {
 }
 
 .browse-row a {
-  color: #111318;
+  color: var(--link);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
@@ -2025,6 +2025,18 @@ body.is-submit-modal-open {
 .browse-row a:hover {
   color: var(--link);
   text-decoration: none;
+}
+
+.cta-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 1.12em;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transform: translateY(-0.04em);
+  -webkit-text-stroke: 0.25px currentColor;
 }
 
 .table-pager {
