@@ -1949,41 +1949,51 @@ const homepageDatasetRailConfig = {
   items: [
     {
       name: "EuroSAT",
+      type: "Dataset",
       heading: "Land-use and land-cover classification",
       description:
         "A Sentinel-2 benchmark with 27,000 labeled image patches across 10 land-use and land-cover classes.",
+      chips: ["Sentinel-2", "Classification", "27k patches"],
       image: "images/datasets/EuroSAT.png",
       imageAlt: "EuroSAT sample grid of Sentinel-2 land-use and land-cover image patches.",
     },
     {
       name: "DOTA",
+      type: "Benchmark",
       heading: "Oriented object detection in aerial imagery",
       description:
         "A large-scale aerial image benchmark with rotated bounding boxes for detecting objects such as ships, bridges, courts, and aircraft.",
+      chips: ["Object detection", "Rotated boxes", "Aerial imagery"],
       image: "images/datasets/DOTA.jpg",
       imageAlt: "DOTA aerial object detection examples with oriented bounding box annotations.",
     },
     {
       name: "BigEarthNet",
+      type: "Dataset",
       heading: "Multi-label Earth observation archive",
       description:
         "A large Sentinel-1 and Sentinel-2 benchmark archive for multi-label land-cover classification and retrieval.",
+      chips: ["Sentinel-1/2", "Multi-label", "Land cover"],
       image: "images/datasets/BigEarthNet.webp",
       imageAlt: "BigEarthNet sample mosaic of satellite image patches.",
     },
     {
       name: "GEO-Bench",
+      type: "Benchmark",
       heading: "Foundation model evaluation suite",
       description:
         "A benchmark suite for testing geospatial representation learning across classification and segmentation tasks.",
+      chips: ["Evaluation", "Classification", "Segmentation"],
       image: "images/datasets/GEO-Bench.png",
       imageAlt: "GEO-Bench examples across multiple Earth observation datasets and tasks.",
     },
     {
       name: "UC Merced Land Use",
+      type: "Dataset",
       heading: "Aerial scene classification benchmark",
       description:
         "A classic 21-class land-use benchmark of high-resolution aerial images covering scenes such as harbors, freeways, and residential areas.",
+      chips: ["Aerial RGB", "Scene classes", "21 classes"],
       image: "images/datasets/UC-Merced.png",
       imageAlt: "UC Merced Land Use sample grid of aerial scene classes.",
     },
@@ -2014,6 +2024,7 @@ function initDatasetRail(container, config = homepageDatasetRailConfig) {
   const kicker = document.createElement("span");
   const panelHeading = document.createElement("h3");
   const panelDescription = document.createElement("p");
+  const panelChips = document.createElement("div");
   const panelId = `dataset-rail-panel-${Math.random().toString(36).slice(2)}`;
   const buttons = [];
 
@@ -2038,7 +2049,8 @@ function initDatasetRail(container, config = homepageDatasetRailConfig) {
   panelFigure.append(panelImage);
   kicker.className = "dataset-rail-panel-kicker";
   kicker.textContent = "Dataset & benchmark";
-  panel.append(panelFigure, kicker, panelHeading, panelDescription);
+  panelChips.className = "dataset-rail-panel-chips";
+  panel.append(panelFigure, kicker, panelHeading, panelDescription, panelChips);
 
   function stopAutoAdvance() {
     if (intervalId) {
@@ -2093,6 +2105,14 @@ function initDatasetRail(container, config = homepageDatasetRailConfig) {
     }
     panelHeading.textContent = item.heading || item.name;
     panelDescription.textContent = item.description || "";
+    panelChips.replaceChildren(
+      ...(Array.isArray(item.chips) ? item.chips : []).map((chip) => {
+        const chipElement = document.createElement("span");
+
+        chipElement.textContent = chip;
+        return chipElement;
+      })
+    );
 
     if (options.focus) {
       buttons[activeIndex]?.focus();
@@ -2101,10 +2121,16 @@ function initDatasetRail(container, config = homepageDatasetRailConfig) {
 
   items.forEach((item, index) => {
     const button = document.createElement("button");
+    const label = document.createElement("span");
+    const meta = document.createElement("span");
 
     button.className = "dataset-rail-item";
     button.type = "button";
-    button.textContent = item.name;
+    label.className = "dataset-rail-item-name";
+    label.textContent = item.name;
+    meta.className = "dataset-rail-item-meta";
+    meta.textContent = item.type || "Dataset";
+    button.append(label, meta);
     button.setAttribute("role", "tab");
     button.setAttribute("aria-controls", panelId);
     button.setAttribute("aria-selected", "false");
