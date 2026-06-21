@@ -1146,7 +1146,7 @@
       "presentation": null,
       "abstract": "Satellite Earth-observation (EO) time series in the optical and microwave ranges are often irregular due to orbital patterns and cloud obstruction, and while compositing addresses these issues, it loses critical phenological information. To overcome this, we present TESSERA, a pixel-wise foundation model for multi-modal (Sentinel-1/2) EO time series that learns robust, label-efficient embeddings. During training, TESSERA uses Barlow Twins and sparse random temporal sampling to enforce invariance to the selection of valid observations, aided by two key regularizers: global shuffling to decorrelate spatial neighborhoods and mix-based regulation for invariance under extreme sparsity. We find that for diverse classification, segmentation, and regression tasks, TESSERA embeddings deliver state-of-the-art accuracy with high label efficiency, often requiring only a small task head and minimal computation. To democratize access, adhere to FAIR principles, and simplify use, we release global, annual, 10m, pixel-wise int8 embeddings together with open weights/code and lightweight adaptation heads, providing practical tooling for large-scale retrieval and inference at planetary scale.",
       "citations": 35,
-      "github_stars": 602,
+      "github_stars": 609,
       "links": {
         "paper": "https://arxiv.org/abs/2506.20380",
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf",
@@ -1173,7 +1173,8 @@
       "arxiv_id": "2506.20380",
       "source_files": [
         "manual",
-        "hfangcat/Awesome-Geospatial-Embeddings"
+        "hfangcat/Awesome-Geospatial-Embeddings",
+        "arXiv:2605.18667 Better Together"
       ]
     },
     {
@@ -24439,7 +24440,7 @@
       "presentation": null,
       "abstract": "Geographic information is essential for modeling tasks in fields ranging from ecology to epidemiology. However, extracting relevant location characteristics for a given task can be challenging, often requiring expensive data fusion or distillation from massive global imagery datasets. To address this challenge, we introduce Satellite Contrastive Location-Image Pretraining (SatCLIP). This global, general-purpose geographic location encoder learns an implicit representation of locations by matching CNN and ViT inferred visual patterns of openly available satellite imagery with their geographic coordinates. The resulting SatCLIP location encoder efficiently summarizes the characteristics of any given location for convenient use in downstream tasks. In our experiments, we use SatCLIP embeddings to improve prediction performance on nine diverse location-dependent tasks including temperature prediction, animal recognition, and population density estimation. Across tasks, SatCLIP consistently outperforms alternative location encoders and improves geographic generalization by encoding visual similarities of spatially distant environments. These results demonstrate the potential of vision-location models to learn meaningful representations of our planet from the vast, varied, and largely untapped modalities of geospatial data.",
       "citations": 34,
-      "github_stars": 370,
+      "github_stars": 372,
       "links": {
         "paper": "https://doi.org/10.1609/aaai.v39i4.32457",
         "pdf": "https://arxiv.org/pdf/2311.17179v3.pdf",
@@ -24468,7 +24469,8 @@
       "source_files": [
         "awesome-vlgfm",
         "manual",
-        "hfangcat/Awesome-Geospatial-Embeddings"
+        "hfangcat/Awesome-Geospatial-Embeddings",
+        "arXiv:2605.18667 Better Together"
       ],
       "arxiv_id": "2311.17179"
     },
@@ -53577,7 +53579,7 @@
         "video": null,
         "dataset": "https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_SATELLITE_EMBEDDING_V1_ANNUAL",
         "benchmark": null,
-        "model": null,
+        "model": "https://console.cloud.google.com/storage/browser/alphaearth_foundations",
         "project_page": "https://deepmind.google/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/",
         "paper": "https://arxiv.org/abs/2507.22291"
       },
@@ -53588,6 +53590,10 @@
         "geospatial / GIS / geographic",
         "self-supervised / foundation model",
         "multispectral / hyperspectral / SAR"
+      ],
+      "source_files": [
+        "hfangcat/Awesome-Geospatial-Embeddings",
+        "arXiv:2605.18667 Better Together"
       ]
     },
     {
@@ -69462,13 +69468,13 @@
       "presentation": null,
       "abstract": "Worldwide Geo-localization aims to pinpoint the precise location of images taken anywhere on Earth. This task has considerable challenges due to immense variation in geographic landscapes. The image-to-image retrieval-based approaches fail to solve this problem on a global scale as it is not feasible to construct a large gallery of images covering the entire world. Instead, existing approaches divide the globe into discrete geographic cells, transforming the problem into a classification task. However, their performance is limited by the predefined classes and often results in inaccurate localizations when an image's location significantly deviates from its class center. To overcome these limitations, we propose GeoCLIP, a novel CLIP-inspired Image-to-GPS retrieval approach that enforces alignment between the image and its corresponding GPS locations. GeoCLIP's location encoder models the Earth as a continuous function by employing positional encoding through random Fourier features and constructing a hierarchical representation that captures information at varying resolutions to yield a semantically rich high-dimensional feature suitable to use even beyond geo-localization. To the best of our knowledge, this is the first work employing GPS encoding for geo-localization. We demonstrate the efficacy of our method via extensive experiments and ablations on benchmark datasets. We achieve competitive performance with just 20% of training data, highlighting its effectiveness even in limited-data settings. Furthermore, we qualitatively demonstrate geo-localization using a text query by leveraging CLIP backbone of our image encoder. The project webpage is available at: https://vicentevivan.github.io/GeoCLIP",
       "citations": 0,
-      "github_stars": 0,
+      "github_stars": 375,
       "links": {
         "paper": "https://arxiv.org/abs/2309.16020",
         "pdf": "https://arxiv.org/pdf/2309.16020",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2309.16020",
-        "code": "https://vicentevivan.github.io/GeoCLIP/",
+        "code": "https://github.com/VicenteVivan/geo-clip",
         "paperswithcode": null,
         "checkpoints": null,
         "video": null,
@@ -69490,7 +69496,8 @@
       "source_files": [
         "awesome-vlgfm",
         "manual",
-        "hfangcat/Awesome-Geospatial-Embeddings"
+        "hfangcat/Awesome-Geospatial-Embeddings",
+        "arXiv:2605.18667 Better Together"
       ],
       "arxiv_id": "2309.16020"
     },
