@@ -3,8 +3,8 @@
     "source": "data/papers.json",
     "moved_when": "A paper has no links.code, no links.project_page, no GitHub URL in any link field, and no Hugging Face URL in any link field.",
     "kept_when": "A paper has at least one of links.code, links.project_page, any GitHub URL, or any Hugging Face URL.",
-    "moved_count": 4006,
-    "kept_count": 3957,
+    "moved_count": 4004,
+    "kept_count": 3975,
     "borderline_unchanged_count": 81
   },
   "papers": [
@@ -17452,38 +17452,6 @@
         "drone / UAV / aerial / overhead",
         "Earth observation / land cover",
         "Earth-science / disaster mapping",
-        "self-supervised / foundation model"
-      ]
-    },
-    {
-      "id": "mora-mobility-as-the-backbone-for-2026",
-      "title": "MoRA: Mobility as the Backbone for Geospatial Representation Learning at Scale",
-      "authors": "Ya Wen, Jixuan Cai, Qiyao Ma, Linyan Li, Xinhuan Chen, Chris Webster, Yulun Zhou",
-      "venue": "ICLR",
-      "year": 2026,
-      "presentation": null,
-      "abstract": "Representation learning of geospatial locations remains a core challenge in achieving general geospatial intelligence, with increasingly diverging philosophies and techniques. While Earth observation paradigms excel at depicting locations in their physical states, we propose that a location\u2019s full characterization requires grounding in both its physical attributes and its internal human activity pattern, the latter being particularly crucial for understanding its human-centric functions. We present MoRA, a human-centric geospatial framework that leverages a mobility graph as its core backbone to fuse various data modalities, aiming to learn embeddings that represent the socio-economic context and functional role of a location. MoRA achieves this through the integration of spatial tokenization, GNNs, and asymmetric contrastive learning to align 100M+ POIs, massive remote sensing imagery, and structured demographic statistics with a billion-edge mobility graph, ensuring the three auxiliary modalities are interpreted through the lens of fundamental human dynamics. To rigorously evaluate the effectiveness of MoRA, we construct a benchmark dataset composed of 9 downstream prediction tasks across social and economic domains. Experiments show that MoRA, with four input modalities and a compact 128-dimensional representation space, achieves superior predictive performances than state-of-the-art models by an average of 12.9\\%. Echoing LLM scaling laws, we further demonstrate the scaling behavior in geospatial representation learning.",
-      "citations": 0,
-      "github_stars": 0,
-      "links": {
-        "pdf": "https://arxiv.org/pdf/2506.01297.pdf",
-        "supp": null,
-        "arxiv": "https://arxiv.org/abs/2506.01297",
-        "code": null,
-        "paperswithcode": "https://paperswithcode.co/paper/2506.01297",
-        "checkpoints": null,
-        "video": null,
-        "dataset": null,
-        "benchmark": null,
-        "model": null,
-        "project_page": null,
-        "paper": "https://arxiv.org/abs/2506.01297"
-      },
-      "bibtex": "@misc{mora_mobility_as_the_backbone_for_2026,\n  title = {MoRA: Mobility as the Backbone for Geospatial Representation Learning at Scale},\n  author = {Ya Wen and Jixuan Cai and Qiyao Ma and Linyan Li and Xinhuan Chen and Chris Webster and Yulun Zhou},\n  year = {2026},\n  url = {https://arxiv.org/abs/2506.01297}\n}",
-      "matched_themes": [
-        "remote sensing",
-        "Earth observation / land cover",
-        "geospatial / GIS / geographic",
         "self-supervised / foundation model"
       ]
     },
@@ -46379,38 +46347,6 @@
       "bibtex": "@InProceedings{Luo_2021_ICCV,\n  title = {Score-Based Point Cloud Denoising},\n  author = {Luo, Shitong and Hu, Wei},\n  year = {2021},\n  url = {http://arxiv.org/abs/2107.10981},\n  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n  pages = {4583-4592},\n  month = {October}\n}",
       "matched_themes": [
         "LiDAR / point cloud"
-      ]
-    },
-    {
-      "id": "seasonal-contrast-unsupervised-pre-training-from-uncurated-remote-sensing-data-2021",
-      "title": "Seasonal Contrast: Unsupervised Pre-Training From Uncurated Remote Sensing Data",
-      "authors": "Oscar Ma\u00f1as, Alexandre Lacoste, Xavier Gir\u00f3-i-Nieto, David Vazquez, Pau Rodr\u00edguez",
-      "venue": "ICCV",
-      "year": 2021,
-      "presentation": null,
-      "abstract": "Remote sensing and automatic earth monitoring are key to solve global-scale challenges such as disaster prevention, land use monitoring, or tackling climate change. Although there exist vast amounts of remote sensing data, most of it remains unlabeled and thus inaccessible for supervised learning algorithms. Transfer learning approaches can reduce the data requirements of deep learning algorithms. However, most of these methods are pre-trained on ImageNet and their generalization to remote sensing imagery is not guaranteed due to the domain gap. In this work, we propose Seasonal Contrast (SeCo), an effective pipeline to leverage unlabeled data for in-domain pre-training of remote sensing representations. The SeCo pipeline is composed of two parts. First, a principled procedure to gather large-scale, unlabeled and uncurated remote sensing datasets containing images from multiple Earth locations at different timestamps. Second, a self-supervised algorithm that takes advantage of time and position invariance to learn transferable representations for remote sensing applications. We empirically show that models trained with SeCo achieve better performance than their ImageNet pre-trained counterparts and state-of-the-art self-supervised learning methods on multiple downstream tasks. The datasets and models in SeCo will be made public to facilitate transfer learning and enable rapid progress in remote sensing applications.",
-      "citations": 303,
-      "github_stars": 0,
-      "links": {
-        "pdf": "https://openaccess.thecvf.com/content/ICCV2021/papers/Manas_Seasonal_Contrast_Unsupervised_Pre-Training_From_Uncurated_Remote_Sensing_Data_ICCV_2021_paper.pdf",
-        "supp": "https://openaccess.thecvf.com/content/ICCV2021/supplemental/Manas_Seasonal_Contrast_Unsupervised_ICCV_2021_supplemental.pdf",
-        "arxiv": "https://arxiv.org/abs/2103.16607",
-        "code": null,
-        "paperswithcode": null,
-        "checkpoints": null,
-        "video": null,
-        "dataset": null,
-        "benchmark": null,
-        "model": null,
-        "project_page": null,
-        "paper": "https://arxiv.org/abs/2103.16607"
-      },
-      "bibtex": "@InProceedings{Manas_2021_ICCV,\n  title = {Seasonal Contrast: Unsupervised Pre-Training From Uncurated Remote Sensing Data},\n  author = {Ma\\~nas, Oscar and Lacoste, Alexandre and Gir\\'o-i-Nieto, Xavier and Vazquez, David and Rodr{\\'\\i}guez, Pau},\n  year = {2021},\n  url = {https://openaccess.thecvf.com/content/ICCV2021/html/Manas_Seasonal_Contrast_Unsupervised_Pre-Training_From_Uncurated_Remote_Sensing_Data_ICCV_2021_paper.html},\n  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n  pages = {9414-9423},\n  month = {October}\n}",
-      "matched_themes": [
-        "remote sensing",
-        "Earth-science / disaster mapping",
-        "Earth observation / land cover",
-        "self-supervised / foundation model"
       ]
     },
     {

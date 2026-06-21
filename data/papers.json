@@ -1148,6 +1148,7 @@
       "citations": 35,
       "github_stars": 602,
       "links": {
+        "paper": "https://arxiv.org/abs/2506.20380",
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Feng_TESSERA_Temporal_Embeddings_CVPR_2026_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2506.20380",
@@ -1158,8 +1159,7 @@
         "dataset": "https://github.com/ucam-eo/geotessera",
         "benchmark": null,
         "model": "https://github.com/ucam-eo/tessera#model-weight",
-        "project_page": "https://geotessera.org/",
-        "paper": "https://arxiv.org/abs/2506.20380"
+        "project_page": "https://geotessera.org/"
       },
       "bibtex": "@InProceedings{Feng_2026_CVPR,\n  title = {TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis},\n  author = {Feng, Zhengpeng and Atzberger, Clement and Jaffer, Sadiq and Knezevic, Jovana and Sormunen, Silja and Young, Robin and Lisaius, Madeline C. and Immitzer, Markus and Jackson, Toby and Ball, James and Coomes, David A. and Madhavapeddy, Anil and Blake, Andrew and Keshav, Srinivasan},\n  year = {2026},\n  url = {https://arxiv.org/abs/2506.20380},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n  pages = {34818-34831},\n  month = {June}\n}",
       "matched_themes": [
@@ -1169,6 +1169,11 @@
         "self-supervised / foundation model",
         "vision transformers",
         "geospatial / GIS / geographic"
+      ],
+      "arxiv_id": "2506.20380",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -1248,6 +1253,7 @@
       "citations": 0,
       "github_stars": 33,
       "links": {
+        "paper": "https://arxiv.org/abs/2605.29330",
         "pdf": "https://arxiv.org/pdf/2605.29330",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2605.29330",
@@ -1258,8 +1264,7 @@
         "dataset": "https://earthshift.github.io/",
         "benchmark": "https://earthshift.github.io/",
         "model": null,
-        "project_page": "https://earthshift.github.io/",
-        "paper": "https://arxiv.org/abs/2605.29330"
+        "project_page": "https://earthshift.github.io/"
       },
       "bibtex": "@article{doerksen2026earthshiftbenchmarkmeasuringrobustness,\n  title = {EarthShift: a benchmark for measuring robustness to real-world distribution shifts in Earth observation},\n  author = {Kelsey Doerksen and Hannah Kerner},\n  eprint = {2605.29330},\n  year = {2026},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CV},\n  url = {https://arxiv.org/abs/2605.29330}\n}",
       "matched_themes": [
@@ -1269,6 +1274,11 @@
         "self-supervised / foundation model",
         "multispectral / hyperspectral / SAR",
         "benchmark / evaluation"
+      ],
+      "arxiv_id": "2605.29330",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -1779,6 +1789,7 @@
       "citations": 2,
       "github_stars": 246,
       "links": {
+        "paper": "https://huggingface.co/papers/2511.13655",
         "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Herzog_OlmoEarth_Stable_Latent_Image_Modeling_for_Multimodal_Earth_Observation_CVPR_2026_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Herzog_OlmoEarth_Stable_Latent_CVPR_2026_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2511.13655",
@@ -1789,14 +1800,18 @@
         "dataset": "https://huggingface.co/datasets/allenai/olmoearth_pretrain_dataset",
         "benchmark": null,
         "model": "https://huggingface.co/collections/allenai/olmoearth",
-        "project_page": null,
-        "paper": "https://huggingface.co/papers/2511.13655"
+        "project_page": "https://github.com/allenai/olmoearth_pretrain"
       },
       "bibtex": "@InProceedings{Herzog_2026_CVPR,\n  title = {OlmoEarth: Stable Latent Image Modeling for Multimodal Earth Observation},\n  author = {Herzog, Henry and Bastani, Favyen and Zhang, Yawen and Tseng, Gabriel and Redmon, Joseph and Sablon, Hadrien and Park, Ryan and Morrison, Jacob and Buraczynski, Alexandra and Farley, Karen and Hansen, Josh and Howe, Andrew and Johnson, Patrick Alan and Otterlee, Mark and Schmitt, Ted and Pitelka, Hunter and Daspit, Stephen and Ratner, Rachel and Wilhelm, Christopher and Wood, Sebastian and Jacobi, Mike and Kerner, Hannah and Shelhamer, Evan and Farhadi, Ali and Krishna, Ranjay and Beukema, Patrick},\n  year = {2026},\n  url = {https://arxiv.org/abs/2511.13655},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n  pages = {34806-34817},\n  month = {June}\n}",
       "matched_themes": [
         "Earth observation / land cover",
         "geospatial / GIS / geographic",
         "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2511.13655",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -3718,6 +3733,7 @@
       "citations": 120,
       "github_stars": 251,
       "links": {
+        "paper": "https://huggingface.co/papers/2207.08051",
         "pdf": "https://arxiv.org/pdf/2207.08051",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2207.08051",
@@ -3728,8 +3744,7 @@
         "dataset": "https://purl.stanford.edu/vg497cb6002",
         "benchmark": null,
         "model": "https://huggingface.co/Amandeep10/pretrain-where-SatMAE-weights",
-        "project_page": "https://sustainlab-group.github.io/SatMAE",
-        "paper": "https://huggingface.co/papers/2207.08051"
+        "project_page": "https://sustainlab-group.github.io/SatMAE"
       },
       "bibtex": "@inproceedings{satmae2022,\n  title = {Sat{MAE}: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery},\n  author = {Yezhen Cong and Samar Khanna and Chenlin Meng and Patrick Liu and Erik Rozi and Yutong He and Marshall Burke and David B. Lobell and Stefano Ermon},\n  year = {2022},\n  url = {https://openreview.net/forum?id=WBhqzpF6KYH},\n  booktitle = {Advances in Neural Information Processing Systems},\n  editor = {Alice H. Oh and Alekh Agarwal and Danielle Belgrave and Kyunghyun Cho}\n}",
       "matched_themes": [
@@ -3738,6 +3753,11 @@
         "self-supervised / foundation model",
         "Earth observation / land cover",
         "drone / UAV / aerial / overhead"
+      ],
+      "arxiv_id": "2207.08051",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -4915,6 +4935,7 @@
       "citations": 0,
       "github_stars": 141,
       "links": {
+        "paper": "https://huggingface.co/papers/2503.11849",
         "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Wang_Towards_a_Unified_Copernicus_Foundation_Model_for_Earth_Vision_ICCV_2025_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Wang_Towards_a_Unified_ICCV_2025_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2503.11849",
@@ -4925,8 +4946,7 @@
         "dataset": "https://huggingface.co/datasets/wangyi111/Copernicus-Pretrain",
         "benchmark": null,
         "model": "https://huggingface.co/wangyi111/Copernicus-FM",
-        "project_page": null,
-        "paper": "https://huggingface.co/papers/2503.11849"
+        "project_page": "https://github.com/zhu-xlab/Copernicus-FM"
       },
       "bibtex": "@InProceedings{Wang_2025_ICCV,\n  title = {Towards a Unified Copernicus Foundation Model for Earth Vision},\n  author = {Wang, Yi and Xiong, Zhitong and Liu, Chenying and Stewart, Adam J. and Dujardin, Thomas and Bountos, Nikolaos Ioannis and Zavras, Angelos and Gerken, Franziska and Papoutsis, Ioannis and Leal-Taix\\'e, Laura and Zhu, Xiao Xiang},\n  year = {2025},\n  url = {https://openaccess.thecvf.com/content/ICCV2025/papers/Wang_Towards_a_Unified_Copernicus_Foundation_Model_for_Earth_Vision_ICCV_2025_paper.pdf},\n  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n  pages = {9888-9899},\n  month = {October}\n}",
       "matched_themes": [
@@ -4935,6 +4955,11 @@
         "self-supervised / foundation model",
         "geospatial / GIS / geographic",
         "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2503.11849",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -20530,6 +20555,7 @@
       "citations": 1,
       "github_stars": 192,
       "links": {
+        "paper": "https://huggingface.co/papers/2502.09356",
         "pdf": "https://arxiv.org/pdf/2502.09356.pdf",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2502.09356",
@@ -20540,8 +20566,7 @@
         "dataset": null,
         "benchmark": null,
         "model": null,
-        "project_page": null,
-        "paper": "https://huggingface.co/papers/2502.09356"
+        "project_page": "https://github.com/nasaharvest/galileo"
       },
       "bibtex": "@misc{galileo_learning_global_and_local_features_2025,\n  title = {Galileo: Learning Global and Local Features in Pretrained Remote Sensing Models},\n  author = {Gabriel Tseng and Anthony Fuller and Marlena Reil and Henry Herzog and Patrick Beukema and Favyen Bastani and James R. Green and James R Green and Evan Shelhamer and Hannah Kerner and David Rolnick},\n  year = {2025},\n  url = {https://arxiv.org/abs/2502.09356}\n}",
       "matched_themes": [
@@ -20552,6 +20577,11 @@
         "self-supervised / foundation model",
         "multispectral / hyperspectral / SAR",
         "vision transformers"
+      ],
+      "arxiv_id": "2502.09356",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -24411,6 +24441,7 @@
       "citations": 34,
       "github_stars": 370,
       "links": {
+        "paper": "https://doi.org/10.1609/aaai.v39i4.32457",
         "pdf": "https://arxiv.org/pdf/2311.17179v3.pdf",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2311.17179",
@@ -24421,8 +24452,7 @@
         "dataset": "https://huggingface.co/datasets/davanstrien/satclip",
         "benchmark": null,
         "model": "https://huggingface.co/microsoft/SatCLIP-ViT16-L40",
-        "project_page": "https://huggingface.co/spaces/ML4Sustain/EarthExplorer",
-        "paper": "https://doi.org/10.1609/aaai.v39i4.32457"
+        "project_page": "https://huggingface.co/spaces/ML4Sustain/EarthExplorer"
       },
       "bibtex": "@misc{satclip_global_general_purpose_location_embeddings_2023,\n  title = {SatCLIP: Global, General-Purpose Location Embeddings with Satellite Imagery},\n  author = {Konstantin Klemmer and Esther Rolf and Caleb Robinson and Lester Mackey and Marc Ru\u00dfwurm},\n  year = {2023},\n  url = {https://arxiv.org/abs/2311.17179v3}\n}",
       "matched_themes": [
@@ -24436,7 +24466,9 @@
         "CLIP / contrastive vision-language model"
       ],
       "source_files": [
-        "awesome-vlgfm"
+        "awesome-vlgfm",
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ],
       "arxiv_id": "2311.17179"
     },
@@ -24748,6 +24780,7 @@
       "citations": 11,
       "github_stars": 109,
       "links": {
+        "paper": "https://arxiv.org/abs/2310.06743",
         "pdf": "https://arxiv.org/pdf/2310.06743v2.pdf",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2310.06743",
@@ -24758,8 +24791,7 @@
         "dataset": null,
         "benchmark": null,
         "model": null,
-        "project_page": null,
-        "paper": "https://arxiv.org/abs/2310.06743"
+        "project_page": "https://github.com/marccoru/locationencoder"
       },
       "bibtex": "@misc{geographic_location_encoding_with_spherical_harmonics_2023,\n  title = {Geographic Location Encoding with Spherical Harmonics and Sinusoidal Representation Networks},\n  author = {Marc Ru\u00dfwurm and Konstantin Klemmer and Esther Rolf and Robin Zbinden and Devis Tuia},\n  year = {2023},\n  url = {https://arxiv.org/abs/2310.06743v2}\n}",
       "matched_themes": [
@@ -24767,6 +24799,11 @@
         "geospatial / GIS / geographic",
         "vision transformers",
         "geo-localization / cross-view / VPR"
+      ],
+      "arxiv_id": "2310.06743",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -25485,18 +25522,18 @@
       "citations": 28,
       "github_stars": 0,
       "links": {
+        "paper": "https://arxiv.org/abs/2304.14065",
         "pdf": "https://arxiv.org/pdf/2304.14065.pdf",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2304.14065",
-        "code": null,
+        "code": "https://github.com/nasaharvest/presto",
         "paperswithcode": "https://paperswithcode.co/paper/2304.14065",
         "checkpoints": null,
         "video": null,
         "dataset": null,
         "benchmark": null,
         "model": null,
-        "project_page": "https://huggingface.co/spaces/remisek/crop-map",
-        "paper": "https://arxiv.org/abs/2304.14065"
+        "project_page": "https://huggingface.co/spaces/remisek/crop-map"
       },
       "bibtex": "@misc{lightweight_pre_trained_transformers_for_remote_2023,\n  title = {Lightweight, Pre-trained Transformers for Remote Sensing Timeseries},\n  author = {Gabriel Tseng and Ruben Cartuyvels and Ivan Zvonkov and Mirali Purohit and David Rolnick and Hannah Kerner},\n  year = {2023},\n  url = {https://arxiv.org/abs/2304.14065}\n}",
       "matched_themes": [
@@ -25504,6 +25541,11 @@
         "Earth observation / land cover",
         "self-supervised / foundation model",
         "vision transformers"
+      ],
+      "arxiv_id": "2304.14065",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -27145,24 +27187,28 @@
       "citations": 0,
       "github_stars": 0,
       "links": {
+        "paper": "https://arxiv.org/abs/2010.08168",
         "pdf": "https://arxiv.org/pdf/2010.08168.pdf",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2010.08168",
-        "code": null,
+        "code": "https://github.com/Global-Policy-Lab/mosaiks-paper",
         "paperswithcode": "https://paperswithcode.co/paper/2010.08168",
         "checkpoints": null,
         "video": null,
         "dataset": "https://huggingface.co/datasets/arjunrao2000/geolayers",
         "benchmark": null,
         "model": null,
-        "project_page": null,
-        "paper": "https://arxiv.org/abs/2010.08168"
+        "project_page": "https://github.com/Global-Policy-Lab/mosaiks-paper"
       },
       "bibtex": "@misc{a_generalizable_and_accessible_approach_to_2020,\n  title = {A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery},\n  author = {Esther Rolf and Jonathan Proctor and Tamma Carleton and Ian Bolliger and Vaishaal Shankar and Miyabi Ishihara and Benjamin Recht and Solomon Hsiang},\n  year = {2020},\n  url = {https://arxiv.org/abs/2010.08168}\n}",
       "matched_themes": [
         "remote sensing",
         "Earth observation / land cover",
         "autonomous driving / vehicles"
+      ],
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -53707,6 +53753,7 @@
       "citations": 0,
       "github_stars": 23,
       "links": {
+        "paper": "https://huggingface.co/papers/2510.12670",
         "pdf": "https://arxiv.org/pdf/2510.12670",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2510.12670",
@@ -53717,8 +53764,7 @@
         "dataset": null,
         "benchmark": null,
         "model": "https://huggingface.co/embed2scale/TerraCodec-1.0-ELIC-S2L2A",
-        "project_page": null,
-        "paper": "https://huggingface.co/papers/2510.12670"
+        "project_page": "https://github.com/IBM/TerraCodec"
       },
       "bibtex": "@misc{CostaWatanabe2025TerraCodec,\n  title = {TerraCodec: Compressing Optical Earth Observation Data},\n  author = {Julen Costa-Watanabe and Isabelle Wittmann and Benedikt Blumenstiel and Konrad Schindler},\n  year = {2025},\n  url = {https://arxiv.org/abs/2510.12670},\n  note = {arXiv},\n  eprint = {2510.12670},\n  archivePrefix = {arXiv}\n}",
       "matched_themes": [
@@ -53727,6 +53773,11 @@
         "Earth observation / land cover",
         "self-supervised / foundation model",
         "vision transformers"
+      ],
+      "arxiv_id": "2510.12670",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -54055,6 +54106,7 @@
       "citations": 0,
       "github_stars": 19,
       "links": {
+        "paper": "https://huggingface.co/papers/2605.12678",
         "pdf": "https://arxiv.org/pdf/2605.12678",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2605.12678",
@@ -54065,8 +54117,7 @@
         "dataset": null,
         "benchmark": null,
         "model": null,
-        "project_page": null,
-        "paper": "https://huggingface.co/papers/2605.12678"
+        "project_page": "https://github.com/taylor-geospatial/gfm-leaderboard"
       },
       "bibtex": "@misc{Corley2026One,\n  title = {No One Knows the State of the Art in Geospatial Foundation Models},\n  author = {Isaac Corley and Nils Lehmann and Caleb Robinson and Gabriel Tseng and Anthony Fuller and Hamed Alemohammad and Evan Shelhamer and Jennifer Marcus and Hannah Kerner},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.12678},\n  note = {arXiv},\n  eprint = {2605.12678},\n  archivePrefix = {arXiv}\n}",
       "matched_themes": [
@@ -54075,6 +54126,11 @@
         "Earth-science / disaster mapping",
         "self-supervised / foundation model",
         "remote sensing"
+      ],
+      "arxiv_id": "2605.12678",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -69408,6 +69464,7 @@
       "citations": 0,
       "github_stars": 0,
       "links": {
+        "paper": "https://arxiv.org/abs/2309.16020",
         "pdf": "https://arxiv.org/pdf/2309.16020",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2309.16020",
@@ -69418,8 +69475,7 @@
         "dataset": null,
         "benchmark": null,
         "model": null,
-        "project_page": "https://vicentevivan.github.io/GeoCLIP/",
-        "paper": "https://arxiv.org/abs/2309.16020"
+        "project_page": "https://vicentevivan.github.io/GeoCLIP/"
       },
       "bibtex": null,
       "matched_themes": [
@@ -69432,7 +69488,9 @@
         "CLIP / contrastive vision-language model"
       ],
       "source_files": [
-        "awesome-vlgfm"
+        "awesome-vlgfm",
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ],
       "arxiv_id": "2309.16020"
     },
@@ -70191,6 +70249,10 @@
         "remote sensing",
         "embeddings",
         "foundation model"
+      ],
+      "source_files": [
+        "Jack-bo1220/Awesome-Remote-Sensing-Foundation-Models",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -70204,6 +70266,7 @@
       "citations": 0,
       "github_stars": 0,
       "links": {
+        "paper": "https://arxiv.org/abs/2412.05600",
         "pdf": "https://arxiv.org/pdf/2412.05600",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2412.05600",
@@ -70214,14 +70277,18 @@
         "dataset": "https://huggingface.co/Major-TOM",
         "benchmark": null,
         "model": null,
-        "project_page": null,
-        "paper": "https://arxiv.org/abs/2412.05600"
+        "project_page": "https://github.com/ESA-PhiLab/Major-TOM"
       },
       "bibtex": null,
       "matched_themes": [
         "remote sensing",
         "embeddings",
         "foundation model"
+      ],
+      "arxiv_id": "2412.05600",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -70235,6 +70302,7 @@
       "citations": 0,
       "github_stars": 0,
       "links": {
+        "paper": "https://arxiv.org/abs/2601.11183",
         "pdf": "https://arxiv.org/pdf/2601.11183",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2601.11183",
@@ -70245,14 +70313,18 @@
         "dataset": "https://data-starcloud.pcl.ac.cn/iearthdata/64",
         "benchmark": null,
         "model": null,
-        "project_page": null,
-        "paper": "https://arxiv.org/abs/2601.11183"
+        "project_page": "https://github.com/shuangchencc/ESD"
       },
       "bibtex": null,
       "matched_themes": [
         "remote sensing",
         "embeddings",
         "foundation model"
+      ],
+      "arxiv_id": "2601.11183",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     },
     {
@@ -75529,7 +75601,7 @@
         "dataset": "https://huggingface.co/datasets/Amandeep10/pretrain-where-pretraining-datasets",
         "benchmark": null,
         "model": "https://huggingface.co/Amandeep10/pretrain-where-SatMAE-weights",
-        "project_page": null
+        "project_page": "https://github.com/kerner-lab/pretrain-where"
       },
       "bibtex": null,
       "matched_themes": [
@@ -75541,7 +75613,9 @@
         "raw_papers",
         "huggingface",
         "catalyzex",
-        "raw_papers_code_backed"
+        "raw_papers_code_backed",
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ],
       "source": "catalyzex",
       "cx_code_available": true,
@@ -76986,10 +77060,10 @@
         "paperswithcode": null,
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://drive.google.com/drive/folders/1YKtqOJsDsCeZ_k-cpG902H2V6FQdGkzr?usp=sharing",
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://github.com/mojganmadadi/LIANet"
       },
       "bibtex": null,
       "matched_themes": [
@@ -77003,7 +77077,9 @@
       "source_files": [
         "raw_papers",
         "catalyzex",
-        "raw_papers_code_backed"
+        "raw_papers_code_backed",
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ],
       "source": "catalyzex",
       "cx_code_available": true,
@@ -81291,7 +81367,7 @@
         "dataset": null,
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://github.com/cybergis/rs-embed"
       },
       "bibtex": null,
       "matched_themes": [
@@ -81302,7 +81378,9 @@
       "source_files": [
         "raw_papers",
         "catalyzex",
-        "raw_papers_code_backed"
+        "raw_papers_code_backed",
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ],
       "source": "catalyzex",
       "cx_code_available": true,
@@ -84360,7 +84438,7 @@
         "dataset": null,
         "benchmark": null,
         "model": "https://huggingface.co/prs-eth/xbd-s12_loc_seed1",
-        "project_page": null
+        "project_page": "https://github.com/olidietrich/xbd-s12"
       },
       "bibtex": null,
       "matched_themes": [
@@ -84376,7 +84454,9 @@
         "raw_papers",
         "huggingface",
         "catalyzex",
-        "raw_papers_code_backed"
+        "raw_papers_code_backed",
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ],
       "source": "catalyzex",
       "cx_code_available": false,
@@ -137425,6 +137505,674 @@
       "source_files": [
         "manual",
         "VisionXLab/Awesome-RS-VL-Data"
+      ]
+    },
+    {
+      "id": "mora-mobility-as-the-backbone-for-2026",
+      "title": "MoRA: Mobility as the Backbone for Geospatial Representation Learning at Scale",
+      "authors": "Ya Wen, Jixuan Cai, Qiyao Ma, Linyan Li, Xinhuan Chen, Chris Webster, Yulun Zhou",
+      "venue": "ICLR",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Representation learning of geospatial locations remains a core challenge in achieving general geospatial intelligence, with increasingly diverging philosophies and techniques. While Earth observation paradigms excel at depicting locations in their physical states, we propose that a location\u2019s full characterization requires grounding in both its physical attributes and its internal human activity pattern, the latter being particularly crucial for understanding its human-centric functions. We present MoRA, a human-centric geospatial framework that leverages a mobility graph as its core backbone to fuse various data modalities, aiming to learn embeddings that represent the socio-economic context and functional role of a location. MoRA achieves this through the integration of spatial tokenization, GNNs, and asymmetric contrastive learning to align 100M+ POIs, massive remote sensing imagery, and structured demographic statistics with a billion-edge mobility graph, ensuring the three auxiliary modalities are interpreted through the lens of fundamental human dynamics. To rigorously evaluate the effectiveness of MoRA, we construct a benchmark dataset composed of 9 downstream prediction tasks across social and economic domains. Experiments show that MoRA, with four input modalities and a compact 128-dimensional representation space, achieves superior predictive performances than state-of-the-art models by an average of 12.9\\%. Echoing LLM scaling laws, we further demonstrate the scaling behavior in geospatial representation learning.",
+      "citations": 0,
+      "github_stars": 13,
+      "links": {
+        "paper": "https://arxiv.org/abs/2506.01297",
+        "pdf": "https://arxiv.org/pdf/2506.01297.pdf",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2506.01297",
+        "code": "https://github.com/ylzhouchris/MoRA",
+        "paperswithcode": "https://paperswithcode.co/paper/2506.01297",
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://mora-embedding.github.io/"
+      },
+      "bibtex": "@misc{mora_mobility_as_the_backbone_for_2026,\n  title = {MoRA: Mobility as the Backbone for Geospatial Representation Learning at Scale},\n  author = {Ya Wen and Jixuan Cai and Qiyao Ma and Linyan Li and Xinhuan Chen and Chris Webster and Yulun Zhou},\n  year = {2026},\n  url = {https://arxiv.org/abs/2506.01297}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "Earth observation / land cover",
+        "geospatial / GIS / geographic",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2506.01297",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "localized-high-resolution-geographic-representations-with-slepian-functions-2026",
+      "title": "Localized, High-resolution Geographic Representations with Slepian Functions",
+      "authors": "Arjun Rao, Ruth Crasto, Tessa Ooms, David Rolnick, Konstantin Klemmer, Marc Ru\u00dfwurm",
+      "venue": "Arxiv 2026",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Geographic data is fundamentally local. Disease outbreaks cluster in population centers, ecological patterns emerge along coastlines, and economic activity concentrates within country borders. Machine learning models that encode geographic location, however, distribute representational capacity uniformly across the globe, struggling at the fine-grained resolutions that localized applications require. We propose a geographic location encoder built from spherical Slepian functions that concentrate representational capacity inside a region-of-interest and scale to high resolutions without extensive computational demands. For settings requiring global context, we present a hybrid Slepian-Spherical Harmonic encoder that efficiently bridges the tradeoff between local-global performance, while retaining desirable properties such as pole-safety and spherical-surface-distance preservation. Across five tasks spanning classification, regression, and image-augmented prediction, Slepian encodings outperform baselines and retain performance advantages across a wide range of neural network architectures.",
+      "citations": 0,
+      "github_stars": 17,
+      "links": {
+        "paper": "https://arxiv.org/abs/2602.00392",
+        "pdf": "https://arxiv.org/pdf/2602.00392",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2602.00392",
+        "code": "https://github.com/arjunarao619/SlepianPosEnc",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/arjunarao619/SlepianPosEnc"
+      },
+      "bibtex": "@misc{localizedhighresolutiongeographi,\n  title = {Localized, High-resolution Geographic Representations with Slepian Functions},\n  author = {Arjun Rao and Ruth Crasto and Tessa Ooms and David Rolnick and Konstantin Klemmer and Marc Ru\u00dfwurm},\n  year = {2026},\n  eprint = {2602.00392},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2602.00392}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "location embeddings",
+        "geospatial / GIS / geographic"
+      ],
+      "arxiv_id": "2602.00392",
+      "doi": "10.48550/arxiv.2602.00392",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "neuco-bench-a-novel-benchmark-framework-for-neural-embeddings-in-earth-observation-2025",
+      "title": "NeuCo-Bench: A Novel Benchmark Framework for Neural Embeddings in Earth Observation",
+      "authors": "Rikard Vinge, Isabelle Wittmann, Jannik Schneider, Michael Marszalek, Luis Gilch, Thomas Brunschwiler, Conrad M Albrecht",
+      "venue": "Arxiv 2025",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "We introduce NeuCo-Bench, a novel benchmark framework for evaluating (lossy) neural compression and representation learning in the context of Earth Observation (EO). Our approach builds on fixed-size embeddings that act as compact, task-agnostic representations applicable to a broad range of downstream tasks. NeuCo-Bench comprises three components: (i) an evaluation pipeline built around embeddings, (ii) a challenge mode with a hidden-task leaderboard designed to mitigate pretraining bias, and (iii) a scoring system that balances accuracy and stability. To support reproducibility, we release SSL4EO-S12-downstream, a curated multispectral, multitemporal EO dataset. We present results from a public challenge at the 2025 CVPR EARTHVISION workshop and conduct ablations with state-of-the-art foundation models. NeuCo-Bench provides a step towards community-driven, standardized evaluation of neural embeddings for EO and beyond.",
+      "citations": 0,
+      "github_stars": 28,
+      "links": {
+        "paper": "https://arxiv.org/abs/2510.17914",
+        "pdf": "https://arxiv.org/pdf/2510.17914",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2510.17914",
+        "code": "https://github.com/embed2scale/NeuCo-Bench",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/embed2scale/NeuCo-Bench"
+      },
+      "bibtex": "@misc{neucobenchanovelbenchmarkframewo,\n  title = {NeuCo-Bench: A Novel Benchmark Framework for Neural Embeddings in Earth Observation},\n  author = {Rikard Vinge and Isabelle Wittmann and Jannik Schneider and Michael Marszalek and Luis Gilch and Thomas Brunschwiler and Conrad M Albrecht},\n  year = {2025},\n  eprint = {2510.17914},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2510.17914}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "evaluation / benchmark",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": "2510.17914",
+      "doi": "10.48550/arxiv.2510.17914",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "fused-foundation-model-embeddings-for-earth-observation-compression-a-winning-solution-2025",
+      "title": "Fused Foundation Model Embeddings for Earth Observation Compression: A Winning Solution to the Embed2Scale Challenge",
+      "authors": "D\u00e1vid Kerekes, Isabelle Wittmann, Eric Brune, Ritu Yadav, Valerio Marsocci, Yuru Jia, Andrea Nascetti",
+      "venue": "Eurips REO 2025",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Foundation models are critical for compact Earth Observation data representations. This work presents a neural compression method that won the Embed2Scale challenge by achieving state-of-the-art performance on the NeuCo benchmark. The method compresses multi-seasonal, multi-modal Sentinel-1/2 data into a 1024-dimensional vector using a two-layer autoencoder over a concatenated ensemble of five pre-trained foundation models: CROMA, DOFA, Scale-MAE, Copernicus-FM, and Prithvi 2.0. The results show that merging diverse foundation-model embeddings improves performance on unknown downstream tasks and highlights the value of foundation-model fusion for generalizable Earth-observation compression.",
+      "citations": 0,
+      "github_stars": 3,
+      "links": {
+        "paper": "https://github.com/REO-workshop/2025-EurIPS-REO-workshop/blob/main/papers/Fused_Kerekes.pdf",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/KerekesDavid/embed2scale-solution",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/KerekesDavid/embed2scale-solution"
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "geospatial embeddings",
+        "evaluation / benchmark",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": null,
+      "doi": null,
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "better-together-evaluating-the-complementarity-of-earth-embedding-models-2026",
+      "title": "Better Together: Evaluating the Complementarity of Earth Embedding Models",
+      "authors": "Thijs L van der Plas, Jacob JW Bakermans, Vishal Nedungadi, Gabriel\u0117 Tij\u016bnaityt\u0117, Marc Ru\u00dfwurm, Ioannis N Athanasiadis",
+      "venue": "Arxiv 2026",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Earth embedding models transform Earth observation data into embeddings uniquely tied to locations on the Earth's surface. These models are typically evaluated in isolation, comparing the downstream task performance across different Earth embeddings. However, spatially aligned embeddings can naturally be fused, providing richer information per location, a capability that isolated evaluations fail to capture. We therefore propose assessing Earth embeddings by their complementarity: the performance gain of fused embeddings over the best single-model baseline. To operationalise this, we introduce an embedding complementarity index applicable to any embedding and task, and evaluate four Earth embedding models (AlphaEarth, Tessera, GeoCLIP, SatCLIP) in isolation, in all pairs, and jointly across six downstream tasks. Fused embeddings outperform the best single model in four out of six tasks, confirming that single-embedding evaluations often underestimate Earth embedding capabilities. Complementarity proves both task- and location-dependent. Further, for a land cover regression task, we find that complementarity is partially determined by the spatial scale of land cover classes. Complementarity reframes Earth embeddings: the greatest future gains may come not from any single Earth embedding model, but from combinations that are better together.",
+      "citations": 0,
+      "github_stars": 1,
+      "links": {
+        "paper": "https://arxiv.org/abs/2605.18667",
+        "pdf": "https://arxiv.org/pdf/2605.18667",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2605.18667",
+        "code": "https://github.com/vdplasthijs/better_together",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/vdplasthijs/better_together"
+      },
+      "bibtex": "@misc{bettertogetherevaluatingthecompl,\n  title = {Better Together: Evaluating the Complementarity of Earth Embedding Models},\n  author = {Thijs L van der Plas and Jacob JW Bakermans and Vishal Nedungadi and Gabriel\u0117 Tij\u016bnaityt\u0117 and Marc Ru\u00dfwurm and Ioannis N Athanasiadis},\n  year = {2026},\n  eprint = {2605.18667},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2605.18667}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "evaluation / benchmark",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": "2605.18667",
+      "doi": "10.48550/arxiv.2605.18667",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "cropland-mapping-using-geospatial-embeddings-2025",
+      "title": "Cropland Mapping using Geospatial Embeddings",
+      "authors": "Ivan Zvonkov, Gabriel Tseng, Inbal Becker-Reshef, Hannah Kerner",
+      "venue": "Arxiv 2025",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Accurate and up-to-date land cover maps are essential for understanding land use change, a key driver of climate change. Geospatial embeddings offer a more efficient and accessible way to map landscape features, yet their use in real-world mapping applications remains underexplored. In this work, we evaluated the utility of geospatial embeddings for cropland mapping in Togo. We produced cropland maps using embeddings from Presto and AlphaEarth. Our findings show that geospatial embeddings can simplify workflows, achieve high-accuracy cropland classification and ultimately support better assessments of land use change and its climate impacts.",
+      "citations": 0,
+      "github_stars": null,
+      "links": {
+        "paper": "https://arxiv.org/abs/2511.02923",
+        "pdf": "https://arxiv.org/pdf/2511.02923",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2511.02923",
+        "code": "https://nasaharvest.github.io/presto-embeddings/",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://nasaharvest.github.io/presto-embeddings/"
+      },
+      "bibtex": "@misc{croplandmappingusinggeospatialem,\n  title = {Cropland Mapping using Geospatial Embeddings},\n  author = {Ivan Zvonkov and Gabriel Tseng and Inbal Becker-Reshef and Hannah Kerner},\n  year = {2025},\n  eprint = {2511.02923},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2511.02923}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "applications",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": "2511.02923",
+      "doi": "10.48550/arxiv.2511.02923",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "harvesting-alphaearth-benchmarking-the-geospatial-foundation-model-for-agricultural-do-2025",
+      "title": "Harvesting AlphaEarth: Benchmarking the Geospatial Foundation Model for Agricultural Downstream Tasks",
+      "authors": "Yuchi Ma, Yawen Shen, Anu Swatantran, David B. Lobell",
+      "venue": "Arxiv 2025",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Geospatial foundation models (GFMs) have emerged as a promising approach to overcoming the limitations in existing featurization methods. More recently, Google DeepMind has introduced AlphaEarth Foundation (AEF), a GFM pre-trained using multi-source EOs across continuous time. An annual and global embedding dataset is produced using AEF that is ready for analysis and modeling. The internal experiments show that AEF embeddings have outperformed operational models in 15 EO tasks without re-training. However, those experiments are mostly about land cover and land use classification. Applying AEF and other GFMs to agricultural monitoring require an in-depth evaluation in critical agricultural downstream tasks. There is also a lack of comprehensive comparison between the AEF-based models and traditional remote sensing (RS)-based models under different scenarios, which could offer valuable guidance for researchers and practitioners. This study addresses some of these gaps by evaluating AEF embeddings in three agricultural downstream tasks in the U.S., including crop yield prediction, tillage mapping, and cover crop mapping. Datasets are compiled from both public and private sources to comprehensively evaluate AEF embeddings across tasks at different scales and locations, and RS-based models are trained as comparison models. AEF-based models generally exhibit strong performance on all tasks and are competitive with purpose-built RS-based models in yield prediction and county-level tillage mapping when trained on local data. However, we also find several limitations in current AEF embeddings, such as limited spatial transferability compared to RS-based models, low interpretability, and limited time sensitivity. These limitations recommend caution when applying AEF embeddings in agriculture, where time sensitivity, generalizability, and interpretability is important.",
+      "citations": 1,
+      "github_stars": 8,
+      "links": {
+        "paper": "https://arxiv.org/abs/2601.00857",
+        "pdf": "https://arxiv.org/pdf/2601.00857",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2601.00857",
+        "code": "https://github.com/yuchima8/Harvest_AlphaEarth",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/yuchima8/Harvest_AlphaEarth"
+      },
+      "bibtex": "@misc{harvestingalphaearthbenchmarking,\n  title = {Harvesting AlphaEarth: Benchmarking the Geospatial Foundation Model for Agricultural Downstream Tasks},\n  author = {Yuchi Ma and Yawen Shen and Anu Swatantran and David B. Lobell},\n  year = {2025},\n  eprint = {2601.00857},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2601.00857}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "applications",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": "2601.00857",
+      "doi": "10.48550/arxiv.2601.00857",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "earthembeddingexplorer-a-web-application-for-cross-modal-retrieval-of-global-satellite-2026",
+      "title": "EarthEmbeddingExplorer: A Web Application for Cross-Modal Retrieval of Global Satellite Images",
+      "authors": "Yijie Zheng, Weijie Wu, Bingyue Wu, Long Zhao, Guoqing Li, Mikolaj Czerkawski, Konstantin Klemmer",
+      "venue": "EGU26/ICLR26 ML4RS",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "While the Earth observation community has witnessed a surge in high-impact foundation models and global Earth embedding datasets, a significant barrier remains in translating these academic assets into freely accessible tools. This tutorial introduces EarthEmbeddingExplorer, an interactive web application designed to bridge this gap, transforming static research artifacts into dynamic, practical workflows for discovery. We will provide a comprehensive hands-on guide to the system, detailing its cloud-native software architecture, demonstrating cross-modal queries (natural language, visual, and geolocation), and showcasing how to derive scientific insights from retrieval results. By democratizing access to precomputed Earth embeddings, this tutorial empowers researchers to seamlessly transition from state-of-the-art models and data archives to real-world application and analysis. The web application is available at https://modelscope.ai/studios/Major-TOM/EarthEmbeddingExplorer.",
+      "citations": 0,
+      "github_stars": 12,
+      "links": {
+        "paper": "https://arxiv.org/abs/2603.29441",
+        "pdf": "https://arxiv.org/pdf/2603.29441",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2603.29441",
+        "code": "https://github.com/OpenGeoScope/EarthEmbeddingExplorer",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://modelscope.ai/studios/Major-TOM/EarthEmbeddingExplorer/summary"
+      },
+      "bibtex": "@misc{earthembeddingexplorerawebapplic,\n  title = {EarthEmbeddingExplorer: A Web Application for Cross-Modal Retrieval of Global Satellite Images},\n  author = {Yijie Zheng and Weijie Wu and Bingyue Wu and Long Zhao and Guoqing Li and Mikolaj Czerkawski and Konstantin Klemmer},\n  year = {2026},\n  eprint = {2603.29441},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2603.29441}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "applications",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": "2603.29441",
+      "doi": "10.48550/arxiv.2603.29441",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "do-foundation-model-embeddings-improve-cross-country-crop-yield-generalisation-a-leave-2026",
+      "title": "Do Foundation Model Embeddings Improve Cross-Country Crop Yield Generalisation? A Leave-One-Country-Out Evaluation in Sub-Saharan Africa",
+      "authors": "Yaw Osei Adjei",
+      "venue": "Arxiv 2026",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Accurate predictions of smallholder maize yields across national boundaries are critical for food security planning in sub-Saharan Africa, yet most published benchmarks report within-country performance that overstates true generalisability. This paper evaluates whether geospatial foundation model embeddings, specifically Prithvi-EO-1.0-100M and ViT-Base, outperform traditional Sentinel-2 spectral features under a Leave-One-Country-Out cross-validation scheme on 6,404 maize field observations from five African countries. The results show a clear generalisability gap: within-country random cross-validation yields moderate R^2 values, but all feature sets perform poorly under cross-country testing, with universally negative R^2. Frozen Prithvi-EO embeddings provide no meaningful advantage over engineered spectral features for cross-country prediction in this setting. The paper argues that the main limitation is a shift in yield distribution between countries rather than representation quality and releases a reproducible negative benchmark for future work.",
+      "citations": 0,
+      "github_stars": 2,
+      "links": {
+        "paper": "https://arxiv.org/abs/2605.08113",
+        "pdf": "https://arxiv.org/pdf/2605.08113",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2605.08113",
+        "code": "https://github.com/yoadjei/yield-africa",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/yoadjei/yield-africa"
+      },
+      "bibtex": "@misc{dofoundationmodelembeddingsimpro,\n  title = {Do Foundation Model Embeddings Improve Cross-Country Crop Yield Generalisation? A Leave-One-Country-Out Evaluation in Sub-Saharan Africa},\n  author = {Yaw Osei Adjei},\n  year = {2026},\n  eprint = {2605.08113},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2605.08113}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "applications",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": "2605.08113",
+      "doi": "10.48550/arxiv.2605.08113",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "geospatial-foundation-model-embeddings-improve-population-estimation-unevenly-across-s-2026",
+      "title": "Geospatial foundation-model embeddings improve population estimation unevenly across space and scale",
+      "authors": "Wenbin Zhang, Eimear Cleary, Francisco Rowe, Somnath Chaudhuri, Maksym Bondarenko, Shengjie Lai, Andrew J. Tatem",
+      "venue": "Arxiv 2026",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Reliable subnational population estimates are essential for applications, yet remain difficult where censuses are sparse, outdated or spatially coarse. Existing population-mapping workflows rely on hand-built geospatial covariates, such as settlement extent, night-time lights, and environmental conditions, which must be assembled and harmonised across scales and geographies. Geospatial foundation models offer an alternative by learning reusable representations of place from more multifaceted and heterogeneous data sources. Here, we benchmark Population Dynamics Foundation Model (PDFM) embeddings against the harmonised geospatial covariates for subnational population estimation in Brazil, Nigeria and the United States. Under geographically structured validation, PDFM increased predictive fit by a median of 20.1% (IQR: 10.0-33.2%, across country-model comparisons) reduction in unexplained variance, and reduced Kullback-Leibler divergence by 23.2% (9.2-26.2%). However, these gains were uneven. PDFM was most advantageous where the geospatial covariates weakly characterised settlement context, such as larger and less-developed subnational areas. Moreover, PDFM performance was scale-coupled with embeddings providing less flexible transfer across spatial aggregations than geospatial covariates. These findings showed that geospatial foundation-model representations of place can improve population estimation in data poor settings, but their benefits break down predictably under spatial scale mismatch, revealing a fundamental limitation of current geospatial AI.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2605.01650",
+        "pdf": "https://arxiv.org/pdf/2605.01650",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2605.01650",
+        "code": "https://github.com/WB-zhang94/Benchmark-PDFM-in-population-modelling",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/WB-zhang94/Benchmark-PDFM-in-population-modelling"
+      },
+      "bibtex": "@misc{geospatialfoundationmodelembeddi,\n  title = {Geospatial foundation-model embeddings improve population estimation unevenly across space and scale},\n  author = {Wenbin Zhang and Eimear Cleary and Francisco Rowe and Somnath Chaudhuri and Maksym Bondarenko and Shengjie Lai and Andrew J. Tatem},\n  year = {2026},\n  eprint = {2605.01650},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2605.01650}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "applications",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": "2605.01650",
+      "doi": "10.48550/arxiv.2605.01650",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "seasonal-contrast-unsupervised-pre-training-from-uncurated-remote-sensing-data-2021",
+      "title": "Seasonal Contrast: Unsupervised Pre-Training From Uncurated Remote Sensing Data",
+      "authors": "Oscar Ma\u00f1as, Alexandre Lacoste, Xavier Gir\u00f3-i-Nieto, David Vazquez, Pau Rodr\u00edguez",
+      "venue": "ICCV",
+      "year": 2021,
+      "presentation": null,
+      "abstract": "Remote sensing and automatic earth monitoring are key to solve global-scale challenges such as disaster prevention, land use monitoring, or tackling climate change. Although there exist vast amounts of remote sensing data, most of it remains unlabeled and thus inaccessible for supervised learning algorithms. Transfer learning approaches can reduce the data requirements of deep learning algorithms. However, most of these methods are pre-trained on ImageNet and their generalization to remote sensing imagery is not guaranteed due to the domain gap. In this work, we propose Seasonal Contrast (SeCo), an effective pipeline to leverage unlabeled data for in-domain pre-training of remote sensing representations. The SeCo pipeline is composed of two parts. First, a principled procedure to gather large-scale, unlabeled and uncurated remote sensing datasets containing images from multiple Earth locations at different timestamps. Second, a self-supervised algorithm that takes advantage of time and position invariance to learn transferable representations for remote sensing applications. We empirically show that models trained with SeCo achieve better performance than their ImageNet pre-trained counterparts and state-of-the-art self-supervised learning methods on multiple downstream tasks. The datasets and models in SeCo will be made public to facilitate transfer learning and enable rapid progress in remote sensing applications.",
+      "citations": 303,
+      "github_stars": 182,
+      "links": {
+        "paper": "https://arxiv.org/abs/2103.16607",
+        "pdf": "https://openaccess.thecvf.com/content/ICCV2021/papers/Manas_Seasonal_Contrast_Unsupervised_Pre-Training_From_Uncurated_Remote_Sensing_Data_ICCV_2021_paper.pdf",
+        "supp": "https://openaccess.thecvf.com/content/ICCV2021/supplemental/Manas_Seasonal_Contrast_Unsupervised_ICCV_2021_supplemental.pdf",
+        "arxiv": "https://arxiv.org/abs/2103.16607",
+        "code": "https://github.com/ServiceNow/seasonal-contrast",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/ServiceNow/seasonal-contrast"
+      },
+      "bibtex": "@InProceedings{Manas_2021_ICCV,\n  title = {Seasonal Contrast: Unsupervised Pre-Training From Uncurated Remote Sensing Data},\n  author = {Ma\\~nas, Oscar and Lacoste, Alexandre and Gir\\'o-i-Nieto, Xavier and Vazquez, David and Rodr{\\'\\i}guez, Pau},\n  year = {2021},\n  url = {https://openaccess.thecvf.com/content/ICCV2021/html/Manas_Seasonal_Contrast_Unsupervised_Pre-Training_From_Uncurated_Remote_Sensing_Data_ICCV_2021_paper.html},\n  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n  pages = {9414-9423},\n  month = {October}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "Earth-science / disaster mapping",
+        "Earth observation / land cover",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2103.16607",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "lepa-learning-geometric-equivariance-in-satellite-remote-sensing-data-with-a-predictiv-2026",
+      "title": "LEPA: Learning Geometric Equivariance in Satellite Remote Sensing Data with a Predictive Architecture",
+      "authors": "Erik Scheurer, Rocco Sedona, Stefan Kesselheim, Gabriele Cavallaro",
+      "venue": "Arxiv 2026",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Geospatial foundation models provide precomputed embeddings that serve as compact feature vectors for large-scale satellite remote sensing data. While these embeddings can reduce data-transfer bottlenecks and computational costs, Earth observation (EO) applications can still face geometric mismatches between user-defined areas of interest and the fixed precomputed embedding grid. Standard latent-space interpolation is unreliable in this setting because the embedding manifold is highly non-convex, yielding representations that do not correspond to realistic inputs. We verify this using Prithvi-EO-2.0 to understand the shortcomings of interpolation applied to patch embeddings. As a substitute, we propose a Learned Equivariance-Predicting Architecture (LEPA). Instead of averaging vectors, LEPA conditions a predictor on geometric augmentations to directly predict the transformed embedding. We evaluate LEPA on NASA/USGS Harmonized Landsat-Sentinel (HLS) imagery and ImageNet-1k. Experiments show that standard interpolation achieves a mean reciprocal rank (MRR) below 0.2, whereas LEPA increases MRR to over 0.8, enabling accurate geometric adjustment without re-encoding.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2603.07246",
+        "pdf": "https://arxiv.org/pdf/2603.07246",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2603.07246",
+        "code": "https://github.com/embed2scale/LEPA",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/embed2scale/LEPA"
+      },
+      "bibtex": "@misc{lepalearninggeometricequivarianc,\n  title = {LEPA: Learning Geometric Equivariance in Satellite Remote Sensing Data with a Predictive Architecture},\n  author = {Erik Scheurer and Rocco Sedona and Stefan Kesselheim and Gabriele Cavallaro},\n  year = {2026},\n  eprint = {2603.07246},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2603.07246}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "remote sensing",
+        "representation learning"
+      ],
+      "arxiv_id": "2603.07246",
+      "doi": "10.48550/arxiv.2603.07246",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "mind-the-gap-understanding-the-modality-gap-in-multi-modal-contrastive-representation-2022",
+      "title": "Mind the Gap: Understanding the Modality Gap in Multi-modal Contrastive Representation Learning",
+      "authors": "Weixin Liang, Yuhui Zhang, Yongchan Kwon, Serena Yeung, James Zou",
+      "venue": "NeurIPS",
+      "year": 2022,
+      "presentation": null,
+      "abstract": "We present modality gap, an intriguing geometric phenomenon of the representation space of multi-modal models. Specifically, we show that different data modalities (e.g. images and text) are embedded at arm's length in their shared representation in multi-modal models such as CLIP. Our systematic analysis demonstrates that this gap is caused by a combination of model initialization and contrastive learning optimization. In model initialization, we show empirically and theoretically that the representation of a common deep neural network is restricted to a narrow cone. As a consequence, in a multi-modal model with two encoders, the representations of the two modalities are clearly apart when the model is initialized. During optimization, contrastive learning keeps the different modalities separate by a certain distance, which is influenced by the temperature parameter in the loss function. Our experiments further demonstrate that varying the modality gap distance has a significant impact in improving the model's downstream zero-shot classification performance and fairness. Our code and data are available at https://modalitygap.readthedocs.io/",
+      "citations": 98,
+      "github_stars": 176,
+      "links": {
+        "paper": "https://openreview.net/forum?id=S7Evzt9uit3",
+        "pdf": "https://arxiv.org/pdf/2203.02053",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2203.02053",
+        "code": "https://github.com/Weixin-Liang/Modality-Gap",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/Weixin-Liang/Modality-Gap"
+      },
+      "bibtex": "@misc{mindthegapunderstandingthemodali,\n  title = {Mind the Gap: Understanding the Modality Gap in Multi-modal Contrastive Representation Learning},\n  author = {Weixin Liang and Yuhui Zhang and Yongchan Kwon and Serena Yeung and James Zou},\n  year = {2022},\n  eprint = {2203.02053},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2203.02053}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "vision-language model",
+        "representation analysis"
+      ],
+      "arxiv_id": "2203.02053",
+      "doi": "10.48550/arxiv.2203.02053",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "into-the-rabbit-hull-from-task-relevant-concepts-in-dino-to-minkowski-geometry-2025",
+      "title": "Into the Rabbit Hull: From Task-Relevant Concepts in DINO to Minkowski Geometry",
+      "authors": "Thomas Fel, Binxu Wang, Michael A. Lepori, Matthew Kowal, Andrew Lee, Randall Balestriero, Sonia Joseph, Ekdeep S. Lubana, Talia Konkle, Demba Ba, Martin Wattenberg",
+      "venue": "Arxiv 2025",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "DINOv2 is routinely deployed to recognize objects, scenes, and actions; yet the nature of what it perceives remains unknown. As a working baseline, we adopt the Linear Representation Hypothesis (LRH) and operationalize it using SAEs, producing a 32,000-unit dictionary that serves as the interpretability backbone of our study, which unfolds in three parts. In the first part, we analyze how different downstream tasks recruit concepts from our learned dictionary, revealing functional specialization: classification exploits \"Elsewhere\" concepts that fire everywhere except on target objects, implementing learned negations; segmentation relies on boundary detectors forming coherent subspaces; depth estimation draws on three distinct monocular depth cues matching visual neuroscience principles. Following these functional results, we analyze the geometry and statistics of the concepts learned by the SAE. We found that representations are partly dense rather than strictly sparse. The dictionary evolves toward greater coherence and departs from maximally orthogonal ideals (Grassmannian frames). Within an image, tokens occupy a low dimensional, locally connected set persisting after removing position. These signs suggest representations are organized beyond linear sparsity alone. Synthesizing these observations, we propose a refined view: tokens are formed by combining convex mixtures of archetypes (e.g., a rabbit among animals, brown among colors, fluffy among textures). This structure is grounded in Gardenfors' conceptual spaces and in the model's mechanism as multi-head attention produces sums of convex mixtures, defining regions bounded by archetypes. We introduce the Minkowski Representation Hypothesis (MRH) and examine its empirical signatures and implications for interpreting vision-transformer representations.",
+      "citations": 4,
+      "github_stars": 32,
+      "links": {
+        "paper": "https://arxiv.org/abs/2510.08638",
+        "pdf": "https://arxiv.org/pdf/2510.08638",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2510.08638",
+        "code": "https://github.com/KempnerInstitute/dinovision",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/KempnerInstitute/dinovision"
+      },
+      "bibtex": "@misc{intotherabbithullfromtaskrelevan,\n  title = {Into the Rabbit Hull: From Task-Relevant Concepts in DINO to Minkowski Geometry},\n  author = {Thomas Fel and Binxu Wang and Michael A. Lepori and Matthew Kowal and Andrew Lee and Randall Balestriero and Sonia Joseph and Ekdeep S. Lubana and Talia Konkle and Demba Ba and Martin Wattenberg},\n  year = {2025},\n  eprint = {2510.08638},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2510.08638}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "vision-language model",
+        "representation analysis"
+      ],
+      "arxiv_id": "2510.08638",
+      "doi": "10.48550/arxiv.2510.08638",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "on-the-generalizability-of-foundation-models-for-crop-type-mapping-2024",
+      "title": "On the Generalizability of Foundation Models for Crop Type Mapping",
+      "authors": "Yi-Chia Chang, Adam J. Stewart, Favyen Bastani, Piper Wolters, Shreya Kannan, George R. Huber, Jingtong Wang, Arindam Banerjee",
+      "venue": "IGARSS 2025",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Foundation models pre-trained using self-supervised learning have shown powerful transfer learning capabilities on various downstream tasks, including language understanding, text generation, and image recognition. The Earth observation (EO) field has produced several foundation models pre-trained directly on multispectral satellite imagery for applications like precision agriculture, wildfire and drought monitoring, and natural disaster response. However, few studies have investigated the ability of these models to generalize to new geographic locations, and potential concerns of geospatial bias -- models trained on data-rich developed nations not transferring well to data-scarce developing nations -- remain. We evaluate three popular EO foundation models, SSL4EO-S12, SatlasPretrain, and ImageNet, on five crop classification datasets across five continents. Results show that pre-trained weights designed explicitly for Sentinel-2, such as SSL4EO-S12, outperform general pre-trained weights like ImageNet. While only 100 labeled images are sufficient for achieving high overall accuracy, 900 images are required to mitigate class imbalance and improve average accuracy.",
+      "citations": 2,
+      "github_stars": 6,
+      "links": {
+        "paper": "https://arxiv.org/abs/2409.09451",
+        "pdf": "https://arxiv.org/pdf/2409.09451",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2409.09451",
+        "code": "https://github.com/yichiac/crop-type-transfer-learning",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/yichiac/crop-type-transfer-learning"
+      },
+      "bibtex": "@misc{onthegeneralizabilityoffoundatio,\n  title = {On the Generalizability of Foundation Models for Crop Type Mapping},\n  author = {Yi-Chia Chang and Adam J. Stewart and Favyen Bastani and Piper Wolters and Shreya Kannan and George R. Huber and Jingtong Wang and Arindam Banerjee},\n  year = {2024},\n  eprint = {2409.09451},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2409.09451}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "remote sensing",
+        "foundation models"
+      ],
+      "arxiv_id": "2409.09451",
+      "doi": "10.48550/arxiv.2409.09451",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "measuring-the-intrinsic-dimension-of-earth-representations-2025",
+      "title": "Measuring the Intrinsic Dimension of Earth Representations",
+      "authors": "Arjun Rao, Marc Ru\u00dfwurm, Konstantin Klemmer, Esther Rolf",
+      "venue": "Arxiv 2025",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Within the context of representation learning for Earth observation, geographic Implicit Neural Representations (INRs) embed low-dimensional location inputs (longitude, latitude) into high-dimensional embeddings, through models trained on geo-referenced satellite, image or text data. Despite the common aim of geographic INRs to distill Earth's data into compact, learning-friendly representations, we lack an understanding of how much information is contained in these Earth representations, and where that information is concentrated. The intrinsic dimension of a dataset measures the number of degrees of freedom required to capture its local variability, regardless of the ambient high-dimensional space in which it is embedded. This work provides the first study of the intrinsic dimensionality of geographic INRs. Analyzing INRs with ambient dimension between 256 and 512, we find that their intrinsic dimensions fall roughly between 2 and 10 and are sensitive to changing spatial resolution and input modalities during INR pre-training. Furthermore, we show that the intrinsic dimension of a geographic INR correlates with downstream task performance and can capture spatial artifacts, facilitating model evaluation and diagnostics. More broadly, our work offers an architecture-agnostic, label-free metric of information content that can enable unsupervised evaluation, model selection, and pre-training design across INRs.",
+      "citations": 0,
+      "github_stars": 14,
+      "links": {
+        "paper": "https://arxiv.org/abs/2511.02101",
+        "pdf": "https://arxiv.org/pdf/2511.02101",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2511.02101",
+        "code": "https://github.com/arjunarao619/GeoINRID",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://drive.google.com/drive/folders/1USlgi7nRMqnsiJebLI4cplknVt9jWhpU?usp=sharing",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/arjunarao619/GeoINRID"
+      },
+      "bibtex": "@misc{measuringtheintrinsicdimensionof,\n  title = {Measuring the Intrinsic Dimension of Earth Representations},\n  author = {Arjun Rao and Marc Ru\u00dfwurm and Konstantin Klemmer and Esther Rolf},\n  year = {2025},\n  eprint = {2511.02101},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2511.02101}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "evaluation / benchmark",
+        "Earth observation / land cover",
+        "representation analysis"
+      ],
+      "arxiv_id": "2511.02101",
+      "doi": "10.48550/arxiv.2511.02101",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "from-pixels-to-patches-pooling-strategies-for-earth-embeddings-2026",
+      "title": "From Pixels to Patches: Pooling Strategies for Earth Embeddings",
+      "authors": "Isaac Corley, Caleb Robinson, Inbal Becker-Reshef, Juan M. Lavista Ferres",
+      "venue": "Arxiv 2026",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Geospatial foundation models increasingly expose pixel-level embedding products that can be downloaded and reused without access to the underlying encoder. In this setting, downstream tasks with patch- or region-level labels require a post-hoc aggregation step that maps dense pixel embeddings to a single representation. The default choice, mean pooling, discards within-patch variability and can underperform under spatial distribution shift. To study this setting, we introduce EuroSAT-Embed: 81,000 embedding GeoTIFFs derived from three foundation models: AlphaEarth, OlmoEarth, and Tessera. Using these fixed embedding products, we benchmark 11 training-free pooling methods and 2 train-set-fitted baselines under both random and geographically disjoint test splits. Richer pooling schemes reduce the geographic generalization gap by over 50% relative to mean pooling and improve accuracy by up to 6% on spatial splits. We recommend a three-tier strategy: (1) mean as a baseline, (2) stats pooling (min/max/mean/std) as the default at 4x the embedding dimension, and (3) covariance pooling for peak accuracy. Across all three embedding products, simple distributional statistics improve spatial-split performance over mean pooling.",
+      "citations": 2,
+      "github_stars": 9,
+      "links": {
+        "paper": "https://arxiv.org/abs/2603.02080",
+        "pdf": "https://arxiv.org/pdf/2603.02080",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2603.02080",
+        "code": "https://github.com/isaaccorley/geopool",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/isaaccorley/geopool"
+      },
+      "bibtex": "@misc{frompixelstopatchespoolingstrate,\n  title = {From Pixels to Patches: Pooling Strategies for Earth Embeddings},\n  author = {Isaac Corley and Caleb Robinson and Inbal Becker-Reshef and Juan M. Lavista Ferres},\n  year = {2026},\n  eprint = {2603.02080},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2603.02080}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "evaluation / benchmark",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": "2603.02080",
+      "doi": "10.48550/arxiv.2603.02080",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
+      ]
+    },
+    {
+      "id": "assessing-the-effectiveness-of-deep-embeddings-for-tree-species-classification-in-the-2025",
+      "title": "Assessing the Effectiveness of Deep Embeddings for Tree Species Classification in the Dutch Forest Inventory",
+      "authors": "Takayuki Ishikawa, Carmelo Bonannella, Bas J. W. Lerink, Marc Ru\u00dfwurm",
+      "venue": "Arxiv 2026",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "National Forest Inventory serves as the primary source of forest information, however, maintaining these inventories requires labor-intensive on-site campaigns by forestry experts to identify and document tree species. Embeddings from deep pre-trained remote sensing models offer new opportunities to update NFIs more frequently and at larger scales. While training new deep learning models on few data points remains challenging, we show that using pre-computed embeddings can proven effective for distinguishing tree species through seasonal canopy reflectance patternsin combination with Random Forest. This work systematically investigates how deep embeddings improve tree species classification accuracy in the Netherlands with few annotated data. We evaluate this question on three embedding models: Presto, Alpha Earth, and Tessera, using three tree species datasets of varying difficulty. Data-wise, we compare the available embeddings from Alpha Earth and Tessera with dynamically calculated embeddings from a pre-trained Presto model. Our results demonstrate that fine-tuning a publicly available remote sensing time series pre-trained model outperforms the current state-of-the-art in NFI classification in the Netherlands, yielding performance gains of approximately 2-9 percentage points across datasets and evaluation metrics. This indicates that classic hand-defined features are too simple for this task and highlights the potential of using deep embeddings for data-limited applications such as NFI classification. By leveraging openly available satellite data and deep embeddings from pre-trained models, this approach significantly improves classification accuracy compared to traditional methods and can effectively complement existing forest inventory processes.",
+      "citations": 1,
+      "github_stars": 2,
+      "links": {
+        "paper": "https://arxiv.org/abs/2508.18829",
+        "pdf": "https://arxiv.org/pdf/2508.18829",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2508.18829",
+        "code": "https://github.com/wildflowers315/tree-species-classification-with-presto",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/wildflowers315/tree-species-classification-with-presto"
+      },
+      "bibtex": "@misc{assessingtheeffectivenessofdeepe,\n  title = {Assessing the Effectiveness of Deep Embeddings for Tree Species Classification in the Dutch Forest Inventory},\n  author = {Takayuki Ishikawa and Carmelo Bonannella and Bas J. W. Lerink and Marc Ru\u00dfwurm},\n  year = {2025},\n  eprint = {2508.18829},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2508.18829}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "applications",
+        "Earth observation / land cover",
+        "forestry"
+      ],
+      "arxiv_id": "2508.18829",
+      "doi": "10.48550/arxiv.2508.18829",
+      "source_files": [
+        "manual",
+        "hfangcat/Awesome-Geospatial-Embeddings"
       ]
     }
   ],
