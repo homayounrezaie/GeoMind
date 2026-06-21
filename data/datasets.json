@@ -2711,20 +2711,24 @@
     {
       "id": "cropharvest",
       "name": "CropHarvest",
-      "summary": "A global multi-sensor remote sensing dataset for agricultural land classification.",
-      "description": "CropHarvest is an open-source remote sensing dataset for agriculture containing 95,186 datapoints, of which 33,205 (about 35%) carry multiclass crop labels, aggregated from 21 distinct agricultural datasets worldwide. Each labeled point is paired with time-series Sentinel-1 and Sentinel-2 imagery, SRTM elevation, and ERA5 climate data, enabling crop-type and cropland classification. It ships with benchmark models for evaluating classifier generalization across geographic regions and was introduced in 2021.",
-      "task": "Classification",
-      "modality": "SAR + MSI (Sentinel-1, Sentinel-2, SRTM, ERA5)",
-      "numSamples": 95186,
-      "license": "CC BY-SA 4.0",
+      "summary": "A global multi-sensor benchmark for crop-type and cropland classification.",
+      "description": "CropHarvest is an open-source remote sensing dataset and benchmark for agriculture. It aggregates labels from 21 agricultural datasets worldwide and pairs many labeled points with Sentinel-1, Sentinel-2, SRTM elevation, and ERA5 climatology time series. The Better Together evaluation uses CropHarvest for its crop type classification downstream task.",
+      "task": "Crop type classification / cropland classification",
+      "modality": "Sentinel-1 SAR, Sentinel-2 multispectral, SRTM elevation, ERA5 climate",
+      "numSamples": "95,186 datapoints; 33,205 multiclass crop labels",
+      "license": "CC-BY-SA-4.0",
       "year": 2021,
       "links": {
         "github": "https://github.com/nasaharvest/cropharvest",
-        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#cropharvest"
+        "torchgeo": "https://docs.torchgeo.org/en/stable/api/datasets.html#cropharvest",
+        "paper": "https://openreview.net/forum?id=JtjzUXPEaCu",
+        "zenodo": "https://zenodo.org/records/7257688"
       },
       "sources": [
         "Hugging Face",
-        "TorchGeo"
+        "TorchGeo",
+        "Official GitHub",
+        "arXiv:2605.18667 Better Together"
       ]
     },
     {
@@ -30866,6 +30870,161 @@
       "links": {
         "homepage": "https://zenodo.org/records/18266529",
         "download": "https://zenodo.org/records/18266529"
+      }
+    },
+    {
+      "id": "mmearth-bench",
+      "name": "MMEarth-Bench",
+      "summary": "A multimodal global benchmark for environmental prediction and model adaptation.",
+      "description": "MMEarth-Bench is a benchmark collection of five multimodal environmental tasks with 12 aligned Earth-observation and geospatial modalities. It provides random and geographic test splits for evaluating global model adaptation, including biomass, soil nitrogen, soil organic carbon, soil pH, and species occurrence tasks. The Better Together paper uses the biomass task from MMEarth-Bench for biomass prediction.",
+      "task": "Biomass regression; soil property regression; species multi-label classification",
+      "modality": "Sentinel-2, Sentinel-1, ASTER GDEM, canopy height, Dynamic World, ESA WorldCover, weather, geolocation, biome/ecoregion metadata",
+      "size": "59 GB",
+      "numSamples": "18,393 biomass tiles; 5,643 soil nitrogen; 7,982 soil organic carbon; 8,508 soil pH; 36,410 species tiles",
+      "license": "Mixed task licenses: CC-BY, CC-BY-NC, and IUCN terms",
+      "year": 2026,
+      "sources": [
+        "Official GitHub",
+        "arXiv:2605.18667 Better Together"
+      ],
+      "versions": [
+        {
+          "name": "Initial release",
+          "year": 2026,
+          "size": "59 GB",
+          "numSamples": "Five benchmark tasks",
+          "url": "https://github.com/lgordon99/mmearth-bench"
+        }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2602.06285",
+        "homepage": "https://lgordon99.github.io/mmearth-bench/",
+        "github": "https://github.com/lgordon99/mmearth-bench",
+        "explorer": "https://lgordon99.github.io/mmearth-bench/app/"
+      }
+    },
+    {
+      "id": "dynamic-world-v1",
+      "name": "Dynamic World V1",
+      "summary": "A near-real-time global 10 m land-use/land-cover probability dataset.",
+      "description": "Dynamic World V1 provides per-pixel class probabilities and top-label predictions for nine land-use/land-cover classes from Sentinel-2 L1C imagery. It is available through Google Earth Engine from 2015 onward and is used in Better Together to derive a land cover regression task by averaging 2024 class probabilities at sampled locations.",
+      "task": "Land cover regression / semantic land-cover mapping",
+      "modality": "Sentinel-2-derived land-cover probabilities and labels",
+      "size": "Global image collection in Google Earth Engine",
+      "numSamples": "Near-real-time Sentinel-2 image-aligned predictions, 9 classes",
+      "license": "CC-BY-4.0",
+      "year": 2022,
+      "sources": [
+        "Google Earth Engine",
+        "arXiv:2605.18667 Better Together"
+      ],
+      "versions": [
+        {
+          "name": "V1",
+          "year": 2022,
+          "url": "https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_DYNAMICWORLD_V1"
+        }
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1038/s41597-022-01307-4",
+        "homepage": "https://dynamicworld.app/",
+        "earth_engine": "https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_DYNAMICWORLD_V1"
+      }
+    },
+    {
+      "id": "worldclim-bioclimatic-variables",
+      "name": "WorldClim Bioclimatic Variables",
+      "summary": "Nineteen global bioclimatic variables derived from monthly temperature and precipitation.",
+      "description": "WorldClim BIO provides 19 bioclimatic variables summarizing annual trends, seasonality, and extreme or limiting temperature and precipitation factors. The current WorldClim 2.1 historical release averages climate conditions over 1970-2000 and is distributed as GeoTIFF layers at four spatial resolutions from 30 arc-seconds to 10 arc-minutes. Better Together uses WorldClim BIO for its bioclimatic variable prediction task.",
+      "task": "Bioclimatic variable regression / ecological covariate prediction",
+      "modality": "Climate rasters derived from temperature and precipitation",
+      "size": "19 GeoTIFF layers per resolution",
+      "numSamples": "19 variables at 4 spatial resolutions",
+      "license": "WorldClim terms of use",
+      "year": 2020,
+      "sources": [
+        "WorldClim",
+        "arXiv:2605.18667 Better Together"
+      ],
+      "versions": [
+        {
+          "name": "WorldClim 2.1 historical BIO",
+          "year": 2020,
+          "numSamples": "19 variables",
+          "url": "https://www.worldclim.org/data/worldclim21.html"
+        }
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1002/joc.5086",
+        "homepage": "https://www.worldclim.org/data/bioclim.html",
+        "download": "https://www.worldclim.org/data/worldclim21.html"
+      }
+    },
+    {
+      "id": "worldpop-population-density",
+      "name": "WorldPop Population Density",
+      "summary": "Open high-resolution gridded population density datasets for global demographic modeling.",
+      "description": "WorldPop provides open access spatial demographic datasets, including population count and population density grids, built with peer-reviewed methods for high-resolution population distribution mapping. Better Together uses WorldPop-derived population density as a univariate downstream regression task.",
+      "task": "Population density regression / spatial demographic modeling",
+      "modality": "Gridded population density rasters",
+      "size": "Global and country-level data products",
+      "numSamples": "WorldPop hub lists thousands of population-density datasets",
+      "license": "CC-BY-4.0",
+      "year": 2013,
+      "sources": [
+        "WorldPop",
+        "arXiv:2605.18667 Better Together"
+      ],
+      "versions": [
+        {
+          "name": "Population Density",
+          "url": "https://hub.worldpop.org/geodata/listing?id=16"
+        },
+        {
+          "name": "Global 2 population products",
+          "url": "https://hub.worldpop.org/"
+        }
+      ],
+      "links": {
+        "homepage": "https://www.worldpop.org/",
+        "data_catalog": "https://www.worldpop.org/datacatalog/",
+        "hub": "https://hub.worldpop.org/",
+        "population_density": "https://hub.worldpop.org/geodata/listing?id=16"
+      }
+    },
+    {
+      "id": "grip4-global-roads",
+      "name": "GRIP4 Global Roads Inventory Project",
+      "summary": "A harmonized global roads dataset with vector roads and 5 arc-minute road-density rasters.",
+      "description": "GRIP4, the Global Roads Inventory Project, harmonizes road infrastructure data from many sources into global and regional vector datasets plus global road-density rasters. It was designed for global environmental and biodiversity modeling rather than navigation. Better Together derives its distance-to-nearest-road downstream task from GRIP4.",
+      "task": "Distance-to-road regression / road infrastructure covariate modeling",
+      "modality": "Road vector data and road-density raster grids",
+      "size": "Global vector data plus regional shapefiles and 5 arc-minute rasters",
+      "numSamples": "222 countries; over 21 million km of roads",
+      "license": "CC0",
+      "year": 2018,
+      "sources": [
+        "GLOBIO",
+        "Zenodo",
+        "arXiv:2605.18667 Better Together"
+      ],
+      "versions": [
+        {
+          "name": "GRIP4 vector and road-density rasters",
+          "year": 2018,
+          "url": "https://www.globio.info/download-grip-dataset"
+        },
+        {
+          "name": "Zenodo supplementary spatial data",
+          "year": 2018,
+          "url": "https://zenodo.org/records/6420961"
+        }
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1088/1748-9326/aabd42",
+        "homepage": "https://www.globio.info/download-grip-dataset",
+        "zenodo": "https://zenodo.org/records/6420961",
+        "world_bank": "https://datacatalog.worldbank.org/search/dataset/0040289/grip-global-roads-inventory-project-2018"
       }
     }
   ]
