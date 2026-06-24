@@ -1,6 +1,43 @@
 {
   "papers": [
     {
+      "id": "rs3dbench-a-comprehensive-benchmark-for-3d-spatial-perception-in-remote-sensing-2025",
+      "title": "RS3DBench: A Comprehensive Benchmark for 3D Spatial Perception in Remote Sensing",
+      "authors": "Jiayu Wang, Ruizhi Wang, Jie Song, Haofei Zhang, Mingli Song, Zunlei Feng, Li Sun",
+      "venue": "arXiv",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "We introduce RS3DBench, a large-scale, multi-region, and multi-resolution benchmark for 3D spatial perception in remote sensing. The dataset contains 54,951 strictly pixel-aligned pairs of remote sensing images and depth maps, enriched with accurate geographical text descriptions. Using this benchmark, the authors evaluate nine monocular depth estimation models and introduce Marigold-RS, a text-guided multimodal diffusion model for remote sensing depth estimation that leverages semantic priors to reduce structural ambiguity.",
+      "citations": 0,
+      "github_stars": 13,
+      "links": {
+        "paper": "https://arxiv.org/abs/2509.18897",
+        "pdf": "https://arxiv.org/pdf/2509.18897",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2509.18897",
+        "code": "https://github.com/RS3DBench/RS3DBench",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://huggingface.co/datasets/RS3DBench/RS3DBench",
+        "benchmark": "https://rs3dbench.github.io/",
+        "model": "https://github.com/RS3DBench/Marigold-RS",
+        "project_page": "https://rs3dbench.github.io/"
+      },
+      "bibtex": "@misc{wang2025rs3dbench,\n  title = {RS3DBench: A Comprehensive Benchmark for 3D Spatial Perception in Remote Sensing},\n  author = {Jiayu Wang and Ruizhi Wang and Jie Song and Haofei Zhang and Mingli Song and Zunlei Feng and Li Sun},\n  year = {2025},\n  eprint = {2509.18897},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CV},\n  url = {https://arxiv.org/abs/2509.18897}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "geospatial / GIS / geographic",
+        "3D scene understanding / scene completion",
+        "large-scale outdoor 3D reconstruction",
+        "diffusion models"
+      ],
+      "arxiv_id": "2509.18897",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
       "id": "depth-anything-3-recovering-the-visual-space-from-any-views-2025",
       "title": "Depth Anything 3: Recovering the Visual Space from Any Views",
       "authors": "Haotong Lin, Sili Chen, Jun Hao Liew, Donny Y. Chen, Zhenyu Li, Guang Shi, Jiashi Feng, Bingyi Kang",
