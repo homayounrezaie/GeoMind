@@ -982,15 +982,22 @@
       "id": "next-day-wildfire-spread",
       "name": "Next Day Wildfire Spread",
       "summary": "A multivariate remote-sensing dataset for predicting next-day wildfire spread across the United States.",
-      "description": "Next Day Wildfire Spread is a large-scale, multivariate dataset for predicting wildfire propagation, aggregating remote sensing and geospatial layers such as elevation, weather, drought, vegetation, and prior fire masks. Each sample is a 64x64 spatial grid pairing the current-day fire mask and environmental covariates with the next-day fire mask as the prediction target. This entry references an xarray-formatted version derived from the original dataset, organized into train, eval, and test splits.",
-      "task": "Geospatial prediction",
-      "modality": "Geospatial / remote sensing",
-      "year": 2024,
+      "description": "Next Day Wildfire Spread is a curated, large-scale, multivariate dataset for one-day-ahead wildfire propagation prediction across the contiguous United States from 2012 to 2020. Each sample is a 64 km x 64 km region at 1 km resolution with previous-day and next-day fire masks, plus explanatory variables including elevation, wind direction and speed, minimum and maximum temperature, humidity, precipitation, drought index, NDVI, energy release component, and population density. The dataset was aggregated with Google Earth Engine and is commonly used as a benchmark for remote-sensing wildfire spread models.",
+      "task": "Wildfire spread prediction",
+      "modality": "MODIS fire masks + topography, weather, drought, vegetation, and population rasters",
+      "size": "2.2 GB (Kaggle zip)",
+      "numSamples": "18,445 samples",
+      "license": "CC-BY-4.0",
+      "year": 2021,
       "sources": [
+        "Kaggle",
         "Hugging Face",
+        "GitHub",
         "satellite-image-deep-learning"
       ],
       "links": {
+        "paper": "https://arxiv.org/abs/2112.02447",
+        "github": "https://github.com/dwgb93/TEI_WildfireSpread",
         "huggingface": "https://huggingface.co/datasets/TheRootOf3/next-day-wildfire-spread",
         "download": "https://www.kaggle.com/datasets/fantineh/next-day-wildfire-spread"
       }
