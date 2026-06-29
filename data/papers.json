@@ -2528,6 +2528,223 @@
       ]
     },
     {
+      "id": "bcwildfire-a-long-term-multi-factor-dataset-and-deep-learning-benchmark-for-boreal-wildfire-risk-prediction-2026",
+      "title": "BCWildfire: A Long-term Multi-factor Dataset and Deep Learning Benchmark for Boreal Wildfire Risk Prediction",
+      "authors": "Zhengsen Xu, Sibo Cheng, Lanying Wang, Hongjie He, Wentao Sun, Jie Li, Linlin Xu",
+      "venue": "AAAI",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "BCWildfire introduces a 25-year, daily-resolution wildfire risk dataset covering about 240 million hectares across British Columbia and surrounding regions. The benchmark integrates 38 covariates spanning active-fire detections, weather, fuel, terrain, and anthropogenic factors, and evaluates CNN, linear, Transformer, and Mamba time-series forecasting models for boreal wildfire risk prediction.",
+      "citations": 0,
+      "github_stars": 1,
+      "links": {
+        "paper": "https://doi.org/10.1609/aaai.v40i46.41299",
+        "pdf": "https://ojs.aaai.org/index.php/AAAI/article/download/41299/45260",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2511.17597",
+        "code": "https://github.com/SynUW/mmFire",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://github.com/SynUW/mmFire",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/SynUW/mmFire"
+      },
+      "bibtex": "@inproceedings{xu2026bcwildfire,\n  title = {BCWildfire: A Long-term Multi-factor Dataset and Deep Learning Benchmark for Boreal Wildfire Risk Prediction},\n  author = {Xu, Zhengsen and Cheng, Sibo and Wang, Lanying and He, Hongjie and Sun, Wentao and Li, Jie and Xu, Linlin},\n  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},\n  year = {2026},\n  doi = {10.1609/aaai.v40i46.41299},\n  url = {https://doi.org/10.1609/aaai.v40i46.41299}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "remote sensing",
+        "spatiotemporal forecasting"
+      ],
+      "arxiv_id": "2511.17597",
+      "doi": "10.1609/aaai.v40i46.41299",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "canadafiresat-towards-high-resolution-wildfire-forecasting-with-multiple-modalities-2026",
+      "title": "CanadaFireSat: Towards high-resolution wildfire forecasting with multiple modalities",
+      "authors": "Hugo Porta, Emanuele Dalsasso, Jessica L. McCarty, Devis Tuia",
+      "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "CanadaFireSat presents a benchmark dataset and baselines for 100 m wildfire forecasting across Canada. It combines Sentinel-2 Level-1C time series, MODIS satellite products, ERA5 reanalysis variables, and fire occurrence labels, evaluating CNN and ViT models for high-resolution, multi-modal wildfire probability prediction.",
+      "citations": 0,
+      "github_stars": 9,
+      "links": {
+        "paper": "https://doi.org/10.1016/j.isprsjprs.2026.05.050",
+        "pdf": "https://arxiv.org/pdf/2506.08690",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2506.08690",
+        "code": "https://github.com/eceo-epfl/CanadaFireSat-Data",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://huggingface.co/datasets/EPFL-ECEO/CanadaFireSat",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/eceo-epfl/CanadaFireSat-Data"
+      },
+      "bibtex": "@article{porta2026canadafiresat,\n  title = {CanadaFireSat: Towards high-resolution wildfire forecasting with multiple modalities},\n  author = {Porta, Hugo and Dalsasso, Emanuele and McCarty, Jessica L. and Tuia, Devis},\n  journal = {ISPRS Journal of Photogrammetry and Remote Sensing},\n  year = {2026},\n  doi = {10.1016/j.isprsjprs.2026.05.050},\n  url = {https://doi.org/10.1016/j.isprsjprs.2026.05.050}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "remote sensing",
+        "spatiotemporal forecasting",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2506.08690",
+      "doi": "10.1016/j.isprsjprs.2026.05.050",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "earthview-a-large-scale-remote-sensing-dataset-for-self-supervision-2025",
+      "title": "EarthView: A Large Scale Remote Sensing Dataset for Self-Supervision",
+      "authors": "Diego Velazquez, Pau Rodriguez Lopez, Sergio Alonso, Josep M. Gonfaus, Jordi Gonzalez, Gerardo Richarte, Javier Marin, Yoshua Bengio, Alexandre Lacoste",
+      "venue": "WACV Workshops",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "EarthView is a large-scale multi-sensor remote-sensing dataset for self-supervised learning. It spans roughly 15 terapixels across about five years and combines Satellogic 1 m imagery, Sentinel-1 SAR, Sentinel-2 multispectral imagery, and NEON data in a Hugging Face parquet release, with EarthMAE baselines for heterogeneous remote-sensing pretraining.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2501.08111",
+        "pdf": "https://arxiv.org/pdf/2501.08111",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2501.08111",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://huggingface.co/datasets/satellogic/EarthView",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://huggingface.co/datasets/satellogic/EarthView"
+      },
+      "bibtex": "@misc{velazquez2025earthview,\n  title = {EarthView: A Large Scale Remote Sensing Dataset for Self-Supervision},\n  author = {Velazquez, Diego and Rodriguez Lopez, Pau and Alonso, Sergio and Gonfaus, Josep M. and Gonzalez, Jordi and Richarte, Gerardo and Marin, Javier and Bengio, Yoshua and Lacoste, Alexandre},\n  year = {2025},\n  eprint = {2501.08111},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2501.08111}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "self-supervised / foundation model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2501.08111",
+      "doi": "10.48550/arxiv.2501.08111",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "ts-satfire-a-multi-task-satellite-image-time-series-dataset-for-wildfire-detection-and-prediction-2025",
+      "title": "TS-SatFire: A Multi-Task Satellite Image Time-Series Dataset for Wildfire Detection and Prediction",
+      "authors": "Yu Zhao, Sebastian Gerard, Yifang Ban",
+      "venue": "Scientific Data",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "TS-SatFire is a multi-temporal remote-sensing benchmark covering wildfire events in the contiguous United States from January 2017 to October 2021. It provides 3,552 surface-reflectance images with weather, topography, land-cover, and fuel variables, supporting active fire detection, burned-area mapping, and next-day wildfire progression prediction.",
+      "citations": 0,
+      "github_stars": 34,
+      "links": {
+        "paper": "https://doi.org/10.1038/s41597-025-06271-3",
+        "pdf": "https://www.nature.com/articles/s41597-025-06271-3.pdf",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2412.11555",
+        "code": "https://github.com/zhaoyutim/TS-SatFire",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://www.kaggle.com/datasets/z789456sx/ts-satfire",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/zhaoyutim/TS-SatFire"
+      },
+      "bibtex": "@article{zhao2025tssatfire,\n  title = {TS-SatFire: A Multi-Task Satellite Image Time-Series Dataset for Wildfire Detection and Prediction},\n  author = {Zhao, Yu and Gerard, Sebastian and Ban, Yifang},\n  journal = {Scientific Data},\n  year = {2025},\n  doi = {10.1038/s41597-025-06271-3},\n  url = {https://doi.org/10.1038/s41597-025-06271-3}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "remote sensing",
+        "spatiotemporal forecasting",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2412.11555",
+      "doi": "10.1038/s41597-025-06271-3",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "boreal-forest-fire-uav-collected-wildfire-detection-and-smoke-segmentation-dataset-2025",
+      "title": "Boreal Forest Fire: UAV-collected Wildfire Detection and Smoke Segmentation Dataset",
+      "authors": "Julius Pesonen, Anna-Maria Raita-Hakola, Jukka Joutsalainen, Teemu Hakala, Waleed Akhtar, Niko Koivumaki, Lauri Markelin, Juha Suomalainen, Raquel Alves de Oliveira, Ilkka Polonen, Eija Honkavaara",
+      "venue": "Scientific Data",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Boreal Forest Fire is an open-access UAV wildfire dataset collected at prescribed burning events in Finnish boreal forests. It includes human and foundation-model co-annotated images from an aerial perspective, with bounding boxes, labeled video clips, and segmentation masks for wildfire detection and smoke segmentation.",
+      "citations": 0,
+      "github_stars": 4,
+      "links": {
+        "paper": "https://doi.org/10.1038/s41597-025-05634-0",
+        "pdf": "https://www.nature.com/articles/s41597-025-05634-0.pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": "https://gitlab.com/fgi_nls/public/wildfire-real-time-segmentation",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://doi.org/10.23729/fd-72c6cf74-b8eb-3687-860d-bf93a1ab94c9",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://gitlab.com/fgi_nls/public/wildfire-real-time-segmentation"
+      },
+      "bibtex": "@article{pesonen2025boreal,\n  title = {Boreal Forest Fire: UAV-collected Wildfire Detection and Smoke Segmentation Dataset},\n  author = {Pesonen, Julius and Raita-Hakola, Anna-Maria and Joutsalainen, Jukka and Hakala, Teemu and Akhtar, Waleed and Koivumaki, Niko and Markelin, Lauri and Suomalainen, Juha and Alves de Oliveira, Raquel and Polonen, Ilkka and Honkavaara, Eija},\n  journal = {Scientific Data},\n  year = {2025},\n  doi = {10.1038/s41597-025-05634-0},\n  url = {https://doi.org/10.1038/s41597-025-05634-0}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "drone / UAV / aerial / overhead",
+        "semantic segmentation"
+      ],
+      "doi": "10.1038/s41597-025-05634-0",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "land8fire-a-complete-study-on-wildfire-segmentation-through-comprehensive-review-human-annotated-multispectral-dataset-and-extensive-benchmarking-2025",
+      "title": "Land8Fire: A Complete Study on Wildfire Segmentation Through Comprehensive Review, Human-Annotated Multispectral Dataset, and Extensive Benchmarking",
+      "authors": "Anh Tran, Minh C. Tran, Esteban Marti, Jackson Cothren, Chase Rainwater, Sandra D. Eksioglu, Ngan Le",
+      "venue": "Remote Sensing",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Land8Fire introduces a human-annotated Landsat 8 wildfire segmentation dataset with more than 20,000 multispectral image patches and high-quality fire masks. The study benchmarks convolutional and transformer-based segmentation models, analyzes loss functions, and evaluates spectral band combinations including SWIR and NIR for smoke- and cloud-aware wildfire segmentation.",
+      "citations": 0,
+      "github_stars": 7,
+      "links": {
+        "paper": "https://doi.org/10.3390/rs17162776",
+        "pdf": "https://www.mdpi.com/2072-4292/17/16/2776/pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/UARK-AICV/Land8Fire",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://github.com/UARK-AICV/Land8Fire",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/UARK-AICV/Land8Fire"
+      },
+      "bibtex": "@article{tran2025land8fire,\n  title = {Land8Fire: A Complete Study on Wildfire Segmentation Through Comprehensive Review, Human-Annotated Multispectral Dataset, and Extensive Benchmarking},\n  author = {Tran, Anh and Tran, Minh C. and Marti, Esteban and Cothren, Jackson and Rainwater, Chase and Eksioglu, Sandra D. and Le, Ngan},\n  journal = {Remote Sensing},\n  volume = {17},\n  number = {16},\n  pages = {2776},\n  year = {2025},\n  doi = {10.3390/rs17162776},\n  url = {https://doi.org/10.3390/rs17162776}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "remote sensing",
+        "semantic segmentation",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "doi": "10.3390/rs17162776",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
       "id": "thermal3d-gs-physics-induced-3d-gaussians-for-thermal-infrared-novel-view-synthe-2024",
       "title": "Thermal3D-GS: Physics-induced 3D Gaussians for Thermal Infrared Novel-view Synthesis",
       "authors": "Qian Chen, Shihao Shu, Xiangzhi Bai",
@@ -9656,7 +9873,7 @@
         "paperswithcode": "https://paperswithcode.co/paper/2412.15190",
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://huggingface.co/datasets/akshaydudhane/EarthDial-Dataset",
         "benchmark": null,
         "model": "https://huggingface.co/haruiz/gemmaearth",
         "project_page": null,
@@ -11036,7 +11253,7 @@
         "paperswithcode": null,
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://doi.org/10.23729/fd-72c6cf74-b8eb-3687-860d-bf93a1ab94c9",
         "benchmark": null,
         "model": "https://huggingface.co/papers/2408.10843",
         "project_page": "https://huggingface.co/papers/2408.10843",
@@ -25681,14 +25898,14 @@
         "pdf": "https://arxiv.org/pdf/2306.11300v5.pdf",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2306.11300",
-        "code": "https://github.com/om-ai-lab/rs5m",
+        "code": "https://github.com/om-ai-lab/RS5M",
         "paperswithcode": "https://paperswithcode.co/paper/2306.11300",
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://huggingface.co/datasets/omlab/RS5M",
         "benchmark": null,
-        "model": null,
-        "project_page": null,
+        "model": "https://huggingface.co/Zilun/GeoRSCLIP",
+        "project_page": "https://github.com/om-ai-lab/RS5M",
         "paper": "https://arxiv.org/abs/2306.11300"
       },
       "bibtex": "@misc{rs5m_and_georsclip_a_large_scale_2023,\n  title = {RS5M and GeoRSCLIP: A Large Scale Vision-Language Dataset and A Large Vision-Language Model for Remote Sensing},\n  author = {Zilun Zhang and Tiancheng Zhao and Yulong Guo and Jianwei Yin},\n  year = {2023},\n  url = {https://arxiv.org/abs/2306.11300v5}\n}",
@@ -66163,16 +66380,17 @@
       "citations": 0,
       "github_stars": 17,
       "links": {
+        "paper": "https://arxiv.org/abs/2312.09159",
         "pdf": "https://arxiv.org/pdf/2312.09159",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2312.09159",
         "code": "https://github.com/castacks/wit-uas-dataset",
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://github.com/castacks/WIT-UAS-Dataset",
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://github.com/castacks/WIT-UAS-Dataset"
       },
       "bibtex": "@misc{paper_2023_wit_uas_a_wildland,\n  title = {WIT-UAS: A Wildland-fire Infrared Thermal Dataset to Detect Crew Assets From Aerial Views},\n  author = {Andrew Jong and Mukai Yu and Devansh Dhrafani and Siva Kailas and Brady Moon and Katia Sycara and Sebastian Scherer},\n  year = {2023},\n  url = {https://arxiv.org/abs/2312.09159},\n  eprint = {2312.09159},\n  archivePrefix = {arXiv}\n}",
       "matched_themes": [
@@ -69758,14 +69976,14 @@
         "pdf": "https://arxiv.org/pdf/2306.11300",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2306.11300",
-        "code": "https://huggingface.co/Zilun/GeoRSSD",
+        "code": "https://github.com/om-ai-lab/RS5M",
         "paperswithcode": null,
-        "checkpoints": "https://huggingface.co/Zilun/GeoRSSD",
+        "checkpoints": "https://huggingface.co/Zilun/GeoRSCLIP",
         "video": null,
-        "dataset": null,
+        "dataset": "https://huggingface.co/datasets/omlab/RS5M",
         "benchmark": null,
-        "model": "https://huggingface.co/Zilun/GeoRSSD",
-        "project_page": null,
+        "model": "https://huggingface.co/Zilun/GeoRSCLIP",
+        "project_page": "https://github.com/om-ai-lab/RS5M",
         "paper": "https://arxiv.org/abs/2306.11300"
       },
       "bibtex": null,
@@ -74736,10 +74954,10 @@
         "paperswithcode": null,
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://github.com/markus-42/SegFly",
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://github.com/markus-42/SegFly"
       },
       "bibtex": null,
       "matched_themes": [
@@ -75753,10 +75971,10 @@
         "paperswithcode": null,
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://drive.google.com/drive/folders/1-u4vs9rqwkwgdeeeoUhftCxrfe_4QPTn?usp=drive_link",
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://github.com/nasa/Autonomous-Modular-Sensor-Wildfire-Segmentation"
       },
       "bibtex": null,
       "matched_themes": [
@@ -83744,10 +83962,10 @@
         "paperswithcode": null,
         "checkpoints": null,
         "video": null,
-        "dataset": null,
+        "dataset": "https://github.com/larics/thermal_aerial_synthetic",
         "benchmark": null,
         "model": null,
-        "project_page": null
+        "project_page": "https://github.com/larics/thermal_aerial_synthetic"
       },
       "bibtex": null,
       "matched_themes": [

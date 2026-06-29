@@ -1027,6 +1027,190 @@
       }
     },
     {
+      "id": "wit-uas",
+      "name": "WIT-UAS",
+      "summary": "A wildland-fire long-wave infrared UAV dataset for detecting crew and vehicle assets during prescribed burns.",
+      "description": "WIT-UAS provides long-wave infrared imagery captured from unmanned aerial systems during prescribed wildland-fire events, with bounding-box labels for crew and vehicle assets. It includes WIT-UAS-ROS bags with sensor and robot data and WIT-UAS-Image, a hand-labeled LWIR image subset for object detection in high-heat, smoke, vegetation, and false-positive conditions.",
+      "task": "Object detection",
+      "modality": "UAV long-wave infrared thermal imagery",
+      "numSamples": "WIT-UAS-ROS bags plus hand-labeled WIT-UAS-Image subset",
+      "license": "GPL-3.0 (repository)",
+      "year": 2023,
+      "sources": [
+        "GitHub",
+        "arXiv"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2312.09159",
+        "github": "https://github.com/castacks/WIT-UAS-Dataset",
+        "download": "https://github.com/castacks/WIT-UAS-Dataset#download-dataset"
+      }
+    },
+    {
+      "id": "boreal-forest-fire",
+      "name": "Boreal Forest Fire",
+      "summary": "A UAV-collected boreal wildfire dataset with bounding boxes, video labels, and smoke segmentation masks.",
+      "description": "Boreal Forest Fire is an open-access dataset collected from UAV perspectives during prescribed burning events in Finnish boreal forests. It contains three sections: images with bounding-box annotations, video clips with labels, and images with segmentation masks. The release includes accompanying code for wildfire detection and smoke segmentation experiments.",
+      "task": "Wildfire detection / smoke segmentation",
+      "modality": "UAV RGB imagery and video",
+      "license": "CC-BY-4.0",
+      "year": 2025,
+      "sources": [
+        "Scientific Data",
+        "Fairdata",
+        "GitLab"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1038/s41597-025-05634-0",
+        "download": "https://doi.org/10.23729/fd-72c6cf74-b8eb-3687-860d-bf93a1ab94c9",
+        "gitlab": "https://gitlab.com/fgi_nls/public/wildfire-real-time-segmentation"
+      }
+    },
+    {
+      "id": "boson-nighttime",
+      "name": "Boson-nighttime",
+      "summary": "A nighttime UAV thermal geo-localization dataset pairing aerial thermal imagery with satellite imagery.",
+      "description": "Boson-nighttime supports long-range UAV thermal geo-localization against satellite imagery. The Hugging Face release provides a gated thermal/satellite image dataset used by long-range UAV thermal geo-localization and follow-on thermal geo-localization work, with example pairs and sharded dataset files.",
+      "task": "Thermal geo-localization",
+      "modality": "UAV thermal imagery + satellite imagery",
+      "size": "~290 GB (Hugging Face storage)",
+      "license": "MIT; gated non-commercial research access on Hugging Face",
+      "year": 2023,
+      "sources": [
+        "Hugging Face",
+        "GitHub",
+        "arXiv"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2306.02994",
+        "huggingface": "https://huggingface.co/datasets/xjh19972/boson-nighttime",
+        "github": "https://github.com/arplaboratory/satellite-thermal-geo-localization",
+        "model": "https://huggingface.co/xjh19972/TGM"
+      }
+    },
+    {
+      "id": "land8fire",
+      "name": "Land8Fire",
+      "summary": "A human-annotated Landsat 8 multispectral wildfire segmentation dataset with benchmark splits.",
+      "description": "Land8Fire is a large-scale wildfire segmentation dataset derived from Landsat 8 imagery. It contains more than 20,000 multispectral image patches with manually annotated fire masks, predefined splits, and original full-resolution TIF images with masks. The accompanying repository provides Google Drive download scripts, preprocessing, k-fold generation, and benchmarking code for convolutional and transformer-based segmentation models.",
+      "task": "Wildfire segmentation",
+      "modality": "Landsat 8 multispectral imagery",
+      "numSamples": "20,000+ multispectral patches",
+      "license": "CC-BY-4.0 (paper)",
+      "year": 2025,
+      "sources": [
+        "Remote Sensing",
+        "GitHub"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.3390/rs17162776",
+        "github": "https://github.com/UARK-AICV/Land8Fire",
+        "download": "https://github.com/UARK-AICV/Land8Fire#dataset"
+      }
+    },
+    {
+      "id": "nasa-ams-wildfire-segmentation",
+      "name": "NASA AMS Wildfire Segmentation",
+      "summary": "A 12-channel aerial multispectral wildfire dataset from NASA Autonomous Modular Sensor missions.",
+      "description": "NASA AMS Wildfire Segmentation contains human-annotated, medium- to high-altitude aerial wildfire imagery from NASA Autonomous Modular Sensor missions. It combines 12 spectral channels, including IR, SWIR, and thermal bands, over 20 wildfire missions and more than 4,000 sampled patches with smoke/cloud occlusions, nighttime imagery, and false-positive cases for classification and pixel-level active-fire segmentation.",
+      "task": "Wildfire detection / semantic segmentation",
+      "modality": "12-channel aerial multispectral imagery including IR, SWIR, and thermal",
+      "numSamples": "4,000+ patches from 20 wildfire missions",
+      "year": 2026,
+      "sources": [
+        "GitHub",
+        "Google Drive",
+        "arXiv"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2601.14475",
+        "github": "https://github.com/nasa/Autonomous-Modular-Sensor-Wildfire-Segmentation",
+        "download": "https://drive.google.com/drive/folders/1-u4vs9rqwkwgdeeeoUhftCxrfe_4QPTn?usp=drive_link"
+      }
+    },
+    {
+      "id": "segfly",
+      "name": "SegFly",
+      "summary": "A large-scale aerial RGB-thermal semantic segmentation benchmark generated with 2D-3D-2D label propagation.",
+      "description": "SegFly is an aerial RGB and RGB-thermal semantic segmentation benchmark built with a geometry-driven 2D-3D-2D pipeline. It provides more than 20,000 high-resolution RGB images and more than 15,000 geometrically aligned RGB-T pairs across urban, industrial, and rural scenes, using multi-view geometry to propagate labels and align thermal imagery.",
+      "task": "Semantic segmentation / RGB-T registration",
+      "modality": "Aerial RGB + thermal imagery + 3D geometry",
+      "numSamples": "20,000+ RGB images; 15,000+ RGB-T pairs",
+      "year": 2026,
+      "sources": [
+        "GitHub",
+        "arXiv"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2603.17920",
+        "github": "https://github.com/markus-42/SegFly",
+        "download": "https://github.com/markus-42/SegFly"
+      }
+    },
+    {
+      "id": "rs5m",
+      "name": "RS5M",
+      "summary": "A five-million-pair remote-sensing image-text dataset for vision-language pretraining.",
+      "description": "RS5M is a large-scale remote-sensing vision-language dataset containing 5 million image-text pairs with English descriptions. It was built by filtering public image-text data and captioning label-only remote-sensing datasets, then used to train GeoRSCLIP for zero-shot classification, cross-modal retrieval, and semantic localization.",
+      "task": "Vision-language pretraining / image-text retrieval",
+      "modality": "Remote sensing imagery + text",
+      "size": "~505 GB (Hugging Face storage)",
+      "numSamples": "5 million image-text pairs",
+      "license": "MIT",
+      "year": 2023,
+      "sources": [
+        "Hugging Face",
+        "GitHub",
+        "arXiv"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2306.11300",
+        "huggingface": "https://huggingface.co/datasets/omlab/RS5M",
+        "github": "https://github.com/om-ai-lab/RS5M",
+        "model": "https://huggingface.co/Zilun/GeoRSCLIP"
+      }
+    },
+    {
+      "id": "earthdial-dataset",
+      "name": "EarthDial-Dataset",
+      "summary": "A multi-sensory Earth-observation instruction dataset for remote-sensing dialogue and VQA models.",
+      "description": "EarthDial-Dataset supports instruction tuning and evaluation for multi-sensory Earth-observation dialogue models. The associated paper reports more than 11.11 million instruction pairs across RGB, SAR, multispectral, NIR/IR, bi-temporal, and multi-temporal settings, spanning classification, detection, captioning, visual question answering, visual reasoning, change detection, and visual grounding.",
+      "task": "Vision-language instruction tuning / VQA / visual grounding",
+      "modality": "Multi-sensor Earth observation imagery + text",
+      "size": "~2.43 TB (Hugging Face storage)",
+      "numSamples": "11.11M instruction pairs reported by the paper",
+      "license": "Apache-2.0",
+      "year": 2025,
+      "sources": [
+        "Hugging Face",
+        "GitHub",
+        "CVPR"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.15190",
+        "huggingface": "https://huggingface.co/datasets/akshaydudhane/EarthDial-Dataset",
+        "github": "https://github.com/hiyamdebary/EarthDial",
+        "model": "https://huggingface.co/haruiz/gemmaearth"
+      }
+    },
+    {
+      "id": "thermal-aerial-synthetic",
+      "name": "Thermal Aerial Synthetic",
+      "summary": "A procedural toolkit for synthetically enhancing UAV thermal aerial datasets with new object categories.",
+      "description": "Thermal Aerial Synthetic is a procedural pipeline for generating synthetic thermal aerial images by inserting arbitrary object classes into existing thermal backgrounds while respecting aerial viewpoint, position, scale, and orientation. The associated work expands HIT-UAV with a drone class and MONET with an animal category for thermal aerial object detection experiments.",
+      "task": "Synthetic data generation / thermal object detection",
+      "modality": "UAV thermal imagery",
+      "year": 2025,
+      "sources": [
+        "GitHub",
+        "arXiv"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2507.06797",
+        "github": "https://github.com/larics/thermal_aerial_synthetic"
+      }
+    },
+    {
       "id": "10000-crop-field-boundaries",
       "name": "10,000 Crop Field Boundaries across India",
       "summary": "Manually delineated crop field boundaries from SPOT satellite imagery across India for field delineation.",
@@ -2291,9 +2475,15 @@
       "description": "CanadaFireSat is a benchmark for deep learning with multiple sensors aimed at high-resolution (100 m) wildfire forecasting across Canada. It combines Sentinel-2 Level-1C optical image time series (2016-2023) with environmental predictors such as MODIS vegetation/temperature, ERA5-Land hydrometeorological variables, and CEMS fire-danger metrics, over 2.64 km x 2.64 km patches. The dataset comprises 177,801 samples split into training (2016-2021), validation (2022), and test (2023) sets, with a 39% fire-occurrence rate.",
       "task": "Wildfire Forecasting",
       "modality": "Optical (Sentinel-2) + environmental predictors",
+      "size": "~1.16 TB (Hugging Face storage)",
       "numSamples": 177801,
+      "license": "MIT",
+      "year": 2025,
       "links": {
-        "github": "https://github.com/eceo-epfl/CanadaFireSat-Data"
+        "paper": "https://doi.org/10.1016/j.isprsjprs.2026.05.050",
+        "arxiv": "https://arxiv.org/abs/2506.08690",
+        "github": "https://github.com/eceo-epfl/CanadaFireSat-Data",
+        "huggingface": "https://huggingface.co/datasets/EPFL-ECEO/CanadaFireSat"
       },
       "sources": [
         "Hugging Face",
@@ -3508,7 +3698,9 @@
       "license": "CC-BY-4.0",
       "year": 2025,
       "links": {
-        "paper": "https://arxiv.org/pdf/2501.08111",
+        "paper": "https://arxiv.org/abs/2501.08111",
+        "pdf": "https://arxiv.org/pdf/2501.08111",
+        "arxiv": "https://arxiv.org/abs/2501.08111",
         "huggingface": "https://huggingface.co/datasets/satellogic/EarthView"
       },
       "sources": [
@@ -10867,11 +11059,16 @@
       "year": 2024,
       "sources": [
         "Hugging Face",
+        "GitHub",
+        "Kaggle",
+        "Scientific Data",
         "satellite-image-deep-learning"
       ],
       "links": {
-        "paper": "https://arxiv.org/abs/2412.11555",
+        "paper": "https://doi.org/10.1038/s41597-025-06271-3",
+        "arxiv": "https://arxiv.org/abs/2412.11555",
         "homepage": "https://www.nature.com/articles/s41597-025-06271-3",
+        "github": "https://github.com/zhaoyutim/TS-SatFire",
         "download": "https://www.kaggle.com/datasets/z789456sx/ts-satfire"
       }
     },
@@ -13783,6 +13980,7 @@
       "modality": "Landsat / VIIRS thermal infrared",
       "year": 2025,
       "links": {
+        "paper": "https://arxiv.org/abs/2602.21905",
         "huggingface": "https://huggingface.co/datasets/tirauxcloud/TIRAuxCloud"
       },
       "sources": [
@@ -23163,13 +23361,20 @@
       "description": "WildFire VQA combines RGB aerial images captured from UAV platforms with co-registered radiometric thermal imagery and temperature summaries to support visual question answering for wildfire assessment. Questions span presence/detection, classification, distribution and segmentation, localization and direction, cross-modal reasoning, and flight planning. Imagery is captured at roughly 50-100m altitude with nadir viewing angles, drawing on the Flame 3 computer vision dataset.",
       "task": "Visual question answering",
       "modality": "Aerial RGB and thermal imagery",
+      "numSamples": "6,097 RGB-thermal samples; 207,298 multiple-choice questions",
       "license": "apache-2.0",
       "year": 2026,
       "sources": [
-        "Hugging Face"
+        "Hugging Face",
+        "Kaggle",
+        "GitHub",
+        "arXiv"
       ],
       "links": {
-        "huggingface": "https://huggingface.co/datasets/mobiiin/WildFire_VQA"
+        "paper": "https://arxiv.org/abs/2604.20190",
+        "huggingface": "https://huggingface.co/datasets/mobiiin/WildFire_VQA",
+        "kaggle": "https://www.kaggle.com/datasets/caseypiere/wildfire-vqa",
+        "github": "https://github.com/mobiiin/WildFire_VQA"
       }
     },
     {
@@ -29238,7 +29443,8 @@
       "description": "AusSmoke is a wildfire smoke segmentation dataset of over 15,000 real images collected across Australia, emphasizing small-scale fires and planned burns. MultiNatSmoke extends it into a multinational, geographically diverse benchmark consolidating international public sources with newly curated smoke annotations, yielding more than 70,000 real images across varied global environments. The dataset addresses the scale, geographic, and synthetic-imagery limitations of prior wildfire smoke segmentation data to improve model training and generalization.",
       "task": "semantic segmentation; smoke/wildfire detection",
       "links": {
-        "paper": "https://arxiv.org/abs/2604.23542"
+        "paper": "https://arxiv.org/abs/2604.23542",
+        "huggingface": "https://huggingface.co/datasets/hongjinzhao0615/MultiNatSmoke"
       },
       "modality": "ground/camera RGB imagery",
       "numSamples": "70,000+ images (MultiNatSmoke)",
@@ -29307,11 +29513,16 @@
       "year": 2025,
       "license": "Proprietary Research License (WRPRL v1.0), non-commercial academic use",
       "sources": [
-        "Hugging Face"
+        "Hugging Face",
+        "GitHub",
+        "AAAI"
       ],
       "links": {
-        "paper": "https://arxiv.org/abs/2511.17597",
-        "github": "https://github.com/SynUW/mmFire"
+        "paper": "https://doi.org/10.1609/aaai.v40i46.41299",
+        "arxiv": "https://arxiv.org/abs/2511.17597",
+        "github": "https://github.com/SynUW/mmFire",
+        "paper_repo": "https://github.com/SynUW/BCWildfire",
+        "download": "https://drive.google.com/drive/folders/1VcZnj0DW2pTUf08mGLluE9l-HLTSsYDx"
       }
     },
     {
