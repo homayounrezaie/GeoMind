@@ -2493,6 +2493,41 @@
       ]
     },
     {
+      "id": "uncertainty-aware-deep-learning-for-wildfire-danger-forecasting-2025",
+      "title": "Uncertainty-Aware Deep Learning for Wildfire Danger Forecasting",
+      "authors": "Spyros Kondylatos, Nikolas Papadopoulos, Gustau Camps-Valls, Ioannis Papoutsis",
+      "venue": "arXiv",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "This work studies uncertainty-aware deep learning for short-term wildfire danger forecasting. The framework models both epistemic uncertainty from the model and aleatoric uncertainty from the data, then evaluates next-day and longer-horizon forecasts with attention to predictive skill, calibration, uncertainty-based rejection, and operational wildfire danger maps. Experiments report improved F1 score and Expected Calibration Error over a deterministic baseline, and show that aleatoric uncertainty grows with forecast horizon while epistemic uncertainty remains comparatively stable.",
+      "citations": 0,
+      "github_stars": 5,
+      "links": {
+        "paper": "https://arxiv.org/abs/2509.25017",
+        "pdf": "https://arxiv.org/pdf/2509.25017",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2509.25017",
+        "code": "https://github.com/Orion-AI-Lab/uncertainty-wildfires",
+        "paperswithcode": null,
+        "checkpoints": "https://github.com/Orion-AI-Lab/uncertainty-wildfires/tree/main/trained_models",
+        "video": null,
+        "dataset": "https://zenodo.org/records/17201754",
+        "benchmark": null,
+        "model": "https://github.com/Orion-AI-Lab/uncertainty-wildfires/tree/main/trained_models",
+        "project_page": "https://github.com/Orion-AI-Lab/uncertainty-wildfires"
+      },
+      "bibtex": "@misc{kondylatos2025uncertaintyawaredeepwildfiredanger,\n  title = {Uncertainty-Aware Deep Learning for Wildfire Danger Forecasting},\n  author = {Spyros Kondylatos and Nikolas Papadopoulos and Gustau Camps-Valls and Ioannis Papoutsis},\n  year = {2025},\n  eprint = {2509.25017},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.LG},\n  url = {https://arxiv.org/abs/2509.25017}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "remote sensing",
+        "geospatial / GIS / geographic"
+      ],
+      "arxiv_id": "2509.25017",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
       "id": "olbedo-2026",
       "title": "Olbedo: An Albedo and Shading Aerial Dataset for Large-Scale Outdoor Environments",
       "authors": "Shuang Song, Debao Huang, Deyan Deng, Haolin Xiong, Yang Tang, Yajie Zhao, Rongjun Qin",
