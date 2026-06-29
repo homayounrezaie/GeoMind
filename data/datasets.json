@@ -31033,6 +31033,35 @@
         "zenodo": "https://zenodo.org/records/6420961",
         "world_bank": "https://datacatalog.worldbank.org/search/dataset/0040289/grip-global-roads-inventory-project-2018"
       }
+    },
+    {
+      "id": "flame-3-nadir-thermal-fire-image",
+      "name": "FLAME 3 Nadir Thermal Fire Image Dataset",
+      "summary": "A UAV radiometric thermal nadir-plot subset from FLAME 3 for wildfire monitoring and modeling.",
+      "description": "FLAME 3 Nadir Thermal Fire Image Dataset is the modeling-focused public subset of FLAME 3 collected at the Hanna Hammock prescribed burn in Florida in February 2023. It provides nadir thermal plot imagery from a georeferenced burn plot, including UAV radiometric thermal data, IR imagery, paired RGB imagery, ground-control points, map/weather metadata, and pre-/post-burn context for wildfire behavior modeling. In the FLAME 3 paper, the Hanna Hammock modeling subset is reported as 800 IR and 400 RGB images with nadir thermal plots.",
+      "task": "Wildfire behavior modeling / fire monitoring",
+      "modality": "UAV radiometric thermal / IR imagery with RGB imagery",
+      "size": "\u224835 GB (Kaggle)",
+      "numSamples": "800 IR images + 400 RGB images",
+      "license": "Unknown",
+      "year": 2024,
+      "sources": [
+        "Kaggle",
+        "arXiv"
+      ],
+      "versions": [
+        {
+          "name": "v1",
+          "year": 2024,
+          "size": "\u224835 GB",
+          "numSamples": "800 IR images + 400 RGB images",
+          "url": "https://www.kaggle.com/datasets/brycehopkins/flame-3-nadir-thermal-plot-subset"
+        }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "download": "https://www.kaggle.com/datasets/brycehopkins/flame-3-nadir-thermal-plot-subset"
+      }
     }
   ]
 }
