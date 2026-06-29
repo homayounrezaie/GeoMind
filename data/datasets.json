@@ -1211,6 +1211,66 @@
       }
     },
     {
+      "id": "thermoscenes",
+      "name": "ThermoScenes",
+      "summary": "A paired RGB+thermal dataset for multimodal NeRF and thermal novel-view synthesis.",
+      "description": "ThermoScenes was introduced with ThermoNeRF to support joint RGB-thermal scene reconstruction and thermal novel-view synthesis. The arXiv paper describes 16 paired RGB+thermal scenes, with 8 building-facade scenes and 8 everyday-object scenes. The public Zenodo release provides the ThermoScenes archive for training and evaluation.",
+      "task": "RGB-thermal novel-view synthesis / thermal scene reconstruction",
+      "modality": "Paired RGB + thermal imagery",
+      "size": "~819 MB",
+      "numSamples": "16 scenes: 8 building facades, 8 everyday objects",
+      "license": "CC-BY-4.0",
+      "year": 2024,
+      "sources": [
+        "Zenodo",
+        "GitHub",
+        "arXiv"
+      ],
+      "versions": [
+        {
+          "name": "Zenodo release",
+          "year": 2024,
+          "size": "~819 MB",
+          "url": "https://zenodo.org/records/10835108"
+        }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2403.12154",
+        "github": "https://github.com/Schindler-EPFL-Lab/thermo-nerf",
+        "download": "https://zenodo.org/records/10835108",
+        "doi": "https://doi.org/10.5281/zenodo.10835108"
+      }
+    },
+    {
+      "id": "ti-nsd",
+      "name": "TI-NSD",
+      "summary": "A thermal infrared novel-view synthesis benchmark introduced with Thermal3D-GS.",
+      "description": "TI-NSD is a thermal infrared novel-view synthesis benchmark released with Thermal3D-GS. The public release linked from the project repository contains six scenes: two indoor scenes (Heated and Wall), two outdoor scenes (Tall_Building and Basketball_Court), and two UAV scenes (UAV1 and UAV2). It supports thermal infrared 3D Gaussian Splatting and radiometric novel-view synthesis evaluation.",
+      "task": "Thermal infrared novel-view synthesis / 3D reconstruction",
+      "modality": "Thermal infrared multi-view imagery",
+      "numSamples": "6 scenes: 2 indoor, 2 outdoor, 2 UAV",
+      "year": 2024,
+      "sources": [
+        "GitHub",
+        "Google Drive",
+        "ECCV"
+      ],
+      "versions": [
+        {
+          "name": "6-scene public release",
+          "year": 2024,
+          "numSamples": "6 scenes",
+          "url": "https://drive.google.com/drive/folders/1scp7-dB0BVE84ra8KkgQ7z9zLk5yCPFH?usp=drive_link"
+        }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2409.08042",
+        "github": "https://github.com/mzzcdf/Thermal3DGS",
+        "download": "https://drive.google.com/drive/folders/1scp7-dB0BVE84ra8KkgQ7z9zLk5yCPFH?usp=drive_link",
+        "checkpoints": "https://drive.google.com/drive/folders/1pYHK8Ye2NJyggrAslcI1e-i7YIYuqtzi?usp=drive_link"
+      }
+    },
+    {
       "id": "10000-crop-field-boundaries",
       "name": "10,000 Crop Field Boundaries across India",
       "summary": "Manually delineated crop field boundaries from SPOT satellite imagery across India for field delineation.",

@@ -2745,6 +2745,41 @@
       ]
     },
     {
+      "id": "thermonerf-a-multimodal-neural-radiance-field-for-joint-rgb-thermal-novel-view-synthesis-of-building-facades-2025",
+      "title": "ThermoNeRF: A multimodal Neural Radiance Field for joint RGB-thermal novel view synthesis of building facades",
+      "authors": "Mariam Hassan, Florent Forest, Olga Fink, Malcolm Mielle",
+      "venue": "Advanced Engineering Informatics",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "ThermoNeRF jointly renders RGB and thermal novel views using paired RGB-thermal imagery and Neural Radiance Fields. The arXiv version introduces ThermoScenes, a paired RGB+thermal dataset with 8 building-facade scenes and 8 everyday-object scenes, and reports improved temperature reconstruction accuracy for thermal scene reconstruction.",
+      "citations": 15,
+      "github_stars": 54,
+      "links": {
+        "paper": "https://doi.org/10.1016/j.aei.2025.103345",
+        "pdf": "https://arxiv.org/pdf/2403.12154",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2403.12154",
+        "code": "https://github.com/Schindler-EPFL-Lab/thermo-nerf",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://zenodo.org/records/10835108",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/Schindler-EPFL-Lab/thermo-nerf"
+      },
+      "bibtex": "@article{hassan2025thermonerf,\n  title = {ThermoNeRF: A multimodal Neural Radiance Field for joint RGB-thermal novel view synthesis of building facades},\n  author = {Hassan, Mariam and Forest, Florent and Fink, Olga and Mielle, Malcolm},\n  journal = {Advanced Engineering Informatics},\n  volume = {65},\n  pages = {103345},\n  year = {2025},\n  doi = {10.1016/j.aei.2025.103345}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2403.12154",
+      "doi": "10.1016/j.aei.2025.103345",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
       "id": "thermal3d-gs-physics-induced-3d-gaussians-for-thermal-infrared-novel-view-synthe-2024",
       "title": "Thermal3D-GS: Physics-induced 3D Gaussians for Thermal Infrared Novel-view Synthesis",
       "authors": "Qian Chen, Shihao Shu, Xiangzhi Bai",
@@ -2761,9 +2796,9 @@
         "arxiv": "https://arxiv.org/abs/2409.08042",
         "code": "https://github.com/mzzcdf/Thermal3DGS",
         "paperswithcode": null,
-        "checkpoints": null,
+        "checkpoints": "https://drive.google.com/drive/folders/1pYHK8Ye2NJyggrAslcI1e-i7YIYuqtzi?usp=drive_link",
         "video": null,
-        "dataset": null,
+        "dataset": "https://drive.google.com/drive/folders/1scp7-dB0BVE84ra8KkgQ7z9zLk5yCPFH?usp=drive_link",
         "benchmark": null,
         "model": null,
         "project_page": "https://github.com/mzzcdf/Thermal3DGS"
@@ -2775,6 +2810,41 @@
         "multispectral / hyperspectral / SAR"
       ],
       "arxiv_id": "2409.08042",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "thermal3d-gs-physics-induced-3d-gaussians-for-thermal-infrared-novel-view-synthesis-with-a-large-scale-dataset-2026",
+      "title": "Thermal3D-GS: Physics-Induced 3D Gaussians for Thermal Infrared Novel-View Synthesis With a Large-Scale Dataset",
+      "authors": "Qian Chen, Shihao Shu, Heng Sun, Junzhang Chen, Xiangzhi Bai",
+      "venue": "IEEE TPAMI",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "This TPAMI extension of Thermal3D-GS expands the ECCV 2024 thermal infrared novel-view synthesis work with a large-scale dataset and additional methods for physics-induced 3D Gaussian Splatting. The public repository records the TPAMI 2026 acceptance and provides the TI-NSD public data release plus Thermal3D-GS model weights.",
+      "citations": 0,
+      "github_stars": 67,
+      "links": {
+        "paper": "https://doi.org/10.1109/TPAMI.2026.3663966",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/mzzcdf/Thermal3DGS",
+        "paperswithcode": null,
+        "checkpoints": "https://drive.google.com/drive/folders/1pYHK8Ye2NJyggrAslcI1e-i7YIYuqtzi?usp=drive_link",
+        "video": null,
+        "dataset": "https://drive.google.com/drive/folders/1scp7-dB0BVE84ra8KkgQ7z9zLk5yCPFH?usp=drive_link",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/mzzcdf/Thermal3DGS"
+      },
+      "bibtex": "@article{chen2026thermal3dgs,\n  title = {Thermal3D-GS: Physics-Induced 3D Gaussians for Thermal Infrared Novel-View Synthesis With a Large-Scale Dataset},\n  author = {Chen, Qian and Shu, Shihao and Sun, Heng and Chen, Junzhang and Bai, Xiangzhi},\n  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},\n  volume = {48},\n  number = {6},\n  pages = {6962--6979},\n  year = {2026},\n  doi = {10.1109/TPAMI.2026.3663966}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "drone / UAV / aerial / overhead",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "doi": "10.1109/TPAMI.2026.3663966",
       "source_files": [
         "manual"
       ]
