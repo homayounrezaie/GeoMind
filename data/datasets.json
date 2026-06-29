@@ -1047,6 +1047,394 @@
       }
     },
     {
+      "id": "rgbt-3m",
+      "name": "RGBT-3M",
+      "summary": "A UAV multi-scenario RGB-thermal dataset for forest fire detection.",
+      "description": "RGBT-3M is a UAV-based multi-scenario RGB-thermal dataset introduced for enhanced forest fire detection. It provides synchronized RGB and thermal infrared image pairs captured across varied forest-fire scenes, supporting RGB-T fusion models for fire and smoke detection under challenging illumination, smoke, and background conditions.",
+      "task": "Forest fire detection / RGB-thermal fusion",
+      "modality": "UAV RGB + thermal infrared image pairs",
+      "numSamples": "3,340 RGB-thermal image pairs",
+      "year": 2025,
+      "sources": [
+        "Remote Sensing",
+        "Project page"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.3390/rs17152593",
+        "homepage": "https://complex.ustc.edu.cn/",
+        "download": "https://complex.ustc.edu.cn/"
+      }
+    },
+    {
+      "id": "uavs-fddb",
+      "name": "UAVS-FDDB",
+      "summary": "A UAV-based forest fire detection database collected with a Raspberry Pi camera.",
+      "description": "UAVS-FDDB is a UAV-based forest fire detection database collected around rural pile burns near Adana, Turkey. The FLAME 3 paper lists it as an aerial RGB dataset with pre-burn imagery and 1,653 raw images for classification, modeling, and segmentation experiments.",
+      "task": "Forest fire detection / segmentation",
+      "modality": "UAV RGB imagery",
+      "numSamples": "1,653 images",
+      "license": "CC-BY-4.0",
+      "year": 2024,
+      "sources": [
+        "Mendeley Data",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "download": "https://data.mendeley.com/datasets/5m98kvdkyt/2",
+        "doi": "https://doi.org/10.17632/5m98kvdkyt.2"
+      }
+    },
+    {
+      "id": "rgb-thermal-wildfire-dataset-ustc",
+      "name": "RGB-Thermal Wildfire Dataset (USTC)",
+      "summary": "An RGB-thermal wildfire dataset from the State Key Laboratory of Fire Science.",
+      "description": "This RGB-thermal wildfire dataset from the State Key Laboratory of Fire Science at the University of Science and Technology of China provides paired RGB and thermal imagery from ground and UAV perspectives. The FLAME 3 paper lists it as an urban RGB/thermal-pair dataset for semantic segmentation with 1,367 image pairs.",
+      "task": "RGB-thermal wildfire semantic segmentation",
+      "modality": "RGB + thermal image pairs",
+      "numSamples": "1,367 RGB/thermal pairs",
+      "year": 2022,
+      "sources": [
+        "USTC",
+        "International Journal of Applied Earth Observation and Geoinformation",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1016/j.jag.2023.103554",
+        "download": "https://rec.ustc.edu.cn/share/75aae550-8d26-11ee-98a1-ed4fd857523e"
+      }
+    },
+    {
+      "id": "datacluster-fire-and-smoke",
+      "name": "DataCluster Labs Fire and Smoke Dataset",
+      "summary": "A Kaggle image dataset for fire and smoke classification.",
+      "description": "DataCluster Labs' Fire and Smoke Dataset is a ground-level RGB image dataset for fire and smoke classification. The FLAME 3 paper lists it as a mixed-landscape cellular-camera dataset with more than 7,000 extracted video frames.",
+      "task": "Fire and smoke classification",
+      "modality": "Ground RGB imagery",
+      "numSamples": "7,000+ extracted frames",
+      "year": 2021,
+      "sources": [
+        "Kaggle",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "download": "https://www.kaggle.com/datasets/dataclusterlabs/fire-and-smoke-dataset"
+      }
+    },
+    {
+      "id": "dincer-wildfire-detection-image-data",
+      "name": "Dincer Wildfire Detection Image Data",
+      "summary": "A Kaggle RGB image dataset for wildfire detection.",
+      "description": "Dincer Wildfire Detection Image Data is a web-sourced ground RGB dataset for wildfire image classification. The FLAME 3 paper lists it as a rural RGB classification dataset with 1,900 raw images.",
+      "task": "Wildfire image classification",
+      "modality": "Ground RGB imagery",
+      "numSamples": "1,900 images",
+      "year": 2021,
+      "sources": [
+        "Kaggle",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "download": "https://www.kaggle.com/datasets/brsdincer/wildfire-detection-image-data"
+      }
+    },
+    {
+      "id": "aider",
+      "name": "AIDER",
+      "summary": "Aerial Image Dataset for Emergency Response applications, including fire/smoke scenes.",
+      "description": "AIDER is an aerial image classification dataset for emergency response applications. It contains disaster classes such as fire/smoke, flood, collapsed building/rubble, traffic accident, and normal scenes. The FLAME 3 paper lists it as an aerial RGB emergency-response dataset with 1,000 images for classification in its wildfire dataset comparison table.",
+      "task": "Emergency response image classification",
+      "modality": "Aerial RGB imagery",
+      "size": "~276 MB (Zenodo zip)",
+      "numSamples": "Around 500 images per disaster class plus 4,000+ normal images; FLAME 3 table lists 1,000 images",
+      "license": "CC-BY-4.0",
+      "year": 2020,
+      "sources": [
+        "Zenodo",
+        "GitHub",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/1906.08716",
+        "github": "https://github.com/ckyrkou/AIDER",
+        "download": "https://zenodo.org/records/3888300",
+        "doi": "https://doi.org/10.5281/zenodo.3888300"
+      }
+    },
+    {
+      "id": "dataset-for-forest-fire-detection",
+      "name": "Dataset for Forest Fire Detection",
+      "summary": "A Mendeley RGB image dataset for forest fire and no-fire classification.",
+      "description": "Dataset for Forest Fire Detection is a web-sourced RGB image dataset containing fire and no-fire examples from aerial and ground perspectives. The FLAME 3 paper lists it as a rural forest-fire classification dataset with 1,900 raw images.",
+      "task": "Forest fire classification",
+      "modality": "Aerial and ground RGB imagery",
+      "numSamples": "1,900 images (950 fire, 950 no-fire)",
+      "license": "CC-BY-4.0",
+      "year": 2020,
+      "sources": [
+        "Mendeley Data",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "download": "https://data.mendeley.com/datasets/gjmr63rz2r/1",
+        "doi": "https://doi.org/10.17632/gjmr63rz2r.1"
+      }
+    },
+    {
+      "id": "fire-detection-dhruvil-shah",
+      "name": "Fire Detection by Dhruvil Shah",
+      "summary": "A GitHub fire/no-fire RGB image dataset and CNN training project.",
+      "description": "Fire Detection by Dhruvil Shah is a ground-level RGB fire-detection dataset and model repository. The FLAME 3 paper lists it as a mainly urban web-sourced classification dataset with 3,225 raw images.",
+      "task": "Fire image classification",
+      "modality": "Ground RGB imagery",
+      "numSamples": "3,225 images",
+      "year": 2020,
+      "sources": [
+        "GitHub",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "github": "https://github.com/jackfrost1411/fire-detection",
+        "download": "https://github.com/jackfrost1411/fire-detection"
+      }
+    },
+    {
+      "id": "firenet-dataset",
+      "name": "FireNet Dataset",
+      "summary": "An annotated RGB fire-object detection dataset released with FireNet.",
+      "description": "FireNet is an annotated ground RGB fire-object detection dataset released with a real-time fire-detection project. The repository describes 502 annotated images split into 412 training and 90 validation images, matching the FLAME 3 paper's table entry for FireNet.",
+      "task": "Fire object detection",
+      "modality": "Ground RGB imagery",
+      "numSamples": "502 annotated images",
+      "license": "MIT (repository)",
+      "year": 2019,
+      "sources": [
+        "GitHub",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "github": "https://github.com/OlafenwaMoses/FireNET",
+        "download": "https://github.com/OlafenwaMoses/FireNET/releases/download/v1.0/fire-dataset.zip",
+        "model": "https://github.com/OlafenwaMoses/FireNET/releases/download/v1.0/detection_model-ex-33--loss-4.97.h5"
+      }
+    },
+    {
+      "id": "fire-detection-from-cctv",
+      "name": "Fire Detection from CCTV",
+      "summary": "A Kaggle CCTV RGB video-frame dataset for fire classification.",
+      "description": "Fire Detection from CCTV is a ground CCTV RGB dataset for fire/no-fire classification. The FLAME 3 paper lists it as a CCTV-based classification dataset with 864 extracted frames.",
+      "task": "Fire image classification",
+      "modality": "CCTV RGB imagery",
+      "numSamples": "864 extracted frames",
+      "year": 2019,
+      "sources": [
+        "Kaggle",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "download": "https://www.kaggle.com/datasets/ritupande/fire-detection-from-cctv"
+      }
+    },
+    {
+      "id": "furg-fire-dataset",
+      "name": "Furg Fire Dataset",
+      "summary": "A video-based visible-spectrum fire detection dataset with frame annotations.",
+      "description": "The Furg Fire Dataset provides RGB video data and XML rectangle annotations for non-stationary visible-spectrum fire detection. The FLAME 3 paper lists it as a web-sourced urban ground RGB object-detection dataset with extracted video frames.",
+      "task": "Video-based fire object detection",
+      "modality": "Ground RGB video frames",
+      "numSamples": "365,702 extracted frames reported by the FLAME 3 paper",
+      "license": "CC0-1.0",
+      "year": 2018,
+      "sources": [
+        "GitHub",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://ieeexplore.ieee.org/document/7402136",
+        "github": "https://github.com/steffensbola/furg-fire-dataset",
+        "download": "https://github.com/steffensbola/furg-fire-dataset"
+      }
+    },
+    {
+      "id": "cair-fire-detection-image-dataset",
+      "name": "CAIR Fire Detection Image Dataset",
+      "summary": "A GitHub fire/no-fire image dataset for fire classification.",
+      "description": "CAIR's Fire Detection Image Dataset contains normal images and images with fire across varied scenarios, fire intensities, luminosity, sizes, and environments. The FLAME 3 paper lists it as a mainly urban ground RGB classification dataset with 651 raw images.",
+      "task": "Fire image classification",
+      "modality": "Ground RGB imagery",
+      "numSamples": "651 images",
+      "year": 2017,
+      "sources": [
+        "GitHub",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "github": "https://github.com/cair/Fire-Detection-Image-Dataset",
+        "download": "https://github.com/cair/Fire-Detection-Image-Dataset"
+      }
+    },
+    {
+      "id": "corsican-fire-dataset",
+      "name": "Corsican Fire Dataset",
+      "summary": "An evolving RGB-thermal image dataset for wildfire computer-vision research.",
+      "description": "The Corsican Fire Dataset is a ground RGB-thermal wildfire dataset introduced for computer-vision processing and analysis of wildfire imagery. The FLAME 3 paper lists it as a mainly urban RGB/thermal-pair semantic-segmentation dataset with 635 pairs.",
+      "task": "Wildfire semantic segmentation",
+      "modality": "Ground RGB + thermal image pairs",
+      "numSamples": "635 RGB/thermal pairs",
+      "year": 2017,
+      "sources": [
+        "Fire Safety Journal",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1016/j.firesaf.2017.05.009",
+        "homepage": "https://cfdb.univ-corse.fr/",
+        "download": "https://cfdb.univ-corse.fr/"
+      }
+    },
+    {
+      "id": "mivia-fire-detection-dataset",
+      "name": "MIVIA Fire Detection Dataset",
+      "summary": "A CCTV video-frame dataset for fire detection in surveillance applications.",
+      "description": "MIVIA's Fire Detection Dataset is a CCTV-style RGB video dataset used for surveillance-oriented fire detection. The FLAME 3 paper lists it as a ground RGB classification dataset with 62,690 extracted frames.",
+      "task": "Video fire detection / classification",
+      "modality": "CCTV RGB video frames",
+      "numSamples": "62,690 extracted frames",
+      "year": 2014,
+      "sources": [
+        "MIVIA Lab",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1109/TCSVT.2015.2392531",
+        "homepage": "https://mivia.unisa.it/datasets/video-analysis-datasets/fire-detection-dataset/",
+        "download": "https://mivia.unisa.it/datasets/video-analysis-datasets/fire-detection-dataset/"
+      }
+    },
+    {
+      "id": "flame-dataset",
+      "name": "FLAME",
+      "summary": "An aerial UAV RGB and thermal wildfire pile-burn dataset for classification and segmentation.",
+      "description": "The original FLAME dataset contains UAV aerial imagery of rural pile burns for fire classification and segmentation. The FLAME 3 paper lists it as an RGB/thermal, non-paired aerial dataset with 47,992 extracted frames and supplemental thermal imagery variants plus a subset of segmentation masks.",
+      "task": "Aerial fire classification / segmentation",
+      "modality": "UAV RGB and thermal imagery",
+      "numSamples": "47,992 extracted frames; includes a 2,003-image segmentation-mask subset",
+      "license": "CC-BY-4.0",
+      "year": 2020,
+      "sources": [
+        "IEEE DataPort",
+        "GitHub",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1016/j.comnet.2021.108001",
+        "github": "https://github.com/AlirezaShamsoshoara/Fire-Detection-UAV-Aerial-Image-Classification-Segmentation-UnmannedAerialVehicle",
+        "download": "https://dx.doi.org/10.21227/qad6-r683",
+        "doi": "https://doi.org/10.21227/qad6-r683"
+      }
+    },
+    {
+      "id": "flame-2",
+      "name": "FLAME 2",
+      "summary": "An aerial multispectral UAV wildfire dataset with paired RGB/thermal imagery and supplemental fire-context data.",
+      "description": "FLAME 2 is an aerial multispectral UAV wildfire dataset with paired RGB and thermal imagery from rural prescribed burns. The FLAME 3 paper lists it as a 53,451-frame classification dataset with supplemental weather data, pre-burn videos, burn-planning information, pre-burn point-cloud data, and a pre-burn orthomosaic.",
+      "task": "Aerial fire classification / modeling",
+      "modality": "UAV RGB + thermal image pairs",
+      "numSamples": "53,451 extracted frames / image pairs",
+      "license": "CC-BY-4.0",
+      "year": 2022,
+      "sources": [
+        "IEEE DataPort",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://ieeexplore.ieee.org/document/9953997",
+        "download": "https://dx.doi.org/10.21227/swyw-6j78",
+        "doi": "https://doi.org/10.21227/swyw-6j78"
+      }
+    },
+    {
+      "id": "flame-3",
+      "name": "FLAME 3",
+      "summary": "A UAV radiometric RGB/thermal wildfire dataset with thermal TIFFs, nadir thermal plots, and public Kaggle subsets.",
+      "description": "FLAME 3 is a UAV-collected wildland-fire dataset with synchronized visual-spectrum and radiometric long-wave infrared imagery from six prescribed burns. It introduces side-by-side RGB/IR imagery, radiometric thermal TIFFs, pre/post-burn context, 3D point clouds, burn-plot maps, weather data, and nadir thermal plots for modeling. The paper reports 13,997 total images and releases public computer-vision and modeling subsets on Kaggle, while the full six-burn set is available from the authors upon request.",
+      "task": "Aerial wildfire detection / segmentation / behavior modeling",
+      "modality": "UAV RGB + radiometric thermal imagery + thermal TIFFs",
+      "numSamples": "13,997 total images reported by the paper; public subsets include 738 CV quartets and 800 IR + 400 RGB modeling images",
+      "year": 2024,
+      "sources": [
+        "Kaggle",
+        "arXiv",
+        "FLAME 3 paper"
+      ],
+      "availability": "Public Kaggle CV and modeling subsets; full six-burn set available from the authors upon request.",
+      "versions": [
+        {
+          "name": "Computer Vision Subset (Sycan Marsh)",
+          "year": 2024,
+          "numSamples": "738 image quartets",
+          "url": "https://www.kaggle.com/datasets/brycehopkins/flame-3-computer-vision-subset-sycan-marsh"
+        },
+        {
+          "name": "Nadir Thermal Fire Image Dataset (Hanna Hammock)",
+          "year": 2024,
+          "size": "~35 GB",
+          "numSamples": "800 IR images + 400 RGB images",
+          "url": "https://www.kaggle.com/datasets/brycehopkins/flame-3-nadir-thermal-plot-subset"
+        }
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "download": "https://www.kaggle.com/datasets/brycehopkins/flame-3-computer-vision-subset-sycan-marsh",
+        "modeling_subset": "https://www.kaggle.com/datasets/brycehopkins/flame-3-nadir-thermal-plot-subset"
+      }
+    },
+    {
+      "id": "flame-3-computer-vision-subset-sycan-marsh",
+      "name": "FLAME 3 Computer Vision Subset (Sycan Marsh)",
+      "summary": "A public FLAME 3 Kaggle subset for fire detection and segmentation computer-vision tasks.",
+      "description": "The FLAME 3 Computer Vision Subset contains Sycan Marsh prescribed-burn imagery collected by DJI M30T UAV between October 25 and October 27, 2023. It provides labeled RGB/thermal image quartets for fire detection and segmentation tasks, including raw RGB, raw thermal JPG, radiometric thermal TIFF, and cropped RGB-aligned imagery.",
+      "task": "Aerial wildfire detection / segmentation",
+      "modality": "UAV RGB + thermal JPG + radiometric thermal TIFF",
+      "numSamples": "738 image quartets: 622 Fire and 116 No Fire",
+      "license": "MIT",
+      "year": 2024,
+      "sources": [
+        "Kaggle",
+        "arXiv"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "download": "https://www.kaggle.com/datasets/brycehopkins/flame-3-computer-vision-subset-sycan-marsh",
+        "direct_download": "https://www.kaggle.com/datasets/brycehopkins/flame-3-computer-vision-subset-sycan-marsh/download?datasetVersionNumber=1"
+      }
+    },
+    {
+      "id": "flir-adas-thermal-dataset",
+      "name": "FLIR ADAS Thermal Dataset",
+      "summary": "A visible-plus-thermal urban driving dataset for object detection and thermal algorithm training.",
+      "description": "The FLIR ADAS Thermal Dataset is a visible and thermal urban-scene object-detection dataset released for thermal algorithm training. The FLAME 3 paper cites it as a notable non-wildfire dataset that includes thermal TIFF imagery.",
+      "task": "Thermal object detection / ADAS perception",
+      "modality": "Visible RGB + thermal infrared imagery",
+      "year": 2021,
+      "sources": [
+        "Teledyne FLIR",
+        "FLAME 3 paper"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "homepage": "https://www.flir.com/oem/adas/adas-dataset-form/",
+        "download": "https://www.flir.com/oem/adas/adas-dataset-form/"
+      }
+    },
+    {
       "id": "boreal-forest-fire",
       "name": "Boreal Forest Fire",
       "summary": "A UAV-collected boreal wildfire dataset with bounding boxes, video labels, and smoke segmentation masks.",
@@ -7271,6 +7659,25 @@
       ],
       "links": {
         "homepage": "https://planetarycomputer.microsoft.com/dataset/modis-14A1-061"
+      }
+    },
+    {
+      "id": "viirs-thermal-anomalies-fire-daily",
+      "name": "VIIRS Thermal Anomalies/Fire Daily",
+      "summary": "VIIRS-derived daily thermal anomaly and active-fire product at 1 km global resolution.",
+      "description": "The VNP14A1 VIIRS Thermal Anomalies/Fire Daily product provides daily gridded active-fire and thermal-anomaly detections from the Suomi NPP VIIRS sensor. It complements MODIS MOD14/MYD14 active-fire products with VIIRS observations and supports contextual active-fire detection workflows, wildfire monitoring, and spread-prediction data pipelines.",
+      "task": "Active fire detection / thermal anomaly monitoring",
+      "modality": "VIIRS thermal infrared satellite imagery",
+      "size": "1 km spatial resolution",
+      "year": 2012,
+      "sources": [
+        "NASA Earthdata",
+        "LP DAAC"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1016/j.rse.2013.12.008",
+        "homepage": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-vnp14a1-002",
+        "user_guide": "https://lpdaac.usgs.gov/documents/427/VNP14_User_Guide_V1.pdf"
       }
     },
     {

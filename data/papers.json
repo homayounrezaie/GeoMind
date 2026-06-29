@@ -2528,6 +2528,146 @@
       ]
     },
     {
+      "id": "a-uav-based-multi-scenario-rgb-thermal-dataset-and-fusion-model-for-enhanced-forest-fire-detection-2025",
+      "title": "A UAV-Based Multi-Scenario RGB-Thermal Dataset and Fusion Model for Enhanced Forest Fire Detection",
+      "authors": "Yalin Zhang, Xue Rui, Weiguo Song",
+      "venue": "Remote Sensing",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "This work introduces RGBT-3M, a UAV-based multi-scenario RGB-thermal dataset for forest fire detection, and proposes a multi-modal fusion model for combining RGB and thermal infrared cues under smoke, illumination, and scene variability.",
+      "citations": 11,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://doi.org/10.3390/rs17152593",
+        "pdf": "https://www.mdpi.com/2072-4292/17/15/2593/pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://complex.ustc.edu.cn/",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://www.mdpi.com/2072-4292/17/15/2593"
+      },
+      "bibtex": "@article{zhang2025rgbt3m,\n  title = {A UAV-Based Multi-Scenario RGB-Thermal Dataset and Fusion Model for Enhanced Forest Fire Detection},\n  author = {Zhang, Yalin and Rui, Xue and Song, Weiguo},\n  journal = {Remote Sensing},\n  volume = {17},\n  number = {15},\n  pages = {2593},\n  year = {2025},\n  doi = {10.3390/rs17152593}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "drone / UAV / aerial / overhead",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "doi": "10.3390/rs17152593",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "firenet-a-lightweight-and-efficient-multi-scenario-fire-object-detector-2024",
+      "title": "FireNet: A Lightweight and Efficient Multi-Scenario Fire Object Detector",
+      "authors": "Yonghuan He, Age Sahma, Xu He, Rong Wu, Rui Zhang",
+      "venue": "Remote Sensing",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "FireNet is a lightweight object detector for multi-scenario fire detection. The paper targets real-time fire detection across complex scenes and reports a compact architecture built for efficient inference on fire and smoke imagery.",
+      "citations": 13,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://doi.org/10.3390/rs16214112",
+        "pdf": "https://www.mdpi.com/2072-4292/16/21/4112/pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/DC9874/FireNet",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://www.mdpi.com/2072-4292/16/21/4112"
+      },
+      "bibtex": "@article{he2024firenet,\n  title = {FireNet: A Lightweight and Efficient Multi-Scenario Fire Object Detector},\n  author = {He, Yonghuan and Sahma, Age and He, Xu and Wu, Rong and Zhang, Rui},\n  journal = {Remote Sensing},\n  volume = {16},\n  number = {21},\n  pages = {4112},\n  year = {2024},\n  doi = {10.3390/rs16214112}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "remote sensing",
+        "real-time / edge inference"
+      ],
+      "doi": "10.3390/rs16214112",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "the-collection-6-modis-active-fire-detection-algorithm-and-fire-products-2016",
+      "title": "The collection 6 MODIS active fire detection algorithm and fire products",
+      "authors": "Louis Giglio, Wilfrid Schroeder, Christopher O. Justice",
+      "venue": "Remote Sensing of Environment",
+      "year": 2016,
+      "presentation": null,
+      "abstract": "This paper documents the Collection 6 MODIS active-fire detection algorithm and fire products, including the contextual thermal-anomaly logic behind MOD14/MYD14 active-fire masks and gridded fire products used widely in wildfire monitoring and spread-prediction benchmarks.",
+      "citations": 1584,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://doi.org/10.1016/j.rse.2016.02.054",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://planetarycomputer.microsoft.com/dataset/modis-14A1-061",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-mod14a1-061"
+      },
+      "bibtex": "@article{giglio2016modisactivefire,\n  title = {The collection 6 MODIS active fire detection algorithm and fire products},\n  author = {Giglio, Louis and Schroeder, Wilfrid and Justice, Christopher O.},\n  journal = {Remote Sensing of Environment},\n  volume = {178},\n  pages = {31--41},\n  year = {2016},\n  doi = {10.1016/j.rse.2016.02.054}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "remote sensing",
+        "thermal infrared"
+      ],
+      "doi": "10.1016/j.rse.2016.02.054",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "the-new-viirs-375-m-active-fire-detection-data-product-algorithm-description-and-initial-assessment-2014",
+      "title": "The New VIIRS 375 m active fire detection data product: Algorithm description and initial assessment",
+      "authors": "Wilfrid Schroeder, Patricia Oliva, Louis Giglio, Ivan A. Csiszar",
+      "venue": "Remote Sensing of Environment",
+      "year": 2014,
+      "presentation": null,
+      "abstract": "This paper describes the VIIRS 375 m active-fire detection data product and its contextual detection algorithm. It is a core reference for VIIRS active-fire monitoring and complements VNP14/VNP14IMG thermal-anomaly products used in operational wildfire detection.",
+      "citations": 1137,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://doi.org/10.1016/j.rse.2013.12.008",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-vnp14a1-002",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://lpdaac.usgs.gov/documents/427/VNP14_User_Guide_V1.pdf"
+      },
+      "bibtex": "@article{schroeder2014viirsactivefire,\n  title = {The New VIIRS 375 m active fire detection data product: Algorithm description and initial assessment},\n  author = {Schroeder, Wilfrid and Oliva, Patricia and Giglio, Louis and Csiszar, Ivan A.},\n  journal = {Remote Sensing of Environment},\n  volume = {143},\n  pages = {85--96},\n  year = {2014},\n  doi = {10.1016/j.rse.2013.12.008}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "remote sensing",
+        "thermal infrared"
+      ],
+      "doi": "10.1016/j.rse.2013.12.008",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
       "id": "bcwildfire-a-long-term-multi-factor-dataset-and-deep-learning-benchmark-for-boreal-wildfire-risk-prediction-2026",
       "title": "BCWildfire: A Long-term Multi-factor Dataset and Deep Learning Benchmark for Boreal Wildfire Risk Prediction",
       "authors": "Zhengsen Xu, Sibo Cheng, Lanying Wang, Hongjie He, Wentao Sun, Jie Li, Linlin Xu",
