@@ -2528,6 +2528,424 @@
       ]
     },
     {
+      "id": "thermal3d-gs-physics-induced-3d-gaussians-for-thermal-infrared-novel-view-synthe-2024",
+      "title": "Thermal3D-GS: Physics-induced 3D Gaussians for Thermal Infrared Novel-view Synthesis",
+      "authors": "Qian Chen, Shihao Shu, Xiangzhi Bai",
+      "venue": "ECCV",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Thermal3D-GS adapts 3D Gaussian Splatting to thermal infrared novel-view synthesis by modeling atmospheric transmission and thermal conduction effects in the scene. The work introduces temperature-consistency constraints and the TI-NSD thermal infrared novel-view synthesis benchmark, which includes indoor, outdoor, and UAV thermal scenes.",
+      "citations": 0,
+      "github_stars": 67,
+      "links": {
+        "paper": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/3916_ECCV_2024_paper.php",
+        "pdf": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03916.pdf",
+        "supp": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03916-supp.pdf",
+        "arxiv": "https://arxiv.org/abs/2409.08042",
+        "code": "https://github.com/mzzcdf/Thermal3DGS",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/mzzcdf/Thermal3DGS"
+      },
+      "bibtex": "@InProceedings{Chen_2024_ECCV_9,\n  title = {Thermal3D-GS: Physics-induced 3D Gaussians for Thermal Infrared Novel-view Synthesis},\n  author = {Qian Chen and Shihao Shu and Xiangzhi Bai},\n  year = {2024},\n  url = {https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/3916_ECCV_2024_paper.php},\n  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},\n  month = {October}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "drone / UAV / aerial / overhead",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2409.08042",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "ntr-gaussian-nighttime-dynamic-thermal-reconstruction-with-4d-gaussian-splatting-based-2025",
+      "title": "NTR-Gaussian: Nighttime Dynamic Thermal Reconstruction with 4D Gaussian Splatting Based on Thermodynamics",
+      "authors": "Kun Yang, Yuxiang Liu, Zeyu Cui, Yu Liu, Maojun Zhang, Shen Yan, Qing Wang",
+      "venue": "CVPR",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "NTR-Gaussian reconstructs and forecasts nighttime thermal scenes from aerial TIR imagery by extending 4D Gaussian Splatting with thermodynamic parameters such as emissivity, convective heat transfer coefficient, and heat capacity. The method targets dynamic thermal reconstruction and temperature prediction over time, and introduces a nighttime dynamic thermal reconstruction dataset.",
+      "citations": 0,
+      "github_stars": 31,
+      "links": {
+        "paper": "https://arxiv.org/abs/2503.03115",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Yang_NTR-Gaussian_Nighttime_Dynamic_Thermal_Reconstruction_with_4D_Gaussian_Splatting_Based_CVPR_2025_paper.pdf",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2503.03115",
+        "code": "https://github.com/NPU-CVPG/NTR-Gaussian",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://drive.google.com/file/d/17evbWmeZKgVeXseyVv7fNm-2Q_a17ObB/view?usp=share_link",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/NPU-CVPG/NTR-Gaussian"
+      },
+      "bibtex": "@InProceedings{Yang_2025_CVPR,\n  title = {NTR-Gaussian: Nighttime Dynamic Thermal Reconstruction with 4D Gaussian Splatting Based on Thermodynamics},\n  author = {Yang, Kun and Liu, Yuxiang and Cui, Zeyu and Liu, Yu and Zhang, Maojun and Yan, Shen and Wang, Qing},\n  booktitle = {Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)},\n  month = {June},\n  year = {2025},\n  pages = {691--700}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "drone / UAV / aerial / overhead",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2503.03115",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "thermalgs-dynamic-3d-thermal-reconstruction-with-gaussian-splatting-2025",
+      "title": "ThermalGS: Dynamic 3D Thermal Reconstruction with Gaussian Splatting",
+      "authors": "Yuxiang Liu, Xi Chen, Shen Yan, Zeyu Cui, Huaxin Xiao, Yu Liu, Maojun Zhang",
+      "venue": "Remote Sensing",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "ThermalGS is a dynamic thermal 3D reconstruction method based on 3D Gaussian Splatting. It combines RGB and thermal infrared imagery to reconstruct geometry and time-varying thermal radiation characteristics, and is released with the Thermal Scene Day-Night dataset for cross-time thermal reconstruction and temperature prediction.",
+      "citations": 0,
+      "github_stars": 14,
+      "links": {
+        "paper": "https://www.mdpi.com/2072-4292/17/2/335",
+        "pdf": "https://www.mdpi.com/2072-4292/17/2/335/pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/porcofly/ThermalGS-and-TSDN-Dataset",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://github.com/porcofly/ThermalGS-and-TSDN-Dataset",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/porcofly/ThermalGS-and-TSDN-Dataset"
+      },
+      "bibtex": "@article{thermalgs2025,\n  title = {ThermalGS: Dynamic 3D Thermal Reconstruction with Gaussian Splatting},\n  author = {Liu, Yuxiang and Chen, Xi and Yan, Shen and Cui, Zeyu and Xiao, Huaxin and Liu, Yu and Zhang, Maojun},\n  journal = {Remote Sensing},\n  volume = {17},\n  year = {2025},\n  number = {2},\n  article-number = {335},\n  doi = {10.3390/rs17020335},\n  url = {https://www.mdpi.com/2072-4292/17/2/335}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "thermal4d-physics-driven-gaussian-splatting-for-dynamic-thermal-scene-reconstruction-2026",
+      "title": "Thermal4D: Physics-Driven Gaussian Splatting for Dynamic Thermal Scene Reconstruction",
+      "authors": "Chonghao Zhong, Chao Xu",
+      "venue": "Sensors",
+      "year": 2026,
+      "presentation": null,
+      "abstract": "Thermal4D reconstructs dynamic 3D scenes from thermal imagery alone using a physics-driven Gaussian Splatting pipeline. The method combines a frequency-aware attention module for thermal structure, atmospheric transmission modeling for radiometric distortions, feature-level DINOv2 supervision, and the MVTD multi-view dynamic thermal dataset.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://www.mdpi.com/1424-8220/26/10/3041",
+        "pdf": "https://www.mdpi.com/1424-8220/26/10/3041/pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://www.mdpi.com/1424-8220/26/10/3041"
+      },
+      "bibtex": "@article{Zhong_2026_Thermal4D,\n  title = {Thermal4D: Physics-Driven Gaussian Splatting for Dynamic Thermal Scene Reconstruction},\n  author = {Zhong, Chonghao and Xu, Chao},\n  journal = {Sensors},\n  volume = {26},\n  number = {10},\n  pages = {3041},\n  year = {2026},\n  doi = {10.3390/s26103041},\n  url = {https://www.mdpi.com/1424-8220/26/10/3041}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "splatam-splat-track-map-3d-gaussians-for-dense-rgb-d-slam-2024",
+      "title": "SplaTAM: Splat, Track & Map 3D Gaussians for Dense RGB-D SLAM",
+      "authors": "Nikhil Keetha, Jay Karhade, Krishna Murthy Jatavallabhula, Gengshan Yang, Sebastian Scherer, Deva Ramanan, Jonathon Luiten",
+      "venue": "CVPR",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "SplaTAM is a dense RGB-D SLAM system that tracks camera motion and maps a scene with 3D Gaussian primitives. It uses differentiable Gaussian rendering to optimize camera poses and an online scene representation, making it a useful SLAM-style reference point for streaming or incremental Gaussian Splatting systems.",
+      "citations": 0,
+      "github_stars": 2144,
+      "links": {
+        "paper": "https://arxiv.org/abs/2312.02126",
+        "pdf": "https://arxiv.org/pdf/2312.02126",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2312.02126",
+        "code": "https://github.com/spla-tam/SplaTAM",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": "https://youtu.be/jWLI-OFp3qU",
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://spla-tam.github.io/"
+      },
+      "bibtex": "@InProceedings{Keetha_2024_CVPR,\n  title = {SplaTAM: Splat, Track & Map 3D Gaussians for Dense RGB-D SLAM},\n  author = {Keetha, Nikhil and Karhade, Jay and Jatavallabhula, Krishna Murthy and Yang, Gengshan and Scherer, Sebastian and Ramanan, Deva and Luiten, Jonathon},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n  year = {2024}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "robotics",
+        "3D scene understanding / scene completion"
+      ],
+      "arxiv_id": "2312.02126",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "horizon-gs-unified-3d-gaussian-splatting-for-large-scale-aerial-to-ground-scenes-2025",
+      "title": "Horizon-GS: Unified 3D Gaussian Splatting for Large-Scale Aerial-to-Ground Scenes",
+      "authors": "Lihan Jiang, Kerui Ren, Mulin Yu, Linning Xu, Junting Dong, Tao Lu, Feng Zhao, Dahua Lin, Bo Dai",
+      "venue": "CVPR",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Horizon-GS targets unified 3D Gaussian Splatting for large-scale scenes containing both aerial and street-view imagery. It addresses the viewpoint mismatch between overhead and ground views with a training strategy for aerial-to-ground reconstruction and rendering, and provides a HorizonGS dataset for evaluation.",
+      "citations": 0,
+      "github_stars": 142,
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.01745",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Jiang_Horizon-GS_Unified_3D_Gaussian_Splatting_for_Large-Scale_Aerial-to-Ground_Scenes_CVPR_2025_paper.pdf",
+        "supp": "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Jiang_Horizon-GS_Unified_3D_CVPR_2025_supplemental.zip",
+        "arxiv": "https://arxiv.org/abs/2412.01745",
+        "code": "https://github.com/InternRobotics/HorizonGS",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://huggingface.co/datasets/BoDai/HorizonGS",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://city-super.github.io/horizon-gs/"
+      },
+      "bibtex": "@InProceedings{Jiang_2025_CVPR,\n  title = {Horizon-GS: Unified 3D Gaussian Splatting for Large-Scale Aerial-to-Ground Scenes},\n  author = {Jiang, Lihan and Ren, Kerui and Yu, Mulin and Xu, Linning and Dong, Junting and Lu, Tao and Zhao, Feng and Lin, Dahua and Dai, Bo},\n  year = {2025},\n  url = {https://openaccess.thecvf.com/content/CVPR2025/papers/Jiang_Horizon-GS_Unified_3D_Gaussian_Splatting_for_Large-Scale_Aerial-to-Ground_Scenes_CVPR_2025_paper.pdf},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n  pages = {26789--26799},\n  month = {June}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "drone / UAV / aerial / overhead",
+        "geospatial / GIS / geographic"
+      ],
+      "arxiv_id": "2412.01745",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "grounding-image-matching-in-3d-with-mast3r-2024",
+      "title": "Grounding Image Matching in 3D with MASt3R",
+      "authors": "Vincent Leroy, Yohann Cabon, Jerome Revaud",
+      "venue": "ECCV",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "MASt3R casts image matching as a 3D-grounded task built on transformer-based pointmap regression. It adds dense local features and a fast reciprocal matching scheme to improve robust image correspondence under large viewpoint changes, with applications in visual localization and structure-from-motion.",
+      "citations": 0,
+      "github_stars": 3009,
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.09756",
+        "pdf": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/09080.pdf",
+        "supp": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/09080-supp.pdf",
+        "arxiv": "https://arxiv.org/abs/2406.09756",
+        "code": "https://github.com/naver/mast3r",
+        "paperswithcode": null,
+        "checkpoints": "https://github.com/naver/mast3r#checkpoints",
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": "https://github.com/naver/mast3r#checkpoints",
+        "project_page": "https://europe.naverlabs.com/blog/mast3r-matching-and-stereo-3d-reconstruction/"
+      },
+      "bibtex": "@InProceedings{Leroy_2024_ECCV,\n  title = {Grounding Image Matching in 3D with MASt3R},\n  author = {Vincent Leroy and Yohann Cabon and Jerome Revaud},\n  year = {2024},\n  url = {https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/9080_ECCV_2024_paper.php},\n  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},\n  month = {October}\n}",
+      "matched_themes": [
+        "large-scale outdoor 3D reconstruction",
+        "geo-localization / cross-view / VPR",
+        "vision transformers"
+      ],
+      "arxiv_id": "2406.09756",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "flame-3-dataset-unleashing-the-power-of-radiometric-thermal-uav-imagery-for-wildfire-management-2024",
+      "title": "FLAME 3 Dataset: Unleashing the Power of Radiometric Thermal UAV Imagery for Wildfire Management",
+      "authors": "Bryce Hopkins, Leo ONeill, Michael Marinaccio, Eric Rowell, Russell Parsons, Sarah Flanary, Irtija Nazim, Carl Seielstad, Fatemeh Afghah",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "FLAME 3 introduces a radiometric thermal UAV wildfire dataset and data pipeline for collecting synchronized visual-spectrum and radiometric thermal imagery at prescribed burns. It extends the FLAME dataset family with radiometric TIFFs and nadir thermal plots, and releases a single-burn subset for computer-vision tasks such as wildfire detection, segmentation, assessment, and behavior modeling.",
+      "citations": 3,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.02831",
+        "pdf": "https://arxiv.org/pdf/2412.02831",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2412.02831",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://www.kaggle.com/datasets/brycehopkins/flame-3-nadir-thermal-plot-subset",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://www.kaggle.com/datasets/brycehopkins/flame-3-nadir-thermal-plot-subset"
+      },
+      "bibtex": "@misc{hopkins2024flame3datasetunleashing,\n  title = {FLAME 3 Dataset: Unleashing the Power of Radiometric Thermal UAV Imagery for Wildfire Management},\n  author = {Bryce Hopkins and Leo ONeill and Michael Marinaccio and Eric Rowell and Russell Parsons and Sarah Flanary and Irtija Nazim and Carl Seielstad and Fatemeh Afghah},\n  year = {2024},\n  eprint = {2412.02831},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CV},\n  url = {https://arxiv.org/abs/2412.02831}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "drone / UAV / aerial / overhead",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2412.02831",
+      "doi": "10.48550/arxiv.2412.02831",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "wildfirespreadts-a-dataset-of-multi-modal-time-series-for-wildfire-spread-prediction-2023",
+      "title": "WildfireSpreadTS: A dataset of multi-modal time series for wildfire spread prediction",
+      "authors": "Sebastian Gerard, Yu Zhao, Josephine Sullivan",
+      "venue": "NeurIPS Datasets and Benchmarks",
+      "year": 2023,
+      "presentation": null,
+      "abstract": "WildfireSpreadTS is a multi-temporal, multi-modal remote-sensing benchmark for 24-hour wildfire spread prediction. It provides daily time series for 607 U.S. fire events from January 2018 to October 2021, combining active-fire observations with fuel, topography, and weather variables to support multi-temporal spread modeling.",
+      "citations": 4,
+      "github_stars": 61,
+      "links": {
+        "paper": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/ebd545176bdaa9cd5d45954947bd74b7-Abstract-Datasets_and_Benchmarks.html",
+        "pdf": "https://proceedings.neurips.cc/paper_files/paper/2023/file/ebd545176bdaa9cd5d45954947bd74b7-Paper-Datasets_and_Benchmarks.pdf",
+        "supp": "https://proceedings.neurips.cc/paper_files/paper/2023/file/ebd545176bdaa9cd5d45954947bd74b7-Supplemental-Datasets_and_Benchmarks.pdf",
+        "arxiv": null,
+        "code": "https://github.com/SebastianGer/WildfireSpreadTS",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://zenodo.org/records/8006177",
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://zenodo.org/records/8006177"
+      },
+      "bibtex": "@inproceedings{gerard2023wildfirespreadts,\n  title = {WildfireSpreadTS: A dataset of multi-modal time series for wildfire spread prediction},\n  author = {Gerard, Sebastian and Zhao, Yu and Sullivan, Josephine},\n  booktitle = {Advances in Neural Information Processing Systems},\n  volume = {36},\n  pages = {74515--74529},\n  year = {2023},\n  url = {https://proceedings.neurips.cc/paper_files/paper/2023/hash/ebd545176bdaa9cd5d45954947bd74b7-Abstract-Datasets_and_Benchmarks.html}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "remote sensing",
+        "spatiotemporal forecasting"
+      ],
+      "doi": "10.52202/075280-3258",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "fire-ensf-wildfire-spread-data-assimilation-using-ensemble-score-filter-2025",
+      "title": "Fire-EnSF: Wildfire Spread Data Assimilation using Ensemble Score Filter",
+      "authors": "Hongzheng Shi, Yuhang Wang, Xiao Liu",
+      "venue": "arXiv",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Fire-EnSF studies Ensemble Score Filter data assimilation for real-time wildfire spread forecasting. The paper applies a score-based generative diffusion filtering method to integrate observations, such as remote-sensing data, with numerical wildfire spread model predictions and reports improvements in accuracy, stability, and computational efficiency.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2510.15954",
+        "pdf": "https://arxiv.org/pdf/2510.15954",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2510.15954",
+        "code": "https://github.com/Song-Platelet/Fire-EnSF",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/Song-Platelet/Fire-EnSF"
+      },
+      "bibtex": "@misc{shi2025fireensf,\n  title = {Fire-EnSF: Wildfire Spread Data Assimilation using Ensemble Score Filter},\n  author = {Hongzheng Shi and Yuhang Wang and Xiao Liu},\n  year = {2025},\n  eprint = {2510.15954},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2510.15954}\n}",
+      "matched_themes": [
+        "Earth-science / disaster mapping",
+        "data assimilation",
+        "remote sensing"
+      ],
+      "arxiv_id": "2510.15954",
+      "doi": "10.48550/arxiv.2510.15954",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "latent-ensf-a-latent-ensemble-score-filter-for-high-dimensional-data-assimilation-with-sparse-observation-data-2025",
+      "title": "Latent-EnSF: A Latent Ensemble Score Filter for High-Dimensional Data Assimilation with Sparse Observation Data",
+      "authors": "Phillip Si, Peng Chen",
+      "venue": "ICLR",
+      "year": 2025,
+      "presentation": "Poster",
+      "abstract": "Latent-EnSF extends Ensemble Score Filters with a shared latent representation for full states and sparse observations. The method trains coupled variational autoencoders so score-based ensemble filtering can operate in latent space, targeting high-dimensional nonlinear Bayesian filtering with sparse observations in applications such as shallow-water waves and medium-range weather forecasting.",
+      "citations": 0,
+      "github_stars": 1,
+      "links": {
+        "paper": "https://openreview.net/forum?id=urcEYsZOBz",
+        "pdf": "https://openreview.net/pdf?id=urcEYsZOBz",
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/ps789/latent-ensf",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://openreview.net/forum?id=urcEYsZOBz"
+      },
+      "bibtex": "@inproceedings{si2025latentensf,\n  title = {Latent-EnSF: A Latent Ensemble Score Filter for High-Dimensional Data Assimilation with Sparse Observation Data},\n  author = {Phillip Si and Peng Chen},\n  booktitle = {The Thirteenth International Conference on Learning Representations},\n  year = {2025},\n  url = {https://openreview.net/forum?id=urcEYsZOBz}\n}",
+      "matched_themes": [
+        "data assimilation",
+        "spatiotemporal forecasting",
+        "generative / diffusion models"
+      ],
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
+      "id": "geospatial-foundational-embedder-top-1-winning-solution-on-earthvision-embed2scale-challenge-2025",
+      "title": "Geospatial Foundational Embedder: Top-1 Winning Solution on EarthVision Embed2Scale Challenge (CVPR 2025)",
+      "authors": "Zirui Xu, Raphael Tang, Mike Bianco, Qi Zhang, Rishi Madhok, Nikolaos Karianakis, Fuxun Yu",
+      "venue": "CVPR EarthVision Workshop",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "This technical report describes the Top-1 solution for the CVPR 2025 EarthVision Embed2Scale challenge. The method builds foundation-model embeddings for SSL4EO-S12 multi-season geospatial data cubes using adapted CLIP and DINO finetuning, auxiliary geospatial semantics, GeoRSCLIP features, and SVD-based compressive ensembling for downstream classification and regression tasks.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2509.06993",
+        "pdf": "https://arxiv.org/pdf/2509.06993",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2509.06993",
+        "code": null,
+        "paperswithcode": "https://paperswithcode.co/paper/2509.06993",
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://eval.ai/web/challenges/challenge-page/2465/overview",
+        "benchmark": "https://eval.ai/web/challenges/challenge-page/2465/overview",
+        "model": null,
+        "project_page": "https://arxiv.org/html/2509.06993v1"
+      },
+      "bibtex": "@misc{xu2025geospatialfoundationalembedder,\n  title = {Geospatial Foundational Embedder: Top-1 Winning Solution on EarthVision Embed2Scale Challenge (CVPR 2025)},\n  author = {Zirui Xu and Raphael Tang and Mike Bianco and Qi Zhang and Rishi Madhok and Nikolaos Karianakis and Fuxun Yu},\n  year = {2025},\n  eprint = {2509.06993},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.CV},\n  url = {https://arxiv.org/abs/2509.06993}\n}",
+      "matched_themes": [
+        "geospatial embeddings",
+        "evaluation / benchmark",
+        "Earth observation / land cover"
+      ],
+      "arxiv_id": "2509.06993",
+      "doi": "10.48550/arxiv.2509.06993",
+      "source_files": [
+        "manual"
+      ]
+    },
+    {
       "id": "olbedo-2026",
       "title": "Olbedo: An Albedo and Shading Aerial Dataset for Large-Scale Outdoor Environments",
       "authors": "Shuang Song, Debao Huang, Deyan Deng, Haolin Xiong, Yang Tang, Yajie Zhao, Rongjun Qin",
@@ -13392,19 +13810,19 @@
       "presentation": null,
       "abstract": "Prior studies on Remote Sensing Foundation Model (RSFM) reveal immense potential towards a generic model for Earth Observation. Nevertheless these works primarily focus on a single modality without temporal and geo-context modeling hampering their capabilities for diverse tasks. In this study we present SkySense a generic billion-scale model pre-trained on a curated multi-modal Remote Sensing Imagery (RSI) dataset with 21.5 million temporal sequences. SkySense incorporates a factorized multi-modal spatiotemporal encoder taking temporal sequences of optical and Synthetic Aperture Radar (SAR) data as input. This encoder is pre-trained by our proposed Multi-Granularity Contrastive Learning to learn representations across different modal and spatial granularities. To further enhance the RSI representations by the geo-context clue we introduce Geo-Context Prototype Learning to learn region-aware prototypes upon RSI's multi-modal spatiotemporal features. To our best knowledge SkySense is the largest Multi-Modal RSFM to date whose modules can be flexibly combined or used individually to accommodate various tasks. It demonstrates remarkable generalization capabilities on a thorough evaluation encompassing 16 datasets over 7 tasks from single- to multi-modal static to temporal and classification to localization. SkySense surpasses 18 recent RSFMs in all test scenarios. Specifically it outperforms the latest models such as GFM SatLas and Scale-MAE by a large margin i.e. 2.76% 3.67% and 3.61% on average respectively. We will release the pre-trained weights to facilitate future research and Earth Observation applications.",
       "citations": 172,
-      "github_stars": 1900,
+      "github_stars": 75,
       "links": {
         "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Guo_SkySense_A_Multi-Modal_Remote_Sensing_Foundation_Model_Towards_Universal_Interpretation_CVPR_2024_paper.pdf",
         "supp": "https://openaccess.thecvf.com/content/CVPR2024/supplemental/Guo_SkySense_A_Multi-Modal_CVPR_2024_supplemental.pdf",
         "arxiv": "https://arxiv.org/abs/2312.10115",
-        "code": "https://github.com/jack-bo1220/awesome-remote-sensing-foundation-models",
+        "code": "https://github.com/Jack-bo1220/SkySense",
         "paperswithcode": "https://paperswithcode.co/paper/2312.10115",
         "checkpoints": null,
         "video": null,
         "dataset": null,
         "benchmark": null,
         "model": "https://huggingface.co/kshitijrajsharma/skysense",
-        "project_page": null,
+        "project_page": "https://github.com/Jack-bo1220/SkySense",
         "paper": "https://doi.org/10.1109/cvpr52733.2024.02613"
       },
       "bibtex": "@InProceedings{Guo_2024_CVPR,\n  title = {SkySense: A Multi-Modal Remote Sensing Foundation Model Towards Universal Interpretation for Earth Observation Imagery},\n  author = {Guo, Xin and Lao, Jiangwei and Dang, Bo and Zhang, Yingying and Yu, Lei and Ru, Lixiang and Zhong, Liheng and Huang, Ziyuan and Wu, Kang and Hu, Dingxiang and He, Huimei and Wang, Jian and Chen, Jingdong and Yang, Ming and Zhang, Yongjun and Li, Yansheng},\n  year = {2024},\n  url = {https://arxiv.org/abs/2312.10115},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n  pages = {27672-27683},\n  month = {June}\n}",
@@ -17111,7 +17529,7 @@
       "presentation": null,
       "abstract": "Integrating ground-level geospatial data with rich geographic context, like OpenStreetMap (OSM), into remote sensing (RS) foundation models (FMs) is essential for advancing geospatial intelligence and supporting a broad spectrum of tasks. However, modality gap between RS and OSM data, including differences in data structure, content, and spatial granularity, makes effective synergy highly challenging, and most existing RS FMs focus on imagery alone. To this end, this study presents GeoLink, a multimodal framework that leverages OSM data to enhance RS FM during both the pretraining and downstream task stages. Specifically, GeoLink enhances RS self-supervised pretraining using multi-granularity learning signals derived from OSM data, guided by cross-modal spatial correlations for information interaction and collaboration. It also introduces image mask-reconstruction to enable sparse input for efficient pretraining. For downstream tasks, GeoLink generates both unimodal and multimodal fine-grained encodings to support a wide range of applications, from common RS interpretation tasks like land cover classification to more comprehensive geographic tasks like urban function zone mapping. Extensive experiments show that incorporating OSM data during pretraining enhances the performance of the RS image encoder, while fusing RS and OSM data in downstream tasks improves the FM's adaptability to complex geographic scenarios. These results underscore the potential of multimodal synergy in advancing high-level geospatial artificial intelligence. Moreover, we find that spatial correlation plays a crucial role in enabling effective multimodal geospatial data integration.",
       "citations": 0,
-      "github_stars": 62,
+      "github_stars": 0,
       "links": {
         "pdf": "https://arxiv.org/pdf/2509.26016.pdf",
         "supp": null,
@@ -26667,7 +27085,7 @@
         "pdf": "https://arxiv.org/pdf/2112.02447v2.pdf",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2112.02447",
-        "code": "https://github.com/satellitevu/satellitevu-aws-disaster-response-hackathon",
+        "code": "https://github.com/google-research/google-research/tree/master/simulation_research/next_day_wildfire_spread",
         "paperswithcode": "https://paperswithcode.co/paper/2112.02447",
         "checkpoints": null,
         "video": null,

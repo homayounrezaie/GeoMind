@@ -997,9 +997,33 @@
       ],
       "links": {
         "paper": "https://arxiv.org/abs/2112.02447",
-        "github": "https://github.com/dwgb93/TEI_WildfireSpread",
+        "github": "https://github.com/google-research/google-research/tree/master/simulation_research/next_day_wildfire_spread",
         "huggingface": "https://huggingface.co/datasets/TheRootOf3/next-day-wildfire-spread",
         "download": "https://www.kaggle.com/datasets/fantineh/next-day-wildfire-spread"
+      }
+    },
+    {
+      "id": "wildfirespreadts",
+      "name": "WildfireSpreadTS",
+      "summary": "A multi-temporal, multi-modal remote-sensing benchmark for 24-hour wildfire spread prediction.",
+      "description": "WildfireSpreadTS provides daily time series for predicting how active wildfires will spread over a 24-hour horizon. It covers 607 fire events in the United States from January 2018 to October 2021, with 13,607 images that combine detected active fires with fuel, topography, and weather variables. The dataset is released on Zenodo with documentation, a PyTorch Dataset, and a Lightning DataModule for loading and converting the GeoTIFF data.",
+      "task": "Wildfire spread prediction",
+      "modality": "Multi-modal remote sensing time series: active fire detections, fuel, topography, and weather rasters",
+      "size": "48.4 GB (Zenodo zip)",
+      "numSamples": "13,607 images across 607 fire events",
+      "license": "CC-BY-4.0",
+      "year": 2023,
+      "sources": [
+        "Zenodo",
+        "NeurIPS",
+        "GitHub"
+      ],
+      "links": {
+        "paper": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/ebd545176bdaa9cd5d45954947bd74b7-Abstract-Datasets_and_Benchmarks.html",
+        "homepage": "https://zenodo.org/records/8006177",
+        "github": "https://github.com/SebastianGer/WildfireSpreadTS",
+        "download": "https://zenodo.org/records/8006177/files/WildfireSpreadTS.zip",
+        "creation_code": "https://github.com/SebastianGer/WildfireSpreadTSCreateDataset"
       }
     },
     {
