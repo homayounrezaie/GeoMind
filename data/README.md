@@ -11,5 +11,6 @@ This folder separates published site data from local raw exports.
 - `papers-without-implementation-links.json` archives papers moved out of the live index because they have none of those implementation/resource signals.
 - `dataset-benchmark-papers.candidate.json` is a paper-level curation pool for papers that introduce or package datasets, benchmarks, or closely related evaluation resources; keep these separate from ordinary method-paper promotion decisions.
 - `companies.json` is the cleaned, committed company index used by the public site.
+- `jobs-canada-senior-90k.json` is a manually vetted scrape of current Canadian senior / experienced geospatial, remote sensing, GeoAI, and adjacent roles with explicit CAD compensation whose posted minimum is at least CAD 90,000, cross-referenced against `companies.json`.
 - `../paper-topics.json` is a committed taxonomy used for paper organization.
 - Remaining `raw/*.csv` files and `raw/raw-papers.json` are local raw inputs, intentionally ignored by Git where large/noisy; they should be cleaned before anything is published. There is no longer a top-level `data/benchmarks.json`.
