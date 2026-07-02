@@ -57184,32 +57184,44 @@
     },
     {
       "id": "paper_2502_18738",
-      "title": "PyTorchFire: A GPU-Accelerated Wildfire Simulator with Differentiable, Cellular Automata",
+      "title": "PyTorchFire: A GPU-accelerated wildfire simulator with Differentiable Cellular Automata",
       "authors": "Zeyu Xia, Sibo Cheng",
-      "venue": "Hugging Face Papers",
+      "venue": "Environmental Modelling & Software",
       "year": 2025,
       "presentation": null,
-      "abstract": "Accurate and rapid prediction of wildfire trends is crucial for effective, management and mitigation. However, the stochastic nature of fire propagation, poses significant challenges in developing reliable simulators. In this paper,, we introduce PyTorchFire, an open-access, PyTorch-based software that leverages, GPU acceleration. With our redesigned differentiable wildfire Cellular Automata, (CA) model, we achieve millisecond-level computational efficiency,, significantly outperforming traditional CPU-based wildfire simulators on, real-world-scale fires at high resolution. Real-time parameter calibration is, made possible through gradient descent on our model, aligning simulations, closely with observed wildfire behavior both temporally and spatially, thereby, enhancing the realism of the simulations. Our PyTorchFire simulator, combined, with real-world environmental data, demonstrates superior generalizability, compared to supervised learning surrogate models. Its ability to predict and, calibrate wildfire behavior in real-time ensures accuracy, stability, and, efficiency. PyTorchFire has the potential to revolutionize wildfire simulation,, serving as a powerful tool for wildfire prediction and management.",
-      "citations": 0,
+      "abstract": "PyTorchFire is an open-access, PyTorch-based wildfire simulator that uses GPU acceleration and a redesigned differentiable cellular automata fire-spread model. The simulator supports millisecond-scale wildfire prediction at real-world spatial scales and gradient-based parameter calibration against observed fire behavior, providing a differentiable, efficient alternative to traditional CPU-based wildfire simulators and supervised surrogate models.",
+      "citations": 3,
       "github_stars": 3,
       "links": {
-        "pdf": "https://arxiv.org/pdf/2502.18738",
+        "paper": "https://www.sciencedirect.com/science/article/pii/S1364815225000854",
+        "pdf": "https://www.sciencedirect.com/science/article/pii/S1364815225000854/pdfft",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2502.18738",
+        "preprint_pdf": "https://arxiv.org/pdf/2502.18738",
         "code": "https://github.com/xiazeyu/PyTorchFire",
+        "code_archive": "https://doi.org/10.5281/zenodo.13132218",
+        "pypi": "https://pypi.org/project/pytorchfire/",
+        "docs": "https://pytorchfire.readthedocs.io/",
         "paperswithcode": null,
         "checkpoints": null,
-        "video": null,
-        "dataset": null,
+        "video": "https://www.youtube.com/watch?v=ZxSc-Fb2mMU",
+        "dataset": "https://data.mendeley.com/datasets/nx2wsksp9k/2",
+        "dataset_doi": "https://doi.org/10.17632/nx2wsksp9k.2",
+        "dataset_v1": "https://doi.org/10.17632/nx2wsksp9k.1",
         "benchmark": null,
-        "model": "https://huggingface.co/papers/2502.18738",
-        "project_page": "https://huggingface.co/papers/2502.18738",
-        "paper": "https://huggingface.co/papers/2502.18738"
+        "model": null,
+        "project_page": "https://zeyuxia.com/publication/xia-2025-pytorchfire/",
+        "doi": "https://doi.org/10.1016/j.envsoft.2025.106401",
+        "huggingface_paper": "https://huggingface.co/papers/2502.18738"
       },
-      "bibtex": "@misc{Xia2025PyTorchFire,\n  title = {PyTorchFire: A GPU-Accelerated Wildfire Simulator with Differentiable, Cellular Automata},\n  author = {Zeyu Xia and Sibo Cheng},\n  year = {2025},\n  url = {https://arxiv.org/abs/2502.18738},\n  note = {Hugging Face Papers},\n  eprint = {2502.18738},\n  archivePrefix = {arXiv}\n}",
+      "bibtex": "@article{xia2025pytorchfire,\n  title = {PyTorchFire: A GPU-accelerated wildfire simulator with Differentiable Cellular Automata},\n  author = {Xia, Zeyu and Cheng, Sibo},\n  journal = {Environmental Modelling & Software},\n  volume = {188},\n  pages = {106401},\n  year = {2025},\n  doi = {10.1016/j.envsoft.2025.106401},\n  url = {https://www.sciencedirect.com/science/article/pii/S1364815225000854}\n}",
       "matched_themes": [
-        "Earth-science / disaster mapping"
-      ]
+        "Earth-science / disaster mapping",
+        "spatiotemporal forecasting",
+        "scientific machine learning / differentiable simulation"
+      ],
+      "arxiv_id": "2502.18738",
+      "doi": "10.1016/j.envsoft.2025.106401"
     },
     {
       "id": "paper_2503_00332",
