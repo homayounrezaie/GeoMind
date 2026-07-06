@@ -139111,6 +139111,1171 @@
         "manual",
         "hfangcat/Awesome-Geospatial-Embeddings"
       ]
+    },
+    {
+      "id": "swimdiff-scene-wide-matching-contrastive-learning-with-diffusion-constra-2024",
+      "title": "SwiMDiff: Scene-wide Matching Contrastive Learning with Diffusion Constraint for Remote Sensing Image",
+      "authors": "Jiayuan Tian, Jie Lei, Jiaqing Zhang, Weiying Xie, Yunsong Li",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "With recent advancements in aerospace technology, the volume of unlabeled remote sensing image (RSI) data has increased dramatically. Effectively leveraging this data through self-supervised learning (SSL) is vital in the field of remote sensing. However, current methodologies, particularly contrastive learning (CL), a leading SSL method, encounter specific challenges in this domain. Firstly, CL often mistakenly identifies geographically adjacent samples with similar semantic content as negative pairs, leading to confusion during model training. Secondly, as an instance-level discriminative task, it tends to neglect the essential fine-grained features and complex details inherent in unstructured RSIs. To overcome these obstacles, we introduce SwiMDiff, a novel self-supervised pre-training framework designed for RSIs. SwiMDiff employs a scene-wide matching approach that effectively recalibrates labels to recognize data from the same scene as false negatives. This adjustment makes CL more applicable to the nuances of remote sensing. Additionally, SwiMDiff seamlessly integrates CL with a diffusion model. Through the implementation of pixel-level diffusion constraints, we enhance the encoder's ability to capture both the global semantic information and the fine-grained features of the images more comprehensively. Our proposed framework significantly enriches the information available for downstream tasks in remote sensing. Demonstrating exceptional performance in change detection and land-cover classification tasks, SwiMDiff proves its substantial utility and value in the field of remote sensing.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2401.05093",
+        "pdf": "https://arxiv.org/pdf/2401.05093",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2401.05093",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/swimdiff_prediction.json"
+      },
+      "bibtex": "@misc{tian2024swimdiffscenewidematc,\n  title = {SwiMDiff: Scene-wide Matching Contrastive Learning with Diffusion Constraint for Remote Sensing Image},\n  author = {Jiayuan Tian and Jie Lei and Jiaqing Zhang and Weiying Xie and Yunsong Li},\n  year = {2024},\n  eprint = {2401.05093},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2401.05093}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2401.05093",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "multilabel-guided-soft-contrastive-learning-for-efficient-earth-observat-2024",
+      "title": "Multilabel-Guided Soft Contrastive Learning for Efficient Earth Observation Pretraining",
+      "authors": "Yi Wang, Conrad M. Albrecht, Xiao Xiang Zhu",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "SoftCon is a multilabel-guided soft contrastive learning framework for efficient Earth observation (EO) pretraining, leveraging land-cover-generated multilabel supervision and continual pretraining from vision foundation models. It produces multispectral and SAR foundation models that achieve SOTA results in 10 out of 11 downstream tasks.",
+      "citations": 0,
+      "github_stars": 25,
+      "links": {
+        "paper": "https://doi.org/10.1109/TGRS.2024.3466896",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/zhu-xlab/softcon",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "ringmoe-mixture-of-modality-experts-multi-modal-foundation-models-for-un-2025",
+      "title": "RingMoE: Mixture-of-Modality-Experts Multi-Modal Foundation Models for Universal Remote Sensing Image Interpretation",
+      "authors": "Hanbo Bi, Yingchao Feng, Boyuan Tong, Mengyu Wang, Haichen Yu, Yongqiang Mao, Hao Chang, Wenhui Diao, Peijin Wang, Yue Yu, Hanyang Peng, Yehong Zhang, Kun Fu, Xian Sun",
+      "venue": "arXiv",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "The rapid advancement of foundation models has revolutionized visual representation learning in a self-supervised manner. However, their application in remote sensing (RS) remains constrained by a fundamental gap: existing models predominantly handle single or limited modalities, overlooking the inherently multi-modal nature of RS observations. Optical, synthetic aperture radar (SAR), and multi-spectral data offer complementary insights that significantly reduce the inherent ambiguity and uncertainty in single-source analysis. To bridge this gap, we introduce RingMoE, a unified multi-modal RS foundation model with 14.7 billion parameters, pre-trained on 400 million multi-modal RS images from nine satellites. RingMoE incorporates three key innovations: (1) A hierarchical Mixture-of-Experts (MoE) architecture comprising modal-specialized, collaborative, and shared experts, effectively modeling intra-modal knowledge while capturing cross-modal dependencies to mitigate conflicts between modal representations; (2) Physics-informed self-supervised learning, explicitly embedding sensor-specific radiometric characteristics into the pre-training objectives; (3) Dynamic expert pruning, enabling adaptive model compression from 14.7B to 1B parameters while maintaining performance, facilitating efficient deployment in Earth observation applications. Evaluated across 23 benchmarks spanning six key RS tasks (i.e., classification, detection, segmentation, tracking, change detection, and depth estimation), RingMoE outperforms existing foundation models and sets new SOTAs, demonstrating remarkable adaptability from single-modal to multi-modal scenarios. Beyond theoretical progress, it has been deployed and trialed in multiple sectors, including emergency response, land management, marine sciences, and urban planning.",
+      "citations": 0,
+      "github_stars": 19,
+      "links": {
+        "paper": "https://arxiv.org/abs/2504.03166",
+        "pdf": "https://arxiv.org/pdf/2504.03166",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2504.03166",
+        "code": "https://github.com/HanboBizl/RingMoE",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": "https://github.com/HanboBizl/RingMoEDatasets",
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@misc{bi2025ringmoemixtureofmodal,\n  title = {RingMoE: Mixture-of-Modality-Experts Multi-Modal Foundation Models for Universal Remote Sensing Image Interpretation},\n  author = {Hanbo Bi and Yingchao Feng and Boyuan Tong and Mengyu Wang and Haichen Yu and Yongqiang Mao and Hao Chang and Wenhui Diao and Peijin Wang and Yue Yu and Hanyang Peng and Yehong Zhang and Kun Fu and Xian Sun},\n  year = {2025},\n  eprint = {2504.03166},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2504.03166}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2504.03166",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "segment-any-change-2024",
+      "title": "Segment Any Change",
+      "authors": "Zhuo Zheng, Yanfei Zhong, Liangpei Zhang, Stefano Ermon",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Visual foundation models have achieved remarkable results in zero-shot image classification and segmentation, but zero-shot change detection remains an open problem. In this paper, we propose the segment any change models (AnyChange), a new type of change detection model that supports zero-shot prediction and generalization on unseen change types and data distributions. AnyChange is built on the segment anything model (SAM) via our training-free adaptation method, bitemporal latent matching. By revealing and exploiting intra-image and inter-image semantic similarities in SAM's latent space, bitemporal latent matching endows SAM with zero-shot change detection capabilities in a training-free way. We also propose a point query mechanism to enable AnyChange's zero-shot object-centric change detection capability. We perform extensive experiments to confirm the effectiveness of AnyChange for zero-shot change detection. AnyChange sets a new record on the SECOND benchmark for unsupervised change detection, exceeding the previous SOTA by up to 4.4% F$_1$ score, and achieving comparable accuracy with negligible manual annotations (1 pixel per image) for supervised change detection. Code is available at https://github.com/Z-Zheng/pytorch-change-models.",
+      "citations": 0,
+      "github_stars": 255,
+      "links": {
+        "paper": "https://arxiv.org/abs/2402.01188",
+        "pdf": "https://arxiv.org/pdf/2402.01188",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2402.01188",
+        "code": "https://github.com/Z-Zheng/pytorch-change-models",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@misc{zheng2024segmentanychange,\n  title = {Segment Any Change},\n  author = {Zhuo Zheng and Yanfei Zhong and Liangpei Zhang and Stefano Ermon},\n  year = {2024},\n  eprint = {2402.01188},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2402.01188}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2402.01188",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "ctxmim-context-enhanced-masked-image-modeling-for-remote-sensing-image-u-2023",
+      "title": "CtxMIM: Context-Enhanced Masked Image Modeling for Remote Sensing Image Understanding",
+      "authors": "Mingming Zhang, Qingjie Liu, Yunhong Wang",
+      "venue": "arXiv",
+      "year": 2023,
+      "presentation": null,
+      "abstract": "Learning representations through self-supervision on unlabeled data has proven highly effective for understanding diverse images. However, remote sensing images often have complex and densely populated scenes with multiple land objects and no clear foreground objects. This intrinsic property generates high object density, resulting in false positive pairs or missing contextual information in self-supervised learning. To address these problems, we propose a context-enhanced masked image modeling method (CtxMIM), a simple yet efficient MIM-based self-supervised learning for remote sensing image understanding. CtxMIM formulates original image patches as a reconstructive template and employs a Siamese framework to operate on two sets of image patches. A context-enhanced generative branch is introduced to provide contextual information through context consistency constraints in the reconstruction. With the simple and elegant design, CtxMIM encourages the pre-training model to learn object-level or pixel-level features on a large-scale dataset without specific temporal or geographical constraints. Finally, extensive experiments show that features learned by CtxMIM outperform fully supervised and state-of-the-art self-supervised learning methods on various downstream tasks, including land cover classification, semantic segmentation, object detection, and instance segmentation. These results demonstrate that CtxMIM learns impressive remote sensing representations with high generalization and transferability. Code and data will be made public available.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2310.00022",
+        "pdf": "https://arxiv.org/pdf/2310.00022",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2310.00022",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/ctxmim_prediction.json"
+      },
+      "bibtex": "@misc{zhang2023ctxmimcontextenhanced,\n  title = {CtxMIM: Context-Enhanced Masked Image Modeling for Remote Sensing Image Understanding},\n  author = {Mingming Zhang and Qingjie Liu and Yunhong Wang},\n  year = {2023},\n  eprint = {2310.00022},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2310.00022}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2310.00022",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "decoupling-common-and-unique-representations-for-multimodal-self-supervi-2023",
+      "title": "Decoupling Common and Unique Representations for Multimodal Self-supervised Learning",
+      "authors": "Yi Wang, Conrad M Albrecht, Nassim Ait Ali Braham, Chenying Liu, Zhitong Xiong, Xiao Xiang Zhu",
+      "venue": "arXiv",
+      "year": 2023,
+      "presentation": null,
+      "abstract": "The increasing availability of multi-sensor data sparks wide interest in multimodal self-supervised learning. However, most existing approaches learn only common representations across modalities while ignoring intra-modal training and modality-unique representations. We propose Decoupling Common and Unique Representations (DeCUR), a simple yet effective method for multimodal self-supervised learning. By distinguishing inter- and intra-modal embeddings through multimodal redundancy reduction, DeCUR can integrate complementary information across different modalities. We evaluate DeCUR in three common multimodal scenarios (radar-optical, RGB-elevation, and RGB-depth), and demonstrate its consistent improvement regardless of architectures and for both multimodal and modality-missing settings. With thorough experiments and comprehensive analysis, we hope this work can provide valuable insights and raise more interest in researching the hidden relationships of multimodal representations.",
+      "citations": 0,
+      "github_stars": 74,
+      "links": {
+        "paper": "https://arxiv.org/abs/2309.05300",
+        "pdf": "https://arxiv.org/pdf/2309.05300",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2309.05300",
+        "code": "https://github.com/zhu-xlab/DeCUR",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@misc{wang2023decouplingcommonandun,\n  title = {Decoupling Common and Unique Representations for Multimodal Self-supervised Learning},\n  author = {Yi Wang and Conrad M Albrecht and Nassim Ait Ali Braham and Chenying Liu and Zhitong Xiong and Xiao Xiang Zhu},\n  year = {2023},\n  eprint = {2309.05300},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2309.05300}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2309.05300",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "pushing-the-limits-of-vision-language-models-in-remote-sensing-without-h-2024",
+      "title": "Pushing the Limits of Vision-Language Models in Remote Sensing without Human Annotations",
+      "authors": "Keumgang Cha, Donggeun Yu, Junghoon Seo",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "The prominence of generalized foundation models in vision-language integration has witnessed a surge, given their multifarious applications. Within the natural domain, the procurement of vision-language datasets to construct these foundation models is facilitated by their abundant availability and the ease of web crawling. Conversely, in the remote sensing domain, although vision-language datasets exist, their volume is suboptimal for constructing robust foundation models. This study introduces an approach to curate vision-language datasets by employing an image decoding machine learning model, negating the need for human-annotated labels. Utilizing this methodology, we amassed approximately 9.6 million vision-language paired datasets in VHR imagery. The resultant model outperformed counterparts that did not leverage publicly available vision-language datasets, particularly in downstream tasks such as zero-shot classification, semantic localization, and image-text retrieval. Moreover, in tasks exclusively employing vision encoders, such as linear probing and k-NN classification, our model demonstrated superior efficacy compared to those relying on domain-specific vision-language datasets.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2409.07048",
+        "pdf": "https://arxiv.org/pdf/2409.07048",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2409.07048",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/rsclip_prediction.json"
+      },
+      "bibtex": "@misc{cha2024pushingthelimitsofvi,\n  title = {Pushing the Limits of Vision-Language Models in Remote Sensing without Human Annotations},\n  author = {Keumgang Cha and Donggeun Yu and Junghoon Seo},\n  year = {2024},\n  eprint = {2409.07048},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2409.07048}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "vision-language model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2409.07048",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "one-for-all-toward-unified-foundation-models-for-earth-vision-2024",
+      "title": "One for All: Toward Unified Foundation Models for Earth Vision",
+      "authors": "Zhitong Xiong, Yi Wang, Fahong Zhang, Xiao Xiang Zhu",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Foundation models characterized by extensive parameters and trained on large-scale datasets have demonstrated remarkable efficacy across various downstream tasks for remote sensing data. Current remote sensing foundation models typically specialize in a single modality or a specific spatial resolution range, limiting their versatility for downstream datasets. While there have been attempts to develop multi-modal remote sensing foundation models, they typically employ separate vision encoders for each modality or spatial resolution, necessitating a switch in backbones contingent upon the input data. To address this issue, we introduce a simple yet effective method, termed OFA-Net (One-For-All Network): employing a single, shared Transformer backbone for multiple data modalities with different spatial resolutions. Using the masked image modeling mechanism, we pre-train a single Transformer backbone on a curated multi-modal dataset with this simple design. Then the backbone model can be used in different downstream tasks, thus forging a path towards a unified foundation backbone model in Earth vision. The proposed method is evaluated on 12 distinct downstream tasks and demonstrates promising performance.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2401.07527",
+        "pdf": "https://arxiv.org/pdf/2401.07527",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2401.07527",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/ofa_net_prediction.json"
+      },
+      "bibtex": "@misc{xiong2024oneforalltowardunifi,\n  title = {One for All: Toward Unified Foundation Models for Earth Vision},\n  author = {Zhitong Xiong and Yi Wang and Fahong Zhang and Xiao Xiang Zhu},\n  year = {2024},\n  eprint = {2401.07527},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2401.07527}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2401.07527",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "rs-vheat-heat-conduction-guided-efficient-remote-sensing-foundation-mode-2024",
+      "title": "RS-vHeat: Heat Conduction Guided Efficient Remote Sensing Foundation Model",
+      "authors": "Huiyang Hu, Peijin Wang, Hanbo Bi, Boyuan Tong, Zhaozhi Wang, Wenhui Diao, Hao Chang, Yingchao Feng, Ziqi Zhang, Yaowei Wang, Qixiang Ye, Kun Fu, Xian Sun",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Remote sensing foundation models largely break away from the traditional paradigm of designing task-specific models, offering greater scalability across multiple tasks. However, they face challenges such as low computational efficiency and limited interpretability, especially when dealing with large-scale remote sensing images. To overcome these, we draw inspiration from heat conduction, a physical process modeling local heat diffusion. Building on this idea, we are the first to explore the potential of using the parallel computing model of heat conduction to simulate the local region correlations in high-resolution remote sensing images, and introduce RS-vHeat, an efficient multi-modal remote sensing foundation model. Specifically, RS-vHeat 1) applies the Heat Conduction Operator (HCO) with a complexity of $O(N^{1.5})$ and a global receptive field, reducing computational overhead while capturing remote sensing object structure information to guide heat diffusion; 2) learns the frequency distribution representations of various scenes through a self-supervised strategy based on frequency domain hierarchical masking and multi-domain reconstruction; 3) significantly improves efficiency and performance over state-of-the-art techniques across 4 tasks and 10 datasets. Compared to attention-based remote sensing foundation models, we reduce memory usage by 84\\%, FLOPs by 24\\% and improves throughput by 2.7 times. The code will be made publicly available.",
+      "citations": 0,
+      "github_stars": 15,
+      "links": {
+        "paper": "https://arxiv.org/abs/2411.17984",
+        "pdf": "https://arxiv.org/pdf/2411.17984",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2411.17984",
+        "code": "https://github.com/iecashhy/RS-vHeat",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@misc{hu2024rsvheatheatconduction,\n  title = {RS-vHeat: Heat Conduction Guided Efficient Remote Sensing Foundation Model},\n  author = {Huiyang Hu and Peijin Wang and Hanbo Bi and Boyuan Tong and Zhaozhi Wang and Wenhui Diao and Hao Chang and Yingchao Feng and Ziqi Zhang and Yaowei Wang and Qixiang Ye and Kun Fu and Xian Sun},\n  year = {2024},\n  eprint = {2411.17984},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2411.17984}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2411.17984",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "tov-the-original-vision-model-for-optical-remote-sensing-image-understan-2023",
+      "title": "TOV: The Original Vision Model for Optical Remote Sensing Image Understanding via Self-Supervised Learning",
+      "authors": "Chao Tao, Ji Qi, Guo Zhang, Qing Zhu, Weipeng Lu, Haifeng Li",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "year": 2023,
+      "presentation": null,
+      "abstract": "The Original Vision (TOV) model is a self-supervised learning-based foundation model for optical remote sensing image understanding, trained in a label-free and task-independent way to generalize across scene classification, object detection, and semantic segmentation tasks.",
+      "citations": 0,
+      "github_stars": 67,
+      "links": {
+        "paper": "https://doi.org/10.1109/JSTARS.2023.3271312",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/GeoX-Lab/G-RSIM/tree/main/TOV_v1",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": "https://github.com/GeoX-Lab/G-RSIM/tree/main/TOV_v1",
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "generic-knowledge-boosted-pre-training-for-remote-sensing-images-2024",
+      "title": "Generic Knowledge Boosted Pre-training For Remote Sensing Images",
+      "authors": "Ziyue Huang, Mingming Zhang, Yuan Gong, Qingjie Liu, Yunhong Wang",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Deep learning models are essential for scene classification, change detection, land cover segmentation, and other remote sensing image understanding tasks. Most backbones of existing remote sensing deep learning models are typically initialized by pre-trained weights obtained from ImageNet pre-training (IMP). However, domain gaps exist between remote sensing images and natural images (e.g., ImageNet), making deep learning models initialized by pre-trained weights of IMP perform poorly for remote sensing image understanding. Although some pre-training methods are studied in the remote sensing community, current remote sensing pre-training methods face the problem of vague generalization by only using remote sensing images. In this paper, we propose a novel remote sensing pre-training framework, Generic Knowledge Boosted Remote Sensing Pre-training (GeRSP), to learn robust representations from remote sensing and natural images for remote sensing understanding tasks. GeRSP contains two pre-training branches: (1) A self-supervised pre-training branch is adopted to learn domain-related representations from unlabeled remote sensing images. (2) A supervised pre-training branch is integrated into GeRSP for general knowledge learning from labeled natural images. Moreover, GeRSP combines two pre-training branches using a teacher-student architecture to simultaneously learn representations with general and special knowledge, which generates a powerful pre-trained model for deep learning model initialization. Finally, we evaluate GeRSP and other remote sensing pre-training methods on three downstream tasks, i.e., object detection, semantic segmentation, and scene classification. The extensive experimental results consistently demonstrate that GeRSP can effectively learn robust representations in a unified manner, improving the performance of remote sensing downstream tasks.",
+      "citations": 0,
+      "github_stars": 25,
+      "links": {
+        "paper": "https://arxiv.org/abs/2401.04614",
+        "pdf": "https://arxiv.org/pdf/2401.04614",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2401.04614",
+        "code": "https://github.com/floatingstarZ/GeRSP",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@misc{huang2024genericknowledgebooste,\n  title = {Generic Knowledge Boosted Pre-training For Remote Sensing Images},\n  author = {Ziyue Huang and Mingming Zhang and Yuan Gong and Qingjie Liu and Yunhong Wang},\n  year = {2024},\n  eprint = {2401.04614},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2401.04614}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2401.04614",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "ringmo-aerial-an-aerial-remote-sensing-foundation-model-with-affine-tran-2024",
+      "title": "RingMo-Aerial: An Aerial Remote Sensing Foundation Model With Affine Transformation Contrastive Learning",
+      "authors": "Wenhui Diao, Haichen Yu, Kaiyue Kang, Tong Ling, Di Liu, Yingchao Feng, Hanbo Bi, Libo Ren, Xuexue Li, Yongqiang Mao, Xian Sun",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Aerial Remote Sensing (ARS) vision tasks present significant challenges due to the unique viewing angle characteristics. Existing research has primarily focused on algorithms for specific tasks, which have limited applicability in a broad range of ARS vision applications. This paper proposes RingMo-Aerial, aiming to fill the gap in foundation model research in the field of ARS vision. A Frequency-Enhanced Multi-Head Self-Attention (FE-MSA) mechanism is introduced to strengthen the model's capacity for small-object representation. Complementarily, an affine transformation-based contrastive learning method improves its adaptability to the tilted viewing angles inherent in ARS tasks. Furthermore, the ARS-Adapter, an efficient parameter fine-tuning method, is proposed to improve the model's adaptability and performance in various ARS vision tasks. Experimental results demonstrate that RingMo-Aerial achieves SOTA performance on multiple downstream tasks. This indicates the practicality and efficacy of RingMo-Aerial in enhancing the performance of ARS vision tasks.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2409.13366",
+        "pdf": "https://arxiv.org/pdf/2409.13366",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2409.13366",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/ringmo_aerial_prediction.json"
+      },
+      "bibtex": "@misc{diao2024ringmoaerialanaerial,\n  title = {RingMo-Aerial: An Aerial Remote Sensing Foundation Model With Affine Transformation Contrastive Learning},\n  author = {Wenhui Diao and Haichen Yu and Kaiyue Kang and Tong Ling and Di Liu and Yingchao Feng and Hanbo Bi and Libo Ren and Xuexue Li and Yongqiang Mao and Xian Sun},\n  year = {2024},\n  eprint = {2409.13366},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2409.13366}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2409.13366",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "pattern-integration-and-enhancement-vision-transformer-for-self-supervis-2024",
+      "title": "Pattern Integration and Enhancement Vision Transformer for Self-Supervised Learning in Remote Sensing",
+      "authors": "Kaixuan Lu, Ruiqian Zhang, Xiao Huang, Yuxing Xie, Xiaogang Ning, Hanchao Zhang, Mengke Yuan, Pan Zhang, Tao Wang, Tongkui Liao",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Recent self-supervised learning (SSL) methods have demonstrated impressive results in learning visual representations from unlabeled remote sensing images. However, most remote sensing images predominantly consist of scenographic scenes containing multiple ground objects without explicit foreground targets, which limits the performance of existing SSL methods that focus on foreground targets. This raises the question: Is there a method that can automatically aggregate similar objects within scenographic remote sensing images, thereby enabling models to differentiate knowledge embedded in various geospatial patterns for improved feature representation? In this work, we present the Pattern Integration and Enhancement Vision Transformer (PIEViT), a novel self-supervised learning framework designed specifically for remote sensing imagery. PIEViT utilizes a teacher-student architecture to address both image-level and patch-level tasks. It employs the Geospatial Pattern Cohesion (GPC) module to explore the natural clustering of patches, enhancing the differentiation of individual features. The Feature Integration Projection (FIP) module further refines masked token reconstruction using geospatially clustered patches. We validated PIEViT across multiple downstream tasks, including object detection, semantic segmentation, and change detection. Experiments demonstrated that PIEViT enhances the representation of internal patch features, providing significant improvements over existing self-supervised baselines. It achieves excellent results in object detection, land cover classification, and change detection, underscoring its robustness, generalization, and transferability for remote sensing image interpretation tasks.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2411.06091",
+        "pdf": "https://arxiv.org/pdf/2411.06091",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2411.06091",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/pievit_prediction.json"
+      },
+      "bibtex": "@misc{lu2024patternintegrationand,\n  title = {Pattern Integration and Enhancement Vision Transformer for Self-Supervised Learning in Remote Sensing},\n  author = {Kaixuan Lu and Ruiqian Zhang and Xiao Huang and Yuxing Xie and Xiaogang Ning and Hanchao Zhang and Mengke Yuan and Pan Zhang and Tao Wang and Tongkui Liao},\n  year = {2024},\n  eprint = {2411.06091},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2411.06091}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2411.06091",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "omnigeo-towards-a-multimodal-large-language-models-for-geospatial-artifi-2025",
+      "title": "OmniGeo: Towards a Multimodal Large Language Models for Geospatial Artificial Intelligence",
+      "authors": "Long Yuan, Fengran Mo, Kaiyu Huang, Wenjie Wang, Wangyuxuan Zhai, Xiaoyu Zhu, You Li, Jinan Xu, Jian-Yun Nie",
+      "venue": "arXiv",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "The rapid advancement of multimodal large language models (LLMs) has opened new frontiers in artificial intelligence, enabling the integration of diverse large-scale data types such as text, images, and spatial information. In this paper, we explore the potential of multimodal LLMs (MLLM) for geospatial artificial intelligence (GeoAI), a field that leverages spatial data to address challenges in domains including Geospatial Semantics, Health Geography, Urban Geography, Urban Perception, and Remote Sensing. We propose a MLLM (OmniGeo) tailored to geospatial applications, capable of processing and analyzing heterogeneous data sources, including satellite imagery, geospatial metadata, and textual descriptions. By combining the strengths of natural language understanding and spatial reasoning, our model enhances the ability of instruction following and the accuracy of GeoAI systems. Results demonstrate that our model outperforms task-specific models and existing LLMs on diverse geospatial tasks, effectively addressing the multimodality nature while achieving competitive results on the zero-shot geospatial tasks. Our code will be released after publication.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2503.16326",
+        "pdf": "https://arxiv.org/pdf/2503.16326",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2503.16326",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/omnigeo_prediction.json"
+      },
+      "bibtex": "@misc{yuan2025omnigeotowardsamultim,\n  title = {OmniGeo: Towards a Multimodal Large Language Models for Geospatial Artificial Intelligence},\n  author = {Long Yuan and Fengran Mo and Kaiyu Huang and Wenjie Wang and Wangyuxuan Zhai and Xiaoyu Zhu and You Li and Jinan Xu and Jian-Yun Nie},\n  year = {2025},\n  eprint = {2503.16326},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2503.16326}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "vision-language model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2503.16326",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "a-billion-scale-foundation-model-for-remote-sensing-images-2023",
+      "title": "A Billion-scale Foundation Model for Remote Sensing Images",
+      "authors": "Keumgang Cha, Junghoon Seo, Taekyung Lee",
+      "venue": "arXiv",
+      "year": 2023,
+      "presentation": null,
+      "abstract": "As the potential of foundation models in visual tasks has garnered significant attention, pretraining these models before downstream tasks has become a crucial step. The three key factors in pretraining foundation models are the pretraining method, the size of the pretraining dataset, and the number of model parameters. Recently, research in the remote sensing field has focused primarily on the pretraining method and the size of the dataset, with limited emphasis on the number of model parameters. This paper addresses this gap by examining the effect of increasing the number of model parameters on the performance of foundation models in downstream tasks such as rotated object detection and semantic segmentation. We pretrained foundation models with varying numbers of parameters, including 86M, 605.26M, 1.3B, and 2.4B, to determine whether performance in downstream tasks improved with an increase in parameters. To the best of our knowledge, this is the first billion-scale foundation model in the remote sensing field. Furthermore, we propose an effective method for scaling up and fine-tuning a vision transformer in the remote sensing field. To evaluate general performance in downstream tasks, we employed the DOTA v2.0 and DIOR-R benchmark datasets for rotated object detection, and the Potsdam and LoveDA datasets for semantic segmentation. Experimental results demonstrated that, across all benchmark datasets and downstream tasks, the performance of the foundation models and data efficiency improved as the number of parameters increased. Moreover, our models achieve the state-of-the-art performance on several datasets including DIOR-R, Postdam, and LoveDA.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2304.05215",
+        "pdf": "https://arxiv.org/pdf/2304.05215",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2304.05215",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/bfm_prediction.json"
+      },
+      "bibtex": "@misc{cha2023abillionscalefoundati,\n  title = {A Billion-scale Foundation Model for Remote Sensing Images},\n  author = {Keumgang Cha and Junghoon Seo and Taekyung Lee},\n  year = {2023},\n  eprint = {2304.05215},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2304.05215}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model"
+      ],
+      "arxiv_id": "2304.05215",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "wildsat-learning-satellite-image-representations-from-wildlife-observati-2024",
+      "title": "WildSAT: Learning Satellite Image Representations from Wildlife Observations",
+      "authors": "Rangel Daroya, Elijah Cole, Oisin Mac Aodha, Grant Van Horn, Subhransu Maji",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Species distributions encode valuable ecological and environmental information, yet their potential for guiding representation learning in remote sensing remains underexplored. We introduce WildSAT, which pairs satellite images with millions of geo-tagged wildlife observations readily-available on citizen science platforms. WildSAT employs a contrastive learning approach that jointly leverages satellite images, species occurrence maps, and textual habitat descriptions to train or fine-tune models. This approach significantly improves performance on diverse satellite image recognition tasks, outperforming both ImageNet-pretrained models and satellite-specific baselines. Additionally, by aligning visual and textual information, WildSAT enables zero-shot retrieval, allowing users to search geographic locations based on textual descriptions. WildSAT surpasses recent cross-modal learning methods, including approaches that align satellite images with ground imagery or wildlife photos, demonstrating the advantages of our approach. Finally, we analyze the impact of key design choices and highlight the broad applicability of WildSAT to remote sensing and biodiversity monitoring.",
+      "citations": 0,
+      "github_stars": 8,
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.14428",
+        "pdf": "https://arxiv.org/pdf/2412.14428",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2412.14428",
+        "code": "https://github.com/cvl-umass/wildsat",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@misc{daroya2024wildsatlearningsatelli,\n  title = {WildSAT: Learning Satellite Image Representations from Wildlife Observations},\n  author = {Rangel Daroya and Elijah Cole and Oisin Mac Aodha and Grant Van Horn and Subhransu Maji},\n  year = {2024},\n  eprint = {2412.14428},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2412.14428}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "vision-language model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2412.14428",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "ringmo-lite-a-remote-sensing-multi-task-lightweight-network-with-cnn-tra-2023",
+      "title": "RingMo-lite: A Remote Sensing Multi-task Lightweight Network with CNN-Transformer Hybrid Framework",
+      "authors": "Yuelei Wang, Ting Zhang, Liangjin Zhao, Lin Hu, Zhechao Wang, Ziqing Niu, Peirui Cheng, Kaiqiang Chen, Xuan Zeng, Zhirui Wang, Hongqi Wang, Xian Sun",
+      "venue": "arXiv",
+      "year": 2023,
+      "presentation": null,
+      "abstract": "In recent years, remote sensing (RS) vision foundation models such as RingMo have emerged and achieved excellent performance in various downstream tasks. However, the high demand for computing resources limits the application of these models on edge devices. It is necessary to design a more lightweight foundation model to support on-orbit RS image interpretation. Existing methods face challenges in achieving lightweight solutions while retaining generalization in RS image interpretation. This is due to the complex high and low-frequency spectral components in RS images, which make traditional single CNN or Vision Transformer methods unsuitable for the task. Therefore, this paper proposes RingMo-lite, an RS multi-task lightweight network with a CNN-Transformer hybrid framework, which effectively exploits the frequency-domain properties of RS to optimize the interpretation process. It is combined by the Transformer module as a low-pass filter to extract global features of RS images through a dual-branch structure, and the CNN module as a stacked high-pass filter to extract fine-grained details effectively. Furthermore, in the pretraining stage, the designed frequency-domain masked image modeling (FD-MIM) combines each image patch's high-frequency and low-frequency characteristics, effectively capturing the latent feature representation in RS data. As shown in Fig. 1, compared with RingMo, the proposed RingMo-lite reduces the parameters over 60% in various RS image interpretation tasks, the average accuracy drops by less than 2% in most of the scenes and achieves SOTA performance compared to models of the similar size. In addition, our work will be integrated into the MindSpore computing platform in the near future.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2309.09003",
+        "pdf": "https://arxiv.org/pdf/2309.09003",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2309.09003",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/ringmo_lite_prediction.json"
+      },
+      "bibtex": "@misc{wang2023ringmolitearemotesen,\n  title = {RingMo-lite: A Remote Sensing Multi-task Lightweight Network with CNN-Transformer Hybrid Framework},\n  author = {Yuelei Wang and Ting Zhang and Liangjin Zhao and Lin Hu and Zhechao Wang and Ziqing Niu and Peirui Cheng and Kaiqiang Chen and Xuan Zeng and Zhirui Wang and Hongqi Wang and Xian Sun},\n  year = {2023},\n  eprint = {2309.09003},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2309.09003}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2309.09003",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "rs-dfm-a-remote-sensing-distributed-foundation-model-for-diverse-downstr-2024",
+      "title": "RS-DFM: A Remote Sensing Distributed Foundation Model for Diverse Downstream Tasks",
+      "authors": "Zhechao Wang, Peirui Cheng, Pengju Tian, Yuchao Wang, Mingxin Chen, Shujing Duan, Zhirui Wang, Xinming Li, Xian Sun",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Remote sensing lightweight foundation models have achieved notable success in online perception within remote sensing. However, their capabilities are restricted to performing online inference solely based on their own observations and models, thus lacking a comprehensive understanding of large-scale remote sensing scenarios. To overcome this limitation, we propose a Remote Sensing Distributed Foundation Model (RS-DFM) based on generalized information mapping and interaction. This model can realize online collaborative perception across multiple platforms and various downstream tasks by mapping observations into a unified space and implementing a task-agnostic information interaction strategy. Specifically, we leverage the ground-based geometric prior of remote sensing oblique observations to transform the feature mapping from absolute depth estimation to relative depth estimation, thereby enhancing the model's ability to extract generalized features across diverse heights and perspectives. Additionally, we present a dual-branch information compression module to decouple high-frequency and low-frequency feature information, achieving feature-level compression while preserving essential task-agnostic details. In support of our research, we create a multi-task simulation dataset named AirCo-MultiTasks for multi-UAV collaborative observation. We also conduct extensive experiments, including 3D object detection, instance segmentation, and trajectory prediction. The numerous results demonstrate that our RS-DFM achieves state-of-the-art performance across various downstream tasks.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.07032",
+        "pdf": "https://arxiv.org/pdf/2406.07032",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2406.07032",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/rs_dfm_prediction.json"
+      },
+      "bibtex": "@misc{wang2024rsdfmaremotesensing,\n  title = {RS-DFM: A Remote Sensing Distributed Foundation Model for Diverse Downstream Tasks},\n  author = {Zhechao Wang and Peirui Cheng and Pengju Tian and Yuchao Wang and Mingxin Chen and Shujing Duan and Zhirui Wang and Xinming Li and Xian Sun},\n  year = {2024},\n  eprint = {2406.07032},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2406.07032}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2406.07032",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "ringmo-sense-remote-sensing-foundation-model-for-spatiotemporal-predicti-2023",
+      "title": "RingMo-Sense: Remote Sensing Foundation Model for Spatiotemporal Prediction via Spatiotemporal Evolution Disentangling",
+      "authors": "Fanglong Yao, Wanxuan Lu, Heming Yang, Liangyu Xu, Chenglong Liu, Leiyi Hu, Hongfeng Yu, Nayu Liu, Chubo Deng, Deke Tang, Changshuo Chen, Jiaqi Yu, Xian Sun, Kun Fu",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "year": 2023,
+      "presentation": null,
+      "abstract": "RingMo-Sense is a remote sensing foundation model for spatiotemporal prediction via spatiotemporal evolution disentangling. It uses a triple-branch architecture (spatial, temporal, spatiotemporal) with progressive joint training and parameter sharing, pretrained on a large-scale, diverse remote sensing spatiotemporal dataset. It achieves competitive performance on six downstream spatiotemporal tasks.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://doi.org/10.1109/TGRS.2023.3316166",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/ringmo_sense_prediction.json"
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "seamo-a-season-aware-multimodal-foundation-model-for-remote-sensing-2024",
+      "title": "SeaMo: A Season-Aware Multimodal Foundation Model for Remote Sensing",
+      "authors": "Xuyang Li, Chenyu Li, Gemine Vivone, Danfeng Hong",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Remote Sensing (RS) data encapsulates rich multi-dimensional information essential for Earth observation. Its vast volume, diverse sources, and temporal continuity make it particularly well-suited for developing large Visual Foundation Models (VFMs). These models serve as powerful feature extractors, leveraging extensive RS data for pretraining and subsequent fine-tuning in various geoscientific applications. However, existing VFMs in the RS domain often concentrate on specific image characteristics, neglecting the full season-aware potential of RS data. To bridge this gap, we introduce SeaMo, a novel VFM that effectively integrates multimodal and multi-seasonal RS information. SeaMo leverages a masked image modeling framework to fully exploit the spatial, spectral, and seasonal dimensions of RS data. Specifically, we employ unaligned spatial region selection to capture spatial heterogeneity, incorporate multi-source inputs for enhanced multimodal integration, and introduce temporal-multimodal fusion blocks to assimilate seasonal variations effectively. By explicitly modeling the complex, season-dependent attributes of RS data, SeaMo enhances generalization, robustness, and adaptability across geoscientific tasks. Extensive experiments and ablation studies demonstrate its superior performance, underscoring its potential as a foundational model for Earth observation.",
+      "citations": 0,
+      "github_stars": 12,
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.19237",
+        "pdf": "https://arxiv.org/pdf/2412.19237",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2412.19237",
+        "code": "https://github.com/danfenghong/Information_Fusion_SeaMo",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@misc{li2024seamoaseasonawaremul,\n  title = {SeaMo: A Season-Aware Multimodal Foundation Model for Remote Sensing},\n  author = {Xuyang Li and Chenyu Li and Gemine Vivone and Danfeng Hong},\n  year = {2024},\n  eprint = {2412.19237},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2412.19237}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2412.19237",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "ringmogpt-a-unified-remote-sensing-foundation-model-for-vision-language-2025",
+      "title": "RingMoGPT: A Unified Remote Sensing Foundation Model for Vision, Language, and Grounded Tasks",
+      "authors": "Peijin Wang, Huiyang Hu, Boyuan Tong, Ziqi Zhang, Fanglong Yao, Yingchao Feng, Zining Zhu, Hao Chang, Wenhui Diao, Qixiang Ye, Xian Sun",
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "RingMoGPT is a unified multimodal remote sensing foundation model integrating vision, language, and localization tasks. It features a location- and instruction-aware Q-Former and a change detection module, trained on large-scale high-quality image-text and instruction-tuning datasets, supporting tasks such as scene classification, object detection, VQA, image captioning, grounded captioning, and change captioning.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://doi.org/10.1109/TGRS.2024.3510833",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/ringmogpt_prediction.json"
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "vision-language model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "rs-llava-a-large-vision-language-model-for-joint-captioning-and-question-2024",
+      "title": "RS-LLaVA: A Large Vision-Language Model for Joint Captioning and Question Answering in Remote Sensing Imagery",
+      "authors": "Yakoub Bazi, Laila Bashmal, Mohamad Mahmoud Al Rahhal, Riccardo Ricci, Farid Melgani",
+      "venue": "Remote Sensing",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "In this paper, we delve into the innovative application of large language models (LLMs) and their extension, large vision-language models (LVLMs), in the field of remote sensing (RS) image analysis. We particularly emphasize their multi-tasking potential with a focus on image captioning and visual question answering (VQA). In particular, we introduce an improved version of the Large Language and Vision Assistant Model (LLaVA), specifically adapted for RS imagery through a low-rank adaptation approach. To evaluate the model performance, we create the RS-instructions dataset, a comprehensive benchmark dataset that integrates four diverse single-task datasets related to captioning and VQA. The experimental results confirm the model\u2019s effectiveness, marking a step forward toward the development of efficient multi-task models for RS image analysis.",
+      "citations": 0,
+      "github_stars": 66,
+      "links": {
+        "paper": "https://doi.org/10.3390/rs16091477",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": "https://github.com/BigData-KSU/RS-LLaVA",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "vision-language model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "reo-vlm-transforming-vlm-to-meet-regression-challenges-in-earth-observat-2024",
+      "title": "REO-VLM: Transforming VLM to Meet Regression Challenges in Earth Observation",
+      "authors": "Xizhe Xue, Guoting Wei, Hao Chen, Haokui Zhang, Feng Lin, Chunhua Shen, Xiao Xiang Zhu",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "The rapid evolution of Vision Language Models (VLMs) has catalyzed significant advancements in artificial intelligence, expanding research across various disciplines, including Earth Observation (EO). While VLMs have enhanced image understanding and data processing within EO, their applications have predominantly focused on image content description. This limited focus overlooks their potential in geographic and scientific regression tasks, which are essential for diverse EO applications. To bridge this gap, this paper introduces a novel benchmark dataset, called \\textbf{REO-Instruct} to unify regression and generation tasks specifically for the EO domain. Comprising 1.6 million multimodal EO imagery and language pairs, this dataset is designed to support both biomass regression and image content interpretation tasks. Leveraging this dataset, we develop \\textbf{REO-VLM}, a groundbreaking model that seamlessly integrates regression capabilities with traditional generative functions. By utilizing language-driven reasoning to incorporate scientific domain knowledge, REO-VLM goes beyond solely relying on EO imagery, enabling comprehensive interpretation of complex scientific attributes from EO data. This approach establishes new performance benchmarks and significantly enhances the capabilities of environmental monitoring and resource management.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2412.16583",
+        "pdf": "https://arxiv.org/pdf/2412.16583",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2412.16583",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/reo_vlm_prediction.json"
+      },
+      "bibtex": "@misc{xue2024reovlmtransformingvlm,\n  title = {REO-VLM: Transforming VLM to Meet Regression Challenges in Earth Observation},\n  author = {Xizhe Xue and Guoting Wei and Hao Chen and Haokui Zhang and Feng Lin and Chunhua Shen and Xiao Xiang Zhu},\n  year = {2024},\n  eprint = {2412.16583},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2412.16583}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "vision-language model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2412.16583",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "oreole-fm-successes-and-challenges-toward-billion-parameter-foundation-m-2024",
+      "title": "OReole-FM: Successes and Challenges Toward Billion-Parameter Foundation Models for High-Resolution Satellite Imagery",
+      "authors": "Philipe Dias, Aristeidis Tsaris, Jordan Bowman, Abhishek Potnis, Jacob Arndt, H. Lexie Yang, Dalton Lunga",
+      "venue": "Proceedings of the 32nd ACM International Conference on Advances in Geographic Information Systems",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "OReole is a family of billion-parameter Vision Transformer (ViT) foundation models for high-resolution satellite imagery, pretrained using masked autoencoding on diverse, large-scale remote sensing datasets. It includes OReole-MR (medium-resolution, RGB) and OReole-HR (high-resolution, BGR+NIR) variants, with public release of models, code, and datasets planned.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://doi.org/10.1145/3678717.3691292",
+        "pdf": null,
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://geoai.ornl.gov"
+      },
+      "bibtex": null,
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "towards-knowledge-guided-pretraining-approaches-for-multimodal-foundatio-2024",
+      "title": "Towards Knowledge Guided Pretraining Approaches for Multimodal Foundation Models: Applications in Remote Sensing",
+      "authors": "Praveen Ravirathinam, Ajitesh Parthasarathy, Ankush Khandelwal, Rahul Ghosh, Vipin Kumar",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Self-supervised learning has emerged as a powerful paradigm for pretraining foundation models using large-scale data. Existing pretraining approaches predominantly rely on masked reconstruction or next-token prediction strategies, demonstrating strong performance across various downstream tasks, including geoscience applications. However, these approaches do not fully capture the knowledge of causal interplay between different geospatial and environmental variables. To address this limitation, we propose Knowledge Guided Variable-Step Forecasting (KG-VSF), a novel pretraining task that models forecasting as a conditional generation task, where driver variables (e.g., weather) inform the prediction of response variables (e.g., satellite imagery). We demonstrate that pretraining in such a fashion leads to strong embeddings which give enhanced performance when finetuned on downstream tasks where capturing this causality matters such as pixel wise crop type mapping, soil moisture estimation and forecasting, missing image prediction, and future image forecasting when compared to finetuning embeddings from other standard pretraining approaches.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2407.19660",
+        "pdf": "https://arxiv.org/pdf/2407.19660",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2407.19660",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/mm_vsf_prediction.json"
+      },
+      "bibtex": "@misc{ravirathinam2024towardsknowledgeguided,\n  title = {Towards Knowledge Guided Pretraining Approaches for Multimodal Foundation Models: Applications in Remote Sensing},\n  author = {Praveen Ravirathinam and Ajitesh Parthasarathy and Ankush Khandelwal and Rahul Ghosh and Vipin Kumar},\n  year = {2024},\n  eprint = {2407.19660},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2407.19660}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2407.19660",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "mtp-advancing-remote-sensing-foundation-model-via-multi-task-pretraining-2024",
+      "title": "MTP: Advancing Remote Sensing Foundation Model via Multi-Task Pretraining",
+      "authors": "Di Wang, Jing Zhang, Minqiang Xu, Lin Liu, Dongsheng Wang, Erzhong Gao, Chengxi Han, Haonan Guo, Bo Du, Dacheng Tao, Liangpei Zhang",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Foundation models have reshaped the landscape of Remote Sensing (RS) by enhancing various image interpretation tasks. Pretraining is an active research topic, encompassing supervised and self-supervised learning methods to initialize model weights effectively. However, transferring the pretrained models to downstream tasks may encounter task discrepancy due to their formulation of pretraining as image classification or object discrimination tasks. In this study, we explore the Multi-Task Pretraining (MTP) paradigm for RS foundation models to address this issue. Using a shared encoder and task-specific decoder architecture, we conduct multi-task supervised pretraining on the SAMRS dataset, encompassing semantic segmentation, instance segmentation, and rotated object detection. MTP supports both convolutional neural networks and vision transformer foundation models with over 300 million parameters. The pretrained models are finetuned on various RS downstream tasks, such as scene classification, horizontal and rotated object detection, semantic segmentation, and change detection. Extensive experiments across 14 datasets demonstrate the superiority of our models over existing ones of similar size and their competitive performance compared to larger state-of-the-art models, thus validating the effectiveness of MTP.",
+      "citations": 0,
+      "github_stars": 248,
+      "links": {
+        "paper": "https://arxiv.org/abs/2403.13430",
+        "pdf": "https://arxiv.org/pdf/2403.13430",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2403.13430",
+        "code": "https://github.com/ViTAE-Transformer/MTP",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@misc{wang2024mtpadvancingremotesen,\n  title = {MTP: Advancing Remote Sensing Foundation Model via Multi-Task Pretraining},\n  author = {Di Wang and Jing Zhang and Minqiang Xu and Lin Liu and Dongsheng Wang and Erzhong Gao and Chengxi Han and Haonan Guo and Bo Du and Dacheng Tao and Liangpei Zhang},\n  year = {2024},\n  eprint = {2403.13430},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2403.13430}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR"
+      ],
+      "arxiv_id": "2403.13430",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "towards-privacy-preserved-pre-training-of-remote-sensing-foundation-mode-2025",
+      "title": "Towards Privacy-preserved Pre-training of Remote Sensing Foundation Models with Federated Mutual-guidance Learning",
+      "authors": "Jieyi Tan, Chengwei Zhang, Bo Dang, Yansheng Li",
+      "venue": "arXiv",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "Traditional Remote Sensing Foundation models (RSFMs) are pre-trained with a data-centralized paradigm, through self-supervision on large-scale curated remote sensing data. For each institution, however, pre-training RSFMs with limited data in a standalone manner may lead to suboptimal performance, while aggregating remote sensing data from multiple institutions for centralized pre-training raises privacy concerns. Seeking for collaboration is a promising solution to resolve this dilemma, where multiple institutions can collaboratively train RSFMs without sharing private data. In this paper, we propose a novel privacy-preserved pre-training framework (FedSense), which enables multiple institutions to collaboratively train RSFMs without sharing private data. However, it is a non-trivial task hindered by a vicious cycle, which results from model drift by remote sensing data heterogeneity and high communication overhead. To break this vicious cycle, we introduce Federated Mutual-guidance Learning. Specifically, we propose a Server-to-Clients Guidance (SCG) mechanism to guide clients updates towards global-flatness optimal solutions. Additionally, we propose a Clients-to-Server Guidance (CSG) mechanism to inject local knowledge into the server by low-bit communication. Extensive experiments on four downstream tasks demonstrate the effectiveness of our FedSense in both full-precision and communication-reduced scenarios, showcasing remarkable communication efficiency and performance gains.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2503.11051",
+        "pdf": "https://arxiv.org/pdf/2503.11051",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2503.11051",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/fedsense_prediction.json"
+      },
+      "bibtex": "@misc{tan2025towardsprivacypreserve,\n  title = {Towards Privacy-preserved Pre-training of Remote Sensing Foundation Models with Federated Mutual-guidance Learning},\n  author = {Jieyi Tan and Chengwei Zhang and Bo Dang and Yansheng Li},\n  year = {2025},\n  eprint = {2503.11051},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2503.11051}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "multispectral / hyperspectral / SAR",
+        "self-supervised / foundation model"
+      ],
+      "arxiv_id": "2503.11051",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "fleximo-a-flexible-remote-sensing-foundation-model-2025",
+      "title": "FlexiMo: A Flexible Remote Sensing Foundation Model",
+      "authors": "Xuyang Li, Chenyu Li, Pedram Ghamisi, Danfeng Hong",
+      "venue": "arXiv",
+      "year": 2025,
+      "presentation": null,
+      "abstract": "The rapid expansion of multi-source satellite imagery drives innovation in Earth observation, opening unprecedented opportunities for Remote Sensing Foundation Models to harness diverse data. However, many existing models remain constrained by fixed spatial resolutions and patch sizes, limiting their ability to fully exploit the heterogeneous spatial characteristics inherent in satellite imagery. To address these challenges, we propose FlexiMo, a flexible remote sensing foundation model that endows the pre-trained model with the flexibility to adapt to arbitrary spatial resolutions. Central to FlexiMo is a spatial resolution-aware module that employs a parameter-free alignment embedding mechanism to dynamically recalibrate patch embeddings based on the input image's resolution and dimensions. This design not only preserves critical token characteristics and ensures multi-scale feature fidelity but also enables efficient feature extraction without requiring modifications to the underlying network architecture. In addition, FlexiMo incorporates a lightweight channel adaptation module that leverages prior spectral information from sensors. This mechanism allows the model to process images with varying numbers of channels while maintaining the data's intrinsic physical properties. Extensive experiments on diverse multimodal, multi-resolution, and multi-scale datasets demonstrate that FlexiMo significantly enhances model generalization and robustness. In particular, our method achieves outstanding performance across a range of downstream tasks, including scene classification, land cover classification, urban building segmentation, and cloud detection. By enabling parameter-efficient and physically consistent adaptation, FlexiMo paves the way for more adaptable and effective foundation models in real-world remote sensing applications.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2503.23844",
+        "pdf": "https://arxiv.org/pdf/2503.23844",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2503.23844",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/fleximo_prediction.json"
+      },
+      "bibtex": "@misc{li2025fleximoaflexibleremot,\n  title = {FlexiMo: A Flexible Remote Sensing Foundation Model},\n  author = {Xuyang Li and Chenyu Li and Pedram Ghamisi and Danfeng Hong},\n  year = {2025},\n  eprint = {2503.23844},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2503.23844}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model"
+      ],
+      "arxiv_id": "2503.23844",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "aquila-a-hierarchically-aligned-visual-language-model-for-enhanced-remot-2024",
+      "title": "Aquila: A Hierarchically Aligned Visual-Language Model for Enhanced Remote Sensing Image Comprehension",
+      "authors": "Kaixuan Lu, Ruiqian Zhang, Xiao Huang, Yuxing Xie",
+      "venue": "arXiv",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "Recently, large vision language models (VLMs) have made significant strides in visual language capabilities through visual instruction tuning, showing great promise in the field of remote sensing image interpretation. However, existing remote sensing vision language models (RSVLMs) often fall short in capturing the complex characteristics of remote sensing scenes, as they typically rely on low resolution, single scale visual features and simplistic methods to map visual features to language features. In this paper, we present Aquila, an advanced visual language foundation model designed to enable richer visual feature representation and more precise visual-language feature alignment for remote sensing images. Our approach introduces a learnable Hierarchical Spatial Feature Integration (SFI) module that supports high resolution image inputs and aggregates multi scale visual features, allowing for the detailed representation of complex visual information. Additionally, the SFI module is repeatedly integrated into the layers of the large language model (LLM) to achieve deep visual language feature alignment, without compromising the model's performance in natural language processing tasks. These innovations, capturing detailed visual effects through higher resolution and multi scale input, and enhancing feature alignment significantly improve the model's ability to learn from image text data. We validate the effectiveness of Aquila through extensive quantitative experiments and qualitative analyses, demonstrating its superior performance.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://arxiv.org/abs/2411.06074",
+        "pdf": "https://arxiv.org/pdf/2411.06074",
+        "supp": null,
+        "arxiv": "https://arxiv.org/abs/2411.06074",
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/aquila_prediction.json"
+      },
+      "bibtex": "@misc{lu2024aquilaahierarchically,\n  title = {Aquila: A Hierarchically Aligned Visual-Language Model for Enhanced Remote Sensing Image Comprehension},\n  author = {Kaixuan Lu and Ruiqian Zhang and Xiao Huang and Yuxing Xie},\n  year = {2024},\n  eprint = {2411.06074},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2411.06074}\n}",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "vision-language model"
+      ],
+      "arxiv_id": "2411.06074",
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "self-supervised-material-and-texture-representation-learning-for-remote-2022",
+      "title": "Self-Supervised Material and Texture Representation Learning for Remote Sensing Tasks",
+      "authors": "Peri Akiva, Matthew Purri, Matthew Leotta",
+      "venue": "CVPR",
+      "year": 2022,
+      "presentation": null,
+      "abstract": "Self-supervised learning aims to learn image feature representations without the usage of manually annotated labels. It is often used as a precursor step to obtain useful initial network weights which contribute to faster convergence and superior performance of downstream tasks. While self-supervision allows one to reduce the domain gap between supervised and unsupervised learning without the usage of labels, the self-supervised objective still requires a strong inductive bias to downstream tasks for effective transfer learning. In this work, we present our material and texture based self-supervision method named MATTER (MATerial and TExture Representation Learning), which is inspired by classical material and texture methods. Material and texture can effectively describe any surface, including its tactile properties, color, and specularity. By extension, effective representation of material and texture can describe other semantic classes strongly associated with said material and texture. MATTER leverages multi-temporal, spatially aligned remote sensing imagery over unchanged regions to learn invariance to illumination and viewing angle as a mechanism to achieve consistency of material and texture representation. We show that our self-supervision pre-training method allows for up to 24.22% and 6.33% performance increase in unsupervised and fine-tuned setups, and up to 76% faster convergence on change detection, land cover classification, and semantic segmentation tasks.",
+      "citations": 0,
+      "github_stars": 21,
+      "links": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2022/html/Akiva_Self-Supervised_Material_and_Texture_Representation_Learning_for_Remote_Sensing_Tasks_CVPR_2022_paper.html",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2022/papers/Akiva_Self-Supervised_Material_and_Texture_Representation_Learning_for_Remote_Sensing_Tasks_CVPR_2022_paper.pdf",
+        "supp": "https://openaccess.thecvf.com/content/CVPR2022/supplemental/Akiva_Self-Supervised_Material_and_CVPR_2022_supplemental.pdf",
+        "arxiv": null,
+        "code": "https://github.com/periakiva/MATTER",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": null
+      },
+      "bibtex": "@InProceedings{Akiva_2022_CVPR, author = {Akiva, Peri and Purri, Matthew and Leotta, Matthew}, title = {Self-Supervised Material and Texture Representation Learning for Remote Sensing Tasks}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2022}, pages = {8203-8215} }",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "self-supervised / foundation model"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "change-aware-sampling-and-contrastive-learning-for-satellite-images-2023",
+      "title": "Change-Aware Sampling and Contrastive Learning for Satellite Images",
+      "authors": "Utkarsh Mall, Bharath Hariharan, Kavita Bala",
+      "venue": "CVPR",
+      "year": 2023,
+      "presentation": null,
+      "abstract": "Automatic remote sensing tools can help inform many large-scale challenges such as disaster management, climate change, etc. While a vast amount of spatio-temporal satellite image data is readily available, most of it remains unlabelled. Without labels, this data is not very useful for supervised learning algorithms. Self-supervised learning instead provides a way to learn effective representations for various downstream tasks without labels. In this work, we leverage characteristics unique to satellite images to learn better self-supervised features. Specifically, we use the temporal signal to contrast images with long-term and short-term differences, and we leverage the fact that satellite images do not change frequently. Using these characteristics, we formulate a new loss contrastive loss called Change-Aware Contrastive (CACo) Loss. Further, we also present a novel method of sampling different geographical regions. We show that leveraging these properties leads to better performance on diverse downstream tasks. For example, we see a 6.5% relative improvement for semantic segmentation and an 8.5% relative improvement for change detection over the best-performing baseline with our method.",
+      "citations": 0,
+      "github_stars": 59,
+      "links": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2023/html/Mall_Change-Aware_Sampling_and_Contrastive_Learning_for_Satellite_Images_CVPR_2023_paper.html",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2023/papers/Mall_Change-Aware_Sampling_and_Contrastive_Learning_for_Satellite_Images_CVPR_2023_paper.pdf",
+        "supp": "https://openaccess.thecvf.com/content/CVPR2023/supplemental/Mall_Change-Aware_Sampling_and_CVPR_2023_supplemental.pdf",
+        "arxiv": null,
+        "code": "https://github.com/utkarshmall13/CACo",
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://research.cs.cornell.edu/caco/"
+      },
+      "bibtex": "@InProceedings{Mall_2023_CVPR, author = {Mall, Utkarsh and Hariharan, Bharath and Bala, Kavita}, title = {Change-Aware Sampling and Contrastive Learning for Satellite Images}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2023}, pages = {5261-5270} }",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "self-supervised / foundation model"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "s2mae-a-spatial-spectral-pretraining-foundation-model-for-spectral-remot-2024",
+      "title": "S2MAE: A Spatial-Spectral Pretraining Foundation Model for Spectral Remote Sensing Data",
+      "authors": "Xuyang Li, Danfeng Hong, Jocelyn Chanussot",
+      "venue": "CVPR",
+      "year": 2024,
+      "presentation": null,
+      "abstract": "In the expansive domain of computer vision a myriad of pre-trained models are at our disposal. However most of these models are designed for natural RGB images and prove inadequate for spectral remote sensing (RS) images. Spectral RS images have two main traits: (1) multiple bands capturing diverse feature information (2) spatial alignment and consistent spectral sequencing within the spatial-spectral dimension. In this paper we introduce Spatial-SpectralMAE (S2MAE) a specialized pre-trained architecture for spectral RS imagery. S2MAE employs a 3D transformer for masked autoencoder modeling integrating learnable spectral-spatial embeddings with a 90% masking ratio. The model efficiently captures local spectral consistency and spatial invariance using compact cube tokens demonstrating versatility to diverse input characteristics. This adaptability facilitates progressive pretraining on extensive spectral datasets. The effectiveness of S2MAE is validated through continuous pretraining on two sizable datasets totaling over a million training images. The pre-trained model is subsequently applied to three distinct downstream tasks with in-depth ablation studies conducted to emphasize its efficacy.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2024/html/Li_S2MAE_A_Spatial-Spectral_Pretraining_Foundation_Model_for_Spectral_Remote_Sensing_CVPR_2024_paper.html",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Li_S2MAE_A_Spatial-Spectral_Pretraining_Foundation_Model_for_Spectral_Remote_Sensing_CVPR_2024_paper.pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/s2mae_prediction.json"
+      },
+      "bibtex": "@InProceedings{Li_2024_CVPR, author = {Li, Xuyang and Hong, Danfeng and Chanussot, Jocelyn}, title = {S2MAE: A Spatial-Spectral Pretraining Foundation Model for Spectral Remote Sensing Data}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2024}, pages = {24088-24097} }",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "self-supervised / foundation model"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
+    },
+    {
+      "id": "multi-modal-multi-objective-contrastive-learning-for-sentinel-1-2-imager-2023",
+      "title": "Multi-Modal Multi-Objective Contrastive Learning for Sentinel-1/2 Imagery",
+      "authors": "Jonathan Prexl, Michael Schmitt",
+      "venue": "CVPR Workshops",
+      "year": 2023,
+      "presentation": null,
+      "abstract": "The field of spaceborne Earth observation offers, due to constant monitoring of the Earth's surface, a huge amount of unlabeled data. At the same time, for many applications, there still exists a shortage of high-quality labelled datasets. This is one of the major bottlenecks for progress in developing globally applicable deep learning models for analysing the dynamics of our planet from space. In recent years self-supervised representation learning revealed itself to state a very powerful way of incorporating unlabeled data into the typical supervised machine learning workflow. Still, many questions on how to adapt commonly used approaches to domain-specific properties of Earth observation data remain. In this work, we introduce and study approaches to incorporate multi-modal Earth observation data into a contrastive self-supervised learning framework by forcing inter- and intra-modality similarity in the loss function. Further, we introduce a batch-sampling strategy that leverages the geo-coding of the imagery in order to obtain harder negative pairs for the contrastive learning problem. We show through extensive experiments that various domain-specific downstream problems are benefitting from the above-mentioned contributions.",
+      "citations": 0,
+      "github_stars": 0,
+      "links": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/html/Prexl_Multi-Modal_Multi-Objective_Contrastive_Learning_for_Sentinel-12_Imagery_CVPRW_2023_paper.html",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/papers/Prexl_Multi-Modal_Multi-Objective_Contrastive_Learning_for_Sentinel-12_Imagery_CVPRW_2023_paper.pdf",
+        "supp": null,
+        "arxiv": null,
+        "code": null,
+        "paperswithcode": null,
+        "checkpoints": null,
+        "video": null,
+        "dataset": null,
+        "benchmark": null,
+        "model": null,
+        "project_page": "https://github.com/be-chen/REMSA/blob/main/model_metadata/iai_simclr_prediction.json"
+      },
+      "bibtex": "@InProceedings{Prexl_2023_CVPR, author = {Prexl, Jonathan and Schmitt, Michael}, title = {Multi-Modal Multi-Objective Contrastive Learning for Sentinel-1/2 Imagery}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops}, month = {June}, year = {2023}, pages = {2136-2144} }",
+      "matched_themes": [
+        "remote sensing",
+        "foundation model",
+        "self-supervised / foundation model"
+      ],
+      "source_files": [
+        "remsa_rs_fmd"
+      ]
     }
   ],
   "borderline": [
