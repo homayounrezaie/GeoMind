@@ -75159,29 +75159,30 @@
     },
     {
       "id": "paper_2603_17920",
-      "title": "SegFly: A 2D-3D-2D Paradigm for Aerial RGB-Thermal Semantic Segmentation at Scale",
+      "title": "SegFly: A Dataset and 2D-3D-2D Paradigm for Aerial RGB-Thermal Semantic Segmentation at Scale",
       "authors": "Markus Gross, Sai Bharadhwaj Matha, Rui Song, Viswanathan Muthuveerappan, Conrad Christoph, Julius Huber, Daniel Cremers",
-      "venue": "arXiv",
+      "venue": "ECCV",
       "year": 2026,
       "presentation": null,
-      "abstract": "Semantic segmentation for uncrewed aerial vehicles (UAVs) is fundamental for aerial scene understanding, yet existing RGB and RGB-T datasets remain limited in scale, diversity, and annotation efficiency due to the high cost of manual labeling and the difficulties of accurate RGB-T alignment on off-the-shelf UAVs. To address these challenges, we propose a scalable geometry-driven 2D-3D-2D paradigm that leverages multi-view redundancy in high-overlap aerial imagery to automatically propagate labels from a small subset of manually annotated RGB images to both RGB and thermal modalities within a unified framework. By lifting less than 3% of RGB images into a semantic 3D point cloud and reprojecting it into all views, our approach enables dense pseudo ground-truth generation across large image collections, automatically producing 97% of RGB labels and 100% of thermal labels while achieving 91% and 88% annotation accuracy without any 2D manual refinement. We further extend this 2D-3D-2D paradigm to cross-modal image registration, using 3D geometry as an intermediate alignment space to obtain fully automatic, strong pixel-level RGB-T alignment with 87% registration accuracy and no hardware-level synchronization. Applying our framework to existing geo-referenced aerial imagery, we construct SegFly, a large-scale benchmark with over 20,000 high-resolution RGB images and more than 15,000 geometrically aligned RGB-T pairs spanning diverse urban, industrial, and rural environments across multiple altitudes and seasons. On SegFly, we establish the Firefly baseline for RGB and thermal semantic segmentation and show that both conventional architectures and vision foundation models benefit substantially from SegFly supervision, highlighting the potential of geometry-driven 2D-3D-2D pipelines for scalable multi-modal scene understanding. Data and Code available at https://github.com/markus-42/SegFly.",
+      "abstract": "Semantic segmentation for uncrewed aerial vehicles (UAVs) is fundamental for aerial scene understanding, yet existing RGB and RGB-T datasets remain limited in scale, diversity, and annotation efficiency due to the high cost of manual labeling and the difficulties of accurate RGB-T alignment on off-the-shelf UAVs. To address these challenges, we propose a scalable geometry-driven 2D-3D-2D paradigm that leverages multi-view redundancy in high-overlap aerial imagery to automatically propagate labels from a small subset of manually annotated RGB images to both RGB and thermal modalities within a unified framework. By lifting less than 3% of RGB images into a semantic 3D point cloud and rendering it into all views, our approach enables dense pseudo ground-truth generation across large image collections, automatically producing 97% of RGB labels and 100% of thermal labels while achieving 91% and 88% annotation accuracy without any 2D manual refinement. We further extend this 2D-3D-2D paradigm to cross-modal image registration, using 3D geometry as an intermediate alignment space to obtain fully automatic, strong pixel-level RGB-T alignment with 87% registration accuracy and no hardware-level synchronization. Applying our framework to existing geo-referenced aerial imagery, we construct SegFly, a large-scale benchmark with over 20,000 high-resolution RGB images and more than 15,000 geometrically aligned RGB-T pairs spanning diverse urban, industrial, and rural environments across multiple altitudes and seasons. On SegFly, we establish the Firefly baseline for RGB and thermal semantic segmentation and show that both conventional architectures and vision foundation models benefit substantially from SegFly supervision, highlighting the potential of geometry-driven 2D-3D-2D pipelines for scalable multi-modal aerial scene understanding. Data and Code available at https://github.com/markus-42/SegFly.",
       "citations": null,
       "github_stars": null,
       "links": {
-        "paper": "https://arxiv.org/abs/2603.17920",
+        "paper": "https://markus-42.github.io/publications/2026/segfly/static/pdfs/SegFly_2026_Gross.pdf",
         "pdf": "https://arxiv.org/pdf/2603.17920",
         "supp": null,
         "arxiv": "https://arxiv.org/abs/2603.17920",
         "code": "https://github.com/markus-42/SegFly",
+        "documentation": "https://github.com/markus-42/SegFly",
         "paperswithcode": null,
         "checkpoints": null,
         "video": null,
-        "dataset": "https://github.com/markus-42/SegFly",
+        "dataset": "https://huggingface.co/datasets/markus-42/SegFly",
         "benchmark": null,
-        "model": null,
-        "project_page": "https://github.com/markus-42/SegFly"
+        "model": "https://huggingface.co/markus-42/SegFly-Firefly",
+        "project_page": "https://markus-42.github.io/publications/2026/segfly/"
       },
-      "bibtex": null,
+      "bibtex": "@inproceedings{gross2026segfly,\n  title={{SegFly: A Dataset and 2D-3D-2D Paradigm for Aerial RGB-Thermal Semantic Segmentation at Scale}},\n  author={Markus Gross and Sai Bharadhwaj Matha and Rui Song and Viswanathan Muthuveerappan and Conrad Christoph and Julius Huber and Daniel Cremers},\n  booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},\n  year={2026}\n}",
       "matched_themes": [
         "drone / UAV / aerial / overhead",
         "self-supervised / foundation model",
@@ -75191,7 +75192,8 @@
       "source_files": [
         "raw_papers",
         "catalyzex",
-        "raw_papers_code_backed"
+        "raw_papers_code_backed",
+        "manual"
       ],
       "source": "catalyzex",
       "cx_code_available": true,
